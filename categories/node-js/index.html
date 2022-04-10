@@ -2,13 +2,13 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>標籤: frontEnd - Mawchu 貓奴前端</title>
+<title>分類: node.js - Mawchu 貓奴前端</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
-<link href="/en/tags/frontEnd/index.html" rel="alternate" hreflang="en" />
+<link href="/en/categories/node-js/index.html" rel="alternate" hreflang="en" />
     
 
 
@@ -21,7 +21,7 @@
     <meta name="description" content="熱愛平面設計與貓咪的前端蔡蔡子，喜歡撰寫技術文章幫助自己在前端之路成長，有任何指教歡迎討論:D">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mawchu 貓奴前端">
-<meta property="og:url" content="http://maomaoxie.github.io/tags/frontEnd/index.html">
+<meta property="og:url" content="http://maomaoxie.github.io/categories/node-js/index.html">
 <meta property="og:site_name" content="Mawchu 貓奴前端">
 <meta property="og:description" content="熱愛平面設計與貓咪的前端蔡蔡子，喜歡撰寫技術文章幫助自己在前端之路成長，有任何指教歡迎討論:D">
 <meta property="og:locale" content="zh_TW">
@@ -122,7 +122,7 @@
     <section class="section section-heading">
     <div class="container">
         <div class="content">
-            <h5>#frontEnd</h5>
+            <h5><i class="far fa-folder"></i>node.js</h5>
         </div>
     </div>
 </section>
@@ -132,49 +132,80 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/02/08/zh-tw/hello-world/" itemprop="url">感謝您的閱讀</a>
+            <a href="/2022/02/21/zh-tw/node-process-env/" itemprop="url">Node如何設置.env環境檔</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-02-08T08:38:05.254Z" itemprop="datePublished">2月 8 2022</time>
+                <time datetime="2022-02-21T06:48:33.000Z" itemprop="datePublished">2月 21 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/intro/">intro</a>
+            <a class="article-category-link" href="/categories/node-js/">node.js</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            1 分鐘 讀完 (約 135 字)
+            4 分鐘 讀完 (約 674 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p>這裡撰寫的都是一些自己在前端之路上每天一小步的學習，希望透過記錄與陳述來加強學習成效以及融會貫通的能力，文章內有任何問題歡迎一起討論呦!</p>
-<!-- ## Quick Start
+        <html><head></head><body><img src="/images/node-process-env/1.png" class="" width="800" height="200" title="node-process-env">
+<p>圖片來源:<a target="_blank" rel="noopener" href="https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c">https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c</a></p>
+<p>開發專案的時候機密文件如何保存很重要，可以保護不被有心人士竊取，像是 API 金鑰、client-ID 與 client-secret 等可以呼叫遠端資料的通關密碼都需要妥善保存不暴露到網站上。<br>這邊來說明一下怎麼設置專案裡的環境檔案，並且讀取機密資料：</p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/02/21/zh-tw/node-process-env/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
 
-### Create a new post
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a> –&gt;</p>
---></body></html>
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/02/20/zh-tw/express-router-module/" itemprop="url">Express 路由模組化</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-02-20T06:12:53.000Z" itemprop="datePublished">2月 20 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/node-js/">node.js</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分鐘 讀完 (約 1303 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><img src="/images/express-router-module/1.png" class="" width="800" height="200" title="express-router-module">
+<h6 id="圖片來源-https-inmywordz-com-archives-504"><a href="#圖片來源-https-inmywordz-com-archives-504" class="headerlink" title="圖片來源: https://inmywordz.com/archives/504"></a>圖片來源: <a target="_blank" rel="noopener" href="https://inmywordz.com/archives/504">https://inmywordz.com/archives/504</a></h6><p>當路由越寫越多變成霍爾的移動城堡一樣雜亂肥大時，自己都看得眼花撩亂啦～考慮使用模組化的概念來統整自己的後端路由是很好的選擇，那麼就來開始吧！</p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/02/20/zh-tw/express-router-module/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -188,6 +219,7 @@
     
     </div>
 </section>
+
     <footer class="footer">
     <div class="container">
         <div class="columns content">
@@ -229,11 +261,11 @@
         <div class="dropdown-menu has-text-left" role="menu">
             <div class="dropdown-content">
             
-                <a href="/tags/frontEnd/index.html" class="dropdown-item">
+                <a href="/categories/node-js/index.html" class="dropdown-item">
                     繁體中文
                 </a>
             
-                <a href="/en/tags/frontEnd/index.html" class="dropdown-item">
+                <a href="/en/categories/node-js/index.html" class="dropdown-item">
                     English
                 </a>
             
