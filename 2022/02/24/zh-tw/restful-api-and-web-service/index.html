@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>初探 Web service - Mawchu 貓奴前端</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2022/02/24/zh-tw/restful-api-and-web-service/" rel="alternate" hreflang="en" />
+    
+
+
+<meta name="description" content="熱愛平面設計與貓咪的前端蔡蔡子，喜歡撰寫技術文章幫助自己在前端之路成長，有任何指教歡迎討論:D">
+
+
+
+
+
+    <meta name="description" content="圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用 串接 API 是前後端分離的框架興盛之後最重要的課題之一啦！但是對初探網頁程式領域的菜菜子來說這個世界太廣太深，讓人望之卻步，萬事起頭難，就先來理解一下 API 武林世界裡的的兩大流派吧！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初探 Web service">
+<meta property="og:url" content="http://maomaoxie.github.io/2022/02/24/zh-tw/restful-api-and-web-service/index.html">
+<meta property="og:site_name" content="Mawchu 貓奴前端">
+<meta property="og:description" content="圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用 串接 API 是前後端分離的框架興盛之後最重要的課題之一啦！但是對初探網頁程式領域的菜菜子來說這個世界太廣太深，讓人望之卻步，萬事起頭難，就先來理解一下 API 武林世界裡的的兩大流派吧！">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://maomaoxie.github.io/images/restful-api-and-web-service/0.png">
+<meta property="article:published_time" content="2022-02-24T15:20:50.000Z">
+<meta property="article:modified_time" content="2022-04-10T06:41:58.430Z">
+<meta property="article:author" content="Mawchu">
+<meta property="article:tag" content="webService">
+<meta property="article:tag" content="restfulApi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://maomaoxie.github.io/images/restful-api-and-web-service/0.png">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">文章</a>
+            
+            <a class="navbar-item "
+               href="/categories">分類</a>
+            
+            <a class="navbar-item "
+               href="/tags">標籤</a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/about">關於</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-minos">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            初探 Web service
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-02-24T15:20:50.000Z" itemprop="datePublished">2月 24 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/webService/">webService</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分鐘 讀完 (約 971 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><img src="/images/restful-api-and-web-service/0.png" class="" width="600" height="200" title="restful-api-and-web-service">
+<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+<p>串接 API 是前後端分離的框架興盛之後最重要的課題之一啦！但是對初探網頁程式領域的菜菜子來說這個世界太廣太深，讓人望之卻步，萬事起頭難，就先來理解一下 API 武林世界裡的的兩大流派吧！</p>
+<span id="more"></span>
+<h1 id="SOAP-amp-XML"><a href="#SOAP-amp-XML" class="headerlink" title="SOAP &amp; XML"></a>SOAP &amp; XML</h1><h4 id="企業類型"><a href="#企業類型" class="headerlink" title="企業類型"></a>企業類型</h4><p>成立已久的正宗流派，有許多資深企業的系統愛用的 API 串接方式，例如政府機構或是建案公司等老牌廠商。</p>
+<h4 id="資料格式"><a href="#資料格式" class="headerlink" title="資料格式"></a>資料格式</h4><p>傳遞資料多為較嚴謹與複雜的 <code>SOAP</code>﹑<code>Xml</code> 格式，由於規範的細節較多而且有一定的流程要走完，容易造成程式的肥大與艱澀，當用在小型專案時往往會有殺雞焉用牛刀之感，在準備期會比較漫長且學習曲線高，但是對於大型系統的整合還是有其優點。</p>
+<h4 id="程式取向"><a href="#程式取向" class="headerlink" title="程式取向"></a>程式取向</h4><p>當初由微軟所開發，所以程式取向多限制在 IIS 微軟開發體系，例如 <code>.net</code>。</p>
+<hr>
+<h1 id="RESTful-API"><a href="#RESTful-API" class="headerlink" title="RESTful API"></a>RESTful API</h1><h4 id="企業類型-1"><a href="#企業類型-1" class="headerlink" title="企業類型"></a>企業類型</h4><p>新興產業或新創公司等現代化的企業偏愛的 API 串接方式，為求快速開發多選用輕量的 <code>RESTful API</code> 以求在競爭激烈的市場上異軍突起。</p>
+<h4 id="資料格式-1"><a href="#資料格式-1" class="headerlink" title="資料格式"></a>資料格式</h4><p>傳遞資料多為簡單易懂的 <code>Json</code>，開發程式也容易快速，可以靈活地符合大或小的資料需求．不過相對來講規範與細節也比較粗糙與鬆散，需要在準備期規範好 API 的命名規則與資料邏輯，不然容易導致 API 很多但功能性重複等問題。</p>
+<h4 id="程式取向-1"><a href="#程式取向-1" class="headerlink" title="程式取向"></a>程式取向</h4><p>任何程式語言都可以開發出來的 API．不侷限於哪種體系的程式，例如 <code>python</code>﹑<code>php</code>﹑<code>ruby</code>﹑<code>node.js</code>等等。</p>
+<p>而今的開發環境裡新興的流派已經逐漸為 RESTful API 所佔有，資深或金融機構也逐步轉型為輕量的 API 資料交換方式。</p>
+<hr>
+<h1 id="SOAP-v-s-REST"><a href="#SOAP-v-s-REST" class="headerlink" title="SOAP v.s REST"></a>SOAP v.s REST</h1><h4 id="REST-優於-SOAP"><a href="#REST-優於-SOAP" class="headerlink" title="REST 優於 SOAP"></a>REST 優於 SOAP</h4><blockquote><p>REST 提供更多元資料格式。SOAP 只有 XML。<br>基於 JSON，REST 被公認是易於處理的。<br>基於 JSON，REST 提供對瀏覽器更好的支援。<br>REST 提供優越的性能。特別指快取資料。<br>世界級大公司主要服務協定。<br>REST 一般而言比較快且省頻寬。</p>
+</blockquote>
+
+<h3 id="SOAP-優於-REST"><a href="#SOAP-優於-REST" class="headerlink" title="SOAP 優於 REST"></a>SOAP 優於 REST</h3><blockquote><p>SOAP 是標準 HTTP 協定，能更方便通過防火牆和Proxy而不對協定本身進行修改。<br>如果你需要處理 ACID 交易，那麼 SOAP 是不錯的方向。<br>SOAP 擁有各種 WS- 擴充服務，擁有高可擴充性。<br>B2B 的世界，安全與穩定重於一切。</p>
+</blockquote>
+<hr>
+<blockquote><p>Bruce 的一些心得</p>
+<p>青菜蘿蔔各有所好，並不一樣是 REST 完勝，例如，之前有一陣子在忙的 B2B Biztalk 專案，在加解密(安全)部分，基於 XML 的 SOAP 就比 REST 更為合適。但基於 XML 的協定有個很明顯的缺點，就是當來源資料量成長一些些，產出的 XML 資料量會明顯成長很多。資料解析下，拜 JSON.NET 之類的框架(如之前介紹過的 Jil)幫忙，JSON 格式的處理是非常簡單的。但如果有一天，你真的碰到要處理 XML，那麼不要忘記 LINQ to XML 這個技術就好。</p>
+</blockquote>
+
+<p>參考資料：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.kkbruce.net/2018/04/soap-with-rest-good-parts.html#.YheofuhBxPY">https://blog.kkbruce.net/2018/04/soap-with-rest-good-parts.html#.YheofuhBxPY</a></p>
+</blockquote>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/webService/">#webService</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/restfulApi/">#restfulApi</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/02/25/zh-tw/graph-ql-api/">Graph QL 新世代 API</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/02/21/zh-tw/git-command-line/">Git 常用的指令</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62024aa50a70400019079d5b&amp;product=sticky-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://maomaoxie.github.io/2022/02/24/zh-tw/restful-api-and-web-service/';
+        this.page.identifier = '2022/02/24/zh-tw/restful-api-and-web-service/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'maomaoxie' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 Mawchu&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-minos">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2022/02/24/zh-tw/restful-api-and-web-service/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2022/02/24/zh-tw/restful-api-and-web-service/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-TW");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

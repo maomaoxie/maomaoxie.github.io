@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>Laravel 認識路由 - Mawchu 貓奴前端</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2022/04/04/zh-tw/laravel-routes/" rel="alternate" hreflang="en" />
+    
+
+
+<meta name="description" content="熱愛平面設計與貓咪的前端蔡蔡子，喜歡撰寫技術文章幫助自己在前端之路成長，有任何指教歡迎討論:D">
+
+
+
+
+
+    <meta name="description" content="應用程式介面的主要目的就是提供使用者與介面互動（Interaction），其中 URL 可以取得使用者的資訊並且渲染在畫面中，例如 query string，就是透過最基本的 GET request 來獲取信息：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laravel 認識路由">
+<meta property="og:url" content="http://maomaoxie.github.io/2022/04/04/zh-tw/laravel-routes/index.html">
+<meta property="og:site_name" content="Mawchu 貓奴前端">
+<meta property="og:description" content="應用程式介面的主要目的就是提供使用者與介面互動（Interaction），其中 URL 可以取得使用者的資訊並且渲染在畫面中，例如 query string，就是透過最基本的 GET request 來獲取信息：">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://maomaoxie.github.io/images/laravel-routes/0.png">
+<meta property="og:image" content="http://maomaoxie.github.io/images/laravel-routes/1.png">
+<meta property="og:image" content="http://maomaoxie.github.io/images/laravel-routes/3.png">
+<meta property="og:image" content="http://maomaoxie.github.io/images/laravel-routes/4.png">
+<meta property="og:image" content="http://maomaoxie.github.io/images/laravel-routes/2.png">
+<meta property="og:image" content="http://maomaoxie.github.io/images/laravel-routes/5.png">
+<meta property="og:image" content="http://maomaoxie.github.io/images/laravel-routes/6.png">
+<meta property="article:published_time" content="2022-04-04T07:41:43.000Z">
+<meta property="article:modified_time" content="2022-04-10T06:37:08.514Z">
+<meta property="article:author" content="Mawchu">
+<meta property="article:tag" content="laravel">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://maomaoxie.github.io/images/laravel-routes/0.png">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">文章</a>
+            
+            <a class="navbar-item "
+               href="/categories">分類</a>
+            
+            <a class="navbar-item "
+               href="/tags">標籤</a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/about">關於</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-minos">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Laravel 認識路由
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-04-04T07:41:43.000Z" itemprop="datePublished">4月 4 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/laravel/">laravel</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分鐘 讀完 (約 874 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><img src="/images/laravel-routes/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由介紹">
+<p>應用程式介面的主要目的就是提供使用者與介面互動（Interaction），其中 URL 可以取得使用者的資訊並且渲染在畫面中，例如 query string，就是透過最基本的 GET request 來獲取信息：</p>
+<span id="more"></span>
+<hr>
+<h1 id="routes"><a href="#routes" class="headerlink" title="routes"></a>routes</h1><p>在路由頁面設定想要回應到前端的資訊，有幾種方式：</p>
+<h3 id="simple-data"><a href="#simple-data" class="headerlink" title="simple data"></a>simple data</h3><p>回傳簡單的關聯式陣列：</p>
+<blockquote class="colorquote info"><p>關聯式陣列可以想做類似 javascript 的物件一樣，鍵值對（key-value pair）的形式．</p>
+</blockquote>
+
+<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/greetings'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    [ </span><br><span class="line">      <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span></span><br><span class="line">    ]</span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-variable">$datas</span>;</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-routes/1.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
+<hr>
+<h3 id="Views"><a href="#Views" class="headerlink" title="Views"></a>Views</h3><p>回傳資料至 <code>blade</code> 模板，渲染 html</p>
+<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/greetings'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    [ </span><br><span class="line">      <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span></span><br><span class="line">    ]</span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title function_ invoke__">views</span>(<span class="hljs-string">'greetings'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<p>直接將傳遞過來的關聯式陣列 key 傳進來當變數名</p>
+<figure class="highlight php hljs"><figcaption><span>resource/views/greetings.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="hljs-string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="hljs-string">"X-UA-Compatible"</span> content=<span class="hljs-string">"IE=edge"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="hljs-string">"viewport"</span> content=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;title&gt;Greetings&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;Hello! {{ <span class="hljs-variable">$name</span> }}&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h3 id="query-string-參數"><a href="#query-string-參數" class="headerlink" title="query string　參數"></a>query string　參數</h3><p>變數也可以使用既有的 <code>request()</code> 方法承接 URL <code>?</code> 後方的 <strong>key</strong> 來渲染到畫面中，讀取 GET 參數：</p>
+<h4 id="request"><a href="#request" class="headerlink" title="request()"></a>request()</h4><figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/cat'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-comment">// 這裡輸入 params key</span></span><br><span class="line">  <span class="hljs-variable">$catNumbers</span> = <span class="title function_ invoke__">request</span>(<span class="hljs-string">'catNumbers'</span>);</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    <span class="hljs-string">"catNumbers"</span> =&gt; <span class="title function_ invoke__">strip_tags</span>(<span class="hljs-variable">$catNumbers</span>)</span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-comment">// return "這裡有${catNumbers}隻貓";</span></span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'cat'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight php hljs"><figcaption><span>resource/views/cat.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="hljs-string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="hljs-string">"X-UA-Compatible"</span> content=<span class="hljs-string">"IE=edge"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="hljs-string">"viewport"</span> content=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;title&gt;Cat Route&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;這裡有{{ <span class="hljs-variable">$catNumbers</span> }}隻貓&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-routes/3.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
+
+<blockquote class="colorquote danger"><p>為了避免 XSS 攻擊注入惡意程式到 app 中，可以為你的 request 包覆 <code>strip_tags()</code>，動態路由則不需要。</p>
+</blockquote>
+
+<h4 id="設置概覽資料"><a href="#設置概覽資料" class="headerlink" title="設置概覽資料"></a>設置概覽資料</h4><p>若使用者沒有查詢任何關鍵字（例如衣服），可以設立一個預設顯示的資料（例如展示全部商品）：</p>
+<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/cat'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-comment">// 這裡輸入 params key</span></span><br><span class="line">  <span class="hljs-variable">$catNumbers</span> = <span class="title function_ invoke__">request</span>(<span class="hljs-string">'catNumbers'</span>);</span><br><span class="line">  <span class="hljs-comment">// 有指定的話顯示</span></span><br><span class="line">  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$catNumbers</span>)) {</span><br><span class="line">    <span class="hljs-variable">$datas</span> = [</span><br><span class="line">      <span class="hljs-string">"catNumbers"</span> =&gt; <span class="title function_ invoke__">strip_tags</span>(<span class="hljs-variable">$catNumbers</span>)</span><br><span class="line">    ];</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'cat'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">  } <span class="hljs-keyword">else</span> {</span><br><span class="line">    <span class="hljs-comment">// 沒指定的話顯示</span></span><br><span class="line">    <span class="hljs-variable">$datas</span> = [</span><br><span class="line">      <span class="hljs-string">"catNumbers"</span> =&gt; <span class="hljs-string">'很多'</span></span><br><span class="line">    ];</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'cat'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">  }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-routes/4.png" class="" width="500" height="200" title="laravel路由">
+
+<blockquote class="colorquote info"><p><code>isset()</code> 方法類似 javascript 的 <code>if (variable === undefined)</code>，判斷某變數是否存在。  </p>
+</blockquote>
+
+<hr>
+<h3 id="dynamic-routes"><a href="#dynamic-routes" class="headerlink" title="dynamic routes"></a>dynamic routes</h3><p>可以渲染使用者輸入的資料，動態路由使用 <code>{}</code> 將路由變數名稱包起，爾後經過 GET URL 的方式取得信息，路由設定需要傳入變數至回呼函式中接收：</p>
+<h4 id="範例1-對應的動態路由變數需要傳入回呼函式中"><a href="#範例1-對應的動態路由變數需要傳入回呼函式中" class="headerlink" title="範例1. 對應的動態路由變數需要傳入回呼函式中"></a>範例1. 對應的動態路由變數需要傳入回呼函式中</h4><figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/dog/{dogName}'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-variable">$dogName</span></span>) </span>{</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span>,</span><br><span class="line">    <span class="hljs-string">"dogName"</span> =&gt; <span class="hljs-variable">$dogName</span></span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'routesTest'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight php hljs"><figcaption><span>resource/views/greetings.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="hljs-string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="hljs-string">"X-UA-Compatible"</span> content=<span class="hljs-string">"IE=edge"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="hljs-string">"viewport"</span> content=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;title&gt;Greetings&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;Hello! {{ <span class="hljs-variable">$name</span> }}&lt;/h1&gt;</span><br><span class="line">  &lt;h2&gt;A dog name {{ <span class="hljs-variable">$dogName</span> }}&lt;/h2&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-routes/2.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
+
+<h4 id="範例2-傳入多個非必要的動態路由參數"><a href="#範例2-傳入多個非必要的動態路由參數" class="headerlink" title="範例2. 傳入多個非必要的動態路由參數"></a>範例2. 傳入多個非必要的動態路由參數</h4><figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/shop/{category?}/{item?}'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-variable">$a</span> = <span class="hljs-literal">null</span>, <span class="hljs-variable">$b</span> = <span class="hljs-literal">null</span></span>) </span>{</span><br><span class="line">  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$a</span>)) {</span><br><span class="line">    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$b</span>)) {</span><br><span class="line">      <span class="hljs-keyword">return</span> <span class="hljs-string">"你正在瀏覽商店${a}分類的${b}品項"</span>;</span><br><span class="line">    }</span><br><span class="line">  } </span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-string">'你正在瀏覽商店的所有商品'</span>;</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote class="colorquote info"><p>對應的回呼函式必須接收一樣數量的變數當參數，名稱隨意不過最好與路由同名比較直覺，且位置要按照順序！<br>非必要的路由參數需要設置：</p>
+<ol>
+<li><code>?</code>放置在<code>{}</code>內，表示為可選的。</li>
+<li>非必要路由參數需設置預設值為空<code>null</code>才不會噴錯。</li>
+</ol>
+</blockquote>
+
+<img src="/images/laravel-routes/5.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
+<img src="/images/laravel-routes/6.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/laravel/">#laravel</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/php/">#php</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/04/03/zh-tw/laravel-folder-intro/">Laravel 專案包初探</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62024aa50a70400019079d5b&amp;product=sticky-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://maomaoxie.github.io/2022/04/04/zh-tw/laravel-routes/';
+        this.page.identifier = '2022/04/04/zh-tw/laravel-routes/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'maomaoxie' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 Mawchu&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-minos">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2022/04/04/zh-tw/laravel-routes/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2022/04/04/zh-tw/laravel-routes/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-TW");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

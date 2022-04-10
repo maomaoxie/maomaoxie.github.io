@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>預處理器新朋友-Less - Mawchu 貓奴前端</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2022/02/11/zh-tw/less-css/" rel="alternate" hreflang="en" />
+    
+
+
+<meta name="description" content="熱愛平面設計與貓咪的前端蔡蔡子，喜歡撰寫技術文章幫助自己在前端之路成長，有任何指教歡迎討論:D">
+
+
+
+
+
+    <meta name="description" content="圖片來源:https:&#x2F;&#x2F;www.oxxostudio.tw&#x2F;img&#x2F;articles&#x2F;201601&#x2F;css-less-01.jpg 在接觸了新的 Vue3 + Typescript + ant design vue 專案之後，認識了新的預處理器 Less，之前只有聽過 Scss 與 Sass，來認識一下甚麼是 Less 吧！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="預處理器新朋友-Less">
+<meta property="og:url" content="http://maomaoxie.github.io/2022/02/11/zh-tw/less-css/index.html">
+<meta property="og:site_name" content="Mawchu 貓奴前端">
+<meta property="og:description" content="圖片來源:https:&#x2F;&#x2F;www.oxxostudio.tw&#x2F;img&#x2F;articles&#x2F;201601&#x2F;css-less-01.jpg 在接觸了新的 Vue3 + Typescript + ant design vue 專案之後，認識了新的預處理器 Less，之前只有聽過 Scss 與 Sass，來認識一下甚麼是 Less 吧！">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://maomaoxie.github.io/images/less-css/0.png">
+<meta property="article:published_time" content="2022-02-11T11:43:57.000Z">
+<meta property="article:modified_time" content="2022-04-10T06:37:39.181Z">
+<meta property="article:author" content="Mawchu">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="less">
+<meta property="article:tag" content="processors">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://maomaoxie.github.io/images/less-css/0.png">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">文章</a>
+            
+            <a class="navbar-item "
+               href="/categories">分類</a>
+            
+            <a class="navbar-item "
+               href="/tags">標籤</a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/about">關於</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-minos">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            預處理器新朋友-Less
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-02-11T11:43:57.000Z" itemprop="datePublished">2月 11 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/css/">css</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分鐘 讀完 (約 547 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><img src="/images/less-css/0.png" class="" width="800" height="200" title="less-css">
+<p>圖片來源:<a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/img/articles/201601/css-less-01.jpg">https://www.oxxostudio.tw/img/articles/201601/css-less-01.jpg</a></p>
+<p>在接觸了新的 Vue3 + Typescript + ant design vue 專案之後，認識了新的預處理器 Less，之前只有聽過 Scss 與 Sass，來認識一下甚麼是 Less 吧！</p>
+<span id="more"></span>
+<h1 id="為什麼要使用預處理器"><a href="#為什麼要使用預處理器" class="headerlink" title="為什麼要使用預處理器"></a>為什麼要使用預處理器</h1><p>預處理器存在的目的方便開發者在撰寫 css 上可以更得心應手，使用類似程式語言開發的撰寫習慣來設計網頁畫面，例如變數、迴圈甚至是嵌套樣式讓寫法更多元與方便性，可以轉換成瀏覽器可閱讀的 css 樣貌，減少在刻畫面時只能瑣碎的處理細節與重複性很高的樣式名稱，造成維護的不友善。</p>
+<h1 id="Less-v-s-Sass"><a href="#Less-v-s-Sass" class="headerlink" title="Less v.s Sass ?"></a>Less v.s Sass ?</h1><p>現今常用的幾套預處理器如下：</p>
+<ul>
+<li>SASS（SCSS）</li>
+<li>LESS</li>
+<li>Stylus</li>
+<li>Turbine</li>
+<li>Switch CSS</li>
+<li>CSS Cacheer</li>
+<li>DT CSS</li>
+</ul>
+<p>Less 與 Sass 撰寫風格上很接近，以下舉例一些不同點：</p>
+<h3 id="變數的寫法"><a href="#變數的寫法" class="headerlink" title="變數的寫法"></a>變數的寫法</h3><ul>
+<li>Sass 以錢字號 $ 做開頭<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$mainColor: white;</span><br><span class="line">$siteWidth: <span class="hljs-number">1024px</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-tag">body</span> {</span><br><span class="line">  <span class="hljs-attribute">color</span>: $mainColor;</span><br><span class="line">  <span class="hljs-attribute">max-width</span>: $siteWidth;</span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+<li>Less 以小老鼠 @ 做開頭<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">@mainColor</span>: white;</span><br><span class="line"><span class="hljs-keyword">@siteWidth</span>: <span class="hljs-number">1024px</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-tag">body</span> {</span><br><span class="line">  <span class="hljs-attribute">color</span>: @mainColor;</span><br><span class="line">  <span class="hljs-attribute">max-width</span>: @siteWidth;</span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="嵌套的寫法"><a href="#嵌套的寫法" class="headerlink" title="嵌套的寫法"></a>嵌套的寫法</h3><ul>
+<li>Sass 與 Less 一樣<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">nav</span> {</span><br><span class="line">  <span class="hljs-selector-tag">a</span> {</span><br><span class="line">    <span class="hljs-attribute">color</span>: red;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-selector-tag">header</span> &amp; {</span><br><span class="line">      <span class="hljs-attribute">color</span>:green;</span><br><span class="line">    }</span><br><span class="line">  }  </span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="繼承（延伸）的寫法"><a href="#繼承（延伸）的寫法" class="headerlink" title="繼承（延伸）的寫法"></a>繼承（延伸）的寫法</h3><ul>
+<li>Sass 使用關鍵字 @extend，以某個樣式當作基底延伸<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.error</span> { </span><br><span class="line">  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid red; </span><br><span class="line">  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fdd</span>; </span><br><span class="line">} </span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.seriousError</span> { </span><br><span class="line">  <span class="hljs-keyword">@extend</span> .error; </span><br><span class="line">  <span class="hljs-attribute">border-width</span>: <span class="hljs-number">3px</span>; </span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+<li>Less 使用關鍵字 :extend<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.a1</span>:<span class="hljs-built_in">extend</span>(.b) {</span><br><span class="line">  <span class="hljs-attribute">color</span>:<span class="hljs-number">#f00</span>;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.a2</span>:<span class="hljs-built_in">extend</span>(.b all) {</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.b</span> {</span><br><span class="line">  <span class="hljs-attribute">border</span>:<span class="hljs-number">1px</span> solid;</span><br><span class="line">  <span class="hljs-attribute">font-size</span>:<span class="hljs-number">20px</span>;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.b</span><span class="hljs-selector-class">.c</span> {</span><br><span class="line">  <span class="hljs-attribute">text-align</span>:<span class="hljs-number">20px</span>;</span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="混和的寫法"><a href="#混和的寫法" class="headerlink" title="混和的寫法"></a>混和的寫法</h3><ul>
+<li>Sass 使用關鍵字 @mixin，與繼承很像，但寫法類似獨立的模塊（module），@include 提供其他樣式引入<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.error</span> { </span><br><span class="line">  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid red; </span><br><span class="line">  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fdd</span>; </span><br><span class="line">} </span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.seriousError</span> { </span><br><span class="line">  <span class="hljs-keyword">@extend</span> .error; </span><br><span class="line">  <span class="hljs-attribute">border-width</span>: <span class="hljs-number">3px</span>; </span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+<li>Less 的混合與一般 class 樣式很像，以一個名稱後方的大括號承接外部樣式傳入的參數（parameters），編譯之後是看不到的<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.fn1</span>(<span class="hljs-keyword">@v</span>) {</span><br><span class="line">  <span class="hljs-attribute">border-width</span>: @v;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.box1</span> {</span><br><span class="line">  <span class="hljs-selector-class">.fn1</span>(<span class="hljs-number">10px</span>);</span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<p>參考文章：</p>
+<blockquote><p><a target="_blank" rel="noopener" href="https://www.astralweb.com.tw/introduction-to-css-preprocessor-sass-and-less/">https://www.astralweb.com.tw/introduction-to-css-preprocessor-sass-and-less/</a></p>
+</blockquote></body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/css/">#css</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/less/">#less</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/processors/">#processors</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/02/12/zh-tw/laravel-installation/">Windows 搭建 Laravel 環境的各種跌坑</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/02/10/zh-tw/git-pat/">Github 登入新制 PAT X Sourcetree</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62024aa50a70400019079d5b&amp;product=sticky-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://maomaoxie.github.io/2022/02/11/zh-tw/less-css/';
+        this.page.identifier = '2022/02/11/zh-tw/less-css/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'maomaoxie' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 Mawchu&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-minos">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2022/02/11/zh-tw/less-css/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2022/02/11/zh-tw/less-css/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-TW");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>
