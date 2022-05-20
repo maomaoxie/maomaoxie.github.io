@@ -132,6 +132,144 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/04/24/zh-tw/laravel-migration/" itemprop="url">Laravel 資料庫版控工具 Migration</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-04-24T11:18:30.000Z" itemprop="datePublished">4月 24 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/laravel/">laravel</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 227 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><img src="/images/%E8%BC%B8%E5%85%A5%E5%9C%96%E7%89%87%E8%B3%87%E6%96%99%E5%A4%BE%E5%90%8D%E7%A8%B1/0.png" class="" width="800" height="200" title="輸入圖片資料夾名稱">
+<p>Migration 位於 Laravel 專案包中的 database 資料夾，會使用建立日期來歸檔資料表的結構，為紀錄資料庫版本的版控，方便團隊共同開發資料表。</p>
+<h1 id="建立資料表"><a href="#建立資料表" class="headerlink" title="建立資料表"></a>建立資料表</h1><figure class="highlight javascript hljs"><figcaption><span>建立 migration</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan <span class="hljs-attr">make</span>:migration create_users_table</span><br></pre></td></tr></tbody></table></figure>
+<p>建立成功會顯示：</p>
+<img src="/images/laravel-migration/1.png" class="" width="800" height="200" title="資料庫版控工具 Migration">
+<p>重整之後會出現新的版控檔案，使用建立日期來命名：</p>
+<img src="/images/laravel-migration/2.png" class="" width="300" height="200" title="資料庫版控工具 Migration">
+<p>檔案內容：</p>
+<img src="/images/laravel-migration/3.png" class="" width="800" height="200" title="輸入圖片資料夾名稱">
+
+<h1 id="修改資料表"><a href="#修改資料表" class="headerlink" title="修改資料表"></a>修改資料表</h1><p>在 <code>\\wsl$</code> 路徑下執行 migrate 的坑需要以下步驟：</p>
+<h4 id="補上-php-8-0-的-sql-extension"><a href="#補上-php-8-0-的-sql-extension" class="headerlink" title="補上 php 8.0 的 sql-extension"></a>補上 php 8.0 的 sql-extension</h4><p>於 ubuntu 終端機輸入以下指令：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">輸入code</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="將註解-extension-x3D-pdo-mysql-打開"><a href="#將註解-extension-x3D-pdo-mysql-打開" class="headerlink" title="將註解 ;extension=pdo_mysql 打開"></a>將註解 ;extension=pdo_mysql 打開</h4></body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/04/10/zh-tw/laravel-routes-namespace/" itemprop="url">Laravel 命名路由</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-04-10T10:42:15.000Z" itemprop="datePublished">4月 10 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/laravel/">laravel</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 290 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><img src="/images/laravel-routes-namespace/0.png" class="" width="800" height="200" title="Laravel 命名路由">
+<p>當路由越來越多，也越複雜甚至有巢狀結構的時候，相對路徑就會變得複雜不直覺，這時候可以借用 laravel 的命名路由工具，以及 blade 引擎的 <code>route 方法</code> 來輕鬆渲染路由：</p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/04/10/zh-tw/laravel-routes-namespace/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/04/10/zh-tw/laravel-public/" itemprop="url">Laravel public 靜態檔案</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-04-10T09:11:18.000Z" itemprop="datePublished">4月 10 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/laravel/">laravel</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分鐘 讀完 (約 377 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><img src="/images/laravel-public/0.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+<p>雖然檔案打包是現今網頁開發的趨勢，但網站難免需要引用未經編譯的靜態檔案，以避免編譯後的亂數檔名都要經過打包程序才能使用，Laravel 專案包中的 <code>public</code> 資料夾就是靜態檔案的去處，與之相對應會被壓縮及打包的動態檔案則要放置在 <code>resources</code> 資料中：</p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/04/10/zh-tw/laravel-public/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/04/10/zh-tw/laravel-layout/" itemprop="url">Laravel 善用 layout 避免重複的模板</a>
         
     </h1>
@@ -281,16 +419,14 @@
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 633 字)
+            6 分鐘 讀完 (約 849 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <html><head></head><body><img src="/images/laravel-folder-intro/0.png" class="Laravel-folder-intro" width="800" height="200" title="Laravel 專案包初探">
-
-<p>Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用：</p>
-<h1 id="vendor"><a href="#vendor" class="headerlink" title="vendor"></a>vendor</h1><p>Composer 相依套件的目錄，類似 node modules。</p></body></html>
+<p>Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用：</p></body></html>
         <p class="article-more-link">
             <a href="/2022/04/03/zh-tw/laravel-folder-intro/#more">閱讀更多</a>
         </p>

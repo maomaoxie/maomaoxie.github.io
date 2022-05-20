@@ -18,16 +18,16 @@
 
 
 
-    <meta name="description" content="Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用： vendorComposer 相依套件的目錄，類似 node modules。">
+    <meta name="description" content="Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Laravel 專案包初探">
 <meta property="og:url" content="http://maomaoxie.github.io/2022/04/03/zh-tw/laravel-folder-intro/index.html">
 <meta property="og:site_name" content="Mawchu 貓奴前端">
-<meta property="og:description" content="Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用： vendorComposer 相依套件的目錄，類似 node modules。">
+<meta property="og:description" content="Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用：">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://maomaoxie.github.io/images/laravel-folder-intro/0.png">
 <meta property="article:published_time" content="2022-04-03T11:01:30.000Z">
-<meta property="article:modified_time" content="2022-04-10T06:36:50.404Z">
+<meta property="article:modified_time" content="2022-04-10T09:02:32.778Z">
 <meta property="article:author" content="Mawchu">
 <meta property="article:tag" content="laravel">
 <meta property="article:tag" content="php">
@@ -152,28 +152,35 @@
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 633 字)
+            6 分鐘 讀完 (約 849 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <html><head></head><body><img src="/images/laravel-folder-intro/0.png" class="Laravel-folder-intro" width="800" height="200" title="Laravel 專案包初探">
-
 <p>Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用：</p>
-<h1 id="vendor"><a href="#vendor" class="headerlink" title="vendor"></a>vendor</h1><p>Composer 相依套件的目錄，類似 node modules。</p>
 <span id="more"></span>
+<blockquote class="colorquote info"><p>先打預防針，其實整個 Larevel 專案包預設並沒有任何 UI 框架，此專案包內名為 bootstrap 的檔案都跟該框架無半點毛關係！不要被混淆了。</p>
+<p>知識小學堂：<br><strong>bootstrap</strong> 的意思為鞋帶，衍生的動詞涵義是<strong>啟動機制</strong>，符合 Laravel 框架中用來充當 <strong>glue</strong> 黏著任何相關檔案或 app 啟動機制的程序。</p>
+</blockquote>
+
+<h1 id="vendor"><a href="#vendor" class="headerlink" title="vendor"></a>vendor</h1><p>Composer 相依套件的目錄，類似 node modules。</p>
 <h1 id="app"><a href="#app" class="headerlink" title="app"></a>app</h1><p>核心的 code 會放在這裡，大部分的類別（class）程式放置處，重要的 MVC 架構中的 <code>Controller</code> 類別會放在 Http/Controllers 資料夾中，以處理 View 與 Model 中間的繫結處理器。</p>
-<h1 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h1><p>除了會放置 bootstrap UI 框架之外，增進性能優化的快取設定（cache）也會放在這，不需要編寫這邊的檔案。</p>
+<h1 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h1><p>這裡的 bootstrap 並非 UI 框架，而是啟動整個 Laravel app 需要使用的元件放置處，增進性能優化的快取設定（cache）會放在這，不需要編寫這邊的檔案。</p>
 <h1 id="database"><a href="#database" class="headerlink" title="database"></a>database</h1><p>Model factories 會放在這裡，亦可處理 database 的遷移。</p>
 <h1 id="lang"><a href="#lang" class="headerlink" title="lang"></a>lang</h1><p>語言的切換檔案。</p>
 <h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><p>網站的靜態檔案如 js、css 及 images 放置處，以及網站的所有入口點（entry points）<code>index.php</code> 與設定自動加載（autoloading）的地方。</p>
 <h1 id="resource"><a href="#resource" class="headerlink" title="resource"></a>resource</h1><p>MVC 架構中的 <code>Views</code> 類別會放在這裡，通常是 <code>blade</code> 模板檔案，也存放一些初胚的、未經壓縮與處理的 js、css 檔案，在網站打包之後會被壓縮並且優化性能，需要 loader 去編譯的檔案可以放在這裡，例如 less 或 sass。</p>
+<h3 id="resource-x2F-bootstrap-js"><a href="#resource-x2F-bootstrap-js" class="headerlink" title="resource/bootstrap.js"></a>resource/bootstrap.js</h3><p>該文件夾底下的 <code>bootstrap.js</code> 檔案並非 UI 框架，而是放置 <code>CSRF Token</code> 自動夾帶在 header 的程序，並且使用 <code>$axios</code> 發送 request 出去，以<strong>避免 XSRF 跨站偽造攻擊</strong>之用！</p>
+<blockquote class="colorquote danger"><p>警告：不想整個 app 掛掉的話請不要亂動我！</p>
+</blockquote>
+
 <h1 id="routes"><a href="#routes" class="headerlink" title="routes"></a>routes</h1><p>路由檔案，預設會有 <code>web.php</code>, <code>api.php</code>, <code>console.php</code>, and <code>channels.php</code> 幾支提供設定，也可以使用 app 裡面的 Controller Class 來渲染路由對應的 view 檔。</p>
-<h3 id="web-php"><a href="#web-php" class="headerlink" title="web.php"></a>web.php</h3><p>提供 session state、CSRF 保護與 cookie 加密，可以放置除了 server 提供的 RESTful API 以外的網頁路由設定。</p>
-<h3 id="api-php"><a href="#api-php" class="headerlink" title="api.php"></a>api.php</h3><p>API 中介軟體的設定處，是無狀態（stateless）的，所有進入該介面的路由都需要攜帶 Token 認證且無法隨意進入。</p>
-<h3 id="console-php"><a href="#console-php" class="headerlink" title="console.php"></a>console.php</h3><p>可以將自定義的指令碼撰寫在這，例如 Artisan 的相關指令。</p>
-<h3 id="channels-php"><a href="#channels-php" class="headerlink" title="channels.php"></a>channels.php</h3><p>定義授權請求監聽的邏輯，以註冊相應的回呼函式。</p>
+<h3 id="routes-x2F-web-php"><a href="#routes-x2F-web-php" class="headerlink" title="routes/web.php"></a>routes/web.php</h3><p>提供 session state、CSRF 保護與 cookie 加密，可以放置除了 server 提供的 RESTful API 以外的網頁路由設定。</p>
+<h3 id="routes-x2F-api-php"><a href="#routes-x2F-api-php" class="headerlink" title="routes/api.php"></a>routes/api.php</h3><p>API 中介軟體的設定處，是無狀態（stateless）的，所有進入該介面的路由都需要攜帶 Token 認證且無法隨意進入。</p>
+<h3 id="routes-x2F-console-php"><a href="#routes-x2F-console-php" class="headerlink" title="routes/console.php"></a>routes/console.php</h3><p>可以將自定義的指令碼撰寫在這，例如 Artisan 的相關指令。</p>
+<h3 id="routes-x2F-channels-php"><a href="#routes-x2F-channels-php" class="headerlink" title="routes/channels.php"></a>routes/channels.php</h3><p>定義授權請求監聽的邏輯，以註冊相應的回呼函式。</p>
 <h1 id="storage"><a href="#storage" class="headerlink" title="storage"></a>storage</h1><p>放置經過編譯的 blade php 模板，以及快取與其他框架處理過後的檔案，其中<code>storage/app/public</code>路徑放置使用者操作後產生的檔案，例如頭像圖片。</p>
 <h1 id="config"><a href="#config" class="headerlink" title="config"></a>config</h1><p>整個網站應用程式的設定檔案，建議熟讀並且活用其中的多樣選擇。可以把一些全域使用的環境變數放置其中。</p>
 <p>參考文章：</p>

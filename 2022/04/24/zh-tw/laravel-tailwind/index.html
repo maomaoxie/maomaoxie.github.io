@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>在 Laravel 專案導入 tailwind css - Mawchu 貓奴前端</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2022/04/24/zh-tw/laravel-tailwind/" rel="alternate" hreflang="en" />
+    
+
+
+<meta name="description" content="熱愛平面設計與貓咪的前端蔡蔡子，喜歡撰寫技術文章幫助自己在前端之路成長，有任何指教歡迎討論:D">
+
+
+
+
+
+    <meta name="description" content="導入 tailwind css 之前有幾個與 Laravel 執行環境有關的雷需要注意：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Laravel 專案導入 tailwind css">
+<meta property="og:url" content="http://maomaoxie.github.io/2022/04/24/zh-tw/laravel-tailwind/index.html">
+<meta property="og:site_name" content="Mawchu 貓奴前端">
+<meta property="og:description" content="導入 tailwind css 之前有幾個與 Laravel 執行環境有關的雷需要注意：">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://maomaoxie.github.io/images/laravel-tailwind/0.jpg">
+<meta property="og:image" content="http://maomaoxie.github.io/images/laravel-tailwind/1.png">
+<meta property="og:image" content="http://maomaoxie.github.io/images/laravel-tailwind/2.png">
+<meta property="article:published_time" content="2022-04-24T08:47:56.000Z">
+<meta property="article:modified_time" content="2022-04-24T11:16:26.059Z">
+<meta property="article:author" content="Mawchu">
+<meta property="article:tag" content="laravel">
+<meta property="article:tag" content="tailwind">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://maomaoxie.github.io/images/laravel-tailwind/0.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">文章</a>
+            
+            <a class="navbar-item "
+               href="/categories">分類</a>
+            
+            <a class="navbar-item "
+               href="/tags">標籤</a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/about">關於</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-minos">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            在 Laravel 專案導入 tailwind css
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-04-24T08:47:56.000Z" itemprop="datePublished">4月 24 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/tailwind/">tailwind</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分鐘 讀完 (約 864 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><img src="/images/laravel-tailwind/0.jpg" class="" width="800" height="200" title="在 Laravel 專案導入 tailwind css">
+<p>導入 tailwind css 之前有幾個與 Laravel 執行環境有關的雷需要注意：</p>
+<span id="more"></span>
+<h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>將 Laravel 專案放置在 <code>\\wsl$</code> 路徑內可以更有效率的執行 WSL2，跑起來的速度也快，不過要注意專案環境包相關聯的耦合性，例如 Docker 設定、php 版本對於某些指令的支援度。</p>
+<blockquote class="colorquote info"><p>以下網址介紹了 WSL2 建置的專案具體位置究竟在哪：<br><a target="_blank" rel="noopener" href="https://solidstudio.io/blog/windows-subsystem-for-linux-explained">https://solidstudio.io/blog/windows-subsystem-for-linux-explained</a></p>
+</blockquote>
+<p>由於在 windows 系統中建置 Laravel 需要 Linux 子系統 WSL2 的支持，而使用 artisan 相關的指令都建是使用 Windows Terminal 下的 ubuntu 終端機會更友善些：</p>
+<blockquote class="colorquote info"><p>There is however one great application that makes running the WSL console easier. It’s Windows Terminal and it can be installed from Windows Store. It automatically detects any WSL distributions installed and adds an option to run its console.</p>
+</blockquote>
+<p>至於為什麼要使用 Windows Terminal? 以上說明了<strong>自動偵測 WSL分佈</strong>的功能，當你打開終端機會發現他自動偵測到你使用 WSL 建置該專案包的路徑，甚至在終端機輸入 wsl 就能直接切換該系統環境。</p>
+<h3 id="系統包補丁"><a href="#系統包補丁" class="headerlink" title="系統包補丁"></a>系統包補丁</h3><p>由於每個終端機的環境檔案包是沒有共享的，你在 powershell 很開心的安裝了一包 php，之後當你切換到 ubuntu 會發現，php 指令居然找不到?? 因為你得重裝，導入 tailwind 至 WSL 專案需要補上：</p>
+<h4 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h4><p>安裝 node 在 ubuntu的步驟</p>
+<ol>
+<li><p>新增Node.js PPA</p>
+<blockquote class="colorquote info"><p>PPA 有點像是系統軟體包的 package.json，記錄著軟體及其版本信息，當你運行 sudo apt update 命令時 apt 工具會根據 /etc/apt 目錄中的 sources.list 文件來決定版本是否升級。</p>
+</blockquote>
+<figure class="highlight javascript hljs"><figcaption><span>安裝 node PPA</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install curl</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript hljs"><figcaption><span>安裝 LTS 版本</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL <span class="hljs-attr">https</span>:<span class="hljs-comment">//deb.nodesource.com/setup_12.x | sudo -E bash -</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>安裝Node.js</p>
+<figure class="highlight javascript hljs"><figcaption><span>安裝 Node.js 至 Ubuntu</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>查看一下版本號確保安裝成功</p>
+</li>
+</ol>
+<h1 id="安裝-tailwind-css"><a href="#安裝-tailwind-css" class="headerlink" title="安裝 tailwind css"></a>安裝 tailwind css</h1><p>至 vscode terminal 或者使用 windows terminal Ubuntu 都可以安裝 tailwind css：</p>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><figure class="highlight javascript hljs"><figcaption><span>安裝 tailwind</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D tailwindcss postcss autoprefixer</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript hljs"><figcaption><span>安裝Node.js至Ubuntu</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx tailwindcss init</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="修改-config-加入-plugin"><a href="#修改-config-加入-plugin" class="headerlink" title="修改 config 加入 plugin"></a>修改 config 加入 plugin</h3><figure class="highlight javascript hljs"><figcaption><span>webpack.mix.js</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mix.<span class="title function_">js</span>(<span class="hljs-string">"resources/js/app.js"</span>, <span class="hljs-string">"public/js"</span>)</span><br><span class="line">  .<span class="title function_">postCss</span>(<span class="hljs-string">"resources/css/app.css"</span>, <span class="hljs-string">"public/css"</span>, [	</span><br><span class="line">    <span class="hljs-built_in">require</span>(<span class="hljs-string">"tailwindcss"</span>), <span class="hljs-comment">// &lt;-- 加入這行</span></span><br><span class="line">  ]);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="導入全域-css"><a href="#導入全域-css" class="headerlink" title="導入全域 css"></a>導入全域 css</h3><p>在 <code>resources/css/app.css</code> 檔案中加入以下：</p>
+<figure class="highlight javascript hljs"><figcaption><span>resources/css/app.css</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@tailwind base;</span><br><span class="line">@tailwind components;</span><br><span class="line">@tailwind utilities;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="設定-tailwind-config-js"><a href="#設定-tailwind-config-js" class="headerlink" title="設定 tailwind.config.js"></a>設定 tailwind.config.js</h3><figure class="highlight javascript hljs"><figcaption><span>resources/css/app.css</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="hljs-property">exports</span> = { </span><br><span class="line">  <span class="hljs-attr">content</span>: [	</span><br><span class="line">    <span class="hljs-string">"./resources/**/*.blade.php"</span>,  </span><br><span class="line">    <span class="hljs-string">"./resources/**/*.js"</span>,	</span><br><span class="line">    <span class="hljs-string">"./resources/**/*.vue"</span>,  ],</span><br><span class="line">  <span class="hljs-attr">theme</span>: {	</span><br><span class="line">    <span class="hljs-attr">extend</span>: {},</span><br><span class="line">  }, </span><br><span class="line">  <span class="hljs-attr">plugins</span>: [],</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="npm-install-將-mix-module-裝上"><a href="#npm-install-將-mix-module-裝上" class="headerlink" title="npm install 將 mix module 裝上"></a>npm install 將 mix module 裝上</h3><p>mix 指令可以打包 tailwind css 的預處理器編譯為 css，但不會自動安裝，需要 npm install：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="驗證是否成功"><a href="#驗證是否成功" class="headerlink" title="驗證是否成功"></a>驗證是否成功</h3><ol>
+<li><p>在 views/layout/layout.blade.php 檔案導入全域 css：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link href=<span class="hljs-string">"{{ asset('css/app.css') }}"</span> rel=<span class="hljs-string">"stylesheet"</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>加上 tailwind css 的 class</p>
+<figure class="highlight javascript hljs"><figcaption><span>resources/css/app.css</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@tailwind base;</span><br><span class="line">@tailwind components;</span><br><span class="line">@tailwind utilities;</span><br><span class="line"></span><br><span class="line">.<span class="hljs-property">btn</span>-primary {</span><br><span class="line">  @apply py-<span class="hljs-number">2</span> px-<span class="hljs-number">4</span> bg-blue-<span class="hljs-number">500</span> text-white font-semibold rounded-lg shadow-md <span class="hljs-attr">hover</span>:bg-blue-<span class="hljs-number">700</span> <span class="hljs-attr">focus</span>:outline-none <span class="hljs-attr">focus</span>:ring-<span class="hljs-number">2</span> <span class="hljs-attr">focus</span>:ring-blue-<span class="hljs-number">400</span> <span class="hljs-attr">focus</span>:ring-opacity-<span class="hljs-number">75</span> transition-all;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>套用在 blade 檔案中</p>
+<figure class="highlight javascript hljs"><figcaption><span>welcome.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">  &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">"container mx-auto"</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello you!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span></span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex flex-wrap"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"md:w-3/4.w-full"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"w-16 md:w-32 lg:w-48 transition-all bg-fuchsia-300 hover:bg-fuchsia-600 py-5 text-pink-800"</span>&gt;</span>123<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-primary"</span>&gt;</span>My button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"md:w-1/4.w-full"</span>&gt;</span>aside<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">@endsection</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>mix 指令打包</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run mix</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>成功導入畫面</p>
+<img src="/images/laravel-tailwind/1.png" class="" width="800" height="200" title="tailwind 打包成功畫面">
+<img src="/images/laravel-tailwind/2.png" class="" width="800" height="200" title="tailwind 打包成功畫面"></li>
+</ol>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/laravel/">#laravel</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/tailwind/">#tailwind</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/04/24/zh-tw/laravel-migration/">Laravel 資料庫版控工具 Migration</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/04/10/zh-tw/laravel-routes-namespace/">Laravel 命名路由</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62024aa50a70400019079d5b&amp;product=sticky-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://maomaoxie.github.io/2022/04/24/zh-tw/laravel-tailwind/';
+        this.page.identifier = '2022/04/24/zh-tw/laravel-tailwind/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'maomaoxie' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 Mawchu&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-minos">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2022/04/24/zh-tw/laravel-tailwind/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2022/04/24/zh-tw/laravel-tailwind/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-TW");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>
