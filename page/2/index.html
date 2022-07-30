@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <title>Mawchu 貓奴前端</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+<link rel="canonical" href="http://maomaoxie.github.io/page/2/"/>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
@@ -125,6 +125,43 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/07/24/zh-tw/js-weird-parts-ES6/" itemprop="url">克服 Javascript 的奇怪部分 ES6</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-07-24T08:30:58.000Z" itemprop="datePublished">7月 24 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分鐘 讀完 (約 141 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><img src="/images/js-weird-parts-let/0.png" class="" width="800" height="200" title="ES6-let">
+<h1 id="ES6-let"><a href="#ES6-let" class="headerlink" title="ES6 let"></a>ES6 let</h1><p>不同於 var 的宣告方式，let 宣告的變數在宣告時會出現暫時性死區不可取用，沒有 hoisting 現象，且變數的作用域只存在於 block 區塊中，例如 if 陳述句，而 var 則是函式作用域，若撰寫在 if 陳述句內外部仍可取用。<br>最經典的應用就是 for 迴圈，可以在每一次的 console 正確印出數值：</p>
+<figure class="highlight javascript hljs"><figcaption><span>for loop</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">5</span>; i++) {</span><br><span class="line">  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">()=&gt;</span>{</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">  },<span class="hljs-number">1000</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/07/10/zh-tw/js-weird-parts-scope-chain/" itemprop="url">克服 Javascript 的奇怪部分 範圍鍊</a>
         
     </h1>
@@ -195,44 +232,6 @@
 <h1 id="單執行緒（Single-Threaded）"><a href="#單執行緒（Single-Threaded）" class="headerlink" title="單執行緒（Single Threaded）"></a>單執行緒（Single Threaded）</h1><p><strong>一次一件事</strong>是重點。<br>這個特性不是瀏覽器的特性，瀏覽器一次可能同時處理多件事情，JavaScript 引擎則是單執行緒的，就像排隊買早餐，老闆娘一次只能處理一位客人，而 JavaScript 也是一次只處理一項指令。</p></body></html>
         <p class="article-more-link">
             <a href="/2022/06/05/zh-tw/js-weird-parts-III/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/06/04/zh-tw/js-weird-parts-II/" itemprop="url">克服 Javascript 的奇怪部分 Hoisting</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-06-04T08:28:20.000Z" itemprop="datePublished">6月 4 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            7 分鐘 讀完 (約 1093 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><img src="/images/js-weird-parts-II/0.png" class="" width="800" height="200" title="js-weird-parts-II">
-<p>課程作者提到，<strong>Hoisting</strong> 大約是 JavaScript 裡最奇怪的行為了，而且是其他語言無法做到的特性，來了解一下怎麼回事吧！</p></body></html>
-        <p class="article-more-link">
-            <a href="/2022/06/04/zh-tw/js-weird-parts-II/#more">閱讀更多</a>
         </p>
     
     </div>

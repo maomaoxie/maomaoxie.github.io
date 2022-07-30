@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <title>克服 Javascript 的奇怪部分 型別 - Mawchu 貓奴前端</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+<link rel="canonical" href="http://maomaoxie.github.io/2022/07/30/js-weird-parts-types/"/>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
@@ -18,18 +18,21 @@
 
 
 
-    <meta name="description" content="熱愛平面設計與貓咪的前端工程師，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習">
+    <meta name="description" content="Dynamic TypingJavascript 的型別為動態型別，不同於 C# 等強型別語言的靜態型別（Static Typing），無須指派型別而是在引擎執行的階段（at runtime）辨認變數記憶體內的型別為何：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="克服 Javascript 的奇怪部分 型別">
 <meta property="og:url" content="http://maomaoxie.github.io/2022/07/30/js-weird-parts-types/index.html">
 <meta property="og:site_name" content="Mawchu 貓奴前端">
-<meta property="og:description" content="熱愛平面設計與貓咪的前端工程師，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習">
+<meta property="og:description" content="Dynamic TypingJavascript 的型別為動態型別，不同於 C# 等強型別語言的靜態型別（Static Typing），無須指派型別而是在引擎執行的階段（at runtime）辨認變數記憶體內的型別為何：">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://maomaoxie.github.io/images/js-weird-parts-dynamic-typing/0.png">
 <meta property="article:published_time" content="2022-07-30T08:35:45.000Z">
-<meta property="article:modified_time" content="2022-07-30T08:41:22.142Z">
+<meta property="article:modified_time" content="2022-07-30T09:08:43.438Z">
 <meta property="article:author" content="Mawchu">
-<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="type">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://maomaoxie.github.io/images/js-weird-parts-dynamic-typing/0.png">
 
 
 
@@ -141,22 +144,42 @@
         <span class="column is-narrow">
             
             
-            幾秒 讀完 (約 0 字)
+            1 分鐘 讀完 (約 173 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        
+        <html><head></head><body><img src="/images/js-weird-parts-dynamic-typing/0.png" class="" title="dynamic-typing">
+<h1 id="Dynamic-Typing"><a href="#Dynamic-Typing" class="headerlink" title="Dynamic Typing"></a>Dynamic Typing</h1><p>Javascript 的型別為動態型別，不同於 C# 等強型別語言的靜態型別（Static Typing），無須指派型別而是在引擎執行的階段（at runtime）辨認變數記憶體內的型別為何：</p>
+<span id="more"></span>
+<blockquote class="colorquote info"><p>Dynamically-typed languages are those (like JavaScript) where the interpreter assigns variables a type at runtime based on the variable’s value at the time.</p>
+</blockquote>
+
+<p>這有可能導致一個變數在每次程式執行的結果都產生不同的型別（例如 == 型別隱式轉換），而造成不如預期的結果，所以使用三等號是比較良好的撰寫習慣。</p>
+</body></html>
     
     </div>
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Javascript/">#Javascript</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/javascript/">#javascript</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/type/">#type</a></span>
     
     </div>
     
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/07/30/js-weird-parts-value/">克服 Javascript 的奇怪部分 原始型別</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-next">
+            
+        </span>
+    </div>
     
 </article>
 

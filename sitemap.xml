@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://maomaoxie.github.io/2022/07/30/js-weird-parts-value/</loc>
+    
+    <lastmod>2022-07-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://maomaoxie.github.io/2022/07/30/js-weird-parts-types/</loc>
     
     <lastmod>2022-07-30</lastmod>
@@ -344,14 +353,14 @@
 
   
   <url>
-    <loc>http://maomaoxie.github.io/tags/Javascript/</loc>
+    <loc>http://maomaoxie.github.io/tags/javascript/</loc>
     <lastmod>2022-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://maomaoxie.github.io/tags/javascript/</loc>
+    <loc>http://maomaoxie.github.io/tags/type/</loc>
     <lastmod>2022-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -492,6 +501,13 @@
   
   <url>
     <loc>http://maomaoxie.github.io/tags/status/</loc>
+    <lastmod>2022-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://maomaoxie.github.io/tags/Javascript/</loc>
     <lastmod>2022-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
