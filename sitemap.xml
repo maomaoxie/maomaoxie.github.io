@@ -556,20 +556,6 @@
   </url>
   
   <url>
-    <loc>http://maomaoxie.github.io/tags/migration/</loc>
-    <lastmod>2022-07-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://maomaoxie.github.io/tags/sql/</loc>
-    <lastmod>2022-07-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://maomaoxie.github.io/tags/public/</loc>
     <lastmod>2022-07-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -578,6 +564,20 @@
   
   <url>
     <loc>http://maomaoxie.github.io/tags/static/</loc>
+    <lastmod>2022-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://maomaoxie.github.io/tags/migration/</loc>
+    <lastmod>2022-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://maomaoxie.github.io/tags/sql/</loc>
     <lastmod>2022-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
