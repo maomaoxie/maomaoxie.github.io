@@ -7,12 +7,15 @@ a.tag.article-tag {
   font-size: 0.9rem;
   text-decoration: none; }
 
+.navbar {
+  background-color: #98C8D4; }
+
 @media screen and (min-width: 1024px) {
   .container {
     max-width: 800px;
     width: 800px; }
   .navbar.is-transparent .navbar-dropdown a.navbar-item:hover {
-    color: #FF4FA1; } }
+    color: white; } }
 
 .navbar-main {
   border-bottom: 1px solid #dbdbdb;
@@ -22,8 +25,8 @@ a.tag.article-tag {
     font-weight: 600; }
   .navbar-main .navbar-item {
     text-align: center; }
-  .navbar-main a.navbar-item.is-active {
-    color: #FF4FA1; }
+  .navbar-main a.navbar-item.is-active, .navbar-main a.navbar-item:hover {
+    color: white; }
   .navbar-main .toc .navbar-dropdown {
     max-height: 500px;
     overflow-y: auto; }
@@ -216,7 +219,7 @@ a.tag.article-tag {
   padding: 1rem 1.5rem;
   border-left: 3px solid transparent; }
   .archive .article:hover {
-    border-left-color: black; }
+    border-left-color: #98C8D4; }
   .archive .article time {
     font-size: .9rem;
     color: darkgray; }
@@ -277,7 +280,7 @@ a.tag.article-tag {
       text-align: center;
       display: inline-block; }
       .searchbox .searchbox-input-wrapper .searchbox-close:hover {
-        color: #FF4FA1; }
+        color: #98C8D4; }
   .searchbox .searchbox-result-wrapper {
     left: 0;
     right: 0;
@@ -363,9 +366,9 @@ figure.highlight {
     .pagination .pagination-link:active {
       box-shadow: none; }
   .pagination .pagination-link:hover {
-    border-color: black; }
+    border-color: #98C8D4; }
   .pagination .pagination-link.is-current {
-    background-color: black; }
+    background-color: #98C8D4; }
   .pagination .pagination-previous a,
   .pagination .pagination-next a {
     position: relative;
