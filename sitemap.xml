@@ -458,7 +458,7 @@
   </url>
   
   <url>
-    <loc>http://maomaoxie.github.io/tags/https/</loc>
+    <loc>http://maomaoxie.github.io/tags/httpMethods/</loc>
     <lastmod>2022-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -479,14 +479,7 @@
   </url>
   
   <url>
-    <loc>http://maomaoxie.github.io/tags/httpHeader/</loc>
-    <lastmod>2022-07-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://maomaoxie.github.io/tags/httpMethods/</loc>
+    <loc>http://maomaoxie.github.io/tags/https/</loc>
     <lastmod>2022-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -494,6 +487,13 @@
   
   <url>
     <loc>http://maomaoxie.github.io/tags/status/</loc>
+    <lastmod>2022-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://maomaoxie.github.io/tags/httpHeader/</loc>
     <lastmod>2022-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -803,14 +803,14 @@
   </url>
   
   <url>
-    <loc>http://maomaoxie.github.io/categories/vue/vue3/</loc>
+    <loc>http://maomaoxie.github.io/categories/webSocket/</loc>
     <lastmod>2022-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://maomaoxie.github.io/categories/webSocket/</loc>
+    <loc>http://maomaoxie.github.io/categories/vue/vue3/</loc>
     <lastmod>2022-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
