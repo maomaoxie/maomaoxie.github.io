@@ -353,34 +353,6 @@
 
   
   <url>
-    <loc>http://maomaoxie.github.io/tags/backEnd/</loc>
-    <lastmod>2022-07-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://maomaoxie.github.io/tags/node/</loc>
-    <lastmod>2022-07-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://maomaoxie.github.io/tags/express/</loc>
-    <lastmod>2022-07-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://maomaoxie.github.io/tags/router/</loc>
-    <lastmod>2022-07-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://maomaoxie.github.io/tags/javascript/</loc>
     <lastmod>2022-07-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -403,6 +375,34 @@
   
   <url>
     <loc>http://maomaoxie.github.io/tags/methods/</loc>
+    <lastmod>2022-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://maomaoxie.github.io/tags/backEnd/</loc>
+    <lastmod>2022-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://maomaoxie.github.io/tags/node/</loc>
+    <lastmod>2022-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://maomaoxie.github.io/tags/express/</loc>
+    <lastmod>2022-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://maomaoxie.github.io/tags/router/</loc>
     <lastmod>2022-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -719,14 +719,14 @@
 
   
   <url>
-    <loc>http://maomaoxie.github.io/categories/node-js/</loc>
+    <loc>http://maomaoxie.github.io/categories/javascript/</loc>
     <lastmod>2022-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://maomaoxie.github.io/categories/javascript/</loc>
+    <loc>http://maomaoxie.github.io/categories/node-js/</loc>
     <lastmod>2022-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
