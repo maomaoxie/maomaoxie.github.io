@@ -468,6 +468,9 @@ figure.highlight {
     height: 100%;
     position: absolute; }
 
+.ins-section .ins-search-item:hover, .ins-section .ins-search-item.active {
+  background: #ebe2d2; }
+
 .ins-section-container {
   position: relative;
   background: #f7f7f7; }
@@ -511,11 +514,7 @@ figure.highlight {
 
 .ins-section .ins-search-item:hover,
 .ins-section .ins-search-item.active {
-  color: #fff;
-  background: #FF4FA1; }
-
-.ins-section .ins-search-item:hover .ins-slug,
-.ins-section .ins-search-item.active .ins-slug,
-.ins-section .ins-search-item:hover .ins-search-preview,
-.ins-section .ins-search-item.active .ins-search-preview {
-  color: #fff; }
+  background: #ebe2d2; }
+  .ins-section .ins-search-item:hover header,
+  .ins-section .ins-search-item.active header {
+    color: #359872; }
