@@ -19,16 +19,16 @@
 
 
 
-    <meta name="description" content="圖片來源:https:&#x2F;&#x2F;www.oxxostudio.tw&#x2F;img&#x2F;articles&#x2F;201601&#x2F;css-less-01.jpg 在接觸了新的 Vue3 + Typescript + ant design vue 專案之後，認識了新的預處理器 Less，之前只有聽過 Scss 與 Sass，來認識一下甚麼是 Less 吧！">
+    <meta name="description" content="圖片來源:https:&#x2F;&#x2F;www.oxxostudio.tw&#x2F;img&#x2F;articles&#x2F;201601&#x2F;css-less-01.jpg 在接觸了新的 Vue3 + Typescript + ant design vue 專案之後，認識了新的預處理器 Less，之前只有聽過 Scss 與 Sass，來認識一下甚麼是 Less 吧！ 為什麼要使用預處理器預處理器存在的目的方便開發者在撰寫 css 上可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="預處理器新朋友-Less">
 <meta property="og:url" content="http://maomaoxie.github.io/2022/02/11/zh-tw/less-css/index.html">
 <meta property="og:site_name" content="Mawchu 貓奴前端">
-<meta property="og:description" content="圖片來源:https:&#x2F;&#x2F;www.oxxostudio.tw&#x2F;img&#x2F;articles&#x2F;201601&#x2F;css-less-01.jpg 在接觸了新的 Vue3 + Typescript + ant design vue 專案之後，認識了新的預處理器 Less，之前只有聽過 Scss 與 Sass，來認識一下甚麼是 Less 吧！">
+<meta property="og:description" content="圖片來源:https:&#x2F;&#x2F;www.oxxostudio.tw&#x2F;img&#x2F;articles&#x2F;201601&#x2F;css-less-01.jpg 在接觸了新的 Vue3 + Typescript + ant design vue 專案之後，認識了新的預處理器 Less，之前只有聽過 Scss 與 Sass，來認識一下甚麼是 Less 吧！ 為什麼要使用預處理器預處理器存在的目的方便開發者在撰寫 css 上可">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://maomaoxie.github.io/images/less-css/0.png">
 <meta property="article:published_time" content="2022-02-11T11:43:57.000Z">
-<meta property="article:modified_time" content="2022-04-10T06:37:39.181Z">
+<meta property="article:modified_time" content="2022-08-01T16:03:26.714Z">
 <meta property="article:author" content="Mawchu">
 <meta property="article:tag" content="css">
 <meta property="article:tag" content="less">
@@ -78,9 +78,9 @@
 <body>
     
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
+    <div class="container custom-nav">
         <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/">
+            <a class="navbar-item navbar-logo position-relative" href="/">
                 
                 <img src="/images/logo.png" alt="" height="28">
                 
@@ -95,16 +95,24 @@
         <div class="navbar-menu navbar-start">
             
             <a class="navbar-item "
-               href="/archives">文章</a>
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/categories">分類</a>
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/tags">標籤</a>
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/zh-tw/about">關於</a>
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
             
         </div>
         
@@ -151,16 +159,50 @@
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 547 字)
+            4 分鐘 讀完 (約 546 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
+        <!-- <html><head></head><body><img src="/images/less-css/0.png" class="" width="800" height="200" title="less-css">
+<p>圖片來源:<a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/img/articles/201601/css-less-01.jpg">https://www.oxxostudio.tw/img/articles/201601/css-less-01.jpg</a></p>
+<p>在接觸了新的 Vue3 + Typescript + ant design vue 專案之後，認識了新的預處理器 Less，之前只有聽過 Scss 與 Sass，來認識一下甚麼是 Less 吧！</p>
+<h1 id="為什麼要使用預處理器"><a href="#為什麼要使用預處理器" class="headerlink" title="為什麼要使用預處理器"></a>為什麼要使用預處理器</h1><p>預處理器存在的目的方便開發者在撰寫 css 上可以更得心應手，使用類似程式語言開發的撰寫習慣來設計網頁畫面，例如變數、迴圈甚至是嵌套樣式讓寫法更多元與方便性，可以轉換成瀏覽器可閱讀的 css 樣貌，減少在刻畫面時只能瑣碎的處理細節與重複性很高的樣式名稱，造成維護的不友善。</p>
+<h1 id="Less-v-s-Sass"><a href="#Less-v-s-Sass" class="headerlink" title="Less v.s Sass ?"></a>Less v.s Sass ?</h1><p>現今常用的幾套預處理器如下：</p>
+<ul>
+<li>SASS（SCSS）</li>
+<li>LESS</li>
+<li>Stylus</li>
+<li>Turbine</li>
+<li>Switch CSS</li>
+<li>CSS Cacheer</li>
+<li>DT CSS</li>
+</ul>
+<p>Less 與 Sass 撰寫風格上很接近，以下舉例一些不同點：</p>
+<h3 id="變數的寫法"><a href="#變數的寫法" class="headerlink" title="變數的寫法"></a>變數的寫法</h3><ul>
+<li>Sass 以錢字號 $ 做開頭<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$mainColor: white;</span><br><span class="line">$siteWidth: <span class="hljs-number">1024px</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-tag">body</span> {</span><br><span class="line">  <span class="hljs-attribute">color</span>: $mainColor;</span><br><span class="line">  <span class="hljs-attribute">max-width</span>: $siteWidth;</span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+<li>Less 以小老鼠 @ 做開頭<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">@mainColor</span>: white;</span><br><span class="line"><span class="hljs-keyword">@siteWidth</span>: <span class="hljs-number">1024px</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-tag">body</span> {</span><br><span class="line">  <span class="hljs-attribute">color</span>: @mainColor;</span><br><span class="line">  <span class="hljs-attribute">max-width</span>: @siteWidth;</span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="嵌套的寫法"><a href="#嵌套的寫法" class="headerlink" title="嵌套的寫法"></a>嵌套的寫法</h3><ul>
+<li>Sass 與 Less 一樣<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">nav</span> {</span><br><span class="line">  <span class="hljs-selector-tag">a</span> {</span><br><span class="line">    <span class="hljs-attribute">color</span>: red;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-selector-tag">header</span> &amp; {</span><br><span class="line">      <span class="hljs-attribute">color</span>:green;</span><br><span class="line">    }</span><br><span class="line">  }  </span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="繼承（延伸）的寫法"><a href="#繼承（延伸）的寫法" class="headerlink" title="繼承（延伸）的寫法"></a>繼承（延伸）的寫法</h3><ul>
+<li>Sass 使用關鍵字 @extend，以某個樣式當作基底延伸<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.error</span> { </span><br><span class="line">  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid red; </span><br><span class="line">  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fdd</span>; </span><br><span class="line">} </span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.seriousError</span> { </span><br><span class="line">  <span class="hljs-keyword">@extend</span> .error; </span><br><span class="line">  <span class="hljs-attribute">border-width</span>: <span class="hljs-number">3px</span>; </span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+<li>Less 使用關鍵字 :extend<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.a1</span>:<span class="hljs-built_in">extend</span>(.b) {</span><br><span class="line">  <span class="hljs-attribute">color</span>:<span class="hljs-number">#f00</span>;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.a2</span>:<span class="hljs-built_in">extend</span>(.b all) {</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.b</span> {</span><br><span class="line">  <span class="hljs-attribute">border</span>:<span class="hljs-number">1px</span> solid;</span><br><span class="line">  <span class="hljs-attribute">font-size</span>:<span class="hljs-number">20px</span>;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.b</span><span class="hljs-selector-class">.c</span> {</span><br><span class="line">  <span class="hljs-attribute">text-align</span>:<span class="hljs-number">20px</span>;</span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="混和的寫法"><a href="#混和的寫法" class="headerlink" title="混和的寫法"></a>混和的寫法</h3><ul>
+<li>Sass 使用關鍵字 @mixin，與繼承很像，但寫法類似獨立的模塊（module），@include 提供其他樣式引入<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.error</span> { </span><br><span class="line">  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid red; </span><br><span class="line">  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fdd</span>; </span><br><span class="line">} </span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.seriousError</span> { </span><br><span class="line">  <span class="hljs-keyword">@extend</span> .error; </span><br><span class="line">  <span class="hljs-attribute">border-width</span>: <span class="hljs-number">3px</span>; </span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+<li>Less 的混合與一般 class 樣式很像，以一個名稱後方的大括號承接外部樣式傳入的參數（parameters），編譯之後是看不到的<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.fn1</span>(<span class="hljs-keyword">@v</span>) {</span><br><span class="line">  <span class="hljs-attribute">border-width</span>: @v;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.box1</span> {</span><br><span class="line">  <span class="hljs-selector-class">.fn1</span>(<span class="hljs-number">10px</span>);</span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<p>參考文章：</p>
+<blockquote><p><a target="_blank" rel="noopener" href="https://www.astralweb.com.tw/introduction-to-css-preprocessor-sass-and-less/">https://www.astralweb.com.tw/introduction-to-css-preprocessor-sass-and-less/</a></p>
+</blockquote></body></html> -->
+        
+        
         <html><head></head><body><img src="/images/less-css/0.png" class="" width="800" height="200" title="less-css">
 <p>圖片來源:<a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/img/articles/201601/css-less-01.jpg">https://www.oxxostudio.tw/img/articles/201601/css-less-01.jpg</a></p>
 <p>在接觸了新的 Vue3 + Typescript + ant design vue 專案之後，認識了新的預處理器 Less，之前只有聽過 Scss 與 Sass，來認識一下甚麼是 Less 吧！</p>
-<span id="more"></span>
 <h1 id="為什麼要使用預處理器"><a href="#為什麼要使用預處理器" class="headerlink" title="為什麼要使用預處理器"></a>為什麼要使用預處理器</h1><p>預處理器存在的目的方便開發者在撰寫 css 上可以更得心應手，使用類似程式語言開發的撰寫習慣來設計網頁畫面，例如變數、迴圈甚至是嵌套樣式讓寫法更多元與方便性，可以轉換成瀏覽器可閱讀的 css 樣貌，減少在刻畫面時只能瑣碎的處理細節與重複性很高的樣式名稱，造成維護的不友善。</p>
 <h1 id="Less-v-s-Sass"><a href="#Less-v-s-Sass" class="headerlink" title="Less v.s Sass ?"></a>Less v.s Sass ?</h1><p>現今常用的幾套預處理器如下：</p>
 <ul>
@@ -191,6 +233,10 @@
 <p>參考文章：</p>
 <blockquote><p><a target="_blank" rel="noopener" href="https://www.astralweb.com.tw/introduction-to-css-preprocessor-sass-and-less/">https://www.astralweb.com.tw/introduction-to-css-preprocessor-sass-and-less/</a></p>
 </blockquote></body></html>
+        
+        <p class="article-more-link">
+            <a href="/2022/02/11/zh-tw/less-css/">more</a>
+        </p>
     
     </div>
     

@@ -71,9 +71,9 @@
 <body>
     
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
+    <div class="container custom-nav">
         <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/">
+            <a class="navbar-item navbar-logo position-relative" href="/">
                 
                 <img src="/images/logo.png" alt="" height="28">
                 
@@ -88,16 +88,24 @@
         <div class="navbar-menu navbar-start">
             
             <a class="navbar-item "
-               href="/archives">文章</a>
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/categories">分類</a>
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/tags">標籤</a>
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/zh-tw/about">關於</a>
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
             
         </div>
         
@@ -127,6 +135,12 @@
         <div class="archive content">
             <h4 class="title is-4" id="2022">2022</h4>
             <div class="articles">
+            
+                <div class="article content>">
+                    <time class="is-text-small" datetime="2022-03-01T14:27:36.000Z" itemprop="datePublished">
+                        3月 1</time>
+                    <h6 class="title is-6"><a href="/2022/03/01/zh-tw/http-status-code/">HTTP Status code 狀態碼解析</a></h6>
+                </div>
             
                 <div class="article content>">
                     <time class="is-text-small" datetime="2022-02-28T12:28:24.000Z" itemprop="datePublished">
@@ -180,12 +194,6 @@
                     <time class="is-text-small" datetime="2022-02-20T06:12:53.000Z" itemprop="datePublished">
                         2月 20</time>
                     <h6 class="title is-6"><a href="/2022/02/20/zh-tw/express-router-module/">Express 路由模組化</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2022-02-18T12:16:27.000Z" itemprop="datePublished">
-                        2月 18</time>
-                    <h6 class="title is-6"><a href="/2022/02/18/zh-tw/vue3-vite-ts/">Vue3 + Vite + Ts 專案建置</a></h6>
                 </div>
             
             </div>

@@ -71,9 +71,9 @@
 <body>
     
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
+    <div class="container custom-nav">
         <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/">
+            <a class="navbar-item navbar-logo position-relative" href="/">
                 
                 <img src="/images/logo.png" alt="" height="28">
                 
@@ -88,16 +88,24 @@
         <div class="navbar-menu navbar-start">
             
             <a class="navbar-item "
-               href="/archives">文章</a>
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/categories">分類</a>
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/tags">標籤</a>
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/zh-tw/about">關於</a>
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
             
         </div>
         
@@ -152,14 +160,38 @@
         <span class="column is-narrow">
             
             
-            3 分鐘 讀完 (約 377 字)
+            3 分鐘 讀完 (約 376 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
+        <!-- <html><head></head><body><img src="/images/laravel-public/0.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+<p>雖然檔案打包是現今網頁開發的趨勢，但網站難免需要引用未經編譯的靜態檔案，以避免編譯後的亂數檔名都要經過打包程序才能使用，Laravel 專案包中的 <code>public</code> 資料夾就是靜態檔案的去處，與之相對應會被壓縮及打包的動態檔案則要放置在 <code>resources</code> 資料中：</p>
+<h1 id="靜態-css-檔案"><a href="#靜態-css-檔案" class="headerlink" title="靜態 css 檔案"></a>靜態 css 檔案</h1><p>在 public/css/style.css 存放網站的主要設計檔，並且在主模板 <code>resources/views/layout/layout.blade.php</code> 中引用該靜態檔案之路徑在 <code>&lt;link&gt;</code> 中：</p>
+<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/style.css"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  ...</span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
+<p>但問題來了！當路由來到巢狀或雙層的時候，絕對路徑的悲劇就會發生，若我們將路由改成：</p>
+<figure class="highlight php hljs"><figcaption><span>web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/about/about'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'about'</span>]);</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-public/1.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+<p>你會看到 css 檔案的路徑改變成 <code>http://localhost:3000/about/css/style.css</code>，因為找不到 about 底下的 css 檔案，所以整個 style 返回 404：</p>
+<img src="/images/laravel-public/2.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+
+<hr>
+<h1 id="url-function"><a href="#url-function" class="headerlink" title="url function"></a>url function</h1><p>你想到的問題 Laravel 怎麼會漏掉？這時候可以使用 blade 模板引擎包裝好的 <code>url 方法</code>，傳入相對靜態檔案路徑當參數,，來抓取靜態檔案的正確路徑：</p>
+<figure class="highlight php hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="hljs-string">"stylesheet"</span> href=<span class="hljs-string">"{{ url('css/style.css') }}"</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>運作正常：</p>
+<img src="/images/laravel-public/3.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+
+
+</body></html> -->
+        
+        
         <html><head></head><body><img src="/images/laravel-public/0.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
-<p>雖然檔案打包是現今網頁開發的趨勢，但網站難免需要引用未經編譯的靜態檔案，以避免編譯後的亂數檔名都要經過打包程序才能使用，Laravel 專案包中的 <code>public</code> 資料夾就是靜態檔案的去處，與之相對應會被壓縮及打包的動態檔案則要放置在 <code>resources</code> 資料中：</p></body></html>
+<p>雖然檔案打包是現今網頁開發的趨勢，但網站難免需要引用未經編譯的靜態檔案，以避免編譯後的亂數檔名都要經過打包程序才能使用，Laravel 專案包中的 <code>public</code> 資料夾就是靜態檔案的去處，與之相對應會被壓縮及打包的動態檔案則要放置在 <code>resources</code> 資料中：</p>
+<h1 id="靜態-css-檔案"><a href="#靜態-css-檔案" class="headerlink" title="靜態 css 檔案"></a>靜態 css 檔案</h1><p>在 public/css/style.css 存放網站的主要設計檔，並且在主模板 <code>resources/views/layout/layout.blade.php</code> 中引用該靜態檔案之路徑在 <code>&lt;link&gt;</code> 中：</p>
+        <!--  -->
+        
         <p class="article-more-link">
             <a href="/2022/04/10/zh-tw/laravel-public/">more</a>
         </p>

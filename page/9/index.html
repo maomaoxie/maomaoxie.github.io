@@ -71,9 +71,9 @@
 <body>
     
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
+    <div class="container custom-nav">
         <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/">
+            <a class="navbar-item navbar-logo position-relative" href="/">
                 
                 <img src="/images/logo.png" alt="" height="28">
                 
@@ -88,16 +88,24 @@
         <div class="navbar-menu navbar-start">
             
             <a class="navbar-item "
-               href="/archives">文章</a>
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/categories">分類</a>
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/tags">標籤</a>
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/zh-tw/about">關於</a>
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
             
         </div>
         
@@ -126,6 +134,61 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/02/25/zh-tw/web-socket-and-web-hook/" itemprop="url">Web Socket v.s Web Hook</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-02-25T03:29:08.000Z" itemprop="datePublished">2月 25 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/webSocket/">webSocket</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分鐘 讀完 (約 224 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/web-socket-and-web-hook/0.png" class="" width="800" height="200" title="[web-socket-and-web-hook [web-socket-and-web-hook]]">
+<p>API 的形式有兩大宗：<br>Web Hook 與 Web Socket，而他們有甚麼差異呢？</p>
+<h1 id="被動式-Web-Hook"><a href="#被動式-Web-Hook" class="headerlink" title="被動式 Web Hook"></a>被動式 Web Hook</h1><p>例如 Line Bot，server 會先預測使用者的動作與需求（events），設計出相對的程式並維護，等待使用者發出要求才動作。</p>
+<h1 id="主動式-Web-Socket"><a href="#主動式-Web-Socket" class="headerlink" title="主動式 Web Socket"></a>主動式 Web Socket</h1><p>兩方的資料交互，例如 client 與 server、server 與 server。<br>應用場景如聊天功能：facebook messenger 或 Line 等，Web Socket 的技術可以「即時的」(real time)做出資料傳遞。<br>當你打開 facebook messenger 的視窗，Web Socket server 就會與 client 瀏覽器端 handshake 保持通訊暢通，持續監聽對話要求並回應(opened and persistent connection)</p>
+<p>參考資料：</p>
+<blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+</blockquote></body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/web-socket-and-web-hook/0.png" class="" width="800" height="200" title="[web-socket-and-web-hook [web-socket-and-web-hook]]">
+<p>API 的形式有兩大宗：<br>Web Hook 與 Web Socket，而他們有甚麼差異呢？</p>
+<h1 id="被動式-Web-Hook"><a href="#被動式-Web-Hook" class="headerlink" title="被動式 Web Hook"></a>被動式 Web Hook</h1><p>例如 Line Bot，server 會先預測使用者的動作與需求（events），設計出相對的程式並維護，等待使用者發出要求才動作。</p>
+        <!--  -->
+        
+        <p class="article-more-link">
+            <a href="/2022/02/25/zh-tw/web-socket-and-web-hook/">more</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/02/25/zh-tw/graph-ql-api/" itemprop="url">Graph QL 新世代 API</a>
         
     </h1>
@@ -145,15 +208,36 @@
         <span class="column is-narrow">
             
             
-            3 分鐘 讀完 (約 449 字)
+            3 分鐘 讀完 (約 448 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
+        <!-- <html><head></head><body><img src="/images/graph-ql-api/0.png" class="" width="800" height="200" title="[css-less [css-less]]">
+<p>隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！</p>
+<p>2012 年 facebook 內部研發出來的新形態 API，2015 年提出發表，特點是前端可以直接進資料庫，不需要透過後端查詢撈取資料。<br>概念有一點類似用前端語言操作 <code>MySQL</code>。前端也擁有更彈性的空間來制定查詢資料的規則與方式，有更大話語權，但相對來講也增加資料設計的難度，在思考的維度上需要更廣更深才能靈活應付多變的資料需求。</p>
+<h1 id="Graph-QL-操作概念"><a href="#Graph-QL-操作概念" class="headerlink" title="Graph QL 操作概念"></a>Graph QL 操作概念</h1><img src="/images/graph-ql-api/1.png" class="" width="800" height="200" title="[css-less [css-less]]">
+<blockquote>
+<p>使用者透過輸入定義好的語法，取得所需的資料 (如 <code>SELECT</code>) 或是修改指定的資料 (如 <code>CREATE</code> 、 <code>UPDATE</code>)。</p>
+</blockquote>
+<h2 id="資料的格式"><a href="#資料的格式" class="headerlink" title="資料的格式"></a>資料的格式</h2><h4 id="前端-request-長相"><a href="#前端-request-長相" class="headerlink" title="前端 request 長相"></a>前端 request 長相</h4><figure class="highlight javascript hljs"><figcaption><span>example</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">query {</span><br><span class="line">  <span class="title class_">User</span>(<span class="hljs-attr">id</span>: <span class="hljs-string">'aefk34kasl9'</span>) {</span><br><span class="line">    name</span><br><span class="line">    posts{</span><br><span class="line">      title</span><br><span class="line">    }</span><br><span class="line">    <span class="title function_">followers</span>(<span class="hljs-params">last: <span class="hljs-number">3</span></span>){</span><br><span class="line">      name</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="資料庫-response-長相"><a href="#資料庫-response-長相" class="headerlink" title="資料庫 response 長相"></a>資料庫 response 長相</h4><figure class="highlight javascript hljs"><figcaption><span>example</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="hljs-string">"data"</span>: {</span><br><span class="line">    <span class="hljs-string">"User"</span>: {</span><br><span class="line">      <span class="hljs-string">"name"</span>: <span class="hljs-string">"Mawchu"</span></span><br><span class="line">      <span class="hljs-string">"posts"</span>:[</span><br><span class="line">        { <span class="hljs-attr">title</span>: <span class="hljs-string">"喵喵的一天"</span> }</span><br><span class="line">      ]</span><br><span class="line">      <span class="hljs-string">"followers"</span>: [</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Cally"</span> },</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Donna"</span> },</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Jell"</span> },</span><br><span class="line">      ]</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h1><blockquote>
+<p>Schema，香港和中國大陸翻譯為模式或架構，在資料庫系統中是形式語言描述的一種結構，是對象的集合，可包含各種對象如：表、欄位、關係模型、視圖、索引、包、存儲過程、子程序、隊列、觸發器、數據類型、序列、物化視圖、同義詞（synonym）、database link、directory、XML schema等。</p>
+</blockquote>
+<p>參考資料：</p>
+<blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用<br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10200678">https://ithelp.ithome.com.tw/articles/10200678</a></p>
+</blockquote></body></html> -->
+        
+        
         <html><head></head><body><img src="/images/graph-ql-api/0.png" class="" width="800" height="200" title="[css-less [css-less]]">
 <p>隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！</p>
-<p>2012 年 facebook 內部研發出來的新形態 API，2015 年提出發表，特點是前端可以直接進資料庫，不需要透過後端查詢撈取資料。<br>概念有一點類似用前端語言操作 <code>MySQL</code>。前端也擁有更彈性的空間來制定查詢資料的規則與方式，有更大話語權，但相對來講也增加資料設計的難度，在思考的維度上需要更廣更深才能靈活應付多變的資料需求。</p></body></html>
+<p>2012 年 facebook 內部研發出來的新形態 API，2015 年提出發表，特點是前端可以直接進資料庫，不需要透過後端查詢撈取資料。<br>概念有一點類似用前端語言操作 <code>MySQL</code>。前端也擁有更彈性的空間來制定查詢資料的規則與方式，有更大話語權，但相對來講也增加資料設計的難度，在思考的維度上需要更廣更深才能靈活應付多變的資料需求。</p>
+        <!--  -->
+        
         <p class="article-more-link">
             <a href="/2022/02/25/zh-tw/graph-ql-api/">more</a>
         </p>
@@ -189,60 +273,48 @@
         <span class="column is-narrow">
             
             
-            6 分鐘 讀完 (約 971 字)
+            6 分鐘 讀完 (約 970 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
+        <!-- <html><head></head><body><img src="/images/restful-api-and-web-service/0.png" class="" width="600" height="200" title="restful-api-and-web-service">
+<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+<p>串接 API 是前後端分離的框架興盛之後最重要的課題之一啦！但是對初探網頁程式領域的菜菜子來說這個世界太廣太深，讓人望之卻步，萬事起頭難，就先來理解一下 API 武林世界裡的的兩大流派吧！</p>
+<h1 id="SOAP-amp-XML"><a href="#SOAP-amp-XML" class="headerlink" title="SOAP &amp; XML"></a>SOAP &amp; XML</h1><h4 id="企業類型"><a href="#企業類型" class="headerlink" title="企業類型"></a>企業類型</h4><p>成立已久的正宗流派，有許多資深企業的系統愛用的 API 串接方式，例如政府機構或是建案公司等老牌廠商。</p>
+<h4 id="資料格式"><a href="#資料格式" class="headerlink" title="資料格式"></a>資料格式</h4><p>傳遞資料多為較嚴謹與複雜的 <code>SOAP</code>﹑<code>Xml</code> 格式，由於規範的細節較多而且有一定的流程要走完，容易造成程式的肥大與艱澀，當用在小型專案時往往會有殺雞焉用牛刀之感，在準備期會比較漫長且學習曲線高，但是對於大型系統的整合還是有其優點。</p>
+<h4 id="程式取向"><a href="#程式取向" class="headerlink" title="程式取向"></a>程式取向</h4><p>當初由微軟所開發，所以程式取向多限制在 IIS 微軟開發體系，例如 <code>.net</code>。</p>
+<hr>
+<h1 id="RESTful-API"><a href="#RESTful-API" class="headerlink" title="RESTful API"></a>RESTful API</h1><h4 id="企業類型-1"><a href="#企業類型-1" class="headerlink" title="企業類型"></a>企業類型</h4><p>新興產業或新創公司等現代化的企業偏愛的 API 串接方式，為求快速開發多選用輕量的 <code>RESTful API</code> 以求在競爭激烈的市場上異軍突起。</p>
+<h4 id="資料格式-1"><a href="#資料格式-1" class="headerlink" title="資料格式"></a>資料格式</h4><p>傳遞資料多為簡單易懂的 <code>Json</code>，開發程式也容易快速，可以靈活地符合大或小的資料需求．不過相對來講規範與細節也比較粗糙與鬆散，需要在準備期規範好 API 的命名規則與資料邏輯，不然容易導致 API 很多但功能性重複等問題。</p>
+<h4 id="程式取向-1"><a href="#程式取向-1" class="headerlink" title="程式取向"></a>程式取向</h4><p>任何程式語言都可以開發出來的 API．不侷限於哪種體系的程式，例如 <code>python</code>﹑<code>php</code>﹑<code>ruby</code>﹑<code>node.js</code>等等。</p>
+<p>而今的開發環境裡新興的流派已經逐漸為 RESTful API 所佔有，資深或金融機構也逐步轉型為輕量的 API 資料交換方式。</p>
+<hr>
+<h1 id="SOAP-v-s-REST"><a href="#SOAP-v-s-REST" class="headerlink" title="SOAP v.s REST"></a>SOAP v.s REST</h1><h4 id="REST-優於-SOAP"><a href="#REST-優於-SOAP" class="headerlink" title="REST 優於 SOAP"></a>REST 優於 SOAP</h4><blockquote><p>REST 提供更多元資料格式。SOAP 只有 XML。<br>基於 JSON，REST 被公認是易於處理的。<br>基於 JSON，REST 提供對瀏覽器更好的支援。<br>REST 提供優越的性能。特別指快取資料。<br>世界級大公司主要服務協定。<br>REST 一般而言比較快且省頻寬。</p>
+</blockquote>
+
+<h3 id="SOAP-優於-REST"><a href="#SOAP-優於-REST" class="headerlink" title="SOAP 優於 REST"></a>SOAP 優於 REST</h3><blockquote><p>SOAP 是標準 HTTP 協定，能更方便通過防火牆和Proxy而不對協定本身進行修改。<br>如果你需要處理 ACID 交易，那麼 SOAP 是不錯的方向。<br>SOAP 擁有各種 WS- 擴充服務，擁有高可擴充性。<br>B2B 的世界，安全與穩定重於一切。</p>
+</blockquote>
+<hr>
+<blockquote><p>Bruce 的一些心得</p>
+<p>青菜蘿蔔各有所好，並不一樣是 REST 完勝，例如，之前有一陣子在忙的 B2B Biztalk 專案，在加解密(安全)部分，基於 XML 的 SOAP 就比 REST 更為合適。但基於 XML 的協定有個很明顯的缺點，就是當來源資料量成長一些些，產出的 XML 資料量會明顯成長很多。資料解析下，拜 JSON.NET 之類的框架(如之前介紹過的 Jil)幫忙，JSON 格式的處理是非常簡單的。但如果有一天，你真的碰到要處理 XML，那麼不要忘記 LINQ to XML 這個技術就好。</p>
+</blockquote>
+
+<p>參考資料：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.kkbruce.net/2018/04/soap-with-rest-good-parts.html#.YheofuhBxPY">https://blog.kkbruce.net/2018/04/soap-with-rest-good-parts.html#.YheofuhBxPY</a></p>
+</blockquote>
+</body></html> -->
+        
+        
         <html><head></head><body><img src="/images/restful-api-and-web-service/0.png" class="" width="600" height="200" title="restful-api-and-web-service">
 <p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
-<p>串接 API 是前後端分離的框架興盛之後最重要的課題之一啦！但是對初探網頁程式領域的菜菜子來說這個世界太廣太深，讓人望之卻步，萬事起頭難，就先來理解一下 API 武林世界裡的的兩大流派吧！</p></body></html>
+<p>串接 API 是前後端分離的框架興盛之後最重要的課題之一啦！但是對初探網頁程式領域的菜菜子來說這個世界太廣太深，讓人望之卻步，萬事起頭難，就先來理解一下 API 武林世界裡的的兩大流派吧！</p>
+        <!--  -->
+        
         <p class="article-more-link">
             <a href="/2022/02/24/zh-tw/restful-api-and-web-service/">more</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/02/21/zh-tw/git-command-line/" itemprop="url">Git 常用的指令</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-02-21T09:14:05.000Z" itemprop="datePublished">2月 21 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/git/">git</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            幾秒 讀完 (約 94 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>這裡記錄一些工作上會用到的 git 指令，太容易忘記了阿（扶額</p>
-<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></tbody></table></figure></body></html>
-        <p class="article-more-link">
-            <a href="/2022/02/21/zh-tw/git-command-line/">more</a>
         </p>
     
     </div>

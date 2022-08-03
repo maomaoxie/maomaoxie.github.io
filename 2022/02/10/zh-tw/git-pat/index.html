@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://maomaoxie.github.io/images/github-pat/github-pat3-1.png">
 <meta property="og:image" content="http://maomaoxie.github.io/images/github-pat/github-pat4.png">
 <meta property="article:published_time" content="2022-02-10T04:31:14.000Z">
-<meta property="article:modified_time" content="2022-02-20T09:20:04.273Z">
+<meta property="article:modified_time" content="2022-08-01T16:03:26.677Z">
 <meta property="article:author" content="Mawchu">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="github">
@@ -84,9 +84,9 @@
 <body>
     
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
+    <div class="container custom-nav">
         <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/">
+            <a class="navbar-item navbar-logo position-relative" href="/">
                 
                 <img src="/images/logo.png" alt="" height="28">
                 
@@ -101,16 +101,24 @@
         <div class="navbar-menu navbar-start">
             
             <a class="navbar-item "
-               href="/archives">文章</a>
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/categories">分類</a>
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/tags">標籤</a>
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/zh-tw/about">關於</a>
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
             
         </div>
         
@@ -157,16 +165,44 @@
         <span class="column is-narrow">
             
             
-            3 分鐘 讀完 (約 486 字)
+            3 分鐘 讀完 (約 485 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
+        <!-- <html><head></head><body><p>在2022年某天，嘗試使用 sourcetree 推上去新 code 時，在 Github 時出現了以下錯誤訊息：</p>
+<blockquote class="colorquote danger"><p>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.<br>remote: Please see <a target="_blank" rel="noopener" href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a> for more information.<br>fatal: unable to access “…” : The requested URL returned error: 403</p>
+</blockquote>
+
+<p>以上說明大概就是 Github 已經不支援密碼登入的方式，從 2021/08/13 開始必須替換為 PAT 的 token 登入方式進行認證。</p>
+<p>這個過程採了一些小坑，為了避免自己忘記趕緊的筆記一下：</p>
+<h1 id="Github-創建-token"><a href="#Github-創建-token" class="headerlink" title="Github 創建 token"></a>Github 創建 token</h1>  <blockquote><p>From your GitHub account, go to Settings =&gt; Developer Settings =&gt; Personal Access Token =&gt; Generate New Token (Give your password) =&gt; Fillup the form =&gt; click Generate token =&gt; Copy the generated Token, it will be something like ghp_sFhFsSHhTzMDreGRLjmks4Tzuzgthdvfsrta</p>
+</blockquote>
+<ol>
+<li>按下右上角頭像，選取 settings  <img src="/images/github-pat/github-pat1.png" class="" width="800" height="100" title="[title text [alt text]]"></li>
+<li>按下 developer settings  <img src="/images/github-pat/github-pat2.png" class="" width="800" height="200" title="[title text [alt text]]"></li>
+<li>點選 personal accesss token  <img src="/images/github-pat/github-pat2-1.png" class="" width="800" height="200" title="[title text [alt text]]"></li>
+<li>填寫 token 用途與勾選 token 權限之後，申請一個 token 並且妥善保存  <img src="/images/github-pat/github-pat2-2.png" class="" width="800" height="200" title="[title text [alt text]]"></li>
+</ol>
+<h1 id="sourceTree-修改遠端-URL"><a href="#sourceTree-修改遠端-URL" class="headerlink" title="sourceTree 修改遠端 URL"></a>sourceTree 修改遠端 URL</h1><p>  專案的 repo 點選 settings 修改 remote URL 的格式如下，<br>  </p><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://&lt;USERNAME&gt;:&lt;TOKEN&gt;@&lt;GIT_URL&gt;.git</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>  查詢 GIT_URL 可以透過這個指令：<br>  </p><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --get remote.origin.url</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>  並且記得 GIT_URL 要刪除 https:// 的部分才不會出錯，類似這樣<br>  </p><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://mawchu:&lt;你的Github token&gt;@github.com/mawchu/mawchu.github.io.git</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h1 id="驗證-Sourcetree-的身分"><a href="#驗證-Sourcetree-的身分" class="headerlink" title="驗證 Sourcetree 的身分"></a>驗證 Sourcetree 的身分</h1>  <img src="/images/github-pat/github-pat3.png" class="" width="800" height="200" title="[title text [alt text]]">
+  <img src="/images/github-pat/github-pat3-1.png" class="" width="800" height="200" title="[title text [alt text]]">
+
+<p>  切換 OAuth 為 Basic 驗證方式，輸入方才申請好的 token 密碼<br>  <img src="/images/github-pat/github-pat4.png" class="" width="800" height="200" title="[title text [alt text]]"></p>
+<p>  驗證 OK 就可以推上去囉！</p>
+<p>參考文章：</p>
+<blockquote><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to">https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/68191968/source-tree-fix-for-git-password-authentication-is-temporarily-disabled-as-part">https://stackoverflow.com/questions/68191968/source-tree-fix-for-git-password-authentication-is-temporarily-disabled-as-part</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr">https://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr</a></p>
+</blockquote>
+</body></html> -->
+        
+        
         <html><head></head><body><p>在2022年某天，嘗試使用 sourcetree 推上去新 code 時，在 Github 時出現了以下錯誤訊息：</p>
 <blockquote class="colorquote danger"><p>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.<br>remote: Please see <a target="_blank" rel="noopener" href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a> for more information.<br>fatal: unable to access “…” : The requested URL returned error: 403</p>
 </blockquote>
-<span id="more"></span>
+
 <p>以上說明大概就是 Github 已經不支援密碼登入的方式，從 2021/08/13 開始必須替換為 PAT 的 token 登入方式進行認證。</p>
 <p>這個過程採了一些小坑，為了避免自己忘記趕緊的筆記一下：</p>
 <h1 id="Github-創建-token"><a href="#Github-創建-token" class="headerlink" title="Github 創建 token"></a>Github 創建 token</h1>  <blockquote><p>From your GitHub account, go to Settings =&gt; Developer Settings =&gt; Personal Access Token =&gt; Generate New Token (Give your password) =&gt; Fillup the form =&gt; click Generate token =&gt; Copy the generated Token, it will be something like ghp_sFhFsSHhTzMDreGRLjmks4Tzuzgthdvfsrta</p>
@@ -189,6 +225,10 @@
 <blockquote><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to">https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/68191968/source-tree-fix-for-git-password-authentication-is-temporarily-disabled-as-part">https://stackoverflow.com/questions/68191968/source-tree-fix-for-git-password-authentication-is-temporarily-disabled-as-part</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr">https://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr</a></p>
 </blockquote>
 </body></html>
+        
+        <p class="article-more-link">
+            <a href="/2022/02/10/zh-tw/git-pat/">more</a>
+        </p>
     
     </div>
     
@@ -209,9 +249,7 @@
             <a href="/2022/02/11/zh-tw/less-css/">預處理器新朋友-Less</a>
             
         </span>
-        <span class="column is-12-mobile is-half-desktop  article-nav-next">
-            
-            <a href="/2022/02/08/zh-tw/hello-world/">感謝您的閱讀</a>
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-next">
             
         </span>
     </div>

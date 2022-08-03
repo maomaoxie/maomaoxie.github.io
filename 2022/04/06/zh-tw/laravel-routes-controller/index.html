@@ -19,12 +19,12 @@
 
 
 
-    <meta name="description" content="當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 Controller 來執行：">
+    <meta name="description" content="當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 Controller 來執行： init controller使用優雅的 artisan cmd 就可以創建一個 Controller class 模板，在 windows powerShell 輸入wsl 即可切換至 Linux WSL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Laravel 認識 controller">
 <meta property="og:url" content="http://maomaoxie.github.io/2022/04/06/zh-tw/laravel-routes-controller/index.html">
 <meta property="og:site_name" content="Mawchu 貓奴前端">
-<meta property="og:description" content="當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 Controller 來執行：">
+<meta property="og:description" content="當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 Controller 來執行： init controller使用優雅的 artisan cmd 就可以創建一個 Controller class 模板，在 windows powerShell 輸入wsl 即可切換至 Linux WSL">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://maomaoxie.github.io/images/laravel-routes-controller/0.png">
 <meta property="og:image" content="http://maomaoxie.github.io/images/laravel-routes-controller/1.png">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://maomaoxie.github.io/images/laravel-routes-controller/3.png">
 <meta property="og:image" content="http://maomaoxie.github.io/images/laravel-routes-controller/4.png">
 <meta property="article:published_time" content="2022-04-06T13:49:05.000Z">
-<meta property="article:modified_time" content="2022-04-10T06:45:00.731Z">
+<meta property="article:modified_time" content="2022-08-01T16:03:26.708Z">
 <meta property="article:author" content="Mawchu">
 <meta property="article:tag" content="laravel">
 <meta property="article:tag" content="php">
@@ -81,9 +81,9 @@
 <body>
     
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
+    <div class="container custom-nav">
         <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/">
+            <a class="navbar-item navbar-logo position-relative" href="/">
                 
                 <img src="/images/logo.png" alt="" height="28">
                 
@@ -98,16 +98,24 @@
         <div class="navbar-menu navbar-start">
             
             <a class="navbar-item "
-               href="/archives">文章</a>
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/categories">分類</a>
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/tags">標籤</a>
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/zh-tw/about">關於</a>
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
             
         </div>
         
@@ -154,16 +162,44 @@
         <span class="column is-narrow">
             
             
-            3 分鐘 讀完 (約 427 字)
+            3 分鐘 讀完 (約 426 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
+        <!-- <html><head></head><body><img src="/images/laravel-routes-controller/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
+<p>當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 <strong>Controller</strong> 來執行：</p>
+<h1 id="init-controller"><a href="#init-controller" class="headerlink" title="init controller"></a>init controller</h1><p>使用優雅的 <code>artisan cmd</code> 就可以創建一個 Controller class 模板，在 windows powerShell 輸入<code>wsl</code> 即可切換至 Linux WSL 子系統，終端機輸入以下指令可以查詢所有 artisan cmd 的說明，記得 cd 進入專案包內才可使用 artisan 指令：</p>
+<figure class="highlight javascript hljs"><figcaption><span>terminal</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-routes-controller/1.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
+
+<p>建立 Controller 模板的 artisan cmd：</p>
+<figure class="highlight javascript hljs"><figcaption><span>terminal</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan <span class="hljs-attr">make</span>:controller homeController</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-routes-controller/2.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
+
+<h1 id="撰寫-Controller"><a href="#撰寫-Controller" class="headerlink" title="撰寫 Controller"></a>撰寫 Controller</h1><p>使用<strong>路由名稱</strong>創建 function 並且制定渲染內容，連接 Views：</p>
+<figure class="highlight php hljs"><figcaption><span>App/Https/Controllers/homeController.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Http</span>\<span class="title class_">Controllers</span>;</span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">Illuminate</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">homeController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">index</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'welcome'</span>);</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 參數要記得帶</span></span><br><span class="line">  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dog</span> (<span class="hljs-params"><span class="hljs-variable">$dogName</span></span>) </span>{</span><br><span class="line">    <span class="hljs-variable">$datas</span> = [</span><br><span class="line">      <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span>,</span><br><span class="line">      <span class="hljs-string">"dogName"</span> =&gt; <span class="hljs-variable">$dogName</span></span><br><span class="line">    ];</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'routesTest'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote class="colorquote info"><p>記得將應用到的動態參數一並移植到 Controller 的 function arguments 中！</p>
+</blockquote>
+
+<h1 id="對應-Routes-字串"><a href="#對應-Routes-字串" class="headerlink" title="對應 Routes 字串"></a>對應 Routes 字串</h1><p>將路由路徑制定好並且傳入陣列參數：</p>
+<ol>
+<li><code>use</code> 剛才創建的 Controller 檔案</li>
+<li>索引<code>[0]</code>放置 <code>ControllerName::class</code></li>
+<li>索引<code>[1]</code>放置對應 <code>function</code>：<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">Illuminate</span>\<span class="hljs-title">Support</span>\<span class="hljs-title">Facades</span>\<span class="hljs-title">Route</span>;</span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Controllers</span>\<span class="hljs-title">homeController</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'index'</span>]);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/dog/{dogName}'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'dog'</span>]);</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+<p>渲染結果：</p>
+<img src="/images/laravel-routes-controller/3.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
+<img src="/images/laravel-routes-controller/4.png" class="laravel-routes" width="500" height="200" title="Laravel路由控制器">
+
+<p>以上就是 Controller 的常見功能。</p>
+</body></html> -->
+        
+        
         <html><head></head><body><img src="/images/laravel-routes-controller/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
 <p>當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 <strong>Controller</strong> 來執行：</p>
-<span id="more"></span>
-
 <h1 id="init-controller"><a href="#init-controller" class="headerlink" title="init controller"></a>init controller</h1><p>使用優雅的 <code>artisan cmd</code> 就可以創建一個 Controller class 模板，在 windows powerShell 輸入<code>wsl</code> 即可切換至 Linux WSL 子系統，終端機輸入以下指令可以查詢所有 artisan cmd 的說明，記得 cd 進入專案包內才可使用 artisan 指令：</p>
 <figure class="highlight javascript hljs"><figcaption><span>terminal</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan</span><br></pre></td></tr></tbody></table></figure>
 <img src="/images/laravel-routes-controller/1.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
@@ -190,6 +226,10 @@
 
 <p>以上就是 Controller 的常見功能。</p>
 </body></html>
+        
+        <p class="article-more-link">
+            <a href="/2022/04/06/zh-tw/laravel-routes-controller/">more</a>
+        </p>
     
     </div>
     

@@ -71,9 +71,9 @@
 <body>
     
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
+    <div class="container custom-nav">
         <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/">
+            <a class="navbar-item navbar-logo position-relative" href="/">
                 
                 <img src="/images/logo.png" alt="" height="28">
                 
@@ -88,16 +88,24 @@
         <div class="navbar-menu navbar-start">
             
             <a class="navbar-item "
-               href="/archives">文章</a>
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/categories">分類</a>
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/tags">標籤</a>
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/zh-tw/about">關於</a>
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
             
         </div>
         
@@ -152,15 +160,56 @@
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 651 字)
+            4 分鐘 讀完 (約 650 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
+        <!-- <html><head></head><body><img src="/images/laravel-layout/0.png" class="" width="800" height="200" title="laravel-layout">
+
+<p>在設計 UI 模板時重複使用的內容屢見不鮮，例如 header、footer 或是 sidebar 等多是網站中分頁裡的標配，這時候重複貼上一樣的模板就顯得有點呆，Laravel MVC 架構中 views 可以創建一個 layout 模板資料夾，重複的 UI 配置可以放置在這裡提供其他分頁的 blade 檔案使用，這樣一來也能省去 layout 修改時相關的檔案都要更改的麻煩事，統一在 layout 裡調整即可：</p>
+<h1 id="建立-layout-資料夾"><a href="#建立-layout-資料夾" class="headerlink" title="建立 layout 資料夾"></a>建立 layout 資料夾</h1><p>此資料夾可以存放共用的模板，例如 header、footer 或是 sidebar 的模板 html。<br>在 project 裡的 <code>resources/views</code> 建立一個 layout 資料夾：</p>
+<img src="/images/laravel-layout/1.png" class="" width="300" height="200" title="laravel-layout">
+<hr>
+<h1 id="撰寫模板"><a href="#撰寫模板" class="headerlink" title="撰寫模板"></a>撰寫模板</h1><p>確立好 controller 中與 views 與 routes 的連結後，就可以著手進行模板的拆分啦！</p>
+<h3 id="extends-‘layoutFolder-x2F-layout’"><a href="#extends-‘layoutFolder-x2F-layout’" class="headerlink" title="@extends(‘layoutFolder/layout’)"></a>@extends(‘layoutFolder/layout’)</h3><p>承接共用模板的其他 views 則使用此語法接收模板，撰寫資料夾路徑方式有兩種：</p>
+<ol>
+<li>斜線</li>
+<li>點</li>
+</ol>
+<figure class="highlight javascript hljs"><figcaption><span>about.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">extends</span>(<span class="hljs-string">'layout.layout'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript hljs"><figcaption><span>about.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">extends</span>(<span class="hljs-string">'layout/layout'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="yield-‘content’"><a href="#yield-‘content’" class="headerlink" title="@yield(‘content’)"></a>@yield(‘content’)</h3><p>yield 像是在告訴 php 說我這裡需要挖個洞，待會會丟 html 進來，請認名稱來辨識丟進來的檔案：</p>
+<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">很多要共用的 html</span><br><span class="line">...(通常是 header)</span><br><span class="line">@<span class="title function_">yield</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">很多要共用的 html</span><br><span class="line">...(通常是 footer)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="section-‘content’-…-endsection"><a href="#section-‘content’-…-endsection" class="headerlink" title="@section(‘content’) … @endsection"></a>@section(‘content’) … @endsection</h3><p>section 類似 vue 的 slot，把其他網頁要替換的內容插入這個插槽中，在通過剛才的 <code>@yield('content')</code> 將page愈替換的內容塞進去共用的模板中：</p>
+<figure class="highlight javascript hljs"><figcaption><span>page.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">extends</span>(<span class="hljs-string">'layout/layout'</span>)</span><br><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">  這裡是 page content</span><br><span class="line">  ...</span><br><span class="line">@endsection</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-layout/3.png" class="" width="800" height="200" title="laravel-layout">
+<img src="/images/laravel-layout/2.png" class="" width="800" height="200" title="laravel-layout">
+<hr>
+<h1 id="獨立每個頁面的-script"><a href="#獨立每個頁面的-script" class="headerlink" title="獨立每個頁面的 script"></a>獨立每個頁面的 script</h1><p>插槽的概念同樣可以挖洞給每個獨立頁面放置專屬的 javascript，在 layout 的  之前放置 @yield(‘after_js’) 來承接 page 各自的 <code>&lt;script&gt;...&lt;/script&gt;</code>：</p>
+<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  ...</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">  ...</span><br><span class="line">  @<span class="title function_">yield</span>(<span class="hljs-string">'after_js'</span>)</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript hljs"><figcaption><span>page.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="hljs-string">"Hey!It's about page."</span>);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">@endsection</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-layout/4.png" class="" width="800" height="200" title="laravel-layout">
+<hr>
+<h1 id="簡化-section"><a href="#簡化-section" class="headerlink" title="簡化 @section"></a>簡化 @section</h1><p>每個頁面會有不同的 SEO 內容，例如 <code>title</code> 或是其他的 meta data，這時候 <code>@section</code> 又派上用場了，不同的是<strong>第二個參數</strong>可以傳入文字檔來渲染內容：</p>
+<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>@yield('title')<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    ...</span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span></span><br><span class="line">  ...</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript hljs"><figcaption><span>page.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'title'</span>, <span class="hljs-string">'pageTitle'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-layout/5.png" class="" width="300" height="200" title="laravel-layout">
+<img src="/images/laravel-layout/6.png" class="" width="300" height="200" title="laravel-layout">
+
+<hr>
+<blockquote><p>參考資料：<br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AGE3wRKljkw&amp;t=2402s">https://www.youtube.com/watch?v=AGE3wRKljkw&amp;t=2402s</a></p>
+</blockquote></body></html> -->
+        
+        
         <html><head></head><body><img src="/images/laravel-layout/0.png" class="" width="800" height="200" title="laravel-layout">
 
-<p>在設計 UI 模板時重複使用的內容屢見不鮮，例如 header、footer 或是 sidebar 等多是網站中分頁裡的標配，這時候重複貼上一樣的模板就顯得有點呆，Laravel MVC 架構中 views 可以創建一個 layout 模板資料夾，重複的 UI 配置可以放置在這裡提供其他分頁的 blade 檔案使用，這樣一來也能省去 layout 修改時相關的檔案都要更改的麻煩事，統一在 layout 裡調整即可：</p></body></html>
+<p>在設計 UI 模板時重複使用的內容屢見不鮮，例如 header、footer 或是 sidebar 等多是網站中分頁裡的標配，這時候重複貼上一樣的模板就顯得有點呆，Laravel MVC 架構中 views 可以創建一個 layout 模板資料夾，重複的 UI 配置可以放置在這裡提供其他分頁的 blade 檔案使用，這樣一來也能省去 layout 修改時相關的檔案都要更改的麻煩事，統一在 layout 裡調整即可：</p>
+        <!--  -->
+        
         <p class="article-more-link">
             <a href="/2022/04/10/zh-tw/laravel-layout/">more</a>
         </p>

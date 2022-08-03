@@ -71,9 +71,9 @@
 <body>
     
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
+    <div class="container custom-nav">
         <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/">
+            <a class="navbar-item navbar-logo position-relative" href="/">
                 
                 <img src="/images/logo.png" alt="" height="28">
                 
@@ -88,16 +88,24 @@
         <div class="navbar-menu navbar-start">
             
             <a class="navbar-item "
-               href="/archives">文章</a>
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/categories">分類</a>
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/tags">標籤</a>
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/zh-tw/about">關於</a>
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
             
         </div>
         
@@ -152,14 +160,53 @@
         <span class="column is-narrow">
             
             
-            7 分鐘 讀完 (約 1033 字)
+            7 分鐘 讀完 (約 1032 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
+        <!-- <html><head></head><body><img src="/images/short-circuit-and-optional-chaining/0.png" class="" width="800" height="200" title="短路解析與可選練修飾符">
+<p>在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說<code>undefined</code>（未定義）、<code>null</code>（空值）或者是<code>0</code>（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。</p>
+<h1 id="理解真假值"><a href="#理解真假值" class="headerlink" title="理解真假值"></a>理解真假值</h1><p>先介紹 truthy(真值) 與 falsy(假值)：</p>
+<ul>
+<li>truthy：非 falsy 的值，或者是表達式結果為 <code>true</code></li>
+<li>falsy：<code>undefined</code>、<code>null</code>、非數字 <code>NaN</code>、數字 <code>0</code>、數字 <code>-0</code>、BigInt <code>0n</code>、空字串<code>''</code>(字串長度為 0)，或者是表達式結果為 <code>false</code></li>
+</ul>
+<p>以下介紹幾種邏輯判斷的捷徑：</p>
+<h1 id="邏輯運算子-amp-amp"><a href="#邏輯運算子-amp-amp" class="headerlink" title="邏輯運算子 &amp;&amp; ||"></a>邏輯運算子 <code>&amp;&amp;</code> <code>||</code></h1><p>舉個栗子</p>
+<figure class="highlight javascript hljs"><figcaption><span>邏輯運算子</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> numberAND = <span class="hljs-number">6</span></span><br><span class="line"><span class="hljs-keyword">const</span> numberOR = -<span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-keyword">if</span>(numberAND &gt; <span class="hljs-number">5</span> &amp;&amp; numberAND &lt; <span class="hljs-number">7</span>) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'哎呀'</span>)</span><br><span class="line">}</span><br><span class="line"><span class="hljs-keyword">if</span>(numberOR &gt; <span class="hljs-number">5</span> || numberOR &lt; <span class="hljs-number">7</span>) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'黑唷'</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="人類的理解"><a href="#人類的理解" class="headerlink" title="人類的理解"></a>人類的理解</h3><p>當 numberAND 大於 5 且<strong>同時</strong>小於 7 值執行 <code>console.log('符合 &amp;&amp;')</code>；當 numberOR 大於 5 <strong>或者</strong>小於 7 值執行 <code>console.log('符合 ||')</code></p>
+<h3 id="電腦的理解"><a href="#電腦的理解" class="headerlink" title="電腦的理解"></a>電腦的理解</h3><p>當左邊的表達式 <code>numberAND &gt; 5</code> 結果為 <code>false</code> 則跳過右邊不執行 <code>numberAND &lt; 7</code>，直接<strong>跳出</strong>程式。<br>當左邊的表達式 <code>numberOR &gt; 5</code> 結果為 <code>true</code> 則跳過右邊不執行 <code>numberAND &lt; 7</code>，直接<strong>進入</strong>程式。</p>
+<p>結論為，當左邊的表達式符合條件，<code>&amp;&amp;</code> 的 if 直接跳出；<code>||</code> 的 if 直接進入。<br>來理一理箇中原由吧！</p>
+<h1 id="短路解析-Short-Circuit"><a href="#短路解析-Short-Circuit" class="headerlink" title="短路解析(Short Circuit)"></a>短路解析(Short Circuit)</h1><p>短路我個人覺得沒有捷徑來得好懂，短路比較讓人聯想為損毀或壞掉的電子產品，而捷徑則代表透過偷吃步或者抄捷徑的方式以取得一樣的結果。這裡的短路較接近後者，js 運行上的偷吃步：</p>
+<h3 id="amp-amp-的短路解析"><a href="#amp-amp-的短路解析" class="headerlink" title="&amp;&amp; 的短路解析"></a><code>&amp;&amp;</code> 的短路解析</h3><p>當左邊的表達式為 <code>false</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
+<h3 id="的短路解析"><a href="#的短路解析" class="headerlink" title="|| 的短路解析"></a><code>||</code> 的短路解析</h3><p>當左邊的表達式為 <code>true</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
+<p>以上可以知道 js 執行完左邊的表達式之後，若符合條件則直接跳過右邊的表達式(不解析亦不執行)，相對來講當開發人員在理解短路解析時就可以按照這樣的邏輯去快速判斷結果。</p>
+<p>速記法：AND<code>false</code>跳出、OR<code>true</code>進入(執行)。</p>
+<blockquote><p>if you use <code>||</code> to provide some default value to another variable foo, you may encounter unexpected behaviors if you consider some falsy values as usable (e.g., <code>''</code> or <code>0</code>). </p>
+</blockquote>
+
+<h1 id="可選鍊修飾符-Optional-chaining"><a href="#可選鍊修飾符-Optional-chaining" class="headerlink" title="可選鍊修飾符(Optional chaining)"></a>可選鍊修飾符(Optional chaining)</h1><p>舉個栗子</p>
+<figure class="highlight javascript hljs"><figcaption><span>可選鍊修飾符</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> user = {};</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>);</span><br><span class="line"><span class="hljs-comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>.<span class="hljs-property">street</span>);</span><br><span class="line"><span class="hljs-comment">// error</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>?.<span class="hljs-property">street</span>);</span><br><span class="line"><span class="hljs-comment">// undefined</span></span><br></pre></td></tr></tbody></table></figure>
+<p>在這個範例中，user 物件的清單中有部分的使用者缺少了 <code>address</code> 這個屬性，但是大部分的使用者都具有該屬性時，就可以使用可選鍊修飾符來避免程式噴錯而中斷，但是需注意避免<strong>過度使用</strong>可選鍊修飾符</p>
+<h1 id="空值合併運算子-Nullish-coalescing-operator"><a href="#空值合併運算子-Nullish-coalescing-operator" class="headerlink" title="空值合併運算子(Nullish coalescing operator) ??"></a>空值合併運算子(Nullish coalescing operator) <code>??</code></h1><p>舉個栗子</p>
+<figure class="highlight javascript hljs"><figcaption><span>空值合併運算子</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">notNullish</span> (a, b) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(a ?? b);</span><br><span class="line">}</span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-literal">null</span>); <span class="hljs-comment">// null</span></span><br><span class="line">notNullish (<span class="hljs-literal">null</span>, <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// undefined</span></span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-number">0</span>); <span class="hljs-comment">// 0</span></span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-string">''</span>); <span class="hljs-comment">// ''</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>ES2020（ES11）提供的「空值合併運算子」，支援度需要搭配 babel 套件。</li>
+<li><code>??</code>常常與邏輯運算子 <code>||</code> 比較，前者返回非 <code>undefined</code> 與 <code>null</code> 的表達式，後者返回非 falsy 的表達式。過濾的條件上有區別，可以依照需求使用。</li>
+</ul>
+<h3 id="的短路解析-1"><a href="#的短路解析-1" class="headerlink" title="?? 的短路解析"></a><code>??</code> 的短路解析</h3><p>當左邊的表達式為 非 <code>undefined</code> 與 <code>null</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
+</body></html> -->
+        
+        
         <html><head></head><body><img src="/images/short-circuit-and-optional-chaining/0.png" class="" width="800" height="200" title="短路解析與可選練修飾符">
-<p>在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說<code>undefined</code>（未定義）、<code>null</code>（空值）或者是<code>0</code>（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。</p></body></html>
+<p>在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說<code>undefined</code>（未定義）、<code>null</code>（空值）或者是<code>0</code>（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。</p>
+<h1 id="理解真假值"><a href="#理解真假值" class="headerlink" title="理解真假值"></a>理解真假值</h1><p>先介紹 truthy(真值) 與 falsy(假值)：</p>
+        <!--  -->
+        
         <p class="article-more-link">
             <a href="/2022/03/12/zh-tw/short-circuit-and-optional-chaining/">more</a>
         </p>

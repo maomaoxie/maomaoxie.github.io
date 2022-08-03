@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://maomaoxie.github.io/images/http-status-code/0.png">
 <meta property="article:published_time" content="2022-03-01T14:27:36.000Z">
-<meta property="article:modified_time" content="2022-04-10T06:36:44.803Z">
+<meta property="article:modified_time" content="2022-08-01T16:03:26.688Z">
 <meta property="article:author" content="Mawchu">
 <meta property="article:tag" content="http">
 <meta property="article:tag" content="https">
@@ -78,9 +78,9 @@
 <body>
     
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
+    <div class="container custom-nav">
         <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/">
+            <a class="navbar-item navbar-logo position-relative" href="/">
                 
                 <img src="/images/logo.png" alt="" height="28">
                 
@@ -95,16 +95,24 @@
         <div class="navbar-menu navbar-start">
             
             <a class="navbar-item "
-               href="/archives">文章</a>
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/categories">分類</a>
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/tags">標籤</a>
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
             
             <a class="navbar-item "
-               href="/zh-tw/about">關於</a>
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
             
         </div>
         
@@ -151,17 +159,129 @@
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 541 字)
+            4 分鐘 讀完 (約 540 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
+        <!-- <html><head></head><body><img src="/images/http-status-code/0.png" class="" width="800" height="200" title="[http-status-code [http-status-code]]">
+<p>圖片來源：<a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
+<p>常常看到網站出現 404 找不到，或者是後端噴錯顯示了 Bad Gateway 卻不曉得箇中原因，而前後端打 API 也必須要讀懂狀態碼（HTTP Status code）代表的意涵，才能更有效率的除錯找出原因，以下是常見的狀態碼：</p>
+<h1 id="Level-200-發送成功"><a href="#Level-200-發送成功" class="headerlink" title="Level 200 發送成功"></a>Level 200 發送成功</h1><table>
+<thead>
+<tr>
+<th align="left">狀態碼</th>
+<th align="right">意涵</th>
+<th align="center">情境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">200</td>
+<td align="right">OK</td>
+<td align="center">API 要求與回應都OK</td>
+</tr>
+<tr>
+<td align="left">201</td>
+<td align="right">Created</td>
+<td align="center">成功建立了資料，例如 facebook 建立貼文</td>
+</tr>
+<tr>
+<td align="left">203</td>
+<td align="right">Http proxy</td>
+<td align="center">該伺服器是代理的伺服器，非原始 Origin</td>
+</tr>
+<tr>
+<td align="left">204</td>
+<td align="right">No Content</td>
+<td align="center">伺服器成功處理了請求，沒有返回任何內容</td>
+</tr>
+</tbody></table>
+<h1 id="Level-400-要求內容有誤"><a href="#Level-400-要求內容有誤" class="headerlink" title="Level 400 要求內容有誤"></a>Level 400 要求內容有誤</h1><table>
+<thead>
+<tr>
+<th align="left">狀態碼</th>
+<th align="right">意涵</th>
+<th align="center">情境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">400</td>
+<td align="right">Bad Request</td>
+<td align="center">發送要求但是需要的參數沒填、填寫的參數不符合規則，這個錯誤是客戶端造成的</td>
+</tr>
+<tr>
+<td align="left">401</td>
+<td align="right">Unauthorized</td>
+<td align="center">身分未明或是瀏覽的權限不夠、沒有登入會員或付費</td>
+</tr>
+<tr>
+<td align="left">403</td>
+<td align="right">Forbidden</td>
+<td align="center">黑名單而被禁止該項服務</td>
+</tr>
+<tr>
+<td align="left">404</td>
+<td align="right">Not Found</td>
+<td align="center">找不到該網站的某頁面</td>
+</tr>
+<tr>
+<td align="left">409</td>
+<td align="right">Conflict</td>
+<td align="center">服務流量過大導致衝突，或帳號/Email已被使用</td>
+</tr>
+</tbody></table>
+<h1 id="Level-500-伺服器有誤"><a href="#Level-500-伺服器有誤" class="headerlink" title="Level 500 伺服器有誤"></a>Level 500 伺服器有誤</h1><table>
+<thead>
+<tr>
+<th align="left">狀態碼</th>
+<th align="right">意涵</th>
+<th align="center">情境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">500</td>
+<td align="right">Internal Server Error</td>
+<td align="center">該服務伺服器出現不明問題，需要聯絡開發人員</td>
+</tr>
+<tr>
+<td align="left">503</td>
+<td align="right">Service Unavailable</td>
+<td align="center">該服務因為流量爆炸等原因無法使用了</td>
+</tr>
+<tr>
+<td align="left">501</td>
+<td align="right">Not Implemented</td>
+<td align="center">該服務有接收到要求，但還未實作未完成</td>
+</tr>
+<tr>
+<td align="left">502</td>
+<td align="right">Bad Gateway</td>
+<td align="center">連線伺服器成功，但中間軟體出錯</td>
+</tr>
+<tr>
+<td align="left">504</td>
+<td align="right">Gateway Timeout</td>
+<td align="center">連線伺服器成功，程式也沒問題，但經過中間軟體時出錯（過期）</td>
+</tr>
+<tr>
+<td align="left">599</td>
+<td align="right">Network Timeout</td>
+<td align="center">網路連線逾時，連不上</td>
+</tr>
+</tbody></table>
+<p>參考資料：</p>
+<blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+</blockquote>
+
+<p>延伸閱讀：</p>
+<blockquote><p><a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
+</blockquote></body></html> -->
+        
+        
         <html><head></head><body><img src="/images/http-status-code/0.png" class="" width="800" height="200" title="[http-status-code [http-status-code]]">
 <p>圖片來源：<a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
 <p>常常看到網站出現 404 找不到，或者是後端噴錯顯示了 Bad Gateway 卻不曉得箇中原因，而前後端打 API 也必須要讀懂狀態碼（HTTP Status code）代表的意涵，才能更有效率的除錯找出原因，以下是常見的狀態碼：</p>
-<span id="more"></span>
-
 <h1 id="Level-200-發送成功"><a href="#Level-200-發送成功" class="headerlink" title="Level 200 發送成功"></a>Level 200 發送成功</h1><table>
 <thead>
 <tr>
@@ -271,6 +391,10 @@
 <p>延伸閱讀：</p>
 <blockquote><p><a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
 </blockquote></body></html>
+        
+        <p class="article-more-link">
+            <a href="/2022/03/01/zh-tw/http-status-code/">more</a>
+        </p>
     
     </div>
     
