@@ -8,6 +8,12 @@ body, button, input, select, textarea {
 p {
   font-family: 'Noto Sans TC', sans-serif; }
 
+.article-tag i {
+  font-size: 10px;
+  margin-right: 5px; }
+  .article-tag i.fa, .article-tag i.fab, .article-tag i.fad, .article-tag i.fal, .article-tag i.far, .article-tag i.fas {
+    display: flex; }
+
 .gallery-item img {
   transform: scale(1);
   transition: ease-in-out .2s; }
@@ -37,6 +43,8 @@ a.gallery-item {
   overflow: hidden;
   padding: 0;
   margin: 0 0 10px 0; }
+  a.gallery-item.circle {
+    border-radius: 200px; }
 
 a.tag.article-tag {
   font-size: 0.9rem;
@@ -154,21 +162,11 @@ a.tag.article-tag {
 
 .article .article-nav .article-nav-prev a {
   padding-left: 1rem; }
-  .article .article-nav .article-nav-prev a:before {
-    top: 0;
-    left: 0;
-    content: '<';
-    position: absolute; }
 
 .article .article-nav .article-nav-next {
   text-align: right; }
   .article .article-nav .article-nav-next a {
     padding-right: 1rem; }
-    .article .article-nav .article-nav-next a:after {
-      top: 0;
-      right: 0;
-      content: '>';
-      position: absolute; }
 
 @media screen and (max-width: 768px) {
   .article .article-nav .article-nav-prev,
@@ -432,14 +430,24 @@ figure.highlight {
 
 .pagination {
   margin: 0 -1em; }
+  .pagination .pagination-previous:hover i {
+    transform: translateX(-10px); }
+  .pagination .pagination-next:hover i {
+    transform: translateX(10px); }
   .pagination .pagination-previous,
   .pagination .pagination-next,
   .pagination .pagination-link {
-    border: 1px solid transparent; }
+    border: 1px solid transparent;
+    font-size: 14px; }
     .pagination .pagination-previous:active,
     .pagination .pagination-next:active,
     .pagination .pagination-link:active {
       box-shadow: none; }
+    .pagination .pagination-previous i,
+    .pagination .pagination-next i,
+    .pagination .pagination-link i {
+      transition: ease-in-out .2s;
+      padding: 0 5px; }
   .pagination .pagination-link:hover {
     border-color: #ffbb00; }
   .pagination .pagination-link.is-current {
@@ -448,20 +456,6 @@ figure.highlight {
   .pagination .pagination-next a {
     position: relative;
     color: inherit; }
-  .pagination .pagination-previous a {
-    padding-left: 1rem; }
-    .pagination .pagination-previous a:before {
-      top: 0;
-      left: 0;
-      content: '<';
-      position: absolute; }
-  .pagination .pagination-next a {
-    padding-right: 1rem; }
-    .pagination .pagination-next a:after {
-      top: 0;
-      right: 0;
-      content: '>';
-      position: absolute; }
 
 .section-heading {
   padding-bottom: 0; }
