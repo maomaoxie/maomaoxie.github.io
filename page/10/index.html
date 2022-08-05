@@ -140,6 +140,81 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/02/24/zh-tw/restful-api-and-web-service/" itemprop="url">初探 Web service</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-02-24T15:20:50.000Z" itemprop="datePublished">2月 24 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/webService/">webService</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分鐘 讀完 (約 970 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/restful-api-and-web-service/0.png" class="" width="600" height="200" title="restful-api-and-web-service">
+<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+<p>串接 API 是前後端分離的框架興盛之後最重要的課題之一啦！但是對初探網頁程式領域的菜菜子來說這個世界太廣太深，讓人望之卻步，萬事起頭難，就先來理解一下 API 武林世界裡的的兩大流派吧！</p>
+<h1 id="SOAP-amp-XML"><a href="#SOAP-amp-XML" class="headerlink" title="SOAP &amp; XML"></a>SOAP &amp; XML</h1><h4 id="企業類型"><a href="#企業類型" class="headerlink" title="企業類型"></a>企業類型</h4><p>成立已久的正宗流派，有許多資深企業的系統愛用的 API 串接方式，例如政府機構或是建案公司等老牌廠商。</p>
+<h4 id="資料格式"><a href="#資料格式" class="headerlink" title="資料格式"></a>資料格式</h4><p>傳遞資料多為較嚴謹與複雜的 <code>SOAP</code>﹑<code>Xml</code> 格式，由於規範的細節較多而且有一定的流程要走完，容易造成程式的肥大與艱澀，當用在小型專案時往往會有殺雞焉用牛刀之感，在準備期會比較漫長且學習曲線高，但是對於大型系統的整合還是有其優點。</p>
+<h4 id="程式取向"><a href="#程式取向" class="headerlink" title="程式取向"></a>程式取向</h4><p>當初由微軟所開發，所以程式取向多限制在 IIS 微軟開發體系，例如 <code>.net</code>。</p>
+<hr>
+<h1 id="RESTful-API"><a href="#RESTful-API" class="headerlink" title="RESTful API"></a>RESTful API</h1><h4 id="企業類型-1"><a href="#企業類型-1" class="headerlink" title="企業類型"></a>企業類型</h4><p>新興產業或新創公司等現代化的企業偏愛的 API 串接方式，為求快速開發多選用輕量的 <code>RESTful API</code> 以求在競爭激烈的市場上異軍突起。</p>
+<h4 id="資料格式-1"><a href="#資料格式-1" class="headerlink" title="資料格式"></a>資料格式</h4><p>傳遞資料多為簡單易懂的 <code>Json</code>，開發程式也容易快速，可以靈活地符合大或小的資料需求．不過相對來講規範與細節也比較粗糙與鬆散，需要在準備期規範好 API 的命名規則與資料邏輯，不然容易導致 API 很多但功能性重複等問題。</p>
+<h4 id="程式取向-1"><a href="#程式取向-1" class="headerlink" title="程式取向"></a>程式取向</h4><p>任何程式語言都可以開發出來的 API．不侷限於哪種體系的程式，例如 <code>python</code>﹑<code>php</code>﹑<code>ruby</code>﹑<code>node.js</code>等等。</p>
+<p>而今的開發環境裡新興的流派已經逐漸為 RESTful API 所佔有，資深或金融機構也逐步轉型為輕量的 API 資料交換方式。</p>
+<hr>
+<h1 id="SOAP-v-s-REST"><a href="#SOAP-v-s-REST" class="headerlink" title="SOAP v.s REST"></a>SOAP v.s REST</h1><h4 id="REST-優於-SOAP"><a href="#REST-優於-SOAP" class="headerlink" title="REST 優於 SOAP"></a>REST 優於 SOAP</h4><blockquote><p>REST 提供更多元資料格式。SOAP 只有 XML。<br>基於 JSON，REST 被公認是易於處理的。<br>基於 JSON，REST 提供對瀏覽器更好的支援。<br>REST 提供優越的性能。特別指快取資料。<br>世界級大公司主要服務協定。<br>REST 一般而言比較快且省頻寬。</p>
+</blockquote>
+
+<h3 id="SOAP-優於-REST"><a href="#SOAP-優於-REST" class="headerlink" title="SOAP 優於 REST"></a>SOAP 優於 REST</h3><blockquote><p>SOAP 是標準 HTTP 協定，能更方便通過防火牆和Proxy而不對協定本身進行修改。<br>如果你需要處理 ACID 交易，那麼 SOAP 是不錯的方向。<br>SOAP 擁有各種 WS- 擴充服務，擁有高可擴充性。<br>B2B 的世界，安全與穩定重於一切。</p>
+</blockquote>
+<hr>
+<blockquote><p>Bruce 的一些心得</p>
+<p>青菜蘿蔔各有所好，並不一樣是 REST 完勝，例如，之前有一陣子在忙的 B2B Biztalk 專案，在加解密(安全)部分，基於 XML 的 SOAP 就比 REST 更為合適。但基於 XML 的協定有個很明顯的缺點，就是當來源資料量成長一些些，產出的 XML 資料量會明顯成長很多。資料解析下，拜 JSON.NET 之類的框架(如之前介紹過的 Jil)幫忙，JSON 格式的處理是非常簡單的。但如果有一天，你真的碰到要處理 XML，那麼不要忘記 LINQ to XML 這個技術就好。</p>
+</blockquote>
+
+<p>參考資料：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.kkbruce.net/2018/04/soap-with-rest-good-parts.html#.YheofuhBxPY">https://blog.kkbruce.net/2018/04/soap-with-rest-good-parts.html#.YheofuhBxPY</a></p>
+</blockquote>
+</body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/restful-api-and-web-service/0.png" class="" width="600" height="200" title="restful-api-and-web-service">
+<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+<p>串接 API 是前後端分離的框架興盛之後最重要的課題之一啦！但是對初探網頁程式領域的菜菜子來說這個世界太廣太深，讓人望之卻步，萬事起頭難，就先來理解一下 API 武林世界裡的的兩大流派吧！</p>
+        <!--  -->
+        
+        <p class="article-more-link">
+            <a href="/2022/02/24/zh-tw/restful-api-and-web-service/">more</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/02/21/zh-tw/git-command-line/" itemprop="url">Git 常用的指令</a>
         
     </h1>
@@ -277,104 +352,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/02/20/zh-tw/express-router-module/" itemprop="url">Express 路由模組化</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-02-20T06:12:53.000Z" itemprop="datePublished">2月 20 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/node-js/">node.js</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            9 分鐘 讀完 (約 1302 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/express-router-module/1.png" class="" width="800" height="200" title="express-router-module">
-<h6 id="圖片來源-https-inmywordz-com-archives-504"><a href="#圖片來源-https-inmywordz-com-archives-504" class="headerlink" title="圖片來源: https://inmywordz.com/archives/504"></a>圖片來源: <a target="_blank" rel="noopener" href="https://inmywordz.com/archives/504">https://inmywordz.com/archives/504</a></h6><p>當路由越寫越多變成霍爾的移動城堡一樣雜亂肥大時，自己都看得眼花撩亂啦～考慮使用模組化的概念來統整自己的後端路由是很好的選擇，那麼就來開始吧！</p>
-<hr>
-<h1 id="Express-js-4-0-Router-的誕生"><a href="#Express-js-4-0-Router-的誕生" class="headerlink" title="Express.js 4.0 Router 的誕生"></a>Express.js 4.0 Router 的誕生</h1><p>Express 輕量框架提供很多整理路由的方式，Express.js 4.0 導入了新的 <strong>Router 功能</strong>，可以更彈性的撰寫子路由規則以及中介軟體啦！</p>
-<blockquote><p>Express.js 4.0 有加入一個新的 Router 功能，它就像一個迷你的應用程式，可以讓應用程式內部的路由撰寫更方便、更有彈性。<br>Express.js 在 4.0 版中有許多新的功能，其中一項主要的功能就是 Router，以下我們介紹如何使用 Router 功能來撰寫應用程式。<br><a target="_blank" rel="noopener" href="https://blog.gtwang.org/programming/learn-to-use-the-new-router-in-expressjs-4/">https://blog.gtwang.org/programming/learn-to-use-the-new-router-in-expressjs-4/</a></p>
-</blockquote>
-<hr>
-<h1 id="app-use-產生父路由與路由頭中介"><a href="#app-use-產生父路由與路由頭中介" class="headerlink" title="app.use() 產生父路由與路由頭中介"></a>app.use() 產生父路由與路由頭中介</h1><blockquote><p>app.use(); mounts middleware for all routes of the app (or those matching the routes specified if you use app.use(‘/ANYROUTESHERE’, yourMiddleware());).</p>
-</blockquote>
-<p>app.use() 是啟用一個<strong>路由頭（父路由）</strong>，並且只要符合該路由頭的<strong>每一個子路由</strong>，該中介軟體都會啟用，很適合用在登入後驗證是否有登入的會員，是否有訪問路由頁面的權限，以撰寫一些驗證信息。</p>
-<hr>
-<h1 id="router-methods-產生子路由"><a href="#router-methods-產生子路由" class="headerlink" title="router.methods() 產生子路由"></a>router.methods() 產生子路由</h1><h4 id="舊的子路由寫法"><a href="#舊的子路由寫法" class="headerlink" title="舊的子路由寫法"></a>舊的子路由寫法</h4><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> port = <span class="hljs-number">5500</span>;</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="hljs-string">'/'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="hljs-string">'舊的寫法：歡迎來到首頁'</span>)</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(port, <span class="hljs-function">() =&gt;</span> {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">`Example app listening on port <span class="hljs-subst">${port}</span>`</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/express-router-module/2.png" class="" width="380" height="200" title="express-router-module">
-
-<h4 id="新的子路由寫法"><a href="#新的子路由寫法" class="headerlink" title="新的子路由寫法"></a>新的子路由寫法</h4><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> port = <span class="hljs-number">5500</span>;</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="hljs-string">'新的寫法：歡迎來到首頁'</span>)</span><br><span class="line">})</span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/page'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="hljs-string">'新的寫法：歡迎來到分頁'</span>)</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 制定一個路由頭（父路由）</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="hljs-string">'/api'</span>, router)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(port, <span class="hljs-function">() =&gt;</span> {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">`Example app listening on port <span class="hljs-subst">${port}</span>`</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/express-router-module/3.png" class="" width="380" height="200" title="express-router-module">
-<img src="/images/express-router-module/4.png" class="" width="478" height="235" title="express-router-module">
-
-<p>我自己是看不太出來差別，不過文章都是寫道 router 就像一個小型 app 提供你整理路由系統更好的方法，而具體的差異如下：</p>
-<blockquote><p>“A Router doesn’t .listen() for requests on its own”. That might be the main difference.<br>It’s useful for separating your application into multiple modules – creating a Router in each that the app can require() and .use() as middleware. </p>
-</blockquote>
-<ol>
-<li>Router 不能單個路由做 port 監聽 </li>
-<li>Router 可以使用 require() 與 use() 模組化管理子路由<br>  哪一種比較好眾說紛紜，基本上能適合專案模式的都是好方法。</li>
-</ol>
-<blockquote><p>router.use(); mounts middleware for the routes served by the specific router<br>router.get is only for <strong>defining subpaths</strong>.<br>Consider this example:</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line">app.<span class="title function_">use</span>(<span class="hljs-string">'/first'</span>, router); <span class="hljs-comment">// Mount the router as middleware at path /first</span></span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/sud'</span>, smaller);</span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/user'</span>, bigger);</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure>
-If you open /first/sud, then the smaller function will get called.
-If you open /first/user, then the bigger function will get called.
-In short, app.use('/first', router) mounts the middleware at path /first, then router.get sets the subpath accordingly.
-https://stackoverflow.com/questions/27227650/difference-between-app-use-and-router-use-in-express</blockquote>
-<hr>
-<h1 id="router-use-子路由中介"><a href="#router-use-子路由中介" class="headerlink" title="router.use() 子路由中介"></a>router.use() 子路由中介</h1><p>router.use() 是產生子路由中介（middleware）的方式：</p>
-<blockquote class="colorquote info"><p>在使用 middleware 時必須要注意他的放置位置必須要在 routes 之前，程式在執行的時候會依據 middleware 與 routes 的先後順序來執行，如果不小心將 middleware 放在 routes 之後，那麼在 routes 處理完請求之後就會結束處理的流程，這樣 middleware 就根本不會執行。<br><a target="_blank" rel="noopener" href="https://blog.gtwang.org/programming/learn-to-use-the-new-router-in-expressjs-4/">https://blog.gtwang.org/programming/learn-to-use-the-new-router-in-expressjs-4/</a></p>
-</blockquote>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 中介軟體要寫在 router 上面</span></span><br><span class="line">router.<span class="title function_">use</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next</span>) {</span><br><span class="line">  <span class="hljs-comment">// 輸出記錄訊息至終端機</span></span><br><span class="line">  <span class="hljs-keyword">const</span> url = <span class="hljs-string">`<span class="hljs-subst">${req.protocol}</span>://<span class="hljs-subst">${req.hostname}</span>:<span class="hljs-subst">${port}</span><span class="hljs-subst">${req.baseUrl}</span><span class="hljs-subst">${req.path}</span>`</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(url, <span class="hljs-string">'子路由會經過我'</span>);</span><br><span class="line">  <span class="hljs-comment">// 繼續路由處理</span></span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">})</span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="hljs-string">'新的寫法：歡迎來到首頁'</span>)</span><br><span class="line">})</span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/page'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="hljs-string">'新的寫法：歡迎來到分頁'</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/express-router-module/5.png" class="" width="478" height="235" title="express-router-module">
-<hr>
-<h1 id="router-模組化"><a href="#router-模組化" class="headerlink" title="router 模組化"></a>router 模組化</h1><h4 id="子路由模塊"><a href="#子路由模塊" class="headerlink" title="子路由模塊"></a>子路由模塊</h4><p>將幾個子路徑依功能切開可以更方便的統整路由：</p>
-<figure class="highlight javascript hljs"><figcaption><span>./routers/cat.js</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> port = <span class="hljs-number">5500</span></span><br><span class="line"></span><br><span class="line">router.<span class="title function_">use</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next</span>) {</span><br><span class="line">    <span class="hljs-comment">// 輸出記錄訊息至終端機</span></span><br><span class="line">    <span class="hljs-keyword">const</span> url = <span class="hljs-string">`<span class="hljs-subst">${req.protocol}</span>://<span class="hljs-subst">${req.hostname}</span>:<span class="hljs-subst">${port}</span><span class="hljs-subst">${req.baseUrl}</span><span class="hljs-subst">${req.path}</span>`</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(url, <span class="hljs-string">'喵喵子路由會經過我'</span>);</span><br><span class="line">  </span><br><span class="line">    <span class="hljs-comment">// 繼續路由處理</span></span><br><span class="line">    <span class="title function_">next</span>();</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">    <span class="hljs-keyword">const</span> url = <span class="hljs-string">`<span class="hljs-subst">${req.protocol}</span>://<span class="hljs-subst">${req.hostname}</span>:<span class="hljs-subst">${port}</span><span class="hljs-subst">${req.baseUrl}</span><span class="hljs-subst">${req.path}</span>`</span>;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="hljs-string">'來到喵喵子路由'</span>);</span><br><span class="line">});</span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/meow'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="hljs-string">'喵喵分頁'</span>);</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="hljs-property">exports</span> = router;</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="引用模塊"><a href="#引用模塊" class="headerlink" title="引用模塊"></a>引用模塊</h4><p>在入口引入模塊：</p>
-<figure class="highlight javascript hljs"><figcaption><span>index.js</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> catsRouter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./routes/cat'</span>)</span><br><span class="line"><span class="hljs-keyword">const</span> port = <span class="hljs-number">5500</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 模組寫法</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="hljs-string">'/cat'</span>, catsRouter) </span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(port, <span class="hljs-function">() =&gt;</span> {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">`Example app listening on port <span class="hljs-subst">${port}</span>`</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/express-router-module/6.png" class="" width="478" height="235" title="express-router-module">
-<img src="/images/express-router-module/7.png" class="" width="478" height="235" title="express-router-module">
-<img src="/images/express-router-module/8.png" class="" width="478" height="235" title="express-router-module">
-<hr>
-<p>參考文章：</p>
-<blockquote><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/27227650/difference-between-app-use-and-router-use-in-express">https://stackoverflow.com/questions/27227650/difference-between-app-use-and-router-use-in-express</a><br><a target="_blank" rel="noopener" href="https://blog.gtwang.org/programming/learn-to-use-the-new-router-in-expressjs-4/">https://blog.gtwang.org/programming/learn-to-use-the-new-router-in-expressjs-4/</a><br><a target="_blank" rel="noopener" href="http://expressjs.com/zh-tw/api.html#req">http://expressjs.com/zh-tw/api.html#req</a></p>
-</blockquote></body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/express-router-module/1.png" class="" width="800" height="200" title="express-router-module">
-<h6 id="圖片來源-https-inmywordz-com-archives-504"><a href="#圖片來源-https-inmywordz-com-archives-504" class="headerlink" title="圖片來源: https://inmywordz.com/archives/504"></a>圖片來源: <a target="_blank" rel="noopener" href="https://inmywordz.com/archives/504">https://inmywordz.com/archives/504</a></h6><p>當路由越寫越多變成霍爾的移動城堡一樣雜亂肥大時，自己都看得眼花撩亂啦～考慮使用模組化的概念來統整自己的後端路由是很好的選擇，那麼就來開始吧！</p>
-<hr>
-        <!--  -->
-        
-        <p class="article-more-link">
-            <a href="/2022/02/20/zh-tw/express-router-module/">more</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -405,6 +382,8 @@ https://stackoverflow.com/questions/27227650/difference-between-app-use-and-rout
         <li><a class="pagination-link" href="/page/11/">11</a></li>
         
         <li><a class="pagination-link" href="/page/12/">12</a></li>
+        
+        <li><a class="pagination-link" href="/page/13/">13</a></li>
         
     </ul>
 </nav>
