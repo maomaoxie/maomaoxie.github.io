@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>HTTP Methods 介紹 - Mawchu 貓奴前端的天空</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="canonical" href="http://maomaoxie.github.io/2022/02/28/zh-tw/http-methods/"/>
+<meta name="google-site-verification" content="qpdwAFMt_HNGP0dM45CxVBDie_HVPkWFvpclpqZaoIo" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2022/02/28/zh-tw/http-methods/" rel="alternate" hreflang="en" />
+    
+
+
+<meta name="description" content="Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習">
+
+
+
+<meta name="keywords" content="mawchu、謝佳芳、毛球、網頁、前端、Javascript、Vue、Laravel、SEO、平面設計、貓咪">
+
+
+
+    <meta name="description" content="圖片來源：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;ac29da71601d 身為技術人不可不知的技術事：其實你每天都在使用 HTTP 的 Methods，但你不知道而已。當你在瀏覽器輸入一串網址並且按下 enter 或者是按下一個 google 搜尋的超連結，就已經完成一個 HTTP GET Methods 的流程了！Client 端網路資料的傳輸，按照功能屬性分為幾個類別：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP Methods 介紹">
+<meta property="og:url" content="http://maomaoxie.github.io/2022/02/28/zh-tw/http-methods/index.html">
+<meta property="og:site_name" content="Mawchu 貓奴前端的天空">
+<meta property="og:description" content="圖片來源：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;ac29da71601d 身為技術人不可不知的技術事：其實你每天都在使用 HTTP 的 Methods，但你不知道而已。當你在瀏覽器輸入一串網址並且按下 enter 或者是按下一個 google 搜尋的超連結，就已經完成一個 HTTP GET Methods 的流程了！Client 端網路資料的傳輸，按照功能屬性分為幾個類別：">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://maomaoxie.github.io/images/http-methods/0.png">
+<meta property="og:image" content="http://maomaoxie.github.io/images/http-methods/1.png">
+<meta property="og:image" content="http://maomaoxie.github.io/images/http-methods/2.png">
+<meta property="og:image" content="http://maomaoxie.github.io/images/http-methods/3.png">
+<meta property="og:image" content="http://maomaoxie.github.io/images/http-methods/4.png">
+<meta property="article:published_time" content="2022-02-28T03:03:47.000Z">
+<meta property="article:modified_time" content="2022-08-04T05:56:06.911Z">
+<meta property="article:author" content="Mawchu 謝佳芳">
+<meta property="article:tag" content="api">
+<meta property="article:tag" content="http">
+<meta property="article:tag" content="request">
+<meta property="article:tag" content="response">
+<meta property="article:tag" content="httpMethods">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://maomaoxie.github.io/images/http-methods/0.png">
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.svg">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832218493331944" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script src="https://kit.fontawesome.com/76e3351334.js" crossorigin="anonymous"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container custom-nav">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo position-relative" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/mawchu">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            HTTP Methods 介紹
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-02-28T03:03:47.000Z" itemprop="datePublished">2月 28 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/http/">http</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分鐘 讀完 (約 944 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/http-methods/0.png" class="" width="800" height="200" title="[http-methods [http-methods]]">
+<p>圖片來源：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ac29da71601d">https://www.jianshu.com/p/ac29da71601d</a></p>
+<p>身為技術人不可不知的技術事：其實你每天都在使用 HTTP 的 Methods，但你不知道而已。<br>當你在瀏覽器輸入一串網址並且按下 enter 或者是按下一個 google 搜尋的超連結，就已經完成一個 HTTP <code>GET</code> Methods 的流程了！<br>Client 端網路資料的傳輸，按照功能屬性分為幾個類別：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Methods</th>
+<th align="left">目的</th>
+<th align="left">說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">GET</td>
+<td align="left">取得資料</td>
+<td align="left">經常會搭配 query string 參數使用，使用者可以在 URL 看到資料</td>
+</tr>
+<tr>
+<td align="left">POST</td>
+<td align="left">傳送資料</td>
+<td align="left">可以將要求內容隱藏在 body 中，使用者看不見</td>
+</tr>
+<tr>
+<td align="left">PUT</td>
+<td align="left">更改整筆資料</td>
+<td align="left">通常是一個註冊表單提供第一次來訪的使用者填寫，server 端會整筆更新</td>
+</tr>
+<tr>
+<td align="left">PATCH</td>
+<td align="left">更改部分資料</td>
+<td align="left">可能是會員中心的部分資料修改，例如地址或手機，server 端會只更新修改的部分</td>
+</tr>
+<tr>
+<td align="left">DELETE</td>
+<td align="left">刪除資料</td>
+<td align="left">比較單純的功能，就是刪除資料</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="GET-方法（READ）"><a href="#GET-方法（READ）" class="headerlink" title="GET 方法（READ）"></a>GET 方法（READ）</h1><img src="/images/http-methods/1.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
+<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+<p>GET 取得資料（read）的條件是寫在 query string 的<code>?</code>後方，key-value 的鍵值對來代表欄位跟內容。<br>例如 <code>?name=jobe&amp;email=jobe</code>，<code>name</code> 對應<code>form</code> 表單裡面的 input <code>name</code> ，為欄位名稱，等號後方的值就是使用者自己填寫的 value 內容：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="hljs-string">"http://localhost:4000"</span>&gt;</span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"name"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"email"</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"email"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>送出<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/http-methods/2.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
+<img src="/images/http-methods/3.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
+<blockquote class="colorquote info"><p><code>GET</code> 網址最多只能兩千多個字，包含參數等。</p>
+</blockquote>
+<blockquote class="colorquote info"><p>URL 的萬國編碼機制需要經過 <code>encodeURI()</code>、<code>encodeURIcomponent()</code> 等方法解密過才可閱讀。</p>
+</blockquote>
+
+<hr>
+<h1 id="POST-方法（CREATE）"><a href="#POST-方法（CREATE）" class="headerlink" title="POST 方法（CREATE）"></a>POST 方法（CREATE）</h1><img src="/images/http-methods/4.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
+<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+<p><code>POST</code> 方法旨在創造一筆新的資料，發送到 Origin server 接收，可以將資料隱藏在 <code>body</code> 中避免被使用窺視，使用者在網頁 URL 看起來也乾淨簡潔。</p>
+<blockquote class="colorquote info"><p><code>POST</code> 方法可傳送的資料量基本沒有限制，端看 server 這邊的程式是否有特別限制多少 mb。</p>
+</blockquote>
+
+<hr>
+<h1 id="PUT-amp-PATCH（UPDATE）"><a href="#PUT-amp-PATCH（UPDATE）" class="headerlink" title="PUT &amp; PATCH（UPDATE）"></a>PUT &amp; PATCH（UPDATE）</h1><p>這兩個方法旨在更新現有的資料內容：<br><code>PUT</code>會將整個表單內容根據填寫的資料全部更新，有空白沒填的地方照樣更新成空白的狀態，適合用在第一次填寫資料的訪客，例如註冊會員、初診的病患要掛號。<br><code>PATCH</code>則是只更新部分內容而已，沒有變動的地方維持原樣，適合用在填寫過完整資料而只想部分更改的情境，例如修改會員寄送地址、復診的病患要掛號等。</p>
+<p>這兩個方法並非 HTTP 創造的，而是方便網站開發人員依據自己的資料取向需求來設計表單欄位給訪客填寫，再選擇適合的 HTTP Methods。</p>
+<hr>
+<h1 id="DELETE（DELETE）"><a href="#DELETE（DELETE）" class="headerlink" title="DELETE（DELETE）"></a>DELETE（DELETE）</h1><p>由於刪除是一個不能回頭的行為，雖然有的網站在後端機制不會真的讓使用者刪除，只是讓你看不到而已，不過刪除的要求還是被特別獨立出來，警示開發人員慎用這個方法。</p>
+<hr>
+<blockquote><p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+</blockquote></body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/http-methods/0.png" class="" width="800" height="200" title="[http-methods [http-methods]]">
+<p>圖片來源：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ac29da71601d">https://www.jianshu.com/p/ac29da71601d</a></p>
+<p>身為技術人不可不知的技術事：其實你每天都在使用 HTTP 的 Methods，但你不知道而已。<br>當你在瀏覽器輸入一串網址並且按下 enter 或者是按下一個 google 搜尋的超連結，就已經完成一個 HTTP <code>GET</code> Methods 的流程了！<br>Client 端網路資料的傳輸，按照功能屬性分為幾個類別：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Methods</th>
+<th align="left">目的</th>
+<th align="left">說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">GET</td>
+<td align="left">取得資料</td>
+<td align="left">經常會搭配 query string 參數使用，使用者可以在 URL 看到資料</td>
+</tr>
+<tr>
+<td align="left">POST</td>
+<td align="left">傳送資料</td>
+<td align="left">可以將要求內容隱藏在 body 中，使用者看不見</td>
+</tr>
+<tr>
+<td align="left">PUT</td>
+<td align="left">更改整筆資料</td>
+<td align="left">通常是一個註冊表單提供第一次來訪的使用者填寫，server 端會整筆更新</td>
+</tr>
+<tr>
+<td align="left">PATCH</td>
+<td align="left">更改部分資料</td>
+<td align="left">可能是會員中心的部分資料修改，例如地址或手機，server 端會只更新修改的部分</td>
+</tr>
+<tr>
+<td align="left">DELETE</td>
+<td align="left">刪除資料</td>
+<td align="left">比較單純的功能，就是刪除資料</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="GET-方法（READ）"><a href="#GET-方法（READ）" class="headerlink" title="GET 方法（READ）"></a>GET 方法（READ）</h1><img src="/images/http-methods/1.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
+<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+<p>GET 取得資料（read）的條件是寫在 query string 的<code>?</code>後方，key-value 的鍵值對來代表欄位跟內容。<br>例如 <code>?name=jobe&amp;email=jobe</code>，<code>name</code> 對應<code>form</code> 表單裡面的 input <code>name</code> ，為欄位名稱，等號後方的值就是使用者自己填寫的 value 內容：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="hljs-string">"http://localhost:4000"</span>&gt;</span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"name"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"email"</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"email"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>送出<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/http-methods/2.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
+<img src="/images/http-methods/3.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
+<blockquote class="colorquote info"><p><code>GET</code> 網址最多只能兩千多個字，包含參數等。</p>
+</blockquote>
+<blockquote class="colorquote info"><p>URL 的萬國編碼機制需要經過 <code>encodeURI()</code>、<code>encodeURIcomponent()</code> 等方法解密過才可閱讀。</p>
+</blockquote>
+
+<hr>
+<h1 id="POST-方法（CREATE）"><a href="#POST-方法（CREATE）" class="headerlink" title="POST 方法（CREATE）"></a>POST 方法（CREATE）</h1><img src="/images/http-methods/4.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
+<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+<p><code>POST</code> 方法旨在創造一筆新的資料，發送到 Origin server 接收，可以將資料隱藏在 <code>body</code> 中避免被使用窺視，使用者在網頁 URL 看起來也乾淨簡潔。</p>
+<blockquote class="colorquote info"><p><code>POST</code> 方法可傳送的資料量基本沒有限制，端看 server 這邊的程式是否有特別限制多少 mb。</p>
+</blockquote>
+
+<hr>
+<h1 id="PUT-amp-PATCH（UPDATE）"><a href="#PUT-amp-PATCH（UPDATE）" class="headerlink" title="PUT &amp; PATCH（UPDATE）"></a>PUT &amp; PATCH（UPDATE）</h1><p>這兩個方法旨在更新現有的資料內容：<br><code>PUT</code>會將整個表單內容根據填寫的資料全部更新，有空白沒填的地方照樣更新成空白的狀態，適合用在第一次填寫資料的訪客，例如註冊會員、初診的病患要掛號。<br><code>PATCH</code>則是只更新部分內容而已，沒有變動的地方維持原樣，適合用在填寫過完整資料而只想部分更改的情境，例如修改會員寄送地址、復診的病患要掛號等。</p>
+<p>這兩個方法並非 HTTP 創造的，而是方便網站開發人員依據自己的資料取向需求來設計表單欄位給訪客填寫，再選擇適合的 HTTP Methods。</p>
+<hr>
+<h1 id="DELETE（DELETE）"><a href="#DELETE（DELETE）" class="headerlink" title="DELETE（DELETE）"></a>DELETE（DELETE）</h1><p>由於刪除是一個不能回頭的行為，雖然有的網站在後端機制不會真的讓使用者刪除，只是讓你看不到而已，不過刪除的要求還是被特別獨立出來，警示開發人員慎用這個方法。</p>
+<hr>
+<blockquote><p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+</blockquote></body></html>
+        
+        <p class="article-more-link">
+            <a href="/2022/02/28/zh-tw/http-methods/">more</a>
+        </p>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/api/">#api</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/http/">#http</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/request/">#request</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/response/">#response</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/httpMethods/">#httpMethods</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/02/28/zh-tw/http-header/">HTTP 的訊息頭 header</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/02/28/zh-tw/http-and-https/">HTTP 超文本傳輸協定</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62024aa50a70400019079d5b&amp;product=sticky-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://maomaoxie.github.io/2022/02/28/zh-tw/http-methods/';
+        this.page.identifier = '2022/02/28/zh-tw/http-methods/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'maomaoxie' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 Mawchu 謝佳芳&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/mawchu">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2022/02/28/zh-tw/http-methods/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2022/02/28/zh-tw/http-methods/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-TW");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>
