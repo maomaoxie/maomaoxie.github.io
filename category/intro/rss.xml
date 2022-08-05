@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;intro&#34; category</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Thu, 04 Aug 2022 13:56:06 +0800</pubDate>
+        <lastBuildDate>Thu, 04 Aug 2022 13:56:06 +0800</lastBuildDate>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>git</category>
+        <category>github</category>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>rss</category>
+        <category>hexo</category>
+        <category>sourceTree</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>httpMethods</category>
+        <category>httpHeader</category>
+        <category>Javascript</category>
+        <category>status</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>blade</category>
+        <category>wsl2</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>layout</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>css</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue3</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>vue</category>
+        <category>compositionAPI</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/08/04/zh-tw/hello-world/</guid>
+            <title>感謝您的閱讀</title>
+            <link>http://maomaoxie.github.io/2022/08/04/zh-tw/hello-world/</link>
+            <pubDate>Thu, 04 Aug 2022 13:56:06 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;這裡撰寫的都是一些自己在前端之路上每天一小步的學習，希望透過記錄與陳述來加強學習成效以及融會貫通的能力，文章內有任何問題歡迎一起討論呦!&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

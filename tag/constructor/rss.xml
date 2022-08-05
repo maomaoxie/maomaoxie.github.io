@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;constructor&#34; tag</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Sat, 14 May 2022 21:37:03 +0800</pubDate>
+        <lastBuildDate>Sat, 14 May 2022 21:37:03 +0800</lastBuildDate>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>git</category>
+        <category>github</category>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>rss</category>
+        <category>hexo</category>
+        <category>sourceTree</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>httpMethods</category>
+        <category>httpHeader</category>
+        <category>Javascript</category>
+        <category>status</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>blade</category>
+        <category>wsl2</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>layout</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>css</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue3</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>vue</category>
+        <category>compositionAPI</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/05/14/zh-tw/constructor-vs-instance/</guid>
+            <title>建構子方法與實例化方法</title>
+            <link>http://maomaoxie.github.io/2022/05/14/zh-tw/constructor-vs-instance/</link>
+            <category>javascript</category>
+            <category>constructor</category>
+            <category>instance</category>
+            <category>methods</category>
+            <pubDate>Sat, 14 May 2022 21:37:03 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/constructor-vs-instance/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;constructor-vs-instance&#34;&gt;
+
+&lt;p&gt;在某天好奇想了解 Vue 3 的 defineProperty 原理搜尋了 &lt;code&gt;Object.defineProperty()&lt;/code&gt; 這個方法時，看見以下說明：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;靜態方法 &lt;code&gt;Object.defineProperty()&lt;/code&gt; 會直接對一個物件定義、或是修改現有的屬性。執行後會回傳定義完的物件。&lt;br&gt;備註：這個方法會直接針對 Object 呼叫建構子（constructor），而不是 Object 型別的實例。&lt;/p&gt;
+&lt;footer&gt;&lt;strong&gt;MDN&lt;/strong&gt;&lt;cite&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty&#34;&gt;Object.defineProperty()&lt;/a&gt;&lt;/cite&gt;&lt;/footer&gt;&lt;/blockquote&gt;
+&lt;p&gt;其中的&lt;strong&gt;直接針對 Object 呼叫建構子（constructor），而不是 Object 型別的實例&lt;/strong&gt;這句話突然讓我驚醒了，以前一直不能理解 javascript 中呼叫原生方法時，為何會有以下的區別：&lt;/p&gt;
+&lt;h2 id=&#34;透過建構器呼叫&#34;&gt;&lt;a href=&#34;#透過建構器呼叫&#34; class=&#34;headerlink&#34; title=&#34;透過建構器呼叫&#34;&gt;&lt;/a&gt;透過建構器呼叫&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Object.methods(objInstance)&lt;/code&gt; -&amp;gt; 例如 Object.keys(someObj)&lt;br&gt;這裡的 Object 是建構函式本身，未實例的藍圖（constructor）。&lt;/p&gt;
+&lt;h2 id=&#34;透過實例呼叫&#34;&gt;&lt;a href=&#34;#透過實例呼叫&#34; class=&#34;headerlink&#34; title=&#34;透過實例呼叫&#34;&gt;&lt;/a&gt;透過實例呼叫&lt;/h2&gt;&lt;p&gt;&lt;code&gt;objInstance.methods(parameters)&lt;/code&gt; -&amp;gt; 例如 someObj.hasOwnProperty(‘prop’)&lt;br&gt;這裡的 Object 是實例化的物件（instance）。&lt;/p&gt;
+&lt;h2 id=&#34;Constructor-Static-Methods&#34;&gt;&lt;a href=&#34;#Constructor-Static-Methods&#34; class=&#34;headerlink&#34; title=&#34;Constructor Static Methods&#34;&gt;&lt;/a&gt;Constructor Static Methods&lt;/h2&gt;&lt;h4 id=&#34;構造器-靜態方法&#34;&gt;&lt;a href=&#34;#構造器-靜態方法&#34; class=&#34;headerlink&#34; title=&#34;構造器 靜態方法&#34;&gt;&lt;/a&gt;構造器 靜態方法&lt;/h4&gt;&lt;p&gt;以下的例子是呼叫 Object 建構子中的原生 keys 方法，而不需要 new 一個物件實例就可以使用，靜態方法的特色是無需使用任何建構子中的 this 資料就可以直接使用。&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;建構子方法&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; someone = {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;name&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#39;Adam&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;carrer&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#39;teacher&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;sex&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#39;male&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;};&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; dataKeys = &lt;span class=&#34;title class_&#34;&gt;Object&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;keys&lt;/span&gt;(someone);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(dataKeys);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;// [&#34;name&#34;,&#34;carrer&#34;,&#34;sex&#34;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Instance-methods&#34;&gt;&lt;a href=&#34;#Instance-methods&#34; class=&#34;headerlink&#34; title=&#34;Instance methods&#34;&gt;&lt;/a&gt;Instance methods&lt;/h3&gt;&lt;h4 id=&#34;等號賦值-實例化方法&#34;&gt;&lt;a href=&#34;#等號賦值-實例化方法&#34; class=&#34;headerlink&#34; title=&#34;等號賦值 實例化方法&#34;&gt;&lt;/a&gt;等號賦值 實例化方法&lt;/h4&gt;&lt;p&gt;以下則是呼叫 Array 的實例化 push 方法，雖然也不是透過 new 來建立一個陣列，卻也是使用賦值一個陣列來建立陣列的實例，並且使用原生 push 方法。&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;實例化方法 - 賦值&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; friends = [ &lt;span class=&#34;hljs-string&#34;&gt;&#39;Cally&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;Donna&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;Jell&#39;&lt;/span&gt; ];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;friends.&lt;span class=&#34;title function_&#34;&gt;push&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;Liang&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(friends);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;// [&#34;Cally&#34;,&#34;Donna&#34;,&#34;Jell&#34;,&#34;Liang&#34;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&#34;建構器-實例化方法&#34;&gt;&lt;a href=&#34;#建構器-實例化方法&#34; class=&#34;headerlink&#34; title=&#34;建構器 實例化方法&#34;&gt;&lt;/a&gt;建構器 實例化方法&lt;/h4&gt;&lt;p&gt;透過 new 來建立一個陣列。&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;實例化方法 - 構造器&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; animals = &lt;span class=&#34;hljs-keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;Array&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;bunny&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;cat&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;puppy&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;hamster&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;animals.&lt;span class=&#34;title function_&#34;&gt;unshift&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;bird&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(animals);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;// [&#34;bird&#34;,&#34;bunny&#34;,&#34;cat&#34;,&#34;puppy&#34;,&#34;hamster&#34;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;構造器靜態方法補充&#34;&gt;&lt;a href=&#34;#構造器靜態方法補充&#34; class=&#34;headerlink&#34; title=&#34;構造器靜態方法補充&#34;&gt;&lt;/a&gt;構造器靜態方法補充&lt;/h2&gt;&lt;h4 id=&#34;無法取得構造器的this資料&#34;&gt;&lt;a href=&#34;#無法取得構造器的this資料&#34; class=&#34;headerlink&#34; title=&#34;無法取得構造器的this資料&#34;&gt;&lt;/a&gt;無法取得構造器的this資料&lt;/h4&gt;&lt;blockquote&gt;&lt;ul&gt;
+&lt;li&gt;The static method also cannot see the instance variable state so if we try to call the nonstatic method from the static method compiler will complain.&lt;/li&gt;
+&lt;li&gt;The static method can be used to create utility functions.&lt;br&gt;&lt;a href=&#34;https://www.educba.com/javascript-static-method/&#34;&gt;https://www.educba.com/javascript-static-method/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;從上述可以得知靜態方法是不能取用構造器建構子（constructor）內的變數的（this binding），通常會撰寫純函式（pure function）以保持無狀態的特性，如同 Math 方法。&lt;br&gt;靜態方法適合用來當作全局複用的函式，適合較無副作用的邏輯。&lt;/p&gt;
+&lt;h2 id=&#34;兩種方法的原型鍊關係&#34;&gt;&lt;a href=&#34;#兩種方法的原型鍊關係&#34; class=&#34;headerlink&#34; title=&#34;兩種方法的原型鍊關係&#34;&gt;&lt;/a&gt;兩種方法的原型鍊關係&lt;/h2&gt;&lt;p&gt;若展開一個實例化的物件，會發現：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;建構器方法存在於建構子物件中（constructor），且只能透過建構器呼叫，例如 Object.assign()；&lt;/li&gt;
+&lt;li&gt;實例化方法則存在於原型上（prototype），需要實例化之後才能呼叫，例如 objInstance.toLocaleString()&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

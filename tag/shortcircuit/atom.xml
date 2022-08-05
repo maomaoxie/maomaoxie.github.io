@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://maomaoxie.github.io</id>
+    <title>Mawchu 貓奴前端的天空 • Posts by &#34;shortcircuit&#34; tag</title>
+    <link href="http://maomaoxie.github.io" />
+    <updated>2022-03-12T05:55:02.000Z</updated>
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="git" />
+    <category term="github" />
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="rss" />
+    <category term="hexo" />
+    <category term="sourceTree" />
+    <category term="http" />
+    <category term="https" />
+    <category term="request" />
+    <category term="response" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="httpMethods" />
+    <category term="httpHeader" />
+    <category term="Javascript" />
+    <category term="status" />
+    <category term="type" />
+    <category term="laravel" />
+    <category term="php" />
+    <category term="linux" />
+    <category term="blade" />
+    <category term="wsl2" />
+    <category term="migration" />
+    <category term="sql" />
+    <category term="layout" />
+    <category term="public" />
+    <category term="static" />
+    <category term="tailwind" />
+    <category term="env" />
+    <category term="process" />
+    <category term="dotenv" />
+    <category term="css" />
+    <category term="less" />
+    <category term="processors" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vue3" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="vue" />
+    <category term="compositionAPI" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/03/12/zh-tw/short-circuit-and-optional-chaining/</id>
+        <title>短路解析 &amp; 可選鍊修飾符</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/03/12/zh-tw/short-circuit-and-optional-chaining/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/short-circuit-and-optional-chaining/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;短路解析與可選練修飾符&#34;&gt;
+&lt;p&gt;在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說&lt;code&gt;undefined&lt;/code&gt;（未定義）、&lt;code&gt;null&lt;/code&gt;（空值）或者是&lt;code&gt;0&lt;/code&gt;（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。&lt;/p&gt;
+&lt;h1 id=&#34;理解真假值&#34;&gt;&lt;a href=&#34;#理解真假值&#34; class=&#34;headerlink&#34; title=&#34;理解真假值&#34;&gt;&lt;/a&gt;理解真假值&lt;/h1&gt;&lt;p&gt;先介紹 truthy(真值) 與 falsy(假值)：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;truthy：非 falsy 的值，或者是表達式結果為 &lt;code&gt;true&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;falsy：&lt;code&gt;undefined&lt;/code&gt;、&lt;code&gt;null&lt;/code&gt;、非數字 &lt;code&gt;NaN&lt;/code&gt;、數字 &lt;code&gt;0&lt;/code&gt;、數字 &lt;code&gt;-0&lt;/code&gt;、BigInt &lt;code&gt;0n&lt;/code&gt;、空字串&lt;code&gt;&#39;&#39;&lt;/code&gt;(字串長度為 0)，或者是表達式結果為 &lt;code&gt;false&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以下介紹幾種邏輯判斷的捷徑：&lt;/p&gt;
+&lt;h1 id=&#34;邏輯運算子-amp-amp&#34;&gt;&lt;a href=&#34;#邏輯運算子-amp-amp&#34; class=&#34;headerlink&#34; title=&#34;邏輯運算子 &amp;amp;&amp;amp; ||&#34;&gt;&lt;/a&gt;邏輯運算子 &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; &lt;code&gt;||&lt;/code&gt;&lt;/h1&gt;&lt;p&gt;舉個栗子&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;邏輯運算子&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; numberAND = &lt;span class=&#34;hljs-number&#34;&gt;6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; numberOR = -&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt;(numberAND &amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt; &amp;amp;&amp;amp; numberAND &amp;lt; &lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;) {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;哎呀&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt;(numberOR &amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt; || numberOR &amp;lt; &lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;) {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;黑唷&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;人類的理解&#34;&gt;&lt;a href=&#34;#人類的理解&#34; class=&#34;headerlink&#34; title=&#34;人類的理解&#34;&gt;&lt;/a&gt;人類的理解&lt;/h3&gt;&lt;p&gt;當 numberAND 大於 5 且&lt;strong&gt;同時&lt;/strong&gt;小於 7 值執行 &lt;code&gt;console.log(&#39;符合 &amp;amp;&amp;amp;&#39;)&lt;/code&gt;；當 numberOR 大於 5 &lt;strong&gt;或者&lt;/strong&gt;小於 7 值執行 &lt;code&gt;console.log(&#39;符合 ||&#39;)&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;電腦的理解&#34;&gt;&lt;a href=&#34;#電腦的理解&#34; class=&#34;headerlink&#34; title=&#34;電腦的理解&#34;&gt;&lt;/a&gt;電腦的理解&lt;/h3&gt;&lt;p&gt;當左邊的表達式 &lt;code&gt;numberAND &amp;gt; 5&lt;/code&gt; 結果為 &lt;code&gt;false&lt;/code&gt; 則跳過右邊不執行 &lt;code&gt;numberAND &amp;lt; 7&lt;/code&gt;，直接&lt;strong&gt;跳出&lt;/strong&gt;程式。&lt;br&gt;當左邊的表達式 &lt;code&gt;numberOR &amp;gt; 5&lt;/code&gt; 結果為 &lt;code&gt;true&lt;/code&gt; 則跳過右邊不執行 &lt;code&gt;numberAND &amp;lt; 7&lt;/code&gt;，直接&lt;strong&gt;進入&lt;/strong&gt;程式。&lt;/p&gt;
+&lt;p&gt;結論為，當左邊的表達式符合條件，&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; 的 if 直接跳出；&lt;code&gt;||&lt;/code&gt; 的 if 直接進入。&lt;br&gt;來理一理箇中原由吧！&lt;/p&gt;
+&lt;h1 id=&#34;短路解析-Short-Circuit&#34;&gt;&lt;a href=&#34;#短路解析-Short-Circuit&#34; class=&#34;headerlink&#34; title=&#34;短路解析(Short Circuit)&#34;&gt;&lt;/a&gt;短路解析(Short Circuit)&lt;/h1&gt;&lt;p&gt;短路我個人覺得沒有捷徑來得好懂，短路比較讓人聯想為損毀或壞掉的電子產品，而捷徑則代表透過偷吃步或者抄捷徑的方式以取得一樣的結果。這裡的短路較接近後者，js 運行上的偷吃步：&lt;/p&gt;
+&lt;h3 id=&#34;amp-amp-的短路解析&#34;&gt;&lt;a href=&#34;#amp-amp-的短路解析&#34; class=&#34;headerlink&#34; title=&#34;&amp;amp;&amp;amp; 的短路解析&#34;&gt;&lt;/a&gt;&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; 的短路解析&lt;/h3&gt;&lt;p&gt;當左邊的表達式為 &lt;code&gt;false&lt;/code&gt; 就返回左邊的表達式結果，並且&lt;strong&gt;直接忽視&lt;/strong&gt;右邊的表達式結果，反之執行右邊的表達式。&lt;/p&gt;
+&lt;h3 id=&#34;的短路解析&#34;&gt;&lt;a href=&#34;#的短路解析&#34; class=&#34;headerlink&#34; title=&#34;|| 的短路解析&#34;&gt;&lt;/a&gt;&lt;code&gt;||&lt;/code&gt; 的短路解析&lt;/h3&gt;&lt;p&gt;當左邊的表達式為 &lt;code&gt;true&lt;/code&gt; 就返回左邊的表達式結果，並且&lt;strong&gt;直接忽視&lt;/strong&gt;右邊的表達式結果，反之執行右邊的表達式。&lt;/p&gt;
+&lt;p&gt;以上可以知道 js 執行完左邊的表達式之後，若符合條件則直接跳過右邊的表達式(不解析亦不執行)，相對來講當開發人員在理解短路解析時就可以按照這樣的邏輯去快速判斷結果。&lt;/p&gt;
+&lt;p&gt;速記法：AND&lt;code&gt;false&lt;/code&gt;跳出、OR&lt;code&gt;true&lt;/code&gt;進入(執行)。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;if you use &lt;code&gt;||&lt;/code&gt; to provide some default value to another variable foo, you may encounter unexpected behaviors if you consider some falsy values as usable (e.g., &lt;code&gt;&#39;&#39;&lt;/code&gt; or &lt;code&gt;0&lt;/code&gt;). &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;可選鍊修飾符-Optional-chaining&#34;&gt;&lt;a href=&#34;#可選鍊修飾符-Optional-chaining&#34; class=&#34;headerlink&#34; title=&#34;可選鍊修飾符(Optional chaining)&#34;&gt;&lt;/a&gt;可選鍊修飾符(Optional chaining)&lt;/h1&gt;&lt;p&gt;舉個栗子&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;可選鍊修飾符&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;let&lt;/span&gt; user = {};&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(user.&lt;span class=&#34;hljs-property&#34;&gt;address&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;// undefined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(user.&lt;span class=&#34;hljs-property&#34;&gt;address&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;street&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;// error&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(user.&lt;span class=&#34;hljs-property&#34;&gt;address&lt;/span&gt;?.&lt;span class=&#34;hljs-property&#34;&gt;street&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;// undefined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在這個範例中，user 物件的清單中有部分的使用者缺少了 &lt;code&gt;address&lt;/code&gt; 這個屬性，但是大部分的使用者都具有該屬性時，就可以使用可選鍊修飾符來避免程式噴錯而中斷，但是需注意避免&lt;strong&gt;過度使用&lt;/strong&gt;可選鍊修飾符&lt;/p&gt;
+&lt;h1 id=&#34;空值合併運算子-Nullish-coalescing-operator&#34;&gt;&lt;a href=&#34;#空值合併運算子-Nullish-coalescing-operator&#34; class=&#34;headerlink&#34; title=&#34;空值合併運算子(Nullish coalescing operator) ??&#34;&gt;&lt;/a&gt;空值合併運算子(Nullish coalescing operator) &lt;code&gt;??&lt;/code&gt;&lt;/h1&gt;&lt;p&gt;舉個栗子&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;空值合併運算子&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;notNullish&lt;/span&gt; (a, b) {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(a ?? b);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;notNullish (&lt;span class=&#34;hljs-literal&#34;&gt;undefined&lt;/span&gt;, &lt;span class=&#34;hljs-literal&#34;&gt;null&lt;/span&gt;); &lt;span class=&#34;hljs-comment&#34;&gt;// null&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;notNullish (&lt;span class=&#34;hljs-literal&#34;&gt;null&lt;/span&gt;, &lt;span class=&#34;hljs-literal&#34;&gt;undefined&lt;/span&gt;); &lt;span class=&#34;hljs-comment&#34;&gt;// undefined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;notNullish (&lt;span class=&#34;hljs-literal&#34;&gt;undefined&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;); &lt;span class=&#34;hljs-comment&#34;&gt;// 0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;notNullish (&lt;span class=&#34;hljs-literal&#34;&gt;undefined&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;&#39;&lt;/span&gt;); &lt;span class=&#34;hljs-comment&#34;&gt;// &#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ES2020（ES11）提供的「空值合併運算子」，支援度需要搭配 babel 套件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;??&lt;/code&gt;常常與邏輯運算子 &lt;code&gt;||&lt;/code&gt; 比較，前者返回非 &lt;code&gt;undefined&lt;/code&gt; 與 &lt;code&gt;null&lt;/code&gt; 的表達式，後者返回非 falsy 的表達式。過濾的條件上有區別，可以依照需求使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;的短路解析-1&#34;&gt;&lt;a href=&#34;#的短路解析-1&#34; class=&#34;headerlink&#34; title=&#34;?? 的短路解析&#34;&gt;&lt;/a&gt;&lt;code&gt;??&lt;/code&gt; 的短路解析&lt;/h3&gt;&lt;p&gt;當左邊的表達式為 非 &lt;code&gt;undefined&lt;/code&gt; 與 &lt;code&gt;null&lt;/code&gt; 就返回左邊的表達式結果，並且&lt;strong&gt;直接忽視&lt;/strong&gt;右邊的表達式結果，反之執行右邊的表達式。&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="javascript" />
+        <category term="shortCircuit" />
+        <category term="optionalChaining" />
+        <category term="tricks" />
+        <updated>2022-03-12T05:55:02.000Z</updated>
+    </entry>
+</feed>

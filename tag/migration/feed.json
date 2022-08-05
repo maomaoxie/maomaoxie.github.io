@@ -1,0 +1,20 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Mawchu 貓奴前端的天空 • All posts by \"migration\" tag",
+    "description": "Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習",
+    "home_page_url": "http://maomaoxie.github.io",
+    "items": [
+        {
+            "id": "http://maomaoxie.github.io/2022/04/24/zh-tw/laravel-migration/",
+            "url": "http://maomaoxie.github.io/2022/04/24/zh-tw/laravel-migration/",
+            "title": "Laravel 資料庫版控工具 Migration",
+            "date_published": "2022-04-24T11:18:30.000Z",
+            "content_html": "<html><head></head><body><img src=\"/images/laravel-migration/0.png\" class=\"\" width=\"800\" height=\"200\" title=\"laravel-migration\">\n<p>Migration 位於 Laravel 專案包中的 database 資料夾，會使用建立日期來歸檔資料表的結構，為紀錄資料庫版本的版控，方便團隊共同開發資料表。</p>\n<h1 id=\"建立資料表\"><a href=\"#建立資料表\" class=\"headerlink\" title=\"建立資料表\"></a>建立資料表</h1><figure class=\"highlight javascript hljs\"><figcaption><span>建立 migration</span></figcaption><table><tbody><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\">php artisan <span class=\"hljs-attr\">make</span>:migration create_users_table</span><br></pre></td></tr></tbody></table></figure>\n<p>建立成功會顯示：</p>\n<img src=\"/images/laravel-migration/1.png\" class=\"\" width=\"800\" height=\"200\" title=\"資料庫版控工具 Migration\">\n<p>重整之後會出現新的版控檔案，使用建立日期來命名：</p>\n<img src=\"/images/laravel-migration/2.png\" class=\"\" width=\"300\" height=\"200\" title=\"資料庫版控工具 Migration\">\n<p>檔案內容：</p>\n<img src=\"/images/laravel-migration/3.png\" class=\"\" width=\"800\" height=\"200\" title=\"輸入圖片資料夾名稱\">\n\n<h1 id=\"修改資料表\"><a href=\"#修改資料表\" class=\"headerlink\" title=\"修改資料表\"></a>修改資料表</h1><p>在 <code>\\\\wsl$</code> 路徑下執行 migrate 的坑需要以下步驟：</p>\n<h4 id=\"補上-php-8-0-的-sql-extension\"><a href=\"#補上-php-8-0-的-sql-extension\" class=\"headerlink\" title=\"補上 php 8.0 的 sql-extension\"></a>補上 php 8.0 的 sql-extension</h4><p>於 ubuntu 終端機輸入以下指令：</p>\n<figure class=\"highlight javascript hljs\"><table><tbody><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\">輸入code</span><br></pre></td></tr></tbody></table></figure>\n<h4 id=\"將註解-extension-x3D-pdo-mysql-打開\"><a href=\"#將註解-extension-x3D-pdo-mysql-打開\" class=\"headerlink\" title=\"將註解 ;extension=pdo_mysql 打開\"></a>將註解 ;extension=pdo_mysql 打開</h4></body></html>",
+            "tags": [
+                "laravel",
+                "migration",
+                "sql"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;linux&#34; tag</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Sun, 03 Apr 2022 19:01:30 +0800</pubDate>
+        <lastBuildDate>Sun, 03 Apr 2022 19:01:30 +0800</lastBuildDate>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>git</category>
+        <category>github</category>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>rss</category>
+        <category>hexo</category>
+        <category>sourceTree</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>httpMethods</category>
+        <category>httpHeader</category>
+        <category>Javascript</category>
+        <category>status</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>blade</category>
+        <category>wsl2</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>layout</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>css</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue3</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>vue</category>
+        <category>compositionAPI</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/04/03/zh-tw/laravel-folder-intro/</guid>
+            <title>Laravel 專案包初探</title>
+            <link>http://maomaoxie.github.io/2022/04/03/zh-tw/laravel-folder-intro/</link>
+            <category>laravel</category>
+            <category>php</category>
+            <category>linux</category>
+            <category>blade</category>
+            <category>wsl2</category>
+            <pubDate>Sun, 03 Apr 2022 19:01:30 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/laravel-folder-intro/0.png&#34; class=&#34;Laravel-folder-intro&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;Laravel 專案包初探&#34;&gt;
+&lt;p&gt;Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用：&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;先打預防針，其實整個 Larevel 專案包預設並沒有任何 UI 框架，此專案包內名為 bootstrap 的檔案都跟該框架無半點毛關係！不要被混淆了。&lt;/p&gt;
+&lt;p&gt;知識小學堂：&lt;br&gt;&lt;strong&gt;bootstrap&lt;/strong&gt; 的意思為鞋帶，衍生的動詞涵義是&lt;strong&gt;啟動機制&lt;/strong&gt;，符合 Laravel 框架中用來充當 &lt;strong&gt;glue&lt;/strong&gt; 黏著任何相關檔案或 app 啟動機制的程序。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;vendor&#34;&gt;&lt;a href=&#34;#vendor&#34; class=&#34;headerlink&#34; title=&#34;vendor&#34;&gt;&lt;/a&gt;vendor&lt;/h1&gt;&lt;p&gt;Composer 相依套件的目錄，類似 node modules。&lt;/p&gt;
+&lt;h1 id=&#34;app&#34;&gt;&lt;a href=&#34;#app&#34; class=&#34;headerlink&#34; title=&#34;app&#34;&gt;&lt;/a&gt;app&lt;/h1&gt;&lt;p&gt;核心的 code 會放在這裡，大部分的類別（class）程式放置處，重要的 MVC 架構中的 &lt;code&gt;Controller&lt;/code&gt; 類別會放在 Http/Controllers 資料夾中，以處理 View 與 Model 中間的繫結處理器。&lt;/p&gt;
+&lt;h1 id=&#34;bootstrap&#34;&gt;&lt;a href=&#34;#bootstrap&#34; class=&#34;headerlink&#34; title=&#34;bootstrap&#34;&gt;&lt;/a&gt;bootstrap&lt;/h1&gt;&lt;p&gt;這裡的 bootstrap 並非 UI 框架，而是啟動整個 Laravel app 需要使用的元件放置處，增進性能優化的快取設定（cache）會放在這，不需要編寫這邊的檔案。&lt;/p&gt;
+&lt;h1 id=&#34;database&#34;&gt;&lt;a href=&#34;#database&#34; class=&#34;headerlink&#34; title=&#34;database&#34;&gt;&lt;/a&gt;database&lt;/h1&gt;&lt;p&gt;Model factories 會放在這裡，亦可處理 database 的遷移。&lt;/p&gt;
+&lt;h1 id=&#34;lang&#34;&gt;&lt;a href=&#34;#lang&#34; class=&#34;headerlink&#34; title=&#34;lang&#34;&gt;&lt;/a&gt;lang&lt;/h1&gt;&lt;p&gt;語言的切換檔案。&lt;/p&gt;
+&lt;h1 id=&#34;public&#34;&gt;&lt;a href=&#34;#public&#34; class=&#34;headerlink&#34; title=&#34;public&#34;&gt;&lt;/a&gt;public&lt;/h1&gt;&lt;p&gt;網站的靜態檔案如 js、css 及 images 放置處，以及網站的所有入口點（entry points）&lt;code&gt;index.php&lt;/code&gt; 與設定自動加載（autoloading）的地方。&lt;/p&gt;
+&lt;h1 id=&#34;resource&#34;&gt;&lt;a href=&#34;#resource&#34; class=&#34;headerlink&#34; title=&#34;resource&#34;&gt;&lt;/a&gt;resource&lt;/h1&gt;&lt;p&gt;MVC 架構中的 &lt;code&gt;Views&lt;/code&gt; 類別會放在這裡，通常是 &lt;code&gt;blade&lt;/code&gt; 模板檔案，也存放一些初胚的、未經壓縮與處理的 js、css 檔案，在網站打包之後會被壓縮並且優化性能，需要 loader 去編譯的檔案可以放在這裡，例如 less 或 sass。&lt;/p&gt;
+&lt;h3 id=&#34;resource-x2F-bootstrap-js&#34;&gt;&lt;a href=&#34;#resource-x2F-bootstrap-js&#34; class=&#34;headerlink&#34; title=&#34;resource/bootstrap.js&#34;&gt;&lt;/a&gt;resource/bootstrap.js&lt;/h3&gt;&lt;p&gt;該文件夾底下的 &lt;code&gt;bootstrap.js&lt;/code&gt; 檔案並非 UI 框架，而是放置 &lt;code&gt;CSRF Token&lt;/code&gt; 自動夾帶在 header 的程序，並且使用 &lt;code&gt;$axios&lt;/code&gt; 發送 request 出去，以&lt;strong&gt;避免 XSRF 跨站偽造攻擊&lt;/strong&gt;之用！&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote danger&#34;&gt;&lt;p&gt;警告：不想整個 app 掛掉的話請不要亂動我！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;routes&#34;&gt;&lt;a href=&#34;#routes&#34; class=&#34;headerlink&#34; title=&#34;routes&#34;&gt;&lt;/a&gt;routes&lt;/h1&gt;&lt;p&gt;路由檔案，預設會有 &lt;code&gt;web.php&lt;/code&gt;, &lt;code&gt;api.php&lt;/code&gt;, &lt;code&gt;console.php&lt;/code&gt;, and &lt;code&gt;channels.php&lt;/code&gt; 幾支提供設定，也可以使用 app 裡面的 Controller Class 來渲染路由對應的 view 檔。&lt;/p&gt;
+&lt;h3 id=&#34;routes-x2F-web-php&#34;&gt;&lt;a href=&#34;#routes-x2F-web-php&#34; class=&#34;headerlink&#34; title=&#34;routes/web.php&#34;&gt;&lt;/a&gt;routes/web.php&lt;/h3&gt;&lt;p&gt;提供 session state、CSRF 保護與 cookie 加密，可以放置除了 server 提供的 RESTful API 以外的網頁路由設定。&lt;/p&gt;
+&lt;h3 id=&#34;routes-x2F-api-php&#34;&gt;&lt;a href=&#34;#routes-x2F-api-php&#34; class=&#34;headerlink&#34; title=&#34;routes/api.php&#34;&gt;&lt;/a&gt;routes/api.php&lt;/h3&gt;&lt;p&gt;API 中介軟體的設定處，是無狀態（stateless）的，所有進入該介面的路由都需要攜帶 Token 認證且無法隨意進入。&lt;/p&gt;
+&lt;h3 id=&#34;routes-x2F-console-php&#34;&gt;&lt;a href=&#34;#routes-x2F-console-php&#34; class=&#34;headerlink&#34; title=&#34;routes/console.php&#34;&gt;&lt;/a&gt;routes/console.php&lt;/h3&gt;&lt;p&gt;可以將自定義的指令碼撰寫在這，例如 Artisan 的相關指令。&lt;/p&gt;
+&lt;h3 id=&#34;routes-x2F-channels-php&#34;&gt;&lt;a href=&#34;#routes-x2F-channels-php&#34; class=&#34;headerlink&#34; title=&#34;routes/channels.php&#34;&gt;&lt;/a&gt;routes/channels.php&lt;/h3&gt;&lt;p&gt;定義授權請求監聽的邏輯，以註冊相應的回呼函式。&lt;/p&gt;
+&lt;h1 id=&#34;storage&#34;&gt;&lt;a href=&#34;#storage&#34; class=&#34;headerlink&#34; title=&#34;storage&#34;&gt;&lt;/a&gt;storage&lt;/h1&gt;&lt;p&gt;放置經過編譯的 blade php 模板，以及快取與其他框架處理過後的檔案，其中&lt;code&gt;storage/app/public&lt;/code&gt;路徑放置使用者操作後產生的檔案，例如頭像圖片。&lt;/p&gt;
+&lt;h1 id=&#34;config&#34;&gt;&lt;a href=&#34;#config&#34; class=&#34;headerlink&#34; title=&#34;config&#34;&gt;&lt;/a&gt;config&lt;/h1&gt;&lt;p&gt;整個網站應用程式的設定檔案，建議熟讀並且活用其中的多樣選擇。可以把一些全域使用的環境變數放置其中。&lt;/p&gt;
+&lt;p&gt;參考文章：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&#34;https://laravel.com/docs/9.x/structure&#34;&gt;https://laravel.com/docs/9.x/structure&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/02/12/zh-tw/laravel-installation/</guid>
+            <title>Windows 搭建 Laravel 環境的各種跌坑</title>
+            <link>http://maomaoxie.github.io/2022/02/12/zh-tw/laravel-installation/</link>
+            <category>laravel</category>
+            <category>php</category>
+            <category>linux</category>
+            <category>blade</category>
+            <category>wsl2</category>
+            <pubDate>Sat, 12 Feb 2022 16:36:34 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/laravel-installation/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+&lt;p&gt;使用 Window 10 搭建 Laravel 框架的過程採了一堆大坑 QQ，經過幾番努力終於成功！&lt;br&gt;千萬不要認為裝套件都是敲一敲指令就可以了，工程師的路從來都沒有那麼好走，是天堂路阿孩子！&lt;br&gt;工欲善其事，必先利其器，先將裝備整頓好才能打 BOSS：&lt;/p&gt;
+&lt;h1 id=&#34;安裝-Composer&#34;&gt;&lt;a href=&#34;#安裝-Composer&#34; class=&#34;headerlink&#34; title=&#34;安裝 Composer&#34;&gt;&lt;/a&gt;安裝 &lt;a href=&#34;https://getcomposer.org/&#34;&gt;Composer&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;簡單介紹一下 composer 的用處，npm 是用來安裝 node.js 的套件管理工具，那麼 composer 就是用來安裝 php 套件的管理工具。&lt;br&gt;windows 這一步很簡單，按這裡就可以下載，設定那些一路按下去就好。&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-installation/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+&lt;img src=&#34;/images/laravel-installation/2.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+
+&lt;h1 id=&#34;安裝-Ubuntu-amp-Windows-terminal&#34;&gt;&lt;a href=&#34;#安裝-Ubuntu-amp-Windows-terminal&#34; class=&#34;headerlink&#34; title=&#34;安裝 Ubuntu &amp;amp; Windows terminal&#34;&gt;&lt;/a&gt;安裝 Ubuntu &amp;amp; Windows terminal&lt;/h1&gt;&lt;p&gt;兩個都可以到 Microsoft store 下載。&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-installation/6.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+&lt;img src=&#34;/images/laravel-installation/7.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+
+&lt;h1 id=&#34;安裝-WSL2&#34;&gt;&lt;a href=&#34;#安裝-WSL2&#34; class=&#34;headerlink&#34; title=&#34;安裝 WSL2&#34;&gt;&lt;/a&gt;安裝 WSL2&lt;/h1&gt;&lt;p&gt;Laravel 環境有要求：&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;在新建 Laravel 應用前，請確保你的 Windows 電腦已經安裝了 Docker Desktop。&lt;br&gt;之後，請確保已經安裝並啟用了適用於 &lt;strong&gt;Linux 的 Windows 子系統 2（WSL2）&lt;/strong&gt;。&lt;br&gt;WSL 允許你在 Windows 10 上執行 Linux 二進位制檔案。&lt;br&gt;關於如何安裝並啟用 WSL2，請參閱微軟 開發者環境檔案。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;補充一下 WSL2 在幹嘛，看不懂就略過 XD：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;WSL 1 使用了一個轉譯層（translation layer）來轉換 Linux 與 Windows 底層的系統呼叫（system calls），而 WSL 2 已經不再需要這個轉譯層，因為它有了自己的 Linux 核心，而這個核心是執行於一個輕巧版本的 Hyper-V hypervisor 之上。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;看一下安裝大師這個影片就懂了：&lt;/p&gt;
+&lt;div class=&#34;video-container&#34;&gt;&lt;iframe src=&#34;https://www.youtube.com/embed/wJUHe4iof7w&#34; frameborder=&#34;0&#34; loading=&#34;lazy&#34; allowfullscreen=&#34;&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;p&gt;看完影片可以優先執行以下步驟來安裝 Windows WSL2，注意！要使用 windows powershell 並且以管理員身分來執行指令：&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-installation/5.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+
+&lt;h3 id=&#34;安裝-Linux-子系統-WSL2-步驟-1&#34;&gt;&lt;a href=&#34;#安裝-Linux-子系統-WSL2-步驟-1&#34; class=&#34;headerlink&#34; title=&#34;安裝 Linux 子系統 WSL2 步驟 1&#34;&gt;&lt;/a&gt;安裝 Linux 子系統 WSL2 步驟 1&lt;/h3&gt;&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;安裝-Linux-子系統-WSL2-步驟-2&#34;&gt;&lt;a href=&#34;#安裝-Linux-子系統-WSL2-步驟-2&#34; class=&#34;headerlink&#34; title=&#34;安裝 Linux 子系統 WSL2 步驟 2&#34;&gt;&lt;/a&gt;安裝 Linux 子系統 WSL2 步驟 2&lt;/h3&gt;&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;dism.exe /online /enable-feature /featurename:VirutalMachinePlatform /all /norestart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;重啟電腦後下載影片提供的 Windows 補丁 WSL2 Linux kernel update package for x64 machines 才能執行新的 Linux 子系統 以及 Ubuntu 作業系統！下載之後安裝起來就可以囉！&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-installation/8.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+
+&lt;h3 id=&#34;查看系統版本&#34;&gt;&lt;a href=&#34;#查看系統版本&#34; class=&#34;headerlink&#34; title=&#34;查看系統版本&#34;&gt;&lt;/a&gt;查看系統版本&lt;/h3&gt;&lt;img src=&#34;/images/laravel-installation/12.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+
+&lt;h1 id=&#34;安裝-Docker&#34;&gt;&lt;a href=&#34;#安裝-Docker&#34; class=&#34;headerlink&#34; title=&#34;安裝 Docker&#34;&gt;&lt;/a&gt;安裝 Docker&lt;/h1&gt;&lt;p&gt;Docker 4.5.0 版本裝完之後會出現設定區塊不斷讀取轉圈圈的 Bug，這裡在 windows 是一個巨坑！ &lt;/p&gt;
+&lt;h3 id=&#34;問題剖析&#34;&gt;&lt;a href=&#34;#問題剖析&#34; class=&#34;headerlink&#34; title=&#34;問題剖析&#34;&gt;&lt;/a&gt;問題剖析&lt;/h3&gt;&lt;p&gt;Docker 轉圈圈類似這樣，借別人的圖來演示一下：&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-installation/3.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+&lt;p&gt;沒有辦法將 Ubuntu 與 WSL2 的設定開起來，讓人從開始就決定放棄 XD&lt;br&gt;你一定在想為什麼還要用到 Ubuntu 與 WSL2？&lt;br&gt;上面有提到，Laravel 框架需要依賴 Linux 的 Windows 子系統 2（WSL2）才能執行，所以安裝 WSL2 在先而 Docker 應該在後，一開始就是順序錯誤踩了大坑跑不起來。&lt;br&gt;查看這一篇 &lt;a href=&#34;https://github.com/docker/for-win/issues/12545&#34;&gt;Docker does not work after installation #12545&lt;/a&gt; 發現我不孤單，這裡有提到可以先降版安裝 4.4.2 的 docker，裝好之後再 update 就可以解決轉圈圈的問題了！&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;After I downloaded 4.4.2 it worked on the first try (well second try but basically all I did was restart it. There was some different error the first time and i clicked continue or ignore or try again or something. Anyways, it just then started. The WSL2 integration option box was still grayed out but it was selected so I didnt need to change it anyways. Then I did try to update to 4.4.4 but it actually installed 4.5.0. But it worked fine and my container was still there and working fine. So it seems that by installing 4.4.2 and then updating to 4.5.0 worked ok.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;下載降板-Docker-4-4-2&#34;&gt;&lt;a href=&#34;#下載降板-Docker-4-4-2&#34; class=&#34;headerlink&#34; title=&#34;下載降板 Docker 4.4.2&#34;&gt;&lt;/a&gt;下載降板 Docker 4.4.2&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/desktop/windows/release-notes/#docker-desktop-442&#34;&gt;Docker&lt;/a&gt; 官方釋出的版本號裡面下載 4.4.2。&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-installation/4.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+
+&lt;h3 id=&#34;更新-Docker-4-5-0&#34;&gt;&lt;a href=&#34;#更新-Docker-4-5-0&#34; class=&#34;headerlink&#34; title=&#34;更新 Docker 4.5.0&#34;&gt;&lt;/a&gt;更新 Docker 4.5.0&lt;/h3&gt;&lt;p&gt;安裝完畢記得到 settings 更新到 Docker 4.5.0 版本。&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-installation/10.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+
+&lt;h3 id=&#34;修改設定&#34;&gt;&lt;a href=&#34;#修改設定&#34; class=&#34;headerlink&#34; title=&#34;修改設定&#34;&gt;&lt;/a&gt;修改設定&lt;/h3&gt;&lt;p&gt;更改設定為 WSL2 並且&lt;strong&gt;開啟 Ubuntu&lt;/strong&gt;&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-installation/11.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+&lt;p&gt;到這裡總算收拾好了一個 windows 才有的大坑阿~（累）&lt;/p&gt;
+&lt;h1 id=&#34;安裝-Laravel-amp-sail&#34;&gt;&lt;a href=&#34;#安裝-Laravel-amp-sail&#34; class=&#34;headerlink&#34; title=&#34;安裝 Laravel &amp;amp; sail&#34;&gt;&lt;/a&gt;安裝 Laravel &amp;amp; sail&lt;/h1&gt;&lt;p&gt;瞧瞧這份 &lt;a href=&#34;https://laravel.com/docs/8.x/installation#getting-started-on-windows&#34;&gt;Laravel&lt;/a&gt; 官方安裝文件，&lt;br&gt;我以為在 vscode 命令行輸入這一句就可以搭載 Laravel 了！真的是好傻好天真呀！全忘了剛才安裝的 Ubuntu XD&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;curl -s https://laravel.build/example-app | bash&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;使用-Ubuntu-系統-sail-up&#34;&gt;&lt;a href=&#34;#使用-Ubuntu-系統-sail-up&#34; class=&#34;headerlink&#34; title=&#34;使用 Ubuntu 系統 sail up&#34;&gt;&lt;/a&gt;使用 Ubuntu 系統 sail up&lt;/h3&gt;&lt;p&gt;在命令行輸入就會發現指令怪怪的，必須要去剛才安裝好的 Windows terminal 點選下拉符號的企鵝（剛剛下載的 Ubuntu作業系統）：&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-installation/9.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+&lt;p&gt;就可以在這裡使用剛才的命令行來安裝 Laravel &amp;amp; sail &lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;./vendor/bin/sail up&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;到這裡終於可以啟航啦~（痛哭）&lt;br&gt;啟航沒多久你可以看到很多 Laravel 的專案被啟動，然後就報錯了～（崩潰）&lt;/p&gt;
+&lt;h3 id=&#34;問題剖析-1&#34;&gt;&lt;a href=&#34;#問題剖析-1&#34; class=&#34;headerlink&#34; title=&#34;問題剖析&#34;&gt;&lt;/a&gt;問題剖析&lt;/h3&gt;&lt;p&gt;錯誤訊息是這樣的：&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote danger&#34;&gt;&lt;p&gt;docker: Error response from daemon: Ports are not available: listen tcp 0.0.0.0:80: bind: An attempt was made to access a socket in a way forbidden by its access permissions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;也就是我嘗試開啟的 Laravel Port 號被佔用了！指令查看一下 docker 容器列表：&lt;br&gt;後來刪除 80 port 也無法解決問題&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;docker container &lt;span class=&#34;hljs-built_in&#34;&gt;ls&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在電腦查找了一下，發現是 window 系統執行的某程式（編號4）佔用了&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;netstat -ano | findstr 0.0:80&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img src=&#34;/images/laravel-installation/13.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+&lt;p&gt;ctrl + shift + esc 啟動工作管理員 &amp;gt; 詳細資料 &amp;gt; 使用 PID 排序查找是甚麼系統佔用：&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-installation/14.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+
+&lt;h3 id=&#34;修改-Laravel-環境檔&#34;&gt;&lt;a href=&#34;#修改-Laravel-環境檔&#34; class=&#34;headerlink&#34; title=&#34;修改 Laravel 環境檔&#34;&gt;&lt;/a&gt;修改 Laravel 環境檔&lt;/h3&gt;&lt;p&gt;不敢亂刪執行的系統背景程式，只好修改 Laravel 本身的 docker port 號，這裡要感謝課堂上的小夥伴們集思廣益查到方法了，參考 &lt;a href=&#34;https://stackoverflow.com/questions/67053449/unable-to-set-the-app-port-on-env-for-laravel-sail&#34;&gt;Unable to set the APP_PORT on .env for Laravel Sail&lt;/a&gt;&lt;br&gt;將專案的 .env 加上這一行，關閉在打開：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;APP_PORT=3000&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img src=&#34;/images/laravel-installation/15.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sail down&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;./vendor/bin/sail up&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;就成功了！整個很想大哭一場 QQ&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-installation/16.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-installation&#34;&gt;
+
+&lt;h3 id=&#34;修改指令碼&#34;&gt;&lt;a href=&#34;#修改指令碼&#34; class=&#34;headerlink&#34; title=&#34;修改指令碼&#34;&gt;&lt;/a&gt;修改指令碼&lt;/h3&gt;&lt;p&gt;最後修改一下啟動的指令更簡短些：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-built_in&#34;&gt;alias&lt;/span&gt; sail=&lt;span class=&#34;hljs-string&#34;&gt;&#39;bash vendor/bin/sail&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;就可以不必輸入那麼長的指令啟動 Laravel 啦！&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sail up&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;打完收工。&lt;/p&gt;
+&lt;p&gt;參考文章：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&#34;https://forums.docker.com/t/docker-engine-wsl2-stopped-settings-page-doesnt-load/82355&#34;&gt;https://forums.docker.com/t/docker-engine-wsl2-stopped-settings-page-doesnt-load/82355&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://github.com/docker/for-win/issues/12545&#34;&gt;https://github.com/docker/for-win/issues/12545&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=wJUHe4iof7w&#34;&gt;https://www.youtube.com/watch?v=wJUHe4iof7w&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://ek21.com/news/3/19760/&#34;&gt;https://ek21.com/news/3/19760/&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://stackoverflow.com/questions/67053449/unable-to-set-the-app-port-on-env-for-laravel-sail&#34;&gt;https://stackoverflow.com/questions/67053449/unable-to-set-the-app-port-on-env-for-laravel-sail&lt;/a&gt;&lt;br&gt;還要感謝課程上的死神老師與許多小夥伴們大力幫忙（跪）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+&lt;p&gt;2022/04/04 更&lt;/p&gt;
+&lt;h1 id=&#34;Artisan-cmd&#34;&gt;&lt;a href=&#34;#Artisan-cmd&#34; class=&#34;headerlink&#34; title=&#34;Artisan cmd&#34;&gt;&lt;/a&gt;Artisan cmd&lt;/h1&gt;&lt;p&gt;Laravel 的 &lt;code&gt;artisan&lt;/code&gt; 指令有些需要 &lt;strong&gt;PHP 8 以上版本&lt;/strong&gt; 才能支援，需要更新環境的 PHP 版本到 8 以上，並且移除 PHP 7 避免系統指定到舊版本，這樣一來 windows 系統中的 windows terminal 與 ubuntu 企鵝都可以使用各種 artisan 指令，例如自動建立 Controller：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;artisan cmd&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;php artisan &lt;span class=&#34;hljs-attr&#34;&gt;make&lt;/span&gt;:controller &lt;span class=&#34;title class_&#34;&gt;Whatever&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;Controller&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;建立完的檔案會自動出現在 app/Http/Controllers 路徑中，結構如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;WhateverController.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;?php&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  namespace &lt;span class=&#34;title class_&#34;&gt;App&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;Http&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;Controllers&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  use &lt;span class=&#34;title class_&#34;&gt;Illuminate&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;Foundation&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;Auth&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;Access&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;AuthorizesRequests&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  use &lt;span class=&#34;title class_&#34;&gt;Illuminate&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;Foundation&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;Bus&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;DispatchesJobs&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  use &lt;span class=&#34;title class_&#34;&gt;Illuminate&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;Foundation&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;Validation&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;ValidatesRequests&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  use &lt;span class=&#34;title class_&#34;&gt;Illuminate&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;Routing&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;Controller&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;WhateverController&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;Controller&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;title class_ inherited__&#34;&gt;WhateverController&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      use &lt;span class=&#34;title class_&#34;&gt;AuthorizesRequests&lt;/span&gt;, &lt;span class=&#34;title class_&#34;&gt;DispatchesJobs&lt;/span&gt;, &lt;span class=&#34;title class_&#34;&gt;ValidatesRequests&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

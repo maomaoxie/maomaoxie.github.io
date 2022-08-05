@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://maomaoxie.github.io</id>
+    <title>Mawchu 貓奴前端的天空 • Posts by &#34;tailwind&#34; tag</title>
+    <link href="http://maomaoxie.github.io" />
+    <updated>2022-04-24T08:47:56.000Z</updated>
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="git" />
+    <category term="github" />
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="rss" />
+    <category term="hexo" />
+    <category term="sourceTree" />
+    <category term="http" />
+    <category term="https" />
+    <category term="request" />
+    <category term="response" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="httpMethods" />
+    <category term="httpHeader" />
+    <category term="Javascript" />
+    <category term="status" />
+    <category term="type" />
+    <category term="laravel" />
+    <category term="php" />
+    <category term="linux" />
+    <category term="blade" />
+    <category term="wsl2" />
+    <category term="migration" />
+    <category term="sql" />
+    <category term="layout" />
+    <category term="public" />
+    <category term="static" />
+    <category term="tailwind" />
+    <category term="env" />
+    <category term="process" />
+    <category term="dotenv" />
+    <category term="css" />
+    <category term="less" />
+    <category term="processors" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vue3" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="vue" />
+    <category term="compositionAPI" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/04/24/zh-tw/laravel-tailwind/</id>
+        <title>在 Laravel 專案導入 tailwind css</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/04/24/zh-tw/laravel-tailwind/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/laravel-tailwind/0.jpg&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;在 Laravel 專案導入 tailwind css&#34;&gt;
+&lt;p&gt;導入 tailwind css 之前有幾個與 Laravel 執行環境有關的雷需要注意：&lt;/p&gt;
+&lt;h1 id=&#34;前情提要&#34;&gt;&lt;a href=&#34;#前情提要&#34; class=&#34;headerlink&#34; title=&#34;前情提要&#34;&gt;&lt;/a&gt;前情提要&lt;/h1&gt;&lt;p&gt;將 Laravel 專案放置在 &lt;code&gt;\\wsl$&lt;/code&gt; 路徑內可以更有效率的執行 WSL2，跑起來的速度也快，不過要注意專案環境包相關聯的耦合性，例如 Docker 設定、php 版本對於某些指令的支援度。&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;以下網址介紹了 WSL2 建置的專案具體位置究竟在哪：&lt;br&gt;&lt;a href=&#34;https://solidstudio.io/blog/windows-subsystem-for-linux-explained&#34;&gt;https://solidstudio.io/blog/windows-subsystem-for-linux-explained&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;由於在 windows 系統中建置 Laravel 需要 Linux 子系統 WSL2 的支持，而使用 artisan 相關的指令都建是使用 Windows Terminal 下的 ubuntu 終端機會更友善些：&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;There is however one great application that makes running the WSL console easier. It’s Windows Terminal and it can be installed from Windows Store. It automatically detects any WSL distributions installed and adds an option to run its console.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;至於為什麼要使用 Windows Terminal? 以上說明了&lt;strong&gt;自動偵測 WSL分佈&lt;/strong&gt;的功能，當你打開終端機會發現他自動偵測到你使用 WSL 建置該專案包的路徑，甚至在終端機輸入 wsl 就能直接切換該系統環境。&lt;/p&gt;
+&lt;h3 id=&#34;系統包補丁&#34;&gt;&lt;a href=&#34;#系統包補丁&#34; class=&#34;headerlink&#34; title=&#34;系統包補丁&#34;&gt;&lt;/a&gt;系統包補丁&lt;/h3&gt;&lt;p&gt;由於每個終端機的環境檔案包是沒有共享的，你在 powershell 很開心的安裝了一包 php，之後當你切換到 ubuntu 會發現，php 指令居然找不到?? 因為你得重裝，導入 tailwind 至 WSL 專案需要補上：&lt;/p&gt;
+&lt;h4 id=&#34;node-js&#34;&gt;&lt;a href=&#34;#node-js&#34; class=&#34;headerlink&#34; title=&#34;node.js&#34;&gt;&lt;/a&gt;node.js&lt;/h4&gt;&lt;p&gt;安裝 node 在 ubuntu的步驟&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;新增Node.js PPA&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;PPA 有點像是系統軟體包的 package.json，記錄著軟體及其版本信息，當你運行 sudo apt update 命令時 apt 工具會根據 /etc/apt 目錄中的 sources.list 文件來決定版本是否升級。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;安裝 node PPA&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sudo apt-get install curl&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;安裝 LTS 版本&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;curl -sL &lt;span class=&#34;hljs-attr&#34;&gt;https&lt;/span&gt;:&lt;span class=&#34;hljs-comment&#34;&gt;//deb.nodesource.com/setup_12.x | sudo -E bash -&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安裝Node.js&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;安裝 Node.js 至 Ubuntu&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sudo apt-get install nodejs&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看一下版本號確保安裝成功&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;安裝-tailwind-css&#34;&gt;&lt;a href=&#34;#安裝-tailwind-css&#34; class=&#34;headerlink&#34; title=&#34;安裝 tailwind css&#34;&gt;&lt;/a&gt;安裝 tailwind css&lt;/h1&gt;&lt;p&gt;至 vscode terminal 或者使用 windows terminal Ubuntu 都可以安裝 tailwind css：&lt;/p&gt;
+&lt;h3 id=&#34;指令&#34;&gt;&lt;a href=&#34;#指令&#34; class=&#34;headerlink&#34; title=&#34;指令&#34;&gt;&lt;/a&gt;指令&lt;/h3&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;安裝 tailwind&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install -D tailwindcss postcss autoprefixer&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;安裝Node.js至Ubuntu&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npx tailwindcss init&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;修改-config-加入-plugin&#34;&gt;&lt;a href=&#34;#修改-config-加入-plugin&#34; class=&#34;headerlink&#34; title=&#34;修改 config 加入 plugin&#34;&gt;&lt;/a&gt;修改 config 加入 plugin&lt;/h3&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;webpack.mix.js&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;mix.&lt;span class=&#34;title function_&#34;&gt;js&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#34;resources/js/app.js&#34;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#34;public/js&#34;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  .&lt;span class=&#34;title function_&#34;&gt;postCss&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#34;resources/css/app.css&#34;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#34;public/css&#34;&lt;/span&gt;, [	&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-built_in&#34;&gt;require&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#34;tailwindcss&#34;&lt;/span&gt;), &lt;span class=&#34;hljs-comment&#34;&gt;// &amp;lt;-- 加入這行&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ]);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;導入全域-css&#34;&gt;&lt;a href=&#34;#導入全域-css&#34; class=&#34;headerlink&#34; title=&#34;導入全域 css&#34;&gt;&lt;/a&gt;導入全域 css&lt;/h3&gt;&lt;p&gt;在 &lt;code&gt;resources/css/app.css&lt;/code&gt; 檔案中加入以下：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;resources/css/app.css&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@tailwind base;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@tailwind components;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@tailwind utilities;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;設定-tailwind-config-js&#34;&gt;&lt;a href=&#34;#設定-tailwind-config-js&#34; class=&#34;headerlink&#34; title=&#34;設定 tailwind.config.js&#34;&gt;&lt;/a&gt;設定 tailwind.config.js&lt;/h3&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;resources/css/app.css&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;module&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;exports&lt;/span&gt; = { &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;content&lt;/span&gt;: [	&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-string&#34;&gt;&#34;./resources/**/*.blade.php&#34;&lt;/span&gt;,  &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-string&#34;&gt;&#34;./resources/**/*.js&#34;&lt;/span&gt;,	&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-string&#34;&gt;&#34;./resources/**/*.vue&#34;&lt;/span&gt;,  ],&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;theme&lt;/span&gt;: {	&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;extend&lt;/span&gt;: {},&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }, &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;plugins&lt;/span&gt;: [],&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;npm-install-將-mix-module-裝上&#34;&gt;&lt;a href=&#34;#npm-install-將-mix-module-裝上&#34; class=&#34;headerlink&#34; title=&#34;npm install 將 mix module 裝上&#34;&gt;&lt;/a&gt;npm install 將 mix module 裝上&lt;/h3&gt;&lt;p&gt;mix 指令可以打包 tailwind css 的預處理器編譯為 css，但不會自動安裝，需要 npm install：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;驗證是否成功&#34;&gt;&lt;a href=&#34;#驗證是否成功&#34; class=&#34;headerlink&#34; title=&#34;驗證是否成功&#34;&gt;&lt;/a&gt;驗證是否成功&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;在 views/layout/layout.blade.php 檔案導入全域 css：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;link href=&lt;span class=&#34;hljs-string&#34;&gt;&#34;{{ asset(&#39;css/app.css&#39;) }}&#34;&lt;/span&gt; rel=&lt;span class=&#34;hljs-string&#34;&gt;&#34;stylesheet&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;加上 tailwind css 的 class&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;resources/css/app.css&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@tailwind base;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@tailwind components;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@tailwind utilities;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;.&lt;span class=&#34;hljs-property&#34;&gt;btn&lt;/span&gt;-primary {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  @apply py-&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt; px-&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt; bg-blue-&lt;span class=&#34;hljs-number&#34;&gt;500&lt;/span&gt; text-white font-semibold rounded-lg shadow-md &lt;span class=&#34;hljs-attr&#34;&gt;hover&lt;/span&gt;:bg-blue-&lt;span class=&#34;hljs-number&#34;&gt;700&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;focus&lt;/span&gt;:outline-none &lt;span class=&#34;hljs-attr&#34;&gt;focus&lt;/span&gt;:ring-&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;focus&lt;/span&gt;:ring-blue-&lt;span class=&#34;hljs-number&#34;&gt;400&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;focus&lt;/span&gt;:ring-opacity-&lt;span class=&#34;hljs-number&#34;&gt;75&lt;/span&gt; transition-all;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;套用在 blade 檔案中&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;welcome.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;section&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;content&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;div &lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;container mx-auto&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;Hello you!&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;flex flex-wrap&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;      &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;md:w-3/4.w-full&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;w-16 md:w-32 lg:w-48 transition-all bg-fuchsia-300 hover:bg-fuchsia-600 py-5 text-pink-800&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;123&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;button&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;btn-primary&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;My button&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;      &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;      &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;md:w-1/4.w-full&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;aside&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@endsection&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;mix 指令打包&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm run mix&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;成功導入畫面&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-tailwind/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;tailwind 打包成功畫面&#34;&gt;
+&lt;img src=&#34;/images/laravel-tailwind/2.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;tailwind 打包成功畫面&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="laravel" />
+        <category term="tailwind" />
+        <updated>2022-04-24T08:47:56.000Z</updated>
+    </entry>
+</feed>

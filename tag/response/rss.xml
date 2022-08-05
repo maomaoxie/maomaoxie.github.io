@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;response&#34; tag</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Mon, 28 Feb 2022 20:28:24 +0800</pubDate>
+        <lastBuildDate>Mon, 28 Feb 2022 20:28:24 +0800</lastBuildDate>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>git</category>
+        <category>github</category>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>rss</category>
+        <category>hexo</category>
+        <category>sourceTree</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>httpMethods</category>
+        <category>httpHeader</category>
+        <category>Javascript</category>
+        <category>status</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>blade</category>
+        <category>wsl2</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>layout</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>css</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue3</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>vue</category>
+        <category>compositionAPI</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/02/28/zh-tw/http-header/</guid>
+            <title>HTTP 的訊息頭 header</title>
+            <link>http://maomaoxie.github.io/2022/02/28/zh-tw/http-header/</link>
+            <category>http</category>
+            <category>request</category>
+            <category>response</category>
+            <category>httpHeader</category>
+            <pubDate>Mon, 28 Feb 2022 20:28:24 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/http-header/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[http-header [http-header]]&#34;&gt;
+
+&lt;p&gt;個人對這一塊知識又愛又恨，每每串接 api 打開 Network 都會看到卻似懂非懂的感覺真討厭！來認真釐清一下吧！&lt;/p&gt;
+&lt;h1 id=&#34;甚麼是-Header-與-Body&#34;&gt;&lt;a href=&#34;#甚麼是-Header-與-Body&#34; class=&#34;headerlink&#34; title=&#34;甚麼是 Header 與 Body&#34;&gt;&lt;/a&gt;甚麼是 Header 與 Body&lt;/h1&gt;&lt;p&gt;訊息頭&lt;code&gt;header&lt;/code&gt;在 request 與 response 裡佔有很大一席之地，它的作用相當於寄件時包裹上的訊息，記錄著包裹的相關內容，譬如該包裹要通過海關時必須申報內容物是甚麼類別，是否是急件還是一般，要寄往哪個國家、寄給誰等等的屬性。&lt;br&gt;訊息本體 &lt;code&gt;body&lt;/code&gt; 就是你包裹裡面的東西，或者信件裡的文字訊息。&lt;br&gt;之於網頁的資料傳遞則是記錄該次要求 request 與回應 response 的通訊內容．是一個 http 行為的概覽與說明。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;Header-存在於那裡&#34;&gt;&lt;a href=&#34;#Header-存在於那裡&#34; class=&#34;headerlink&#34; title=&#34;Header 存在於那裡&#34;&gt;&lt;/a&gt;Header 存在於那裡&lt;/h1&gt;&lt;p&gt;request 與 response 都有 &lt;code&gt;header&lt;/code&gt;，通常是 client 端發出的 request 會寫得比較詳盡，譬如使用者在搜尋引擎上點選一個網站就完成數個 request（一個網站會有很多資源的要求．例如圖片、網頁或 Api 資料）或者使用者在電腦填寫表單之後送出，而 server 端接收之後回應也會有訊息頭。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;HTTP-通訊的組成&#34;&gt;&lt;a href=&#34;#HTTP-通訊的組成&#34; class=&#34;headerlink&#34; title=&#34;HTTP 通訊的組成&#34;&gt;&lt;/a&gt;HTTP 通訊的組成&lt;/h1&gt;&lt;img src=&#34;/images/http-header/1.png&#34; class=&#34;&#34; width=&#34;500&#34; height=&#34;200&#34; title=&#34;http-header&#34;&gt;
+&lt;p&gt;一個 request 跟 response 由 &lt;code&gt;header&lt;/code&gt; 訊息頭跟 &lt;code&gt;body&lt;/code&gt; 訊息本體所組成：&lt;/p&gt;
+&lt;h3 id=&#34;Request-Header-請求頭&#34;&gt;&lt;a href=&#34;#Request-Header-請求頭&#34; class=&#34;headerlink&#34; title=&#34;Request Header 請求頭&#34;&gt;&lt;/a&gt;Request Header 請求頭&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;屬性&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;說明&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;範例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Accept&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;request 要求 response 的類型&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;text/html, image/*&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Accept-charset&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;request 的編碼&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;utf-8, iso-8859-1;q=0.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Authorization&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;request 要通過的驗證授權檢查&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Basic YWxhZGRpbjpvcGVuc2VzY…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Cookie&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;client 的暫存資料&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;PHPSESSID=124141;csrftoken=45746454&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Content-type&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;request 要求所發送的資料型態&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;multipart/form-data, text/plain, application/x-www-form-urlencoded, text/html, application/json&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Origin&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;request 要求的資料機器來源&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://developer.mozilla.org/&#34;&gt;https://developer.mozilla.org&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;User-Agent&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;request 端的 client 資訊&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Mozilla/5.0(Macintosh;Intel Mac OS X_10_14_3) AppleWebKit/537.36&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;X-Csrf-Token&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;防止 csrf(跨站請求偽造) 攻擊&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;eyjpdil6lmc4bjhQMmFrays…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;Authorization&#34;&gt;&lt;a href=&#34;#Authorization&#34; class=&#34;headerlink&#34; title=&#34;Authorization&#34;&gt;&lt;/a&gt;Authorization&lt;/h3&gt;&lt;p&gt;其中的 &lt;code&gt;Authorization&lt;/code&gt; 在 API 的&lt;strong&gt;安全驗證&lt;/strong&gt;非常重要，當 API server 接收到來自遠方的 request 時，可以透過該鑰匙密碼確認來源的 request 是合法、通過認證的，如此才能通過關卡進行資料交換。&lt;/p&gt;
+&lt;h3 id=&#34;Cookie&#34;&gt;&lt;a href=&#34;#Cookie&#34; class=&#34;headerlink&#34; title=&#34;Cookie&#34;&gt;&lt;/a&gt;Cookie&lt;/h3&gt;&lt;p&gt;瀏覽器的&lt;strong&gt;暫存資料&lt;/strong&gt;，是 Web API 的一種，Cookie 提供前端或後端一個存取少量資料在瀏覽器的空間，資料格式是一個鍵值對(key-value)，常用來做廣告追蹤紀錄客戶的瀏覽喜好，進而針對客群行銷與增加廣告投放的精準度，例如 Google Analytics；亦或是用來保持使用者的登入狀態。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;身為 Web 開發人員一定要瞭解 &lt;strong&gt;HTTP 本身無狀態 (Stateless) 的特性&lt;/strong&gt;，要在網路上識別瀏覽者的身份，必須透過一些機制來保存狀態，而 Cookie 就是其中一種保存狀態的機制。&lt;br&gt;&lt;a href=&#34;https://blog.miniasp.com/post/2008/02/22/Explain-HTTP-Cookie-in-Detail&#34;&gt;https://blog.miniasp.com/post/2008/02/22/Explain-HTTP-Cookie-in-Detail&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;Cookies 會被每一個請求發送出去，所以可能會影響效能（尤其是行動裝置的資料連線）。現代客戶端的 storage APIs 為 Web storage API (en-US) （localStorage 和 sessionStorage）以及 IndexedDB。&lt;br&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Cookies&#34;&gt;https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Cookies&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;Content-type&#34;&gt;&lt;a href=&#34;#Content-type&#34; class=&#34;headerlink&#34; title=&#34;Content-type&#34;&gt;&lt;/a&gt;Content-type&lt;/h3&gt;&lt;p&gt;紀錄 client 端發出的 request 要求發送出去的&lt;strong&gt;資料格式與型態&lt;/strong&gt;，例如表單或影音多元媒體就是 &lt;code&gt;multipart/form-data&lt;/code&gt;，網頁就是 &lt;code&gt;text/html&lt;/code&gt;，而 API axios 等技術傳遞的資料格式常為 &lt;code&gt;application/json&lt;/code&gt;等。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;一般的 Content-Type 往往只能傳送一種形式的資料，但在網頁的應用當中我們還可能想要上傳檔案、圖片、影片在表單裡頭，這樣的需求促成了 multipart/form-data 規範的出現。&lt;br&gt;&lt;a href=&#34;https://blog.kalan.dev/2021-03-13-html-form-data/%E3%80%82&#34;&gt;https://blog.kalan.dev/2021-03-13-html-form-data/。&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;Origin&#34;&gt;&lt;a href=&#34;#Origin&#34; class=&#34;headerlink&#34; title=&#34;Origin&#34;&gt;&lt;/a&gt;Origin&lt;/h3&gt;&lt;p&gt;該 request 要求的來源，比如瀏覽的網站是 &lt;a href=&#34;https://google.com/&#34;&gt;https://google.com&lt;/a&gt; 等，延伸的議題就是跨網站要求(CORS)，經常會默認要同一個**網站來源(domain)**伺服器端才可以接受該要求。&lt;/p&gt;
+&lt;h3 id=&#34;User-Agent&#34;&gt;&lt;a href=&#34;#User-Agent&#34; class=&#34;headerlink&#34; title=&#34;User-Agent&#34;&gt;&lt;/a&gt;User-Agent&lt;/h3&gt;&lt;p&gt;發送 Request 的對象，通常是&lt;strong&gt;瀏覽器本身的相關資訊&lt;/strong&gt;，例如 chrome 瀏覽器就會顯示 Mozilla/5.0 (Windows NT 10.0; Win64; x64)；也可能不是瀏覽器，例如 postman 就是 postman、終端機就是空白，&lt;code&gt;User-Agent&lt;/code&gt; 主要是拿來防止爬蟲軟體等非瀏覽器或機器人來獲取網站資料。&lt;/p&gt;
+&lt;h3 id=&#34;X-Csrf-Token&#34;&gt;&lt;a href=&#34;#X-Csrf-Token&#34; class=&#34;headerlink&#34; title=&#34;X-Csrf-Token&#34;&gt;&lt;/a&gt;X-Csrf-Token&lt;/h3&gt;&lt;p&gt;該 token 用以防止 csrf 的跨站偽造攻擊，使用者送出表單時加上一傳鑰匙密碼，避免有心人士撰寫一隻程式發送表單登入或註冊網站會員竊取資料。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;Response-Header-回應頭&#34;&gt;&lt;a href=&#34;#Response-Header-回應頭&#34; class=&#34;headerlink&#34; title=&#34;Response Header 回應頭&#34;&gt;&lt;/a&gt;Response Header 回應頭&lt;/h1&gt;&lt;p&gt;回應的內容也會記錄伺服器端的資料，以及接收的 request 資訊。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;屬性&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;說明&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;範例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Access-Control-Allow-Origin&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;限定此回應的資源是否要限制某個 Origin&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;*, &lt;a href=&#34;https://developer.mozilla.org/&#34;&gt;https://developer.mozilla.org&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Server&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;後端 Web server 伺服器類型&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Apache/2.4.1(Unix), Nginx&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Status&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;回報這次 request 是否成功的代碼&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;sessionid=38afes7a8, id=a3fWa, Max-Age=2592000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;Access-Control-Allow-Origin&#34;&gt;&lt;a href=&#34;#Access-Control-Allow-Origin&#34; class=&#34;headerlink&#34; title=&#34;Access-Control-Allow-Origin&#34;&gt;&lt;/a&gt;Access-Control-Allow-Origin&lt;/h3&gt;&lt;p&gt;該技術常用來判定前後端分離的網站，後端 server 限定只能接受自己**官方網站(domain)**前端打出的 API Request，才會做出回應；該技術與 Request Header 提到的 &lt;code&gt;Origin&lt;/code&gt; 前後呼應，由後端 server 判定前端 Request Header 裡面備註的 Origin 來源是否合法，延伸的議題一樣就是跨網站要求(CORS)。&lt;/p&gt;
+&lt;h3 id=&#34;Set-cookie&#34;&gt;&lt;a href=&#34;#Set-cookie&#34; class=&#34;headerlink&#34; title=&#34;Set-cookie&#34;&gt;&lt;/a&gt;Set-cookie&lt;/h3&gt;&lt;p&gt;伺服器端在瀏覽器設定 cookie 資料以記錄客戶端的瀏覽行為，以利行銷追蹤，或是做後續 request 發送給後端要包含的 cookie 內容。&lt;br&gt;而後端發送 Set-Cookie 是主動的，而前端接收 Cookie 是被動的：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;The Set-Cookie HTTP response header is used to send a cookie from the server to the user agent, so that the user agent can send it back to the server later.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;Cookie 的運作是這樣的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Server 端&lt;/strong&gt;回應給 Browser 一個或多個 “Set-Cookie” HTTP Header&lt;/li&gt;
+&lt;li&gt;Client 端 ( Browser ) 接收到 Set-Cookie 指令時，會將 Cookie 的名稱與值儲存在 Browser 的 Cookie 存放區，並記錄該 Cookie 隸屬的網域、網址路徑、過期時間、是否為安全連線&lt;/li&gt;
+&lt;li&gt;當 Browser 再次發出 HTTP Request 指令到 Server 時，就會比對目前在 Browser 內的 Cookie 存放區有沒有「該網域」、「該目錄」、「過期時間尚未過期」且「是否為安全連線」的 Cookie，如果有的話就會包含在 HTTP Request 指令的 “Cookie” Header 中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;blockquote class=&#34;colorquote danger&#34;&gt;&lt;p&gt;如果Request 要傳送 Cookie 到後端&lt;br&gt;除了在 前端 Request 要設定 &lt;strong&gt;credentials&lt;/strong&gt;&lt;br&gt;後端 Express 的 &lt;strong&gt;Access-Control-Allow-Origin 不可以為’*’&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;要設定成一個指定域名(前端的ip或域名)，例如：&lt;br&gt;Access-Control-Allow-Origin：”&lt;a href=&#34;http://localhost:3000&amp;quot;&#34;&gt;http://localhost:3000&#34;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+&lt;blockquote&gt;&lt;p&gt;圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/02/28/zh-tw/http-methods/</guid>
+            <title>HTTP Methods 介紹</title>
+            <link>http://maomaoxie.github.io/2022/02/28/zh-tw/http-methods/</link>
+            <category>http</category>
+            <category>request</category>
+            <category>response</category>
+            <category>api</category>
+            <category>httpMethods</category>
+            <pubDate>Mon, 28 Feb 2022 11:03:47 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/http-methods/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[http-methods [http-methods]]&#34;&gt;
+&lt;p&gt;圖片來源：&lt;a href=&#34;https://www.jianshu.com/p/ac29da71601d&#34;&gt;https://www.jianshu.com/p/ac29da71601d&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;身為技術人不可不知的技術事：其實你每天都在使用 HTTP 的 Methods，但你不知道而已。&lt;br&gt;當你在瀏覽器輸入一串網址並且按下 enter 或者是按下一個 google 搜尋的超連結，就已經完成一個 HTTP &lt;code&gt;GET&lt;/code&gt; Methods 的流程了！&lt;br&gt;Client 端網路資料的傳輸，按照功能屬性分為幾個類別：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Methods&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;目的&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;GET&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;取得資料&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;經常會搭配 query string 參數使用，使用者可以在 URL 看到資料&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;POST&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;傳送資料&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;可以將要求內容隱藏在 body 中，使用者看不見&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;PUT&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;更改整筆資料&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;通常是一個註冊表單提供第一次來訪的使用者填寫，server 端會整筆更新&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;PATCH&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;更改部分資料&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;可能是會員中心的部分資料修改，例如地址或手機，server 端會只更新修改的部分&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;DELETE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;刪除資料&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;比較單純的功能，就是刪除資料&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;GET-方法（READ）&#34;&gt;&lt;a href=&#34;#GET-方法（READ）&#34; class=&#34;headerlink&#34; title=&#34;GET 方法（READ）&#34;&gt;&lt;/a&gt;GET 方法（READ）&lt;/h1&gt;&lt;img src=&#34;/images/http-methods/1.png&#34; class=&#34;&#34; width=&#34;500&#34; height=&#34;200&#34; title=&#34;[http-methods [http-methods]]&#34;&gt;
+&lt;p&gt;圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
+&lt;p&gt;GET 取得資料（read）的條件是寫在 query string 的&lt;code&gt;?&lt;/code&gt;後方，key-value 的鍵值對來代表欄位跟內容。&lt;br&gt;例如 &lt;code&gt;?name=jobe&amp;amp;email=jobe&lt;/code&gt;，&lt;code&gt;name&lt;/code&gt; 對應&lt;code&gt;form&lt;/code&gt; 表單裡面的 input &lt;code&gt;name&lt;/code&gt; ，為欄位名稱，等號後方的值就是使用者自己填寫的 value 內容：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;form action=&lt;span class=&#34;hljs-string&#34;&gt;&#34;http://localhost:4000&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;label&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;for&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;name&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;Name&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;label&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;text&#34;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;name&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;name&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;label&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;for&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;email&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;Email&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;label&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;text&#34;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;name&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;email&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;button&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;submit&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;送出&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;form&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img src=&#34;/images/http-methods/2.png&#34; class=&#34;&#34; width=&#34;500&#34; height=&#34;200&#34; title=&#34;[http-methods [http-methods]]&#34;&gt;
+&lt;img src=&#34;/images/http-methods/3.png&#34; class=&#34;&#34; width=&#34;500&#34; height=&#34;200&#34; title=&#34;[http-methods [http-methods]]&#34;&gt;
+&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;&lt;code&gt;GET&lt;/code&gt; 網址最多只能兩千多個字，包含參數等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;URL 的萬國編碼機制需要經過 &lt;code&gt;encodeURI()&lt;/code&gt;、&lt;code&gt;encodeURIcomponent()&lt;/code&gt; 等方法解密過才可閱讀。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+&lt;h1 id=&#34;POST-方法（CREATE）&#34;&gt;&lt;a href=&#34;#POST-方法（CREATE）&#34; class=&#34;headerlink&#34; title=&#34;POST 方法（CREATE）&#34;&gt;&lt;/a&gt;POST 方法（CREATE）&lt;/h1&gt;&lt;img src=&#34;/images/http-methods/4.png&#34; class=&#34;&#34; width=&#34;500&#34; height=&#34;200&#34; title=&#34;[http-methods [http-methods]]&#34;&gt;
+&lt;p&gt;圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;POST&lt;/code&gt; 方法旨在創造一筆新的資料，發送到 Origin server 接收，可以將資料隱藏在 &lt;code&gt;body&lt;/code&gt; 中避免被使用窺視，使用者在網頁 URL 看起來也乾淨簡潔。&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;&lt;code&gt;POST&lt;/code&gt; 方法可傳送的資料量基本沒有限制，端看 server 這邊的程式是否有特別限制多少 mb。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+&lt;h1 id=&#34;PUT-amp-PATCH（UPDATE）&#34;&gt;&lt;a href=&#34;#PUT-amp-PATCH（UPDATE）&#34; class=&#34;headerlink&#34; title=&#34;PUT &amp;amp; PATCH（UPDATE）&#34;&gt;&lt;/a&gt;PUT &amp;amp; PATCH（UPDATE）&lt;/h1&gt;&lt;p&gt;這兩個方法旨在更新現有的資料內容：&lt;br&gt;&lt;code&gt;PUT&lt;/code&gt;會將整個表單內容根據填寫的資料全部更新，有空白沒填的地方照樣更新成空白的狀態，適合用在第一次填寫資料的訪客，例如註冊會員、初診的病患要掛號。&lt;br&gt;&lt;code&gt;PATCH&lt;/code&gt;則是只更新部分內容而已，沒有變動的地方維持原樣，適合用在填寫過完整資料而只想部分更改的情境，例如修改會員寄送地址、復診的病患要掛號等。&lt;/p&gt;
+&lt;p&gt;這兩個方法並非 HTTP 創造的，而是方便網站開發人員依據自己的資料取向需求來設計表單欄位給訪客填寫，再選擇適合的 HTTP Methods。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;DELETE（DELETE）&#34;&gt;&lt;a href=&#34;#DELETE（DELETE）&#34; class=&#34;headerlink&#34; title=&#34;DELETE（DELETE）&#34;&gt;&lt;/a&gt;DELETE（DELETE）&lt;/h1&gt;&lt;p&gt;由於刪除是一個不能回頭的行為，雖然有的網站在後端機制不會真的讓使用者刪除，只是讓你看不到而已，不過刪除的要求還是被特別獨立出來，警示開發人員慎用這個方法。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;&lt;p&gt;圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/02/28/zh-tw/http-and-https/</guid>
+            <title>HTTP 超文本傳輸協定</title>
+            <link>http://maomaoxie.github.io/2022/02/28/zh-tw/http-and-https/</link>
+            <category>http</category>
+            <category>https</category>
+            <category>request</category>
+            <category>response</category>
+            <pubDate>Mon, 28 Feb 2022 10:07:23 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/http-and-https/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[http-and-https [http-and-https]]&#34;&gt;
+&lt;p&gt;圖片來源：&lt;a href=&#34;https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https&#34;&gt;https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;HTTP-的誕生&#34;&gt;&lt;a href=&#34;#HTTP-的誕生&#34; class=&#34;headerlink&#34; title=&#34;HTTP 的誕生&#34;&gt;&lt;/a&gt;HTTP 的誕生&lt;/h1&gt;&lt;p&gt;網路應用程式早期在互相傳遞資料時沒有固定的格式，在資料解析上就會很麻煩混亂，就像一個國家一旦陷入各自為政的困擾就需要政治來規範管理，網路世界也是一樣道理的。超文本傳輸協定(Hyper Text Transfer Protocol)就是網路資料傳遞的統整者，是 client 端向 server 端要求資料的關卡，必須要按照正確的格式才能取得資料。&lt;/p&gt;
+&lt;h1 id=&#34;Origin-Server-是甚麼&#34;&gt;&lt;a href=&#34;#Origin-Server-是甚麼&#34; class=&#34;headerlink&#34; title=&#34;Origin Server 是甚麼&#34;&gt;&lt;/a&gt;Origin Server 是甚麼&lt;/h1&gt;&lt;h3 id=&#34;server-負責-response&#34;&gt;&lt;a href=&#34;#server-負責-response&#34; class=&#34;headerlink&#34; title=&#34;server 負責 response&#34;&gt;&lt;/a&gt;server 負責 response&lt;/h3&gt;&lt;p&gt;先介紹 Origin 這個單辭為什麼會被拿來當作 server 端，它的同義詞有 root、source 與 beginning，有起源、來源與原產地的意思，相當於網路世界中網站資料的起源與來源，github 在推 commits 上去遠端也可以看到指令：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git push -u origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Origin 代表的就是擁有資料的角色，通常是 server端：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;An origin server is a computer that runs programs designed to listen to and respond to incoming requests or traffic. It contains the original version of the web page and is responsible for delivering the content to end users when requested.&lt;br&gt;Origin servers take in requests and serve up content for a website or web page.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Origin server 是負責監聽以及回應（response）來自四面八方的要求（requests）與通訊的電腦計算機程式，包含原版的網頁資料並且傳遞該內容給發出請求的使用者端口。&lt;/li&gt;
+&lt;li&gt;Origin server 會接收需求並且提供網站的資料內容。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;client-負責-requested&#34;&gt;&lt;a href=&#34;#client-負責-requested&#34; class=&#34;headerlink&#34; title=&#34;client 負責 requested&#34;&gt;&lt;/a&gt;client 負責 requested&lt;/h3&gt;&lt;p&gt;Client 代表的是上網並請求網站資料的使用者，也就是 user 端：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;When a user opens a web page on a website, a request is sent to the origin server to retrieve the content.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;當使用者試圖用瀏覽器（browser）打開一個網頁或網站，就已經發送了該網站資料的要求給 origin server。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;Port-是甚麼&#34;&gt;&lt;a href=&#34;#Port-是甚麼&#34; class=&#34;headerlink&#34; title=&#34;Port 是甚麼&#34;&gt;&lt;/a&gt;Port 是甚麼&lt;/h1&gt;&lt;p&gt;一個網站就如同銀行，而服務人員的櫃檯提供多元的銀行業務來消化前去等候的民眾，這個案例中：&lt;br&gt;銀行機構就是 Origin server，服務人員就是 port，而民眾就是 client（user agent）；而一個網站 Origin 可以包山包海擁有各種資料，並開啟多個窗口的埠號（port）來服務傳送過來的需求（requests），讓每個埠號更專注在一個服務的品質與細節上。&lt;br&gt;早期沒有瀏覽器的時代，使用的是終端機(terminal)來發送請求而非瀏覽器，而今 server 端口會檢查要求是否來自瀏覽器而非機器人（爬蟲），來過濾一些資安問題的黑手。&lt;/p&gt;
+&lt;h1 id=&#34;HTTPs-的誕生&#34;&gt;&lt;a href=&#34;#HTTPs-的誕生&#34; class=&#34;headerlink&#34; title=&#34;HTTPs 的誕生&#34;&gt;&lt;/a&gt;HTTPs 的誕生&lt;/h1&gt;&lt;p&gt;隨著網路世界日興發達，不安好心的資訊竊取駭客就會出現，它可以偽裝成使用者也可以偽裝成服務器，為了避免這種資料截取的資安問題，資訊傳遞的加密就很重要！HTTPS 如同 HTTP 但是多了一把開啟資訊傳遞的鑰匙，將來往資料都加密過防止有心人士解讀：&lt;/p&gt;
+&lt;img src=&#34;/images/http-and-https/1.png&#34; class=&#34;&#34; width=&#34;600&#34; height=&#34;200&#34; title=&#34;[http-and-https [http-and-https]]&#34;&gt;
+
+
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&#34;https://www.cdnetworks.com/knowledge-center/what-is-origin-server/&#34;&gt;https://www.cdnetworks.com/knowledge-center/what-is-origin-server/&lt;/a&gt;&lt;br&gt;hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

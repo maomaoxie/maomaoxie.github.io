@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;vue&#34; tag</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Wed, 16 Feb 2022 15:12:05 +0800</pubDate>
+        <lastBuildDate>Wed, 16 Feb 2022 15:12:05 +0800</lastBuildDate>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>git</category>
+        <category>github</category>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>rss</category>
+        <category>hexo</category>
+        <category>sourceTree</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>httpMethods</category>
+        <category>httpHeader</category>
+        <category>Javascript</category>
+        <category>status</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>blade</category>
+        <category>wsl2</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>layout</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>css</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue3</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>vue</category>
+        <category>compositionAPI</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/02/16/zh-tw/vue3-composition-api/</guid>
+            <title>Vue 3 的變革</title>
+            <link>http://maomaoxie.github.io/2022/02/16/zh-tw/vue3-composition-api/</link>
+            <category>vue3</category>
+            <category>vue</category>
+            <category>compositionAPI</category>
+            <pubDate>Wed, 16 Feb 2022 15:12:05 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/vue3-composition-api/001.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;vue3-composition-api&#34;&gt;
+&lt;p&gt;本篇尚未完整，持續更新中…&lt;/p&gt;
+&lt;p&gt;你還在用 Vue 2 整理那些物件包裹起來的 data、方法與生命週期的鉤子嗎？還在頭痛父子元件之間傳遞資料的複雜寫法嗎？如果想尋找更接近 typescript 易於維護的團隊開發方式，可以考慮無痛升級 Vue 3 唷！特快車來了還不跟上！&lt;/p&gt;
+&lt;p&gt;Vue 3 用法隨著版本更新越來越精進與簡潔，尤其是使用漸進式 API 的寫法大大提升了整 code 的整潔與好維護度，以下是一些常用到的整理：&lt;/p&gt;
+&lt;!-- - Composition API setup() 
+- ref()  v.s. reactive() 
+- 減少 this 指向，改用 value 取得實體內的data
+- 自訂的 css 變數 var() 
+- Teleport 
+- Fragments 省略根元素 div 
+- Emits 獨立出來 
+- #fallback 顯示 loading 的內容 
+- ::v-slotted 定義插槽樣式 ::v-global 破除scoped的全域樣式
+- 生命週期 createApp
+- proxy --&gt;
+
+&lt;h1 id=&#34;Composition-API&#34;&gt;&lt;a href=&#34;#Composition-API&#34; class=&#34;headerlink&#34; title=&#34;Composition API&#34;&gt;&lt;/a&gt;Composition API&lt;/h1&gt;&lt;p&gt;Vue3 一項顯著的變革就是 Composition API，提升撰寫每一個元件專屬方法與資料的便利性：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Composition API is a set of APIs that allows us to author Vue components using imported functions instead of declaring options. It is an umbrella term that covers the following APIs.&lt;br&gt;Composition API 使得元件得以直接使用 import 進來的 functions，而不是透過選項來宣告，該特性封裝了以下的 API方法：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;Reactivity-API&#34;&gt;&lt;a href=&#34;#Reactivity-API&#34; class=&#34;headerlink&#34; title=&#34;Reactivity API&#34;&gt;&lt;/a&gt;Reactivity API&lt;/h3&gt;&lt;p&gt;  例如 &lt;code&gt;ref()&lt;/code&gt; 和 &lt;code&gt;reactive()&lt;/code&gt; 可創造響應式（reactive）、計算式（computed）與監聽（watchers）的資料狀態&lt;/p&gt;
+&lt;h3 id=&#34;Lifecycle-Hooks&#34;&gt;&lt;a href=&#34;#Lifecycle-Hooks&#34; class=&#34;headerlink&#34; title=&#34;Lifecycle Hooks&#34;&gt;&lt;/a&gt;Lifecycle Hooks&lt;/h3&gt;&lt;p&gt;  例如 &lt;code&gt;onMounted()&lt;/code&gt; 和 &lt;code&gt;onUnmounted()&lt;/code&gt;, 容許使用編成方式撰寫元件的生命週期鉤子&lt;/p&gt;
+&lt;h3 id=&#34;Dependency-Injection&#34;&gt;&lt;a href=&#34;#Dependency-Injection&#34; class=&#34;headerlink&#34; title=&#34;Dependency Injection&#34;&gt;&lt;/a&gt;Dependency Injection&lt;/h3&gt;&lt;p&gt;  例如 &lt;code&gt;provide()&lt;/code&gt; and &lt;code&gt;inject()&lt;/code&gt;, 提供一個&lt;code&gt;祖父 -&amp;gt; 父(跳過) -&amp;gt; 子&lt;/code&gt;元件之間依賴注入（Dependency Injection）的接口，可以更好的分化元件之間的需求，了解更多內容可以詳讀&lt;a href=&#34;https://penueling.com/%E6%8A%80%E8%A1%93%E7%AD%86%E8%A8%98/vue3-%E7%9A%84%E8%B3%87%E6%96%99%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86%EF%BC%8Cprovide-inject%E3%80%81vuex/&#34;&gt;這篇&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;  簡單下個速記法：&lt;br&gt;  provide() 與 inject() 看做是 prop 的昇級版，看個示意圖吧！&lt;br&gt;  &lt;img src=&#34;/images/vue3-composition-api/002.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;vue3 composition api&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;Setup-script&#34;&gt;&lt;a href=&#34;#Setup-script&#34; class=&#34;headerlink&#34; title=&#34;Setup script&#34;&gt;&lt;/a&gt;Setup script&lt;/h3&gt;&lt;p&gt;Vue 3 將 Composition API 整合在單個元件的 &lt;code&gt;&amp;lt;script setup&amp;gt;&lt;/code&gt; 標籤中，可以直接默認寫在裡面的內容都是提升到 &lt;code&gt;created()&lt;/code&gt; 和 &lt;code&gt;beforeCreated()&lt;/code&gt;的生命週期階段去實踐的&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In Vue 3, it is also primarily used together with the &lt;code&gt;&amp;lt;script setup&amp;gt;&lt;/code&gt; syntax in Single-File Components.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;component.vue&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;script setup&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; { ref, onMounted } &lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#39;vue&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-comment&#34;&gt;// reactive state&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; count = &lt;span class=&#34;title function_&#34;&gt;ref&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-comment&#34;&gt;// functions that mutate state and trigger updates&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;increment&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;&lt;/span&gt;) {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    count.&lt;span class=&#34;hljs-property&#34;&gt;value&lt;/span&gt;++&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-comment&#34;&gt;// lifecycle hooks&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;title function_&#34;&gt;onMounted&lt;/span&gt;(&lt;span class=&#34;hljs-function&#34;&gt;() =&amp;gt;&lt;/span&gt; {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;`The initial count is &lt;span class=&#34;hljs-subst&#34;&gt;${count.value}&lt;/span&gt;.`&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  })&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;button&lt;/span&gt; @&lt;span class=&#34;hljs-attr&#34;&gt;click&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;increment&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;Count is: &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;Reactivity-API-1&#34;&gt;&lt;a href=&#34;#Reactivity-API-1&#34; class=&#34;headerlink&#34; title=&#34;Reactivity API&#34;&gt;&lt;/a&gt;Reactivity API&lt;/h1&gt;&lt;p&gt;多了一層代理（proxy）包裹所有的資料（data），使得 vue3 在處理 data 上有些變革：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ref() 傳入 primative value &lt;/li&gt;
+&lt;li&gt;reactive() 傳入 object value&lt;br&gt;該選擇哪一種可以參考這篇 &lt;a href=&#34;https://stackoverflow.com/questions/61452458/ref-vs-reactive-in-vue-3&#34;&gt;ref vs reactive in Vue 3?&lt;/a&gt;，滿有助益的解釋非常通透呢！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ref&#34;&gt;&lt;a href=&#34;#ref&#34; class=&#34;headerlink&#34; title=&#34;ref ()&#34;&gt;&lt;/a&gt;ref ()&lt;/h3&gt;&lt;p&gt;當你需要將資料型態重新賦值（reassign）時可以選用 &lt;code&gt;ref()&lt;/code&gt;，其實該方法背後也調用了 &lt;code&gt;reactive()&lt;/code&gt; 只是你不知道而已，原始型別非常適合使用此代理包裹，另外當你的物件型別資料並沒有一開始的屬性值，例如空物件或空陣列，也可以考慮使用這個方式。&lt;br&gt;需要特別注意的點就是該方法取值要添加 &lt;code&gt;.value&lt;/code&gt; 才能取得。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;ref() Use-Case&lt;br&gt;You’ll always use ref() for primitives, but ref() is good for objects that need to be reassigned, like an array.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;When you write ref([]) it is equivalent to ref(reactive([])).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;reactive&#34;&gt;&lt;a href=&#34;#reactive&#34; class=&#34;headerlink&#34; title=&#34;reactive ()&#34;&gt;&lt;/a&gt;reactive ()&lt;/h3&gt;&lt;p&gt;當需要將物件型別的資料型態其中某個屬性值透過指向參考（dot notation）來修改值的時候可以選用 &lt;code&gt;reactive()&lt;/code&gt;，前提在於你知道該物件內容的屬性值有哪些，屬性值彼此之間的牽動關聯性是甚麼，甚至可以直接撰寫 &lt;code&gt;computed()&lt;/code&gt; 來決定某屬性值，該方法須注意不能被重新賦值更改指向參考，完全不會理你。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;看到透過 reactive 包裝後的資料連 computed 都包裝了進去，是不是覺得非常的方便，不需要再另外切開去寫computed ，在尋找相依性的資料也變簡單。&lt;br&gt;&lt;a href=&#34;https://medium.com/i-am-mike/vue-3-ref-%E8%B7%9F-reactive-%E6%88%91%E8%A9%B2%E6%80%8E%E9%BA%BC%E9%81%B8-2fb6b6735a3c&#34;&gt;https://medium.com/i-am-mike/vue-3-ref-%E8%B7%9F-reactive-%E6%88%91%E8%A9%B2%E6%80%8E%E9%BA%BC%E9%81%B8-2fb6b6735a3c&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;reactive() Use-Case&lt;br&gt;A good use-case for reactive() is a group of primitives that belong together:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;props&#34;&gt;&lt;a href=&#34;#props&#34; class=&#34;headerlink&#34; title=&#34;props&#34;&gt;&lt;/a&gt;props&lt;/h1&gt;&lt;h3 id=&#34;非必要的-props&#34;&gt;&lt;a href=&#34;#非必要的-props&#34; class=&#34;headerlink&#34; title=&#34;非必要的 props&#34;&gt;&lt;/a&gt;非必要的 props&lt;/h3&gt;&lt;p&gt;只需要在非必要的 props 加上&lt;code&gt;?&lt;/code&gt; 就可以囉！不然 typescript 會一直跳出警語 &lt;code&gt;ts(2322)&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;const props = defineProps&amp;lt;{ &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  span: number, &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  label: string, &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  name: string, &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  placeholder: string, &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  prefix?: {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    type: string,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    default: &#39;&#39;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }, &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  suffix?: {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    type: string,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    default: &#39;&#39;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }, &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&amp;gt;()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+
+&lt;h1 id=&#34;方法&#34;&gt;&lt;a href=&#34;#方法&#34; class=&#34;headerlink&#34; title=&#34;方法&#34;&gt;&lt;/a&gt;方法&lt;/h1&gt;&lt;h3 id=&#34;toRaw&#34;&gt;&lt;a href=&#34;#toRaw&#34; class=&#34;headerlink&#34; title=&#34;toRaw&#34;&gt;&lt;/a&gt;toRaw&lt;/h3&gt;&lt;p&gt;轉換透過vue創造的代理物件為普通物件，可轉換的代理物件有 &lt;code&gt;reactive()&lt;/code&gt;, &lt;code&gt;readonly()&lt;/code&gt;, &lt;code&gt;shallowReactive()&lt;/code&gt; 或 &lt;code&gt;shallowReadonly()&lt;/code&gt;。&lt;br&gt;This is an escape hatch that can be used to temporarily read &lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Returns the raw, original object of a Vue-created proxy.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

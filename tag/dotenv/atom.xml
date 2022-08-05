@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://maomaoxie.github.io</id>
+    <title>Mawchu 貓奴前端的天空 • Posts by &#34;dotenv&#34; tag</title>
+    <link href="http://maomaoxie.github.io" />
+    <updated>2022-02-21T06:48:33.000Z</updated>
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="git" />
+    <category term="github" />
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="rss" />
+    <category term="hexo" />
+    <category term="sourceTree" />
+    <category term="http" />
+    <category term="https" />
+    <category term="request" />
+    <category term="response" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="httpMethods" />
+    <category term="httpHeader" />
+    <category term="Javascript" />
+    <category term="status" />
+    <category term="type" />
+    <category term="laravel" />
+    <category term="php" />
+    <category term="linux" />
+    <category term="blade" />
+    <category term="wsl2" />
+    <category term="migration" />
+    <category term="sql" />
+    <category term="layout" />
+    <category term="public" />
+    <category term="static" />
+    <category term="tailwind" />
+    <category term="env" />
+    <category term="process" />
+    <category term="dotenv" />
+    <category term="css" />
+    <category term="less" />
+    <category term="processors" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vue3" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="vue" />
+    <category term="compositionAPI" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/02/21/zh-tw/node-process-env/</id>
+        <title>Node如何設置.env環境檔</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/02/21/zh-tw/node-process-env/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/node-process-env/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;node-process-env&#34;&gt;
+&lt;p&gt;圖片來源:&lt;a href=&#34;https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c&#34;&gt;https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;開發專案的時候機密文件如何保存很重要，可以保護不被有心人士竊取，像是 API 金鑰、client-ID 與 client-secret 等可以呼叫遠端資料的通關密碼都需要妥善保存不暴露到網站上。&lt;br&gt;這邊來說明一下怎麼設置專案裡的環境檔案，並且讀取機密資料：&lt;/p&gt;
+&lt;h1 id=&#34;創建-env-檔案&#34;&gt;&lt;a href=&#34;#創建-env-檔案&#34; class=&#34;headerlink&#34; title=&#34;創建 .env 檔案&#34;&gt;&lt;/a&gt;創建 .env 檔案&lt;/h1&gt;&lt;p&gt;首先在跟目錄新增一個 .env 檔案，甚至可以設置以下幾種檔案來撰寫想要的環境模式腳本：&lt;/p&gt;
+&lt;h3 id=&#34;根據環境模式建立&#34;&gt;&lt;a href=&#34;#根據環境模式建立&#34; class=&#34;headerlink&#34; title=&#34;根據環境模式建立&#34;&gt;&lt;/a&gt;根據環境模式建立&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;全局環境檔：.env&lt;/li&gt;
+&lt;li&gt;開發環境檔：.env.dev&lt;/li&gt;
+&lt;li&gt;測試環境檔：.env.sit&lt;/li&gt;
+&lt;li&gt;生產環境檔：.env.prod&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;環境檔變數&#34;&gt;&lt;a href=&#34;#環境檔變數&#34; class=&#34;headerlink&#34; title=&#34;環境檔變數&#34;&gt;&lt;/a&gt;環境檔變數&lt;/h3&gt;&lt;p&gt;內容很簡單，都是鍵值對（key-value）的方式撰寫變數：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;.env&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;YOUR_VARAIBLE_NAME=VALUE&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;Node-js-process&#34;&gt;&lt;a href=&#34;#Node-js-process&#34; class=&#34;headerlink&#34; title=&#34;Node.js process&#34;&gt;&lt;/a&gt;Node.js process&lt;/h1&gt;&lt;p&gt;Node 提供了一個全局可使用的模組 process 記錄了所有關於目前 Node.js 程式的資訊，不需要 require()　就可以使用，棒棒的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The process object is a global that provides information about, and control over, the current Node.js process. As a global, it is always available to Node.js applications without using require().&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;process-env&#34;&gt;&lt;a href=&#34;#process-env&#34; class=&#34;headerlink&#34; title=&#34;process.env&#34;&gt;&lt;/a&gt;process.env&lt;/h3&gt;&lt;p&gt;process.env 則提供了關於使用者的環境物件，而腳本檔案需要的資訊都可以放在這個物件中。&lt;br&gt;該物件中的資料會自動轉換成字串（string）。&lt;br&gt;在 windows 作業系統中環境變數的大小寫是不敏感的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The process.env property returns an object containing the user environment.&lt;br&gt;See environ(7). Assigning a property on process.env will implicitly convert the value to a string.&lt;br&gt;On Windows operating systems, environment variables are case-insensitive.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;npm-dotenv&#34;&gt;&lt;a href=&#34;#npm-dotenv&#34; class=&#34;headerlink&#34; title=&#34;npm dotenv&#34;&gt;&lt;/a&gt;npm dotenv&lt;/h1&gt;&lt;p&gt;光有全局的 process.env 是不夠的，還需要使用一個神人創造的 &lt;strong&gt;npm 套件 &lt;a href=&#34;https://www.npmjs.com/package/dotenv&#34;&gt;dotenv&lt;/a&gt;&lt;/strong&gt; 才能無痛讀取自己創建的 .env 資料唷！&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm i dotenv --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在專案引用該套件：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-built_in&#34;&gt;require&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;dotenv&#39;&lt;/span&gt;).&lt;span class=&#34;title function_&#34;&gt;config&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; db = &lt;span class=&#34;hljs-built_in&#34;&gt;require&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;db&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;db.&lt;span class=&#34;title function_&#34;&gt;connect&lt;/span&gt;({&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;host&lt;/span&gt;: process.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;DB_HOST&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;username&lt;/span&gt;: process.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;DB_USER&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;password&lt;/span&gt;: process.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;DB_PASS&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;})&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;https&lt;/span&gt;:&lt;span class=&#34;hljs-comment&#34;&gt;//dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;善用-gitignore&#34;&gt;&lt;a href=&#34;#善用-gitignore&#34; class=&#34;headerlink&#34; title=&#34;善用 .gitignore&#34;&gt;&lt;/a&gt;善用 .gitignore&lt;/h1&gt;&lt;p&gt;通常搭配 git 使用時會放置在 env 檔中並且 .gitignore 避免 commit 到公開環境中。&lt;br&gt;使用方式很簡單，在跟目錄創建一個 .gitignore 檔案之後，撰寫需要被 git 略過不被 commit 以及 push 的檔案類型：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;.gitignore&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;dev&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;sit&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;prod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c&#34;&gt;https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://dwatow.github.io/2019/01-26-node-with-env-first/&#34;&gt;https://dwatow.github.io/2019/01-26-node-with-env-first/&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://nodejs.org/docs/latest-v8.x/api/process.html#process_process_env&#34;&gt;https://nodejs.org/docs/latest-v8.x/api/process.html#process_process_env&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="node" />
+        <category term="git" />
+        <category term="env" />
+        <category term="process" />
+        <category term="dotenv" />
+        <updated>2022-02-21T06:48:33.000Z</updated>
+    </entry>
+</feed>

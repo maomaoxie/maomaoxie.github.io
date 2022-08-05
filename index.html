@@ -4,7 +4,6 @@
     <meta charset="utf-8">
 <title>Mawchu 貓奴前端的天空</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="canonical" href="http://maomaoxie.github.io/"/>
 <meta name="google-site-verification" content="qpdwAFMt_HNGP0dM45CxVBDie_HVPkWFvpclpqZaoIo" />
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
@@ -34,6 +33,8 @@
 
 
 
+<link rel="alternative" href="/atom.xml" title="Mawchu 貓奴前端的天空" type="application/atom+xml">
+
 
 
 <link rel="icon" type="image/x-icon" href="/favicon.svg">
@@ -46,8 +47,10 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
 
-
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832218493331944" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
 
 
 <link rel="stylesheet" href="/css/style.css">
@@ -137,13 +140,64 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/08/02/zh-tw/hello-world/" itemprop="url">感謝您的閱讀</a>
+            <a href="/2022/08/05/hexo-rss/" itemprop="url">Hexo RSS 自動產生器</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-08-01T16:03:26.680Z" itemprop="datePublished">8月 2 2022</time>
+                <time datetime="2022-08-05T07:39:34.000Z" itemprop="datePublished">8月 5 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 312 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>RSS 訂閱功能越來越夯，可以即時通知訂閱戶更新的文章內容，增加回流的流量與網站的熱度，chrome 也有提供 RSS reader 的外掛功能直接讀取 RSS 檔案。<br>既然建立好了自己的部落格怎麼可以沒有 RSS XD?</p>
+<p>先前在專案包嘗試使用 hexo-generator-feed 套件，但是建立出來的 atom.xml 檔案會出現亂碼，後來找到一個套件甚至支援 json 與 rss 格式：</p>
+<h1 id="安裝-Hexo-seed-套件"><a href="#安裝-Hexo-seed-套件" class="headerlink" title="安裝 Hexo seed 套件"></a>安裝 Hexo seed 套件</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-feed</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="檔案格式"><a href="#檔案格式" class="headerlink" title="檔案格式"></a>檔案格式</h3><p>hexo-feed 可以設定三種文件格式：atom、json 還有 rss，建立的模板可以透過專案包根目錄的 _config.yml 去設定模板的 path（template）：</p>
+<figure class="highlight javascript hljs"><figcaption><span>_config.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">feed</span>:</span><br><span class="line">    <span class="hljs-attr">limit</span>: <span class="hljs-number">20</span></span><br><span class="line">    <span class="hljs-attr">order_by</span>: <span class="hljs-string">"-date"</span></span><br><span class="line">    <span class="hljs-attr">tag_dir</span>: <span class="hljs-string">"tag"</span></span><br><span class="line">    <span class="hljs-attr">category_dir</span>: <span class="hljs-string">"category"</span></span><br><span class="line">    <span class="hljs-attr">rss</span>:</span><br><span class="line">        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span></span><br><span class="line">        <span class="hljs-attr">template</span>: <span class="hljs-string">"themes/layout/template/rss.ejs"</span> </span><br><span class="line">        <span class="hljs-attr">output</span>: <span class="hljs-string">"rss.xml"</span></span><br><span class="line">    <span class="hljs-attr">atom</span>:</span><br><span class="line">        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span></span><br><span class="line">        <span class="hljs-attr">template</span>: <span class="hljs-string">"themes/layout/template/atom.ejs"</span></span><br><span class="line">        <span class="hljs-attr">output</span>: <span class="hljs-string">"atom.xml"</span></span><br><span class="line">    <span class="hljs-attr">jsonFeed</span>:</span><br><span class="line">        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span></span><br><span class="line">        <span class="hljs-attr">template</span>: <span class="hljs-string">"themes/layout/template/json.ejs"</span></span><br><span class="line">        <span class="hljs-attr">output</span>: <span class="hljs-string">"feed.json"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="模板內容"><a href="#模板內容" class="headerlink" title="模板內容"></a>模板內容</h3><figure class="highlight javascript hljs"><figcaption><span>atom</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="hljs-string">"1.0"</span>?&gt;</span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">feed</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2005/Atom"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>&lt;%= config.url %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%= config.title %&gt;&lt;%= tag ? ` • Posts by "${tag}" tag` : '' %&gt;&lt;%= category ? ` • Posts by "${category}" category` : '' %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"&lt;%= config.url %&gt;"</span> /&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">updated</span>&gt;</span>&lt;%= moment(lastBuildDate).toISOString() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">updated</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    &lt;%_ for (const { name } of (tags || [])) { _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">term</span>=<span class="hljs-string">"&lt;%= name %&gt;"</span> /&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    &lt;%_ } _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">    &lt;%_ for (const post of posts) { _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">entry</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>&lt;%= post.permalink %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%= post.title %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"&lt;%= post.permalink %&gt;"</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">content</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"html"</span>&gt;</span>&lt;%= post.content %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">content</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        &lt;%_ for (const { name } of (post.tags ? post.tags.toArray() : [])) { _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">term</span>=<span class="hljs-string">"&lt;%= name %&gt;"</span> /&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        &lt;%_ } _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">updated</span>&gt;</span>&lt;%= moment(post.date).toISOString() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">updated</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">entry</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    &lt;%_ } _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">feed</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure></body></html> -->
+        
+        
+        <html><head></head><body><p>RSS 訂閱功能越來越夯，可以即時通知訂閱戶更新的文章內容，增加回流的流量與網站的熱度，chrome 也有提供 RSS reader 的外掛功能直接讀取 RSS 檔案。<br>既然建立好了自己的部落格怎麼可以沒有 RSS XD?</p>
+<p>先前在專案包嘗試使用 hexo-generator-feed 套件，但是建立出來的 atom.xml 檔案會出現亂碼，後來找到一個套件甚至支援 json 與 rss 格式：</p>
+<h1 id="安裝-Hexo-seed-套件"><a href="#安裝-Hexo-seed-套件" class="headerlink" title="安裝 Hexo seed 套件"></a>安裝 Hexo seed 套件</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-feed</span><br></pre></td></tr></tbody></table></figure>
+        <!--  -->
+        
+        <p class="article-more-link">
+            <a href="/2022/08/05/hexo-rss/">more</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/08/04/zh-tw/hello-world/" itemprop="url">感謝您的閱讀</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-04T05:56:06.910Z" itemprop="datePublished">8月 4 2022</time>
             
         </span>
         
@@ -170,7 +224,7 @@
 </body></html>
         
         <p class="article-more-link">
-            <a href="/2022/08/02/zh-tw/hello-world/">more</a>
+            <a href="/2022/08/04/zh-tw/hello-world/">more</a>
         </p>
     
     </div>
@@ -234,56 +288,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/07/30/zh-tw/js-weird-parts-types/" itemprop="url">克服 Javascript 的奇怪部分 型別</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-07-30T08:35:45.000Z" itemprop="datePublished">7月 30 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 分鐘 讀完 (約 176 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/js-weird-parts-dynamic-typing/0.png" class="" title="dynamic-typing">
-<h1 id="Dynamic-Typing"><a href="#Dynamic-Typing" class="headerlink" title="Dynamic Typing"></a>Dynamic Typing</h1><p>Javascript 的型別為動態型別（Dynamic Typing），不同於 C# 等強型別語言的靜態型別（Static Typing），無須指派型別而是在引擎執行的階段（at runtime）辨認變數記憶體內的型別為何：</p>
-<blockquote class="colorquote info"><p>Dynamically-typed languages are those (like JavaScript) where the interpreter assigns variables a type at runtime based on the variable’s value at the time.</p>
-</blockquote>
-
-<p>這有可能導致一個變數在每次程式執行的結果都產生不同的型別（例如 == 型別隱式轉換），而造成不如預期的結果，所以使用三等號是比較良好的撰寫習慣。</p>
-</body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/js-weird-parts-dynamic-typing/0.png" class="" title="dynamic-typing">
-<h1 id="Dynamic-Typing"><a href="#Dynamic-Typing" class="headerlink" title="Dynamic Typing"></a>Dynamic Typing</h1><p>Javascript 的型別為動態型別（Dynamic Typing），不同於 C# 等強型別語言的靜態型別（Static Typing），無須指派型別而是在引擎執行的階段（at runtime）辨認變數記憶體內的型別為何：</p>
-<blockquote class="colorquote info"><p>Dynamically-typed languages are those (like JavaScript) where the interpreter assigns variables a type at runtime based on the variable’s value at the time.</p>
-        <!--  -->
-        
-        <p class="article-more-link">
-            <a href="/2022/07/30/zh-tw/js-weird-parts-types/">more</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -309,7 +313,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/12/">12</a></li>
+        <li><a class="pagination-link" href="/page/13/">13</a></li>
         
     </ul>
 </nav>
