@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;sourcetree&#34; tag</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Thu, 17 Feb 2022 20:59:44 +0800</pubDate>
+        <lastBuildDate>Thu, 17 Feb 2022 20:59:44 +0800</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
+        <category>httpHeader</category>
+        <category>httpMethods</category>
+        <category>status</category>
+        <category>Javascript</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>blade</category>
+        <category>wsl2</category>
+        <category>layout</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>css</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>vue3</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <category>vue</category>
+        <category>compositionAPI</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/02/17/zh-tw/git-main-branch/</guid>
+            <title>Github 主分支更名 master 為 main</title>
+            <link>http://maomaoxie.github.io/2022/02/17/zh-tw/git-main-branch/</link>
+            <category>git</category>
+            <category>github</category>
+            <category>sourceTree</category>
+            <pubDate>Thu, 17 Feb 2022 20:59:44 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/git-main-branch/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;git-main-branch&#34;&gt;
+&lt;p&gt;每每 github 搞了一些新招就得重新適應一次（菸&lt;/p&gt;
+&lt;p&gt;這兩天在做小專案 git init 之後準備推上去 github 時，執行以下的老樣子：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git remote add origin https://github.com/mawchu/baby-bill.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;看到這裡不免疑惑了一下，不是印象中的 branch 名字呀：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git branch -M main &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;果然執行之後出現噴錯的內容：&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote danger&#34;&gt;&lt;p&gt;error: refname refs/heads/master not found&lt;br&gt;fatal: Branch rename failed&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;這個 main 分支從哪裡冒出來的？暗暗覺得這個行為很雞肋= =？&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;為響應黑人平權運動，GitHub宣布從10月1日起改變新Git儲存庫的預設命名，以main來取代原本的master。&lt;br&gt;受到年中佛洛依德（George Floyd）遭警方執法過當死亡，引發的黑人平權抗議風潮影響，美國科技界也相繼思考去除慣用名稱中有種族歧視色彩的字眼，例如不要使用master/slave、blacklist/whitelist。GitHub執行長Nat Friedman也決定進行相關改變。&lt;/p&gt;
+&lt;p&gt;開發人員也可以不要變更，隨時到設定區，把個人、組織和公司的新儲存庫預設命名從main改成別的。&lt;br&gt;GitHub呼籲用戶可以先保持不動，到了年底會再釋出新工具以協助現有branch改成新的預設名稱。&lt;br&gt;在支持黑人平權風潮下，包括Google、微軟、IBM、Red Hat、甲骨文下的MySQL及Linux社群都相繼變更了軟體流程的命名。本月微軟也提案修改Chromium中black/whitelist為較中性的blocklist/allowlist。&lt;br&gt;&lt;a href=&#34;https://www.ithome.com.tw/news/140094&#34;&gt;https://www.ithome.com.tw/news/140094&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;查看了一下網路說明，原來是美國的政治與歷史因素，生活跟科技真是息息相關呢，自己的見識尚淺默默反省了一下XD&lt;br&gt;科普了一會怎麼切換現今的分支變成 main：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git add .&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git commit -m &lt;span class=&#34;hljs-string&#34;&gt;&#34;要推的備註內容&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;都 OK 就可以推上去囉！&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git push -u origin main&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;推上去發現自己忘了切換帳號又噴錯啦！&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote danger&#34;&gt;&lt;p&gt;remote: Permission to mawchu/baby-bill.git denied to maomaoxie.&lt;br&gt;fatal: unable to access ‘&lt;a href=&#34;https://github.com/mawchu/baby-bill.git/&#39;&#34;&gt;https://github.com/mawchu/baby-bill.git/&#39;&lt;/a&gt;: The requested URL returned error: 403&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;由於 git bash 切換帳戶不是那麼方便，就偷吃步一下重複 &lt;a href=&#34;http://maomaoxie.github.io/2022/02/10/zh-tw/git-pat/&#34;&gt;Github 登入新制 PAT X Sourcetree&lt;/a&gt; 這篇的步驟就可以囉！&lt;/p&gt;
+&lt;p&gt;參考文章：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/taoshihan/article/details/116824815?spm=1001.2101.3001.6661.1&amp;amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;amp;utm_relevant_index=1&#34;&gt;https://blog.csdn.net/taoshihan/article/details/116824815?spm=1001.2101.3001.6661.1&amp;amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;amp;utm_relevant_index=1&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/02/10/zh-tw/git-pat/</guid>
+            <title>Github 登入新制 PAT X Sourcetree</title>
+            <link>http://maomaoxie.github.io/2022/02/10/zh-tw/git-pat/</link>
+            <category>git</category>
+            <category>github</category>
+            <category>sourceTree</category>
+            <pubDate>Thu, 10 Feb 2022 12:31:14 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;在2022年某天，嘗試使用 sourcetree 推上去新 code 時，在 Github 時出現了以下錯誤訊息：&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote danger&#34;&gt;&lt;p&gt;remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.&lt;br&gt;remote: Please see &lt;a href=&#34;https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/&#34;&gt;https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/&lt;/a&gt; for more information.&lt;br&gt;fatal: unable to access “…” : The requested URL returned error: 403&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以上說明大概就是 Github 已經不支援密碼登入的方式，從 2021/08/13 開始必須替換為 PAT 的 token 登入方式進行認證。&lt;/p&gt;
+&lt;p&gt;這個過程採了一些小坑，為了避免自己忘記趕緊的筆記一下：&lt;/p&gt;
+&lt;h1 id=&#34;Github-創建-token&#34;&gt;&lt;a href=&#34;#Github-創建-token&#34; class=&#34;headerlink&#34; title=&#34;Github 創建 token&#34;&gt;&lt;/a&gt;Github 創建 token&lt;/h1&gt;  &lt;blockquote&gt;&lt;p&gt;From your GitHub account, go to Settings =&amp;gt; Developer Settings =&amp;gt; Personal Access Token =&amp;gt; Generate New Token (Give your password) =&amp;gt; Fillup the form =&amp;gt; click Generate token =&amp;gt; Copy the generated Token, it will be something like ghp_sFhFsSHhTzMDreGRLjmks4Tzuzgthdvfsrta&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;按下右上角頭像，選取 settings  &lt;img src=&#34;/images/github-pat/github-pat1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;100&#34; title=&#34;[title text [alt text]]&#34;&gt;&lt;/li&gt;
+&lt;li&gt;按下 developer settings  &lt;img src=&#34;/images/github-pat/github-pat2.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[title text [alt text]]&#34;&gt;&lt;/li&gt;
+&lt;li&gt;點選 personal accesss token  &lt;img src=&#34;/images/github-pat/github-pat2-1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[title text [alt text]]&#34;&gt;&lt;/li&gt;
+&lt;li&gt;填寫 token 用途與勾選 token 權限之後，申請一個 token 並且妥善保存  &lt;img src=&#34;/images/github-pat/github-pat2-2.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[title text [alt text]]&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;sourceTree-修改遠端-URL&#34;&gt;&lt;a href=&#34;#sourceTree-修改遠端-URL&#34; class=&#34;headerlink&#34; title=&#34;sourceTree 修改遠端 URL&#34;&gt;&lt;/a&gt;sourceTree 修改遠端 URL&lt;/h1&gt;&lt;p&gt;  專案的 repo 點選 settings 修改 remote URL 的格式如下，&lt;br&gt;  &lt;/p&gt;&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;https://&amp;lt;USERNAME&amp;gt;:&amp;lt;TOKEN&amp;gt;@&amp;lt;GIT_URL&amp;gt;.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;  查詢 GIT_URL 可以透過這個指令：&lt;br&gt;  &lt;/p&gt;&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ git config --get remote.origin.url&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;  並且記得 GIT_URL 要刪除 https:// 的部分才不會出錯，類似這樣&lt;br&gt;  &lt;/p&gt;&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;https://mawchu:&amp;lt;你的Github token&amp;gt;@github.com/mawchu/mawchu.github.io.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;/p&gt;
+&lt;h1 id=&#34;驗證-Sourcetree-的身分&#34;&gt;&lt;a href=&#34;#驗證-Sourcetree-的身分&#34; class=&#34;headerlink&#34; title=&#34;驗證 Sourcetree 的身分&#34;&gt;&lt;/a&gt;驗證 Sourcetree 的身分&lt;/h1&gt;  &lt;img src=&#34;/images/github-pat/github-pat3.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[title text [alt text]]&#34;&gt;
+  &lt;img src=&#34;/images/github-pat/github-pat3-1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[title text [alt text]]&#34;&gt;
+
+&lt;p&gt;  切換 OAuth 為 Basic 驗證方式，輸入方才申請好的 token 密碼&lt;br&gt;  &lt;img src=&#34;/images/github-pat/github-pat4.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[title text [alt text]]&#34;&gt;&lt;/p&gt;
+&lt;p&gt;  驗證 OK 就可以推上去囉！&lt;/p&gt;
+&lt;p&gt;參考文章：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to&#34;&gt;https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://stackoverflow.com/questions/68191968/source-tree-fix-for-git-password-authentication-is-temporarily-disabled-as-part&#34;&gt;https://stackoverflow.com/questions/68191968/source-tree-fix-for-git-password-authentication-is-temporarily-disabled-as-part&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr&#34;&gt;https://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

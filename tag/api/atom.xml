@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://maomaoxie.github.io</id>
+    <title>Mawchu 貓奴前端的天空 • Posts by &#34;api&#34; tag</title>
+    <link href="http://maomaoxie.github.io" />
+    <updated>2022-02-28T03:03:47.000Z</updated>
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="git" />
+    <category term="github" />
+    <category term="sourceTree" />
+    <category term="http" />
+    <category term="https" />
+    <category term="request" />
+    <category term="response" />
+    <category term="httpHeader" />
+    <category term="httpMethods" />
+    <category term="status" />
+    <category term="Javascript" />
+    <category term="type" />
+    <category term="laravel" />
+    <category term="php" />
+    <category term="linux" />
+    <category term="blade" />
+    <category term="wsl2" />
+    <category term="layout" />
+    <category term="migration" />
+    <category term="sql" />
+    <category term="public" />
+    <category term="static" />
+    <category term="tailwind" />
+    <category term="env" />
+    <category term="process" />
+    <category term="dotenv" />
+    <category term="css" />
+    <category term="less" />
+    <category term="processors" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="vue3" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <category term="vue" />
+    <category term="compositionAPI" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/02/28/zh-tw/http-methods/</id>
+        <title>HTTP Methods 介紹</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/02/28/zh-tw/http-methods/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/http-methods/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[http-methods [http-methods]]&#34;&gt;
+&lt;p&gt;圖片來源：&lt;a href=&#34;https://www.jianshu.com/p/ac29da71601d&#34;&gt;https://www.jianshu.com/p/ac29da71601d&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;身為技術人不可不知的技術事：其實你每天都在使用 HTTP 的 Methods，但你不知道而已。&lt;br&gt;當你在瀏覽器輸入一串網址並且按下 enter 或者是按下一個 google 搜尋的超連結，就已經完成一個 HTTP &lt;code&gt;GET&lt;/code&gt; Methods 的流程了！&lt;br&gt;Client 端網路資料的傳輸，按照功能屬性分為幾個類別：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Methods&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;目的&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;GET&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;取得資料&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;經常會搭配 query string 參數使用，使用者可以在 URL 看到資料&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;POST&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;傳送資料&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;可以將要求內容隱藏在 body 中，使用者看不見&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;PUT&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;更改整筆資料&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;通常是一個註冊表單提供第一次來訪的使用者填寫，server 端會整筆更新&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;PATCH&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;更改部分資料&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;可能是會員中心的部分資料修改，例如地址或手機，server 端會只更新修改的部分&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;DELETE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;刪除資料&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;比較單純的功能，就是刪除資料&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;GET-方法（READ）&#34;&gt;&lt;a href=&#34;#GET-方法（READ）&#34; class=&#34;headerlink&#34; title=&#34;GET 方法（READ）&#34;&gt;&lt;/a&gt;GET 方法（READ）&lt;/h1&gt;&lt;img src=&#34;/images/http-methods/1.png&#34; class=&#34;&#34; width=&#34;500&#34; height=&#34;200&#34; title=&#34;[http-methods [http-methods]]&#34;&gt;
+&lt;p&gt;圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
+&lt;p&gt;GET 取得資料（read）的條件是寫在 query string 的&lt;code&gt;?&lt;/code&gt;後方，key-value 的鍵值對來代表欄位跟內容。&lt;br&gt;例如 &lt;code&gt;?name=jobe&amp;amp;email=jobe&lt;/code&gt;，&lt;code&gt;name&lt;/code&gt; 對應&lt;code&gt;form&lt;/code&gt; 表單裡面的 input &lt;code&gt;name&lt;/code&gt; ，為欄位名稱，等號後方的值就是使用者自己填寫的 value 內容：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;form action=&lt;span class=&#34;hljs-string&#34;&gt;&#34;http://localhost:4000&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;label&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;for&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;name&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;Name&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;label&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;text&#34;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;name&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;name&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;label&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;for&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;email&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;Email&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;label&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;text&#34;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;name&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;email&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;button&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;submit&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;送出&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;form&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img src=&#34;/images/http-methods/2.png&#34; class=&#34;&#34; width=&#34;500&#34; height=&#34;200&#34; title=&#34;[http-methods [http-methods]]&#34;&gt;
+&lt;img src=&#34;/images/http-methods/3.png&#34; class=&#34;&#34; width=&#34;500&#34; height=&#34;200&#34; title=&#34;[http-methods [http-methods]]&#34;&gt;
+&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;&lt;code&gt;GET&lt;/code&gt; 網址最多只能兩千多個字，包含參數等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;URL 的萬國編碼機制需要經過 &lt;code&gt;encodeURI()&lt;/code&gt;、&lt;code&gt;encodeURIcomponent()&lt;/code&gt; 等方法解密過才可閱讀。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+&lt;h1 id=&#34;POST-方法（CREATE）&#34;&gt;&lt;a href=&#34;#POST-方法（CREATE）&#34; class=&#34;headerlink&#34; title=&#34;POST 方法（CREATE）&#34;&gt;&lt;/a&gt;POST 方法（CREATE）&lt;/h1&gt;&lt;img src=&#34;/images/http-methods/4.png&#34; class=&#34;&#34; width=&#34;500&#34; height=&#34;200&#34; title=&#34;[http-methods [http-methods]]&#34;&gt;
+&lt;p&gt;圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;POST&lt;/code&gt; 方法旨在創造一筆新的資料，發送到 Origin server 接收，可以將資料隱藏在 &lt;code&gt;body&lt;/code&gt; 中避免被使用窺視，使用者在網頁 URL 看起來也乾淨簡潔。&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;&lt;code&gt;POST&lt;/code&gt; 方法可傳送的資料量基本沒有限制，端看 server 這邊的程式是否有特別限制多少 mb。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+&lt;h1 id=&#34;PUT-amp-PATCH（UPDATE）&#34;&gt;&lt;a href=&#34;#PUT-amp-PATCH（UPDATE）&#34; class=&#34;headerlink&#34; title=&#34;PUT &amp;amp; PATCH（UPDATE）&#34;&gt;&lt;/a&gt;PUT &amp;amp; PATCH（UPDATE）&lt;/h1&gt;&lt;p&gt;這兩個方法旨在更新現有的資料內容：&lt;br&gt;&lt;code&gt;PUT&lt;/code&gt;會將整個表單內容根據填寫的資料全部更新，有空白沒填的地方照樣更新成空白的狀態，適合用在第一次填寫資料的訪客，例如註冊會員、初診的病患要掛號。&lt;br&gt;&lt;code&gt;PATCH&lt;/code&gt;則是只更新部分內容而已，沒有變動的地方維持原樣，適合用在填寫過完整資料而只想部分更改的情境，例如修改會員寄送地址、復診的病患要掛號等。&lt;/p&gt;
+&lt;p&gt;這兩個方法並非 HTTP 創造的，而是方便網站開發人員依據自己的資料取向需求來設計表單欄位給訪客填寫，再選擇適合的 HTTP Methods。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;DELETE（DELETE）&#34;&gt;&lt;a href=&#34;#DELETE（DELETE）&#34; class=&#34;headerlink&#34; title=&#34;DELETE（DELETE）&#34;&gt;&lt;/a&gt;DELETE（DELETE）&lt;/h1&gt;&lt;p&gt;由於刪除是一個不能回頭的行為，雖然有的網站在後端機制不會真的讓使用者刪除，只是讓你看不到而已，不過刪除的要求還是被特別獨立出來，警示開發人員慎用這個方法。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;&lt;p&gt;圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="api" />
+        <category term="http" />
+        <category term="request" />
+        <category term="response" />
+        <category term="httpMethods" />
+        <updated>2022-02-28T03:03:47.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://maomaoxie.github.io/2022/02/25/zh-tw/web-socket-and-web-hook/</id>
+        <title>Web Socket v.s Web Hook</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/02/25/zh-tw/web-socket-and-web-hook/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/web-socket-and-web-hook/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[web-socket-and-web-hook [web-socket-and-web-hook]]&#34;&gt;
+&lt;p&gt;API 的形式有兩大宗：&lt;br&gt;Web Hook 與 Web Socket，而他們有甚麼差異呢？&lt;/p&gt;
+&lt;h1 id=&#34;被動式-Web-Hook&#34;&gt;&lt;a href=&#34;#被動式-Web-Hook&#34; class=&#34;headerlink&#34; title=&#34;被動式 Web Hook&#34;&gt;&lt;/a&gt;被動式 Web Hook&lt;/h1&gt;&lt;p&gt;例如 Line Bot，server 會先預測使用者的動作與需求（events），設計出相對的程式並維護，等待使用者發出要求才動作。&lt;/p&gt;
+&lt;h1 id=&#34;主動式-Web-Socket&#34;&gt;&lt;a href=&#34;#主動式-Web-Socket&#34; class=&#34;headerlink&#34; title=&#34;主動式 Web Socket&#34;&gt;&lt;/a&gt;主動式 Web Socket&lt;/h1&gt;&lt;p&gt;兩方的資料交互，例如 client 與 server、server 與 server。&lt;br&gt;應用場景如聊天功能：facebook messenger 或 Line 等，Web Socket 的技術可以「即時的」(real time)做出資料傳遞。&lt;br&gt;當你打開 facebook messenger 的視窗，Web Socket server 就會與 client 瀏覽器端 handshake 保持通訊暢通，持續監聽對話要求並回應(opened and persistent connection)&lt;/p&gt;
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="api" />
+        <category term="WebSocket" />
+        <category term="WebHook" />
+        <updated>2022-02-25T03:29:08.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://maomaoxie.github.io/2022/02/25/zh-tw/graph-ql-api/</id>
+        <title>Graph QL 新世代 API</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/02/25/zh-tw/graph-ql-api/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/graph-ql-api/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[css-less [css-less]]&#34;&gt;
+&lt;p&gt;隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！&lt;/p&gt;
+&lt;p&gt;2012 年 facebook 內部研發出來的新形態 API，2015 年提出發表，特點是前端可以直接進資料庫，不需要透過後端查詢撈取資料。&lt;br&gt;概念有一點類似用前端語言操作 &lt;code&gt;MySQL&lt;/code&gt;。前端也擁有更彈性的空間來制定查詢資料的規則與方式，有更大話語權，但相對來講也增加資料設計的難度，在思考的維度上需要更廣更深才能靈活應付多變的資料需求。&lt;/p&gt;
+&lt;h1 id=&#34;Graph-QL-操作概念&#34;&gt;&lt;a href=&#34;#Graph-QL-操作概念&#34; class=&#34;headerlink&#34; title=&#34;Graph QL 操作概念&#34;&gt;&lt;/a&gt;Graph QL 操作概念&lt;/h1&gt;&lt;img src=&#34;/images/graph-ql-api/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[css-less [css-less]]&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用者透過輸入定義好的語法，取得所需的資料 (如 &lt;code&gt;SELECT&lt;/code&gt;) 或是修改指定的資料 (如 &lt;code&gt;CREATE&lt;/code&gt; 、 &lt;code&gt;UPDATE&lt;/code&gt;)。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;資料的格式&#34;&gt;&lt;a href=&#34;#資料的格式&#34; class=&#34;headerlink&#34; title=&#34;資料的格式&#34;&gt;&lt;/a&gt;資料的格式&lt;/h2&gt;&lt;h4 id=&#34;前端-request-長相&#34;&gt;&lt;a href=&#34;#前端-request-長相&#34; class=&#34;headerlink&#34; title=&#34;前端 request 長相&#34;&gt;&lt;/a&gt;前端 request 長相&lt;/h4&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;example&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;query {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;title class_&#34;&gt;User&lt;/span&gt;(&lt;span class=&#34;hljs-attr&#34;&gt;id&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#39;aefk34kasl9&#39;&lt;/span&gt;) {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    name&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    posts{&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      title&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;title function_&#34;&gt;followers&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;last: &lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;&lt;/span&gt;){&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      name&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&#34;資料庫-response-長相&#34;&gt;&lt;a href=&#34;#資料庫-response-長相&#34; class=&#34;headerlink&#34; title=&#34;資料庫 response 長相&#34;&gt;&lt;/a&gt;資料庫 response 長相&lt;/h4&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;example&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;{&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-string&#34;&gt;&#34;data&#34;&lt;/span&gt;: {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-string&#34;&gt;&#34;User&#34;&lt;/span&gt;: {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;hljs-string&#34;&gt;&#34;name&#34;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;Mawchu&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;hljs-string&#34;&gt;&#34;posts&#34;&lt;/span&gt;:[&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        { &lt;span class=&#34;hljs-attr&#34;&gt;title&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;喵喵的一天&#34;&lt;/span&gt; }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      ]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;hljs-string&#34;&gt;&#34;followers&#34;&lt;/span&gt;: [&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        { &lt;span class=&#34;hljs-string&#34;&gt;&#34;name&#34;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;Cally&#34;&lt;/span&gt; },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        { &lt;span class=&#34;hljs-string&#34;&gt;&#34;name&#34;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;Donna&#34;&lt;/span&gt; },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        { &lt;span class=&#34;hljs-string&#34;&gt;&#34;name&#34;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;Jell&#34;&lt;/span&gt; },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      ]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;補充&#34;&gt;&lt;a href=&#34;#補充&#34; class=&#34;headerlink&#34; title=&#34;補充&#34;&gt;&lt;/a&gt;補充&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Schema，香港和中國大陸翻譯為模式或架構，在資料庫系統中是形式語言描述的一種結構，是對象的集合，可包含各種對象如：表、欄位、關係模型、視圖、索引、包、存儲過程、子程序、隊列、觸發器、數據類型、序列、物化視圖、同義詞（synonym）、database link、directory、XML schema等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;br&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10200678&#34;&gt;https://ithelp.ithome.com.tw/articles/10200678&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="api" />
+        <category term="graphQL" />
+        <category term="facebook" />
+        <updated>2022-02-25T02:48:36.000Z</updated>
+    </entry>
+</feed>

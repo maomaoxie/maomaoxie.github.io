@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;php&#34; category</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Sun, 10 Apr 2022 18:10:18 +0800</pubDate>
+        <lastBuildDate>Sun, 10 Apr 2022 18:10:18 +0800</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
+        <category>httpHeader</category>
+        <category>httpMethods</category>
+        <category>status</category>
+        <category>Javascript</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>blade</category>
+        <category>wsl2</category>
+        <category>layout</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>css</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>vue3</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <category>vue</category>
+        <category>compositionAPI</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/04/10/zh-tw/php-basic-knowledge/</guid>
+            <title>Php 基礎知識</title>
+            <link>http://maomaoxie.github.io/2022/04/10/zh-tw/php-basic-knowledge/</link>
+            <category>php</category>
+            <pubDate>Sun, 10 Apr 2022 18:10:18 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/php-basic-knowledge/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;php 基礎知識&#34;&gt;
+&lt;p&gt;在 javascript 裡面訪問屬性的方式很單純，都是使用 &lt;code&gt;.&lt;/code&gt; 來進入傳參考的對象記憶體中存放的值、訪問類中的屬性還有創立物件內的 key 與 value，然而在 php 中則用三種不同的符號來達成不同目的：&lt;/p&gt;
+&lt;h3 id=&#34;範圍解析操作符&#34;&gt;&lt;a href=&#34;#範圍解析操作符&#34; class=&#34;headerlink&#34; title=&#34;:: 範圍解析操作符&#34;&gt;&lt;/a&gt;:: 範圍解析操作符&lt;/h3&gt;&lt;p&gt;用來訪問類（class）底下的對象。&lt;/p&gt;
+&lt;figure class=&#34;highlight php hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;layout/layout.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-variable&#34;&gt;$classname&lt;/span&gt;::&lt;span class=&#34;variable constant_&#34;&gt;CONST_VALUE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;gt-指向符號（瘦箭頭）&#34;&gt;&lt;a href=&#34;#gt-指向符號（瘦箭頭）&#34; class=&#34;headerlink&#34; title=&#34;-&gt; 指向符號（瘦箭頭）&#34;&gt;&lt;/a&gt;-&amp;gt; 指向符號（瘦箭頭）&lt;/h3&gt;&lt;p&gt;用來訪問物件內某類別的值，類似 javascript 裡頭的 &lt;code&gt;.&lt;/code&gt;。 &lt;/p&gt;
+&lt;figure class=&#34;highlight php hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;layout/layout.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-variable&#34;&gt;$object&lt;/span&gt;-&amp;gt;property=&lt;span class=&#34;hljs-string&#34;&gt;&#39;value&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;x3D-gt-指向符號（胖箭頭）&#34;&gt;&lt;a href=&#34;#x3D-gt-指向符號（胖箭頭）&#34; class=&#34;headerlink&#34; title=&#34;=&gt; 指向符號（胖箭頭）&#34;&gt;&lt;/a&gt;=&amp;gt; 指向符號（胖箭頭）&lt;/h3&gt;&lt;p&gt;用來創建物件內的鍵值對，一個 key 對上一個 value，類似 javascript 裡頭的 &lt;code&gt;:&lt;/code&gt;。 &lt;/p&gt;
+&lt;figure class=&#34;highlight php hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;layout/layout.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-variable&#34;&gt;$array&lt;/span&gt; = &lt;span class=&#34;hljs-keyword&#34;&gt;array&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#34;key&#34;&lt;/span&gt; =&amp;gt; &lt;span class=&#34;hljs-string&#34;&gt;&#34;value&#34;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

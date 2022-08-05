@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://maomaoxie.github.io</id>
+    <title>Mawchu 貓奴前端的天空 • Posts by &#34;https&#34; tag</title>
+    <link href="http://maomaoxie.github.io" />
+    <updated>2022-03-01T14:27:36.000Z</updated>
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="git" />
+    <category term="github" />
+    <category term="sourceTree" />
+    <category term="http" />
+    <category term="https" />
+    <category term="request" />
+    <category term="response" />
+    <category term="httpHeader" />
+    <category term="httpMethods" />
+    <category term="status" />
+    <category term="Javascript" />
+    <category term="type" />
+    <category term="laravel" />
+    <category term="php" />
+    <category term="linux" />
+    <category term="blade" />
+    <category term="wsl2" />
+    <category term="layout" />
+    <category term="migration" />
+    <category term="sql" />
+    <category term="public" />
+    <category term="static" />
+    <category term="tailwind" />
+    <category term="env" />
+    <category term="process" />
+    <category term="dotenv" />
+    <category term="css" />
+    <category term="less" />
+    <category term="processors" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="vue3" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <category term="vue" />
+    <category term="compositionAPI" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/03/01/zh-tw/http-status-code/</id>
+        <title>HTTP Status code 狀態碼解析</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/03/01/zh-tw/http-status-code/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/http-status-code/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[http-status-code [http-status-code]]&#34;&gt;
+&lt;p&gt;圖片來源：&lt;a href=&#34;https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5&#34;&gt;https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;常常看到網站出現 404 找不到，或者是後端噴錯顯示了 Bad Gateway 卻不曉得箇中原因，而前後端打 API 也必須要讀懂狀態碼（HTTP Status code）代表的意涵，才能更有效率的除錯找出原因，以下是常見的狀態碼：&lt;/p&gt;
+&lt;h1 id=&#34;Level-200-發送成功&#34;&gt;&lt;a href=&#34;#Level-200-發送成功&#34; class=&#34;headerlink&#34; title=&#34;Level 200 發送成功&#34;&gt;&lt;/a&gt;Level 200 發送成功&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;狀態碼&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;意涵&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;情境&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;200&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;OK&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;API 要求與回應都OK&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;201&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;Created&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;成功建立了資料，例如 facebook 建立貼文&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;203&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;Http proxy&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;該伺服器是代理的伺服器，非原始 Origin&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;204&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;No Content&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;伺服器成功處理了請求，沒有返回任何內容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h1 id=&#34;Level-400-要求內容有誤&#34;&gt;&lt;a href=&#34;#Level-400-要求內容有誤&#34; class=&#34;headerlink&#34; title=&#34;Level 400 要求內容有誤&#34;&gt;&lt;/a&gt;Level 400 要求內容有誤&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;狀態碼&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;意涵&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;情境&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;400&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;Bad Request&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;發送要求但是需要的參數沒填、填寫的參數不符合規則，這個錯誤是客戶端造成的&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;401&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;Unauthorized&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;身分未明或是瀏覽的權限不夠、沒有登入會員或付費&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;403&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;Forbidden&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;黑名單而被禁止該項服務&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;404&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;Not Found&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;找不到該網站的某頁面&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;409&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;Conflict&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;服務流量過大導致衝突，或帳號/Email已被使用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h1 id=&#34;Level-500-伺服器有誤&#34;&gt;&lt;a href=&#34;#Level-500-伺服器有誤&#34; class=&#34;headerlink&#34; title=&#34;Level 500 伺服器有誤&#34;&gt;&lt;/a&gt;Level 500 伺服器有誤&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;狀態碼&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;意涵&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;情境&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;500&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;Internal Server Error&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;該服務伺服器出現不明問題，需要聯絡開發人員&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;503&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;Service Unavailable&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;該服務因為流量爆炸等原因無法使用了&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;501&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;Not Implemented&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;該服務有接收到要求，但還未實作未完成&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;502&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;Bad Gateway&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;連線伺服器成功，但中間軟體出錯&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;504&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;Gateway Timeout&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;連線伺服器成功，程式也沒問題，但經過中間軟體時出錯（過期）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;599&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;Network Timeout&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;網路連線逾時，連不上&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;延伸閱讀：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&#34;https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5&#34;&gt;https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="http" />
+        <category term="https" />
+        <category term="status" />
+        <updated>2022-03-01T14:27:36.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://maomaoxie.github.io/2022/02/28/zh-tw/http-and-https/</id>
+        <title>HTTP 超文本傳輸協定</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/02/28/zh-tw/http-and-https/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/http-and-https/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[http-and-https [http-and-https]]&#34;&gt;
+&lt;p&gt;圖片來源：&lt;a href=&#34;https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https&#34;&gt;https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;HTTP-的誕生&#34;&gt;&lt;a href=&#34;#HTTP-的誕生&#34; class=&#34;headerlink&#34; title=&#34;HTTP 的誕生&#34;&gt;&lt;/a&gt;HTTP 的誕生&lt;/h1&gt;&lt;p&gt;網路應用程式早期在互相傳遞資料時沒有固定的格式，在資料解析上就會很麻煩混亂，就像一個國家一旦陷入各自為政的困擾就需要政治來規範管理，網路世界也是一樣道理的。超文本傳輸協定(Hyper Text Transfer Protocol)就是網路資料傳遞的統整者，是 client 端向 server 端要求資料的關卡，必須要按照正確的格式才能取得資料。&lt;/p&gt;
+&lt;h1 id=&#34;Origin-Server-是甚麼&#34;&gt;&lt;a href=&#34;#Origin-Server-是甚麼&#34; class=&#34;headerlink&#34; title=&#34;Origin Server 是甚麼&#34;&gt;&lt;/a&gt;Origin Server 是甚麼&lt;/h1&gt;&lt;h3 id=&#34;server-負責-response&#34;&gt;&lt;a href=&#34;#server-負責-response&#34; class=&#34;headerlink&#34; title=&#34;server 負責 response&#34;&gt;&lt;/a&gt;server 負責 response&lt;/h3&gt;&lt;p&gt;先介紹 Origin 這個單辭為什麼會被拿來當作 server 端，它的同義詞有 root、source 與 beginning，有起源、來源與原產地的意思，相當於網路世界中網站資料的起源與來源，github 在推 commits 上去遠端也可以看到指令：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git push -u origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Origin 代表的就是擁有資料的角色，通常是 server端：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;An origin server is a computer that runs programs designed to listen to and respond to incoming requests or traffic. It contains the original version of the web page and is responsible for delivering the content to end users when requested.&lt;br&gt;Origin servers take in requests and serve up content for a website or web page.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Origin server 是負責監聽以及回應（response）來自四面八方的要求（requests）與通訊的電腦計算機程式，包含原版的網頁資料並且傳遞該內容給發出請求的使用者端口。&lt;/li&gt;
+&lt;li&gt;Origin server 會接收需求並且提供網站的資料內容。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;client-負責-requested&#34;&gt;&lt;a href=&#34;#client-負責-requested&#34; class=&#34;headerlink&#34; title=&#34;client 負責 requested&#34;&gt;&lt;/a&gt;client 負責 requested&lt;/h3&gt;&lt;p&gt;Client 代表的是上網並請求網站資料的使用者，也就是 user 端：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;When a user opens a web page on a website, a request is sent to the origin server to retrieve the content.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;當使用者試圖用瀏覽器（browser）打開一個網頁或網站，就已經發送了該網站資料的要求給 origin server。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;Port-是甚麼&#34;&gt;&lt;a href=&#34;#Port-是甚麼&#34; class=&#34;headerlink&#34; title=&#34;Port 是甚麼&#34;&gt;&lt;/a&gt;Port 是甚麼&lt;/h1&gt;&lt;p&gt;一個網站就如同銀行，而服務人員的櫃檯提供多元的銀行業務來消化前去等候的民眾，這個案例中：&lt;br&gt;銀行機構就是 Origin server，服務人員就是 port，而民眾就是 client（user agent）；而一個網站 Origin 可以包山包海擁有各種資料，並開啟多個窗口的埠號（port）來服務傳送過來的需求（requests），讓每個埠號更專注在一個服務的品質與細節上。&lt;br&gt;早期沒有瀏覽器的時代，使用的是終端機(terminal)來發送請求而非瀏覽器，而今 server 端口會檢查要求是否來自瀏覽器而非機器人（爬蟲），來過濾一些資安問題的黑手。&lt;/p&gt;
+&lt;h1 id=&#34;HTTPs-的誕生&#34;&gt;&lt;a href=&#34;#HTTPs-的誕生&#34; class=&#34;headerlink&#34; title=&#34;HTTPs 的誕生&#34;&gt;&lt;/a&gt;HTTPs 的誕生&lt;/h1&gt;&lt;p&gt;隨著網路世界日興發達，不安好心的資訊竊取駭客就會出現，它可以偽裝成使用者也可以偽裝成服務器，為了避免這種資料截取的資安問題，資訊傳遞的加密就很重要！HTTPS 如同 HTTP 但是多了一把開啟資訊傳遞的鑰匙，將來往資料都加密過防止有心人士解讀：&lt;/p&gt;
+&lt;img src=&#34;/images/http-and-https/1.png&#34; class=&#34;&#34; width=&#34;600&#34; height=&#34;200&#34; title=&#34;[http-and-https [http-and-https]]&#34;&gt;
+
+
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&#34;https://www.cdnetworks.com/knowledge-center/what-is-origin-server/&#34;&gt;https://www.cdnetworks.com/knowledge-center/what-is-origin-server/&lt;/a&gt;&lt;br&gt;hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="http" />
+        <category term="https" />
+        <category term="request" />
+        <category term="response" />
+        <updated>2022-02-28T02:07:23.000Z</updated>
+    </entry>
+</feed>

@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;httpheader&#34; tag</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Mon, 28 Feb 2022 20:28:24 +0800</pubDate>
+        <lastBuildDate>Mon, 28 Feb 2022 20:28:24 +0800</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
+        <category>httpHeader</category>
+        <category>httpMethods</category>
+        <category>status</category>
+        <category>Javascript</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>blade</category>
+        <category>wsl2</category>
+        <category>layout</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>css</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>vue3</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <category>vue</category>
+        <category>compositionAPI</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/02/28/zh-tw/http-header/</guid>
+            <title>HTTP 的訊息頭 header</title>
+            <link>http://maomaoxie.github.io/2022/02/28/zh-tw/http-header/</link>
+            <category>http</category>
+            <category>request</category>
+            <category>response</category>
+            <category>httpHeader</category>
+            <pubDate>Mon, 28 Feb 2022 20:28:24 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/http-header/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[http-header [http-header]]&#34;&gt;
+
+&lt;p&gt;個人對這一塊知識又愛又恨，每每串接 api 打開 Network 都會看到卻似懂非懂的感覺真討厭！來認真釐清一下吧！&lt;/p&gt;
+&lt;h1 id=&#34;甚麼是-Header-與-Body&#34;&gt;&lt;a href=&#34;#甚麼是-Header-與-Body&#34; class=&#34;headerlink&#34; title=&#34;甚麼是 Header 與 Body&#34;&gt;&lt;/a&gt;甚麼是 Header 與 Body&lt;/h1&gt;&lt;p&gt;訊息頭&lt;code&gt;header&lt;/code&gt;在 request 與 response 裡佔有很大一席之地，它的作用相當於寄件時包裹上的訊息，記錄著包裹的相關內容，譬如該包裹要通過海關時必須申報內容物是甚麼類別，是否是急件還是一般，要寄往哪個國家、寄給誰等等的屬性。&lt;br&gt;訊息本體 &lt;code&gt;body&lt;/code&gt; 就是你包裹裡面的東西，或者信件裡的文字訊息。&lt;br&gt;之於網頁的資料傳遞則是記錄該次要求 request 與回應 response 的通訊內容．是一個 http 行為的概覽與說明。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;Header-存在於那裡&#34;&gt;&lt;a href=&#34;#Header-存在於那裡&#34; class=&#34;headerlink&#34; title=&#34;Header 存在於那裡&#34;&gt;&lt;/a&gt;Header 存在於那裡&lt;/h1&gt;&lt;p&gt;request 與 response 都有 &lt;code&gt;header&lt;/code&gt;，通常是 client 端發出的 request 會寫得比較詳盡，譬如使用者在搜尋引擎上點選一個網站就完成數個 request（一個網站會有很多資源的要求．例如圖片、網頁或 Api 資料）或者使用者在電腦填寫表單之後送出，而 server 端接收之後回應也會有訊息頭。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;HTTP-通訊的組成&#34;&gt;&lt;a href=&#34;#HTTP-通訊的組成&#34; class=&#34;headerlink&#34; title=&#34;HTTP 通訊的組成&#34;&gt;&lt;/a&gt;HTTP 通訊的組成&lt;/h1&gt;&lt;img src=&#34;/images/http-header/1.png&#34; class=&#34;&#34; width=&#34;500&#34; height=&#34;200&#34; title=&#34;http-header&#34;&gt;
+&lt;p&gt;一個 request 跟 response 由 &lt;code&gt;header&lt;/code&gt; 訊息頭跟 &lt;code&gt;body&lt;/code&gt; 訊息本體所組成：&lt;/p&gt;
+&lt;h3 id=&#34;Request-Header-請求頭&#34;&gt;&lt;a href=&#34;#Request-Header-請求頭&#34; class=&#34;headerlink&#34; title=&#34;Request Header 請求頭&#34;&gt;&lt;/a&gt;Request Header 請求頭&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;屬性&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;說明&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;範例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Accept&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;request 要求 response 的類型&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;text/html, image/*&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Accept-charset&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;request 的編碼&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;utf-8, iso-8859-1;q=0.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Authorization&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;request 要通過的驗證授權檢查&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Basic YWxhZGRpbjpvcGVuc2VzY…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Cookie&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;client 的暫存資料&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;PHPSESSID=124141;csrftoken=45746454&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Content-type&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;request 要求所發送的資料型態&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;multipart/form-data, text/plain, application/x-www-form-urlencoded, text/html, application/json&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Origin&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;request 要求的資料機器來源&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://developer.mozilla.org/&#34;&gt;https://developer.mozilla.org&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;User-Agent&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;request 端的 client 資訊&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Mozilla/5.0(Macintosh;Intel Mac OS X_10_14_3) AppleWebKit/537.36&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;X-Csrf-Token&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;防止 csrf(跨站請求偽造) 攻擊&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;eyjpdil6lmc4bjhQMmFrays…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;Authorization&#34;&gt;&lt;a href=&#34;#Authorization&#34; class=&#34;headerlink&#34; title=&#34;Authorization&#34;&gt;&lt;/a&gt;Authorization&lt;/h3&gt;&lt;p&gt;其中的 &lt;code&gt;Authorization&lt;/code&gt; 在 API 的&lt;strong&gt;安全驗證&lt;/strong&gt;非常重要，當 API server 接收到來自遠方的 request 時，可以透過該鑰匙密碼確認來源的 request 是合法、通過認證的，如此才能通過關卡進行資料交換。&lt;/p&gt;
+&lt;h3 id=&#34;Cookie&#34;&gt;&lt;a href=&#34;#Cookie&#34; class=&#34;headerlink&#34; title=&#34;Cookie&#34;&gt;&lt;/a&gt;Cookie&lt;/h3&gt;&lt;p&gt;瀏覽器的&lt;strong&gt;暫存資料&lt;/strong&gt;，是 Web API 的一種，Cookie 提供前端或後端一個存取少量資料在瀏覽器的空間，資料格式是一個鍵值對(key-value)，常用來做廣告追蹤紀錄客戶的瀏覽喜好，進而針對客群行銷與增加廣告投放的精準度，例如 Google Analytics；亦或是用來保持使用者的登入狀態。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;身為 Web 開發人員一定要瞭解 &lt;strong&gt;HTTP 本身無狀態 (Stateless) 的特性&lt;/strong&gt;，要在網路上識別瀏覽者的身份，必須透過一些機制來保存狀態，而 Cookie 就是其中一種保存狀態的機制。&lt;br&gt;&lt;a href=&#34;https://blog.miniasp.com/post/2008/02/22/Explain-HTTP-Cookie-in-Detail&#34;&gt;https://blog.miniasp.com/post/2008/02/22/Explain-HTTP-Cookie-in-Detail&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;Cookies 會被每一個請求發送出去，所以可能會影響效能（尤其是行動裝置的資料連線）。現代客戶端的 storage APIs 為 Web storage API (en-US) （localStorage 和 sessionStorage）以及 IndexedDB。&lt;br&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Cookies&#34;&gt;https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Cookies&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;Content-type&#34;&gt;&lt;a href=&#34;#Content-type&#34; class=&#34;headerlink&#34; title=&#34;Content-type&#34;&gt;&lt;/a&gt;Content-type&lt;/h3&gt;&lt;p&gt;紀錄 client 端發出的 request 要求發送出去的&lt;strong&gt;資料格式與型態&lt;/strong&gt;，例如表單或影音多元媒體就是 &lt;code&gt;multipart/form-data&lt;/code&gt;，網頁就是 &lt;code&gt;text/html&lt;/code&gt;，而 API axios 等技術傳遞的資料格式常為 &lt;code&gt;application/json&lt;/code&gt;等。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;一般的 Content-Type 往往只能傳送一種形式的資料，但在網頁的應用當中我們還可能想要上傳檔案、圖片、影片在表單裡頭，這樣的需求促成了 multipart/form-data 規範的出現。&lt;br&gt;&lt;a href=&#34;https://blog.kalan.dev/2021-03-13-html-form-data/%E3%80%82&#34;&gt;https://blog.kalan.dev/2021-03-13-html-form-data/。&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;Origin&#34;&gt;&lt;a href=&#34;#Origin&#34; class=&#34;headerlink&#34; title=&#34;Origin&#34;&gt;&lt;/a&gt;Origin&lt;/h3&gt;&lt;p&gt;該 request 要求的來源，比如瀏覽的網站是 &lt;a href=&#34;https://google.com/&#34;&gt;https://google.com&lt;/a&gt; 等，延伸的議題就是跨網站要求(CORS)，經常會默認要同一個**網站來源(domain)**伺服器端才可以接受該要求。&lt;/p&gt;
+&lt;h3 id=&#34;User-Agent&#34;&gt;&lt;a href=&#34;#User-Agent&#34; class=&#34;headerlink&#34; title=&#34;User-Agent&#34;&gt;&lt;/a&gt;User-Agent&lt;/h3&gt;&lt;p&gt;發送 Request 的對象，通常是&lt;strong&gt;瀏覽器本身的相關資訊&lt;/strong&gt;，例如 chrome 瀏覽器就會顯示 Mozilla/5.0 (Windows NT 10.0; Win64; x64)；也可能不是瀏覽器，例如 postman 就是 postman、終端機就是空白，&lt;code&gt;User-Agent&lt;/code&gt; 主要是拿來防止爬蟲軟體等非瀏覽器或機器人來獲取網站資料。&lt;/p&gt;
+&lt;h3 id=&#34;X-Csrf-Token&#34;&gt;&lt;a href=&#34;#X-Csrf-Token&#34; class=&#34;headerlink&#34; title=&#34;X-Csrf-Token&#34;&gt;&lt;/a&gt;X-Csrf-Token&lt;/h3&gt;&lt;p&gt;該 token 用以防止 csrf 的跨站偽造攻擊，使用者送出表單時加上一傳鑰匙密碼，避免有心人士撰寫一隻程式發送表單登入或註冊網站會員竊取資料。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;Response-Header-回應頭&#34;&gt;&lt;a href=&#34;#Response-Header-回應頭&#34; class=&#34;headerlink&#34; title=&#34;Response Header 回應頭&#34;&gt;&lt;/a&gt;Response Header 回應頭&lt;/h1&gt;&lt;p&gt;回應的內容也會記錄伺服器端的資料，以及接收的 request 資訊。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;屬性&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;說明&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;範例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Access-Control-Allow-Origin&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;限定此回應的資源是否要限制某個 Origin&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;*, &lt;a href=&#34;https://developer.mozilla.org/&#34;&gt;https://developer.mozilla.org&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Server&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;後端 Web server 伺服器類型&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Apache/2.4.1(Unix), Nginx&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Status&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;回報這次 request 是否成功的代碼&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;sessionid=38afes7a8, id=a3fWa, Max-Age=2592000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;Access-Control-Allow-Origin&#34;&gt;&lt;a href=&#34;#Access-Control-Allow-Origin&#34; class=&#34;headerlink&#34; title=&#34;Access-Control-Allow-Origin&#34;&gt;&lt;/a&gt;Access-Control-Allow-Origin&lt;/h3&gt;&lt;p&gt;該技術常用來判定前後端分離的網站，後端 server 限定只能接受自己**官方網站(domain)**前端打出的 API Request，才會做出回應；該技術與 Request Header 提到的 &lt;code&gt;Origin&lt;/code&gt; 前後呼應，由後端 server 判定前端 Request Header 裡面備註的 Origin 來源是否合法，延伸的議題一樣就是跨網站要求(CORS)。&lt;/p&gt;
+&lt;h3 id=&#34;Set-cookie&#34;&gt;&lt;a href=&#34;#Set-cookie&#34; class=&#34;headerlink&#34; title=&#34;Set-cookie&#34;&gt;&lt;/a&gt;Set-cookie&lt;/h3&gt;&lt;p&gt;伺服器端在瀏覽器設定 cookie 資料以記錄客戶端的瀏覽行為，以利行銷追蹤，或是做後續 request 發送給後端要包含的 cookie 內容。&lt;br&gt;而後端發送 Set-Cookie 是主動的，而前端接收 Cookie 是被動的：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;The Set-Cookie HTTP response header is used to send a cookie from the server to the user agent, so that the user agent can send it back to the server later.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;Cookie 的運作是這樣的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Server 端&lt;/strong&gt;回應給 Browser 一個或多個 “Set-Cookie” HTTP Header&lt;/li&gt;
+&lt;li&gt;Client 端 ( Browser ) 接收到 Set-Cookie 指令時，會將 Cookie 的名稱與值儲存在 Browser 的 Cookie 存放區，並記錄該 Cookie 隸屬的網域、網址路徑、過期時間、是否為安全連線&lt;/li&gt;
+&lt;li&gt;當 Browser 再次發出 HTTP Request 指令到 Server 時，就會比對目前在 Browser 內的 Cookie 存放區有沒有「該網域」、「該目錄」、「過期時間尚未過期」且「是否為安全連線」的 Cookie，如果有的話就會包含在 HTTP Request 指令的 “Cookie” Header 中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;blockquote class=&#34;colorquote danger&#34;&gt;&lt;p&gt;如果Request 要傳送 Cookie 到後端&lt;br&gt;除了在 前端 Request 要設定 &lt;strong&gt;credentials&lt;/strong&gt;&lt;br&gt;後端 Express 的 &lt;strong&gt;Access-Control-Allow-Origin 不可以為’*’&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;要設定成一個指定域名(前端的ip或域名)，例如：&lt;br&gt;Access-Control-Allow-Origin：”&lt;a href=&#34;http://localhost:3000&amp;quot;&#34;&gt;http://localhost:3000&#34;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+&lt;blockquote&gt;&lt;p&gt;圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

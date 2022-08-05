@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;javascript&#34; category</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Sun, 05 Jun 2022 16:31:07 +0800</pubDate>
+        <lastBuildDate>Sun, 05 Jun 2022 16:31:07 +0800</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
+        <category>httpHeader</category>
+        <category>httpMethods</category>
+        <category>status</category>
+        <category>Javascript</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>blade</category>
+        <category>wsl2</category>
+        <category>layout</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>css</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>vue3</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <category>vue</category>
+        <category>compositionAPI</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/06/05/zh-tw/js-weird-parts-III/</guid>
+            <title>克服 Javascript 的奇怪部分 單執行緒與同步執行</title>
+            <link>http://maomaoxie.github.io/2022/06/05/zh-tw/js-weird-parts-III/</link>
+            <category>Javascript</category>
+            <pubDate>Sun, 05 Jun 2022 16:31:07 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/js-weird-parts-single-threaded/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;js-weird-parts-single-threaded&#34;&gt;
+&lt;p&gt;這一個章節要來講解 JavaScript 的幾個觀念。&lt;/p&gt;
+&lt;h1 id=&#34;單執行緒（Single-Threaded）&#34;&gt;&lt;a href=&#34;#單執行緒（Single-Threaded）&#34; class=&#34;headerlink&#34; title=&#34;單執行緒（Single Threaded）&#34;&gt;&lt;/a&gt;單執行緒（Single Threaded）&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;一次一件事&lt;/strong&gt;是重點。&lt;br&gt;這個特性不是瀏覽器的特性，瀏覽器一次可能同時處理多件事情，JavaScript 引擎則是單執行緒的，就像排隊買早餐，老闆娘一次只能處理一位客人，而 JavaScript 也是一次只處理一項指令。&lt;/p&gt;
+&lt;h1 id=&#34;同步執行（Synchronous）&#34;&gt;&lt;a href=&#34;#同步執行（Synchronous）&#34; class=&#34;headerlink&#34; title=&#34;同步執行（Synchronous）&#34;&gt;&lt;/a&gt;同步執行（Synchronous）&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;順序&lt;/strong&gt;是重點。&lt;br&gt;事情有先後順序，按照順序執行，一次執行一行（或者說一個單元的程式碼，可能是一個陳述式或表達式）。&lt;/p&gt;
+&lt;h1 id=&#34;呼叫函式（Function-Invocation）&#34;&gt;&lt;a href=&#34;#呼叫函式（Function-Invocation）&#34; class=&#34;headerlink&#34; title=&#34;呼叫函式（Function Invocation）&#34;&gt;&lt;/a&gt;呼叫函式（Function Invocation）&lt;/h1&gt;&lt;p&gt;觸發或執行一個函式，使用的符號為大括號（parenthesis）。&lt;br&gt;JavaScript 引擎在執行函式呼叫時，會發生幾件事情延續前面的章節：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;呼叫函式&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;b&lt;/span&gt; () {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;a&lt;/span&gt; () {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;title function_&#34;&gt;b&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;title function_&#34;&gt;a&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;創造階段&#34;&gt;&lt;a href=&#34;#創造階段&#34; class=&#34;headerlink&#34; title=&#34;創造階段&#34;&gt;&lt;/a&gt;創造階段&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;全域執行環境（Global Execution Context）首先被創造。&lt;/li&gt;
+&lt;li&gt;全域物件（Global object）被創造。&lt;/li&gt;
+&lt;li&gt;全域 this 被創造。&lt;/li&gt;
+&lt;li&gt;開始編譯階段（Parsing），編譯器巡過一遍所有程式碼發現了函式 b 與 a，在記憶體創造兩個函式的空間並且存放整個函式內容。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img src=&#34;/images/js-weird-parts-III/1.png&#34; class=&#34;&#34; width=&#34;400&#34; height=&#34;200&#34; title=&#34;js-weird-parts-III&#34;&gt;
+
+&lt;h2 id=&#34;執行階段&#34;&gt;&lt;a href=&#34;#執行階段&#34; class=&#34;headerlink&#34; title=&#34;執行階段&#34;&gt;&lt;/a&gt;執行階段&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;整個程式碼的記憶體準備完畢後，開始執行程式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;編譯器解析到&lt;strong&gt;函式 a&lt;/strong&gt;被呼叫，立即於全域執行環境上方，產生並堆疊一個函式 a 的執行環境（Execution Context），放進&lt;strong&gt;執行佇列堆（Execution Stack）&lt;/strong&gt;中，每個執行環境都有自己得記憶體空間存放著變數或函式。&lt;/p&gt;
+&lt;img src=&#34;/images/js-weird-parts-III/2.png&#34; class=&#34;&#34; width=&#34;400&#34; height=&#34;200&#34; title=&#34;js-weird-parts-III&#34;&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;最上方的執行佇列會優先執行，進入函式 a 的執行環境（Execution Context）並且解析到函式 b，程序暫停，立即於函式 a 的執行環境上方，產生並堆疊一個函式 b 的執行環境（Execution Context），放進&lt;strong&gt;執行佇列堆（Execution Stack）&lt;/strong&gt;中。&lt;/p&gt;
+&lt;img src=&#34;/images/js-weird-parts-III/3.png&#34; class=&#34;&#34; width=&#34;400&#34; height=&#34;200&#34; title=&#34;js-weird-parts-III&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以上執行階段也可以拆分成好幾個創造（執行環境），與執行（執行佇列堆最上方的執行環境）階段，在當下的執行環境執行過程中，只要觸發另一個函式，執行暫停然後創造（執行環境）、與執行（執行佇列堆最上方的執行環境），而下方的程式碼不會被解析，除非該執行環境執行完畢並且離開執行佇列堆（Execution Stack）後才會繼續逐行執行。&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote Info&#34;&gt;&lt;p&gt;Everytime a function is called, a new execution context is created for that function, the &lt;code&gt;this&lt;/code&gt; variable is created for that function, the variables in it were set up in the creation phase, then the code is executed line by line.&lt;br&gt;whatever is on the top of the execution stack, is currently running synchronously.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;重點整理：&lt;br&gt;當一個函式被觸發或是呼叫，JS 引擎會創造一個屬於該函式的執行環境（execution context）並且放置在執行緒的最上方等待被執行，而該堆疊中具有該函式獨有的執行環境與 This，開始執行並且完成後離開堆疊中（pop out）繼續執行下一個堆疊，只要解析到新的函式被呼叫就會反覆以上行為，直到堆疊不斷（pop out）剩下全域執行環境本身為止。&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/05/14/zh-tw/constructor-vs-instance/</guid>
+            <title>建構子方法與實例化方法</title>
+            <link>http://maomaoxie.github.io/2022/05/14/zh-tw/constructor-vs-instance/</link>
+            <category>javascript</category>
+            <category>constructor</category>
+            <category>instance</category>
+            <category>methods</category>
+            <pubDate>Sat, 14 May 2022 21:37:03 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/constructor-vs-instance/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;constructor-vs-instance&#34;&gt;
+
+&lt;p&gt;在某天好奇想了解 Vue 3 的 defineProperty 原理搜尋了 &lt;code&gt;Object.defineProperty()&lt;/code&gt; 這個方法時，看見以下說明：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;靜態方法 &lt;code&gt;Object.defineProperty()&lt;/code&gt; 會直接對一個物件定義、或是修改現有的屬性。執行後會回傳定義完的物件。&lt;br&gt;備註：這個方法會直接針對 Object 呼叫建構子（constructor），而不是 Object 型別的實例。&lt;/p&gt;
+&lt;footer&gt;&lt;strong&gt;MDN&lt;/strong&gt;&lt;cite&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty&#34;&gt;Object.defineProperty()&lt;/a&gt;&lt;/cite&gt;&lt;/footer&gt;&lt;/blockquote&gt;
+&lt;p&gt;其中的&lt;strong&gt;直接針對 Object 呼叫建構子（constructor），而不是 Object 型別的實例&lt;/strong&gt;這句話突然讓我驚醒了，以前一直不能理解 javascript 中呼叫原生方法時，為何會有以下的區別：&lt;/p&gt;
+&lt;h2 id=&#34;透過建構器呼叫&#34;&gt;&lt;a href=&#34;#透過建構器呼叫&#34; class=&#34;headerlink&#34; title=&#34;透過建構器呼叫&#34;&gt;&lt;/a&gt;透過建構器呼叫&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Object.methods(objInstance)&lt;/code&gt; -&amp;gt; 例如 Object.keys(someObj)&lt;br&gt;這裡的 Object 是建構函式本身，未實例的藍圖（constructor）。&lt;/p&gt;
+&lt;h2 id=&#34;透過實例呼叫&#34;&gt;&lt;a href=&#34;#透過實例呼叫&#34; class=&#34;headerlink&#34; title=&#34;透過實例呼叫&#34;&gt;&lt;/a&gt;透過實例呼叫&lt;/h2&gt;&lt;p&gt;&lt;code&gt;objInstance.methods(parameters)&lt;/code&gt; -&amp;gt; 例如 someObj.hasOwnProperty(‘prop’)&lt;br&gt;這裡的 Object 是實例化的物件（instance）。&lt;/p&gt;
+&lt;h2 id=&#34;Constructor-Static-Methods&#34;&gt;&lt;a href=&#34;#Constructor-Static-Methods&#34; class=&#34;headerlink&#34; title=&#34;Constructor Static Methods&#34;&gt;&lt;/a&gt;Constructor Static Methods&lt;/h2&gt;&lt;h4 id=&#34;構造器-靜態方法&#34;&gt;&lt;a href=&#34;#構造器-靜態方法&#34; class=&#34;headerlink&#34; title=&#34;構造器 靜態方法&#34;&gt;&lt;/a&gt;構造器 靜態方法&lt;/h4&gt;&lt;p&gt;以下的例子是呼叫 Object 建構子中的原生 keys 方法，而不需要 new 一個物件實例就可以使用，靜態方法的特色是無需使用任何建構子中的 this 資料就可以直接使用。&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;建構子方法&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; someone = {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;name&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#39;Adam&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;carrer&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#39;teacher&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;sex&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#39;male&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;};&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; dataKeys = &lt;span class=&#34;title class_&#34;&gt;Object&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;keys&lt;/span&gt;(someone);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(dataKeys);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;// [&#34;name&#34;,&#34;carrer&#34;,&#34;sex&#34;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Instance-methods&#34;&gt;&lt;a href=&#34;#Instance-methods&#34; class=&#34;headerlink&#34; title=&#34;Instance methods&#34;&gt;&lt;/a&gt;Instance methods&lt;/h3&gt;&lt;h4 id=&#34;等號賦值-實例化方法&#34;&gt;&lt;a href=&#34;#等號賦值-實例化方法&#34; class=&#34;headerlink&#34; title=&#34;等號賦值 實例化方法&#34;&gt;&lt;/a&gt;等號賦值 實例化方法&lt;/h4&gt;&lt;p&gt;以下則是呼叫 Array 的實例化 push 方法，雖然也不是透過 new 來建立一個陣列，卻也是使用賦值一個陣列來建立陣列的實例，並且使用原生 push 方法。&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;實例化方法 - 賦值&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; friends = [ &lt;span class=&#34;hljs-string&#34;&gt;&#39;Cally&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;Donna&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;Jell&#39;&lt;/span&gt; ];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;friends.&lt;span class=&#34;title function_&#34;&gt;push&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;Liang&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(friends);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;// [&#34;Cally&#34;,&#34;Donna&#34;,&#34;Jell&#34;,&#34;Liang&#34;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&#34;建構器-實例化方法&#34;&gt;&lt;a href=&#34;#建構器-實例化方法&#34; class=&#34;headerlink&#34; title=&#34;建構器 實例化方法&#34;&gt;&lt;/a&gt;建構器 實例化方法&lt;/h4&gt;&lt;p&gt;透過 new 來建立一個陣列。&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;實例化方法 - 構造器&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; animals = &lt;span class=&#34;hljs-keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;Array&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;bunny&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;cat&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;puppy&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;hamster&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;animals.&lt;span class=&#34;title function_&#34;&gt;unshift&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;bird&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(animals);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;// [&#34;bird&#34;,&#34;bunny&#34;,&#34;cat&#34;,&#34;puppy&#34;,&#34;hamster&#34;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;構造器靜態方法補充&#34;&gt;&lt;a href=&#34;#構造器靜態方法補充&#34; class=&#34;headerlink&#34; title=&#34;構造器靜態方法補充&#34;&gt;&lt;/a&gt;構造器靜態方法補充&lt;/h2&gt;&lt;h4 id=&#34;無法取得構造器的this資料&#34;&gt;&lt;a href=&#34;#無法取得構造器的this資料&#34; class=&#34;headerlink&#34; title=&#34;無法取得構造器的this資料&#34;&gt;&lt;/a&gt;無法取得構造器的this資料&lt;/h4&gt;&lt;blockquote&gt;&lt;ul&gt;
+&lt;li&gt;The static method also cannot see the instance variable state so if we try to call the nonstatic method from the static method compiler will complain.&lt;/li&gt;
+&lt;li&gt;The static method can be used to create utility functions.&lt;br&gt;&lt;a href=&#34;https://www.educba.com/javascript-static-method/&#34;&gt;https://www.educba.com/javascript-static-method/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;從上述可以得知靜態方法是不能取用構造器建構子（constructor）內的變數的（this binding），通常會撰寫純函式（pure function）以保持無狀態的特性，如同 Math 方法。&lt;br&gt;靜態方法適合用來當作全局複用的函式，適合較無副作用的邏輯。&lt;/p&gt;
+&lt;h2 id=&#34;兩種方法的原型鍊關係&#34;&gt;&lt;a href=&#34;#兩種方法的原型鍊關係&#34; class=&#34;headerlink&#34; title=&#34;兩種方法的原型鍊關係&#34;&gt;&lt;/a&gt;兩種方法的原型鍊關係&lt;/h2&gt;&lt;p&gt;若展開一個實例化的物件，會發現：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;建構器方法存在於建構子物件中（constructor），且只能透過建構器呼叫，例如 Object.assign()；&lt;/li&gt;
+&lt;li&gt;實例化方法則存在於原型上（prototype），需要實例化之後才能呼叫，例如 objInstance.toLocaleString()&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/03/12/zh-tw/short-circuit-and-optional-chaining/</guid>
+            <title>短路解析 &amp; 可選鍊修飾符</title>
+            <link>http://maomaoxie.github.io/2022/03/12/zh-tw/short-circuit-and-optional-chaining/</link>
+            <category>javascript</category>
+            <category>shortCircuit</category>
+            <category>optionalChaining</category>
+            <category>tricks</category>
+            <pubDate>Sat, 12 Mar 2022 13:55:02 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/short-circuit-and-optional-chaining/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;短路解析與可選練修飾符&#34;&gt;
+&lt;p&gt;在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說&lt;code&gt;undefined&lt;/code&gt;（未定義）、&lt;code&gt;null&lt;/code&gt;（空值）或者是&lt;code&gt;0&lt;/code&gt;（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。&lt;/p&gt;
+&lt;h1 id=&#34;理解真假值&#34;&gt;&lt;a href=&#34;#理解真假值&#34; class=&#34;headerlink&#34; title=&#34;理解真假值&#34;&gt;&lt;/a&gt;理解真假值&lt;/h1&gt;&lt;p&gt;先介紹 truthy(真值) 與 falsy(假值)：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;truthy：非 falsy 的值，或者是表達式結果為 &lt;code&gt;true&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;falsy：&lt;code&gt;undefined&lt;/code&gt;、&lt;code&gt;null&lt;/code&gt;、非數字 &lt;code&gt;NaN&lt;/code&gt;、數字 &lt;code&gt;0&lt;/code&gt;、數字 &lt;code&gt;-0&lt;/code&gt;、BigInt &lt;code&gt;0n&lt;/code&gt;、空字串&lt;code&gt;&#39;&#39;&lt;/code&gt;(字串長度為 0)，或者是表達式結果為 &lt;code&gt;false&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以下介紹幾種邏輯判斷的捷徑：&lt;/p&gt;
+&lt;h1 id=&#34;邏輯運算子-amp-amp&#34;&gt;&lt;a href=&#34;#邏輯運算子-amp-amp&#34; class=&#34;headerlink&#34; title=&#34;邏輯運算子 &amp;amp;&amp;amp; ||&#34;&gt;&lt;/a&gt;邏輯運算子 &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; &lt;code&gt;||&lt;/code&gt;&lt;/h1&gt;&lt;p&gt;舉個栗子&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;邏輯運算子&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; numberAND = &lt;span class=&#34;hljs-number&#34;&gt;6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; numberOR = -&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt;(numberAND &amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt; &amp;amp;&amp;amp; numberAND &amp;lt; &lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;) {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;哎呀&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt;(numberOR &amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt; || numberOR &amp;lt; &lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;) {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;黑唷&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;人類的理解&#34;&gt;&lt;a href=&#34;#人類的理解&#34; class=&#34;headerlink&#34; title=&#34;人類的理解&#34;&gt;&lt;/a&gt;人類的理解&lt;/h3&gt;&lt;p&gt;當 numberAND 大於 5 且&lt;strong&gt;同時&lt;/strong&gt;小於 7 值執行 &lt;code&gt;console.log(&#39;符合 &amp;amp;&amp;amp;&#39;)&lt;/code&gt;；當 numberOR 大於 5 &lt;strong&gt;或者&lt;/strong&gt;小於 7 值執行 &lt;code&gt;console.log(&#39;符合 ||&#39;)&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;電腦的理解&#34;&gt;&lt;a href=&#34;#電腦的理解&#34; class=&#34;headerlink&#34; title=&#34;電腦的理解&#34;&gt;&lt;/a&gt;電腦的理解&lt;/h3&gt;&lt;p&gt;當左邊的表達式 &lt;code&gt;numberAND &amp;gt; 5&lt;/code&gt; 結果為 &lt;code&gt;false&lt;/code&gt; 則跳過右邊不執行 &lt;code&gt;numberAND &amp;lt; 7&lt;/code&gt;，直接&lt;strong&gt;跳出&lt;/strong&gt;程式。&lt;br&gt;當左邊的表達式 &lt;code&gt;numberOR &amp;gt; 5&lt;/code&gt; 結果為 &lt;code&gt;true&lt;/code&gt; 則跳過右邊不執行 &lt;code&gt;numberAND &amp;lt; 7&lt;/code&gt;，直接&lt;strong&gt;進入&lt;/strong&gt;程式。&lt;/p&gt;
+&lt;p&gt;結論為，當左邊的表達式符合條件，&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; 的 if 直接跳出；&lt;code&gt;||&lt;/code&gt; 的 if 直接進入。&lt;br&gt;來理一理箇中原由吧！&lt;/p&gt;
+&lt;h1 id=&#34;短路解析-Short-Circuit&#34;&gt;&lt;a href=&#34;#短路解析-Short-Circuit&#34; class=&#34;headerlink&#34; title=&#34;短路解析(Short Circuit)&#34;&gt;&lt;/a&gt;短路解析(Short Circuit)&lt;/h1&gt;&lt;p&gt;短路我個人覺得沒有捷徑來得好懂，短路比較讓人聯想為損毀或壞掉的電子產品，而捷徑則代表透過偷吃步或者抄捷徑的方式以取得一樣的結果。這裡的短路較接近後者，js 運行上的偷吃步：&lt;/p&gt;
+&lt;h3 id=&#34;amp-amp-的短路解析&#34;&gt;&lt;a href=&#34;#amp-amp-的短路解析&#34; class=&#34;headerlink&#34; title=&#34;&amp;amp;&amp;amp; 的短路解析&#34;&gt;&lt;/a&gt;&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; 的短路解析&lt;/h3&gt;&lt;p&gt;當左邊的表達式為 &lt;code&gt;false&lt;/code&gt; 就返回左邊的表達式結果，並且&lt;strong&gt;直接忽視&lt;/strong&gt;右邊的表達式結果，反之執行右邊的表達式。&lt;/p&gt;
+&lt;h3 id=&#34;的短路解析&#34;&gt;&lt;a href=&#34;#的短路解析&#34; class=&#34;headerlink&#34; title=&#34;|| 的短路解析&#34;&gt;&lt;/a&gt;&lt;code&gt;||&lt;/code&gt; 的短路解析&lt;/h3&gt;&lt;p&gt;當左邊的表達式為 &lt;code&gt;true&lt;/code&gt; 就返回左邊的表達式結果，並且&lt;strong&gt;直接忽視&lt;/strong&gt;右邊的表達式結果，反之執行右邊的表達式。&lt;/p&gt;
+&lt;p&gt;以上可以知道 js 執行完左邊的表達式之後，若符合條件則直接跳過右邊的表達式(不解析亦不執行)，相對來講當開發人員在理解短路解析時就可以按照這樣的邏輯去快速判斷結果。&lt;/p&gt;
+&lt;p&gt;速記法：AND&lt;code&gt;false&lt;/code&gt;跳出、OR&lt;code&gt;true&lt;/code&gt;進入(執行)。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;if you use &lt;code&gt;||&lt;/code&gt; to provide some default value to another variable foo, you may encounter unexpected behaviors if you consider some falsy values as usable (e.g., &lt;code&gt;&#39;&#39;&lt;/code&gt; or &lt;code&gt;0&lt;/code&gt;). &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;可選鍊修飾符-Optional-chaining&#34;&gt;&lt;a href=&#34;#可選鍊修飾符-Optional-chaining&#34; class=&#34;headerlink&#34; title=&#34;可選鍊修飾符(Optional chaining)&#34;&gt;&lt;/a&gt;可選鍊修飾符(Optional chaining)&lt;/h1&gt;&lt;p&gt;舉個栗子&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;可選鍊修飾符&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;let&lt;/span&gt; user = {};&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(user.&lt;span class=&#34;hljs-property&#34;&gt;address&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;// undefined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(user.&lt;span class=&#34;hljs-property&#34;&gt;address&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;street&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;// error&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(user.&lt;span class=&#34;hljs-property&#34;&gt;address&lt;/span&gt;?.&lt;span class=&#34;hljs-property&#34;&gt;street&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;// undefined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在這個範例中，user 物件的清單中有部分的使用者缺少了 &lt;code&gt;address&lt;/code&gt; 這個屬性，但是大部分的使用者都具有該屬性時，就可以使用可選鍊修飾符來避免程式噴錯而中斷，但是需注意避免&lt;strong&gt;過度使用&lt;/strong&gt;可選鍊修飾符&lt;/p&gt;
+&lt;h1 id=&#34;空值合併運算子-Nullish-coalescing-operator&#34;&gt;&lt;a href=&#34;#空值合併運算子-Nullish-coalescing-operator&#34; class=&#34;headerlink&#34; title=&#34;空值合併運算子(Nullish coalescing operator) ??&#34;&gt;&lt;/a&gt;空值合併運算子(Nullish coalescing operator) &lt;code&gt;??&lt;/code&gt;&lt;/h1&gt;&lt;p&gt;舉個栗子&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;空值合併運算子&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;notNullish&lt;/span&gt; (a, b) {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(a ?? b);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;notNullish (&lt;span class=&#34;hljs-literal&#34;&gt;undefined&lt;/span&gt;, &lt;span class=&#34;hljs-literal&#34;&gt;null&lt;/span&gt;); &lt;span class=&#34;hljs-comment&#34;&gt;// null&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;notNullish (&lt;span class=&#34;hljs-literal&#34;&gt;null&lt;/span&gt;, &lt;span class=&#34;hljs-literal&#34;&gt;undefined&lt;/span&gt;); &lt;span class=&#34;hljs-comment&#34;&gt;// undefined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;notNullish (&lt;span class=&#34;hljs-literal&#34;&gt;undefined&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;); &lt;span class=&#34;hljs-comment&#34;&gt;// 0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;notNullish (&lt;span class=&#34;hljs-literal&#34;&gt;undefined&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;&#39;&lt;/span&gt;); &lt;span class=&#34;hljs-comment&#34;&gt;// &#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ES2020（ES11）提供的「空值合併運算子」，支援度需要搭配 babel 套件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;??&lt;/code&gt;常常與邏輯運算子 &lt;code&gt;||&lt;/code&gt; 比較，前者返回非 &lt;code&gt;undefined&lt;/code&gt; 與 &lt;code&gt;null&lt;/code&gt; 的表達式，後者返回非 falsy 的表達式。過濾的條件上有區別，可以依照需求使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;的短路解析-1&#34;&gt;&lt;a href=&#34;#的短路解析-1&#34; class=&#34;headerlink&#34; title=&#34;?? 的短路解析&#34;&gt;&lt;/a&gt;&lt;code&gt;??&lt;/code&gt; 的短路解析&lt;/h3&gt;&lt;p&gt;當左邊的表達式為 非 &lt;code&gt;undefined&lt;/code&gt; 與 &lt;code&gt;null&lt;/code&gt; 就返回左邊的表達式結果，並且&lt;strong&gt;直接忽視&lt;/strong&gt;右邊的表達式結果，反之執行右邊的表達式。&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>
