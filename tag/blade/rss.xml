@@ -31,9 +31,9 @@
         <category>https</category>
         <category>request</category>
         <category>response</category>
+        <category>httpHeader</category>
         <category>httpMethods</category>
         <category>status</category>
-        <category>httpHeader</category>
         <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>

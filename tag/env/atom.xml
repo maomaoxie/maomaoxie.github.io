@@ -28,9 +28,9 @@
     <category term="https" />
     <category term="request" />
     <category term="response" />
+    <category term="httpHeader" />
     <category term="httpMethods" />
     <category term="status" />
-    <category term="httpHeader" />
     <category term="Javascript" />
     <category term="type" />
     <category term="laravel" />
