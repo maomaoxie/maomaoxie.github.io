@@ -62,6 +62,9 @@ a.tag.article-tag {
     .navbar .navbar-menu.navbar-end.is-active {
       background-color: #f4f4ee; } }
 
+.navbar.is-transparent.is-fixed-top.navbar-main {
+  background: url(../images/mawchu-blog-sky-bg.jpg) 0 -230px; }
+
 .position-relative {
   position: relative; }
 
@@ -71,9 +74,6 @@ a.tag.article-tag {
 .navbar-menu.is-active {
   display: flex;
   justify-content: center; }
-
-.container.custom-nav .navbar-menu {
-  background-color: #aed9e0; }
 
 @media screen and (min-width: 1024px) {
   .container {
@@ -90,10 +90,11 @@ a.tag.article-tag {
     font-weight: 600; }
   .navbar-main .navbar-item {
     text-align: center;
-    transition: all .5s; }
+    transition: all .5s;
+    color: #7aa9b7; }
   .navbar-main a.navbar-item.is-active, .navbar-main a.navbar-item:hover {
     transform: translateY(-10%);
-    color: #ffffff;
+    color: #2b2d2e;
     background: transparent; }
     .navbar-main a.navbar-item.is-active:not(:hover) .bar, .navbar-main a.navbar-item:hover:not(:hover) .bar {
       height: 3px;

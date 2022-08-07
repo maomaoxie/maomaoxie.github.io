@@ -15,11 +15,11 @@
     <category term="constructor" />
     <category term="instance" />
     <category term="methods" />
+    <category term="github" />
     <category term="backEnd" />
     <category term="node" />
     <category term="express" />
     <category term="router" />
-    <category term="github" />
     <category term="sourceTree" />
     <category term="api" />
     <category term="graphQL" />
@@ -38,30 +38,30 @@
     <category term="linux" />
     <category term="blade" />
     <category term="wsl2" />
-    <category term="layout" />
     <category term="migration" />
     <category term="sql" />
+    <category term="layout" />
     <category term="public" />
     <category term="static" />
-    <category term="tailwind" />
     <category term="css" />
     <category term="less" />
     <category term="processors" />
+    <category term="tailwind" />
     <category term="env" />
     <category term="process" />
     <category term="dotenv" />
     <category term="webService" />
     <category term="restfulApi" />
-    <category term="shortCircuit" />
-    <category term="optionalChaining" />
-    <category term="tricks" />
     <category term="vue" />
     <category term="vue3" />
     <category term="compositionAPI" />
-    <category term="vite" />
-    <category term="typescript" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
     <category term="WebSocket" />
     <category term="WebHook" />
+    <category term="vite" />
+    <category term="typescript" />
     <entry>
         <id>http://maomaoxie.github.io/2022/02/28/zh-tw/http-header/</id>
         <title>HTTP 的訊息頭 header</title>

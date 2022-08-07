@@ -18,11 +18,11 @@
         <category>constructor</category>
         <category>instance</category>
         <category>methods</category>
+        <category>github</category>
         <category>backEnd</category>
         <category>node</category>
         <category>express</category>
         <category>router</category>
-        <category>github</category>
         <category>sourceTree</category>
         <category>api</category>
         <category>graphQL</category>
@@ -41,30 +41,30 @@
         <category>linux</category>
         <category>blade</category>
         <category>wsl2</category>
-        <category>layout</category>
         <category>migration</category>
         <category>sql</category>
+        <category>layout</category>
         <category>public</category>
         <category>static</category>
-        <category>tailwind</category>
         <category>css</category>
         <category>less</category>
         <category>processors</category>
+        <category>tailwind</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
         <category>webService</category>
         <category>restfulApi</category>
-        <category>shortCircuit</category>
-        <category>optionalChaining</category>
-        <category>tricks</category>
         <category>vue</category>
         <category>vue3</category>
         <category>compositionAPI</category>
-        <category>vite</category>
-        <category>typescript</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
         <category>WebSocket</category>
         <category>WebHook</category>
+        <category>vite</category>
+        <category>typescript</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/02/17/zh-tw/git-main-branch/</guid>
             <title>Github 主分支更名 master 為 main</title>
