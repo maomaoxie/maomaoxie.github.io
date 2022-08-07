@@ -4,6 +4,13 @@
     <title>Mawchu 貓奴前端的天空 • Posts by &#34;webservice&#34; tag</title>
     <link href="http://maomaoxie.github.io" />
     <updated>2022-02-24T15:20:50.000Z</updated>
+    <category term="hexo" />
+    <category term="git" />
+    <category term="submodule" />
+    <category term="rss" />
+    <category term="wordpress" />
+    <category term="dns" />
+    <category term="cdn" />
     <category term="javascript" />
     <category term="constructor" />
     <category term="instance" />
@@ -12,7 +19,6 @@
     <category term="node" />
     <category term="express" />
     <category term="router" />
-    <category term="git" />
     <category term="github" />
     <category term="sourceTree" />
     <category term="api" />
@@ -23,8 +29,8 @@
     <category term="request" />
     <category term="response" />
     <category term="httpMethods" />
-    <category term="httpHeader" />
     <category term="status" />
+    <category term="httpHeader" />
     <category term="Javascript" />
     <category term="type" />
     <category term="laravel" />
@@ -46,22 +52,16 @@
     <category term="dotenv" />
     <category term="webService" />
     <category term="restfulApi" />
-    <category term="vue" />
-    <category term="vue3" />
-    <category term="compositionAPI" />
     <category term="shortCircuit" />
     <category term="optionalChaining" />
     <category term="tricks" />
+    <category term="vue" />
+    <category term="vue3" />
+    <category term="compositionAPI" />
     <category term="vite" />
     <category term="typescript" />
     <category term="WebSocket" />
     <category term="WebHook" />
-    <category term="rss" />
-    <category term="hexo" />
-    <category term="wordpress" />
-    <category term="dns" />
-    <category term="cdn" />
-    <category term="submodule" />
     <entry>
         <id>http://maomaoxie.github.io/2022/02/24/zh-tw/restful-api-and-web-service/</id>
         <title>初探 Web service</title>

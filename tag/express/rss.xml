@@ -7,6 +7,13 @@
         <language>zh-tw,en,default</language>
         <pubDate>Sun, 20 Feb 2022 14:12:53 +0800</pubDate>
         <lastBuildDate>Sun, 20 Feb 2022 14:12:53 +0800</lastBuildDate>
+        <category>hexo</category>
+        <category>git</category>
+        <category>submodule</category>
+        <category>rss</category>
+        <category>wordpress</category>
+        <category>dns</category>
+        <category>cdn</category>
         <category>javascript</category>
         <category>constructor</category>
         <category>instance</category>
@@ -15,7 +22,6 @@
         <category>node</category>
         <category>express</category>
         <category>router</category>
-        <category>git</category>
         <category>github</category>
         <category>sourceTree</category>
         <category>api</category>
@@ -26,8 +32,8 @@
         <category>request</category>
         <category>response</category>
         <category>httpMethods</category>
-        <category>httpHeader</category>
         <category>status</category>
+        <category>httpHeader</category>
         <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>
@@ -49,22 +55,16 @@
         <category>dotenv</category>
         <category>webService</category>
         <category>restfulApi</category>
-        <category>vue</category>
-        <category>vue3</category>
-        <category>compositionAPI</category>
         <category>shortCircuit</category>
         <category>optionalChaining</category>
         <category>tricks</category>
+        <category>vue</category>
+        <category>vue3</category>
+        <category>compositionAPI</category>
         <category>vite</category>
         <category>typescript</category>
         <category>WebSocket</category>
         <category>WebHook</category>
-        <category>rss</category>
-        <category>hexo</category>
-        <category>wordpress</category>
-        <category>dns</category>
-        <category>cdn</category>
-        <category>submodule</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/02/20/zh-tw/express-router-module/</guid>
             <title>Express 路由模組化</title>
