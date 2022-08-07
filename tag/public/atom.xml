@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://maomaoxie.github.io</id>
+    <title>Mawchu 貓奴前端的天空 • Posts by &#34;public&#34; tag</title>
+    <link href="http://maomaoxie.github.io" />
+    <updated>2022-04-10T09:11:18.000Z</updated>
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="git" />
+    <category term="github" />
+    <category term="sourceTree" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="http" />
+    <category term="https" />
+    <category term="request" />
+    <category term="response" />
+    <category term="httpMethods" />
+    <category term="httpHeader" />
+    <category term="status" />
+    <category term="Javascript" />
+    <category term="type" />
+    <category term="laravel" />
+    <category term="php" />
+    <category term="linux" />
+    <category term="blade" />
+    <category term="wsl2" />
+    <category term="layout" />
+    <category term="migration" />
+    <category term="sql" />
+    <category term="public" />
+    <category term="static" />
+    <category term="tailwind" />
+    <category term="css" />
+    <category term="less" />
+    <category term="processors" />
+    <category term="env" />
+    <category term="process" />
+    <category term="dotenv" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="vue" />
+    <category term="vue3" />
+    <category term="compositionAPI" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <category term="rss" />
+    <category term="hexo" />
+    <category term="wordpress" />
+    <category term="dns" />
+    <category term="cdn" />
+    <category term="submodule" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/04/10/zh-tw/laravel-public/</id>
+        <title>Laravel public 靜態檔案</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/04/10/zh-tw/laravel-public/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/laravel-public/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;Laravel public 靜態檔案&#34;&gt;
+&lt;p&gt;雖然檔案打包是現今網頁開發的趨勢，但網站難免需要引用未經編譯的靜態檔案，以避免編譯後的亂數檔名都要經過打包程序才能使用，Laravel 專案包中的 &lt;code&gt;public&lt;/code&gt; 資料夾就是靜態檔案的去處，與之相對應會被壓縮及打包的動態檔案則要放置在 &lt;code&gt;resources&lt;/code&gt; 資料中：&lt;/p&gt;
+&lt;h1 id=&#34;靜態-css-檔案&#34;&gt;&lt;a href=&#34;#靜態-css-檔案&#34; class=&#34;headerlink&#34; title=&#34;靜態 css 檔案&#34;&gt;&lt;/a&gt;靜態 css 檔案&lt;/h1&gt;&lt;p&gt;在 public/css/style.css 存放網站的主要設計檔，並且在主模板 &lt;code&gt;resources/views/layout/layout.blade.php&lt;/code&gt; 中引用該靜態檔案之路徑在 &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; 中：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;layout/layout.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;rel&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;stylesheet&#34;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;css/style.css&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;但問題來了！當路由來到巢狀或雙層的時候，絕對路徑的悲劇就會發生，若我們將路由改成：&lt;/p&gt;
+&lt;figure class=&#34;highlight php hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;web.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;title class_&#34;&gt;Route&lt;/span&gt;::&lt;span class=&#34;title function_ invoke__&#34;&gt;get&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;/about/about&#39;&lt;/span&gt;, [home&lt;span class=&#34;title class_&#34;&gt;Controller&lt;/span&gt;::&lt;span class=&#34;variable language_&#34;&gt;class&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;about&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img src=&#34;/images/laravel-public/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;Laravel public 靜態檔案&#34;&gt;
+&lt;p&gt;你會看到 css 檔案的路徑改變成 &lt;code&gt;http://localhost:3000/about/css/style.css&lt;/code&gt;，因為找不到 about 底下的 css 檔案，所以整個 style 返回 404：&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-public/2.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;Laravel public 靜態檔案&#34;&gt;
+
+&lt;hr&gt;
+&lt;h1 id=&#34;url-function&#34;&gt;&lt;a href=&#34;#url-function&#34; class=&#34;headerlink&#34; title=&#34;url function&#34;&gt;&lt;/a&gt;url function&lt;/h1&gt;&lt;p&gt;你想到的問題 Laravel 怎麼會漏掉？這時候可以使用 blade 模板引擎包裝好的 &lt;code&gt;url 方法&lt;/code&gt;，傳入相對靜態檔案路徑當參數,，來抓取靜態檔案的正確路徑：&lt;/p&gt;
+&lt;figure class=&#34;highlight php hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;layout/layout.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;link rel=&lt;span class=&#34;hljs-string&#34;&gt;&#34;stylesheet&#34;&lt;/span&gt; href=&lt;span class=&#34;hljs-string&#34;&gt;&#34;{{ url(&#39;css/style.css&#39;) }}&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;運作正常：&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-public/3.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;Laravel public 靜態檔案&#34;&gt;
+
+
+&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="laravel" />
+        <category term="public" />
+        <category term="static" />
+        <updated>2022-04-10T09:11:18.000Z</updated>
+    </entry>
+</feed>

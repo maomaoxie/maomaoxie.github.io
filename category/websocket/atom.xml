@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://maomaoxie.github.io</id>
+    <title>Mawchu 貓奴前端的天空 • Posts by &#34;websocket&#34; category</title>
+    <link href="http://maomaoxie.github.io" />
+    <updated>2022-02-25T03:29:08.000Z</updated>
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="git" />
+    <category term="github" />
+    <category term="sourceTree" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="http" />
+    <category term="https" />
+    <category term="request" />
+    <category term="response" />
+    <category term="httpMethods" />
+    <category term="httpHeader" />
+    <category term="status" />
+    <category term="Javascript" />
+    <category term="type" />
+    <category term="laravel" />
+    <category term="php" />
+    <category term="linux" />
+    <category term="blade" />
+    <category term="wsl2" />
+    <category term="layout" />
+    <category term="migration" />
+    <category term="sql" />
+    <category term="public" />
+    <category term="static" />
+    <category term="tailwind" />
+    <category term="css" />
+    <category term="less" />
+    <category term="processors" />
+    <category term="env" />
+    <category term="process" />
+    <category term="dotenv" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="vue" />
+    <category term="vue3" />
+    <category term="compositionAPI" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <category term="rss" />
+    <category term="hexo" />
+    <category term="wordpress" />
+    <category term="dns" />
+    <category term="cdn" />
+    <category term="submodule" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/02/25/zh-tw/web-socket-and-web-hook/</id>
+        <title>Web Socket v.s Web Hook</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/02/25/zh-tw/web-socket-and-web-hook/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/web-socket-and-web-hook/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[web-socket-and-web-hook [web-socket-and-web-hook]]&#34;&gt;
+&lt;p&gt;API 的形式有兩大宗：&lt;br&gt;Web Hook 與 Web Socket，而他們有甚麼差異呢？&lt;/p&gt;
+&lt;h1 id=&#34;被動式-Web-Hook&#34;&gt;&lt;a href=&#34;#被動式-Web-Hook&#34; class=&#34;headerlink&#34; title=&#34;被動式 Web Hook&#34;&gt;&lt;/a&gt;被動式 Web Hook&lt;/h1&gt;&lt;p&gt;例如 Line Bot，server 會先預測使用者的動作與需求（events），設計出相對的程式並維護，等待使用者發出要求才動作。&lt;/p&gt;
+&lt;h1 id=&#34;主動式-Web-Socket&#34;&gt;&lt;a href=&#34;#主動式-Web-Socket&#34; class=&#34;headerlink&#34; title=&#34;主動式 Web Socket&#34;&gt;&lt;/a&gt;主動式 Web Socket&lt;/h1&gt;&lt;p&gt;兩方的資料交互，例如 client 與 server、server 與 server。&lt;br&gt;應用場景如聊天功能：facebook messenger 或 Line 等，Web Socket 的技術可以「即時的」(real time)做出資料傳遞。&lt;br&gt;當你打開 facebook messenger 的視窗，Web Socket server 就會與 client 瀏覽器端 handshake 保持通訊暢通，持續監聽對話要求並回應(opened and persistent connection)&lt;/p&gt;
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="api" />
+        <category term="WebSocket" />
+        <category term="WebHook" />
+        <updated>2022-02-25T03:29:08.000Z</updated>
+    </entry>
+</feed>

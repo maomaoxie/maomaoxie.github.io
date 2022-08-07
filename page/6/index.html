@@ -4,7 +4,6 @@
     <meta charset="utf-8">
 <title>Mawchu 貓奴前端的天空</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="canonical" href="http://maomaoxie.github.io/page/6/"/>
 <meta name="google-site-verification" content="qpdwAFMt_HNGP0dM45CxVBDie_HVPkWFvpclpqZaoIo" />
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
@@ -34,6 +33,8 @@
 
 
 
+<link rel="alternative" href="/atom.xml" title="Mawchu 貓奴前端的天空" type="application/atom+xml">
+
 
 
 <link rel="icon" type="image/x-icon" href="/favicon.svg">
@@ -46,8 +47,10 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
 
-
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832218493331944" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
 
 
 <link rel="stylesheet" href="/css/style.css">
@@ -137,13 +140,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/04/10/zh-tw/laravel-layout/" itemprop="url">Laravel 善用 layout 避免重複的模板</a>
+            <a href="/2022/04/10/zh-tw/laravel-routes-namespace/" itemprop="url">Laravel 命名路由</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-04-10T06:54:20.000Z" itemprop="datePublished">4月 10 2022</time>
+                <time datetime="2022-04-10T10:42:15.000Z" itemprop="datePublished">4月 10 2022</time>
             
         </span>
         
@@ -156,58 +159,39 @@
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 650 字)
+            2 分鐘 讀完 (約 289 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/laravel-layout/0.png" class="" width="800" height="200" title="laravel-layout">
-
-<p>在設計 UI 模板時重複使用的內容屢見不鮮，例如 header、footer 或是 sidebar 等多是網站中分頁裡的標配，這時候重複貼上一樣的模板就顯得有點呆，Laravel MVC 架構中 views 可以創建一個 layout 模板資料夾，重複的 UI 配置可以放置在這裡提供其他分頁的 blade 檔案使用，這樣一來也能省去 layout 修改時相關的檔案都要更改的麻煩事，統一在 layout 裡調整即可：</p>
-<h1 id="建立-layout-資料夾"><a href="#建立-layout-資料夾" class="headerlink" title="建立 layout 資料夾"></a>建立 layout 資料夾</h1><p>此資料夾可以存放共用的模板，例如 header、footer 或是 sidebar 的模板 html。<br>在 project 裡的 <code>resources/views</code> 建立一個 layout 資料夾：</p>
-<img src="/images/laravel-layout/1.png" class="" width="300" height="200" title="laravel-layout">
-<hr>
-<h1 id="撰寫模板"><a href="#撰寫模板" class="headerlink" title="撰寫模板"></a>撰寫模板</h1><p>確立好 controller 中與 views 與 routes 的連結後，就可以著手進行模板的拆分啦！</p>
-<h3 id="extends-‘layoutFolder-x2F-layout’"><a href="#extends-‘layoutFolder-x2F-layout’" class="headerlink" title="@extends(‘layoutFolder/layout’)"></a>@extends(‘layoutFolder/layout’)</h3><p>承接共用模板的其他 views 則使用此語法接收模板，撰寫資料夾路徑方式有兩種：</p>
-<ol>
-<li>斜線</li>
-<li>點</li>
-</ol>
-<figure class="highlight javascript hljs"><figcaption><span>about.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">extends</span>(<span class="hljs-string">'layout.layout'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight javascript hljs"><figcaption><span>about.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">extends</span>(<span class="hljs-string">'layout/layout'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="yield-‘content’"><a href="#yield-‘content’" class="headerlink" title="@yield(‘content’)"></a>@yield(‘content’)</h3><p>yield 像是在告訴 php 說我這裡需要挖個洞，待會會丟 html 進來，請認名稱來辨識丟進來的檔案：</p>
-<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">很多要共用的 html</span><br><span class="line">...(通常是 header)</span><br><span class="line">@<span class="title function_">yield</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">很多要共用的 html</span><br><span class="line">...(通常是 footer)</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="section-‘content’-…-endsection"><a href="#section-‘content’-…-endsection" class="headerlink" title="@section(‘content’) … @endsection"></a>@section(‘content’) … @endsection</h3><p>section 類似 vue 的 slot，把其他網頁要替換的內容插入這個插槽中，在通過剛才的 <code>@yield('content')</code> 將page愈替換的內容塞進去共用的模板中：</p>
-<figure class="highlight javascript hljs"><figcaption><span>page.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">extends</span>(<span class="hljs-string">'layout/layout'</span>)</span><br><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">  這裡是 page content</span><br><span class="line">  ...</span><br><span class="line">@endsection</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-layout/3.png" class="" width="800" height="200" title="laravel-layout">
-<img src="/images/laravel-layout/2.png" class="" width="800" height="200" title="laravel-layout">
-<hr>
-<h1 id="獨立每個頁面的-script"><a href="#獨立每個頁面的-script" class="headerlink" title="獨立每個頁面的 script"></a>獨立每個頁面的 script</h1><p>插槽的概念同樣可以挖洞給每個獨立頁面放置專屬的 javascript，在 layout 的  之前放置 @yield(‘after_js’) 來承接 page 各自的 <code>&lt;script&gt;...&lt;/script&gt;</code>：</p>
-<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  ...</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">  ...</span><br><span class="line">  @<span class="title function_">yield</span>(<span class="hljs-string">'after_js'</span>)</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight javascript hljs"><figcaption><span>page.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="hljs-string">"Hey!It's about page."</span>);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">@endsection</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-layout/4.png" class="" width="800" height="200" title="laravel-layout">
-<hr>
-<h1 id="簡化-section"><a href="#簡化-section" class="headerlink" title="簡化 @section"></a>簡化 @section</h1><p>每個頁面會有不同的 SEO 內容，例如 <code>title</code> 或是其他的 meta data，這時候 <code>@section</code> 又派上用場了，不同的是<strong>第二個參數</strong>可以傳入文字檔來渲染內容：</p>
-<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>@yield('title')<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    ...</span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span></span><br><span class="line">  ...</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight javascript hljs"><figcaption><span>page.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'title'</span>, <span class="hljs-string">'pageTitle'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-layout/5.png" class="" width="300" height="200" title="laravel-layout">
-<img src="/images/laravel-layout/6.png" class="" width="300" height="200" title="laravel-layout">
+        <!-- <html><head></head><body><img src="/images/laravel-routes-namespace/0.png" class="" width="800" height="200" title="Laravel 命名路由">
+<p>當路由越來越多，也越複雜甚至有巢狀結構的時候，相對路徑就會變得複雜不直覺，這時候可以借用 laravel 的命名路由工具，以及 blade 引擎的 <code>route 方法</code> 來輕鬆渲染路由：</p>
+<h1 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a>命名路由</h1><p>在路由檔案 <code>routes/web.php</code> 中訪問 <code>name</code> 屬性方法並傳入制定好的路由專屬名稱：</p>
+<figure class="highlight php hljs"><figcaption><span>web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'index'</span>])-&gt;<span class="title function_ invoke__">name</span>(<span class="hljs-string">'index.index'</span>);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/about/about'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'about'</span>])-&gt;<span class="title function_ invoke__">name</span>(<span class="hljs-string">'index.about'</span>);</span><br></pre></td></tr></tbody></table></figure>
 
 <hr>
-<blockquote><p>參考資料：<br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AGE3wRKljkw&amp;t=2402s">https://www.youtube.com/watch?v=AGE3wRKljkw&amp;t=2402s</a></p>
-</blockquote></body></html> -->
+<h1 id="blade-檔案渲染路由"><a href="#blade-檔案渲染路由" class="headerlink" title="blade 檔案渲染路由"></a>blade 檔案渲染路由</h1><p>將制定好的路由名稱由 name 方法傳入、blade 引擎透過 route 方法接收：</p>
+<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;a href=<span class="hljs-string">"{{ route('index.index') }}"</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">"underline"</span>&gt;<span class="title class_">Home</span>&lt;/a&gt;|</span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ route('index.about') }}"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"underline"</span>&gt;</span>About<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span></span><br><span class="line">...</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-routes-namespace/1.png" class="" width="800" height="200" title="Laravel 命名路由">
+
+<p>修改路由結構測試抓取的正確性：</p>
+<figure class="highlight php hljs"><figcaption><span>web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'index'</span>])-&gt;<span class="title function_ invoke__">name</span>(<span class="hljs-string">'index.index'</span>);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/about'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'about'</span>])-&gt;<span class="title function_ invoke__">name</span>(<span class="hljs-string">'index.about'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>可以看到渲染結果如預期更新了：</p>
+<img src="/images/laravel-routes-namespace/2.png" class="" width="800" height="200" title="Laravel 命名路由">
+
+<p>透過 blade 引擎封裝的 <code>route 方法</code> 解決了在腦中思考相對路徑結構的煩惱，棒！</p>
+</body></html> -->
         
         
-        <html><head></head><body><img src="/images/laravel-layout/0.png" class="" width="800" height="200" title="laravel-layout">
-
-<p>在設計 UI 模板時重複使用的內容屢見不鮮，例如 header、footer 或是 sidebar 等多是網站中分頁裡的標配，這時候重複貼上一樣的模板就顯得有點呆，Laravel MVC 架構中 views 可以創建一個 layout 模板資料夾，重複的 UI 配置可以放置在這裡提供其他分頁的 blade 檔案使用，這樣一來也能省去 layout 修改時相關的檔案都要更改的麻煩事，統一在 layout 裡調整即可：</p>
+        <html><head></head><body><img src="/images/laravel-routes-namespace/0.png" class="" width="800" height="200" title="Laravel 命名路由">
+<p>當路由越來越多，也越複雜甚至有巢狀結構的時候，相對路徑就會變得複雜不直覺，這時候可以借用 laravel 的命名路由工具，以及 blade 引擎的 <code>route 方法</code> 來輕鬆渲染路由：</p>
+<h1 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a>命名路由</h1><p>在路由檔案 <code>routes/web.php</code> 中訪問 <code>name</code> 屬性方法並傳入制定好的路由專屬名稱：</p>
         <!--  -->
         
         <p class="article-more-link">
-            <a href="/2022/04/10/zh-tw/laravel-layout/">more</a>
+            <a href="/2022/04/10/zh-tw/laravel-routes-namespace/">more</a>
         </p>
     
     </div>
@@ -222,68 +206,50 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/04/06/zh-tw/laravel-routes-controller/" itemprop="url">Laravel 認識 controller</a>
+            <a href="/2022/04/10/zh-tw/php-basic-knowledge/" itemprop="url">Php 基礎知識</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-04-06T13:49:05.000Z" itemprop="datePublished">4月 6 2022</time>
+                <time datetime="2022-04-10T10:10:18.000Z" itemprop="datePublished">4月 10 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/laravel/">laravel</a>
+            <a class="article-category-link" href="/categories/php/">php</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            3 分鐘 讀完 (約 426 字)
+            1 分鐘 讀完 (約 210 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/laravel-routes-controller/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
-<p>當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 <strong>Controller</strong> 來執行：</p>
-<h1 id="init-controller"><a href="#init-controller" class="headerlink" title="init controller"></a>init controller</h1><p>使用優雅的 <code>artisan cmd</code> 就可以創建一個 Controller class 模板，在 windows powerShell 輸入<code>wsl</code> 即可切換至 Linux WSL 子系統，終端機輸入以下指令可以查詢所有 artisan cmd 的說明，記得 cd 進入專案包內才可使用 artisan 指令：</p>
-<figure class="highlight javascript hljs"><figcaption><span>terminal</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-routes-controller/1.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
+        <!-- <html><head></head><body><img src="/images/php-basic-knowledge/0.png" class="" width="800" height="200" title="php 基礎知識">
+<p>在 javascript 裡面訪問屬性的方式很單純，都是使用 <code>.</code> 來進入傳參考的對象記憶體中存放的值、訪問類中的屬性還有創立物件內的 key 與 value，然而在 php 中則用三種不同的符號來達成不同目的：</p>
+<h3 id="範圍解析操作符"><a href="#範圍解析操作符" class="headerlink" title=":: 範圍解析操作符"></a>:: 範圍解析操作符</h3><p>用來訪問類（class）底下的對象。</p>
+<figure class="highlight php hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-variable">$classname</span>::<span class="variable constant_">CONST_VALUE</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>建立 Controller 模板的 artisan cmd：</p>
-<figure class="highlight javascript hljs"><figcaption><span>terminal</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan <span class="hljs-attr">make</span>:controller homeController</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-routes-controller/2.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
+<h3 id="gt-指向符號（瘦箭頭）"><a href="#gt-指向符號（瘦箭頭）" class="headerlink" title="-> 指向符號（瘦箭頭）"></a>-&gt; 指向符號（瘦箭頭）</h3><p>用來訪問物件內某類別的值，類似 javascript 裡頭的 <code>.</code>。 </p>
+<figure class="highlight php hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-variable">$object</span>-&gt;property=<span class="hljs-string">'value'</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h1 id="撰寫-Controller"><a href="#撰寫-Controller" class="headerlink" title="撰寫 Controller"></a>撰寫 Controller</h1><p>使用<strong>路由名稱</strong>創建 function 並且制定渲染內容，連接 Views：</p>
-<figure class="highlight php hljs"><figcaption><span>App/Https/Controllers/homeController.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Http</span>\<span class="title class_">Controllers</span>;</span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">Illuminate</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">homeController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">index</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'welcome'</span>);</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 參數要記得帶</span></span><br><span class="line">  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dog</span> (<span class="hljs-params"><span class="hljs-variable">$dogName</span></span>) </span>{</span><br><span class="line">    <span class="hljs-variable">$datas</span> = [</span><br><span class="line">      <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span>,</span><br><span class="line">      <span class="hljs-string">"dogName"</span> =&gt; <span class="hljs-variable">$dogName</span></span><br><span class="line">    ];</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'routesTest'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote class="colorquote info"><p>記得將應用到的動態參數一並移植到 Controller 的 function arguments 中！</p>
-</blockquote>
-
-<h1 id="對應-Routes-字串"><a href="#對應-Routes-字串" class="headerlink" title="對應 Routes 字串"></a>對應 Routes 字串</h1><p>將路由路徑制定好並且傳入陣列參數：</p>
-<ol>
-<li><code>use</code> 剛才創建的 Controller 檔案</li>
-<li>索引<code>[0]</code>放置 <code>ControllerName::class</code></li>
-<li>索引<code>[1]</code>放置對應 <code>function</code>：<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">Illuminate</span>\<span class="hljs-title">Support</span>\<span class="hljs-title">Facades</span>\<span class="hljs-title">Route</span>;</span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Controllers</span>\<span class="hljs-title">homeController</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'index'</span>]);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/dog/{dogName}'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'dog'</span>]);</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></li>
-</ol>
-<p>渲染結果：</p>
-<img src="/images/laravel-routes-controller/3.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
-<img src="/images/laravel-routes-controller/4.png" class="laravel-routes" width="500" height="200" title="Laravel路由控制器">
-
-<p>以上就是 Controller 的常見功能。</p>
-</body></html> -->
+<h3 id="x3D-gt-指向符號（胖箭頭）"><a href="#x3D-gt-指向符號（胖箭頭）" class="headerlink" title="=> 指向符號（胖箭頭）"></a>=&gt; 指向符號（胖箭頭）</h3><p>用來創建物件內的鍵值對，一個 key 對上一個 value，類似 javascript 裡頭的 <code>:</code>。 </p>
+<figure class="highlight php hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-variable">$array</span> = <span class="hljs-keyword">array</span>(<span class="hljs-string">"key"</span> =&gt; <span class="hljs-string">"value"</span>);</span><br></pre></td></tr></tbody></table></figure></body></html> -->
         
         
-        <html><head></head><body><img src="/images/laravel-routes-controller/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
-<p>當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 <strong>Controller</strong> 來執行：</p>
-<h1 id="init-controller"><a href="#init-controller" class="headerlink" title="init controller"></a>init controller</h1><p>使用優雅的 <code>artisan cmd</code> 就可以創建一個 Controller class 模板，在 windows powerShell 輸入<code>wsl</code> 即可切換至 Linux WSL 子系統，終端機輸入以下指令可以查詢所有 artisan cmd 的說明，記得 cd 進入專案包內才可使用 artisan 指令：</p>
+        <html><head></head><body><img src="/images/php-basic-knowledge/0.png" class="" width="800" height="200" title="php 基礎知識">
+<p>在 javascript 裡面訪問屬性的方式很單純，都是使用 <code>.</code> 來進入傳參考的對象記憶體中存放的值、訪問類中的屬性還有創立物件內的 key 與 value，然而在 php 中則用三種不同的符號來達成不同目的：</p>
+<h3 id="範圍解析操作符"><a href="#範圍解析操作符" class="headerlink" title=":: 範圍解析操作符"></a>:: 範圍解析操作符</h3><p>用來訪問類（class）底下的對象。</p>
         <!--  -->
         
         <p class="article-more-link">
-            <a href="/2022/04/06/zh-tw/laravel-routes-controller/">more</a>
+            <a href="/2022/04/10/zh-tw/php-basic-knowledge/">more</a>
         </p>
     
     </div>
@@ -298,13 +264,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/04/04/zh-tw/laravel-routes/" itemprop="url">Laravel 認識路由</a>
+            <a href="/2022/04/10/zh-tw/laravel-public/" itemprop="url">Laravel public 靜態檔案</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-04-04T07:41:43.000Z" itemprop="datePublished">4月 4 2022</time>
+                <time datetime="2022-04-10T09:11:18.000Z" itemprop="datePublished">4月 10 2022</time>
             
         </span>
         
@@ -317,74 +283,40 @@
         <span class="column is-narrow">
             
             
-            6 分鐘 讀完 (約 873 字)
+            3 分鐘 讀完 (約 376 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/laravel-routes/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由介紹">
-<p>應用程式介面的主要目的就是提供使用者與介面互動（Interaction），其中 URL 可以取得使用者的資訊並且渲染在畫面中，例如 query string，就是透過最基本的 GET request 來獲取信息：</p>
-<hr>
-<h1 id="routes"><a href="#routes" class="headerlink" title="routes"></a>routes</h1><p>在路由頁面設定想要回應到前端的資訊，有幾種方式：</p>
-<h3 id="simple-data"><a href="#simple-data" class="headerlink" title="simple data"></a>simple data</h3><p>回傳簡單的關聯式陣列：</p>
-<blockquote class="colorquote info"><p>關聯式陣列可以想做類似 javascript 的物件一樣，鍵值對（key-value pair）的形式．</p>
-</blockquote>
-
-<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/greetings'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    [ </span><br><span class="line">      <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span></span><br><span class="line">    ]</span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-variable">$datas</span>;</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-routes/1.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
-<hr>
-<h3 id="Views"><a href="#Views" class="headerlink" title="Views"></a>Views</h3><p>回傳資料至 <code>blade</code> 模板，渲染 html</p>
-<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/greetings'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    [ </span><br><span class="line">      <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span></span><br><span class="line">    ]</span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title function_ invoke__">views</span>(<span class="hljs-string">'greetings'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-
-<p>直接將傳遞過來的關聯式陣列 key 傳進來當變數名</p>
-<figure class="highlight php hljs"><figcaption><span>resource/views/greetings.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="hljs-string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="hljs-string">"X-UA-Compatible"</span> content=<span class="hljs-string">"IE=edge"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="hljs-string">"viewport"</span> content=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;title&gt;Greetings&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;Hello! {{ <span class="hljs-variable">$name</span> }}&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+        <!-- <html><head></head><body><img src="/images/laravel-public/0.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+<p>雖然檔案打包是現今網頁開發的趨勢，但網站難免需要引用未經編譯的靜態檔案，以避免編譯後的亂數檔名都要經過打包程序才能使用，Laravel 專案包中的 <code>public</code> 資料夾就是靜態檔案的去處，與之相對應會被壓縮及打包的動態檔案則要放置在 <code>resources</code> 資料中：</p>
+<h1 id="靜態-css-檔案"><a href="#靜態-css-檔案" class="headerlink" title="靜態 css 檔案"></a>靜態 css 檔案</h1><p>在 public/css/style.css 存放網站的主要設計檔，並且在主模板 <code>resources/views/layout/layout.blade.php</code> 中引用該靜態檔案之路徑在 <code>&lt;link&gt;</code> 中：</p>
+<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/style.css"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  ...</span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
+<p>但問題來了！當路由來到巢狀或雙層的時候，絕對路徑的悲劇就會發生，若我們將路由改成：</p>
+<figure class="highlight php hljs"><figcaption><span>web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/about/about'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'about'</span>]);</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-public/1.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+<p>你會看到 css 檔案的路徑改變成 <code>http://localhost:3000/about/css/style.css</code>，因為找不到 about 底下的 css 檔案，所以整個 style 返回 404：</p>
+<img src="/images/laravel-public/2.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
 
 <hr>
-<h3 id="query-string-參數"><a href="#query-string-參數" class="headerlink" title="query string　參數"></a>query string　參數</h3><p>變數也可以使用既有的 <code>request()</code> 方法承接 URL <code>?</code> 後方的 <strong>key</strong> 來渲染到畫面中，讀取 GET 參數：</p>
-<h4 id="request"><a href="#request" class="headerlink" title="request()"></a>request()</h4><figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/cat'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-comment">// 這裡輸入 params key</span></span><br><span class="line">  <span class="hljs-variable">$catNumbers</span> = <span class="title function_ invoke__">request</span>(<span class="hljs-string">'catNumbers'</span>);</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    <span class="hljs-string">"catNumbers"</span> =&gt; <span class="title function_ invoke__">strip_tags</span>(<span class="hljs-variable">$catNumbers</span>)</span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-comment">// return "這裡有${catNumbers}隻貓";</span></span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'cat'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="url-function"><a href="#url-function" class="headerlink" title="url function"></a>url function</h1><p>你想到的問題 Laravel 怎麼會漏掉？這時候可以使用 blade 模板引擎包裝好的 <code>url 方法</code>，傳入相對靜態檔案路徑當參數,，來抓取靜態檔案的正確路徑：</p>
+<figure class="highlight php hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="hljs-string">"stylesheet"</span> href=<span class="hljs-string">"{{ url('css/style.css') }}"</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight php hljs"><figcaption><span>resource/views/cat.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="hljs-string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="hljs-string">"X-UA-Compatible"</span> content=<span class="hljs-string">"IE=edge"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="hljs-string">"viewport"</span> content=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;title&gt;Cat Route&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;這裡有{{ <span class="hljs-variable">$catNumbers</span> }}隻貓&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-routes/3.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
+<p>運作正常：</p>
+<img src="/images/laravel-public/3.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
 
-<blockquote class="colorquote danger"><p>為了避免 XSS 攻擊注入惡意程式到 app 中，可以為你的 request 包覆 <code>strip_tags()</code>，動態路由則不需要。</p>
-</blockquote>
 
-<h4 id="設置概覽資料"><a href="#設置概覽資料" class="headerlink" title="設置概覽資料"></a>設置概覽資料</h4><p>若使用者沒有查詢任何關鍵字（例如衣服），可以設立一個預設顯示的資料（例如展示全部商品）：</p>
-<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/cat'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-comment">// 這裡輸入 params key</span></span><br><span class="line">  <span class="hljs-variable">$catNumbers</span> = <span class="title function_ invoke__">request</span>(<span class="hljs-string">'catNumbers'</span>);</span><br><span class="line">  <span class="hljs-comment">// 有指定的話顯示</span></span><br><span class="line">  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$catNumbers</span>)) {</span><br><span class="line">    <span class="hljs-variable">$datas</span> = [</span><br><span class="line">      <span class="hljs-string">"catNumbers"</span> =&gt; <span class="title function_ invoke__">strip_tags</span>(<span class="hljs-variable">$catNumbers</span>)</span><br><span class="line">    ];</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'cat'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">  } <span class="hljs-keyword">else</span> {</span><br><span class="line">    <span class="hljs-comment">// 沒指定的話顯示</span></span><br><span class="line">    <span class="hljs-variable">$datas</span> = [</span><br><span class="line">      <span class="hljs-string">"catNumbers"</span> =&gt; <span class="hljs-string">'很多'</span></span><br><span class="line">    ];</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'cat'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">  }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-routes/4.png" class="" width="500" height="200" title="laravel路由">
-
-<blockquote class="colorquote info"><p><code>isset()</code> 方法類似 javascript 的 <code>if (variable === undefined)</code>，判斷某變數是否存在。  </p>
-</blockquote>
-
-<hr>
-<h3 id="dynamic-routes"><a href="#dynamic-routes" class="headerlink" title="dynamic routes"></a>dynamic routes</h3><p>可以渲染使用者輸入的資料，動態路由使用 <code>{}</code> 將路由變數名稱包起，爾後經過 GET URL 的方式取得信息，路由設定需要傳入變數至回呼函式中接收：</p>
-<h4 id="範例1-對應的動態路由變數需要傳入回呼函式中"><a href="#範例1-對應的動態路由變數需要傳入回呼函式中" class="headerlink" title="範例1. 對應的動態路由變數需要傳入回呼函式中"></a>範例1. 對應的動態路由變數需要傳入回呼函式中</h4><figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/dog/{dogName}'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-variable">$dogName</span></span>) </span>{</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span>,</span><br><span class="line">    <span class="hljs-string">"dogName"</span> =&gt; <span class="hljs-variable">$dogName</span></span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'routesTest'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight php hljs"><figcaption><span>resource/views/greetings.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="hljs-string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="hljs-string">"X-UA-Compatible"</span> content=<span class="hljs-string">"IE=edge"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="hljs-string">"viewport"</span> content=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;title&gt;Greetings&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;Hello! {{ <span class="hljs-variable">$name</span> }}&lt;/h1&gt;</span><br><span class="line">  &lt;h2&gt;A dog name {{ <span class="hljs-variable">$dogName</span> }}&lt;/h2&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-routes/2.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
-
-<h4 id="範例2-傳入多個非必要的動態路由參數"><a href="#範例2-傳入多個非必要的動態路由參數" class="headerlink" title="範例2. 傳入多個非必要的動態路由參數"></a>範例2. 傳入多個非必要的動態路由參數</h4><figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/shop/{category?}/{item?}'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-variable">$a</span> = <span class="hljs-literal">null</span>, <span class="hljs-variable">$b</span> = <span class="hljs-literal">null</span></span>) </span>{</span><br><span class="line">  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$a</span>)) {</span><br><span class="line">    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$b</span>)) {</span><br><span class="line">      <span class="hljs-keyword">return</span> <span class="hljs-string">"你正在瀏覽商店${a}分類的${b}品項"</span>;</span><br><span class="line">    }</span><br><span class="line">  } </span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-string">'你正在瀏覽商店的所有商品'</span>;</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote class="colorquote info"><p>對應的回呼函式必須接收一樣數量的變數當參數，名稱隨意不過最好與路由同名比較直覺，且位置要按照順序！<br>非必要的路由參數需要設置：</p>
-<ol>
-<li><code>?</code>放置在<code>{}</code>內，表示為可選的。</li>
-<li>非必要路由參數需設置預設值為空<code>null</code>才不會噴錯。</li>
-</ol>
-</blockquote>
-
-<img src="/images/laravel-routes/5.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
-<img src="/images/laravel-routes/6.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/laravel-routes/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由介紹">
-<p>應用程式介面的主要目的就是提供使用者與介面互動（Interaction），其中 URL 可以取得使用者的資訊並且渲染在畫面中，例如 query string，就是透過最基本的 GET request 來獲取信息：</p>
-<hr>
+        <html><head></head><body><img src="/images/laravel-public/0.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+<p>雖然檔案打包是現今網頁開發的趨勢，但網站難免需要引用未經編譯的靜態檔案，以避免編譯後的亂數檔名都要經過打包程序才能使用，Laravel 專案包中的 <code>public</code> 資料夾就是靜態檔案的去處，與之相對應會被壓縮及打包的動態檔案則要放置在 <code>resources</code> 資料中：</p>
+<h1 id="靜態-css-檔案"><a href="#靜態-css-檔案" class="headerlink" title="靜態 css 檔案"></a>靜態 css 檔案</h1><p>在 public/css/style.css 存放網站的主要設計檔，並且在主模板 <code>resources/views/layout/layout.blade.php</code> 中引用該靜態檔案之路徑在 <code>&lt;link&gt;</code> 中：</p>
         <!--  -->
         
         <p class="article-more-link">
-            <a href="/2022/04/04/zh-tw/laravel-routes/">more</a>
+            <a href="/2022/04/10/zh-tw/laravel-public/">more</a>
         </p>
     
     </div>
@@ -427,7 +359,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/12/">12</a></li>
+        <li><a class="pagination-link" href="/page/13/">13</a></li>
         
     </ul>
 </nav>

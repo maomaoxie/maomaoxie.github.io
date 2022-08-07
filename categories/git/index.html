@@ -4,7 +4,6 @@
     <meta charset="utf-8">
 <title>分類: git - Mawchu 貓奴前端的天空</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="canonical" href="http://maomaoxie.github.io/categories/git/"/>
 <meta name="google-site-verification" content="qpdwAFMt_HNGP0dM45CxVBDie_HVPkWFvpclpqZaoIo" />
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
@@ -34,6 +33,8 @@
 
 
 
+<link rel="alternative" href="/atom.xml" title="Mawchu 貓奴前端的天空" type="application/atom+xml">
+
 
 
 <link rel="icon" type="image/x-icon" href="/favicon.svg">
@@ -46,8 +47,10 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
 
-
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832218493331944" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
 
 
 <link rel="stylesheet" href="/css/style.css">
@@ -143,6 +146,66 @@
 </section>
 <section class="section">
     <div class="container">
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/08/07/git-remove-submodule/" itemprop="url">git 移除 submodule</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-07T08:07:24.000Z" itemprop="datePublished">8月 7 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/git/">git</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 238 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
+<img src="/images/git-remove-submodule/1.png" class="" width="800" height="200" title="git-remove-submodule">
+
+<p>以下記錄自己如何將修改後的 minos 資料夾：</p>
+<h3 id="移除-git-子模塊快取"><a href="#移除-git-子模塊快取" class="headerlink" title="移除 git 子模塊快取"></a>移除 git 子模塊快取</h3><p>以下的指令可以清除子模塊的 git 紀錄：</p>
+<figure class="highlight plaintext hljs"><figcaption><span>git cmd</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached -f ./themes/minos</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="重新加入索引"><a href="#重新加入索引" class="headerlink" title="重新加入索引"></a>重新加入索引</h3><p>將剛才取消子模塊的 git 重新排隊至專案包中，我比較懶惰直接整包加：</p>
+<figure class="highlight plaintext hljs"><figcaption><span>git cmd</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></tbody></table></figure>
+
+<p>再檢視一遍 vs code 之後就會看到檔案被追蹤到了！</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
+<img src="/images/git-remove-submodule/1.png" class="" width="800" height="200" title="git-remove-submodule">
+
+        <!--  -->
+        
+        <p class="article-more-link">
+            <a href="/2022/08/07/git-remove-submodule/">more</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
     
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">

@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://maomaoxie.github.io</id>
+    <title>Mawchu 貓奴前端的天空 • Posts by &#34;dns&#34; tag</title>
+    <link href="http://maomaoxie.github.io" />
+    <updated>2022-08-07T02:02:29.000Z</updated>
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="git" />
+    <category term="github" />
+    <category term="sourceTree" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="http" />
+    <category term="https" />
+    <category term="request" />
+    <category term="response" />
+    <category term="httpMethods" />
+    <category term="httpHeader" />
+    <category term="status" />
+    <category term="Javascript" />
+    <category term="type" />
+    <category term="laravel" />
+    <category term="php" />
+    <category term="linux" />
+    <category term="blade" />
+    <category term="wsl2" />
+    <category term="layout" />
+    <category term="migration" />
+    <category term="sql" />
+    <category term="public" />
+    <category term="static" />
+    <category term="tailwind" />
+    <category term="css" />
+    <category term="less" />
+    <category term="processors" />
+    <category term="env" />
+    <category term="process" />
+    <category term="dotenv" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="vue" />
+    <category term="vue3" />
+    <category term="compositionAPI" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <category term="rss" />
+    <category term="hexo" />
+    <category term="wordpress" />
+    <category term="dns" />
+    <category term="cdn" />
+    <category term="submodule" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/08/07/wordpress-get-started/</id>
+        <title>開始我的第一個 wordpress 網站</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/08/07/wordpress-get-started/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;第一步-產生-ip-位址&#34;&gt;&lt;a href=&#34;#第一步-產生-ip-位址&#34; class=&#34;headerlink&#34; title=&#34;第一步 - 產生 ip 位址&#34;&gt;&lt;/a&gt;第一步 - 產生 ip 位址&lt;/h1&gt;&lt;p&gt;首先要租賃一台伺服器提供 ip，可以考慮較優惠的主機廠商：遠振或 bluehost。&lt;br&gt;要注意的是，一個 domain 可以放置很多網站資料夾，並且設定sub-domian。&lt;/p&gt;
+&lt;h1 id=&#34;第二步-DNS-註冊&#34;&gt;&lt;a href=&#34;#第二步-DNS-註冊&#34; class=&#34;headerlink&#34; title=&#34;第二步 - DNS 註冊&#34;&gt;&lt;/a&gt;第二步 - DNS 註冊&lt;/h1&gt;&lt;p&gt;ip 設定好之後就可以將網域指過來指定的 DNS 網域商：&lt;br&gt;中華電信提供的 .tw　較便宜，而 godaddy 則是 .com 較便宜。&lt;/p&gt;
+&lt;h1 id=&#34;第三步-cdn-分散流量&#34;&gt;&lt;a href=&#34;#第三步-cdn-分散流量&#34; class=&#34;headerlink&#34; title=&#34;第三步 - cdn 分散流量&#34;&gt;&lt;/a&gt;第三步 - cdn 分散流量&lt;/h1&gt;&lt;p&gt;常用的 cdn 廠商像是 cloudflare，可以註冊一個離主機近的（例如東京）cdn 位址，其他供應商例如 sugarhost 很便宜但連線較慢。&lt;/p&gt;
+&lt;h3 id=&#34;CDN-原理&#34;&gt;&lt;a href=&#34;#CDN-原理&#34; class=&#34;headerlink&#34; title=&#34;CDN 原理&#34;&gt;&lt;/a&gt;CDN 原理&lt;/h3&gt;&lt;p&gt;cdn 是把 DNS 轉向給 DNS 廠商（cloudflare），透過 DNS 指向將流量倒過去 cloudflare，在第一次 cache 過網站靜態資源後，第二次就可以直接提取cdn 伺服器上 cache　的資源以減少流量費用。&lt;/p&gt;
+&lt;h3 id=&#34;設定細節&#34;&gt;&lt;a href=&#34;#設定細節&#34; class=&#34;headerlink&#34; title=&#34;設定細節&#34;&gt;&lt;/a&gt;設定細節&lt;/h3&gt;&lt;h5 id=&#34;資源類型&#34;&gt;&lt;a href=&#34;#資源類型&#34; class=&#34;headerlink&#34; title=&#34;資源類型&#34;&gt;&lt;/a&gt;資源類型&lt;/h5&gt;&lt;p&gt;通常都會設定 &lt;strong&gt;A 類型&lt;/strong&gt;以設定網址（url）指向，例如 mailgun 的寄信功能。&lt;/p&gt;
+&lt;h5 id=&#34;防堵資安問題&#34;&gt;&lt;a href=&#34;#防堵資安問題&#34; class=&#34;headerlink&#34; title=&#34;防堵資安問題&#34;&gt;&lt;/a&gt;防堵資安問題&lt;/h5&gt;&lt;p&gt;cloudflare 設定其中一樣可以開啟 ddos -&amp;gt; under Attack 來保護網站資源。&lt;br&gt;也可以手動清除特定檔案，例如圖片的 cache 來重新抓取檔案。&lt;/p&gt;
+&lt;h1 id=&#34;第四步-掛載-wordpress&#34;&gt;&lt;a href=&#34;#第四步-掛載-wordpress&#34; class=&#34;headerlink&#34; title=&#34;第四步 - 掛載 wordpress&#34;&gt;&lt;/a&gt;第四步 - 掛載 wordpress&lt;/h1&gt;&lt;p&gt;wordpress 可以當作是一個 php 建構而成的後端框架應用，串接方式有兩種：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;直接使用 wordpress hook 來渲染資料（前後端合併）。&lt;/li&gt;
+&lt;li&gt;撰寫自己的前端框架（例如 vue），撰寫自己的 API（前後端分離）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;建立步驟&#34;&gt;&lt;a href=&#34;#建立步驟&#34; class=&#34;headerlink&#34; title=&#34;建立步驟&#34;&gt;&lt;/a&gt;建立步驟&lt;/h3&gt;&lt;p&gt;到  &lt;a href=&#34;https://tw.wordpress.org/download/&#34;&gt;wordpress&lt;/a&gt; 官方網站下載檔案，上傳到自己的網域 server。&lt;/p&gt;
+&lt;img src=&#34;/images/wordpress-get-started/14.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;wordpress-download&#34;&gt;
+&lt;p&gt;上傳後打開網站，會有一個 UI 介面可以直接設定 wordpress 與網站資料，config 需要設定資料庫帳號密碼：&lt;/p&gt;
+&lt;p&gt;要注意的是 wordpress 權限身分須從 root 改成 www-data，才能變成網站系統管理員使用 wordpress 後台。&lt;/p&gt;
+&lt;!-- 行情 $ 25000 (使用佈景主題)
+客製化算一頁
+定時備份以免網站被駭客
+租 GCP 靜態硬碟 
+google 硬碟版本管理 資源回收桶保留30 天
+flicker
+
+設定 config 檔案 
+比較好的後台c panel 要錢
+dns 代管要 https 要使用 flexible SSL for cloudflare
+
+一類有分類的文章 slug 需要代稱(英文的)
+獨立頁面 客製化
+siteliner 檢查有沒有壞掉的連結與重複的內容
+duplicate page
+報價高一點
+附加的css
+減少做重複的事情
+在 wordpress 上做前後端分離 --&gt;
+&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="wordpress" />
+        <category term="dns" />
+        <category term="cdn" />
+        <updated>2022-08-07T02:02:29.000Z</updated>
+    </entry>
+</feed>

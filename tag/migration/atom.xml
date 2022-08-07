@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://maomaoxie.github.io</id>
+    <title>Mawchu 貓奴前端的天空 • Posts by &#34;migration&#34; tag</title>
+    <link href="http://maomaoxie.github.io" />
+    <updated>2022-04-24T11:18:30.000Z</updated>
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="git" />
+    <category term="github" />
+    <category term="sourceTree" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="http" />
+    <category term="https" />
+    <category term="request" />
+    <category term="response" />
+    <category term="httpMethods" />
+    <category term="httpHeader" />
+    <category term="status" />
+    <category term="Javascript" />
+    <category term="type" />
+    <category term="laravel" />
+    <category term="php" />
+    <category term="linux" />
+    <category term="blade" />
+    <category term="wsl2" />
+    <category term="layout" />
+    <category term="migration" />
+    <category term="sql" />
+    <category term="public" />
+    <category term="static" />
+    <category term="tailwind" />
+    <category term="css" />
+    <category term="less" />
+    <category term="processors" />
+    <category term="env" />
+    <category term="process" />
+    <category term="dotenv" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="vue" />
+    <category term="vue3" />
+    <category term="compositionAPI" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <category term="rss" />
+    <category term="hexo" />
+    <category term="wordpress" />
+    <category term="dns" />
+    <category term="cdn" />
+    <category term="submodule" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/04/24/zh-tw/laravel-migration/</id>
+        <title>Laravel 資料庫版控工具 Migration</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/04/24/zh-tw/laravel-migration/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/laravel-migration/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-migration&#34;&gt;
+&lt;p&gt;Migration 位於 Laravel 專案包中的 database 資料夾，會使用建立日期來歸檔資料表的結構，為紀錄資料庫版本的版控，方便團隊共同開發資料表。&lt;/p&gt;
+&lt;h1 id=&#34;建立資料表&#34;&gt;&lt;a href=&#34;#建立資料表&#34; class=&#34;headerlink&#34; title=&#34;建立資料表&#34;&gt;&lt;/a&gt;建立資料表&lt;/h1&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;建立 migration&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;php artisan &lt;span class=&#34;hljs-attr&#34;&gt;make&lt;/span&gt;:migration create_users_table&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;建立成功會顯示：&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-migration/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;資料庫版控工具 Migration&#34;&gt;
+&lt;p&gt;重整之後會出現新的版控檔案，使用建立日期來命名：&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-migration/2.png&#34; class=&#34;&#34; width=&#34;300&#34; height=&#34;200&#34; title=&#34;資料庫版控工具 Migration&#34;&gt;
+&lt;p&gt;檔案內容：&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-migration/3.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;輸入圖片資料夾名稱&#34;&gt;
+
+&lt;h1 id=&#34;修改資料表&#34;&gt;&lt;a href=&#34;#修改資料表&#34; class=&#34;headerlink&#34; title=&#34;修改資料表&#34;&gt;&lt;/a&gt;修改資料表&lt;/h1&gt;&lt;p&gt;在 &lt;code&gt;\\wsl$&lt;/code&gt; 路徑下執行 migrate 的坑需要以下步驟：&lt;/p&gt;
+&lt;h4 id=&#34;補上-php-8-0-的-sql-extension&#34;&gt;&lt;a href=&#34;#補上-php-8-0-的-sql-extension&#34; class=&#34;headerlink&#34; title=&#34;補上 php 8.0 的 sql-extension&#34;&gt;&lt;/a&gt;補上 php 8.0 的 sql-extension&lt;/h4&gt;&lt;p&gt;於 ubuntu 終端機輸入以下指令：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;輸入code&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;將註解-extension-x3D-pdo-mysql-打開&#34;&gt;&lt;a href=&#34;#將註解-extension-x3D-pdo-mysql-打開&#34; class=&#34;headerlink&#34; title=&#34;將註解 ;extension=pdo_mysql 打開&#34;&gt;&lt;/a&gt;將註解 ;extension=pdo_mysql 打開&lt;/h4&gt;&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="laravel" />
+        <category term="migration" />
+        <category term="sql" />
+        <updated>2022-04-24T11:18:30.000Z</updated>
+    </entry>
+</feed>

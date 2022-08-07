@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://maomaoxie.github.io</id>
+    <title>Mawchu 貓奴前端的天空 • Posts by &#34;submodule&#34; tag</title>
+    <link href="http://maomaoxie.github.io" />
+    <updated>2022-08-07T08:07:24.000Z</updated>
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="git" />
+    <category term="github" />
+    <category term="sourceTree" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="http" />
+    <category term="https" />
+    <category term="request" />
+    <category term="response" />
+    <category term="httpMethods" />
+    <category term="httpHeader" />
+    <category term="status" />
+    <category term="Javascript" />
+    <category term="type" />
+    <category term="laravel" />
+    <category term="php" />
+    <category term="linux" />
+    <category term="blade" />
+    <category term="wsl2" />
+    <category term="layout" />
+    <category term="migration" />
+    <category term="sql" />
+    <category term="public" />
+    <category term="static" />
+    <category term="tailwind" />
+    <category term="css" />
+    <category term="less" />
+    <category term="processors" />
+    <category term="env" />
+    <category term="process" />
+    <category term="dotenv" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="vue" />
+    <category term="vue3" />
+    <category term="compositionAPI" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <category term="rss" />
+    <category term="hexo" />
+    <category term="wordpress" />
+    <category term="dns" />
+    <category term="cdn" />
+    <category term="submodule" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/08/07/git-remove-submodule/</id>
+        <title>git 移除 submodule</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/08/07/git-remove-submodule/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;git-submodule&#34;&gt;&lt;a href=&#34;#git-submodule&#34; class=&#34;headerlink&#34; title=&#34;git submodule&#34;&gt;&lt;/a&gt;git submodule&lt;/h1&gt;&lt;p&gt;在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。&lt;/p&gt;
+&lt;img src=&#34;/images/git-remove-submodule/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;git-remove-submodule&#34;&gt;
+
+&lt;p&gt;以下記錄自己如何將修改後的 minos 資料夾：&lt;/p&gt;
+&lt;h3 id=&#34;移除-git-子模塊快取&#34;&gt;&lt;a href=&#34;#移除-git-子模塊快取&#34; class=&#34;headerlink&#34; title=&#34;移除 git 子模塊快取&#34;&gt;&lt;/a&gt;移除 git 子模塊快取&lt;/h3&gt;&lt;p&gt;以下的指令可以清除子模塊的 git 紀錄：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;git cmd&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git rm --cached -f ./themes/minos&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;重新加入索引&#34;&gt;&lt;a href=&#34;#重新加入索引&#34; class=&#34;headerlink&#34; title=&#34;重新加入索引&#34;&gt;&lt;/a&gt;重新加入索引&lt;/h3&gt;&lt;p&gt;將剛才取消子模塊的 git 重新排隊至專案包中，我比較懶惰直接整包加：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;git cmd&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git add .&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;再檢視一遍 vs code 之後就會看到檔案被追蹤到了！&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="git" />
+        <category term="hexo" />
+        <category term="submodule" />
+        <updated>2022-08-07T08:07:24.000Z</updated>
+    </entry>
+</feed>

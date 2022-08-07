@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;layout&#34; tag</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Sun, 10 Apr 2022 14:54:20 +0800</pubDate>
+        <lastBuildDate>Sun, 10 Apr 2022 14:54:20 +0800</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
+        <category>httpMethods</category>
+        <category>httpHeader</category>
+        <category>status</category>
+        <category>Javascript</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>blade</category>
+        <category>wsl2</category>
+        <category>layout</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>css</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>vue</category>
+        <category>vue3</category>
+        <category>compositionAPI</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <category>rss</category>
+        <category>hexo</category>
+        <category>wordpress</category>
+        <category>dns</category>
+        <category>cdn</category>
+        <category>submodule</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/04/10/zh-tw/laravel-layout/</guid>
+            <title>Laravel 善用 layout 避免重複的模板</title>
+            <link>http://maomaoxie.github.io/2022/04/10/zh-tw/laravel-layout/</link>
+            <category>laravel</category>
+            <category>blade</category>
+            <category>layout</category>
+            <pubDate>Sun, 10 Apr 2022 14:54:20 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/laravel-layout/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
+
+&lt;p&gt;在設計 UI 模板時重複使用的內容屢見不鮮，例如 header、footer 或是 sidebar 等多是網站中分頁裡的標配，這時候重複貼上一樣的模板就顯得有點呆，Laravel MVC 架構中 views 可以創建一個 layout 模板資料夾，重複的 UI 配置可以放置在這裡提供其他分頁的 blade 檔案使用，這樣一來也能省去 layout 修改時相關的檔案都要更改的麻煩事，統一在 layout 裡調整即可：&lt;/p&gt;
+&lt;h1 id=&#34;建立-layout-資料夾&#34;&gt;&lt;a href=&#34;#建立-layout-資料夾&#34; class=&#34;headerlink&#34; title=&#34;建立 layout 資料夾&#34;&gt;&lt;/a&gt;建立 layout 資料夾&lt;/h1&gt;&lt;p&gt;此資料夾可以存放共用的模板，例如 header、footer 或是 sidebar 的模板 html。&lt;br&gt;在 project 裡的 &lt;code&gt;resources/views&lt;/code&gt; 建立一個 layout 資料夾：&lt;/p&gt;
+&lt;img src=&#34;/images/laravel-layout/1.png&#34; class=&#34;&#34; width=&#34;300&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;撰寫模板&#34;&gt;&lt;a href=&#34;#撰寫模板&#34; class=&#34;headerlink&#34; title=&#34;撰寫模板&#34;&gt;&lt;/a&gt;撰寫模板&lt;/h1&gt;&lt;p&gt;確立好 controller 中與 views 與 routes 的連結後，就可以著手進行模板的拆分啦！&lt;/p&gt;
+&lt;h3 id=&#34;extends-‘layoutFolder-x2F-layout’&#34;&gt;&lt;a href=&#34;#extends-‘layoutFolder-x2F-layout’&#34; class=&#34;headerlink&#34; title=&#34;@extends(‘layoutFolder/layout’)&#34;&gt;&lt;/a&gt;@extends(‘layoutFolder/layout’)&lt;/h3&gt;&lt;p&gt;承接共用模板的其他 views 則使用此語法接收模板，撰寫資料夾路徑方式有兩種：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;斜線&lt;/li&gt;
+&lt;li&gt;點&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;about.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;extends&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;layout.layout&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;about.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;extends&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;layout/layout&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;yield-‘content’&#34;&gt;&lt;a href=&#34;#yield-‘content’&#34; class=&#34;headerlink&#34; title=&#34;@yield(‘content’)&#34;&gt;&lt;/a&gt;@yield(‘content’)&lt;/h3&gt;&lt;p&gt;yield 像是在告訴 php 說我這裡需要挖個洞，待會會丟 html 進來，請認名稱來辨識丟進來的檔案：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;layout/layout.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;很多要共用的 html&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...(通常是 header)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;yield&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;content&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;很多要共用的 html&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...(通常是 footer)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;section-‘content’-…-endsection&#34;&gt;&lt;a href=&#34;#section-‘content’-…-endsection&#34; class=&#34;headerlink&#34; title=&#34;@section(‘content’) … @endsection&#34;&gt;&lt;/a&gt;@section(‘content’) … @endsection&lt;/h3&gt;&lt;p&gt;section 類似 vue 的 slot，把其他網頁要替換的內容插入這個插槽中，在通過剛才的 &lt;code&gt;@yield(&#39;content&#39;)&lt;/code&gt; 將page愈替換的內容塞進去共用的模板中：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;page.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;extends&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;layout/layout&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;section&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;content&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  這裡是 page content&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@endsection&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img src=&#34;/images/laravel-layout/3.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
+&lt;img src=&#34;/images/laravel-layout/2.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;獨立每個頁面的-script&#34;&gt;&lt;a href=&#34;#獨立每個頁面的-script&#34; class=&#34;headerlink&#34; title=&#34;獨立每個頁面的 script&#34;&gt;&lt;/a&gt;獨立每個頁面的 script&lt;/h1&gt;&lt;p&gt;插槽的概念同樣可以挖洞給每個獨立頁面放置專屬的 javascript，在 layout 的  之前放置 @yield(‘after_js’) 來承接 page 各自的 &lt;code&gt;&amp;lt;script&amp;gt;...&amp;lt;/script&amp;gt;&lt;/code&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;layout/layout.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  @&lt;span class=&#34;title function_&#34;&gt;yield&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;after_js&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;page.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;section&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;content&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;title function_&#34;&gt;alert&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#34;Hey!It&#39;s about page.&#34;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@endsection&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img src=&#34;/images/laravel-layout/4.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;簡化-section&#34;&gt;&lt;a href=&#34;#簡化-section&#34; class=&#34;headerlink&#34; title=&#34;簡化 @section&#34;&gt;&lt;/a&gt;簡化 @section&lt;/h1&gt;&lt;p&gt;每個頁面會有不同的 SEO 內容，例如 &lt;code&gt;title&lt;/code&gt; 或是其他的 meta data，這時候 &lt;code&gt;@section&lt;/code&gt; 又派上用場了，不同的是&lt;strong&gt;第二個參數&lt;/strong&gt;可以傳入文字檔來渲染內容：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;layout/layout.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;@yield(&#39;title&#39;)&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;page.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;section&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;title&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;pageTitle&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img src=&#34;/images/laravel-layout/5.png&#34; class=&#34;&#34; width=&#34;300&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
+&lt;img src=&#34;/images/laravel-layout/6.png&#34; class=&#34;&#34; width=&#34;300&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
+
+&lt;hr&gt;
+&lt;blockquote&gt;&lt;p&gt;參考資料：&lt;br&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=AGE3wRKljkw&amp;amp;t=2402s&#34;&gt;https://www.youtube.com/watch?v=AGE3wRKljkw&amp;amp;t=2402s&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>
