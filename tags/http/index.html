@@ -293,12 +293,11 @@
         
         <html><head></head><body><img src="/images/http-status-code/0.png" class="" width="800" height="200" title="[http-status-code [http-status-code]]">
 <p>圖片來源：<a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
-<p>常常看到網站出現 404 找不到，或者是後端噴錯顯示了 Bad Gateway 卻不曉得箇中原因，而前後端打 API 也必須要讀懂狀態碼（HTTP Status code）代表的意涵，才能更有效率的除錯找出原因，以下是常見的狀態碼：</p>
-        <!--  -->
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/03/01/zh-tw/http-status-code/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/03/01/zh-tw/http-status-code/">more</a>
-        </p>
     
     </div>
     
@@ -457,12 +456,11 @@
         
         <html><head></head><body><img src="/images/http-header/0.png" class="" width="800" height="200" title="[http-header [http-header]]">
 
-<p>個人對這一塊知識又愛又恨，每每串接 api 打開 Network 都會看到卻似懂非懂的感覺真討厭！來認真釐清一下吧！</p>
-        <!--  -->
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/28/zh-tw/http-header/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/02/28/zh-tw/http-header/">more</a>
-        </p>
     
     </div>
     
@@ -569,12 +567,11 @@
         
         <html><head></head><body><img src="/images/http-methods/0.png" class="" width="800" height="200" title="[http-methods [http-methods]]">
 <p>圖片來源：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ac29da71601d">https://www.jianshu.com/p/ac29da71601d</a></p>
-<p>身為技術人不可不知的技術事：其實你每天都在使用 HTTP 的 Methods，但你不知道而已。<br>當你在瀏覽器輸入一串網址並且按下 enter 或者是按下一個 google 搜尋的超連結，就已經完成一個 HTTP <code>GET</code> Methods 的流程了！<br>Client 端網路資料的傳輸，按照功能屬性分為幾個類別：</p>
-        <!--  -->
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/28/zh-tw/http-methods/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/02/28/zh-tw/http-methods/">more</a>
-        </p>
     
     </div>
     
@@ -644,12 +641,11 @@
         
         <html><head></head><body><img src="/images/http-and-https/0.png" class="" width="800" height="200" title="[http-and-https [http-and-https]]">
 <p>圖片來源：<a target="_blank" rel="noopener" href="https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https">https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https</a></p>
-<h1 id="HTTP-的誕生"><a href="#HTTP-的誕生" class="headerlink" title="HTTP 的誕生"></a>HTTP 的誕生</h1><p>網路應用程式早期在互相傳遞資料時沒有固定的格式，在資料解析上就會很麻煩混亂，就像一個國家一旦陷入各自為政的困擾就需要政治來規範管理，網路世界也是一樣道理的。超文本傳輸協定(Hyper Text Transfer Protocol)就是網路資料傳遞的統整者，是 client 端向 server 端要求資料的關卡，必須要按照正確的格式才能取得資料。</p>
-        <!--  -->
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/28/zh-tw/http-and-https/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/02/28/zh-tw/http-and-https/">more</a>
-        </p>
     
     </div>
     
@@ -796,42 +792,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

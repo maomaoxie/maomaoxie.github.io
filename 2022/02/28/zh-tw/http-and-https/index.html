@@ -206,7 +206,7 @@
 </blockquote></body></html> -->
         
         
-        <html><head></head><body><img src="/images/http-and-https/0.png" class="" width="800" height="200" title="[http-and-https [http-and-https]]">
+            <html><head></head><body><img src="/images/http-and-https/0.png" class="" width="800" height="200" title="[http-and-https [http-and-https]]">
 <p>圖片來源：<a target="_blank" rel="noopener" href="https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https">https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https</a></p>
 <h1 id="HTTP-的誕生"><a href="#HTTP-的誕生" class="headerlink" title="HTTP 的誕生"></a>HTTP 的誕生</h1><p>網路應用程式早期在互相傳遞資料時沒有固定的格式，在資料解析上就會很麻煩混亂，就像一個國家一旦陷入各自為政的困擾就需要政治來規範管理，網路世界也是一樣道理的。超文本傳輸協定(Hyper Text Transfer Protocol)就是網路資料傳遞的統整者，是 client 端向 server 端要求資料的關卡，必須要按照正確的格式才能取得資料。</p>
 <h1 id="Origin-Server-是甚麼"><a href="#Origin-Server-是甚麼" class="headerlink" title="Origin Server 是甚麼"></a>Origin Server 是甚麼</h1><h3 id="server-負責-response"><a href="#server-負責-response" class="headerlink" title="server 負責 response"></a>server 負責 response</h3><p>先介紹 Origin 這個單辭為什麼會被拿來當作 server 端，它的同義詞有 root、source 與 beginning，有起源、來源與原產地的意思，相當於網路世界中網站資料的起源與來源，github 在推 commits 上去遠端也可以看到指令：</p>
@@ -234,9 +234,6 @@
 <blockquote><p><a target="_blank" rel="noopener" href="https://www.cdnetworks.com/knowledge-center/what-is-origin-server/">https://www.cdnetworks.com/knowledge-center/what-is-origin-server/</a><br>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
 </blockquote></body></html>
         
-        <p class="article-more-link">
-            <a href="/2022/02/28/zh-tw/http-and-https/">more</a>
-        </p>
     
     </div>
     
@@ -438,42 +435,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

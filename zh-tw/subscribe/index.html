@@ -175,15 +175,12 @@
 </body></html> -->
         
         
-        <html><head></head><body><p>訂閱格式有以下三種，歡迎訂閱 =)</p>
+            <html><head></head><body><p>訂閱格式有以下三種，歡迎訂閱 =)</p>
 <h1 id="RSS"><a href="#RSS" class="headerlink" title="RSS"></a><a href="https://maomaoxie.github.io/rss.xml">RSS</a></h1><h1 id="ATOM"><a href="#ATOM" class="headerlink" title="ATOM"></a><a href="https://maomaoxie.github.io/atom.xml">ATOM</a></h1><h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a><a href="https://maomaoxie.github.io/feed.json">JSON</a></h1><img src="https://st2.depositphotos.com/3047333/6077/i/950/depositphotos_60777127-stock-photo-wise-cat-with-book.jpg" class="" width="200" height="200" title="subscribe-maomaoxie-blog">
 
 <p>圖片來源：<a target="_blank" rel="noopener" href="https://st2.depositphotos.com/3047333/6077/i/950/depositphotos_60777127-stock-photo-wise-cat-with-book.jpg">https://st2.depositphotos.com/3047333/6077/i/950/depositphotos_60777127-stock-photo-wise-cat-with-book.jpg</a></p>
 </body></html>
         
-        <p class="article-more-link">
-            <a href="/zh-tw/subscribe/index.html">more</a>
-        </p>
     
     </div>
     
@@ -360,42 +357,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

@@ -199,7 +199,7 @@
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/laravel-public/0.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+            <html><head></head><body><img src="/images/laravel-public/0.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
 <p>雖然檔案打包是現今網頁開發的趨勢，但網站難免需要引用未經編譯的靜態檔案，以避免編譯後的亂數檔名都要經過打包程序才能使用，Laravel 專案包中的 <code>public</code> 資料夾就是靜態檔案的去處，與之相對應會被壓縮及打包的動態檔案則要放置在 <code>resources</code> 資料中：</p>
 <h1 id="靜態-css-檔案"><a href="#靜態-css-檔案" class="headerlink" title="靜態 css 檔案"></a>靜態 css 檔案</h1><p>在 public/css/style.css 存放網站的主要設計檔，並且在主模板 <code>resources/views/layout/layout.blade.php</code> 中引用該靜態檔案之路徑在 <code>&lt;link&gt;</code> 中：</p>
 <figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/style.css"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  ...</span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
@@ -219,9 +219,6 @@
 
 </body></html>
         
-        <p class="article-more-link">
-            <a href="/2022/04/10/zh-tw/laravel-public/">more</a>
-        </p>
     
     </div>
     
@@ -421,42 +418,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

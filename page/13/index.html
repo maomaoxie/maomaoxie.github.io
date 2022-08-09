@@ -145,6 +145,181 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/02/17/zh-tw/git-main-branch/" itemprop="url">Github 主分支更名 master 為 main</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-02-17T12:59:44.000Z" itemprop="datePublished">2月 17 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/git/">git</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            5 分鐘 讀完 (約 687 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/git-main-branch/1.png" class="" width="800" height="200" title="git-main-branch">
+<p>每每 github 搞了一些新招就得重新適應一次（菸</p>
+<p>這兩天在做小專案 git init 之後準備推上去 github 時，執行以下的老樣子：</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/mawchu/baby-bill.git</span><br></pre></td></tr></tbody></table></figure>
+<p>看到這裡不免疑惑了一下，不是印象中的 branch 名字呀：</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -M main </span><br></pre></td></tr></tbody></table></figure>
+<p>果然執行之後出現噴錯的內容：</p>
+<blockquote class="colorquote danger"><p>error: refname refs/heads/master not found<br>fatal: Branch rename failed</p>
+</blockquote>
+
+<p>這個 main 分支從哪裡冒出來的？暗暗覺得這個行為很雞肋= =？</p>
+<blockquote class="colorquote info"><p>為響應黑人平權運動，GitHub宣布從10月1日起改變新Git儲存庫的預設命名，以main來取代原本的master。<br>受到年中佛洛依德（George Floyd）遭警方執法過當死亡，引發的黑人平權抗議風潮影響，美國科技界也相繼思考去除慣用名稱中有種族歧視色彩的字眼，例如不要使用master/slave、blacklist/whitelist。GitHub執行長Nat Friedman也決定進行相關改變。</p>
+<p>開發人員也可以不要變更，隨時到設定區，把個人、組織和公司的新儲存庫預設命名從main改成別的。<br>GitHub呼籲用戶可以先保持不動，到了年底會再釋出新工具以協助現有branch改成新的預設名稱。<br>在支持黑人平權風潮下，包括Google、微軟、IBM、Red Hat、甲骨文下的MySQL及Linux社群都相繼變更了軟體流程的命名。本月微軟也提案修改Chromium中black/whitelist為較中性的blocklist/allowlist。<br><a target="_blank" rel="noopener" href="https://www.ithome.com.tw/news/140094">https://www.ithome.com.tw/news/140094</a></p>
+</blockquote>
+<p>查看了一下網路說明，原來是美國的政治與歷史因素，生活跟科技真是息息相關呢，自己的見識尚淺默默反省了一下XD<br>科普了一會怎麼切換現今的分支變成 main：</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="hljs-string">"要推的備註內容"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>都 OK 就可以推上去囉！</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></tbody></table></figure>
+<p>推上去發現自己忘了切換帳號又噴錯啦！</p>
+<blockquote class="colorquote danger"><p>remote: Permission to mawchu/baby-bill.git denied to maomaoxie.<br>fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/mawchu/baby-bill.git/'">https://github.com/mawchu/baby-bill.git/'</a>: The requested URL returned error: 403</p>
+</blockquote>
+<p>由於 git bash 切換帳戶不是那麼方便，就偷吃步一下重複 <a href="http://maomaoxie.github.io/2022/02/10/zh-tw/git-pat/">Github 登入新制 PAT X Sourcetree</a> 這篇的步驟就可以囉！</p>
+<p>參考文章：</p>
+<blockquote><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/taoshihan/article/details/116824815?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=1">https://blog.csdn.net/taoshihan/article/details/116824815?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;utm_relevant_index=1</a></p>
+</blockquote></body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/git-main-branch/1.png" class="" width="800" height="200" title="git-main-branch">
+<p>每每 github 搞了一些新招就得重新適應一次（菸</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/17/zh-tw/git-main-branch/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/02/16/zh-tw/vue3-composition-api/" itemprop="url">Vue 3 的變革</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-02-16T07:12:05.000Z" itemprop="datePublished">2月 16 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/vue/">vue</a><span>></span><a class="article-category-link" href="/categories/vue/vue3/">vue3</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分鐘 讀完 (約 1244 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/vue3-composition-api/001.png" class="" width="800" height="200" title="vue3-composition-api">
+<p>本篇尚未完整，持續更新中…</p>
+<p>你還在用 Vue 2 整理那些物件包裹起來的 data、方法與生命週期的鉤子嗎？還在頭痛父子元件之間傳遞資料的複雜寫法嗎？如果想尋找更接近 typescript 易於維護的團隊開發方式，可以考慮無痛升級 Vue 3 唷！特快車來了還不跟上！</p>
+<p>Vue 3 用法隨著版本更新越來越精進與簡潔，尤其是使用漸進式 API 的寫法大大提升了整 code 的整潔與好維護度，以下是一些常用到的整理：</p>
+<!-- - Composition API setup() 
+- ref()  v.s. reactive() 
+- 減少 this 指向，改用 value 取得實體內的data
+- 自訂的 css 變數 var() 
+- Teleport 
+- Fragments 省略根元素 div 
+- Emits 獨立出來 
+- #fallback 顯示 loading 的內容 
+- ::v-slotted 定義插槽樣式 ::v-global 破除scoped的全域樣式
+- 生命週期 createApp
+- proxy -->
+
+<h1 id="Composition-API"><a href="#Composition-API" class="headerlink" title="Composition API"></a>Composition API</h1><p>Vue3 一項顯著的變革就是 Composition API，提升撰寫每一個元件專屬方法與資料的便利性：</p>
+<blockquote>
+<p>Composition API is a set of APIs that allows us to author Vue components using imported functions instead of declaring options. It is an umbrella term that covers the following APIs.<br>Composition API 使得元件得以直接使用 import 進來的 functions，而不是透過選項來宣告，該特性封裝了以下的 API方法：</p>
+</blockquote>
+<h3 id="Reactivity-API"><a href="#Reactivity-API" class="headerlink" title="Reactivity API"></a>Reactivity API</h3><p>  例如 <code>ref()</code> 和 <code>reactive()</code> 可創造響應式（reactive）、計算式（computed）與監聽（watchers）的資料狀態</p>
+<h3 id="Lifecycle-Hooks"><a href="#Lifecycle-Hooks" class="headerlink" title="Lifecycle Hooks"></a>Lifecycle Hooks</h3><p>  例如 <code>onMounted()</code> 和 <code>onUnmounted()</code>, 容許使用編成方式撰寫元件的生命週期鉤子</p>
+<h3 id="Dependency-Injection"><a href="#Dependency-Injection" class="headerlink" title="Dependency Injection"></a>Dependency Injection</h3><p>  例如 <code>provide()</code> and <code>inject()</code>, 提供一個<code>祖父 -&gt; 父(跳過) -&gt; 子</code>元件之間依賴注入（Dependency Injection）的接口，可以更好的分化元件之間的需求，了解更多內容可以詳讀<a target="_blank" rel="noopener" href="https://penueling.com/%E6%8A%80%E8%A1%93%E7%AD%86%E8%A8%98/vue3-%E7%9A%84%E8%B3%87%E6%96%99%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86%EF%BC%8Cprovide-inject%E3%80%81vuex/">這篇</a></p>
+<p>  簡單下個速記法：<br>  provide() 與 inject() 看做是 prop 的昇級版，看個示意圖吧！<br>  <img src="/images/vue3-composition-api/002.png" class="" width="800" height="200" title="vue3 composition api"></p>
+<h3 id="Setup-script"><a href="#Setup-script" class="headerlink" title="Setup script"></a>Setup script</h3><p>Vue 3 將 Composition API 整合在單個元件的 <code>&lt;script setup&gt;</code> 標籤中，可以直接默認寫在裡面的內容都是提升到 <code>created()</code> 和 <code>beforeCreated()</code>的生命週期階段去實踐的</p>
+<blockquote>
+<p>In Vue 3, it is also primarily used together with the <code>&lt;script setup&gt;</code> syntax in Single-File Components.</p>
+</blockquote>
+<figure class="highlight javascript hljs"><figcaption><span>component.vue</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">  <span class="hljs-keyword">import</span> { ref, onMounted } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// reactive state</span></span><br><span class="line">  <span class="hljs-keyword">const</span> count = <span class="title function_">ref</span>(<span class="hljs-number">0</span>)</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// functions that mutate state and trigger updates</span></span><br><span class="line">  <span class="hljs-keyword">function</span> <span class="title function_">increment</span>(<span class="hljs-params"></span>) {</span><br><span class="line">    count.<span class="hljs-property">value</span>++</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// lifecycle hooks</span></span><br><span class="line">  <span class="title function_">onMounted</span>(<span class="hljs-function">() =&gt;</span> {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">`The initial count is <span class="hljs-subst">${count.value}</span>.`</span>)</span><br><span class="line">  })</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"increment"</span>&gt;</span>Count is: <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h1 id="Reactivity-API-1"><a href="#Reactivity-API-1" class="headerlink" title="Reactivity API"></a>Reactivity API</h1><p>多了一層代理（proxy）包裹所有的資料（data），使得 vue3 在處理 data 上有些變革：</p>
+<ul>
+<li>ref() 傳入 primative value </li>
+<li>reactive() 傳入 object value<br>該選擇哪一種可以參考這篇 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/61452458/ref-vs-reactive-in-vue-3">ref vs reactive in Vue 3?</a>，滿有助益的解釋非常通透呢！</li>
+</ul>
+<h3 id="ref"><a href="#ref" class="headerlink" title="ref ()"></a>ref ()</h3><p>當你需要將資料型態重新賦值（reassign）時可以選用 <code>ref()</code>，其實該方法背後也調用了 <code>reactive()</code> 只是你不知道而已，原始型別非常適合使用此代理包裹，另外當你的物件型別資料並沒有一開始的屬性值，例如空物件或空陣列，也可以考慮使用這個方式。<br>需要特別注意的點就是該方法取值要添加 <code>.value</code> 才能取得。</p>
+<blockquote><p>ref() Use-Case<br>You’ll always use ref() for primitives, but ref() is good for objects that need to be reassigned, like an array.</p>
+</blockquote>
+<blockquote><p>When you write ref([]) it is equivalent to ref(reactive([])).</p>
+</blockquote>
+
+<h3 id="reactive"><a href="#reactive" class="headerlink" title="reactive ()"></a>reactive ()</h3><p>當需要將物件型別的資料型態其中某個屬性值透過指向參考（dot notation）來修改值的時候可以選用 <code>reactive()</code>，前提在於你知道該物件內容的屬性值有哪些，屬性值彼此之間的牽動關聯性是甚麼，甚至可以直接撰寫 <code>computed()</code> 來決定某屬性值，該方法須注意不能被重新賦值更改指向參考，完全不會理你。</p>
+<blockquote><p>看到透過 reactive 包裝後的資料連 computed 都包裝了進去，是不是覺得非常的方便，不需要再另外切開去寫computed ，在尋找相依性的資料也變簡單。<br><a target="_blank" rel="noopener" href="https://medium.com/i-am-mike/vue-3-ref-%E8%B7%9F-reactive-%E6%88%91%E8%A9%B2%E6%80%8E%E9%BA%BC%E9%81%B8-2fb6b6735a3c">https://medium.com/i-am-mike/vue-3-ref-%E8%B7%9F-reactive-%E6%88%91%E8%A9%B2%E6%80%8E%E9%BA%BC%E9%81%B8-2fb6b6735a3c</a></p>
+</blockquote>
+<blockquote><p>reactive() Use-Case<br>A good use-case for reactive() is a group of primitives that belong together:</p>
+</blockquote>
+
+<h1 id="props"><a href="#props" class="headerlink" title="props"></a>props</h1><h3 id="非必要的-props"><a href="#非必要的-props" class="headerlink" title="非必要的 props"></a>非必要的 props</h3><p>只需要在非必要的 props 加上<code>?</code> 就可以囉！不然 typescript 會一直跳出警語 <code>ts(2322)</code></p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const props = defineProps&lt;{ </span><br><span class="line">  span: number, </span><br><span class="line">  label: string, </span><br><span class="line">  name: string, </span><br><span class="line">  placeholder: string, </span><br><span class="line">  prefix?: {</span><br><span class="line">    type: string,</span><br><span class="line">    default: ''</span><br><span class="line">  }, </span><br><span class="line">  suffix?: {</span><br><span class="line">    type: string,</span><br><span class="line">    default: ''</span><br><span class="line">  }, </span><br><span class="line">}&gt;()</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h3 id="toRaw"><a href="#toRaw" class="headerlink" title="toRaw"></a>toRaw</h3><p>轉換透過vue創造的代理物件為普通物件，可轉換的代理物件有 <code>reactive()</code>, <code>readonly()</code>, <code>shallowReactive()</code> 或 <code>shallowReadonly()</code>。<br>This is an escape hatch that can be used to temporarily read </p>
+<blockquote><p>Returns the raw, original object of a Vue-created proxy.</p>
+</blockquote></body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/vue3-composition-api/001.png" class="" width="800" height="200" title="vue3-composition-api">
+<p>本篇尚未完整，持續更新中…</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/16/zh-tw/vue3-composition-api/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/02/12/zh-tw/laravel-installation/" itemprop="url">Windows 搭建 Laravel 環境的各種跌坑</a>
         
     </h1>
@@ -262,167 +437,11 @@
         
         <html><head></head><body><img src="/images/laravel-installation/0.png" class="" width="800" height="200" title="laravel-installation">
 <p>使用 Window 10 搭建 Laravel 框架的過程採了一堆大坑 QQ，經過幾番努力終於成功！<br>千萬不要認為裝套件都是敲一敲指令就可以了，工程師的路從來都沒有那麼好走，是天堂路阿孩子！<br>工欲善其事，必先利其器，先將裝備整頓好才能打 BOSS：</p>
-<h1 id="安裝-Composer"><a href="#安裝-Composer" class="headerlink" title="安裝 Composer"></a>安裝 <a target="_blank" rel="noopener" href="https://getcomposer.org/">Composer</a></h1><p>簡單介紹一下 composer 的用處，npm 是用來安裝 node.js 的套件管理工具，那麼 composer 就是用來安裝 php 套件的管理工具。<br>windows 這一步很簡單，按這裡就可以下載，設定那些一路按下去就好。</p>
-        <!--  -->
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/12/zh-tw/laravel-installation/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/02/12/zh-tw/laravel-installation/">more</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/02/11/zh-tw/less-css/" itemprop="url">預處理器新朋友-Less</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-02-11T11:43:57.000Z" itemprop="datePublished">2月 11 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/css/">css</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分鐘 讀完 (約 546 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/less-css/0.png" class="" width="800" height="200" title="less-css">
-<p>圖片來源:<a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/img/articles/201601/css-less-01.jpg">https://www.oxxostudio.tw/img/articles/201601/css-less-01.jpg</a></p>
-<p>在接觸了新的 Vue3 + Typescript + ant design vue 專案之後，認識了新的預處理器 Less，之前只有聽過 Scss 與 Sass，來認識一下甚麼是 Less 吧！</p>
-<h1 id="為什麼要使用預處理器"><a href="#為什麼要使用預處理器" class="headerlink" title="為什麼要使用預處理器"></a>為什麼要使用預處理器</h1><p>預處理器存在的目的方便開發者在撰寫 css 上可以更得心應手，使用類似程式語言開發的撰寫習慣來設計網頁畫面，例如變數、迴圈甚至是嵌套樣式讓寫法更多元與方便性，可以轉換成瀏覽器可閱讀的 css 樣貌，減少在刻畫面時只能瑣碎的處理細節與重複性很高的樣式名稱，造成維護的不友善。</p>
-<h1 id="Less-v-s-Sass"><a href="#Less-v-s-Sass" class="headerlink" title="Less v.s Sass ?"></a>Less v.s Sass ?</h1><p>現今常用的幾套預處理器如下：</p>
-<ul>
-<li>SASS（SCSS）</li>
-<li>LESS</li>
-<li>Stylus</li>
-<li>Turbine</li>
-<li>Switch CSS</li>
-<li>CSS Cacheer</li>
-<li>DT CSS</li>
-</ul>
-<p>Less 與 Sass 撰寫風格上很接近，以下舉例一些不同點：</p>
-<h3 id="變數的寫法"><a href="#變數的寫法" class="headerlink" title="變數的寫法"></a>變數的寫法</h3><ul>
-<li>Sass 以錢字號 $ 做開頭<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$mainColor: white;</span><br><span class="line">$siteWidth: <span class="hljs-number">1024px</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-tag">body</span> {</span><br><span class="line">  <span class="hljs-attribute">color</span>: $mainColor;</span><br><span class="line">  <span class="hljs-attribute">max-width</span>: $siteWidth;</span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
-<li>Less 以小老鼠 @ 做開頭<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">@mainColor</span>: white;</span><br><span class="line"><span class="hljs-keyword">@siteWidth</span>: <span class="hljs-number">1024px</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-tag">body</span> {</span><br><span class="line">  <span class="hljs-attribute">color</span>: @mainColor;</span><br><span class="line">  <span class="hljs-attribute">max-width</span>: @siteWidth;</span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
-</ul>
-<h3 id="嵌套的寫法"><a href="#嵌套的寫法" class="headerlink" title="嵌套的寫法"></a>嵌套的寫法</h3><ul>
-<li>Sass 與 Less 一樣<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">nav</span> {</span><br><span class="line">  <span class="hljs-selector-tag">a</span> {</span><br><span class="line">    <span class="hljs-attribute">color</span>: red;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-selector-tag">header</span> &amp; {</span><br><span class="line">      <span class="hljs-attribute">color</span>:green;</span><br><span class="line">    }</span><br><span class="line">  }  </span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
-</ul>
-<h3 id="繼承（延伸）的寫法"><a href="#繼承（延伸）的寫法" class="headerlink" title="繼承（延伸）的寫法"></a>繼承（延伸）的寫法</h3><ul>
-<li>Sass 使用關鍵字 @extend，以某個樣式當作基底延伸<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.error</span> { </span><br><span class="line">  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid red; </span><br><span class="line">  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fdd</span>; </span><br><span class="line">} </span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.seriousError</span> { </span><br><span class="line">  <span class="hljs-keyword">@extend</span> .error; </span><br><span class="line">  <span class="hljs-attribute">border-width</span>: <span class="hljs-number">3px</span>; </span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
-<li>Less 使用關鍵字 :extend<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.a1</span>:<span class="hljs-built_in">extend</span>(.b) {</span><br><span class="line">  <span class="hljs-attribute">color</span>:<span class="hljs-number">#f00</span>;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.a2</span>:<span class="hljs-built_in">extend</span>(.b all) {</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.b</span> {</span><br><span class="line">  <span class="hljs-attribute">border</span>:<span class="hljs-number">1px</span> solid;</span><br><span class="line">  <span class="hljs-attribute">font-size</span>:<span class="hljs-number">20px</span>;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.b</span><span class="hljs-selector-class">.c</span> {</span><br><span class="line">  <span class="hljs-attribute">text-align</span>:<span class="hljs-number">20px</span>;</span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
-</ul>
-<h3 id="混和的寫法"><a href="#混和的寫法" class="headerlink" title="混和的寫法"></a>混和的寫法</h3><ul>
-<li>Sass 使用關鍵字 @mixin，與繼承很像，但寫法類似獨立的模塊（module），@include 提供其他樣式引入<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.error</span> { </span><br><span class="line">  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid red; </span><br><span class="line">  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fdd</span>; </span><br><span class="line">} </span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.seriousError</span> { </span><br><span class="line">  <span class="hljs-keyword">@extend</span> .error; </span><br><span class="line">  <span class="hljs-attribute">border-width</span>: <span class="hljs-number">3px</span>; </span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
-<li>Less 的混合與一般 class 樣式很像，以一個名稱後方的大括號承接外部樣式傳入的參數（parameters），編譯之後是看不到的<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.fn1</span>(<span class="hljs-keyword">@v</span>) {</span><br><span class="line">  <span class="hljs-attribute">border-width</span>: @v;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.box1</span> {</span><br><span class="line">  <span class="hljs-selector-class">.fn1</span>(<span class="hljs-number">10px</span>);</span><br><span class="line">}</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure></li>
-</ul>
-<p>參考文章：</p>
-<blockquote><p><a target="_blank" rel="noopener" href="https://www.astralweb.com.tw/introduction-to-css-preprocessor-sass-and-less/">https://www.astralweb.com.tw/introduction-to-css-preprocessor-sass-and-less/</a></p>
-</blockquote></body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/less-css/0.png" class="" width="800" height="200" title="less-css">
-<p>圖片來源:<a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/img/articles/201601/css-less-01.jpg">https://www.oxxostudio.tw/img/articles/201601/css-less-01.jpg</a></p>
-<p>在接觸了新的 Vue3 + Typescript + ant design vue 專案之後，認識了新的預處理器 Less，之前只有聽過 Scss 與 Sass，來認識一下甚麼是 Less 吧！</p>
-        <!--  -->
-        
-        <p class="article-more-link">
-            <a href="/2022/02/11/zh-tw/less-css/">more</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/02/10/zh-tw/git-pat/" itemprop="url">Github 登入新制 PAT X Sourcetree</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-02-10T04:31:14.000Z" itemprop="datePublished">2月 10 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/git/">git</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            3 分鐘 讀完 (約 485 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><p>在2022年某天，嘗試使用 sourcetree 推上去新 code 時，在 Github 時出現了以下錯誤訊息：</p>
-<blockquote class="colorquote danger"><p>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.<br>remote: Please see <a target="_blank" rel="noopener" href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a> for more information.<br>fatal: unable to access “…” : The requested URL returned error: 403</p>
-</blockquote>
-
-<p>以上說明大概就是 Github 已經不支援密碼登入的方式，從 2021/08/13 開始必須替換為 PAT 的 token 登入方式進行認證。</p>
-<p>這個過程採了一些小坑，為了避免自己忘記趕緊的筆記一下：</p>
-<h1 id="Github-創建-token"><a href="#Github-創建-token" class="headerlink" title="Github 創建 token"></a>Github 創建 token</h1>  <blockquote><p>From your GitHub account, go to Settings =&gt; Developer Settings =&gt; Personal Access Token =&gt; Generate New Token (Give your password) =&gt; Fillup the form =&gt; click Generate token =&gt; Copy the generated Token, it will be something like ghp_sFhFsSHhTzMDreGRLjmks4Tzuzgthdvfsrta</p>
-</blockquote>
-<ol>
-<li>按下右上角頭像，選取 settings  <img src="/images/github-pat/github-pat1.png" class="" width="800" height="100" title="[title text [alt text]]"></li>
-<li>按下 developer settings  <img src="/images/github-pat/github-pat2.png" class="" width="800" height="200" title="[title text [alt text]]"></li>
-<li>點選 personal accesss token  <img src="/images/github-pat/github-pat2-1.png" class="" width="800" height="200" title="[title text [alt text]]"></li>
-<li>填寫 token 用途與勾選 token 權限之後，申請一個 token 並且妥善保存  <img src="/images/github-pat/github-pat2-2.png" class="" width="800" height="200" title="[title text [alt text]]"></li>
-</ol>
-<h1 id="sourceTree-修改遠端-URL"><a href="#sourceTree-修改遠端-URL" class="headerlink" title="sourceTree 修改遠端 URL"></a>sourceTree 修改遠端 URL</h1><p>  專案的 repo 點選 settings 修改 remote URL 的格式如下，<br>  </p><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://&lt;USERNAME&gt;:&lt;TOKEN&gt;@&lt;GIT_URL&gt;.git</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>  查詢 GIT_URL 可以透過這個指令：<br>  </p><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --get remote.origin.url</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>  並且記得 GIT_URL 要刪除 https:// 的部分才不會出錯，類似這樣<br>  </p><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://mawchu:&lt;你的Github token&gt;@github.com/mawchu/mawchu.github.io.git</span><br></pre></td></tr></tbody></table></figure><p></p>
-<h1 id="驗證-Sourcetree-的身分"><a href="#驗證-Sourcetree-的身分" class="headerlink" title="驗證 Sourcetree 的身分"></a>驗證 Sourcetree 的身分</h1>  <img src="/images/github-pat/github-pat3.png" class="" width="800" height="200" title="[title text [alt text]]">
-  <img src="/images/github-pat/github-pat3-1.png" class="" width="800" height="200" title="[title text [alt text]]">
-
-<p>  切換 OAuth 為 Basic 驗證方式，輸入方才申請好的 token 密碼<br>  <img src="/images/github-pat/github-pat4.png" class="" width="800" height="200" title="[title text [alt text]]"></p>
-<p>  驗證 OK 就可以推上去囉！</p>
-<p>參考文章：</p>
-<blockquote><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to">https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/68191968/source-tree-fix-for-git-password-authentication-is-temporarily-disabled-as-part">https://stackoverflow.com/questions/68191968/source-tree-fix-for-git-password-authentication-is-temporarily-disabled-as-part</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr">https://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr</a></p>
-</blockquote>
-</body></html> -->
-        
-        
-        <html><head></head><body><p>在2022年某天，嘗試使用 sourcetree 推上去新 code 時，在 Github 時出現了以下錯誤訊息：</p>
-<blockquote class="colorquote danger"><p>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.<br>remote: Please see <a target="_blank" rel="noopener" href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a> for more information.<br>fatal: unable to access “…” : The requested URL returned error: 403</p>
-</blockquote>
-        <!--  -->
-        
-        <p class="article-more-link">
-            <a href="/2022/02/10/zh-tw/git-pat/">more</a>
-        </p>
     
     </div>
     
@@ -443,7 +462,7 @@
             prev
         </a>
     </div>
-    <div class="pagination-next is-invisible is-hidden-mobile">
+    <div class="pagination-next">
 
         <a href="/page/14/">
             next
@@ -459,6 +478,8 @@
         <li><a class="pagination-link" href="/page/12/">12</a></li>
         
         <li><a class="pagination-link is-current" href="/page/13/">13</a></li>
+        
+        <li><a class="pagination-link" href="/page/14/">14</a></li>
         
     </ul>
 </nav>
@@ -598,42 +619,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

@@ -155,7 +155,7 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/08/07/git-remove-submodule/" itemprop="url">git 移除 submodule</a>
+            <a href="/2022/08/07/zh-tw/git-remove-submodule/" itemprop="url">git 移除 submodule</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -174,13 +174,14 @@
         <span class="column is-narrow">
             
             
-            2 分鐘 讀完 (約 238 字)
+            2 分鐘 讀完 (約 247 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
+        <!-- <html><head></head><body><img src="/images/git-remove-submodule/0.png" class="" width="800" height="200" title="git-remove-submodule">
+<h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
 <img src="/images/git-remove-submodule/1.png" class="" width="800" height="200" title="git-remove-submodule">
 
 <p>以下記錄自己如何將修改後的 minos 資料夾：</p>
@@ -194,14 +195,13 @@
 </body></html> -->
         
         
-        <html><head></head><body><h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
-<img src="/images/git-remove-submodule/1.png" class="" width="800" height="200" title="git-remove-submodule">
-
-        <!--  -->
+        <html><head></head><body><img src="/images/git-remove-submodule/0.png" class="" width="800" height="200" title="git-remove-submodule">
+<h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/08/07/zh-tw/git-remove-submodule/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/08/07/git-remove-submodule/">more</a>
-        </p>
     
     </div>
     
@@ -251,15 +251,11 @@
         
         <html><head></head><body><p>這裡記錄一些工作上會用到的 git 指令，太容易忘記了阿（扶額</p>
 <h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="遠端-URL"><a href="#遠端-URL" class="headerlink" title="遠端 URL"></a>遠端 URL</h1><h3 id="更換遠端-URL"><a href="#更換遠端-URL" class="headerlink" title="更換遠端 URL"></a>更換遠端 URL</h3><p>因應 PAT 新制，remote origin 格式必須更改如下：</p>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin https://&lt;USERNAME&gt;:&lt;TOKEN&gt;@&lt;GIT_URL&gt;.git</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="查看遠端-URL"><a href="#查看遠端-URL" class="headerlink" title="查看遠端 URL"></a>查看遠端 URL</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="將專案推上去遠端-URL"><a href="#將專案推上去遠端-URL" class="headerlink" title="將專案推上去遠端 URL"></a>將專案推上去遠端 URL</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></tbody></table></figure></body></html>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/21/zh-tw/git-command-line/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/02/21/zh-tw/git-command-line/">more</a>
-        </p>
     
     </div>
     
@@ -328,12 +324,11 @@
         
         <html><head></head><body><img src="/images/git-main-branch/1.png" class="" width="800" height="200" title="git-main-branch">
 <p>每每 github 搞了一些新招就得重新適應一次（菸</p>
-<p>這兩天在做小專案 git init 之後準備推上去 github 時，執行以下的老樣子：</p>
-        <!--  -->
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/17/zh-tw/git-main-branch/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/02/17/zh-tw/git-main-branch/">more</a>
-        </p>
     
     </div>
     
@@ -402,12 +397,11 @@
         
         <html><head></head><body><p>在2022年某天，嘗試使用 sourcetree 推上去新 code 時，在 Github 時出現了以下錯誤訊息：</p>
 <blockquote class="colorquote danger"><p>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.<br>remote: Please see <a target="_blank" rel="noopener" href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a> for more information.<br>fatal: unable to access “…” : The requested URL returned error: 403</p>
-</blockquote>
-        <!--  -->
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/10/zh-tw/git-pat/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/02/10/zh-tw/git-pat/">more</a>
-        </p>
     
     </div>
     
@@ -555,42 +549,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

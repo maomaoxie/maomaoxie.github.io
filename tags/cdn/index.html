@@ -152,7 +152,7 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/08/07/wordpress-get-started/" itemprop="url">開始我的第一個 wordpress 網站</a>
+            <a href="/2022/08/07/zh-tw/wordpress-get-started/" itemprop="url">開始我的第一個 wordpress 網站</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -211,12 +211,11 @@ duplicate page
         
         <html><head></head><body><h1 id="第一步-產生-ip-位址"><a href="#第一步-產生-ip-位址" class="headerlink" title="第一步 - 產生 ip 位址"></a>第一步 - 產生 ip 位址</h1><p>首先要租賃一台伺服器提供 ip，可以考慮較優惠的主機廠商：遠振或 bluehost。<br>要注意的是，一個 domain 可以放置很多網站資料夾，並且設定sub-domian。</p>
 <h1 id="第二步-DNS-註冊"><a href="#第二步-DNS-註冊" class="headerlink" title="第二步 - DNS 註冊"></a>第二步 - DNS 註冊</h1><p>ip 設定好之後就可以將網域指過來指定的 DNS 網域商：<br>中華電信提供的 .tw　較便宜，而 godaddy 則是 .com 較便宜。</p>
-<h1 id="第三步-cdn-分散流量"><a href="#第三步-cdn-分散流量" class="headerlink" title="第三步 - cdn 分散流量"></a>第三步 - cdn 分散流量</h1><p>常用的 cdn 廠商像是 cloudflare，可以註冊一個離主機近的（例如東京）cdn 位址，其他供應商例如 sugarhost 很便宜但連線較慢。</p>
-        <!--  -->
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/08/07/zh-tw/wordpress-get-started/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/08/07/wordpress-get-started/">more</a>
-        </p>
     
     </div>
     
@@ -363,42 +362,56 @@ duplicate page
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

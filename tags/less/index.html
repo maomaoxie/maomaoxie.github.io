@@ -214,12 +214,11 @@
         
         <html><head></head><body><img src="/images/less-css/0.png" class="" width="800" height="200" title="less-css">
 <p>圖片來源:<a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/img/articles/201601/css-less-01.jpg">https://www.oxxostudio.tw/img/articles/201601/css-less-01.jpg</a></p>
-<p>在接觸了新的 Vue3 + Typescript + ant design vue 專案之後，認識了新的預處理器 Less，之前只有聽過 Scss 與 Sass，來認識一下甚麼是 Less 吧！</p>
-        <!--  -->
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/11/zh-tw/less-css/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/02/11/zh-tw/less-css/">more</a>
-        </p>
     
     </div>
     
@@ -366,42 +365,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

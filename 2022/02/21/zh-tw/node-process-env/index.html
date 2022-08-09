@@ -31,8 +31,8 @@
 <meta property="article:published_time" content="2022-02-21T06:48:33.000Z">
 <meta property="article:modified_time" content="2022-08-01T16:03:26.715Z">
 <meta property="article:author" content="Mawchu 謝佳芳">
-<meta property="article:tag" content="git">
 <meta property="article:tag" content="node">
+<meta property="article:tag" content="git">
 <meta property="article:tag" content="env">
 <meta property="article:tag" content="process">
 <meta property="article:tag" content="dotenv">
@@ -213,7 +213,7 @@
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/node-process-env/1.png" class="" width="800" height="200" title="node-process-env">
+            <html><head></head><body><img src="/images/node-process-env/1.png" class="" width="800" height="200" title="node-process-env">
 <p>圖片來源:<a target="_blank" rel="noopener" href="https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c">https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c</a></p>
 <p>開發專案的時候機密文件如何保存很重要，可以保護不被有心人士竊取，像是 API 金鑰、client-ID 與 client-secret 等可以呼叫遠端資料的通關密碼都需要妥善保存不暴露到網站上。<br>這邊來說明一下怎麼設置專案裡的環境檔案，並且讀取機密資料：</p>
 <h1 id="創建-env-檔案"><a href="#創建-env-檔案" class="headerlink" title="創建 .env 檔案"></a>創建 .env 檔案</h1><p>首先在跟目錄新增一個 .env 檔案，甚至可以設置以下幾種檔案來撰寫想要的環境模式腳本：</p>
@@ -248,17 +248,14 @@
 </blockquote>
 </body></html>
         
-        <p class="article-more-link">
-            <a href="/2022/02/21/zh-tw/node-process-env/">more</a>
-        </p>
     
     </div>
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/git/">#git</a></span>
-    
         <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/node/">#node</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/git/">#git</a></span>
     
         <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/env/">#env</a></span>
     
@@ -454,42 +451,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

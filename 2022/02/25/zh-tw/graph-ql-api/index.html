@@ -195,7 +195,7 @@
 </blockquote></body></html> -->
         
         
-        <html><head></head><body><img src="/images/graph-ql-api/0.png" class="" width="800" height="200" title="[css-less [css-less]]">
+            <html><head></head><body><img src="/images/graph-ql-api/0.png" class="" width="800" height="200" title="[css-less [css-less]]">
 <p>隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！</p>
 <p>2012 年 facebook 內部研發出來的新形態 API，2015 年提出發表，特點是前端可以直接進資料庫，不需要透過後端查詢撈取資料。<br>概念有一點類似用前端語言操作 <code>MySQL</code>。前端也擁有更彈性的空間來制定查詢資料的規則與方式，有更大話語權，但相對來講也增加資料設計的難度，在思考的維度上需要更廣更深才能靈活應付多變的資料需求。</p>
 <h1 id="Graph-QL-操作概念"><a href="#Graph-QL-操作概念" class="headerlink" title="Graph QL 操作概念"></a>Graph QL 操作概念</h1><img src="/images/graph-ql-api/1.png" class="" width="800" height="200" title="[css-less [css-less]]">
@@ -213,9 +213,6 @@
 <blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用<br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10200678">https://ithelp.ithome.com.tw/articles/10200678</a></p>
 </blockquote></body></html>
         
-        <p class="article-more-link">
-            <a href="/2022/02/25/zh-tw/graph-ql-api/">more</a>
-        </p>
     
     </div>
     
@@ -415,42 +412,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

@@ -5,28 +5,25 @@
         <link>http://maomaoxie.github.io</link>
         <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
         <language>zh-tw,en,default</language>
-        <pubDate>Sun, 07 Aug 2022 16:07:24 +0800</pubDate>
-        <lastBuildDate>Sun, 07 Aug 2022 16:07:24 +0800</lastBuildDate>
-        <category>hexo</category>
-        <category>git</category>
-        <category>submodule</category>
-        <category>rss</category>
-        <category>wordpress</category>
-        <category>dns</category>
-        <category>cdn</category>
-        <category>javascript</category>
-        <category>constructor</category>
-        <category>instance</category>
-        <category>methods</category>
-        <category>github</category>
+        <pubDate>Tue, 09 Aug 2022 15:14:24 +0800</pubDate>
+        <lastBuildDate>Tue, 09 Aug 2022 15:14:24 +0800</lastBuildDate>
         <category>backEnd</category>
         <category>node</category>
         <category>express</category>
         <category>router</category>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>git</category>
+        <category>github</category>
         <category>sourceTree</category>
+        <category>hexo</category>
+        <category>submodule</category>
         <category>api</category>
         <category>graphQL</category>
         <category>facebook</category>
+        <category>rss</category>
         <category>http</category>
         <category>https</category>
         <category>request</category>
@@ -41,39 +38,99 @@
         <category>linux</category>
         <category>blade</category>
         <category>wsl2</category>
+        <category>layout</category>
         <category>migration</category>
         <category>sql</category>
-        <category>layout</category>
         <category>public</category>
         <category>static</category>
+        <category>tailwind</category>
         <category>css</category>
         <category>less</category>
         <category>processors</category>
-        <category>tailwind</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
         <category>webService</category>
         <category>restfulApi</category>
-        <category>vue</category>
-        <category>vue3</category>
-        <category>compositionAPI</category>
         <category>shortCircuit</category>
         <category>optionalChaining</category>
         <category>tricks</category>
-        <category>WebSocket</category>
-        <category>WebHook</category>
+        <category>vue</category>
+        <category>vue3</category>
+        <category>compositionAPI</category>
         <category>vite</category>
         <category>typescript</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <category>vuetify</category>
+        <category>html</category>
+        <category>wordpress</category>
+        <category>dns</category>
+        <category>cdn</category>
         <item>
-            <guid isPermalink="true">http://maomaoxie.github.io/2022/08/07/git-remove-submodule/</guid>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/08/09/http-methods-idempotent/</guid>
+            <title>RESTful API 方法介紹 - idempotent</title>
+            <link>http://maomaoxie.github.io/2022/08/09/http-methods-idempotent/</link>
+            <pubDate>Tue, 09 Aug 2022 15:14:24 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;RESTful API 呼叫的方法中，離不開四個主軸 CRUD，CREATE、READ/RETRIVE、UPDATE 還有 DELETE，而其中就有分是否為 Idempotent 的方法，甚麼意思呢？&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;A request method is considered “idempotent” if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;看為只覺得在母鯊大，沒關係我們繼續看下去：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Of the request methods defined by this specification, PUT, DELETE, and safe request methods are idempotent.&lt;br&gt;來源：&lt;a href=&#34;https://lance.coderbridge.io/2021/06/06/what-is-safe-method-and-indempotent-methods/&#34;&gt;https://lance.coderbridge.io/2021/06/06/what-is-safe-method-and-indempotent-methods/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;簡單來說簡單請求就是 Idempotent 的方法，不管你做一次跟一百次對於伺服器端資料改動的結果都一樣，是安全而沒有副作用的，可以安心服用；&lt;br&gt;相反的非 Idempotent 的方法則是需要謹慎考慮的、會改動伺服器資料庫的、有副作用的，也就是非簡單請求。&lt;/p&gt;
+&lt;h1 id=&#34;idempotent-methods&#34;&gt;&lt;a href=&#34;#idempotent-methods&#34; class=&#34;headerlink&#34; title=&#34;idempotent methods&#34;&gt;&lt;/a&gt;idempotent methods&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;GET&lt;/li&gt;
+&lt;li&gt;HEAD, PUT, and DELETE&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/08/09/zh-tw/vuetify-slot-vhtml/</guid>
+            <title>如何在 vuetify 元件中渲染 v-html</title>
+            <link>http://maomaoxie.github.io/2022/08/09/zh-tw/vuetify-slot-vhtml/</link>
+            <category>vue</category>
+            <category>vuetify</category>
+            <category>html</category>
+            <pubDate>Tue, 09 Aug 2022 12:09:43 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/vuetify-slot-vhtml/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;vuetify-slot-vhtml&#34;&gt;
+&lt;p&gt;使用 vuetify 元件時常有的狀況劇就是 - 標題的 UI 設計需要客製化，例如放上 fontawesome 的 icon，但你的元件是 vuetify 父元件（v-select），客製的對象是迴圈後的子元件（選單下的選項 v-selection），這時候要如何成功渲染 fontawesome 的 icon ?&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;vuetify&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;v-select&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    :items=&lt;span class=&#34;hljs-string&#34;&gt;&#34;items&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    label=&lt;span class=&#34;hljs-string&#34;&gt;&#34;Standard&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;&amp;lt;/v-select&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;使用-lt-i-gt-lt-i-gt-標籤&#34;&gt;&lt;a href=&#34;#使用-lt-i-gt-lt-i-gt-標籤&#34; class=&#34;headerlink&#34; title=&#34;使用 &lt;i&gt;&lt;/i&gt; 標籤&#34;&gt;&lt;/a&gt;使用 &lt;code&gt;&amp;lt;i&amp;gt;&amp;lt;/i&amp;gt;&lt;/code&gt; 標籤&lt;/h1&gt;&lt;p&gt;目前可以知道的小撇步就是 fontawesome 的 icon 要使用 vue v-html 渲染，必須使用 &lt;code&gt;&amp;lt;i&amp;gt;&amp;lt;/i&amp;gt;&lt;/code&gt; 標籤才能成功，不能放入 vuetify  &lt;code&gt;&amp;lt;v-icon&amp;gt;&amp;lt;/v-icon&amp;gt;&lt;/code&gt;，無法正確編譯成 html。&lt;/p&gt;
+&lt;h1 id=&#34;在父元件內使用-v-slot&#34;&gt;&lt;a href=&#34;#在父元件內使用-v-slot&#34; class=&#34;headerlink&#34; title=&#34;在父元件內使用 v-slot&#34;&gt;&lt;/a&gt;在父元件內使用 v-slot&lt;/h1&gt;&lt;p&gt;可以知道目前的元件結構會是這樣的：&lt;br&gt;v-select（父）&lt;br&gt;        ｜&lt;br&gt;    v-selection（子）&lt;/p&gt;
+&lt;p&gt;選項是這樣：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    { &lt;span class=&#34;hljs-attr&#34;&gt;value&lt;/span&gt;:&lt;span class=&#34;hljs-string&#34;&gt;&#34;0&#34;&lt;/span&gt;,&lt;span class=&#34;hljs-attr&#34;&gt;text&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;lt;i class=&#34;&lt;/span&gt;fab fa-apple&lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;gt;&amp;lt;/i&amp;gt; apple&#34;&lt;/span&gt; },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    { &lt;span class=&#34;hljs-attr&#34;&gt;value&lt;/span&gt;:&lt;span class=&#34;hljs-string&#34;&gt;&#34;1&#34;&lt;/span&gt;,&lt;span class=&#34;hljs-attr&#34;&gt;text&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;lt;i class=&#34;&lt;/span&gt;fab fa-google-drive&lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;gt;&amp;lt;/i&amp;gt; google&#34;&lt;/span&gt; },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;vuetify 父元件（v-select）透過 props items 選項的陣列可以使用 v-slot 轉換成 html 模板傳入：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Override the item and selection slots, and use v-html.&lt;br&gt;參考網址：&lt;a href=&#34;https://stackoverflow.com/questions/56665185/show-raw-html-in-vuetify-v-select&#34;&gt;https://stackoverflow.com/questions/56665185/show-raw-html-in-vuetify-v-select&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;vue-2-版本&#34;&gt;&lt;a href=&#34;#vue-2-版本&#34; class=&#34;headerlink&#34; title=&#34;vue 2 版本&#34;&gt;&lt;/a&gt;vue 2 版本&lt;/h3&gt;&lt;p&gt;由於子元件會有 default 選項，要使用插槽針對 &lt;strong&gt;selection&lt;/strong&gt; 修改；&lt;br&gt;而下拉選項要使用插槽針對 &lt;strong&gt;item&lt;/strong&gt; 修改。&lt;/p&gt;
+&lt;h5 id=&#34;寫法-1&#34;&gt;&lt;a href=&#34;#寫法-1&#34; class=&#34;headerlink&#34; title=&#34;寫法 1&#34;&gt;&lt;/a&gt;寫法 1&lt;/h5&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;slot 範例 1&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;v-select :items=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-slot:item&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-slot:selection&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/v-select&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h5 id=&#34;寫法-2&#34;&gt;&lt;a href=&#34;#寫法-2&#34; class=&#34;headerlink&#34; title=&#34;寫法 2&#34;&gt;&lt;/a&gt;寫法 2&lt;/h5&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;slot 範例 1&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;v-select :items=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-slot:item&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-slot:selection&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/v-select&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;簡潔版本&#34;&gt;&lt;a href=&#34;#簡潔版本&#34; class=&#34;headerlink&#34; title=&#34;簡潔版本&#34;&gt;&lt;/a&gt;簡潔版本&lt;/h3&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;slot 範例 2&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;v-select :items=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;slot&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item&#39;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;slot-scope&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/v-select&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;vue-3-版本&#34;&gt;&lt;a href=&#34;#vue-3-版本&#34; class=&#34;headerlink&#34; title=&#34;vue 3 版本&#34;&gt;&lt;/a&gt;vue 3 版本&lt;/h3&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;slot 範例 3&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;template #item=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/template&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;vuetify-api-說明&#34;&gt;&lt;a href=&#34;#vuetify-api-說明&#34; class=&#34;headerlink&#34; title=&#34;vuetify api 說明&#34;&gt;&lt;/a&gt;vuetify api 說明&lt;/h1&gt;&lt;p&gt;在每個元件的 api 文件下方都有提供現成的插槽可以使用：&lt;/p&gt;
+&lt;img src=&#34;/images/vuetify-slot-vhtml/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;vuetify-slot-vhtml&#34;&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/08/07/zh-tw/git-remove-submodule/</guid>
             <title>git 移除 submodule</title>
-            <link>http://maomaoxie.github.io/2022/08/07/git-remove-submodule/</link>
-            <category>hexo</category>
+            <link>http://maomaoxie.github.io/2022/08/07/zh-tw/git-remove-submodule/</link>
             <category>git</category>
+            <category>hexo</category>
             <category>submodule</category>
             <pubDate>Sun, 07 Aug 2022 16:07:24 +0800</pubDate>
-            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;git-submodule&#34;&gt;&lt;a href=&#34;#git-submodule&#34; class=&#34;headerlink&#34; title=&#34;git submodule&#34;&gt;&lt;/a&gt;git submodule&lt;/h1&gt;&lt;p&gt;在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。&lt;/p&gt;
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/git-remove-submodule/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;git-remove-submodule&#34;&gt;
+&lt;h1 id=&#34;git-submodule&#34;&gt;&lt;a href=&#34;#git-submodule&#34; class=&#34;headerlink&#34; title=&#34;git submodule&#34;&gt;&lt;/a&gt;git submodule&lt;/h1&gt;&lt;p&gt;在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。&lt;/p&gt;
 &lt;img src=&#34;/images/git-remove-submodule/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;git-remove-submodule&#34;&gt;
 
 &lt;p&gt;以下記錄自己如何將修改後的 minos 資料夾：&lt;/p&gt;
@@ -87,9 +144,9 @@
 &lt;/body&gt;&lt;/html&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://maomaoxie.github.io/2022/08/07/wordpress-get-started/</guid>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/08/07/zh-tw/wordpress-get-started/</guid>
             <title>開始我的第一個 wordpress 網站</title>
-            <link>http://maomaoxie.github.io/2022/08/07/wordpress-get-started/</link>
+            <link>http://maomaoxie.github.io/2022/08/07/zh-tw/wordpress-get-started/</link>
             <category>wordpress</category>
             <category>dns</category>
             <category>cdn</category>
@@ -131,9 +188,9 @@ duplicate page
 &lt;/body&gt;&lt;/html&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://maomaoxie.github.io/2022/08/05/hexo-rss/</guid>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/08/05/zh-tw/hexo-rss/</guid>
             <title>Hexo RSS 自動產生器</title>
-            <link>http://maomaoxie.github.io/2022/08/05/hexo-rss/</link>
+            <link>http://maomaoxie.github.io/2022/08/05/zh-tw/hexo-rss/</link>
             <category>hexo</category>
             <category>rss</category>
             <pubDate>Fri, 05 Aug 2022 15:39:34 +0800</pubDate>
@@ -538,88 +595,6 @@ duplicate page
 &lt;img src=&#34;/images/laravel-public/3.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;Laravel public 靜態檔案&#34;&gt;
 
 
-&lt;/body&gt;&lt;/html&gt; ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://maomaoxie.github.io/2022/04/10/zh-tw/laravel-layout/</guid>
-            <title>Laravel 善用 layout 避免重複的模板</title>
-            <link>http://maomaoxie.github.io/2022/04/10/zh-tw/laravel-layout/</link>
-            <category>laravel</category>
-            <category>blade</category>
-            <category>layout</category>
-            <pubDate>Sun, 10 Apr 2022 14:54:20 +0800</pubDate>
-            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/laravel-layout/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
-
-&lt;p&gt;在設計 UI 模板時重複使用的內容屢見不鮮，例如 header、footer 或是 sidebar 等多是網站中分頁裡的標配，這時候重複貼上一樣的模板就顯得有點呆，Laravel MVC 架構中 views 可以創建一個 layout 模板資料夾，重複的 UI 配置可以放置在這裡提供其他分頁的 blade 檔案使用，這樣一來也能省去 layout 修改時相關的檔案都要更改的麻煩事，統一在 layout 裡調整即可：&lt;/p&gt;
-&lt;h1 id=&#34;建立-layout-資料夾&#34;&gt;&lt;a href=&#34;#建立-layout-資料夾&#34; class=&#34;headerlink&#34; title=&#34;建立 layout 資料夾&#34;&gt;&lt;/a&gt;建立 layout 資料夾&lt;/h1&gt;&lt;p&gt;此資料夾可以存放共用的模板，例如 header、footer 或是 sidebar 的模板 html。&lt;br&gt;在 project 裡的 &lt;code&gt;resources/views&lt;/code&gt; 建立一個 layout 資料夾：&lt;/p&gt;
-&lt;img src=&#34;/images/laravel-layout/1.png&#34; class=&#34;&#34; width=&#34;300&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;撰寫模板&#34;&gt;&lt;a href=&#34;#撰寫模板&#34; class=&#34;headerlink&#34; title=&#34;撰寫模板&#34;&gt;&lt;/a&gt;撰寫模板&lt;/h1&gt;&lt;p&gt;確立好 controller 中與 views 與 routes 的連結後，就可以著手進行模板的拆分啦！&lt;/p&gt;
-&lt;h3 id=&#34;extends-‘layoutFolder-x2F-layout’&#34;&gt;&lt;a href=&#34;#extends-‘layoutFolder-x2F-layout’&#34; class=&#34;headerlink&#34; title=&#34;@extends(‘layoutFolder/layout’)&#34;&gt;&lt;/a&gt;@extends(‘layoutFolder/layout’)&lt;/h3&gt;&lt;p&gt;承接共用模板的其他 views 則使用此語法接收模板，撰寫資料夾路徑方式有兩種：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;斜線&lt;/li&gt;
-&lt;li&gt;點&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;about.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;extends&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;layout.layout&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;about.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;extends&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;layout/layout&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h3 id=&#34;yield-‘content’&#34;&gt;&lt;a href=&#34;#yield-‘content’&#34; class=&#34;headerlink&#34; title=&#34;@yield(‘content’)&#34;&gt;&lt;/a&gt;@yield(‘content’)&lt;/h3&gt;&lt;p&gt;yield 像是在告訴 php 說我這裡需要挖個洞，待會會丟 html 進來，請認名稱來辨識丟進來的檔案：&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;layout/layout.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;很多要共用的 html&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...(通常是 header)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;yield&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;content&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;很多要共用的 html&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...(通常是 footer)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h3 id=&#34;section-‘content’-…-endsection&#34;&gt;&lt;a href=&#34;#section-‘content’-…-endsection&#34; class=&#34;headerlink&#34; title=&#34;@section(‘content’) … @endsection&#34;&gt;&lt;/a&gt;@section(‘content’) … @endsection&lt;/h3&gt;&lt;p&gt;section 類似 vue 的 slot，把其他網頁要替換的內容插入這個插槽中，在通過剛才的 &lt;code&gt;@yield(&#39;content&#39;)&lt;/code&gt; 將page愈替換的內容塞進去共用的模板中：&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;page.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;extends&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;layout/layout&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;section&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;content&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  這裡是 page content&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@endsection&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img src=&#34;/images/laravel-layout/3.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
-&lt;img src=&#34;/images/laravel-layout/2.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;獨立每個頁面的-script&#34;&gt;&lt;a href=&#34;#獨立每個頁面的-script&#34; class=&#34;headerlink&#34; title=&#34;獨立每個頁面的 script&#34;&gt;&lt;/a&gt;獨立每個頁面的 script&lt;/h1&gt;&lt;p&gt;插槽的概念同樣可以挖洞給每個獨立頁面放置專屬的 javascript，在 layout 的  之前放置 @yield(‘after_js’) 來承接 page 各自的 &lt;code&gt;&amp;lt;script&amp;gt;...&amp;lt;/script&amp;gt;&lt;/code&gt;：&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;layout/layout.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  @&lt;span class=&#34;title function_&#34;&gt;yield&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;after_js&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;page.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;section&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;content&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;title function_&#34;&gt;alert&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#34;Hey!It&#39;s about page.&#34;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@endsection&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img src=&#34;/images/laravel-layout/4.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;簡化-section&#34;&gt;&lt;a href=&#34;#簡化-section&#34; class=&#34;headerlink&#34; title=&#34;簡化 @section&#34;&gt;&lt;/a&gt;簡化 @section&lt;/h1&gt;&lt;p&gt;每個頁面會有不同的 SEO 內容，例如 &lt;code&gt;title&lt;/code&gt; 或是其他的 meta data，這時候 &lt;code&gt;@section&lt;/code&gt; 又派上用場了，不同的是&lt;strong&gt;第二個參數&lt;/strong&gt;可以傳入文字檔來渲染內容：&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;layout/layout.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;@yield(&#39;title&#39;)&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;page.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@&lt;span class=&#34;title function_&#34;&gt;section&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;title&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;pageTitle&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img src=&#34;/images/laravel-layout/5.png&#34; class=&#34;&#34; width=&#34;300&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
-&lt;img src=&#34;/images/laravel-layout/6.png&#34; class=&#34;&#34; width=&#34;300&#34; height=&#34;200&#34; title=&#34;laravel-layout&#34;&gt;
-
-&lt;hr&gt;
-&lt;blockquote&gt;&lt;p&gt;參考資料：&lt;br&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=AGE3wRKljkw&amp;amp;t=2402s&#34;&gt;https://www.youtube.com/watch?v=AGE3wRKljkw&amp;amp;t=2402s&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://maomaoxie.github.io/2022/04/06/zh-tw/laravel-routes-controller/</guid>
-            <title>Laravel 認識 controller</title>
-            <link>http://maomaoxie.github.io/2022/04/06/zh-tw/laravel-routes-controller/</link>
-            <category>laravel</category>
-            <category>php</category>
-            <pubDate>Wed, 06 Apr 2022 21:49:05 +0800</pubDate>
-            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/laravel-routes-controller/0.png&#34; class=&#34;laravel-routes&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;Laravel路由控制器&#34;&gt;
-&lt;p&gt;當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 &lt;strong&gt;Controller&lt;/strong&gt; 來執行：&lt;/p&gt;
-&lt;h1 id=&#34;init-controller&#34;&gt;&lt;a href=&#34;#init-controller&#34; class=&#34;headerlink&#34; title=&#34;init controller&#34;&gt;&lt;/a&gt;init controller&lt;/h1&gt;&lt;p&gt;使用優雅的 &lt;code&gt;artisan cmd&lt;/code&gt; 就可以創建一個 Controller class 模板，在 windows powerShell 輸入&lt;code&gt;wsl&lt;/code&gt; 即可切換至 Linux WSL 子系統，終端機輸入以下指令可以查詢所有 artisan cmd 的說明，記得 cd 進入專案包內才可使用 artisan 指令：&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;terminal&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;php artisan&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img src=&#34;/images/laravel-routes-controller/1.png&#34; class=&#34;laravel-routes&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;Laravel路由控制器&#34;&gt;
-
-&lt;p&gt;建立 Controller 模板的 artisan cmd：&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;terminal&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;php artisan &lt;span class=&#34;hljs-attr&#34;&gt;make&lt;/span&gt;:controller homeController&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img src=&#34;/images/laravel-routes-controller/2.png&#34; class=&#34;laravel-routes&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;Laravel路由控制器&#34;&gt;
-
-&lt;h1 id=&#34;撰寫-Controller&#34;&gt;&lt;a href=&#34;#撰寫-Controller&#34; class=&#34;headerlink&#34; title=&#34;撰寫 Controller&#34;&gt;&lt;/a&gt;撰寫 Controller&lt;/h1&gt;&lt;p&gt;使用&lt;strong&gt;路由名稱&lt;/strong&gt;創建 function 並且制定渲染內容，連接 Views：&lt;/p&gt;
-&lt;figure class=&#34;highlight php hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;App/Https/Controllers/homeController.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-meta&#34;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;App&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;Http&lt;/span&gt;\&lt;span class=&#34;title class_&#34;&gt;Controllers&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;use&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;Illuminate&lt;/span&gt;\&lt;span class=&#34;hljs-title&#34;&gt;Http&lt;/span&gt;\&lt;span class=&#34;hljs-title&#34;&gt;Request&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;homeController&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;Controller&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-class&#34;&gt;&lt;/span&gt;{&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;index&lt;/span&gt; (&lt;span class=&#34;hljs-params&#34;&gt;&lt;/span&gt;) &lt;/span&gt;{&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;title function_ invoke__&#34;&gt;view&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;welcome&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-comment&#34;&gt;// 參數要記得帶&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;dog&lt;/span&gt; (&lt;span class=&#34;hljs-params&#34;&gt;&lt;span class=&#34;hljs-variable&#34;&gt;$dogName&lt;/span&gt;&lt;/span&gt;) &lt;/span&gt;{&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-variable&#34;&gt;$datas&lt;/span&gt; = [&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;hljs-string&#34;&gt;&#34;name&#34;&lt;/span&gt; =&amp;gt; &lt;span class=&#34;hljs-string&#34;&gt;&#34;Abby&#34;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;hljs-string&#34;&gt;&#34;dogName&#34;&lt;/span&gt; =&amp;gt; &lt;span class=&#34;hljs-variable&#34;&gt;$dogName&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;title function_ invoke__&#34;&gt;view&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;routesTest&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-variable&#34;&gt;$datas&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;記得將應用到的動態參數一並移植到 Controller 的 function arguments 中！&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;對應-Routes-字串&#34;&gt;&lt;a href=&#34;#對應-Routes-字串&#34; class=&#34;headerlink&#34; title=&#34;對應 Routes 字串&#34;&gt;&lt;/a&gt;對應 Routes 字串&lt;/h1&gt;&lt;p&gt;將路由路徑制定好並且傳入陣列參數：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;use&lt;/code&gt; 剛才創建的 Controller 檔案&lt;/li&gt;
-&lt;li&gt;索引&lt;code&gt;[0]&lt;/code&gt;放置 &lt;code&gt;ControllerName::class&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;索引&lt;code&gt;[1]&lt;/code&gt;放置對應 &lt;code&gt;function&lt;/code&gt;：&lt;figure class=&#34;highlight php hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;routes/web.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-meta&#34;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;use&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;Illuminate&lt;/span&gt;\&lt;span class=&#34;hljs-title&#34;&gt;Support&lt;/span&gt;\&lt;span class=&#34;hljs-title&#34;&gt;Facades&lt;/span&gt;\&lt;span class=&#34;hljs-title&#34;&gt;Route&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;use&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;App&lt;/span&gt;\&lt;span class=&#34;hljs-title&#34;&gt;Http&lt;/span&gt;\&lt;span class=&#34;hljs-title&#34;&gt;Controllers&lt;/span&gt;\&lt;span class=&#34;hljs-title&#34;&gt;homeController&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;title class_&#34;&gt;Route&lt;/span&gt;::&lt;span class=&#34;title function_ invoke__&#34;&gt;get&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;/&#39;&lt;/span&gt;, [home&lt;span class=&#34;title class_&#34;&gt;Controller&lt;/span&gt;::&lt;span class=&#34;variable language_&#34;&gt;class&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;index&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;title class_&#34;&gt;Route&lt;/span&gt;::&lt;span class=&#34;title function_ invoke__&#34;&gt;get&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;/dog/{dogName}&#39;&lt;/span&gt;, [home&lt;span class=&#34;title class_&#34;&gt;Controller&lt;/span&gt;::&lt;span class=&#34;variable language_&#34;&gt;class&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;dog&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;渲染結果：&lt;/p&gt;
-&lt;img src=&#34;/images/laravel-routes-controller/3.png&#34; class=&#34;laravel-routes&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;Laravel路由控制器&#34;&gt;
-&lt;img src=&#34;/images/laravel-routes-controller/4.png&#34; class=&#34;laravel-routes&#34; width=&#34;500&#34; height=&#34;200&#34; title=&#34;Laravel路由控制器&#34;&gt;
-
-&lt;p&gt;以上就是 Controller 的常見功能。&lt;/p&gt;
 &lt;/body&gt;&lt;/html&gt; ]]></description>
         </item>
     </channel>

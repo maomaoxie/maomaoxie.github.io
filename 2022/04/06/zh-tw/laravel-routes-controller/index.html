@@ -208,7 +208,7 @@
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/laravel-routes-controller/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
+            <html><head></head><body><img src="/images/laravel-routes-controller/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
 <p>當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 <strong>Controller</strong> 來執行：</p>
 <h1 id="init-controller"><a href="#init-controller" class="headerlink" title="init controller"></a>init controller</h1><p>使用優雅的 <code>artisan cmd</code> 就可以創建一個 Controller class 模板，在 windows powerShell 輸入<code>wsl</code> 即可切換至 Linux WSL 子系統，終端機輸入以下指令可以查詢所有 artisan cmd 的說明，記得 cd 進入專案包內才可使用 artisan 指令：</p>
 <figure class="highlight javascript hljs"><figcaption><span>terminal</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan</span><br></pre></td></tr></tbody></table></figure>
@@ -237,9 +237,6 @@
 <p>以上就是 Controller 的常見功能。</p>
 </body></html>
         
-        <p class="article-more-link">
-            <a href="/2022/04/06/zh-tw/laravel-routes-controller/">more</a>
-        </p>
     
     </div>
     
@@ -437,42 +434,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

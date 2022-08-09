@@ -152,6 +152,78 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/08/09/zh-tw/vuetify-slot-vhtml/" itemprop="url">如何在 vuetify 元件中渲染 v-html</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-09T04:09:43.000Z" itemprop="datePublished">8月 9 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/vuetify/">vuetify</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分鐘 讀完 (約 385 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/vuetify-slot-vhtml/0.png" class="" width="800" height="200" title="vuetify-slot-vhtml">
+<p>使用 vuetify 元件時常有的狀況劇就是 - 標題的 UI 設計需要客製化，例如放上 fontawesome 的 icon，但你的元件是 vuetify 父元件（v-select），客製的對象是迴圈後的子元件（選單下的選項 v-selection），這時候要如何成功渲染 fontawesome 的 icon ?</p>
+<figure class="highlight javascript hljs"><figcaption><span>vuetify</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-select</span><br><span class="line">    :items=<span class="hljs-string">"items"</span></span><br><span class="line">    label=<span class="hljs-string">"Standard"</span></span><br><span class="line">&gt;&lt;/v-select&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="使用-lt-i-gt-lt-i-gt-標籤"><a href="#使用-lt-i-gt-lt-i-gt-標籤" class="headerlink" title="使用 <i></i> 標籤"></a>使用 <code>&lt;i&gt;&lt;/i&gt;</code> 標籤</h1><p>目前可以知道的小撇步就是 fontawesome 的 icon 要使用 vue v-html 渲染，必須使用 <code>&lt;i&gt;&lt;/i&gt;</code> 標籤才能成功，不能放入 vuetify  <code>&lt;v-icon&gt;&lt;/v-icon&gt;</code>，無法正確編譯成 html。</p>
+<h1 id="在父元件內使用-v-slot"><a href="#在父元件內使用-v-slot" class="headerlink" title="在父元件內使用 v-slot"></a>在父元件內使用 v-slot</h1><p>可以知道目前的元件結構會是這樣的：<br>v-select（父）<br>        ｜<br>    v-selection（子）</p>
+<p>選項是這樣：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    { <span class="hljs-attr">value</span>:<span class="hljs-string">"0"</span>,<span class="hljs-attr">text</span>: <span class="hljs-string">"&lt;i class="</span>fab fa-apple<span class="hljs-string">"&gt;&lt;/i&gt; apple"</span> },</span><br><span class="line">    { <span class="hljs-attr">value</span>:<span class="hljs-string">"1"</span>,<span class="hljs-attr">text</span>: <span class="hljs-string">"&lt;i class="</span>fab fa-google-drive<span class="hljs-string">"&gt;&lt;/i&gt; google"</span> },</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+
+<p>vuetify 父元件（v-select）透過 props items 選項的陣列可以使用 v-slot 轉換成 html 模板傳入：</p>
+<blockquote><p>Override the item and selection slots, and use v-html.<br>參考網址：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/56665185/show-raw-html-in-vuetify-v-select">https://stackoverflow.com/questions/56665185/show-raw-html-in-vuetify-v-select</a></p>
+</blockquote>
+
+<h3 id="vue-2-版本"><a href="#vue-2-版本" class="headerlink" title="vue 2 版本"></a>vue 2 版本</h3><p>由於子元件會有 default 選項，要使用插槽針對 <strong>selection</strong> 修改；<br>而下拉選項要使用插槽針對 <strong>item</strong> 修改。</p>
+<h5 id="寫法-1"><a href="#寫法-1" class="headerlink" title="寫法 1"></a>寫法 1</h5><figure class="highlight javascript hljs"><figcaption><span>slot 範例 1</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-select :items=<span class="hljs-string">'item'</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:item</span>=<span class="hljs-string">'{item}'</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:selection</span>=<span class="hljs-string">'{item}'</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></span><br><span class="line">&lt;/v-select&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="寫法-2"><a href="#寫法-2" class="headerlink" title="寫法 2"></a>寫法 2</h5><figure class="highlight javascript hljs"><figcaption><span>slot 範例 1</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-select :items=<span class="hljs-string">'item'</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:item</span>=<span class="hljs-string">'{item}'</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:selection</span>=<span class="hljs-string">'{item}'</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></span><br><span class="line">&lt;/v-select&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+
+<h3 id="簡潔版本"><a href="#簡潔版本" class="headerlink" title="簡潔版本"></a>簡潔版本</h3><figure class="highlight javascript hljs"><figcaption><span>slot 範例 2</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-select :items=<span class="hljs-string">'item'</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'item'</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">'{item}'</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line">&lt;/v-select&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="vue-3-版本"><a href="#vue-3-版本" class="headerlink" title="vue 3 版本"></a>vue 3 版本</h3><figure class="highlight javascript hljs"><figcaption><span>slot 範例 3</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template #item=<span class="hljs-string">'{item}'</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span> /&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="vuetify-api-說明"><a href="#vuetify-api-說明" class="headerlink" title="vuetify api 說明"></a>vuetify api 說明</h1><p>在每個元件的 api 文件下方都有提供現成的插槽可以使用：</p>
+<img src="/images/vuetify-slot-vhtml/1.png" class="" width="800" height="200" title="vuetify-slot-vhtml"></body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/vuetify-slot-vhtml/0.png" class="" width="800" height="200" title="vuetify-slot-vhtml">
+<p>使用 vuetify 元件時常有的狀況劇就是 - 標題的 UI 設計需要客製化，例如放上 fontawesome 的 icon，但你的元件是 vuetify 父元件（v-select），客製的對象是迴圈後的子元件（選單下的選項 v-selection），這時候要如何成功渲染 fontawesome 的 icon ?</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/08/09/zh-tw/vuetify-slot-vhtml/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/02/16/zh-tw/vue3-composition-api/" itemprop="url">Vue 3 的變革</a>
         
     </h1>
@@ -236,12 +308,11 @@
         
         <html><head></head><body><img src="/images/vue3-composition-api/001.png" class="" width="800" height="200" title="vue3-composition-api">
 <p>本篇尚未完整，持續更新中…</p>
-<p>你還在用 Vue 2 整理那些物件包裹起來的 data、方法與生命週期的鉤子嗎？還在頭痛父子元件之間傳遞資料的複雜寫法嗎？如果想尋找更接近 typescript 易於維護的團隊開發方式，可以考慮無痛升級 Vue 3 唷！特快車來了還不跟上！</p>
-        <!--  -->
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/16/zh-tw/vue3-composition-api/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/02/16/zh-tw/vue3-composition-api/">more</a>
-        </p>
     
     </div>
     
@@ -388,42 +459,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

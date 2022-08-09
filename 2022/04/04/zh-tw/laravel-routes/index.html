@@ -235,7 +235,7 @@
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/laravel-routes/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由介紹">
+            <html><head></head><body><img src="/images/laravel-routes/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由介紹">
 <p>應用程式介面的主要目的就是提供使用者與介面互動（Interaction），其中 URL 可以取得使用者的資訊並且渲染在畫面中，例如 query string，就是透過最基本的 GET request 來獲取信息：</p>
 <hr>
 <h1 id="routes"><a href="#routes" class="headerlink" title="routes"></a>routes</h1><p>在路由頁面設定想要回應到前端的資訊，有幾種方式：</p>
@@ -289,9 +289,6 @@
 <img src="/images/laravel-routes/6.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
 </body></html>
         
-        <p class="article-more-link">
-            <a href="/2022/04/04/zh-tw/laravel-routes/">more</a>
-        </p>
     
     </div>
     
@@ -489,42 +486,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);
