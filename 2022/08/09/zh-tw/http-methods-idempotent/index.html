@@ -28,7 +28,7 @@
 <meta property="og:description" content="RESTful API 呼叫的方法中，離不開四個主軸 CRUD，CREATE、READ&#x2F;RETREIVE、UPDATE 還有 DELETE。而其中就有分是否為 Idempotent 的方法，甚麼意思呢？ 甚麼是Idempotent（冪等）A request method is considered “idempotent” if the intended effect on the server">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-08-09T07:14:24.000Z">
-<meta property="article:modified_time" content="2022-08-09T15:50:15.821Z">
+<meta property="article:modified_time" content="2022-08-09T15:52:46.357Z">
 <meta property="article:author" content="Mawchu 謝佳芳">
 <meta property="article:tag" content="mawchu、謝佳芳、毛球、網頁、前端、Javascript、Vue、Laravel、SEO、平面設計、貓咪">
 <meta name="twitter:card" content="summary">
@@ -174,7 +174,7 @@
 <blockquote><p>Of the request methods defined by this specification, PUT, DELETE, and safe request methods are idempotent.</p>
 <footer><strong>Lauviah0622</strong><cite><a target="_blank" rel="noopener" href="https://lance.coderbridge.io/2021/06/06/what-is-safe-method-and-indempotent-methods/">[極短篇] HTTP 的 Safe method 還有 Idempotent method</a></cite></footer></blockquote>
 
-<p>dempotent（冪等）的方法不管你做一次、兩次乃至一百次，對於伺服器端資料的結果都一樣，是安全而沒有副作用的，可以安心服用；<br>相反的非 Idempotent 的方法則是需要謹慎考慮的、會改動伺服器資料庫的、有副作用的，也就是非簡單請求。</p>
+<p>dempotent（冪等）的方法不管你做一次、兩次乃至一百次，對於伺服器端資料的結果都一樣，是安全而沒有副作用的，可以安心服用；<br>相反的非 Idempotent 的方法則是需要謹慎考慮的、會改動伺服器資料庫的、有副作用的，也就是非安全請求。</p>
 <p>我們來看看更精簡好懂的解釋：</p>
 <blockquote><p>Idempotent operations produce the same result even when the operation is repeated many times. The result of the 2nd, 3rd, and 1,000th repeat of the operation will return exactly the same result as the 1st time.<br>冪等運算是指無論操作多少次結果都會與第一次相同。</p>
 <p>For example, simple mathematical examples of idempotency include:</p>
@@ -183,11 +183,11 @@
 <p>以上兩個例子都說明了這兩個表達是無論執行幾次都會是相同結果，這就是 Idempotent（冪等）。</p>
 <footer><strong>James E.</strong><cite><a target="_blank" rel="noopener" href="https://blog.dreamfactory.com/what-is-idempotency/">what-is-idempotency</a></cite></footer></blockquote>
 
-<h1 id="冪等不等於簡單請求"><a href="#冪等不等於簡單請求" class="headerlink" title="冪等不等於簡單請求"></a>冪等不等於簡單請求</h1><blockquote><p>The concepts of ‘idempotent methods’ and ‘safe methods’ are often confused. A safe method does not change the value that is returned, it reads – but it never writes.<br>Therefore, all safe methods are idempotent, but not all idempotent methods are safe.</p>
+<h1 id="冪等不等於安全請求"><a href="#冪等不等於安全請求" class="headerlink" title="冪等不等於安全請求"></a>冪等不等於安全請求</h1><blockquote><p>The concepts of ‘idempotent methods’ and ‘safe methods’ are often confused. A safe method does not change the value that is returned, it reads – but it never writes.<br>Therefore, all safe methods are idempotent, but not all idempotent methods are safe.</p>
 <p>HTTP methods include:<br>POST – Creates a new resource. POST is not idempotent and it is not safe.<br>GET – Retrieves a resource. GET is idempotent and it is safe.<br>HEAD – Retrieves a resource (without response body). HEAD is idempotent and it is safe<br>PUT – Updates/replaces a resource. PUT is idempotent but it is not safe<br>PATCH – Partially updates a resource. PATCH is not idempotent and it is not safe.<br>DELETE – Deletes a resource. DELETE is idempotent but it is not safe.<br>TRACE – Performs a loop-back test. TRACE is idempotent but it is not safe.</p>
 <footer><strong>James E.</strong><cite><a target="_blank" rel="noopener" href="https://blog.dreamfactory.com/what-is-idempotency/">what-is-idempotency</a></cite></footer></blockquote>
 
-<p>簡單請求只會讀取，所以都是冪等的，但冪等方法不一定都是簡單請求。</p>
+<p>安全請求只會讀取，所以都是冪等的，但冪等方法不一定都是安全請求。</p>
 <p>學術的部份我們就此打住，了解一下冪等之於 RESTful API 的意義。</p>
 <h1 id="idempotent-methods-冪等的方法"><a href="#idempotent-methods-冪等的方法" class="headerlink" title="idempotent methods 冪等的方法"></a>idempotent methods 冪等的方法</h1><ol>
 <li>GET</li>
@@ -222,7 +222,7 @@
 <blockquote><p>Of the request methods defined by this specification, PUT, DELETE, and safe request methods are idempotent.</p>
 <footer><strong>Lauviah0622</strong><cite><a target="_blank" rel="noopener" href="https://lance.coderbridge.io/2021/06/06/what-is-safe-method-and-indempotent-methods/">[極短篇] HTTP 的 Safe method 還有 Idempotent method</a></cite></footer></blockquote>
 
-<p>dempotent（冪等）的方法不管你做一次、兩次乃至一百次，對於伺服器端資料的結果都一樣，是安全而沒有副作用的，可以安心服用；<br>相反的非 Idempotent 的方法則是需要謹慎考慮的、會改動伺服器資料庫的、有副作用的，也就是非簡單請求。</p>
+<p>dempotent（冪等）的方法不管你做一次、兩次乃至一百次，對於伺服器端資料的結果都一樣，是安全而沒有副作用的，可以安心服用；<br>相反的非 Idempotent 的方法則是需要謹慎考慮的、會改動伺服器資料庫的、有副作用的，也就是非安全請求。</p>
 <p>我們來看看更精簡好懂的解釋：</p>
 <blockquote><p>Idempotent operations produce the same result even when the operation is repeated many times. The result of the 2nd, 3rd, and 1,000th repeat of the operation will return exactly the same result as the 1st time.<br>冪等運算是指無論操作多少次結果都會與第一次相同。</p>
 <p>For example, simple mathematical examples of idempotency include:</p>
@@ -231,11 +231,11 @@
 <p>以上兩個例子都說明了這兩個表達是無論執行幾次都會是相同結果，這就是 Idempotent（冪等）。</p>
 <footer><strong>James E.</strong><cite><a target="_blank" rel="noopener" href="https://blog.dreamfactory.com/what-is-idempotency/">what-is-idempotency</a></cite></footer></blockquote>
 
-<h1 id="冪等不等於簡單請求"><a href="#冪等不等於簡單請求" class="headerlink" title="冪等不等於簡單請求"></a>冪等不等於簡單請求</h1><blockquote><p>The concepts of ‘idempotent methods’ and ‘safe methods’ are often confused. A safe method does not change the value that is returned, it reads – but it never writes.<br>Therefore, all safe methods are idempotent, but not all idempotent methods are safe.</p>
+<h1 id="冪等不等於安全請求"><a href="#冪等不等於安全請求" class="headerlink" title="冪等不等於安全請求"></a>冪等不等於安全請求</h1><blockquote><p>The concepts of ‘idempotent methods’ and ‘safe methods’ are often confused. A safe method does not change the value that is returned, it reads – but it never writes.<br>Therefore, all safe methods are idempotent, but not all idempotent methods are safe.</p>
 <p>HTTP methods include:<br>POST – Creates a new resource. POST is not idempotent and it is not safe.<br>GET – Retrieves a resource. GET is idempotent and it is safe.<br>HEAD – Retrieves a resource (without response body). HEAD is idempotent and it is safe<br>PUT – Updates/replaces a resource. PUT is idempotent but it is not safe<br>PATCH – Partially updates a resource. PATCH is not idempotent and it is not safe.<br>DELETE – Deletes a resource. DELETE is idempotent but it is not safe.<br>TRACE – Performs a loop-back test. TRACE is idempotent but it is not safe.</p>
 <footer><strong>James E.</strong><cite><a target="_blank" rel="noopener" href="https://blog.dreamfactory.com/what-is-idempotency/">what-is-idempotency</a></cite></footer></blockquote>
 
-<p>簡單請求只會讀取，所以都是冪等的，但冪等方法不一定都是簡單請求。</p>
+<p>安全請求只會讀取，所以都是冪等的，但冪等方法不一定都是安全請求。</p>
 <p>學術的部份我們就此打住，了解一下冪等之於 RESTful API 的意義。</p>
 <h1 id="idempotent-methods-冪等的方法"><a href="#idempotent-methods-冪等的方法" class="headerlink" title="idempotent methods 冪等的方法"></a>idempotent methods 冪等的方法</h1><ol>
 <li>GET</li>
