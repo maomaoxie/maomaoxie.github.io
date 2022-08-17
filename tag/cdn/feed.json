@@ -1,0 +1,20 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Mawchu 貓奴前端的天空 • All posts by \"cdn\" tag",
+    "description": "Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習",
+    "home_page_url": "http://maomaoxie.github.io",
+    "items": [
+        {
+            "id": "http://maomaoxie.github.io/2022/08/07/zh-tw/wordpress-get-started/",
+            "url": "http://maomaoxie.github.io/2022/08/07/zh-tw/wordpress-get-started/",
+            "title": "開始我的第一個 wordpress 網站",
+            "date_published": "2022-08-07T02:02:29.000Z",
+            "content_html": "<html><head></head><body><h1 id=\"第一步-產生-ip-位址\"><a href=\"#第一步-產生-ip-位址\" class=\"headerlink\" title=\"第一步 - 產生 ip 位址\"></a>第一步 - 產生 ip 位址</h1><p>首先要租賃一台伺服器提供 ip，可以考慮較優惠的主機廠商：遠振或 bluehost。<br>要注意的是，一個 domain 可以放置很多網站資料夾，並且設定sub-domian。</p>\n<h1 id=\"第二步-DNS-註冊\"><a href=\"#第二步-DNS-註冊\" class=\"headerlink\" title=\"第二步 - DNS 註冊\"></a>第二步 - DNS 註冊</h1><p>ip 設定好之後就可以將網域指過來指定的 DNS 網域商：<br>中華電信提供的 .tw　較便宜，而 godaddy 則是 .com 較便宜。</p>\n<h1 id=\"第三步-cdn-分散流量\"><a href=\"#第三步-cdn-分散流量\" class=\"headerlink\" title=\"第三步 - cdn 分散流量\"></a>第三步 - cdn 分散流量</h1><p>常用的 cdn 廠商像是 cloudflare，可以註冊一個離主機近的（例如東京）cdn 位址，其他供應商例如 sugarhost 很便宜但連線較慢。</p>\n<h3 id=\"CDN-原理\"><a href=\"#CDN-原理\" class=\"headerlink\" title=\"CDN 原理\"></a>CDN 原理</h3><p>cdn 是把 DNS 轉向給 DNS 廠商（cloudflare），透過 DNS 指向將流量倒過去 cloudflare，在第一次 cache 過網站靜態資源後，第二次就可以直接提取cdn 伺服器上 cache　的資源以減少流量費用。</p>\n<h3 id=\"設定細節\"><a href=\"#設定細節\" class=\"headerlink\" title=\"設定細節\"></a>設定細節</h3><h5 id=\"資源類型\"><a href=\"#資源類型\" class=\"headerlink\" title=\"資源類型\"></a>資源類型</h5><p>通常都會設定 <strong>A 類型</strong>以設定網址（url）指向，例如 mailgun 的寄信功能。</p>\n<h5 id=\"防堵資安問題\"><a href=\"#防堵資安問題\" class=\"headerlink\" title=\"防堵資安問題\"></a>防堵資安問題</h5><p>cloudflare 設定其中一樣可以開啟 ddos -&gt; under Attack 來保護網站資源。<br>也可以手動清除特定檔案，例如圖片的 cache 來重新抓取檔案。</p>\n<h1 id=\"第四步-掛載-wordpress\"><a href=\"#第四步-掛載-wordpress\" class=\"headerlink\" title=\"第四步 - 掛載 wordpress\"></a>第四步 - 掛載 wordpress</h1><p>wordpress 可以當作是一個 php 建構而成的後端框架應用，串接方式有兩種：</p>\n<ol>\n<li>直接使用 wordpress hook 來渲染資料（前後端合併）。</li>\n<li>撰寫自己的前端框架（例如 vue），撰寫自己的 API（前後端分離）。</li>\n</ol>\n<h3 id=\"建立步驟\"><a href=\"#建立步驟\" class=\"headerlink\" title=\"建立步驟\"></a>建立步驟</h3><p>到  <a href=\"https://tw.wordpress.org/download/\">wordpress</a> 官方網站下載檔案，上傳到自己的網域 server。</p>\n<img src=\"/images/wordpress-get-started/14.png\" class=\"\" width=\"800\" height=\"200\" title=\"wordpress-download\">\n<p>上傳後打開網站，會有一個 UI 介面可以直接設定 wordpress 與網站資料，config 需要設定資料庫帳號密碼：</p>\n<p>要注意的是 wordpress 權限身分須從 root 改成 www-data，才能變成網站系統管理員使用 wordpress 後台。</p>\n<!-- 行情 $ 25000 (使用佈景主題)\n客製化算一頁\n定時備份以免網站被駭客\n租 GCP 靜態硬碟 \ngoogle 硬碟版本管理 資源回收桶保留30 天\nflicker\n\n設定 config 檔案 \n比較好的後台c panel 要錢\ndns 代管要 https 要使用 flexible SSL for cloudflare\n\n一類有分類的文章 slug 需要代稱(英文的)\n獨立頁面 客製化\nsiteliner 檢查有沒有壞掉的連結與重複的內容\nduplicate page\n報價高一點\n附加的css\n減少做重複的事情\n在 wordpress 上做前後端分離 -->\n</body></html>",
+            "tags": [
+                "wordpress",
+                "dns",
+                "cdn"
+            ]
+        }
+    ]
+}

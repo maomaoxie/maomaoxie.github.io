@@ -30,10 +30,10 @@
 <meta property="og:image" content="http://maomaoxie.github.io/images/vue3-composition-api/001.png">
 <meta property="og:image" content="http://maomaoxie.github.io/images/vue3-composition-api/002.png">
 <meta property="article:published_time" content="2022-02-16T07:12:05.000Z">
-<meta property="article:modified_time" content="2022-08-04T05:56:06.921Z">
+<meta property="article:modified_time" content="2022-08-09T03:46:24.957Z">
 <meta property="article:author" content="Mawchu 謝佳芳">
-<meta property="article:tag" content="vue3">
 <meta property="article:tag" content="vue">
+<meta property="article:tag" content="vue3">
 <meta property="article:tag" content="compositionAPI">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://maomaoxie.github.io/images/vue3-composition-api/001.png">
@@ -117,6 +117,11 @@
             
             <a class="navbar-item "
                href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/subscribe">訂閱
                <div class="position-absolute bar"></div>
             </a>
             
@@ -228,7 +233,7 @@
 </blockquote></body></html> -->
         
         
-        <html><head></head><body><img src="/images/vue3-composition-api/001.png" class="" width="800" height="200" title="vue3-composition-api">
+            <html><head></head><body><img src="/images/vue3-composition-api/001.png" class="" width="800" height="200" title="vue3-composition-api">
 <p>本篇尚未完整，持續更新中…</p>
 <p>你還在用 Vue 2 整理那些物件包裹起來的 data、方法與生命週期的鉤子嗎？還在頭痛父子元件之間傳遞資料的複雜寫法嗎？如果想尋找更接近 typescript 易於維護的團隊開發方式，可以考慮無痛升級 Vue 3 唷！特快車來了還不跟上！</p>
 <p>Vue 3 用法隨著版本更新越來越精進與簡潔，尤其是使用漸進式 API 的寫法大大提升了整 code 的整潔與好維護度，以下是一些常用到的整理：</p>
@@ -284,17 +289,14 @@
 <blockquote><p>Returns the raw, original object of a Vue-created proxy.</p>
 </blockquote></body></html>
         
-        <p class="article-more-link">
-            <a href="/2022/02/16/zh-tw/vue3-composition-api/">more</a>
-        </p>
     
     </div>
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/vue3/">#vue3</a></span>
-    
         <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/vue/">#vue</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/vue3/">#vue3</a></span>
     
         <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/compositionAPI/">#compositionAPI</a></span>
     
@@ -486,42 +488,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

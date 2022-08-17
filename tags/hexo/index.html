@@ -113,6 +113,11 @@
                <div class="position-absolute bar"></div>
             </a>
             
+            <a class="navbar-item "
+               href="/zh-tw/subscribe">訂閱
+               <div class="position-absolute bar"></div>
+            </a>
+            
         </div>
         
         <div class="navbar-menu navbar-end">
@@ -147,7 +152,67 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/08/05/hexo-rss/" itemprop="url">Hexo RSS 自動產生器</a>
+            <a href="/2022/08/07/zh-tw/git-remove-submodule/" itemprop="url">git 移除 submodule</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-07T08:07:24.000Z" itemprop="datePublished">8月 7 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/git/">git</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 247 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/git-remove-submodule/0.png" class="" width="800" height="200" title="git-remove-submodule">
+<h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
+<img src="/images/git-remove-submodule/1.png" class="" width="800" height="200" title="git-remove-submodule">
+
+<p>以下記錄自己如何將修改後的 minos 資料夾：</p>
+<h3 id="移除-git-子模塊快取"><a href="#移除-git-子模塊快取" class="headerlink" title="移除 git 子模塊快取"></a>移除 git 子模塊快取</h3><p>以下的指令可以清除子模塊的 git 紀錄：</p>
+<figure class="highlight plaintext hljs"><figcaption><span>git cmd</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached -f ./themes/minos</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="重新加入索引"><a href="#重新加入索引" class="headerlink" title="重新加入索引"></a>重新加入索引</h3><p>將剛才取消子模塊的 git 重新排隊至專案包中，我比較懶惰直接整包加：</p>
+<figure class="highlight plaintext hljs"><figcaption><span>git cmd</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></tbody></table></figure>
+
+<p>再檢視一遍 vs code 之後就會看到檔案被追蹤到了！</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/git-remove-submodule/0.png" class="" width="800" height="200" title="git-remove-submodule">
+<h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/08/07/zh-tw/git-remove-submodule/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/08/05/zh-tw/hexo-rss/" itemprop="url">Hexo RSS 自動產生器</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -179,12 +244,11 @@
         
         <html><head></head><body><p>RSS 訂閱功能越來越夯，可以即時通知訂閱戶更新的文章內容，增加回流的流量與網站的熱度，chrome 也有提供 RSS reader 的外掛功能直接讀取 RSS 檔案。<br>既然建立好了自己的部落格怎麼可以沒有 RSS XD?</p>
 <p>先前在專案包嘗試使用 hexo-generator-feed 套件，但是建立出來的 atom.xml 檔案會出現亂碼，後來找到一個套件甚至支援 json 與 rss 格式：</p>
-<h1 id="安裝-Hexo-seed-套件"><a href="#安裝-Hexo-seed-套件" class="headerlink" title="安裝 Hexo seed 套件"></a>安裝 Hexo seed 套件</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-feed</span><br></pre></td></tr></tbody></table></figure>
-        <!--  -->
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/08/05/zh-tw/hexo-rss/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/08/05/hexo-rss/">more</a>
-        </p>
     
     </div>
     
@@ -331,42 +395,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

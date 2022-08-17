@@ -113,6 +113,11 @@
                <div class="position-absolute bar"></div>
             </a>
             
+            <a class="navbar-item "
+               href="/zh-tw/subscribe">訂閱
+               <div class="position-absolute bar"></div>
+            </a>
+            
         </div>
         
         <div class="navbar-menu navbar-end">
@@ -142,22 +147,72 @@
             <h4 class="title is-4" id="2022">2022</h4>
             <div class="articles">
             
-                <a href="/2022/08/05/hexo-rss/">
+                <a href="/2022/08/17/zh-tw/js-object-fromEntries/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-08-17T02:22:19.000Z" itemprop="datePublished">
+                            8月 17</time>
+                            <div>
+                                <h6 class="title is-6">Js 物件陣列轉換的方法，真香！</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/08/09/zh-tw/http-methods-idempotent/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-08-09T07:14:24.000Z" itemprop="datePublished">
+                            8月 9</time>
+                            <div>
+                                <h6 class="title is-6">RESTful API 方法觀念介紹 - idempotent</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/08/09/zh-tw/vuetify-slot-vhtml/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-08-09T04:09:43.000Z" itemprop="datePublished">
+                            8月 9</time>
+                            <div>
+                                <h6 class="title is-6">如何在 vuetify 元件中渲染 v-html</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/08/09/zh-tw/hello-world/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-08-09T03:46:24.948Z" itemprop="datePublished">
+                            8月 9</time>
+                            <div>
+                                <h6 class="title is-6">感謝您的閱讀</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/08/07/zh-tw/git-remove-submodule/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-08-07T08:07:24.000Z" itemprop="datePublished">
+                            8月 7</time>
+                            <div>
+                                <h6 class="title is-6">git 移除 submodule</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/08/07/zh-tw/wordpress-get-started/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-08-07T02:02:29.000Z" itemprop="datePublished">
+                            8月 7</time>
+                            <div>
+                                <h6 class="title is-6">開始我的第一個 wordpress 網站</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/08/05/zh-tw/hexo-rss/">
                     <div class="article content>">
                         <time class="is-text-small" datetime="2022-08-05T07:39:34.000Z" itemprop="datePublished">
                             8月 5</time>
                             <div>
                                 <h6 class="title is-6">Hexo RSS 自動產生器</h6>
-                            </div>
-                    </div>
-                </a>
-            
-                <a href="/2022/08/04/zh-tw/hello-world/">
-                    <div class="article content>">
-                        <time class="is-text-small" datetime="2022-08-04T05:56:06.910Z" itemprop="datePublished">
-                            8月 4</time>
-                            <div>
-                                <h6 class="title is-6">感謝您的閱讀</h6>
                             </div>
                     </div>
                 </a>
@@ -301,42 +356,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

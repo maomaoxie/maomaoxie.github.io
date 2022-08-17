@@ -113,6 +113,11 @@
                <div class="position-absolute bar"></div>
             </a>
             
+            <a class="navbar-item "
+               href="/zh-tw/subscribe">訂閱
+               <div class="position-absolute bar"></div>
+            </a>
+            
         </div>
         
         <div class="navbar-menu navbar-end">
@@ -204,12 +209,11 @@
         
         <html><head></head><body><img src="/images/laravel-folder-intro/0.png" class="Laravel-folder-intro" width="800" height="200" title="Laravel 專案包初探">
 <p>Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用：</p>
-<blockquote class="colorquote info"><p>先打預防針，其實整個 Larevel 專案包預設並沒有任何 UI 框架，此專案包內名為 bootstrap 的檔案都跟該框架無半點毛關係！不要被混淆了。</p>
-        <!--  -->
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/04/03/zh-tw/laravel-folder-intro/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/04/03/zh-tw/laravel-folder-intro/">more</a>
-        </p>
     
     </div>
     
@@ -340,12 +344,11 @@
         
         <html><head></head><body><img src="/images/laravel-installation/0.png" class="" width="800" height="200" title="laravel-installation">
 <p>使用 Window 10 搭建 Laravel 框架的過程採了一堆大坑 QQ，經過幾番努力終於成功！<br>千萬不要認為裝套件都是敲一敲指令就可以了，工程師的路從來都沒有那麼好走，是天堂路阿孩子！<br>工欲善其事，必先利其器，先將裝備整頓好才能打 BOSS：</p>
-<h1 id="安裝-Composer"><a href="#安裝-Composer" class="headerlink" title="安裝 Composer"></a>安裝 <a target="_blank" rel="noopener" href="https://getcomposer.org/">Composer</a></h1><p>簡單介紹一下 composer 的用處，npm 是用來安裝 node.js 的套件管理工具，那麼 composer 就是用來安裝 php 套件的管理工具。<br>windows 這一步很簡單，按這裡就可以下載，設定那些一路按下去就好。</p>
-        <!--  -->
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/12/zh-tw/laravel-installation/">more</a>
+            </p>
         
-        <p class="article-more-link">
-            <a href="/2022/02/12/zh-tw/laravel-installation/">more</a>
-        </p>
     
     </div>
     
@@ -492,42 +495,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

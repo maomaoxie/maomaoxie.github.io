@@ -5,68 +5,108 @@
         <link>http://maomaoxie.github.io</link>
         <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
         <language>zh-tw,en,default</language>
-        <pubDate>Wed, 16 Feb 2022 15:12:05 +0800</pubDate>
-        <lastBuildDate>Wed, 16 Feb 2022 15:12:05 +0800</lastBuildDate>
-        <category>backEnd</category>
-        <category>node</category>
-        <category>express</category>
-        <category>router</category>
-        <category>git</category>
-        <category>github</category>
+        <pubDate>Tue, 09 Aug 2022 12:09:43 +0800</pubDate>
+        <lastBuildDate>Tue, 09 Aug 2022 12:09:43 +0800</lastBuildDate>
         <category>javascript</category>
         <category>constructor</category>
         <category>instance</category>
         <category>methods</category>
-        <category>rss</category>
-        <category>hexo</category>
+        <category>git</category>
+        <category>github</category>
         <category>sourceTree</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>hexo</category>
+        <category>submodule</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>rss</category>
         <category>http</category>
         <category>https</category>
         <category>request</category>
         <category>response</category>
-        <category>api</category>
-        <category>graphQL</category>
-        <category>facebook</category>
-        <category>httpMethods</category>
         <category>httpHeader</category>
-        <category>Javascript</category>
         <category>status</category>
+        <category>httpMethods</category>
+        <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>
         <category>php</category>
         <category>linux</category>
         <category>blade</category>
         <category>wsl2</category>
+        <category>layout</category>
         <category>migration</category>
         <category>sql</category>
-        <category>layout</category>
         <category>public</category>
         <category>static</category>
         <category>tailwind</category>
-        <category>env</category>
-        <category>process</category>
-        <category>dotenv</category>
         <category>css</category>
         <category>less</category>
         <category>processors</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>webService</category>
+        <category>restfulApi</category>
         <category>shortCircuit</category>
         <category>optionalChaining</category>
         <category>tricks</category>
+        <category>vue</category>
         <category>vue3</category>
+        <category>compositionAPI</category>
         <category>vite</category>
         <category>typescript</category>
-        <category>vue</category>
-        <category>compositionAPI</category>
-        <category>webService</category>
-        <category>restfulApi</category>
+        <category>vuetify</category>
+        <category>html</category>
+        <category>wordpress</category>
+        <category>dns</category>
+        <category>cdn</category>
         <category>WebSocket</category>
         <category>WebHook</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/08/09/zh-tw/vuetify-slot-vhtml/</guid>
+            <title>如何在 vuetify 元件中渲染 v-html</title>
+            <link>http://maomaoxie.github.io/2022/08/09/zh-tw/vuetify-slot-vhtml/</link>
+            <category>vue</category>
+            <category>vuetify</category>
+            <category>html</category>
+            <pubDate>Tue, 09 Aug 2022 12:09:43 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/vuetify-slot-vhtml/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;vuetify-slot-vhtml&#34;&gt;
+&lt;p&gt;使用 vuetify 元件時常有的狀況劇就是 - 標題的 UI 設計需要客製化，例如放上 fontawesome 的 icon，但你的元件是 vuetify 父元件（v-select），客製的對象是迴圈後的子元件（選單下的選項 v-selection），這時候要如何成功渲染 fontawesome 的 icon ?&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;vuetify&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;v-select&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    :items=&lt;span class=&#34;hljs-string&#34;&gt;&#34;items&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    label=&lt;span class=&#34;hljs-string&#34;&gt;&#34;Standard&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;&amp;lt;/v-select&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;使用-lt-i-gt-lt-i-gt-標籤&#34;&gt;&lt;a href=&#34;#使用-lt-i-gt-lt-i-gt-標籤&#34; class=&#34;headerlink&#34; title=&#34;使用 &lt;i&gt;&lt;/i&gt; 標籤&#34;&gt;&lt;/a&gt;使用 &lt;code&gt;&amp;lt;i&amp;gt;&amp;lt;/i&amp;gt;&lt;/code&gt; 標籤&lt;/h1&gt;&lt;p&gt;目前可以知道的小撇步就是 fontawesome 的 icon 要使用 vue v-html 渲染，必須使用 &lt;code&gt;&amp;lt;i&amp;gt;&amp;lt;/i&amp;gt;&lt;/code&gt; 標籤才能成功，不能放入 vuetify  &lt;code&gt;&amp;lt;v-icon&amp;gt;&amp;lt;/v-icon&amp;gt;&lt;/code&gt;，無法正確編譯成 html。&lt;/p&gt;
+&lt;h1 id=&#34;在父元件內使用-v-slot&#34;&gt;&lt;a href=&#34;#在父元件內使用-v-slot&#34; class=&#34;headerlink&#34; title=&#34;在父元件內使用 v-slot&#34;&gt;&lt;/a&gt;在父元件內使用 v-slot&lt;/h1&gt;&lt;p&gt;可以知道目前的元件結構會是這樣的：&lt;br&gt;v-select（父）&lt;br&gt;        ｜&lt;br&gt;    v-selection（子）&lt;/p&gt;
+&lt;p&gt;選項是這樣：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    { &lt;span class=&#34;hljs-attr&#34;&gt;value&lt;/span&gt;:&lt;span class=&#34;hljs-string&#34;&gt;&#34;0&#34;&lt;/span&gt;,&lt;span class=&#34;hljs-attr&#34;&gt;text&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;lt;i class=&#34;&lt;/span&gt;fab fa-apple&lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;gt;&amp;lt;/i&amp;gt; apple&#34;&lt;/span&gt; },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    { &lt;span class=&#34;hljs-attr&#34;&gt;value&lt;/span&gt;:&lt;span class=&#34;hljs-string&#34;&gt;&#34;1&#34;&lt;/span&gt;,&lt;span class=&#34;hljs-attr&#34;&gt;text&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;lt;i class=&#34;&lt;/span&gt;fab fa-google-drive&lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;gt;&amp;lt;/i&amp;gt; google&#34;&lt;/span&gt; },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;vuetify 父元件（v-select）透過 props items 選項的陣列可以使用 v-slot 轉換成 html 模板傳入：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Override the item and selection slots, and use v-html.&lt;br&gt;參考網址：&lt;a href=&#34;https://stackoverflow.com/questions/56665185/show-raw-html-in-vuetify-v-select&#34;&gt;https://stackoverflow.com/questions/56665185/show-raw-html-in-vuetify-v-select&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;vue-2-版本&#34;&gt;&lt;a href=&#34;#vue-2-版本&#34; class=&#34;headerlink&#34; title=&#34;vue 2 版本&#34;&gt;&lt;/a&gt;vue 2 版本&lt;/h3&gt;&lt;p&gt;由於子元件會有 default 選項，要使用插槽針對 &lt;strong&gt;selection&lt;/strong&gt; 修改；&lt;br&gt;而下拉選項要使用插槽針對 &lt;strong&gt;item&lt;/strong&gt; 修改。&lt;/p&gt;
+&lt;h5 id=&#34;寫法-1&#34;&gt;&lt;a href=&#34;#寫法-1&#34; class=&#34;headerlink&#34; title=&#34;寫法 1&#34;&gt;&lt;/a&gt;寫法 1&lt;/h5&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;slot 範例 1&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;v-select :items=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-slot:item&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-slot:selection&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/v-select&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h5 id=&#34;寫法-2&#34;&gt;&lt;a href=&#34;#寫法-2&#34; class=&#34;headerlink&#34; title=&#34;寫法 2&#34;&gt;&lt;/a&gt;寫法 2&lt;/h5&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;slot 範例 1&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;v-select :items=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-slot:item&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-slot:selection&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/v-select&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;簡潔版本&#34;&gt;&lt;a href=&#34;#簡潔版本&#34; class=&#34;headerlink&#34; title=&#34;簡潔版本&#34;&gt;&lt;/a&gt;簡潔版本&lt;/h3&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;slot 範例 2&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;v-select :items=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;slot&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item&#39;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;slot-scope&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/v-select&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;vue-3-版本&#34;&gt;&lt;a href=&#34;#vue-3-版本&#34; class=&#34;headerlink&#34; title=&#34;vue 3 版本&#34;&gt;&lt;/a&gt;vue 3 版本&lt;/h3&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;slot 範例 3&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;template #item=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/template&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;vuetify-api-說明&#34;&gt;&lt;a href=&#34;#vuetify-api-說明&#34; class=&#34;headerlink&#34; title=&#34;vuetify api 說明&#34;&gt;&lt;/a&gt;vuetify api 說明&lt;/h1&gt;&lt;p&gt;在每個元件的 api 文件下方都有提供現成的插槽可以使用：&lt;/p&gt;
+&lt;img src=&#34;/images/vuetify-slot-vhtml/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;vuetify-slot-vhtml&#34;&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/02/16/zh-tw/vue3-composition-api/</guid>
             <title>Vue 3 的變革</title>
             <link>http://maomaoxie.github.io/2022/02/16/zh-tw/vue3-composition-api/</link>
-            <category>vue3</category>
             <category>vue</category>
+            <category>vue3</category>
             <category>compositionAPI</category>
             <pubDate>Wed, 16 Feb 2022 15:12:05 +0800</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/vue3-composition-api/001.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;vue3-composition-api&#34;&gt;

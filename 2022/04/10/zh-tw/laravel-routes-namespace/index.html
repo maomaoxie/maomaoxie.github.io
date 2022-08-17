@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://maomaoxie.github.io/images/laravel-routes-namespace/1.png">
 <meta property="og:image" content="http://maomaoxie.github.io/images/laravel-routes-namespace/2.png">
 <meta property="article:published_time" content="2022-04-10T10:42:15.000Z">
-<meta property="article:modified_time" content="2022-08-04T05:56:06.917Z">
+<meta property="article:modified_time" content="2022-08-09T03:46:24.954Z">
 <meta property="article:author" content="Mawchu 謝佳芳">
 <meta property="article:tag" content="laravel">
 <meta property="article:tag" content="php">
@@ -120,6 +120,11 @@
                <div class="position-absolute bar"></div>
             </a>
             
+            <a class="navbar-item "
+               href="/zh-tw/subscribe">訂閱
+               <div class="position-absolute bar"></div>
+            </a>
+            
         </div>
         
         <div class="navbar-menu navbar-end">
@@ -191,7 +196,7 @@
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/laravel-routes-namespace/0.png" class="" width="800" height="200" title="Laravel 命名路由">
+            <html><head></head><body><img src="/images/laravel-routes-namespace/0.png" class="" width="800" height="200" title="Laravel 命名路由">
 <p>當路由越來越多，也越複雜甚至有巢狀結構的時候，相對路徑就會變得複雜不直覺，這時候可以借用 laravel 的命名路由工具，以及 blade 引擎的 <code>route 方法</code> 來輕鬆渲染路由：</p>
 <h1 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a>命名路由</h1><p>在路由檔案 <code>routes/web.php</code> 中訪問 <code>name</code> 屬性方法並傳入制定好的路由專屬名稱：</p>
 <figure class="highlight php hljs"><figcaption><span>web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'index'</span>])-&gt;<span class="title function_ invoke__">name</span>(<span class="hljs-string">'index.index'</span>);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/about/about'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'about'</span>])-&gt;<span class="title function_ invoke__">name</span>(<span class="hljs-string">'index.about'</span>);</span><br></pre></td></tr></tbody></table></figure>
@@ -210,9 +215,6 @@
 <p>透過 blade 引擎封裝的 <code>route 方法</code> 解決了在腦中思考相對路徑結構的煩惱，棒！</p>
 </body></html>
         
-        <p class="article-more-link">
-            <a href="/2022/04/10/zh-tw/laravel-routes-namespace/">more</a>
-        </p>
     
     </div>
     
@@ -410,42 +412,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

@@ -113,6 +113,11 @@
                <div class="position-absolute bar"></div>
             </a>
             
+            <a class="navbar-item "
+               href="/zh-tw/subscribe">訂閱
+               <div class="position-absolute bar"></div>
+            </a>
+            
         </div>
         
         <div class="navbar-menu navbar-end">
@@ -141,6 +146,56 @@
         <div class="archive content">
             <h4 class="title is-4" id="2022">2022</h4>
             <div class="articles">
+            
+                <a href="/2022/07/24/zh-tw/js-weird-parts-ES6/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-07-24T08:30:58.000Z" itemprop="datePublished">
+                            7月 24</time>
+                            <div>
+                                <h6 class="title is-6">克服 Javascript 的奇怪部分 ES6</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/07/10/zh-tw/js-weird-parts-scope-chain/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-07-10T07:57:42.000Z" itemprop="datePublished">
+                            7月 10</time>
+                            <div>
+                                <h6 class="title is-6">克服 Javascript 的奇怪部分 範圍鍊</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/06/05/zh-tw/js-weird-parts-III/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-06-05T08:31:07.000Z" itemprop="datePublished">
+                            6月 5</time>
+                            <div>
+                                <h6 class="title is-6">克服 Javascript 的奇怪部分 單執行緒與同步執行</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/06/04/zh-tw/js-weird-parts-II/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-06-04T08:28:20.000Z" itemprop="datePublished">
+                            6月 4</time>
+                            <div>
+                                <h6 class="title is-6">克服 Javascript 的奇怪部分 Hoisting</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/06/04/zh-tw/js-weird-parts-parsing/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-06-04T03:07:31.000Z" itemprop="datePublished">
+                            6月 4</time>
+                            <div>
+                                <h6 class="title is-6">克服 Javascript 的奇怪部分 名詞解釋篇</h6>
+                            </div>
+                    </div>
+                </a>
             
                 <a href="/2022/05/14/zh-tw/constructor-vs-instance/">
                     <div class="article content>">
@@ -192,56 +247,6 @@
                     </div>
                 </a>
             
-                <a href="/2022/04/10/zh-tw/laravel-public/">
-                    <div class="article content>">
-                        <time class="is-text-small" datetime="2022-04-10T09:11:18.000Z" itemprop="datePublished">
-                            4月 10</time>
-                            <div>
-                                <h6 class="title is-6">Laravel public 靜態檔案</h6>
-                            </div>
-                    </div>
-                </a>
-            
-                <a href="/2022/04/10/zh-tw/laravel-layout/">
-                    <div class="article content>">
-                        <time class="is-text-small" datetime="2022-04-10T06:54:20.000Z" itemprop="datePublished">
-                            4月 10</time>
-                            <div>
-                                <h6 class="title is-6">Laravel 善用 layout 避免重複的模板</h6>
-                            </div>
-                    </div>
-                </a>
-            
-                <a href="/2022/04/06/zh-tw/laravel-routes-controller/">
-                    <div class="article content>">
-                        <time class="is-text-small" datetime="2022-04-06T13:49:05.000Z" itemprop="datePublished">
-                            4月 6</time>
-                            <div>
-                                <h6 class="title is-6">Laravel 認識 controller</h6>
-                            </div>
-                    </div>
-                </a>
-            
-                <a href="/2022/04/04/zh-tw/laravel-routes/">
-                    <div class="article content>">
-                        <time class="is-text-small" datetime="2022-04-04T07:41:43.000Z" itemprop="datePublished">
-                            4月 4</time>
-                            <div>
-                                <h6 class="title is-6">Laravel 認識路由</h6>
-                            </div>
-                    </div>
-                </a>
-            
-                <a href="/2022/04/03/zh-tw/laravel-folder-intro/">
-                    <div class="article content>">
-                        <time class="is-text-small" datetime="2022-04-03T11:01:30.000Z" itemprop="datePublished">
-                            4月 3</time>
-                            <div>
-                                <h6 class="title is-6">Laravel 專案包初探</h6>
-                            </div>
-                    </div>
-                </a>
-            
             </div>
         </div>
     
@@ -271,6 +276,8 @@
         <li><a class="pagination-link" href="/archives/page/3/">3</a></li>
         
         <li><a class="pagination-link" href="/archives/page/4/">4</a></li>
+        
+        <li><a class="pagination-link" href="/archives/page/5/">5</a></li>
         
     </ul>
 </nav>
@@ -410,42 +417,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

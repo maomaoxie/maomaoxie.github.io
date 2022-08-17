@@ -20,10 +20,16 @@ p {
   .gallery-item img:hover {
     transform: scale(1.05); }
 
-strong, a, .article .article-entry h1, .article .article-entry h2, .article .article-entry h3, .article .article-entry h4, .article .article-entry h5, .article .article-entry h6 {
+strong, a, .article .article-entry h1 {
   color: #ffbb00;
   text-transform: capitalize;
   font-weight: 700; }
+
+.article .article-entry p {
+  color: #5b5b5b; }
+
+.article .article-entry h1 {
+  font-size: 26px; }
 
 strong {
   font-weight: bolder; }
@@ -42,7 +48,7 @@ a.gallery-item {
   border-radius: 15px;
   overflow: hidden;
   padding: 0;
-  margin: 0 0 10px 0; }
+  margin: 10px 0; }
   a.gallery-item.circle {
     border-radius: 200px; }
 
@@ -56,6 +62,9 @@ a.tag.article-tag {
     .navbar .navbar-menu.navbar-end.is-active {
       background-color: #f4f4ee; } }
 
+.navbar.is-transparent.is-fixed-top.navbar-main {
+  background: url(../images/mawchu-blog-sky-bg.jpg) 0 -230px; }
+
 .position-relative {
   position: relative; }
 
@@ -65,9 +74,6 @@ a.tag.article-tag {
 .navbar-menu.is-active {
   display: flex;
   justify-content: center; }
-
-.container.custom-nav .navbar-menu {
-  background-color: #aed9e0; }
 
 @media screen and (min-width: 1024px) {
   .container {
@@ -84,10 +90,11 @@ a.tag.article-tag {
     font-weight: 600; }
   .navbar-main .navbar-item {
     text-align: center;
-    transition: all .5s; }
+    transition: all .5s;
+    color: #7aa9b7; }
   .navbar-main a.navbar-item.is-active, .navbar-main a.navbar-item:hover {
     transform: translateY(-10%);
-    color: #ffffff;
+    color: #2b2d2e;
     background: transparent; }
     .navbar-main a.navbar-item.is-active:not(:hover) .bar, .navbar-main a.navbar-item:hover:not(:hover) .bar {
       height: 3px;
@@ -472,7 +479,6 @@ figure.highlight {
   display: inline-block;
   overflow: hidden;
   margin: 0;
-  padding: 0 0 20px 0;
   line-height: 0;
   max-width: 100%; }
   .gallery-item:hover .caption {

@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://maomaoxie.github.io/images/php-basic-knowledge/0.png">
 <meta property="article:published_time" content="2022-04-10T10:10:18.000Z">
-<meta property="article:modified_time" content="2022-08-04T05:56:06.920Z">
+<meta property="article:modified_time" content="2022-08-09T03:46:24.956Z">
 <meta property="article:author" content="Mawchu 謝佳芳">
 <meta property="article:tag" content="php">
 <meta name="twitter:card" content="summary">
@@ -117,6 +117,11 @@
                <div class="position-absolute bar"></div>
             </a>
             
+            <a class="navbar-item "
+               href="/zh-tw/subscribe">訂閱
+               <div class="position-absolute bar"></div>
+            </a>
+            
         </div>
         
         <div class="navbar-menu navbar-end">
@@ -180,7 +185,7 @@
 <figure class="highlight php hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-variable">$array</span> = <span class="hljs-keyword">array</span>(<span class="hljs-string">"key"</span> =&gt; <span class="hljs-string">"value"</span>);</span><br></pre></td></tr></tbody></table></figure></body></html> -->
         
         
-        <html><head></head><body><img src="/images/php-basic-knowledge/0.png" class="" width="800" height="200" title="php 基礎知識">
+            <html><head></head><body><img src="/images/php-basic-knowledge/0.png" class="" width="800" height="200" title="php 基礎知識">
 <p>在 javascript 裡面訪問屬性的方式很單純，都是使用 <code>.</code> 來進入傳參考的對象記憶體中存放的值、訪問類中的屬性還有創立物件內的 key 與 value，然而在 php 中則用三種不同的符號來達成不同目的：</p>
 <h3 id="範圍解析操作符"><a href="#範圍解析操作符" class="headerlink" title=":: 範圍解析操作符"></a>:: 範圍解析操作符</h3><p>用來訪問類（class）底下的對象。</p>
 <figure class="highlight php hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-variable">$classname</span>::<span class="variable constant_">CONST_VALUE</span></span><br></pre></td></tr></tbody></table></figure>
@@ -191,9 +196,6 @@
 <h3 id="x3D-gt-指向符號（胖箭頭）"><a href="#x3D-gt-指向符號（胖箭頭）" class="headerlink" title="=> 指向符號（胖箭頭）"></a>=&gt; 指向符號（胖箭頭）</h3><p>用來創建物件內的鍵值對，一個 key 對上一個 value，類似 javascript 裡頭的 <code>:</code>。 </p>
 <figure class="highlight php hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-variable">$array</span> = <span class="hljs-keyword">array</span>(<span class="hljs-string">"key"</span> =&gt; <span class="hljs-string">"value"</span>);</span><br></pre></td></tr></tbody></table></figure></body></html>
         
-        <p class="article-more-link">
-            <a href="/2022/04/10/zh-tw/php-basic-knowledge/">more</a>
-        </p>
     
     </div>
     
@@ -389,42 +391,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);

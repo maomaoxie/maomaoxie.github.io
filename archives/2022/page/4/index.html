@@ -113,6 +113,11 @@
                <div class="position-absolute bar"></div>
             </a>
             
+            <a class="navbar-item "
+               href="/zh-tw/subscribe">訂閱
+               <div class="position-absolute bar"></div>
+            </a>
+            
         </div>
         
         <div class="navbar-menu navbar-end">
@@ -141,6 +146,56 @@
         <div class="archive content">
             <h4 class="title is-4" id="2022">2022</h4>
             <div class="articles">
+            
+                <a href="/2022/02/25/zh-tw/web-socket-and-web-hook/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-02-25T03:29:08.000Z" itemprop="datePublished">
+                            2月 25</time>
+                            <div>
+                                <h6 class="title is-6">Web Socket v.s Web Hook</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/02/25/zh-tw/graph-ql-api/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-02-25T02:48:36.000Z" itemprop="datePublished">
+                            2月 25</time>
+                            <div>
+                                <h6 class="title is-6">Graph QL 新世代 API</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/02/24/zh-tw/restful-api-and-web-service/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-02-24T15:20:50.000Z" itemprop="datePublished">
+                            2月 24</time>
+                            <div>
+                                <h6 class="title is-6">初探 Web service</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/02/21/zh-tw/git-command-line/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-02-21T09:14:05.000Z" itemprop="datePublished">
+                            2月 21</time>
+                            <div>
+                                <h6 class="title is-6">Git 常用的指令</h6>
+                            </div>
+                    </div>
+                </a>
+            
+                <a href="/2022/02/21/zh-tw/node-process-env/">
+                    <div class="article content>">
+                        <time class="is-text-small" datetime="2022-02-21T06:48:33.000Z" itemprop="datePublished">
+                            2月 21</time>
+                            <div>
+                                <h6 class="title is-6">Node如何設置.env環境檔</h6>
+                            </div>
+                    </div>
+                </a>
             
                 <a href="/2022/02/20/zh-tw/express-router-module/">
                     <div class="article content>">
@@ -192,26 +247,6 @@
                     </div>
                 </a>
             
-                <a href="/2022/02/11/zh-tw/less-css/">
-                    <div class="article content>">
-                        <time class="is-text-small" datetime="2022-02-11T11:43:57.000Z" itemprop="datePublished">
-                            2月 11</time>
-                            <div>
-                                <h6 class="title is-6">預處理器新朋友-Less</h6>
-                            </div>
-                    </div>
-                </a>
-            
-                <a href="/2022/02/10/zh-tw/git-pat/">
-                    <div class="article content>">
-                        <time class="is-text-small" datetime="2022-02-10T04:31:14.000Z" itemprop="datePublished">
-                            2月 10</time>
-                            <div>
-                                <h6 class="title is-6">Github 登入新制 PAT X Sourcetree</h6>
-                            </div>
-                    </div>
-                </a>
-            
             </div>
         </div>
     
@@ -225,7 +260,7 @@
             prev
         </a>
     </div>
-    <div class="pagination-next is-invisible is-hidden-mobile">
+    <div class="pagination-next">
 
         <a href="/archives/2022/page/5/">
             next
@@ -241,6 +276,8 @@
         <li><a class="pagination-link" href="/archives/2022/page/3/">3</a></li>
         
         <li><a class="pagination-link is-current" href="/archives/2022/page/4/">4</a></li>
+        
+        <li><a class="pagination-link" href="/archives/2022/page/5/">5</a></li>
         
     </ul>
 </nav>
@@ -380,42 +417,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <style>
         .hljs {
-            position: relative;
+          position: relative;
         }
 
         .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
         }
 
         .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
+          color: #2e2e2e;
+          transform: scale(1.1);
         }
 
         .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
         }
 
         .hljs:hover > .clipboard-btn {
-            display: inline;
+          display: inline;
         }
 
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
+        button {
+          padding: 0;
         }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
           var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
           code.id = codeId;
           copyButton.addClass('clipboard-btn');
           copyButton.attr('data-clipboard-target-id', codeId);
