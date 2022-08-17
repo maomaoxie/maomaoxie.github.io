@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;graphql&#34; category</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Fri, 25 Feb 2022 10:48:36 +0800</pubDate>
+        <lastBuildDate>Fri, 25 Feb 2022 10:48:36 +0800</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>hexo</category>
+        <category>submodule</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>rss</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
+        <category>httpHeader</category>
+        <category>status</category>
+        <category>httpMethods</category>
+        <category>Javascript</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>blade</category>
+        <category>wsl2</category>
+        <category>layout</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>css</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue</category>
+        <category>vue3</category>
+        <category>compositionAPI</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>vuetify</category>
+        <category>html</category>
+        <category>wordpress</category>
+        <category>dns</category>
+        <category>cdn</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/02/25/zh-tw/graph-ql-api/</guid>
+            <title>Graph QL 新世代 API</title>
+            <link>http://maomaoxie.github.io/2022/02/25/zh-tw/graph-ql-api/</link>
+            <category>api</category>
+            <category>graphQL</category>
+            <category>facebook</category>
+            <pubDate>Fri, 25 Feb 2022 10:48:36 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/graph-ql-api/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[css-less [css-less]]&#34;&gt;
+&lt;p&gt;隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！&lt;/p&gt;
+&lt;p&gt;2012 年 facebook 內部研發出來的新形態 API，2015 年提出發表，特點是前端可以直接進資料庫，不需要透過後端查詢撈取資料。&lt;br&gt;概念有一點類似用前端語言操作 &lt;code&gt;MySQL&lt;/code&gt;。前端也擁有更彈性的空間來制定查詢資料的規則與方式，有更大話語權，但相對來講也增加資料設計的難度，在思考的維度上需要更廣更深才能靈活應付多變的資料需求。&lt;/p&gt;
+&lt;h1 id=&#34;Graph-QL-操作概念&#34;&gt;&lt;a href=&#34;#Graph-QL-操作概念&#34; class=&#34;headerlink&#34; title=&#34;Graph QL 操作概念&#34;&gt;&lt;/a&gt;Graph QL 操作概念&lt;/h1&gt;&lt;img src=&#34;/images/graph-ql-api/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[css-less [css-less]]&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用者透過輸入定義好的語法，取得所需的資料 (如 &lt;code&gt;SELECT&lt;/code&gt;) 或是修改指定的資料 (如 &lt;code&gt;CREATE&lt;/code&gt; 、 &lt;code&gt;UPDATE&lt;/code&gt;)。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;資料的格式&#34;&gt;&lt;a href=&#34;#資料的格式&#34; class=&#34;headerlink&#34; title=&#34;資料的格式&#34;&gt;&lt;/a&gt;資料的格式&lt;/h2&gt;&lt;h4 id=&#34;前端-request-長相&#34;&gt;&lt;a href=&#34;#前端-request-長相&#34; class=&#34;headerlink&#34; title=&#34;前端 request 長相&#34;&gt;&lt;/a&gt;前端 request 長相&lt;/h4&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;example&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;query {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;title class_&#34;&gt;User&lt;/span&gt;(&lt;span class=&#34;hljs-attr&#34;&gt;id&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#39;aefk34kasl9&#39;&lt;/span&gt;) {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    name&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    posts{&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      title&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;title function_&#34;&gt;followers&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;last: &lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;&lt;/span&gt;){&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      name&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&#34;資料庫-response-長相&#34;&gt;&lt;a href=&#34;#資料庫-response-長相&#34; class=&#34;headerlink&#34; title=&#34;資料庫 response 長相&#34;&gt;&lt;/a&gt;資料庫 response 長相&lt;/h4&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;example&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;{&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-string&#34;&gt;&#34;data&#34;&lt;/span&gt;: {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-string&#34;&gt;&#34;User&#34;&lt;/span&gt;: {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;hljs-string&#34;&gt;&#34;name&#34;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;Mawchu&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;hljs-string&#34;&gt;&#34;posts&#34;&lt;/span&gt;:[&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        { &lt;span class=&#34;hljs-attr&#34;&gt;title&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;喵喵的一天&#34;&lt;/span&gt; }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      ]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;hljs-string&#34;&gt;&#34;followers&#34;&lt;/span&gt;: [&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        { &lt;span class=&#34;hljs-string&#34;&gt;&#34;name&#34;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;Cally&#34;&lt;/span&gt; },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        { &lt;span class=&#34;hljs-string&#34;&gt;&#34;name&#34;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;Donna&#34;&lt;/span&gt; },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        { &lt;span class=&#34;hljs-string&#34;&gt;&#34;name&#34;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;Jell&#34;&lt;/span&gt; },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      ]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;補充&#34;&gt;&lt;a href=&#34;#補充&#34; class=&#34;headerlink&#34; title=&#34;補充&#34;&gt;&lt;/a&gt;補充&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Schema，香港和中國大陸翻譯為模式或架構，在資料庫系統中是形式語言描述的一種結構，是對象的集合，可包含各種對象如：表、欄位、關係模型、視圖、索引、包、存儲過程、子程序、隊列、觸發器、數據類型、序列、物化視圖、同義詞（synonym）、database link、directory、XML schema等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;br&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10200678&#34;&gt;https://ithelp.ithome.com.tw/articles/10200678&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

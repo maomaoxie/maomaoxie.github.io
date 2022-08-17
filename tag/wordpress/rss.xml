@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;wordpress&#34; tag</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Sun, 07 Aug 2022 10:02:29 +0800</pubDate>
+        <lastBuildDate>Sun, 07 Aug 2022 10:02:29 +0800</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>hexo</category>
+        <category>submodule</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>rss</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
+        <category>httpHeader</category>
+        <category>status</category>
+        <category>httpMethods</category>
+        <category>Javascript</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>blade</category>
+        <category>wsl2</category>
+        <category>layout</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>css</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue</category>
+        <category>vue3</category>
+        <category>compositionAPI</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>vuetify</category>
+        <category>html</category>
+        <category>wordpress</category>
+        <category>dns</category>
+        <category>cdn</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/08/07/zh-tw/wordpress-get-started/</guid>
+            <title>開始我的第一個 wordpress 網站</title>
+            <link>http://maomaoxie.github.io/2022/08/07/zh-tw/wordpress-get-started/</link>
+            <category>wordpress</category>
+            <category>dns</category>
+            <category>cdn</category>
+            <pubDate>Sun, 07 Aug 2022 10:02:29 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;第一步-產生-ip-位址&#34;&gt;&lt;a href=&#34;#第一步-產生-ip-位址&#34; class=&#34;headerlink&#34; title=&#34;第一步 - 產生 ip 位址&#34;&gt;&lt;/a&gt;第一步 - 產生 ip 位址&lt;/h1&gt;&lt;p&gt;首先要租賃一台伺服器提供 ip，可以考慮較優惠的主機廠商：遠振或 bluehost。&lt;br&gt;要注意的是，一個 domain 可以放置很多網站資料夾，並且設定sub-domian。&lt;/p&gt;
+&lt;h1 id=&#34;第二步-DNS-註冊&#34;&gt;&lt;a href=&#34;#第二步-DNS-註冊&#34; class=&#34;headerlink&#34; title=&#34;第二步 - DNS 註冊&#34;&gt;&lt;/a&gt;第二步 - DNS 註冊&lt;/h1&gt;&lt;p&gt;ip 設定好之後就可以將網域指過來指定的 DNS 網域商：&lt;br&gt;中華電信提供的 .tw　較便宜，而 godaddy 則是 .com 較便宜。&lt;/p&gt;
+&lt;h1 id=&#34;第三步-cdn-分散流量&#34;&gt;&lt;a href=&#34;#第三步-cdn-分散流量&#34; class=&#34;headerlink&#34; title=&#34;第三步 - cdn 分散流量&#34;&gt;&lt;/a&gt;第三步 - cdn 分散流量&lt;/h1&gt;&lt;p&gt;常用的 cdn 廠商像是 cloudflare，可以註冊一個離主機近的（例如東京）cdn 位址，其他供應商例如 sugarhost 很便宜但連線較慢。&lt;/p&gt;
+&lt;h3 id=&#34;CDN-原理&#34;&gt;&lt;a href=&#34;#CDN-原理&#34; class=&#34;headerlink&#34; title=&#34;CDN 原理&#34;&gt;&lt;/a&gt;CDN 原理&lt;/h3&gt;&lt;p&gt;cdn 是把 DNS 轉向給 DNS 廠商（cloudflare），透過 DNS 指向將流量倒過去 cloudflare，在第一次 cache 過網站靜態資源後，第二次就可以直接提取cdn 伺服器上 cache　的資源以減少流量費用。&lt;/p&gt;
+&lt;h3 id=&#34;設定細節&#34;&gt;&lt;a href=&#34;#設定細節&#34; class=&#34;headerlink&#34; title=&#34;設定細節&#34;&gt;&lt;/a&gt;設定細節&lt;/h3&gt;&lt;h5 id=&#34;資源類型&#34;&gt;&lt;a href=&#34;#資源類型&#34; class=&#34;headerlink&#34; title=&#34;資源類型&#34;&gt;&lt;/a&gt;資源類型&lt;/h5&gt;&lt;p&gt;通常都會設定 &lt;strong&gt;A 類型&lt;/strong&gt;以設定網址（url）指向，例如 mailgun 的寄信功能。&lt;/p&gt;
+&lt;h5 id=&#34;防堵資安問題&#34;&gt;&lt;a href=&#34;#防堵資安問題&#34; class=&#34;headerlink&#34; title=&#34;防堵資安問題&#34;&gt;&lt;/a&gt;防堵資安問題&lt;/h5&gt;&lt;p&gt;cloudflare 設定其中一樣可以開啟 ddos -&amp;gt; under Attack 來保護網站資源。&lt;br&gt;也可以手動清除特定檔案，例如圖片的 cache 來重新抓取檔案。&lt;/p&gt;
+&lt;h1 id=&#34;第四步-掛載-wordpress&#34;&gt;&lt;a href=&#34;#第四步-掛載-wordpress&#34; class=&#34;headerlink&#34; title=&#34;第四步 - 掛載 wordpress&#34;&gt;&lt;/a&gt;第四步 - 掛載 wordpress&lt;/h1&gt;&lt;p&gt;wordpress 可以當作是一個 php 建構而成的後端框架應用，串接方式有兩種：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;直接使用 wordpress hook 來渲染資料（前後端合併）。&lt;/li&gt;
+&lt;li&gt;撰寫自己的前端框架（例如 vue），撰寫自己的 API（前後端分離）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;建立步驟&#34;&gt;&lt;a href=&#34;#建立步驟&#34; class=&#34;headerlink&#34; title=&#34;建立步驟&#34;&gt;&lt;/a&gt;建立步驟&lt;/h3&gt;&lt;p&gt;到  &lt;a href=&#34;https://tw.wordpress.org/download/&#34;&gt;wordpress&lt;/a&gt; 官方網站下載檔案，上傳到自己的網域 server。&lt;/p&gt;
+&lt;img src=&#34;/images/wordpress-get-started/14.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;wordpress-download&#34;&gt;
+&lt;p&gt;上傳後打開網站，會有一個 UI 介面可以直接設定 wordpress 與網站資料，config 需要設定資料庫帳號密碼：&lt;/p&gt;
+&lt;p&gt;要注意的是 wordpress 權限身分須從 root 改成 www-data，才能變成網站系統管理員使用 wordpress 後台。&lt;/p&gt;
+&lt;!-- 行情 $ 25000 (使用佈景主題)
+客製化算一頁
+定時備份以免網站被駭客
+租 GCP 靜態硬碟 
+google 硬碟版本管理 資源回收桶保留30 天
+flicker
+
+設定 config 檔案 
+比較好的後台c panel 要錢
+dns 代管要 https 要使用 flexible SSL for cloudflare
+
+一類有分類的文章 slug 需要代稱(英文的)
+獨立頁面 客製化
+siteliner 檢查有沒有壞掉的連結與重複的內容
+duplicate page
+報價高一點
+附加的css
+減少做重複的事情
+在 wordpress 上做前後端分離 --&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

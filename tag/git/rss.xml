@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;git&#34; tag</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Sun, 07 Aug 2022 16:07:24 +0800</pubDate>
+        <lastBuildDate>Sun, 07 Aug 2022 16:07:24 +0800</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>hexo</category>
+        <category>submodule</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>rss</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
+        <category>httpHeader</category>
+        <category>status</category>
+        <category>httpMethods</category>
+        <category>Javascript</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>blade</category>
+        <category>wsl2</category>
+        <category>layout</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>css</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue</category>
+        <category>vue3</category>
+        <category>compositionAPI</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>vuetify</category>
+        <category>html</category>
+        <category>wordpress</category>
+        <category>dns</category>
+        <category>cdn</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/08/07/zh-tw/git-remove-submodule/</guid>
+            <title>git 移除 submodule</title>
+            <link>http://maomaoxie.github.io/2022/08/07/zh-tw/git-remove-submodule/</link>
+            <category>git</category>
+            <category>hexo</category>
+            <category>submodule</category>
+            <pubDate>Sun, 07 Aug 2022 16:07:24 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/git-remove-submodule/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;git-remove-submodule&#34;&gt;
+&lt;h1 id=&#34;git-submodule&#34;&gt;&lt;a href=&#34;#git-submodule&#34; class=&#34;headerlink&#34; title=&#34;git submodule&#34;&gt;&lt;/a&gt;git submodule&lt;/h1&gt;&lt;p&gt;在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。&lt;/p&gt;
+&lt;img src=&#34;/images/git-remove-submodule/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;git-remove-submodule&#34;&gt;
+
+&lt;p&gt;以下記錄自己如何將修改後的 minos 資料夾：&lt;/p&gt;
+&lt;h3 id=&#34;移除-git-子模塊快取&#34;&gt;&lt;a href=&#34;#移除-git-子模塊快取&#34; class=&#34;headerlink&#34; title=&#34;移除 git 子模塊快取&#34;&gt;&lt;/a&gt;移除 git 子模塊快取&lt;/h3&gt;&lt;p&gt;以下的指令可以清除子模塊的 git 紀錄：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;git cmd&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git rm --cached -f ./themes/minos&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;重新加入索引&#34;&gt;&lt;a href=&#34;#重新加入索引&#34; class=&#34;headerlink&#34; title=&#34;重新加入索引&#34;&gt;&lt;/a&gt;重新加入索引&lt;/h3&gt;&lt;p&gt;將剛才取消子模塊的 git 重新排隊至專案包中，我比較懶惰直接整包加：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;git cmd&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git add .&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;再檢視一遍 vs code 之後就會看到檔案被追蹤到了！&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/02/21/zh-tw/git-command-line/</guid>
+            <title>Git 常用的指令</title>
+            <link>http://maomaoxie.github.io/2022/02/21/zh-tw/git-command-line/</link>
+            <category>git</category>
+            <category>github</category>
+            <pubDate>Mon, 21 Feb 2022 17:14:05 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;這裡記錄一些工作上會用到的 git 指令，太容易忘記了阿（扶額&lt;/p&gt;
+&lt;h1 id=&#34;分支&#34;&gt;&lt;a href=&#34;#分支&#34; class=&#34;headerlink&#34; title=&#34;分支&#34;&gt;&lt;/a&gt;分支&lt;/h1&gt;&lt;h3 id=&#34;查看分支&#34;&gt;&lt;a href=&#34;#查看分支&#34; class=&#34;headerlink&#34; title=&#34;查看分支&#34;&gt;&lt;/a&gt;查看分支&lt;/h3&gt;&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git branch&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;遠端-URL&#34;&gt;&lt;a href=&#34;#遠端-URL&#34; class=&#34;headerlink&#34; title=&#34;遠端 URL&#34;&gt;&lt;/a&gt;遠端 URL&lt;/h1&gt;&lt;h3 id=&#34;更換遠端-URL&#34;&gt;&lt;a href=&#34;#更換遠端-URL&#34; class=&#34;headerlink&#34; title=&#34;更換遠端 URL&#34;&gt;&lt;/a&gt;更換遠端 URL&lt;/h3&gt;&lt;p&gt;因應 PAT 新制，remote origin 格式必須更改如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git remote set-url origin https://&amp;lt;USERNAME&amp;gt;:&amp;lt;TOKEN&amp;gt;@&amp;lt;GIT_URL&amp;gt;.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;查看遠端-URL&#34;&gt;&lt;a href=&#34;#查看遠端-URL&#34; class=&#34;headerlink&#34; title=&#34;查看遠端 URL&#34;&gt;&lt;/a&gt;查看遠端 URL&lt;/h3&gt;&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git remote -v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;將專案推上去遠端-URL&#34;&gt;&lt;a href=&#34;#將專案推上去遠端-URL&#34; class=&#34;headerlink&#34; title=&#34;將專案推上去遠端 URL&#34;&gt;&lt;/a&gt;將專案推上去遠端 URL&lt;/h3&gt;&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git push -u origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/02/21/zh-tw/node-process-env/</guid>
+            <title>Node如何設置.env環境檔</title>
+            <link>http://maomaoxie.github.io/2022/02/21/zh-tw/node-process-env/</link>
+            <category>git</category>
+            <category>node</category>
+            <category>env</category>
+            <category>process</category>
+            <category>dotenv</category>
+            <pubDate>Mon, 21 Feb 2022 14:48:33 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/node-process-env/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;node-process-env&#34;&gt;
+&lt;p&gt;圖片來源:&lt;a href=&#34;https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c&#34;&gt;https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;開發專案的時候機密文件如何保存很重要，可以保護不被有心人士竊取，像是 API 金鑰、client-ID 與 client-secret 等可以呼叫遠端資料的通關密碼都需要妥善保存不暴露到網站上。&lt;br&gt;這邊來說明一下怎麼設置專案裡的環境檔案，並且讀取機密資料：&lt;/p&gt;
+&lt;h1 id=&#34;創建-env-檔案&#34;&gt;&lt;a href=&#34;#創建-env-檔案&#34; class=&#34;headerlink&#34; title=&#34;創建 .env 檔案&#34;&gt;&lt;/a&gt;創建 .env 檔案&lt;/h1&gt;&lt;p&gt;首先在跟目錄新增一個 .env 檔案，甚至可以設置以下幾種檔案來撰寫想要的環境模式腳本：&lt;/p&gt;
+&lt;h3 id=&#34;根據環境模式建立&#34;&gt;&lt;a href=&#34;#根據環境模式建立&#34; class=&#34;headerlink&#34; title=&#34;根據環境模式建立&#34;&gt;&lt;/a&gt;根據環境模式建立&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;全局環境檔：.env&lt;/li&gt;
+&lt;li&gt;開發環境檔：.env.dev&lt;/li&gt;
+&lt;li&gt;測試環境檔：.env.sit&lt;/li&gt;
+&lt;li&gt;生產環境檔：.env.prod&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;環境檔變數&#34;&gt;&lt;a href=&#34;#環境檔變數&#34; class=&#34;headerlink&#34; title=&#34;環境檔變數&#34;&gt;&lt;/a&gt;環境檔變數&lt;/h3&gt;&lt;p&gt;內容很簡單，都是鍵值對（key-value）的方式撰寫變數：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;.env&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;YOUR_VARAIBLE_NAME=VALUE&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;Node-js-process&#34;&gt;&lt;a href=&#34;#Node-js-process&#34; class=&#34;headerlink&#34; title=&#34;Node.js process&#34;&gt;&lt;/a&gt;Node.js process&lt;/h1&gt;&lt;p&gt;Node 提供了一個全局可使用的模組 process 記錄了所有關於目前 Node.js 程式的資訊，不需要 require()　就可以使用，棒棒的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The process object is a global that provides information about, and control over, the current Node.js process. As a global, it is always available to Node.js applications without using require().&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;process-env&#34;&gt;&lt;a href=&#34;#process-env&#34; class=&#34;headerlink&#34; title=&#34;process.env&#34;&gt;&lt;/a&gt;process.env&lt;/h3&gt;&lt;p&gt;process.env 則提供了關於使用者的環境物件，而腳本檔案需要的資訊都可以放在這個物件中。&lt;br&gt;該物件中的資料會自動轉換成字串（string）。&lt;br&gt;在 windows 作業系統中環境變數的大小寫是不敏感的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The process.env property returns an object containing the user environment.&lt;br&gt;See environ(7). Assigning a property on process.env will implicitly convert the value to a string.&lt;br&gt;On Windows operating systems, environment variables are case-insensitive.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;npm-dotenv&#34;&gt;&lt;a href=&#34;#npm-dotenv&#34; class=&#34;headerlink&#34; title=&#34;npm dotenv&#34;&gt;&lt;/a&gt;npm dotenv&lt;/h1&gt;&lt;p&gt;光有全局的 process.env 是不夠的，還需要使用一個神人創造的 &lt;strong&gt;npm 套件 &lt;a href=&#34;https://www.npmjs.com/package/dotenv&#34;&gt;dotenv&lt;/a&gt;&lt;/strong&gt; 才能無痛讀取自己創建的 .env 資料唷！&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm i dotenv --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在專案引用該套件：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-built_in&#34;&gt;require&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;dotenv&#39;&lt;/span&gt;).&lt;span class=&#34;title function_&#34;&gt;config&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; db = &lt;span class=&#34;hljs-built_in&#34;&gt;require&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;db&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;db.&lt;span class=&#34;title function_&#34;&gt;connect&lt;/span&gt;({&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;host&lt;/span&gt;: process.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;DB_HOST&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;username&lt;/span&gt;: process.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;DB_USER&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;password&lt;/span&gt;: process.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;DB_PASS&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;})&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;https&lt;/span&gt;:&lt;span class=&#34;hljs-comment&#34;&gt;//dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;善用-gitignore&#34;&gt;&lt;a href=&#34;#善用-gitignore&#34; class=&#34;headerlink&#34; title=&#34;善用 .gitignore&#34;&gt;&lt;/a&gt;善用 .gitignore&lt;/h1&gt;&lt;p&gt;通常搭配 git 使用時會放置在 env 檔中並且 .gitignore 避免 commit 到公開環境中。&lt;br&gt;使用方式很簡單，在跟目錄創建一個 .gitignore 檔案之後，撰寫需要被 git 略過不被 commit 以及 push 的檔案類型：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;.gitignore&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;dev&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;sit&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;.&lt;span class=&#34;hljs-property&#34;&gt;env&lt;/span&gt;.&lt;span class=&#34;hljs-property&#34;&gt;prod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c&#34;&gt;https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://dwatow.github.io/2019/01-26-node-with-env-first/&#34;&gt;https://dwatow.github.io/2019/01-26-node-with-env-first/&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://nodejs.org/docs/latest-v8.x/api/process.html#process_process_env&#34;&gt;https://nodejs.org/docs/latest-v8.x/api/process.html#process_process_env&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/02/17/zh-tw/git-main-branch/</guid>
+            <title>Github 主分支更名 master 為 main</title>
+            <link>http://maomaoxie.github.io/2022/02/17/zh-tw/git-main-branch/</link>
+            <category>git</category>
+            <category>github</category>
+            <category>sourceTree</category>
+            <pubDate>Thu, 17 Feb 2022 20:59:44 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/git-main-branch/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;git-main-branch&#34;&gt;
+&lt;p&gt;每每 github 搞了一些新招就得重新適應一次（菸&lt;/p&gt;
+&lt;p&gt;這兩天在做小專案 git init 之後準備推上去 github 時，執行以下的老樣子：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git remote add origin https://github.com/mawchu/baby-bill.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;看到這裡不免疑惑了一下，不是印象中的 branch 名字呀：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git branch -M main &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;果然執行之後出現噴錯的內容：&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote danger&#34;&gt;&lt;p&gt;error: refname refs/heads/master not found&lt;br&gt;fatal: Branch rename failed&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;這個 main 分支從哪裡冒出來的？暗暗覺得這個行為很雞肋= =？&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;為響應黑人平權運動，GitHub宣布從10月1日起改變新Git儲存庫的預設命名，以main來取代原本的master。&lt;br&gt;受到年中佛洛依德（George Floyd）遭警方執法過當死亡，引發的黑人平權抗議風潮影響，美國科技界也相繼思考去除慣用名稱中有種族歧視色彩的字眼，例如不要使用master/slave、blacklist/whitelist。GitHub執行長Nat Friedman也決定進行相關改變。&lt;/p&gt;
+&lt;p&gt;開發人員也可以不要變更，隨時到設定區，把個人、組織和公司的新儲存庫預設命名從main改成別的。&lt;br&gt;GitHub呼籲用戶可以先保持不動，到了年底會再釋出新工具以協助現有branch改成新的預設名稱。&lt;br&gt;在支持黑人平權風潮下，包括Google、微軟、IBM、Red Hat、甲骨文下的MySQL及Linux社群都相繼變更了軟體流程的命名。本月微軟也提案修改Chromium中black/whitelist為較中性的blocklist/allowlist。&lt;br&gt;&lt;a href=&#34;https://www.ithome.com.tw/news/140094&#34;&gt;https://www.ithome.com.tw/news/140094&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;查看了一下網路說明，原來是美國的政治與歷史因素，生活跟科技真是息息相關呢，自己的見識尚淺默默反省了一下XD&lt;br&gt;科普了一會怎麼切換現今的分支變成 main：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git add .&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git commit -m &lt;span class=&#34;hljs-string&#34;&gt;&#34;要推的備註內容&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;都 OK 就可以推上去囉！&lt;/p&gt;
+&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git push -u origin main&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;推上去發現自己忘了切換帳號又噴錯啦！&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote danger&#34;&gt;&lt;p&gt;remote: Permission to mawchu/baby-bill.git denied to maomaoxie.&lt;br&gt;fatal: unable to access ‘&lt;a href=&#34;https://github.com/mawchu/baby-bill.git/&#39;&#34;&gt;https://github.com/mawchu/baby-bill.git/&#39;&lt;/a&gt;: The requested URL returned error: 403&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;由於 git bash 切換帳戶不是那麼方便，就偷吃步一下重複 &lt;a href=&#34;http://maomaoxie.github.io/2022/02/10/zh-tw/git-pat/&#34;&gt;Github 登入新制 PAT X Sourcetree&lt;/a&gt; 這篇的步驟就可以囉！&lt;/p&gt;
+&lt;p&gt;參考文章：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/taoshihan/article/details/116824815?spm=1001.2101.3001.6661.1&amp;amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;amp;utm_relevant_index=1&#34;&gt;https://blog.csdn.net/taoshihan/article/details/116824815?spm=1001.2101.3001.6661.1&amp;amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;amp;utm_relevant_index=1&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/02/10/zh-tw/git-pat/</guid>
+            <title>Github 登入新制 PAT X Sourcetree</title>
+            <link>http://maomaoxie.github.io/2022/02/10/zh-tw/git-pat/</link>
+            <category>git</category>
+            <category>github</category>
+            <category>sourceTree</category>
+            <pubDate>Thu, 10 Feb 2022 12:31:14 +0800</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;在2022年某天，嘗試使用 sourcetree 推上去新 code 時，在 Github 時出現了以下錯誤訊息：&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote danger&#34;&gt;&lt;p&gt;remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.&lt;br&gt;remote: Please see &lt;a href=&#34;https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/&#34;&gt;https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/&lt;/a&gt; for more information.&lt;br&gt;fatal: unable to access “…” : The requested URL returned error: 403&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以上說明大概就是 Github 已經不支援密碼登入的方式，從 2021/08/13 開始必須替換為 PAT 的 token 登入方式進行認證。&lt;/p&gt;
+&lt;p&gt;這個過程採了一些小坑，為了避免自己忘記趕緊的筆記一下：&lt;/p&gt;
+&lt;h1 id=&#34;Github-創建-token&#34;&gt;&lt;a href=&#34;#Github-創建-token&#34; class=&#34;headerlink&#34; title=&#34;Github 創建 token&#34;&gt;&lt;/a&gt;Github 創建 token&lt;/h1&gt;  &lt;blockquote&gt;&lt;p&gt;From your GitHub account, go to Settings =&amp;gt; Developer Settings =&amp;gt; Personal Access Token =&amp;gt; Generate New Token (Give your password) =&amp;gt; Fillup the form =&amp;gt; click Generate token =&amp;gt; Copy the generated Token, it will be something like ghp_sFhFsSHhTzMDreGRLjmks4Tzuzgthdvfsrta&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;按下右上角頭像，選取 settings  &lt;img src=&#34;/images/github-pat/github-pat1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;100&#34; title=&#34;[title text [alt text]]&#34;&gt;&lt;/li&gt;
+&lt;li&gt;按下 developer settings  &lt;img src=&#34;/images/github-pat/github-pat2.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[title text [alt text]]&#34;&gt;&lt;/li&gt;
+&lt;li&gt;點選 personal accesss token  &lt;img src=&#34;/images/github-pat/github-pat2-1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[title text [alt text]]&#34;&gt;&lt;/li&gt;
+&lt;li&gt;填寫 token 用途與勾選 token 權限之後，申請一個 token 並且妥善保存  &lt;img src=&#34;/images/github-pat/github-pat2-2.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[title text [alt text]]&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;sourceTree-修改遠端-URL&#34;&gt;&lt;a href=&#34;#sourceTree-修改遠端-URL&#34; class=&#34;headerlink&#34; title=&#34;sourceTree 修改遠端 URL&#34;&gt;&lt;/a&gt;sourceTree 修改遠端 URL&lt;/h1&gt;&lt;p&gt;  專案的 repo 點選 settings 修改 remote URL 的格式如下，&lt;br&gt;  &lt;/p&gt;&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;https://&amp;lt;USERNAME&amp;gt;:&amp;lt;TOKEN&amp;gt;@&amp;lt;GIT_URL&amp;gt;.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;  查詢 GIT_URL 可以透過這個指令：&lt;br&gt;  &lt;/p&gt;&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ git config --get remote.origin.url&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;  並且記得 GIT_URL 要刪除 https:// 的部分才不會出錯，類似這樣&lt;br&gt;  &lt;/p&gt;&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;https://mawchu:&amp;lt;你的Github token&amp;gt;@github.com/mawchu/mawchu.github.io.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;/p&gt;
+&lt;h1 id=&#34;驗證-Sourcetree-的身分&#34;&gt;&lt;a href=&#34;#驗證-Sourcetree-的身分&#34; class=&#34;headerlink&#34; title=&#34;驗證 Sourcetree 的身分&#34;&gt;&lt;/a&gt;驗證 Sourcetree 的身分&lt;/h1&gt;  &lt;img src=&#34;/images/github-pat/github-pat3.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[title text [alt text]]&#34;&gt;
+  &lt;img src=&#34;/images/github-pat/github-pat3-1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[title text [alt text]]&#34;&gt;
+
+&lt;p&gt;  切換 OAuth 為 Basic 驗證方式，輸入方才申請好的 token 密碼&lt;br&gt;  &lt;img src=&#34;/images/github-pat/github-pat4.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[title text [alt text]]&#34;&gt;&lt;/p&gt;
+&lt;p&gt;  驗證 OK 就可以推上去囉！&lt;/p&gt;
+&lt;p&gt;參考文章：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to&#34;&gt;https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://stackoverflow.com/questions/68191968/source-tree-fix-for-git-password-authentication-is-temporarily-disabled-as-part&#34;&gt;https://stackoverflow.com/questions/68191968/source-tree-fix-for-git-password-authentication-is-temporarily-disabled-as-part&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr&#34;&gt;https://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

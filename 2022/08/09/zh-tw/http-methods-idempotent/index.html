@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>RESTful API 方法觀念介紹 - idempotent - Mawchu 貓奴前端的天空</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="google-site-verification" content="qpdwAFMt_HNGP0dM45CxVBDie_HVPkWFvpclpqZaoIo" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2022/08/09/zh-tw/http-methods-idempotent/" rel="alternate" hreflang="en" />
+    
+
+
+<meta name="description" content="Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習">
+
+
+
+<meta name="keywords" content="mawchu、謝佳芳、毛球、網頁、前端、Javascript、Vue、Laravel、SEO、平面設計、貓咪">
+
+
+
+    <meta name="description" content="RESTful API 呼叫的方法中，離不開四個主軸 CRUD，CREATE、READ&#x2F;RETREIVE、UPDATE 還有 DELETE。而其中就有分是否為 Idempotent 的方法，甚麼意思呢？ 甚麼是Idempotent（冪等）A request method is considered “idempotent” if the intended effect on the server">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RESTful API 方法觀念介紹 - idempotent">
+<meta property="og:url" content="http://maomaoxie.github.io/2022/08/09/zh-tw/http-methods-idempotent/index.html">
+<meta property="og:site_name" content="Mawchu 貓奴前端的天空">
+<meta property="og:description" content="RESTful API 呼叫的方法中，離不開四個主軸 CRUD，CREATE、READ&#x2F;RETREIVE、UPDATE 還有 DELETE。而其中就有分是否為 Idempotent 的方法，甚麼意思呢？ 甚麼是Idempotent（冪等）A request method is considered “idempotent” if the intended effect on the server">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-08-09T07:14:24.000Z">
+<meta property="article:modified_time" content="2022-08-17T02:19:37.087Z">
+<meta property="article:author" content="Mawchu 謝佳芳">
+<meta property="article:tag" content="mawchu、謝佳芳、毛球、網頁、前端、Javascript、Vue、Laravel、SEO、平面設計、貓咪">
+<meta name="twitter:card" content="summary">
+
+
+
+<link rel="alternative" href="/atom.xml" title="RESTful API 方法觀念介紹 - idempotent" type="application/atom+xml">
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.svg">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832218493331944" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script src="https://kit.fontawesome.com/76e3351334.js" crossorigin="anonymous"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container custom-nav">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo position-relative" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/subscribe">訂閱
+               <div class="position-absolute bar"></div>
+            </a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/mawchu">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            RESTful API 方法觀念介紹 - idempotent
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-09T07:14:24.000Z" itemprop="datePublished">8月 9 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分鐘 讀完 (約 1140 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>RESTful API 呼叫的方法中，離不開四個主軸 CRUD，CREATE、READ/RETREIVE、UPDATE 還有 DELETE。<br>而其中就有分是否為 <strong>Idempotent 的方法</strong>，甚麼意思呢？</p>
+<h1 id="甚麼是Idempotent（冪等）"><a href="#甚麼是Idempotent（冪等）" class="headerlink" title="甚麼是Idempotent（冪等）"></a>甚麼是Idempotent（冪等）</h1><blockquote><p>A request method is considered “idempotent” if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request. </p>
+</blockquote>
+
+<p>看為只覺得在母鯊大，沒關係我們繼續看下去：</p>
+<blockquote><p>Of the request methods defined by this specification, PUT, DELETE, and safe request methods are idempotent.</p>
+<footer><strong>Lauviah0622</strong><cite><a target="_blank" rel="noopener" href="https://lance.coderbridge.io/2021/06/06/what-is-safe-method-and-indempotent-methods/">[極短篇] HTTP 的 Safe method 還有 Idempotent method</a></cite></footer></blockquote>
+
+<p>dempotent（冪等）的方法不管你做一次、兩次乃至一百次，對於伺服器端資料的結果都一樣，是安全而沒有副作用的，可以安心服用；<br>相反的非 Idempotent 的方法則是需要謹慎考慮的、會改動伺服器資料庫的、有副作用的，也就是非安全請求。</p>
+<p>我們來看看更精簡好懂的解釋：</p>
+<blockquote><p>Idempotent operations produce the same result even when the operation is repeated many times. The result of the 2nd, 3rd, and 1,000th repeat of the operation will return exactly the same result as the 1st time.<br>冪等運算是指無論操作多少次結果都會與第一次相同。</p>
+<p>For example, simple mathematical examples of idempotency include:</p>
+<p>x + 0;<br>x = 5;</p>
+<p>In the first example, adding zero will never change the result, regardless of how many times you do it. In the second, x is always 5. Again, this is the case, regardless of how many times you perform the operation. Both of these examples describe an operation that is idempotent.</p>
+<p>以上兩個例子都說明了這兩個表達是無論執行幾次都會是相同結果，這就是 Idempotent（冪等）。</p>
+<footer><strong>James E.</strong><cite><a target="_blank" rel="noopener" href="https://blog.dreamfactory.com/what-is-idempotency/">what-is-idempotency</a></cite></footer></blockquote>
+
+<h1 id="冪等不等於安全請求"><a href="#冪等不等於安全請求" class="headerlink" title="冪等不等於安全請求"></a>冪等不等於安全請求</h1><blockquote><p>The concepts of ‘idempotent methods’ and ‘safe methods’ are often confused. A safe method does not change the value that is returned, it reads – but it never writes.<br>Therefore, all safe methods are idempotent, but not all idempotent methods are safe.</p>
+<p>HTTP methods include:<br>POST – Creates a new resource. POST is not idempotent and it is not safe.<br>GET – Retrieves a resource. GET is idempotent and it is safe.<br>HEAD – Retrieves a resource (without response body). HEAD is idempotent and it is safe<br>PUT – Updates/replaces a resource. PUT is idempotent but it is not safe<br>PATCH – Partially updates a resource. PATCH is not idempotent and it is not safe.<br>DELETE – Deletes a resource. DELETE is idempotent but it is not safe.<br>TRACE – Performs a loop-back test. TRACE is idempotent but it is not safe.</p>
+<footer><strong>James E.</strong><cite><a target="_blank" rel="noopener" href="https://blog.dreamfactory.com/what-is-idempotency/">what-is-idempotency</a></cite></footer></blockquote>
+
+<p>安全請求只會讀取，所以都是冪等的，但冪等方法不一定都是安全請求。</p>
+<p>學術的部份我們就此打住，了解一下冪等之於 RESTful API 的意義。</p>
+<h1 id="idempotent-methods-冪等的方法"><a href="#idempotent-methods-冪等的方法" class="headerlink" title="idempotent methods 冪等的方法"></a>idempotent methods 冪等的方法</h1><ol>
+<li>GET</li>
+<li>HEAD（只讀取資料頭而忽略身體）</li>
+<li>PUT</li>
+<li>DELETE</li>
+<li>OPTIONS</li>
+</ol>
+<p>以上方式無論發幾次 request，結果都等同於一次。</p>
+<blockquote><p>通常 DELETE 會帶上 id，所以刪除 1 次和刪除 100 次是一樣的，server 那邊找不到 id 操作就會被忽略。<br>而 PUT 也一樣，PUT 代表替代的 http 操作，你發了 1 次 request 已經取代了內容後，那即使再發 100 次也只是替代一樣的內容。</p>
+<footer><strong>Lauviah0622</strong><cite><a target="_blank" rel="noopener" href="https://lance.coderbridge.io/2021/06/06/what-is-safe-method-and-indempotent-methods/">[極短篇] HTTP 的 Safe method 還有 Idempotent method</a></cite></footer></blockquote>
+
+<h1 id="Not-idempotent-methods-非冪等的方法"><a href="#Not-idempotent-methods-非冪等的方法" class="headerlink" title="Not idempotent methods 非冪等的方法"></a>Not idempotent methods 非冪等的方法</h1><ol>
+<li>POST</li>
+<li>DISPATCH</li>
+</ol>
+<p>以上方法每執行一次就會造成資料變動，但並非每種使用方式都是非冪等，端看 request 的目的是在「修改」還是「增加」，修改可能並不會更改內存量（memory），但是增加就不同了，它也是修改但是擴大了內存量（變多了）：</p>
+<blockquote><p>PATCH 在語意上代表著修改資料，換句話說可能這樣：</p>
+<p><code>PATCH http://blog.com/post?id=1 body {     title: 'new title' } </code><br>發了 100 次和 1 次標題都是同樣的 new title。</p>
+<p><code>PATCH http:shop.com/item/add?id=1 body {     number: 10 }</code><br>requst 代表的是增加 10 個 item 的數量。這種情況下也符合語意（修改資料），但就不符合 Idempotent 了，100 次會新增 1000 個。那 POST 就不用提，一次和 100 次肯定是不一樣的。</p>
+<footer><strong>Lauviah0622</strong><cite><a target="_blank" rel="noopener" href="https://lance.coderbridge.io/2021/06/06/what-is-safe-method-and-indempotent-methods/">[極短篇] HTTP 的 Safe method 還有 Idempotent method</a></cite></footer></blockquote>
+
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>讓我最意外的是 DELETE 居然是冪等方法，原因在於無論 request 幾次都只刪同一筆資料（認 id）這個觀念，與以前認為 DELETE 應該會每次刪除不同資料的想法大相逕庭。</p>
+</body></html> -->
+        
+        
+            <html><head></head><body><p>RESTful API 呼叫的方法中，離不開四個主軸 CRUD，CREATE、READ/RETREIVE、UPDATE 還有 DELETE。<br>而其中就有分是否為 <strong>Idempotent 的方法</strong>，甚麼意思呢？</p>
+<h1 id="甚麼是Idempotent（冪等）"><a href="#甚麼是Idempotent（冪等）" class="headerlink" title="甚麼是Idempotent（冪等）"></a>甚麼是Idempotent（冪等）</h1><blockquote><p>A request method is considered “idempotent” if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request. </p>
+</blockquote>
+
+<p>看為只覺得在母鯊大，沒關係我們繼續看下去：</p>
+<blockquote><p>Of the request methods defined by this specification, PUT, DELETE, and safe request methods are idempotent.</p>
+<footer><strong>Lauviah0622</strong><cite><a target="_blank" rel="noopener" href="https://lance.coderbridge.io/2021/06/06/what-is-safe-method-and-indempotent-methods/">[極短篇] HTTP 的 Safe method 還有 Idempotent method</a></cite></footer></blockquote>
+
+<p>dempotent（冪等）的方法不管你做一次、兩次乃至一百次，對於伺服器端資料的結果都一樣，是安全而沒有副作用的，可以安心服用；<br>相反的非 Idempotent 的方法則是需要謹慎考慮的、會改動伺服器資料庫的、有副作用的，也就是非安全請求。</p>
+<p>我們來看看更精簡好懂的解釋：</p>
+<blockquote><p>Idempotent operations produce the same result even when the operation is repeated many times. The result of the 2nd, 3rd, and 1,000th repeat of the operation will return exactly the same result as the 1st time.<br>冪等運算是指無論操作多少次結果都會與第一次相同。</p>
+<p>For example, simple mathematical examples of idempotency include:</p>
+<p>x + 0;<br>x = 5;</p>
+<p>In the first example, adding zero will never change the result, regardless of how many times you do it. In the second, x is always 5. Again, this is the case, regardless of how many times you perform the operation. Both of these examples describe an operation that is idempotent.</p>
+<p>以上兩個例子都說明了這兩個表達是無論執行幾次都會是相同結果，這就是 Idempotent（冪等）。</p>
+<footer><strong>James E.</strong><cite><a target="_blank" rel="noopener" href="https://blog.dreamfactory.com/what-is-idempotency/">what-is-idempotency</a></cite></footer></blockquote>
+
+<h1 id="冪等不等於安全請求"><a href="#冪等不等於安全請求" class="headerlink" title="冪等不等於安全請求"></a>冪等不等於安全請求</h1><blockquote><p>The concepts of ‘idempotent methods’ and ‘safe methods’ are often confused. A safe method does not change the value that is returned, it reads – but it never writes.<br>Therefore, all safe methods are idempotent, but not all idempotent methods are safe.</p>
+<p>HTTP methods include:<br>POST – Creates a new resource. POST is not idempotent and it is not safe.<br>GET – Retrieves a resource. GET is idempotent and it is safe.<br>HEAD – Retrieves a resource (without response body). HEAD is idempotent and it is safe<br>PUT – Updates/replaces a resource. PUT is idempotent but it is not safe<br>PATCH – Partially updates a resource. PATCH is not idempotent and it is not safe.<br>DELETE – Deletes a resource. DELETE is idempotent but it is not safe.<br>TRACE – Performs a loop-back test. TRACE is idempotent but it is not safe.</p>
+<footer><strong>James E.</strong><cite><a target="_blank" rel="noopener" href="https://blog.dreamfactory.com/what-is-idempotency/">what-is-idempotency</a></cite></footer></blockquote>
+
+<p>安全請求只會讀取，所以都是冪等的，但冪等方法不一定都是安全請求。</p>
+<p>學術的部份我們就此打住，了解一下冪等之於 RESTful API 的意義。</p>
+<h1 id="idempotent-methods-冪等的方法"><a href="#idempotent-methods-冪等的方法" class="headerlink" title="idempotent methods 冪等的方法"></a>idempotent methods 冪等的方法</h1><ol>
+<li>GET</li>
+<li>HEAD（只讀取資料頭而忽略身體）</li>
+<li>PUT</li>
+<li>DELETE</li>
+<li>OPTIONS</li>
+</ol>
+<p>以上方式無論發幾次 request，結果都等同於一次。</p>
+<blockquote><p>通常 DELETE 會帶上 id，所以刪除 1 次和刪除 100 次是一樣的，server 那邊找不到 id 操作就會被忽略。<br>而 PUT 也一樣，PUT 代表替代的 http 操作，你發了 1 次 request 已經取代了內容後，那即使再發 100 次也只是替代一樣的內容。</p>
+<footer><strong>Lauviah0622</strong><cite><a target="_blank" rel="noopener" href="https://lance.coderbridge.io/2021/06/06/what-is-safe-method-and-indempotent-methods/">[極短篇] HTTP 的 Safe method 還有 Idempotent method</a></cite></footer></blockquote>
+
+<h1 id="Not-idempotent-methods-非冪等的方法"><a href="#Not-idempotent-methods-非冪等的方法" class="headerlink" title="Not idempotent methods 非冪等的方法"></a>Not idempotent methods 非冪等的方法</h1><ol>
+<li>POST</li>
+<li>DISPATCH</li>
+</ol>
+<p>以上方法每執行一次就會造成資料變動，但並非每種使用方式都是非冪等，端看 request 的目的是在「修改」還是「增加」，修改可能並不會更改內存量（memory），但是增加就不同了，它也是修改但是擴大了內存量（變多了）：</p>
+<blockquote><p>PATCH 在語意上代表著修改資料，換句話說可能這樣：</p>
+<p><code>PATCH http://blog.com/post?id=1 body {     title: 'new title' } </code><br>發了 100 次和 1 次標題都是同樣的 new title。</p>
+<p><code>PATCH http:shop.com/item/add?id=1 body {     number: 10 }</code><br>requst 代表的是增加 10 個 item 的數量。這種情況下也符合語意（修改資料），但就不符合 Idempotent 了，100 次會新增 1000 個。那 POST 就不用提，一次和 100 次肯定是不一樣的。</p>
+<footer><strong>Lauviah0622</strong><cite><a target="_blank" rel="noopener" href="https://lance.coderbridge.io/2021/06/06/what-is-safe-method-and-indempotent-methods/">[極短篇] HTTP 的 Safe method 還有 Idempotent method</a></cite></footer></blockquote>
+
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>讓我最意外的是 DELETE 居然是冪等方法，原因在於無論 request 幾次都只刪同一筆資料（認 id）這個觀念，與以前認為 DELETE 應該會每次刪除不同資料的想法大相逕庭。</p>
+</body></html>
+        
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/08/17/zh-tw/js-object-fromEntries/">Js 物件陣列轉換的方法，真香！</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/08/09/zh-tw/vuetify-slot-vhtml/">如何在 vuetify 元件中渲染 v-html</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62024aa50a70400019079d5b&amp;product=sticky-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://maomaoxie.github.io/2022/08/09/zh-tw/http-methods-idempotent/';
+        this.page.identifier = '2022/08/09/zh-tw/http-methods-idempotent/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'maomaoxie' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 Mawchu 謝佳芳&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/mawchu">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2022/08/09/zh-tw/http-methods-idempotent/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2022/08/09/zh-tw/http-methods-idempotent/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-TW");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+          position: relative;
+        }
+
+        .hljs .clipboard-btn {
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #2e2e2e;
+          transform: scale(1.1);
+        }
+
+        .hljs > .clipboard-btn {
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+          display: inline;
+        }
+
+        button {
+          padding: 0;
+        }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>
