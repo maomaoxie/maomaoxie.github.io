@@ -7,6 +7,11 @@
         <language>zh-tw,en,default</language>
         <pubDate>Sun, 10 Apr 2022 18:42:15 +0800</pubDate>
         <lastBuildDate>Sun, 10 Apr 2022 18:42:15 +0800</lastBuildDate>
+        <category>safari</category>
+        <category>javaScript</category>
+        <category>preventDefault</category>
+        <category>ios</category>
+        <category>mobile</category>
         <category>javascript</category>
         <category>constructor</category>
         <category>instance</category>
@@ -14,21 +19,21 @@
         <category>git</category>
         <category>github</category>
         <category>sourceTree</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>hexo</category>
+        <category>submodule</category>
+        <category>rss</category>
         <category>backEnd</category>
         <category>node</category>
         <category>express</category>
         <category>router</category>
-        <category>hexo</category>
-        <category>submodule</category>
-        <category>api</category>
-        <category>graphQL</category>
-        <category>facebook</category>
-        <category>rss</category>
         <category>http</category>
-        <category>https</category>
+        <category>httpHeader</category>
         <category>request</category>
         <category>response</category>
-        <category>httpHeader</category>
+        <category>https</category>
         <category>status</category>
         <category>httpMethods</category>
         <category>Javascript</category>
@@ -62,11 +67,11 @@
         <category>typescript</category>
         <category>vuetify</category>
         <category>html</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
-        <category>WebSocket</category>
-        <category>WebHook</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/04/10/zh-tw/laravel-routes-namespace/</guid>
             <title>Laravel 命名路由</title>

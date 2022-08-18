@@ -145,6 +145,78 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/06/04/zh-tw/js-weird-parts-parsing/" itemprop="url">克服 Javascript 的奇怪部分 名詞解釋篇</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-06-04T03:07:31.000Z" itemprop="datePublished">6月 4 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分鐘 讀完 (約 1279 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/js-weird-parts-I/0.png" class="" width="800" height="200" title="js-weird-parts-I">
+<p>先前滿常看到別人推薦的 Udemy 課程：克服JS的奇怪部分，原來自己已經購買且塵封在閱讀清單已久XD<br>馬上來匹乓一下吧！</p>
+<h1 id="執行篇"><a href="#執行篇" class="headerlink" title="執行篇"></a>執行篇</h1><h2 id="語法解析器（Syntax-Parser）"><a href="#語法解析器（Syntax-Parser）" class="headerlink" title="語法解析器（Syntax Parser）"></a>語法解析器（Syntax Parser）</h2><p>將你撰寫的 Javascript 編譯成電腦可以理解的一套程式語言（program），並且決定語法執行的方式以及是否合乎規範的角色，也與直譯（interprets）、轉譯（Compiler）概念雷同，其中直譯的編譯方式為逐字編譯後由電腦執行，大部分的 Javascript 程式都是直譯的，但並非全部情況。<br>編譯的過程會將 Javascript 拆解分類，依變數、函式等轉換成電腦硬體可以閱讀的語言，然後執行。</p>
+<img src="/images/js-weird-parts-I/1.png" class="" width="800" height="200" title="js-weird-parts-I">
+<p>可以想像成生產線上的作業員，持有原料工序可以生產產品。</p>
+<h2 id="靜態詞法作用域（Lexical-Environments）"><a href="#靜態詞法作用域（Lexical-Environments）" class="headerlink" title="靜態詞法作用域（Lexical Environments）"></a>靜態詞法作用域（Lexical Environments）</h2><blockquote class="colorquote info"><p>Where something <strong>sits physically</strong> in the code you write,<br>determines how it interacts with other elements in the program.</p>
+</blockquote>
+<p><strong>撰寫</strong>的時候決定如何運作。<br>你撰寫語法的靜態物理位置，決定了該對象（變數、函式等）與其他對象的互動與執行關係，並且被直譯器透過這個物理關係，或者說詞彙或文法關係來統整歸坐落在硬體記憶體中的位置，但須注意的是並非所有語言皆如此（java、C# 等為動態作用域）。<br>這有助於上方的語法解析器來決定程式怎麼運作，你撰寫 code 的位置在哪？周圍有甚麼、被甚麼包圍都很重要！<br>可以想像成生產線上的主管，歸納好產品的原料工序與存放倉庫的規則。</p>
+<h2 id="執行環境（Execution-Context）"><a href="#執行環境（Execution-Context）" class="headerlink" title="執行環境（Execution Context）"></a>執行環境（Execution Context）</h2><blockquote class="colorquote info"><p><strong>A wrapper</strong> to help manage the code that is running.<br>There are lots of lexical environments, which one is currently running is managed via execution context.</p>
+</blockquote>
+<p><strong>執行</strong>的時候決定如何運作。<br>靜態作用域很多，但是執行的當下順序則是由執行環境決定，也可以稱為上下文，最常見的就是每個函式建立之後產生的<code>this</code> keyword，通常為 block 作用域所包覆，在呼叫的時候決定 this 對象。<br>而執行環境不是只有與你撰寫的程式碼相關而已，也包含其他東西，例如上述的 this 就是執行函式當下的編譯過程動態產生的，編譯器在幫你翻譯給電腦讀懂以前，加油添醋了一些程序使程式碼更完整、具有前後順序給電腦執行。<br>可以想像成工廠的老闆，決定好哪批產品先出後出、出到哪裡。</p>
+<h1 id="變數篇"><a href="#變數篇" class="headerlink" title="變數篇"></a>變數篇</h1><h2 id="一個名稱對應一個值"><a href="#一個名稱對應一個值" class="headerlink" title="一個名稱對應一個值"></a>一個名稱對應一個值</h2><p>一個變數名可以更改很多次，但都只會包含一個值，而一個值裡面是更多的鍵值對。</p>
+<h2 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h2><p>更多鍵值對（key-value pairs）的集合。</p>
+<img src="/images/js-weird-parts-I/2.png" class="" width="400" height="200" title="js-weird-parts-I">
+
+<h1 id="全域物件與全域環境篇（Global）"><a href="#全域物件與全域環境篇（Global）" class="headerlink" title="全域物件與全域環境篇（Global）"></a>全域物件與全域環境篇（Global）</h1><figure class="highlight javascript hljs"><figcaption><span>info</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">The</span> base execution context is your <span class="variable language_">global</span> execution context.</span><br><span class="line"><span class="title class_">Things</span> that are accessible everywhere to everything to your code.</span><br><span class="line"><span class="title class_">And</span> it creates <span class="hljs-number">2</span> things that you don<span class="hljs-string">'t have to write about:</span></span><br><span class="line"><span class="hljs-string">1. Global object</span></span><br><span class="line"><span class="hljs-string">2. this</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="全域執行環境"><a href="#全域執行環境" class="headerlink" title="全域執行環境"></a>全域執行環境</h2><p>全域執行環境是所有 Javascript code 執行的基礎，所有的執行起點都存在於該環境內（being wrapped）。並且 Javascript 引擎會在執行初始建立兩個對象：全域物件與 this，即使你沒有撰寫任何程式碼，Javascript 引擎仍會自動產生。</p>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>其中全域執行環境中，瀏覽器底下的 this 就是指向 <strong>window</strong> (Global Object)。<br>weird-parts-I/3.png 600 200 js-weird-parts-I %}</p>
+<h2 id="全域物件"><a href="#全域物件" class="headerlink" title="全域物件"></a>全域物件</h2><p>若 Javascript 引擎是在後端執行，例如 node.js，則 全域物件就不會是 window。<br>當你在全域執行環境下靜態的撰寫變數或函式，並且詞法作用域上開放而沒有撰寫在其他函式內，就會自動附著（attached to）在全物域物件底下，全域物件意味著整個 Javascript 中的任何其他詞法作用域或者任何對象乃至整個檔案，都可以取用（accessible）這些資料。</p>
+<img src="/images/js-weird-parts-I/5.png" class="" width="400" height="200" title="js-weird-parts-I">
+<img src="/images/js-weird-parts-I/6.png" class="" width="500" height="200" title="js-weird-parts-I">
+
+<p>以下都是指向同一個記憶體位置、同一個值：</p>
+<img src="/images/js-weird-parts-I/7.png" class="" width="500" height="200" title="js-weird-parts-I">
+
+<p>在執行環境中，還有一個<strong>外部環境（Outer Environment）</strong>沒有提到，而在全域執行環境的層級中，外部環境是 null，因為全域本身就是最外層的 wrapper，沒有更外層的環境了。</p>
+<img src="/images/js-weird-parts-I/8.png" class="" width="700" height="200" title="js-weird-parts-I">
+
+</body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/js-weird-parts-I/0.png" class="" width="800" height="200" title="js-weird-parts-I">
+<p>先前滿常看到別人推薦的 Udemy 課程：克服JS的奇怪部分，原來自己已經購買且塵封在閱讀清單已久XD<br>馬上來匹乓一下吧！</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/06/04/zh-tw/js-weird-parts-parsing/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/05/14/zh-tw/constructor-vs-instance/" itemprop="url">建構子方法與實例化方法</a>
         
     </h1>
@@ -280,109 +352,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/04/24/zh-tw/laravel-tailwind/" itemprop="url">在 Laravel 專案導入 tailwind css</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-04-24T08:47:56.000Z" itemprop="datePublished">4月 24 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/tailwind/">tailwind</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            6 分鐘 讀完 (約 863 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/laravel-tailwind/0.jpg" class="" width="800" height="200" title="在 Laravel 專案導入 tailwind css">
-<p>導入 tailwind css 之前有幾個與 Laravel 執行環境有關的雷需要注意：</p>
-<h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>將 Laravel 專案放置在 <code>\\wsl$</code> 路徑內可以更有效率的執行 WSL2，跑起來的速度也快，不過要注意專案環境包相關聯的耦合性，例如 Docker 設定、php 版本對於某些指令的支援度。</p>
-<blockquote class="colorquote info"><p>以下網址介紹了 WSL2 建置的專案具體位置究竟在哪：<br><a target="_blank" rel="noopener" href="https://solidstudio.io/blog/windows-subsystem-for-linux-explained">https://solidstudio.io/blog/windows-subsystem-for-linux-explained</a></p>
-</blockquote>
-<p>由於在 windows 系統中建置 Laravel 需要 Linux 子系統 WSL2 的支持，而使用 artisan 相關的指令都建是使用 Windows Terminal 下的 ubuntu 終端機會更友善些：</p>
-<blockquote class="colorquote info"><p>There is however one great application that makes running the WSL console easier. It’s Windows Terminal and it can be installed from Windows Store. It automatically detects any WSL distributions installed and adds an option to run its console.</p>
-</blockquote>
-<p>至於為什麼要使用 Windows Terminal? 以上說明了<strong>自動偵測 WSL分佈</strong>的功能，當你打開終端機會發現他自動偵測到你使用 WSL 建置該專案包的路徑，甚至在終端機輸入 wsl 就能直接切換該系統環境。</p>
-<h3 id="系統包補丁"><a href="#系統包補丁" class="headerlink" title="系統包補丁"></a>系統包補丁</h3><p>由於每個終端機的環境檔案包是沒有共享的，你在 powershell 很開心的安裝了一包 php，之後當你切換到 ubuntu 會發現，php 指令居然找不到?? 因為你得重裝，導入 tailwind 至 WSL 專案需要補上：</p>
-<h4 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h4><p>安裝 node 在 ubuntu的步驟</p>
-<ol>
-<li><p>新增Node.js PPA</p>
-<blockquote class="colorquote info"><p>PPA 有點像是系統軟體包的 package.json，記錄著軟體及其版本信息，當你運行 sudo apt update 命令時 apt 工具會根據 /etc/apt 目錄中的 sources.list 文件來決定版本是否升級。</p>
-</blockquote>
-<figure class="highlight javascript hljs"><figcaption><span>安裝 node PPA</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install curl</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight javascript hljs"><figcaption><span>安裝 LTS 版本</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL <span class="hljs-attr">https</span>:<span class="hljs-comment">//deb.nodesource.com/setup_12.x | sudo -E bash -</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>安裝Node.js</p>
-<figure class="highlight javascript hljs"><figcaption><span>安裝 Node.js 至 Ubuntu</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>查看一下版本號確保安裝成功</p>
-</li>
-</ol>
-<h1 id="安裝-tailwind-css"><a href="#安裝-tailwind-css" class="headerlink" title="安裝 tailwind css"></a>安裝 tailwind css</h1><p>至 vscode terminal 或者使用 windows terminal Ubuntu 都可以安裝 tailwind css：</p>
-<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><figure class="highlight javascript hljs"><figcaption><span>安裝 tailwind</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D tailwindcss postcss autoprefixer</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight javascript hljs"><figcaption><span>安裝Node.js至Ubuntu</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx tailwindcss init</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="修改-config-加入-plugin"><a href="#修改-config-加入-plugin" class="headerlink" title="修改 config 加入 plugin"></a>修改 config 加入 plugin</h3><figure class="highlight javascript hljs"><figcaption><span>webpack.mix.js</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mix.<span class="title function_">js</span>(<span class="hljs-string">"resources/js/app.js"</span>, <span class="hljs-string">"public/js"</span>)</span><br><span class="line">  .<span class="title function_">postCss</span>(<span class="hljs-string">"resources/css/app.css"</span>, <span class="hljs-string">"public/css"</span>, [	</span><br><span class="line">    <span class="hljs-built_in">require</span>(<span class="hljs-string">"tailwindcss"</span>), <span class="hljs-comment">// &lt;-- 加入這行</span></span><br><span class="line">  ]);</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="導入全域-css"><a href="#導入全域-css" class="headerlink" title="導入全域 css"></a>導入全域 css</h3><p>在 <code>resources/css/app.css</code> 檔案中加入以下：</p>
-<figure class="highlight javascript hljs"><figcaption><span>resources/css/app.css</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@tailwind base;</span><br><span class="line">@tailwind components;</span><br><span class="line">@tailwind utilities;</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="設定-tailwind-config-js"><a href="#設定-tailwind-config-js" class="headerlink" title="設定 tailwind.config.js"></a>設定 tailwind.config.js</h3><figure class="highlight javascript hljs"><figcaption><span>resources/css/app.css</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="hljs-property">exports</span> = { </span><br><span class="line">  <span class="hljs-attr">content</span>: [	</span><br><span class="line">    <span class="hljs-string">"./resources/**/*.blade.php"</span>,  </span><br><span class="line">    <span class="hljs-string">"./resources/**/*.js"</span>,	</span><br><span class="line">    <span class="hljs-string">"./resources/**/*.vue"</span>,  ],</span><br><span class="line">  <span class="hljs-attr">theme</span>: {	</span><br><span class="line">    <span class="hljs-attr">extend</span>: {},</span><br><span class="line">  }, </span><br><span class="line">  <span class="hljs-attr">plugins</span>: [],</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="npm-install-將-mix-module-裝上"><a href="#npm-install-將-mix-module-裝上" class="headerlink" title="npm install 將 mix module 裝上"></a>npm install 將 mix module 裝上</h3><p>mix 指令可以打包 tailwind css 的預處理器編譯為 css，但不會自動安裝，需要 npm install：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="驗證是否成功"><a href="#驗證是否成功" class="headerlink" title="驗證是否成功"></a>驗證是否成功</h3><ol>
-<li><p>在 views/layout/layout.blade.php 檔案導入全域 css：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link href=<span class="hljs-string">"{{ asset('css/app.css') }}"</span> rel=<span class="hljs-string">"stylesheet"</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>加上 tailwind css 的 class</p>
-<figure class="highlight javascript hljs"><figcaption><span>resources/css/app.css</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@tailwind base;</span><br><span class="line">@tailwind components;</span><br><span class="line">@tailwind utilities;</span><br><span class="line"></span><br><span class="line">.<span class="hljs-property">btn</span>-primary {</span><br><span class="line">  @apply py-<span class="hljs-number">2</span> px-<span class="hljs-number">4</span> bg-blue-<span class="hljs-number">500</span> text-white font-semibold rounded-lg shadow-md <span class="hljs-attr">hover</span>:bg-blue-<span class="hljs-number">700</span> <span class="hljs-attr">focus</span>:outline-none <span class="hljs-attr">focus</span>:ring-<span class="hljs-number">2</span> <span class="hljs-attr">focus</span>:ring-blue-<span class="hljs-number">400</span> <span class="hljs-attr">focus</span>:ring-opacity-<span class="hljs-number">75</span> transition-all;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>套用在 blade 檔案中</p>
-<figure class="highlight javascript hljs"><figcaption><span>welcome.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">  &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">"container mx-auto"</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello you!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span></span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex flex-wrap"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"md:w-3/4.w-full"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"w-16 md:w-32 lg:w-48 transition-all bg-fuchsia-300 hover:bg-fuchsia-600 py-5 text-pink-800"</span>&gt;</span>123<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-primary"</span>&gt;</span>My button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"md:w-1/4.w-full"</span>&gt;</span>aside<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">@endsection</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>mix 指令打包</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run mix</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>成功導入畫面</p>
-<img src="/images/laravel-tailwind/1.png" class="" width="800" height="200" title="tailwind 打包成功畫面">
-<img src="/images/laravel-tailwind/2.png" class="" width="800" height="200" title="tailwind 打包成功畫面"></li>
-</ol>
-</body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/laravel-tailwind/0.jpg" class="" width="800" height="200" title="在 Laravel 專案導入 tailwind css">
-<p>導入 tailwind css 之前有幾個與 Laravel 執行環境有關的雷需要注意：</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/04/24/zh-tw/laravel-tailwind/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -414,7 +383,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/14/">14</a></li>
+        <li><a class="pagination-link" href="/page/15/">15</a></li>
         
     </ul>
 </nav>

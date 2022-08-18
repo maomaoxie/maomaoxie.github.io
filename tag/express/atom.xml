@@ -4,6 +4,11 @@
     <title>Mawchu 貓奴前端的天空 • Posts by &#34;express&#34; tag</title>
     <link href="http://maomaoxie.github.io" />
     <updated>2022-02-20T06:12:53.000Z</updated>
+    <category term="safari" />
+    <category term="javaScript" />
+    <category term="preventDefault" />
+    <category term="ios" />
+    <category term="mobile" />
     <category term="javascript" />
     <category term="constructor" />
     <category term="instance" />
@@ -11,21 +16,21 @@
     <category term="git" />
     <category term="github" />
     <category term="sourceTree" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="hexo" />
+    <category term="submodule" />
+    <category term="rss" />
     <category term="backEnd" />
     <category term="node" />
     <category term="express" />
     <category term="router" />
-    <category term="hexo" />
-    <category term="submodule" />
-    <category term="api" />
-    <category term="graphQL" />
-    <category term="facebook" />
-    <category term="rss" />
     <category term="http" />
-    <category term="https" />
+    <category term="httpHeader" />
     <category term="request" />
     <category term="response" />
-    <category term="httpHeader" />
+    <category term="https" />
     <category term="status" />
     <category term="httpMethods" />
     <category term="Javascript" />
@@ -59,11 +64,11 @@
     <category term="typescript" />
     <category term="vuetify" />
     <category term="html" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
     <category term="wordpress" />
     <category term="dns" />
     <category term="cdn" />
-    <category term="WebSocket" />
-    <category term="WebHook" />
     <entry>
         <id>http://maomaoxie.github.io/2022/02/20/zh-tw/express-router-module/</id>
         <title>Express 路由模組化</title>
