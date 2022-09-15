@@ -145,200 +145,183 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/02/24/zh-tw/restful-api-and-web-service/" itemprop="url">初探 Web service</a>
+            <a href="/2022/02/28/zh-tw/http-and-https/" itemprop="url">HTTP 超文本傳輸協定</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-02-24T15:20:50.000Z" itemprop="datePublished">2月 24 2022</time>
+                <time datetime="2022-02-28T02:07:23.000Z" itemprop="datePublished">2月 28 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/webService/">webService</a>
+            <a class="article-category-link" href="/categories/http/">http</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            6 分鐘 讀完 (約 970 字)
+            6 分鐘 讀完 (約 897 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/restful-api-and-web-service/0.png" class="" width="600" height="200" title="restful-api-and-web-service">
-<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
-<p>串接 API 是前後端分離的框架興盛之後最重要的課題之一啦！但是對初探網頁程式領域的菜菜子來說這個世界太廣太深，讓人望之卻步，萬事起頭難，就先來理解一下 API 武林世界裡的的兩大流派吧！</p>
-<h1 id="SOAP-amp-XML"><a href="#SOAP-amp-XML" class="headerlink" title="SOAP &amp; XML"></a>SOAP &amp; XML</h1><h4 id="企業類型"><a href="#企業類型" class="headerlink" title="企業類型"></a>企業類型</h4><p>成立已久的正宗流派，有許多資深企業的系統愛用的 API 串接方式，例如政府機構或是建案公司等老牌廠商。</p>
-<h4 id="資料格式"><a href="#資料格式" class="headerlink" title="資料格式"></a>資料格式</h4><p>傳遞資料多為較嚴謹與複雜的 <code>SOAP</code>﹑<code>Xml</code> 格式，由於規範的細節較多而且有一定的流程要走完，容易造成程式的肥大與艱澀，當用在小型專案時往往會有殺雞焉用牛刀之感，在準備期會比較漫長且學習曲線高，但是對於大型系統的整合還是有其優點。</p>
-<h4 id="程式取向"><a href="#程式取向" class="headerlink" title="程式取向"></a>程式取向</h4><p>當初由微軟所開發，所以程式取向多限制在 IIS 微軟開發體系，例如 <code>.net</code>。</p>
-<hr>
-<h1 id="RESTful-API"><a href="#RESTful-API" class="headerlink" title="RESTful API"></a>RESTful API</h1><h4 id="企業類型-1"><a href="#企業類型-1" class="headerlink" title="企業類型"></a>企業類型</h4><p>新興產業或新創公司等現代化的企業偏愛的 API 串接方式，為求快速開發多選用輕量的 <code>RESTful API</code> 以求在競爭激烈的市場上異軍突起。</p>
-<h4 id="資料格式-1"><a href="#資料格式-1" class="headerlink" title="資料格式"></a>資料格式</h4><p>傳遞資料多為簡單易懂的 <code>Json</code>，開發程式也容易快速，可以靈活地符合大或小的資料需求．不過相對來講規範與細節也比較粗糙與鬆散，需要在準備期規範好 API 的命名規則與資料邏輯，不然容易導致 API 很多但功能性重複等問題。</p>
-<h4 id="程式取向-1"><a href="#程式取向-1" class="headerlink" title="程式取向"></a>程式取向</h4><p>任何程式語言都可以開發出來的 API．不侷限於哪種體系的程式，例如 <code>python</code>﹑<code>php</code>﹑<code>ruby</code>﹑<code>node.js</code>等等。</p>
-<p>而今的開發環境裡新興的流派已經逐漸為 RESTful API 所佔有，資深或金融機構也逐步轉型為輕量的 API 資料交換方式。</p>
-<hr>
-<h1 id="SOAP-v-s-REST"><a href="#SOAP-v-s-REST" class="headerlink" title="SOAP v.s REST"></a>SOAP v.s REST</h1><h4 id="REST-優於-SOAP"><a href="#REST-優於-SOAP" class="headerlink" title="REST 優於 SOAP"></a>REST 優於 SOAP</h4><blockquote><p>REST 提供更多元資料格式。SOAP 只有 XML。<br>基於 JSON，REST 被公認是易於處理的。<br>基於 JSON，REST 提供對瀏覽器更好的支援。<br>REST 提供優越的性能。特別指快取資料。<br>世界級大公司主要服務協定。<br>REST 一般而言比較快且省頻寬。</p>
+        <!-- <html><head></head><body><img src="/images/http-and-https/0.png" class="" width="800" height="200" title="[http-and-https [http-and-https]]">
+<p>圖片來源：<a target="_blank" rel="noopener" href="https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https">https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https</a></p>
+<h1 id="HTTP-的誕生"><a href="#HTTP-的誕生" class="headerlink" title="HTTP 的誕生"></a>HTTP 的誕生</h1><p>網路應用程式早期在互相傳遞資料時沒有固定的格式，在資料解析上就會很麻煩混亂，就像一個國家一旦陷入各自為政的困擾就需要政治來規範管理，網路世界也是一樣道理的。超文本傳輸協定(Hyper Text Transfer Protocol)就是網路資料傳遞的統整者，是 client 端向 server 端要求資料的關卡，必須要按照正確的格式才能取得資料。</p>
+<h1 id="Origin-Server-是甚麼"><a href="#Origin-Server-是甚麼" class="headerlink" title="Origin Server 是甚麼"></a>Origin Server 是甚麼</h1><h3 id="server-負責-response"><a href="#server-負責-response" class="headerlink" title="server 負責 response"></a>server 負責 response</h3><p>先介紹 Origin 這個單辭為什麼會被拿來當作 server 端，它的同義詞有 root、source 與 beginning，有起源、來源與原產地的意思，相當於網路世界中網站資料的起源與來源，github 在推 commits 上去遠端也可以看到指令：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Origin 代表的就是擁有資料的角色，通常是 server端：</p>
+<blockquote><p>An origin server is a computer that runs programs designed to listen to and respond to incoming requests or traffic. It contains the original version of the web page and is responsible for delivering the content to end users when requested.<br>Origin servers take in requests and serve up content for a website or web page.</p>
 </blockquote>
-
-<h3 id="SOAP-優於-REST"><a href="#SOAP-優於-REST" class="headerlink" title="SOAP 優於 REST"></a>SOAP 優於 REST</h3><blockquote><p>SOAP 是標準 HTTP 協定，能更方便通過防火牆和Proxy而不對協定本身進行修改。<br>如果你需要處理 ACID 交易，那麼 SOAP 是不錯的方向。<br>SOAP 擁有各種 WS- 擴充服務，擁有高可擴充性。<br>B2B 的世界，安全與穩定重於一切。</p>
-</blockquote>
-<hr>
-<blockquote><p>Bruce 的一些心得</p>
-<p>青菜蘿蔔各有所好，並不一樣是 REST 完勝，例如，之前有一陣子在忙的 B2B Biztalk 專案，在加解密(安全)部分，基於 XML 的 SOAP 就比 REST 更為合適。但基於 XML 的協定有個很明顯的缺點，就是當來源資料量成長一些些，產出的 XML 資料量會明顯成長很多。資料解析下，拜 JSON.NET 之類的框架(如之前介紹過的 Jil)幫忙，JSON 格式的處理是非常簡單的。但如果有一天，你真的碰到要處理 XML，那麼不要忘記 LINQ to XML 這個技術就好。</p>
-</blockquote>
-
-<p>參考資料：</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.kkbruce.net/2018/04/soap-with-rest-good-parts.html#.YheofuhBxPY">https://blog.kkbruce.net/2018/04/soap-with-rest-good-parts.html#.YheofuhBxPY</a></p>
-</blockquote>
-</body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/restful-api-and-web-service/0.png" class="" width="600" height="200" title="restful-api-and-web-service">
-<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/02/24/zh-tw/restful-api-and-web-service/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/02/21/zh-tw/git-command-line/" itemprop="url">Git 常用的指令</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-02-21T09:14:05.000Z" itemprop="datePublished">2月 21 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/git/">git</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            幾秒 讀完 (約 93 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><p>這裡記錄一些工作上會用到的 git 指令，太容易忘記了阿（扶額</p>
-<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="遠端-URL"><a href="#遠端-URL" class="headerlink" title="遠端 URL"></a>遠端 URL</h1><h3 id="更換遠端-URL"><a href="#更換遠端-URL" class="headerlink" title="更換遠端 URL"></a>更換遠端 URL</h3><p>因應 PAT 新制，remote origin 格式必須更改如下：</p>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin https://&lt;USERNAME&gt;:&lt;TOKEN&gt;@&lt;GIT_URL&gt;.git</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="查看遠端-URL"><a href="#查看遠端-URL" class="headerlink" title="查看遠端 URL"></a>查看遠端 URL</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="將專案推上去遠端-URL"><a href="#將專案推上去遠端-URL" class="headerlink" title="將專案推上去遠端 URL"></a>將專案推上去遠端 URL</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></tbody></table></figure></body></html> -->
-        
-        
-        <html><head></head><body><p>這裡記錄一些工作上會用到的 git 指令，太容易忘記了阿（扶額</p>
-<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></tbody></table></figure>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/02/21/zh-tw/git-command-line/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/02/21/zh-tw/node-process-env/" itemprop="url">Node如何設置.env環境檔</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-02-21T06:48:33.000Z" itemprop="datePublished">2月 21 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/node-js/">node.js</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分鐘 讀完 (約 673 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/node-process-env/1.png" class="" width="800" height="200" title="node-process-env">
-<p>圖片來源:<a target="_blank" rel="noopener" href="https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c">https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c</a></p>
-<p>開發專案的時候機密文件如何保存很重要，可以保護不被有心人士竊取，像是 API 金鑰、client-ID 與 client-secret 等可以呼叫遠端資料的通關密碼都需要妥善保存不暴露到網站上。<br>這邊來說明一下怎麼設置專案裡的環境檔案，並且讀取機密資料：</p>
-<h1 id="創建-env-檔案"><a href="#創建-env-檔案" class="headerlink" title="創建 .env 檔案"></a>創建 .env 檔案</h1><p>首先在跟目錄新增一個 .env 檔案，甚至可以設置以下幾種檔案來撰寫想要的環境模式腳本：</p>
-<h3 id="根據環境模式建立"><a href="#根據環境模式建立" class="headerlink" title="根據環境模式建立"></a>根據環境模式建立</h3><ul>
-<li>全局環境檔：.env</li>
-<li>開發環境檔：.env.dev</li>
-<li>測試環境檔：.env.sit</li>
-<li>生產環境檔：.env.prod</li>
+<ul>
+<li>Origin server 是負責監聽以及回應（response）來自四面八方的要求（requests）與通訊的電腦計算機程式，包含原版的網頁資料並且傳遞該內容給發出請求的使用者端口。</li>
+<li>Origin server 會接收需求並且提供網站的資料內容。</li>
 </ul>
-<h3 id="環境檔變數"><a href="#環境檔變數" class="headerlink" title="環境檔變數"></a>環境檔變數</h3><p>內容很簡單，都是鍵值對（key-value）的方式撰寫變數：</p>
-<figure class="highlight plaintext hljs"><figcaption><span>.env</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">YOUR_VARAIBLE_NAME=VALUE</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="Node-js-process"><a href="#Node-js-process" class="headerlink" title="Node.js process"></a>Node.js process</h1><p>Node 提供了一個全局可使用的模組 process 記錄了所有關於目前 Node.js 程式的資訊，不需要 require()　就可以使用，棒棒的。</p>
-<blockquote>
-<p>The process object is a global that provides information about, and control over, the current Node.js process. As a global, it is always available to Node.js applications without using require().</p>
+<h3 id="client-負責-requested"><a href="#client-負責-requested" class="headerlink" title="client 負責 requested"></a>client 負責 requested</h3><p>Client 代表的是上網並請求網站資料的使用者，也就是 user 端：</p>
+<blockquote><p>When a user opens a web page on a website, a request is sent to the origin server to retrieve the content.</p>
 </blockquote>
-<h3 id="process-env"><a href="#process-env" class="headerlink" title="process.env"></a>process.env</h3><p>process.env 則提供了關於使用者的環境物件，而腳本檔案需要的資訊都可以放在這個物件中。<br>該物件中的資料會自動轉換成字串（string）。<br>在 windows 作業系統中環境變數的大小寫是不敏感的。</p>
-<blockquote>
-<p>The process.env property returns an object containing the user environment.<br>See environ(7). Assigning a property on process.env will implicitly convert the value to a string.<br>On Windows operating systems, environment variables are case-insensitive.</p>
-</blockquote>
-<h1 id="npm-dotenv"><a href="#npm-dotenv" class="headerlink" title="npm dotenv"></a>npm dotenv</h1><p>光有全局的 process.env 是不夠的，還需要使用一個神人創造的 <strong>npm 套件 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/dotenv">dotenv</a></strong> 才能無痛讀取自己創建的 .env 資料唷！</p>
-<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i dotenv --save</span><br></pre></td></tr></tbody></table></figure>
-<p>在專案引用該套件：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">require</span>(<span class="hljs-string">'dotenv'</span>).<span class="title function_">config</span>()</span><br><span class="line"><span class="hljs-keyword">const</span> db = <span class="hljs-built_in">require</span>(<span class="hljs-string">'db'</span>)</span><br><span class="line">db.<span class="title function_">connect</span>({</span><br><span class="line">  <span class="hljs-attr">host</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">DB_HOST</span>,</span><br><span class="line">  <span class="hljs-attr">username</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">DB_USER</span>,</span><br><span class="line">  <span class="hljs-attr">password</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">DB_PASS</span></span><br><span class="line">})</span><br><span class="line"><span class="hljs-attr">https</span>:<span class="hljs-comment">//dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>當使用者試圖用瀏覽器（browser）打開一個網頁或網站，就已經發送了該網站資料的要求給 origin server。</li>
+</ul>
+<h1 id="Port-是甚麼"><a href="#Port-是甚麼" class="headerlink" title="Port 是甚麼"></a>Port 是甚麼</h1><p>一個網站就如同銀行，而服務人員的櫃檯提供多元的銀行業務來消化前去等候的民眾，這個案例中：<br>銀行機構就是 Origin server，服務人員就是 port，而民眾就是 client（user agent）；而一個網站 Origin 可以包山包海擁有各種資料，並開啟多個窗口的埠號（port）來服務傳送過來的需求（requests），讓每個埠號更專注在一個服務的品質與細節上。<br>早期沒有瀏覽器的時代，使用的是終端機(terminal)來發送請求而非瀏覽器，而今 server 端口會檢查要求是否來自瀏覽器而非機器人（爬蟲），來過濾一些資安問題的黑手。</p>
+<h1 id="HTTPs-的誕生"><a href="#HTTPs-的誕生" class="headerlink" title="HTTPs 的誕生"></a>HTTPs 的誕生</h1><p>隨著網路世界日興發達，不安好心的資訊竊取駭客就會出現，它可以偽裝成使用者也可以偽裝成服務器，為了避免這種資料截取的資安問題，資訊傳遞的加密就很重要！HTTPS 如同 HTTP 但是多了一把開啟資訊傳遞的鑰匙，將來往資料都加密過防止有心人士解讀：</p>
+<img src="/images/http-and-https/1.png" class="" width="600" height="200" title="[http-and-https [http-and-https]]">
 
-<h1 id="善用-gitignore"><a href="#善用-gitignore" class="headerlink" title="善用 .gitignore"></a>善用 .gitignore</h1><p>通常搭配 git 使用時會放置在 env 檔中並且 .gitignore 避免 commit 到公開環境中。<br>使用方式很簡單，在跟目錄創建一個 .gitignore 檔案之後，撰寫需要被 git 略過不被 commit 以及 push 的檔案類型：</p>
-<figure class="highlight javascript hljs"><figcaption><span>.gitignore</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.<span class="hljs-property">env</span></span><br><span class="line">.<span class="hljs-property">env</span>.<span class="hljs-property">dev</span></span><br><span class="line">.<span class="hljs-property">env</span>.<span class="hljs-property">sit</span></span><br><span class="line">.<span class="hljs-property">env</span>.<span class="hljs-property">prod</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>參考資料：</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c">https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c</a><br><a target="_blank" rel="noopener" href="https://dwatow.github.io/2019/01-26-node-with-env-first/">https://dwatow.github.io/2019/01-26-node-with-env-first/</a><br><a target="_blank" rel="noopener" href="https://nodejs.org/docs/latest-v8.x/api/process.html#process_process_env">https://nodejs.org/docs/latest-v8.x/api/process.html#process_process_env</a></p>
-</blockquote>
-</body></html> -->
+<blockquote><p><a target="_blank" rel="noopener" href="https://www.cdnetworks.com/knowledge-center/what-is-origin-server/">https://www.cdnetworks.com/knowledge-center/what-is-origin-server/</a><br>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+</blockquote></body></html> -->
         
         
-        <html><head></head><body><img src="/images/node-process-env/1.png" class="" width="800" height="200" title="node-process-env">
-<p>圖片來源:<a target="_blank" rel="noopener" href="https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c">https://dev.to/aadilraza339/what-is-env-file-in-node-js-3h6c</a></p>
+        <html><head></head><body><img src="/images/http-and-https/0.png" class="" width="800" height="200" title="[http-and-https [http-and-https]]">
+<p>圖片來源：<a target="_blank" rel="noopener" href="https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https">https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https</a></p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/02/21/zh-tw/node-process-env/">more</a>
+                <a href="/2022/02/28/zh-tw/http-and-https/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/02/25/zh-tw/web-socket-and-web-hook/" itemprop="url">Web Socket v.s Web Hook</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-02-25T03:29:08.000Z" itemprop="datePublished">2月 25 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/webSocket/">webSocket</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分鐘 讀完 (約 224 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/web-socket-and-web-hook/0.png" class="" width="800" height="200" title="[web-socket-and-web-hook [web-socket-and-web-hook]]">
+<p>API 的形式有兩大宗：<br>Web Hook 與 Web Socket，而他們有甚麼差異呢？</p>
+<h1 id="被動式-Web-Hook"><a href="#被動式-Web-Hook" class="headerlink" title="被動式 Web Hook"></a>被動式 Web Hook</h1><p>例如 Line Bot，server 會先預測使用者的動作與需求（events），設計出相對的程式並維護，等待使用者發出要求才動作。</p>
+<h1 id="主動式-Web-Socket"><a href="#主動式-Web-Socket" class="headerlink" title="主動式 Web Socket"></a>主動式 Web Socket</h1><p>兩方的資料交互，例如 client 與 server、server 與 server。<br>應用場景如聊天功能：facebook messenger 或 Line 等，Web Socket 的技術可以「即時的」(real time)做出資料傳遞。<br>當你打開 facebook messenger 的視窗，Web Socket server 就會與 client 瀏覽器端 handshake 保持通訊暢通，持續監聽對話要求並回應(opened and persistent connection)</p>
+<p>參考資料：</p>
+<blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+</blockquote></body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/web-socket-and-web-hook/0.png" class="" width="800" height="200" title="[web-socket-and-web-hook [web-socket-and-web-hook]]">
+<p>API 的形式有兩大宗：<br>Web Hook 與 Web Socket，而他們有甚麼差異呢？</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/25/zh-tw/web-socket-and-web-hook/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/02/25/zh-tw/graph-ql-api/" itemprop="url">Graph QL 新世代 API</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-02-25T02:48:36.000Z" itemprop="datePublished">2月 25 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/graphQL/">graphQL</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分鐘 讀完 (約 448 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/graph-ql-api/0.png" class="" width="800" height="200" title="[css-less [css-less]]">
+<p>隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！</p>
+<p>2012 年 facebook 內部研發出來的新形態 API，2015 年提出發表，特點是前端可以直接進資料庫，不需要透過後端查詢撈取資料。<br>概念有一點類似用前端語言操作 <code>MySQL</code>。前端也擁有更彈性的空間來制定查詢資料的規則與方式，有更大話語權，但相對來講也增加資料設計的難度，在思考的維度上需要更廣更深才能靈活應付多變的資料需求。</p>
+<h1 id="Graph-QL-操作概念"><a href="#Graph-QL-操作概念" class="headerlink" title="Graph QL 操作概念"></a>Graph QL 操作概念</h1><img src="/images/graph-ql-api/1.png" class="" width="800" height="200" title="[css-less [css-less]]">
+<blockquote>
+<p>使用者透過輸入定義好的語法，取得所需的資料 (如 <code>SELECT</code>) 或是修改指定的資料 (如 <code>CREATE</code> 、 <code>UPDATE</code>)。</p>
+</blockquote>
+<h2 id="資料的格式"><a href="#資料的格式" class="headerlink" title="資料的格式"></a>資料的格式</h2><h4 id="前端-request-長相"><a href="#前端-request-長相" class="headerlink" title="前端 request 長相"></a>前端 request 長相</h4><figure class="highlight javascript hljs"><figcaption><span>example</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">query {</span><br><span class="line">  <span class="title class_">User</span>(<span class="hljs-attr">id</span>: <span class="hljs-string">'aefk34kasl9'</span>) {</span><br><span class="line">    name</span><br><span class="line">    posts{</span><br><span class="line">      title</span><br><span class="line">    }</span><br><span class="line">    <span class="title function_">followers</span>(<span class="hljs-params">last: <span class="hljs-number">3</span></span>){</span><br><span class="line">      name</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="資料庫-response-長相"><a href="#資料庫-response-長相" class="headerlink" title="資料庫 response 長相"></a>資料庫 response 長相</h4><figure class="highlight javascript hljs"><figcaption><span>example</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="hljs-string">"data"</span>: {</span><br><span class="line">    <span class="hljs-string">"User"</span>: {</span><br><span class="line">      <span class="hljs-string">"name"</span>: <span class="hljs-string">"Mawchu"</span></span><br><span class="line">      <span class="hljs-string">"posts"</span>:[</span><br><span class="line">        { <span class="hljs-attr">title</span>: <span class="hljs-string">"喵喵的一天"</span> }</span><br><span class="line">      ]</span><br><span class="line">      <span class="hljs-string">"followers"</span>: [</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Cally"</span> },</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Donna"</span> },</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Jell"</span> },</span><br><span class="line">      ]</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h1><blockquote>
+<p>Schema，香港和中國大陸翻譯為模式或架構，在資料庫系統中是形式語言描述的一種結構，是對象的集合，可包含各種對象如：表、欄位、關係模型、視圖、索引、包、存儲過程、子程序、隊列、觸發器、數據類型、序列、物化視圖、同義詞（synonym）、database link、directory、XML schema等。</p>
+</blockquote>
+<p>參考資料：</p>
+<blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用<br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10200678">https://ithelp.ithome.com.tw/articles/10200678</a></p>
+</blockquote></body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/graph-ql-api/0.png" class="" width="800" height="200" title="[css-less [css-less]]">
+<p>隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/25/zh-tw/graph-ql-api/">more</a>
             </p>
         
     
@@ -380,9 +363,9 @@
         
         <li><a class="pagination-link" href="/page/13/">13</a></li>
         
-        <li><a class="pagination-link" href="/page/14/">14</a></li>
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/15/">15</a></li>
+        <li><a class="pagination-link" href="/page/16/">16</a></li>
         
     </ul>
 </nav>

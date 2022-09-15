@@ -145,313 +145,91 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/03/01/zh-tw/http-status-code/" itemprop="url">HTTP Status code 狀態碼解析</a>
+            <a href="/2022/04/04/zh-tw/laravel-routes/" itemprop="url">Laravel 認識路由</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-03-01T14:27:36.000Z" itemprop="datePublished">3月 1 2022</time>
+                <time datetime="2022-04-04T07:41:43.000Z" itemprop="datePublished">4月 4 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/http/">http</a>
+            <a class="article-category-link" href="/categories/laravel/">laravel</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 540 字)
+            6 分鐘 讀完 (約 873 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/http-status-code/0.png" class="" width="800" height="200" title="[http-status-code [http-status-code]]">
-<p>圖片來源：<a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
-<p>常常看到網站出現 404 找不到，或者是後端噴錯顯示了 Bad Gateway 卻不曉得箇中原因，而前後端打 API 也必須要讀懂狀態碼（HTTP Status code）代表的意涵，才能更有效率的除錯找出原因，以下是常見的狀態碼：</p>
-<h1 id="Level-200-發送成功"><a href="#Level-200-發送成功" class="headerlink" title="Level 200 發送成功"></a>Level 200 發送成功</h1><table>
-<thead>
-<tr>
-<th align="left">狀態碼</th>
-<th align="right">意涵</th>
-<th align="center">情境</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">200</td>
-<td align="right">OK</td>
-<td align="center">API 要求與回應都OK</td>
-</tr>
-<tr>
-<td align="left">201</td>
-<td align="right">Created</td>
-<td align="center">成功建立了資料，例如 facebook 建立貼文</td>
-</tr>
-<tr>
-<td align="left">203</td>
-<td align="right">Http proxy</td>
-<td align="center">該伺服器是代理的伺服器，非原始 Origin</td>
-</tr>
-<tr>
-<td align="left">204</td>
-<td align="right">No Content</td>
-<td align="center">伺服器成功處理了請求，沒有返回任何內容</td>
-</tr>
-</tbody></table>
-<h1 id="Level-400-要求內容有誤"><a href="#Level-400-要求內容有誤" class="headerlink" title="Level 400 要求內容有誤"></a>Level 400 要求內容有誤</h1><table>
-<thead>
-<tr>
-<th align="left">狀態碼</th>
-<th align="right">意涵</th>
-<th align="center">情境</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">400</td>
-<td align="right">Bad Request</td>
-<td align="center">發送要求但是需要的參數沒填、填寫的參數不符合規則，這個錯誤是客戶端造成的</td>
-</tr>
-<tr>
-<td align="left">401</td>
-<td align="right">Unauthorized</td>
-<td align="center">身分未明或是瀏覽的權限不夠、沒有登入會員或付費</td>
-</tr>
-<tr>
-<td align="left">403</td>
-<td align="right">Forbidden</td>
-<td align="center">黑名單而被禁止該項服務</td>
-</tr>
-<tr>
-<td align="left">404</td>
-<td align="right">Not Found</td>
-<td align="center">找不到該網站的某頁面</td>
-</tr>
-<tr>
-<td align="left">409</td>
-<td align="right">Conflict</td>
-<td align="center">服務流量過大導致衝突，或帳號/Email已被使用</td>
-</tr>
-</tbody></table>
-<h1 id="Level-500-伺服器有誤"><a href="#Level-500-伺服器有誤" class="headerlink" title="Level 500 伺服器有誤"></a>Level 500 伺服器有誤</h1><table>
-<thead>
-<tr>
-<th align="left">狀態碼</th>
-<th align="right">意涵</th>
-<th align="center">情境</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">500</td>
-<td align="right">Internal Server Error</td>
-<td align="center">該服務伺服器出現不明問題，需要聯絡開發人員</td>
-</tr>
-<tr>
-<td align="left">503</td>
-<td align="right">Service Unavailable</td>
-<td align="center">該服務因為流量爆炸等原因無法使用了</td>
-</tr>
-<tr>
-<td align="left">501</td>
-<td align="right">Not Implemented</td>
-<td align="center">該服務有接收到要求，但還未實作未完成</td>
-</tr>
-<tr>
-<td align="left">502</td>
-<td align="right">Bad Gateway</td>
-<td align="center">連線伺服器成功，但中間軟體出錯</td>
-</tr>
-<tr>
-<td align="left">504</td>
-<td align="right">Gateway Timeout</td>
-<td align="center">連線伺服器成功，程式也沒問題，但經過中間軟體時出錯（過期）</td>
-</tr>
-<tr>
-<td align="left">599</td>
-<td align="right">Network Timeout</td>
-<td align="center">網路連線逾時，連不上</td>
-</tr>
-</tbody></table>
-<p>參考資料：</p>
-<blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
-</blockquote>
-
-<p>延伸閱讀：</p>
-<blockquote><p><a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
-</blockquote></body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/http-status-code/0.png" class="" width="800" height="200" title="[http-status-code [http-status-code]]">
-<p>圖片來源：<a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/03/01/zh-tw/http-status-code/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/02/28/zh-tw/http-header/" itemprop="url">HTTP 的訊息頭 header</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-02-28T12:28:24.000Z" itemprop="datePublished">2月 28 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/http/">http</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            12 分鐘 讀完 (約 1772 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/http-header/0.png" class="" width="800" height="200" title="[http-header [http-header]]">
-
-<p>個人對這一塊知識又愛又恨，每每串接 api 打開 Network 都會看到卻似懂非懂的感覺真討厭！來認真釐清一下吧！</p>
-<h1 id="甚麼是-Header-與-Body"><a href="#甚麼是-Header-與-Body" class="headerlink" title="甚麼是 Header 與 Body"></a>甚麼是 Header 與 Body</h1><p>訊息頭<code>header</code>在 request 與 response 裡佔有很大一席之地，它的作用相當於寄件時包裹上的訊息，記錄著包裹的相關內容，譬如該包裹要通過海關時必須申報內容物是甚麼類別，是否是急件還是一般，要寄往哪個國家、寄給誰等等的屬性。<br>訊息本體 <code>body</code> 就是你包裹裡面的東西，或者信件裡的文字訊息。<br>之於網頁的資料傳遞則是記錄該次要求 request 與回應 response 的通訊內容．是一個 http 行為的概覽與說明。</p>
+        <!-- <html><head></head><body><img src="/images/laravel-routes/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由介紹">
+<p>應用程式介面的主要目的就是提供使用者與介面互動（Interaction），其中 URL 可以取得使用者的資訊並且渲染在畫面中，例如 query string，就是透過最基本的 GET request 來獲取信息：</p>
 <hr>
-<h1 id="Header-存在於那裡"><a href="#Header-存在於那裡" class="headerlink" title="Header 存在於那裡"></a>Header 存在於那裡</h1><p>request 與 response 都有 <code>header</code>，通常是 client 端發出的 request 會寫得比較詳盡，譬如使用者在搜尋引擎上點選一個網站就完成數個 request（一個網站會有很多資源的要求．例如圖片、網頁或 Api 資料）或者使用者在電腦填寫表單之後送出，而 server 端接收之後回應也會有訊息頭。</p>
-<hr>
-<h1 id="HTTP-通訊的組成"><a href="#HTTP-通訊的組成" class="headerlink" title="HTTP 通訊的組成"></a>HTTP 通訊的組成</h1><img src="/images/http-header/1.png" class="" width="500" height="200" title="http-header">
-<p>一個 request 跟 response 由 <code>header</code> 訊息頭跟 <code>body</code> 訊息本體所組成：</p>
-<h3 id="Request-Header-請求頭"><a href="#Request-Header-請求頭" class="headerlink" title="Request Header 請求頭"></a>Request Header 請求頭</h3><table>
-<thead>
-<tr>
-<th align="left">屬性</th>
-<th align="right">說明</th>
-<th align="center">範例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>Accept</strong></td>
-<td align="right">request 要求 response 的類型</td>
-<td align="center">text/html, image/*</td>
-</tr>
-<tr>
-<td align="left"><strong>Accept-charset</strong></td>
-<td align="right">request 的編碼</td>
-<td align="center">utf-8, iso-8859-1;q=0.5</td>
-</tr>
-<tr>
-<td align="left"><strong>Authorization</strong></td>
-<td align="right">request 要通過的驗證授權檢查</td>
-<td align="center">Basic YWxhZGRpbjpvcGVuc2VzY…</td>
-</tr>
-<tr>
-<td align="left"><strong>Cookie</strong></td>
-<td align="right">client 的暫存資料</td>
-<td align="center">PHPSESSID=124141;csrftoken=45746454</td>
-</tr>
-<tr>
-<td align="left"><strong>Content-type</strong></td>
-<td align="right">request 要求所發送的資料型態</td>
-<td align="center">multipart/form-data, text/plain, application/x-www-form-urlencoded, text/html, application/json</td>
-</tr>
-<tr>
-<td align="left"><strong>Origin</strong></td>
-<td align="right">request 要求的資料機器來源</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/">https://developer.mozilla.org</a></td>
-</tr>
-<tr>
-<td align="left"><strong>User-Agent</strong></td>
-<td align="right">request 端的 client 資訊</td>
-<td align="center">Mozilla/5.0(Macintosh;Intel Mac OS X_10_14_3) AppleWebKit/537.36</td>
-</tr>
-<tr>
-<td align="left"><strong>X-Csrf-Token</strong></td>
-<td align="right">防止 csrf(跨站請求偽造) 攻擊</td>
-<td align="center">eyjpdil6lmc4bjhQMmFrays…</td>
-</tr>
-</tbody></table>
-<h3 id="Authorization"><a href="#Authorization" class="headerlink" title="Authorization"></a>Authorization</h3><p>其中的 <code>Authorization</code> 在 API 的<strong>安全驗證</strong>非常重要，當 API server 接收到來自遠方的 request 時，可以透過該鑰匙密碼確認來源的 request 是合法、通過認證的，如此才能通過關卡進行資料交換。</p>
-<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>瀏覽器的<strong>暫存資料</strong>，是 Web API 的一種，Cookie 提供前端或後端一個存取少量資料在瀏覽器的空間，資料格式是一個鍵值對(key-value)，常用來做廣告追蹤紀錄客戶的瀏覽喜好，進而針對客群行銷與增加廣告投放的精準度，例如 Google Analytics；亦或是用來保持使用者的登入狀態。</p>
-<blockquote><p>身為 Web 開發人員一定要瞭解 <strong>HTTP 本身無狀態 (Stateless) 的特性</strong>，要在網路上識別瀏覽者的身份，必須透過一些機制來保存狀態，而 Cookie 就是其中一種保存狀態的機制。<br><a target="_blank" rel="noopener" href="https://blog.miniasp.com/post/2008/02/22/Explain-HTTP-Cookie-in-Detail">https://blog.miniasp.com/post/2008/02/22/Explain-HTTP-Cookie-in-Detail</a></p>
-</blockquote>
-<blockquote><p>Cookies 會被每一個請求發送出去，所以可能會影響效能（尤其是行動裝置的資料連線）。現代客戶端的 storage APIs 為 Web storage API (en-US) （localStorage 和 sessionStorage）以及 IndexedDB。<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Cookies">https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Cookies</a></p>
+<h1 id="routes"><a href="#routes" class="headerlink" title="routes"></a>routes</h1><p>在路由頁面設定想要回應到前端的資訊，有幾種方式：</p>
+<h3 id="simple-data"><a href="#simple-data" class="headerlink" title="simple data"></a>simple data</h3><p>回傳簡單的關聯式陣列：</p>
+<blockquote class="colorquote info"><p>關聯式陣列可以想做類似 javascript 的物件一樣，鍵值對（key-value pair）的形式．</p>
 </blockquote>
 
-<h3 id="Content-type"><a href="#Content-type" class="headerlink" title="Content-type"></a>Content-type</h3><p>紀錄 client 端發出的 request 要求發送出去的<strong>資料格式與型態</strong>，例如表單或影音多元媒體就是 <code>multipart/form-data</code>，網頁就是 <code>text/html</code>，而 API axios 等技術傳遞的資料格式常為 <code>application/json</code>等。</p>
-<blockquote><p>一般的 Content-Type 往往只能傳送一種形式的資料，但在網頁的應用當中我們還可能想要上傳檔案、圖片、影片在表單裡頭，這樣的需求促成了 multipart/form-data 規範的出現。<br><a target="_blank" rel="noopener" href="https://blog.kalan.dev/2021-03-13-html-form-data/%E3%80%82">https://blog.kalan.dev/2021-03-13-html-form-data/。</a></p>
+<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/greetings'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    [ </span><br><span class="line">      <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span></span><br><span class="line">    ]</span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-variable">$datas</span>;</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-routes/1.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
+<hr>
+<h3 id="Views"><a href="#Views" class="headerlink" title="Views"></a>Views</h3><p>回傳資料至 <code>blade</code> 模板，渲染 html</p>
+<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/greetings'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    [ </span><br><span class="line">      <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span></span><br><span class="line">    ]</span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title function_ invoke__">views</span>(<span class="hljs-string">'greetings'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<p>直接將傳遞過來的關聯式陣列 key 傳進來當變數名</p>
+<figure class="highlight php hljs"><figcaption><span>resource/views/greetings.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="hljs-string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="hljs-string">"X-UA-Compatible"</span> content=<span class="hljs-string">"IE=edge"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="hljs-string">"viewport"</span> content=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;title&gt;Greetings&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;Hello! {{ <span class="hljs-variable">$name</span> }}&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h3 id="query-string-參數"><a href="#query-string-參數" class="headerlink" title="query string　參數"></a>query string　參數</h3><p>變數也可以使用既有的 <code>request()</code> 方法承接 URL <code>?</code> 後方的 <strong>key</strong> 來渲染到畫面中，讀取 GET 參數：</p>
+<h4 id="request"><a href="#request" class="headerlink" title="request()"></a>request()</h4><figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/cat'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-comment">// 這裡輸入 params key</span></span><br><span class="line">  <span class="hljs-variable">$catNumbers</span> = <span class="title function_ invoke__">request</span>(<span class="hljs-string">'catNumbers'</span>);</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    <span class="hljs-string">"catNumbers"</span> =&gt; <span class="title function_ invoke__">strip_tags</span>(<span class="hljs-variable">$catNumbers</span>)</span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-comment">// return "這裡有${catNumbers}隻貓";</span></span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'cat'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight php hljs"><figcaption><span>resource/views/cat.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="hljs-string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="hljs-string">"X-UA-Compatible"</span> content=<span class="hljs-string">"IE=edge"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="hljs-string">"viewport"</span> content=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;title&gt;Cat Route&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;這裡有{{ <span class="hljs-variable">$catNumbers</span> }}隻貓&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-routes/3.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
+
+<blockquote class="colorquote danger"><p>為了避免 XSS 攻擊注入惡意程式到 app 中，可以為你的 request 包覆 <code>strip_tags()</code>，動態路由則不需要。</p>
 </blockquote>
 
-<h3 id="Origin"><a href="#Origin" class="headerlink" title="Origin"></a>Origin</h3><p>該 request 要求的來源，比如瀏覽的網站是 <a target="_blank" rel="noopener" href="https://google.com/">https://google.com</a> 等，延伸的議題就是跨網站要求(CORS)，經常會默認要同一個**網站來源(domain)**伺服器端才可以接受該要求。</p>
-<h3 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User-Agent"></a>User-Agent</h3><p>發送 Request 的對象，通常是<strong>瀏覽器本身的相關資訊</strong>，例如 chrome 瀏覽器就會顯示 Mozilla/5.0 (Windows NT 10.0; Win64; x64)；也可能不是瀏覽器，例如 postman 就是 postman、終端機就是空白，<code>User-Agent</code> 主要是拿來防止爬蟲軟體等非瀏覽器或機器人來獲取網站資料。</p>
-<h3 id="X-Csrf-Token"><a href="#X-Csrf-Token" class="headerlink" title="X-Csrf-Token"></a>X-Csrf-Token</h3><p>該 token 用以防止 csrf 的跨站偽造攻擊，使用者送出表單時加上一傳鑰匙密碼，避免有心人士撰寫一隻程式發送表單登入或註冊網站會員竊取資料。</p>
-<hr>
-<h1 id="Response-Header-回應頭"><a href="#Response-Header-回應頭" class="headerlink" title="Response Header 回應頭"></a>Response Header 回應頭</h1><p>回應的內容也會記錄伺服器端的資料，以及接收的 request 資訊。</p>
-<table>
-<thead>
-<tr>
-<th align="left">屬性</th>
-<th align="right">說明</th>
-<th align="center">範例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>Access-Control-Allow-Origin</strong></td>
-<td align="right">限定此回應的資源是否要限制某個 Origin</td>
-<td align="center">*, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/">https://developer.mozilla.org</a></td>
-</tr>
-<tr>
-<td align="left"><strong>Server</strong></td>
-<td align="right">後端 Web server 伺服器類型</td>
-<td align="center">Apache/2.4.1(Unix), Nginx</td>
-</tr>
-<tr>
-<td align="left"><strong>Status</strong></td>
-<td align="right">回報這次 request 是否成功的代碼</td>
-<td align="center">sessionid=38afes7a8, id=a3fWa, Max-Age=2592000</td>
-</tr>
-</tbody></table>
-<h3 id="Access-Control-Allow-Origin"><a href="#Access-Control-Allow-Origin" class="headerlink" title="Access-Control-Allow-Origin"></a>Access-Control-Allow-Origin</h3><p>該技術常用來判定前後端分離的網站，後端 server 限定只能接受自己**官方網站(domain)**前端打出的 API Request，才會做出回應；該技術與 Request Header 提到的 <code>Origin</code> 前後呼應，由後端 server 判定前端 Request Header 裡面備註的 Origin 來源是否合法，延伸的議題一樣就是跨網站要求(CORS)。</p>
-<h3 id="Set-cookie"><a href="#Set-cookie" class="headerlink" title="Set-cookie"></a>Set-cookie</h3><p>伺服器端在瀏覽器設定 cookie 資料以記錄客戶端的瀏覽行為，以利行銷追蹤，或是做後續 request 發送給後端要包含的 cookie 內容。<br>而後端發送 Set-Cookie 是主動的，而前端接收 Cookie 是被動的：</p>
-<blockquote><p>The Set-Cookie HTTP response header is used to send a cookie from the server to the user agent, so that the user agent can send it back to the server later.</p>
+<h4 id="設置概覽資料"><a href="#設置概覽資料" class="headerlink" title="設置概覽資料"></a>設置概覽資料</h4><p>若使用者沒有查詢任何關鍵字（例如衣服），可以設立一個預設顯示的資料（例如展示全部商品）：</p>
+<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/cat'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-comment">// 這裡輸入 params key</span></span><br><span class="line">  <span class="hljs-variable">$catNumbers</span> = <span class="title function_ invoke__">request</span>(<span class="hljs-string">'catNumbers'</span>);</span><br><span class="line">  <span class="hljs-comment">// 有指定的話顯示</span></span><br><span class="line">  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$catNumbers</span>)) {</span><br><span class="line">    <span class="hljs-variable">$datas</span> = [</span><br><span class="line">      <span class="hljs-string">"catNumbers"</span> =&gt; <span class="title function_ invoke__">strip_tags</span>(<span class="hljs-variable">$catNumbers</span>)</span><br><span class="line">    ];</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'cat'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">  } <span class="hljs-keyword">else</span> {</span><br><span class="line">    <span class="hljs-comment">// 沒指定的話顯示</span></span><br><span class="line">    <span class="hljs-variable">$datas</span> = [</span><br><span class="line">      <span class="hljs-string">"catNumbers"</span> =&gt; <span class="hljs-string">'很多'</span></span><br><span class="line">    ];</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'cat'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">  }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-routes/4.png" class="" width="500" height="200" title="laravel路由">
+
+<blockquote class="colorquote info"><p><code>isset()</code> 方法類似 javascript 的 <code>if (variable === undefined)</code>，判斷某變數是否存在。  </p>
 </blockquote>
-<blockquote><p>Cookie 的運作是這樣的：</p>
+
+<hr>
+<h3 id="dynamic-routes"><a href="#dynamic-routes" class="headerlink" title="dynamic routes"></a>dynamic routes</h3><p>可以渲染使用者輸入的資料，動態路由使用 <code>{}</code> 將路由變數名稱包起，爾後經過 GET URL 的方式取得信息，路由設定需要傳入變數至回呼函式中接收：</p>
+<h4 id="範例1-對應的動態路由變數需要傳入回呼函式中"><a href="#範例1-對應的動態路由變數需要傳入回呼函式中" class="headerlink" title="範例1. 對應的動態路由變數需要傳入回呼函式中"></a>範例1. 對應的動態路由變數需要傳入回呼函式中</h4><figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/dog/{dogName}'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-variable">$dogName</span></span>) </span>{</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span>,</span><br><span class="line">    <span class="hljs-string">"dogName"</span> =&gt; <span class="hljs-variable">$dogName</span></span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'routesTest'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight php hljs"><figcaption><span>resource/views/greetings.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="hljs-string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="hljs-string">"X-UA-Compatible"</span> content=<span class="hljs-string">"IE=edge"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="hljs-string">"viewport"</span> content=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;title&gt;Greetings&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;Hello! {{ <span class="hljs-variable">$name</span> }}&lt;/h1&gt;</span><br><span class="line">  &lt;h2&gt;A dog name {{ <span class="hljs-variable">$dogName</span> }}&lt;/h2&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-routes/2.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
+
+<h4 id="範例2-傳入多個非必要的動態路由參數"><a href="#範例2-傳入多個非必要的動態路由參數" class="headerlink" title="範例2. 傳入多個非必要的動態路由參數"></a>範例2. 傳入多個非必要的動態路由參數</h4><figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/shop/{category?}/{item?}'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-variable">$a</span> = <span class="hljs-literal">null</span>, <span class="hljs-variable">$b</span> = <span class="hljs-literal">null</span></span>) </span>{</span><br><span class="line">  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$a</span>)) {</span><br><span class="line">    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$b</span>)) {</span><br><span class="line">      <span class="hljs-keyword">return</span> <span class="hljs-string">"你正在瀏覽商店${a}分類的${b}品項"</span>;</span><br><span class="line">    }</span><br><span class="line">  } </span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-string">'你正在瀏覽商店的所有商品'</span>;</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote class="colorquote info"><p>對應的回呼函式必須接收一樣數量的變數當參數，名稱隨意不過最好與路由同名比較直覺，且位置要按照順序！<br>非必要的路由參數需要設置：</p>
 <ol>
-<li><strong>Server 端</strong>回應給 Browser 一個或多個 “Set-Cookie” HTTP Header</li>
-<li>Client 端 ( Browser ) 接收到 Set-Cookie 指令時，會將 Cookie 的名稱與值儲存在 Browser 的 Cookie 存放區，並記錄該 Cookie 隸屬的網域、網址路徑、過期時間、是否為安全連線</li>
-<li>當 Browser 再次發出 HTTP Request 指令到 Server 時，就會比對目前在 Browser 內的 Cookie 存放區有沒有「該網域」、「該目錄」、「過期時間尚未過期」且「是否為安全連線」的 Cookie，如果有的話就會包含在 HTTP Request 指令的 “Cookie” Header 中。</li>
+<li><code>?</code>放置在<code>{}</code>內，表示為可選的。</li>
+<li>非必要路由參數需設置預設值為空<code>null</code>才不會噴錯。</li>
 </ol>
 </blockquote>
-<blockquote class="colorquote danger"><p>如果Request 要傳送 Cookie 到後端<br>除了在 前端 Request 要設定 <strong>credentials</strong><br>後端 Express 的 <strong>Access-Control-Allow-Origin 不可以為’*’</strong></p>
-<p>要設定成一個指定域名(前端的ip或域名)，例如：<br>Access-Control-Allow-Origin：”<a href="http://localhost:3000&quot;">http://localhost:3000"</a></p>
-</blockquote>
 
-<hr>
-<blockquote><p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
-</blockquote></body></html> -->
+<img src="/images/laravel-routes/5.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
+<img src="/images/laravel-routes/6.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
+</body></html> -->
         
         
-        <html><head></head><body><img src="/images/http-header/0.png" class="" width="800" height="200" title="[http-header [http-header]]">
-
+        <html><head></head><body><img src="/images/laravel-routes/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由介紹">
+<p>應用程式介面的主要目的就是提供使用者與介面互動（Interaction），其中 URL 可以取得使用者的資訊並且渲染在畫面中，例如 query string，就是透過最基本的 GET request 來獲取信息：</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/02/28/zh-tw/http-header/">more</a>
+                <a href="/2022/04/04/zh-tw/laravel-routes/">more</a>
             </p>
         
     
@@ -467,102 +245,147 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/02/28/zh-tw/http-methods/" itemprop="url">HTTP Methods 介紹</a>
+            <a href="/2022/04/03/zh-tw/laravel-folder-intro/" itemprop="url">Laravel 專案包初探</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-02-28T03:03:47.000Z" itemprop="datePublished">2月 28 2022</time>
+                <time datetime="2022-04-03T11:01:30.000Z" itemprop="datePublished">4月 3 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/http/">http</a>
+            <a class="article-category-link" href="/categories/laravel/">laravel</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            6 分鐘 讀完 (約 944 字)
+            6 分鐘 讀完 (約 848 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/http-methods/0.png" class="" width="800" height="200" title="[http-methods [http-methods]]">
-<p>圖片來源：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ac29da71601d">https://www.jianshu.com/p/ac29da71601d</a></p>
-<p>身為技術人不可不知的技術事：其實你每天都在使用 HTTP 的 Methods，但你不知道而已。<br>當你在瀏覽器輸入一串網址並且按下 enter 或者是按下一個 google 搜尋的超連結，就已經完成一個 HTTP <code>GET</code> Methods 的流程了！<br>Client 端網路資料的傳輸，按照功能屬性分為幾個類別：</p>
-<table>
-<thead>
-<tr>
-<th align="left">Methods</th>
-<th align="left">目的</th>
-<th align="left">說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">GET</td>
-<td align="left">取得資料</td>
-<td align="left">經常會搭配 query string 參數使用，使用者可以在 URL 看到資料</td>
-</tr>
-<tr>
-<td align="left">POST</td>
-<td align="left">傳送資料</td>
-<td align="left">可以將要求內容隱藏在 body 中，使用者看不見</td>
-</tr>
-<tr>
-<td align="left">PUT</td>
-<td align="left">更改整筆資料</td>
-<td align="left">通常是一個註冊表單提供第一次來訪的使用者填寫，server 端會整筆更新</td>
-</tr>
-<tr>
-<td align="left">PATCH</td>
-<td align="left">更改部分資料</td>
-<td align="left">可能是會員中心的部分資料修改，例如地址或手機，server 端會只更新修改的部分</td>
-</tr>
-<tr>
-<td align="left">DELETE</td>
-<td align="left">刪除資料</td>
-<td align="left">比較單純的功能，就是刪除資料</td>
-</tr>
-</tbody></table>
-<hr>
-<h1 id="GET-方法（READ）"><a href="#GET-方法（READ）" class="headerlink" title="GET 方法（READ）"></a>GET 方法（READ）</h1><img src="/images/http-methods/1.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
-<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
-<p>GET 取得資料（read）的條件是寫在 query string 的<code>?</code>後方，key-value 的鍵值對來代表欄位跟內容。<br>例如 <code>?name=jobe&amp;email=jobe</code>，<code>name</code> 對應<code>form</code> 表單裡面的 input <code>name</code> ，為欄位名稱，等號後方的值就是使用者自己填寫的 value 內容：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="hljs-string">"http://localhost:4000"</span>&gt;</span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"name"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"email"</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"email"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>送出<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/http-methods/2.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
-<img src="/images/http-methods/3.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
-<blockquote class="colorquote info"><p><code>GET</code> 網址最多只能兩千多個字，包含參數等。</p>
-</blockquote>
-<blockquote class="colorquote info"><p>URL 的萬國編碼機制需要經過 <code>encodeURI()</code>、<code>encodeURIcomponent()</code> 等方法解密過才可閱讀。</p>
+        <!-- <html><head></head><body><img src="/images/laravel-folder-intro/0.png" class="Laravel-folder-intro" width="800" height="200" title="Laravel 專案包初探">
+<p>Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用：</p>
+<blockquote class="colorquote info"><p>先打預防針，其實整個 Larevel 專案包預設並沒有任何 UI 框架，此專案包內名為 bootstrap 的檔案都跟該框架無半點毛關係！不要被混淆了。</p>
+<p>知識小學堂：<br><strong>bootstrap</strong> 的意思為鞋帶，衍生的動詞涵義是<strong>啟動機制</strong>，符合 Laravel 框架中用來充當 <strong>glue</strong> 黏著任何相關檔案或 app 啟動機制的程序。</p>
 </blockquote>
 
-<hr>
-<h1 id="POST-方法（CREATE）"><a href="#POST-方法（CREATE）" class="headerlink" title="POST 方法（CREATE）"></a>POST 方法（CREATE）</h1><img src="/images/http-methods/4.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
-<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
-<p><code>POST</code> 方法旨在創造一筆新的資料，發送到 Origin server 接收，可以將資料隱藏在 <code>body</code> 中避免被使用窺視，使用者在網頁 URL 看起來也乾淨簡潔。</p>
-<blockquote class="colorquote info"><p><code>POST</code> 方法可傳送的資料量基本沒有限制，端看 server 這邊的程式是否有特別限制多少 mb。</p>
+<h1 id="vendor"><a href="#vendor" class="headerlink" title="vendor"></a>vendor</h1><p>Composer 相依套件的目錄，類似 node modules。</p>
+<h1 id="app"><a href="#app" class="headerlink" title="app"></a>app</h1><p>核心的 code 會放在這裡，大部分的類別（class）程式放置處，重要的 MVC 架構中的 <code>Controller</code> 類別會放在 Http/Controllers 資料夾中，以處理 View 與 Model 中間的繫結處理器。</p>
+<h1 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h1><p>這裡的 bootstrap 並非 UI 框架，而是啟動整個 Laravel app 需要使用的元件放置處，增進性能優化的快取設定（cache）會放在這，不需要編寫這邊的檔案。</p>
+<h1 id="database"><a href="#database" class="headerlink" title="database"></a>database</h1><p>Model factories 會放在這裡，亦可處理 database 的遷移。</p>
+<h1 id="lang"><a href="#lang" class="headerlink" title="lang"></a>lang</h1><p>語言的切換檔案。</p>
+<h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><p>網站的靜態檔案如 js、css 及 images 放置處，以及網站的所有入口點（entry points）<code>index.php</code> 與設定自動加載（autoloading）的地方。</p>
+<h1 id="resource"><a href="#resource" class="headerlink" title="resource"></a>resource</h1><p>MVC 架構中的 <code>Views</code> 類別會放在這裡，通常是 <code>blade</code> 模板檔案，也存放一些初胚的、未經壓縮與處理的 js、css 檔案，在網站打包之後會被壓縮並且優化性能，需要 loader 去編譯的檔案可以放在這裡，例如 less 或 sass。</p>
+<h3 id="resource-x2F-bootstrap-js"><a href="#resource-x2F-bootstrap-js" class="headerlink" title="resource/bootstrap.js"></a>resource/bootstrap.js</h3><p>該文件夾底下的 <code>bootstrap.js</code> 檔案並非 UI 框架，而是放置 <code>CSRF Token</code> 自動夾帶在 header 的程序，並且使用 <code>$axios</code> 發送 request 出去，以<strong>避免 XSRF 跨站偽造攻擊</strong>之用！</p>
+<blockquote class="colorquote danger"><p>警告：不想整個 app 掛掉的話請不要亂動我！</p>
 </blockquote>
 
-<hr>
-<h1 id="PUT-amp-PATCH（UPDATE）"><a href="#PUT-amp-PATCH（UPDATE）" class="headerlink" title="PUT &amp; PATCH（UPDATE）"></a>PUT &amp; PATCH（UPDATE）</h1><p>這兩個方法旨在更新現有的資料內容：<br><code>PUT</code>會將整個表單內容根據填寫的資料全部更新，有空白沒填的地方照樣更新成空白的狀態，適合用在第一次填寫資料的訪客，例如註冊會員、初診的病患要掛號。<br><code>PATCH</code>則是只更新部分內容而已，沒有變動的地方維持原樣，適合用在填寫過完整資料而只想部分更改的情境，例如修改會員寄送地址、復診的病患要掛號等。</p>
-<p>這兩個方法並非 HTTP 創造的，而是方便網站開發人員依據自己的資料取向需求來設計表單欄位給訪客填寫，再選擇適合的 HTTP Methods。</p>
-<hr>
-<h1 id="DELETE（DELETE）"><a href="#DELETE（DELETE）" class="headerlink" title="DELETE（DELETE）"></a>DELETE（DELETE）</h1><p>由於刪除是一個不能回頭的行為，雖然有的網站在後端機制不會真的讓使用者刪除，只是讓你看不到而已，不過刪除的要求還是被特別獨立出來，警示開發人員慎用這個方法。</p>
-<hr>
-<blockquote><p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
-</blockquote></body></html> -->
+<h1 id="routes"><a href="#routes" class="headerlink" title="routes"></a>routes</h1><p>路由檔案，預設會有 <code>web.php</code>, <code>api.php</code>, <code>console.php</code>, and <code>channels.php</code> 幾支提供設定，也可以使用 app 裡面的 Controller Class 來渲染路由對應的 view 檔。</p>
+<h3 id="routes-x2F-web-php"><a href="#routes-x2F-web-php" class="headerlink" title="routes/web.php"></a>routes/web.php</h3><p>提供 session state、CSRF 保護與 cookie 加密，可以放置除了 server 提供的 RESTful API 以外的網頁路由設定。</p>
+<h3 id="routes-x2F-api-php"><a href="#routes-x2F-api-php" class="headerlink" title="routes/api.php"></a>routes/api.php</h3><p>API 中介軟體的設定處，是無狀態（stateless）的，所有進入該介面的路由都需要攜帶 Token 認證且無法隨意進入。</p>
+<h3 id="routes-x2F-console-php"><a href="#routes-x2F-console-php" class="headerlink" title="routes/console.php"></a>routes/console.php</h3><p>可以將自定義的指令碼撰寫在這，例如 Artisan 的相關指令。</p>
+<h3 id="routes-x2F-channels-php"><a href="#routes-x2F-channels-php" class="headerlink" title="routes/channels.php"></a>routes/channels.php</h3><p>定義授權請求監聽的邏輯，以註冊相應的回呼函式。</p>
+<h1 id="storage"><a href="#storage" class="headerlink" title="storage"></a>storage</h1><p>放置經過編譯的 blade php 模板，以及快取與其他框架處理過後的檔案，其中<code>storage/app/public</code>路徑放置使用者操作後產生的檔案，例如頭像圖片。</p>
+<h1 id="config"><a href="#config" class="headerlink" title="config"></a>config</h1><p>整個網站應用程式的設定檔案，建議熟讀並且活用其中的多樣選擇。可以把一些全域使用的環境變數放置其中。</p>
+<p>參考文章：</p>
+<blockquote><p><a target="_blank" rel="noopener" href="https://laravel.com/docs/9.x/structure">https://laravel.com/docs/9.x/structure</a></p>
+</blockquote>
+</body></html> -->
         
         
-        <html><head></head><body><img src="/images/http-methods/0.png" class="" width="800" height="200" title="[http-methods [http-methods]]">
-<p>圖片來源：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ac29da71601d">https://www.jianshu.com/p/ac29da71601d</a></p>
+        <html><head></head><body><img src="/images/laravel-folder-intro/0.png" class="Laravel-folder-intro" width="800" height="200" title="Laravel 專案包初探">
+<p>Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用：</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/02/28/zh-tw/http-methods/">more</a>
+                <a href="/2022/04/03/zh-tw/laravel-folder-intro/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/03/12/zh-tw/short-circuit-and-optional-chaining/" itemprop="url">短路解析 &amp; 可選鍊修飾符</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-03-12T05:55:02.000Z" itemprop="datePublished">3月 12 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/javascript/">javascript</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 分鐘 讀完 (約 1032 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/short-circuit-and-optional-chaining/0.png" class="" width="800" height="200" title="短路解析與可選練修飾符">
+<p>在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說<code>undefined</code>（未定義）、<code>null</code>（空值）或者是<code>0</code>（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。</p>
+<h1 id="理解真假值"><a href="#理解真假值" class="headerlink" title="理解真假值"></a>理解真假值</h1><p>先介紹 truthy(真值) 與 falsy(假值)：</p>
+<ul>
+<li>truthy：非 falsy 的值，或者是表達式結果為 <code>true</code></li>
+<li>falsy：<code>undefined</code>、<code>null</code>、非數字 <code>NaN</code>、數字 <code>0</code>、數字 <code>-0</code>、BigInt <code>0n</code>、空字串<code>''</code>(字串長度為 0)，或者是表達式結果為 <code>false</code></li>
+</ul>
+<p>以下介紹幾種邏輯判斷的捷徑：</p>
+<h1 id="邏輯運算子-amp-amp"><a href="#邏輯運算子-amp-amp" class="headerlink" title="邏輯運算子 &amp;&amp; ||"></a>邏輯運算子 <code>&amp;&amp;</code> <code>||</code></h1><p>舉個栗子</p>
+<figure class="highlight javascript hljs"><figcaption><span>邏輯運算子</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> numberAND = <span class="hljs-number">6</span></span><br><span class="line"><span class="hljs-keyword">const</span> numberOR = -<span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-keyword">if</span>(numberAND &gt; <span class="hljs-number">5</span> &amp;&amp; numberAND &lt; <span class="hljs-number">7</span>) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'哎呀'</span>)</span><br><span class="line">}</span><br><span class="line"><span class="hljs-keyword">if</span>(numberOR &gt; <span class="hljs-number">5</span> || numberOR &lt; <span class="hljs-number">7</span>) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'黑唷'</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="人類的理解"><a href="#人類的理解" class="headerlink" title="人類的理解"></a>人類的理解</h3><p>當 numberAND 大於 5 且<strong>同時</strong>小於 7 值執行 <code>console.log('符合 &amp;&amp;')</code>；當 numberOR 大於 5 <strong>或者</strong>小於 7 值執行 <code>console.log('符合 ||')</code></p>
+<h3 id="電腦的理解"><a href="#電腦的理解" class="headerlink" title="電腦的理解"></a>電腦的理解</h3><p>當左邊的表達式 <code>numberAND &gt; 5</code> 結果為 <code>false</code> 則跳過右邊不執行 <code>numberAND &lt; 7</code>，直接<strong>跳出</strong>程式。<br>當左邊的表達式 <code>numberOR &gt; 5</code> 結果為 <code>true</code> 則跳過右邊不執行 <code>numberAND &lt; 7</code>，直接<strong>進入</strong>程式。</p>
+<p>結論為，當左邊的表達式符合條件，<code>&amp;&amp;</code> 的 if 直接跳出；<code>||</code> 的 if 直接進入。<br>來理一理箇中原由吧！</p>
+<h1 id="短路解析-Short-Circuit"><a href="#短路解析-Short-Circuit" class="headerlink" title="短路解析(Short Circuit)"></a>短路解析(Short Circuit)</h1><p>短路我個人覺得沒有捷徑來得好懂，短路比較讓人聯想為損毀或壞掉的電子產品，而捷徑則代表透過偷吃步或者抄捷徑的方式以取得一樣的結果。這裡的短路較接近後者，js 運行上的偷吃步：</p>
+<h3 id="amp-amp-的短路解析"><a href="#amp-amp-的短路解析" class="headerlink" title="&amp;&amp; 的短路解析"></a><code>&amp;&amp;</code> 的短路解析</h3><p>當左邊的表達式為 <code>false</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
+<h3 id="的短路解析"><a href="#的短路解析" class="headerlink" title="|| 的短路解析"></a><code>||</code> 的短路解析</h3><p>當左邊的表達式為 <code>true</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
+<p>以上可以知道 js 執行完左邊的表達式之後，若符合條件則直接跳過右邊的表達式(不解析亦不執行)，相對來講當開發人員在理解短路解析時就可以按照這樣的邏輯去快速判斷結果。</p>
+<p>速記法：AND<code>false</code>跳出、OR<code>true</code>進入(執行)。</p>
+<blockquote><p>if you use <code>||</code> to provide some default value to another variable foo, you may encounter unexpected behaviors if you consider some falsy values as usable (e.g., <code>''</code> or <code>0</code>). </p>
+</blockquote>
+
+<h1 id="可選鍊修飾符-Optional-chaining"><a href="#可選鍊修飾符-Optional-chaining" class="headerlink" title="可選鍊修飾符(Optional chaining)"></a>可選鍊修飾符(Optional chaining)</h1><p>舉個栗子</p>
+<figure class="highlight javascript hljs"><figcaption><span>可選鍊修飾符</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> user = {};</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>);</span><br><span class="line"><span class="hljs-comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>.<span class="hljs-property">street</span>);</span><br><span class="line"><span class="hljs-comment">// error</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>?.<span class="hljs-property">street</span>);</span><br><span class="line"><span class="hljs-comment">// undefined</span></span><br></pre></td></tr></tbody></table></figure>
+<p>在這個範例中，user 物件的清單中有部分的使用者缺少了 <code>address</code> 這個屬性，但是大部分的使用者都具有該屬性時，就可以使用可選鍊修飾符來避免程式噴錯而中斷，但是需注意避免<strong>過度使用</strong>可選鍊修飾符</p>
+<h1 id="空值合併運算子-Nullish-coalescing-operator"><a href="#空值合併運算子-Nullish-coalescing-operator" class="headerlink" title="空值合併運算子(Nullish coalescing operator) ??"></a>空值合併運算子(Nullish coalescing operator) <code>??</code></h1><p>舉個栗子</p>
+<figure class="highlight javascript hljs"><figcaption><span>空值合併運算子</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">notNullish</span> (a, b) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(a ?? b);</span><br><span class="line">}</span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-literal">null</span>); <span class="hljs-comment">// null</span></span><br><span class="line">notNullish (<span class="hljs-literal">null</span>, <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// undefined</span></span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-number">0</span>); <span class="hljs-comment">// 0</span></span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-string">''</span>); <span class="hljs-comment">// ''</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>ES2020（ES11）提供的「空值合併運算子」，支援度需要搭配 babel 套件。</li>
+<li><code>??</code>常常與邏輯運算子 <code>||</code> 比較，前者返回非 <code>undefined</code> 與 <code>null</code> 的表達式，後者返回非 falsy 的表達式。過濾的條件上有區別，可以依照需求使用。</li>
+</ul>
+<h3 id="的短路解析-1"><a href="#的短路解析-1" class="headerlink" title="?? 的短路解析"></a><code>??</code> 的短路解析</h3><p>當左邊的表達式為 非 <code>undefined</code> 與 <code>null</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/short-circuit-and-optional-chaining/0.png" class="" width="800" height="200" title="短路解析與可選練修飾符">
+<p>在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說<code>undefined</code>（未定義）、<code>null</code>（空值）或者是<code>0</code>（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/03/12/zh-tw/short-circuit-and-optional-chaining/">more</a>
             </p>
         
     
@@ -606,7 +429,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/15/">15</a></li>
+        <li><a class="pagination-link" href="/page/16/">16</a></li>
         
     </ul>
 </nav>
