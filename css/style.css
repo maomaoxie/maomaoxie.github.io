@@ -172,8 +172,6 @@ a.tag.article-tag {
 
 .article .article-nav .article-nav-next {
   text-align: right; }
-  .article .article-nav .article-nav-next a {
-    padding-right: 1rem; }
 
 @media screen and (max-width: 768px) {
   .article .article-nav .article-nav-prev,

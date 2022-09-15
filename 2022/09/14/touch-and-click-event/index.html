@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>touch-and-click-event - Mawchu 貓奴前端的天空</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="google-site-verification" content="qpdwAFMt_HNGP0dM45CxVBDie_HVPkWFvpclpqZaoIo" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2022/09/14/touch-and-click-event/" rel="alternate" hreflang="en" />
+    
+
+
+<meta name="description" content="Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習">
+
+
+
+<meta name="keywords" content="mawchu、謝佳芳、毛球、網頁、前端、Javascript、Vue、Laravel、SEO、平面設計、貓咪">
+
+
+
+    <meta name="description" content="製作完一個 swipe 專案之後發覺 click 事件會同時觸發 touch 事件，造成綁定同一個 dom 時觸發兩次，解決方式有幾種： 針對 click 與 touch 綁定不同的 dom例如輪播可以針對箭頭按鈕綁定 click，輪播對象綁定 touch。 改用 mousedown &amp; up 取代 click 事件可以區分滑鼠的點擊事件使用 mouse 系列，與手指的點擊使用 touch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="touch-and-click-event">
+<meta property="og:url" content="http://maomaoxie.github.io/2022/09/14/touch-and-click-event/index.html">
+<meta property="og:site_name" content="Mawchu 貓奴前端的天空">
+<meta property="og:description" content="製作完一個 swipe 專案之後發覺 click 事件會同時觸發 touch 事件，造成綁定同一個 dom 時觸發兩次，解決方式有幾種： 針對 click 與 touch 綁定不同的 dom例如輪播可以針對箭頭按鈕綁定 click，輪播對象綁定 touch。 改用 mousedown &amp; up 取代 click 事件可以區分滑鼠的點擊事件使用 mouse 系列，與手指的點擊使用 touch">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-09-14T01:38:48.000Z">
+<meta property="article:modified_time" content="2022-09-15T01:53:26.747Z">
+<meta property="article:author" content="Mawchu 謝佳芳">
+<meta property="article:tag" content="mawchu、謝佳芳、毛球、網頁、前端、Javascript、Vue、Laravel、SEO、平面設計、貓咪">
+<meta name="twitter:card" content="summary">
+
+
+
+<link rel="alternative" href="/atom.xml" title="touch-and-click-event" type="application/atom+xml">
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.svg">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832218493331944" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script src="https://kit.fontawesome.com/76e3351334.js" crossorigin="anonymous"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container custom-nav">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo position-relative" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/subscribe">訂閱
+               <div class="position-absolute bar"></div>
+            </a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/mawchu">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            touch-and-click-event
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-09-14T01:38:48.000Z" itemprop="datePublished">9月 14 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分鐘 讀完 (約 421 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>製作完一個 swipe 專案之後發覺 click 事件會同時觸發 touch 事件，造成綁定同一個 dom 時觸發兩次，解決方式有幾種：</p>
+<h1 id="針對-click-與-touch-綁定不同的-dom"><a href="#針對-click-與-touch-綁定不同的-dom" class="headerlink" title="針對 click 與 touch 綁定不同的 dom"></a>針對 click 與 touch 綁定不同的 dom</h1><p>例如輪播可以針對箭頭按鈕綁定 click，輪播對象綁定 touch。</p>
+<h1 id="改用-mousedown-amp-up-取代-click-事件"><a href="#改用-mousedown-amp-up-取代-click-事件" class="headerlink" title="改用 mousedown &amp; up 取代 click 事件"></a>改用 mousedown &amp; up 取代 click 事件</h1><p>可以區分滑鼠的點擊事件使用 mouse 系列，與手指的點擊使用 touch 事件。</p>
+<h1 id="改用-pointer-event"><a href="#改用-pointer-event" class="headerlink" title="改用 pointer event"></a>改用 pointer event</h1><p>該事件可以適用於所有觸控裝置，包括觸控筆與手指，可以更敏銳的偵測觸控的方式，有幾種形式可以使用：</p>
+<h3 id="pointerover"><a href="#pointerover" class="headerlink" title="pointerover"></a>pointerover</h3><p>Fired when a pointer is moved into an element’s hit test boundaries.<br>當觸控進入指定區域時觸發。</p>
+<h3 id="ponterenter"><a href="#ponterenter" class="headerlink" title="ponterenter"></a>ponterenter</h3><p>Fired when a pointer is moved into the hit test boundaries of an element or one of its descendants,<br>including as a result of a pointerdown event from a device that does not support hover<br>當觸控進入指定區域或是子元素區域，及不支援 hover 的裝置上按壓時觸發．</p>
+<h3 id="pointerdown"><a href="#pointerdown" class="headerlink" title="pointerdown"></a>pointerdown</h3><p>Fired when a pointer becomes active buttons state.<br>按壓時觸發．</p>
+<h3 id="pointermove"><a href="#pointermove" class="headerlink" title="pointermove"></a>pointermove</h3><p>Fired when a pointer changes coordinates.<br>This event is also used if the change in pointer state can not be reported by other events.<br>當手指按壓並移動時觸發，亦會使用在 pointer 狀態不為其他事件所察覺時．</p>
+<h3 id="pointerup"><a href="#pointerup" class="headerlink" title="pointerup"></a>pointerup</h3><p>Fired when a pointer is no longer active buttons state.<br>當手指接觸面積離開裝置時觸發．</p>
+<h3 id="pointercancel"><a href="#pointercancel" class="headerlink" title="pointercancel"></a>pointercancel</h3><p>A browser fires this event if it concludes the pointer will no longer be able to generate events<br>(for example the related device is deactivated).<br>當裝置因設置關閉觸控等原因無法觸發 pointer 事件時，瀏覽器會偵測並觸發．</p>
+</body></html> -->
+        
+        
+            <html><head></head><body><p>製作完一個 swipe 專案之後發覺 click 事件會同時觸發 touch 事件，造成綁定同一個 dom 時觸發兩次，解決方式有幾種：</p>
+<h1 id="針對-click-與-touch-綁定不同的-dom"><a href="#針對-click-與-touch-綁定不同的-dom" class="headerlink" title="針對 click 與 touch 綁定不同的 dom"></a>針對 click 與 touch 綁定不同的 dom</h1><p>例如輪播可以針對箭頭按鈕綁定 click，輪播對象綁定 touch。</p>
+<h1 id="改用-mousedown-amp-up-取代-click-事件"><a href="#改用-mousedown-amp-up-取代-click-事件" class="headerlink" title="改用 mousedown &amp; up 取代 click 事件"></a>改用 mousedown &amp; up 取代 click 事件</h1><p>可以區分滑鼠的點擊事件使用 mouse 系列，與手指的點擊使用 touch 事件。</p>
+<h1 id="改用-pointer-event"><a href="#改用-pointer-event" class="headerlink" title="改用 pointer event"></a>改用 pointer event</h1><p>該事件可以適用於所有觸控裝置，包括觸控筆與手指，可以更敏銳的偵測觸控的方式，有幾種形式可以使用：</p>
+<h3 id="pointerover"><a href="#pointerover" class="headerlink" title="pointerover"></a>pointerover</h3><p>Fired when a pointer is moved into an element’s hit test boundaries.<br>當觸控進入指定區域時觸發。</p>
+<h3 id="ponterenter"><a href="#ponterenter" class="headerlink" title="ponterenter"></a>ponterenter</h3><p>Fired when a pointer is moved into the hit test boundaries of an element or one of its descendants,<br>including as a result of a pointerdown event from a device that does not support hover<br>當觸控進入指定區域或是子元素區域，及不支援 hover 的裝置上按壓時觸發．</p>
+<h3 id="pointerdown"><a href="#pointerdown" class="headerlink" title="pointerdown"></a>pointerdown</h3><p>Fired when a pointer becomes active buttons state.<br>按壓時觸發．</p>
+<h3 id="pointermove"><a href="#pointermove" class="headerlink" title="pointermove"></a>pointermove</h3><p>Fired when a pointer changes coordinates.<br>This event is also used if the change in pointer state can not be reported by other events.<br>當手指按壓並移動時觸發，亦會使用在 pointer 狀態不為其他事件所察覺時．</p>
+<h3 id="pointerup"><a href="#pointerup" class="headerlink" title="pointerup"></a>pointerup</h3><p>Fired when a pointer is no longer active buttons state.<br>當手指接觸面積離開裝置時觸發．</p>
+<h3 id="pointercancel"><a href="#pointercancel" class="headerlink" title="pointercancel"></a>pointercancel</h3><p>A browser fires this event if it concludes the pointer will no longer be able to generate events<br>(for example the related device is deactivated).<br>當裝置因設置關閉觸控等原因無法觸發 pointer 事件時，瀏覽器會偵測並觸發．</p>
+</body></html>
+        
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/09/15/wordpress-ga-track/">
+                <i class="fas fa-caret-left" style="padding-right: 5px"></i> 如何在 wordpress 埋入 GA code
+            </a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/08/25/wowjs-in-vue2-typescript/">
+                在 Vue2 + Typescript 專案中引入 WOW.js <i class="fas fa-caret-right" style="padding-left: 5px"></i>
+            </a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62024aa50a70400019079d5b&amp;product=sticky-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://maomaoxie.github.io/2022/09/14/touch-and-click-event/';
+        this.page.identifier = '2022/09/14/touch-and-click-event/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'maomaoxie' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 Mawchu 謝佳芳&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/mawchu">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2022/09/14/touch-and-click-event/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2022/09/14/touch-and-click-event/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-TW");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+          position: relative;
+        }
+
+        .hljs .clipboard-btn {
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #2e2e2e;
+          transform: scale(1.1);
+        }
+
+        .hljs > .clipboard-btn {
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+          display: inline;
+        }
+
+        button {
+          padding: 0;
+        }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

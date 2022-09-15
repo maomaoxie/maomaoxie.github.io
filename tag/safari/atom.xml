@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://maomaoxie.github.io</id>
+    <title>Mawchu 貓奴前端的天空 • Posts by &#34;safari&#34; tag</title>
+    <link href="http://maomaoxie.github.io" />
+    <updated>2022-08-18T01:12:34.000Z</updated>
+    <category term="safari" />
+    <category term="javaScript" />
+    <category term="preventDefault" />
+    <category term="ios" />
+    <category term="mobile" />
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="git" />
+    <category term="github" />
+    <category term="sourceTree" />
+    <category term="hexo" />
+    <category term="submodule" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="rss" />
+    <category term="http" />
+    <category term="https" />
+    <category term="request" />
+    <category term="response" />
+    <category term="httpHeader" />
+    <category term="status" />
+    <category term="httpMethods" />
+    <category term="Javascript" />
+    <category term="type" />
+    <category term="laravel" />
+    <category term="php" />
+    <category term="linux" />
+    <category term="blade" />
+    <category term="wsl2" />
+    <category term="migration" />
+    <category term="sql" />
+    <category term="layout" />
+    <category term="public" />
+    <category term="static" />
+    <category term="css" />
+    <category term="less" />
+    <category term="processors" />
+    <category term="tailwind" />
+    <category term="env" />
+    <category term="process" />
+    <category term="dotenv" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vue" />
+    <category term="vue3" />
+    <category term="compositionAPI" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="vuetify" />
+    <category term="html" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <category term="wordpress" />
+    <category term="dns" />
+    <category term="cdn" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/08/18/safari-preventDefault-bug/</id>
+        <title>Safari IOS 11.3 後 preventDefault 失效問題</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/08/18/safari-preventDefault-bug/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;https://i.gifer.com/2BC.gif&#34; class=&#34;&#34; width=&#34;300&#34; height=&#34;200&#34; title=&#34;safari-preventDefault-bug&#34;&gt;
+&lt;p&gt;沒錯的，我們可愛的 Safari 又又又出現了 bug，來看看這個高級 IE 的除錯日常（Safari 愛好者不要鞭我）&lt;/p&gt;
+&lt;h1 id=&#34;click-事件綁定&#34;&gt;&lt;a href=&#34;#click-事件綁定&#34; class=&#34;headerlink&#34; title=&#34;click 事件綁定&#34;&gt;&lt;/a&gt;click 事件綁定&lt;/h1&gt;&lt;p&gt;網站開發過程的需求是，當元件沒有 props 連結路徑時就預防 a 連結的預設跳轉行為，以下是元件的 code：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;component&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;// HTML&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;a class=&#34;w-100 h-100&#34; :class=&#34;[ url === &#39;&#39; ? &#39;pointer-events-none&#39; : &#39;url-active&#39; ]&#34; @click=&#34;changeTab()&#34;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;// Script&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;@Component&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export default class ItemCard extends Vue {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    @Prop({ default: &#39;&#39; }) url?: string;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    private changeTab (event: any) {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        if (this.url === &#39;&#39;) {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        event.preventDefault();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;contextmenu-事件綁定&#34;&gt;&lt;a href=&#34;#contextmenu-事件綁定&#34; class=&#34;headerlink&#34; title=&#34;contextmenu 事件綁定&#34;&gt;&lt;/a&gt;contextmenu 事件綁定&lt;/h1&gt;&lt;p&gt;後來發現 Safari 的瀏覽器，手機與電腦綁定 a 標籤 click 事件都無法達到避免預設行為的效果，於是求救谷歌大神：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;To target right click events, use contextmenu rather than mousedown.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.querySelector(&#34;#GL-Surface&#34;).addEventListener(&#34;contextmenu&#34;,     function(e) {         e.preventDefault();     }); &lt;/code&gt;&lt;br&gt;Note that the options that appear on right click do appear only when the right click button is released, so I don’t think mousedown is at all suitable here.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/62245019/javascript-preventdefault-not-working-in-safari&#34;&gt;Javascript preventDefault() not working in Safari&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;這裡面提及的&lt;strong&gt;contextmenu&lt;/strong&gt;事件是右鍵出現的選單，抱持著嘗試看看的心情監聽contextmenu事件，並綁定了一樣的函式．竟然成功了？？？&lt;/p&gt;
+&lt;p&gt;第一次看到這個&lt;strong&gt;contextmenu&lt;/strong&gt;事件，來瞧瞧 MDN 怎麼說：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;被触发的 contextmenu 事件的默认行为被 preventDefault() 取消了，因此，在第一段右击鼠标时什么也不会发生&lt;br&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/contextmenu&#34;&gt;contextmenu&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;ios11-3-版本後&#34;&gt;&lt;a href=&#34;#ios11-3-版本後&#34; class=&#34;headerlink&#34; title=&#34;ios11.3 版本後&#34;&gt;&lt;/a&gt;ios11.3 版本後&lt;/h1&gt;&lt;p&gt;有人提及&lt;strong&gt;ios11.3 and later&lt;/strong&gt;預設行為就失效了&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;This is not an issue by React and is caused by the recent movement of browser vendors to improve performance on mobile devices.&lt;br&gt;Some events (usually those that would fire when you scroll) are &lt;strong&gt;getting passive by default&lt;/strong&gt;.&lt;br&gt;&lt;a href=&#34;https://github.com/facebook/react/issues/13369&#34;&gt;e.preventDefault() does not work with safari in ios11.3 and later #13369&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;改動是為了優化體驗&#34;&gt;&lt;a href=&#34;#改動是為了優化體驗&#34; class=&#34;headerlink&#34; title=&#34;改動是為了優化體驗&#34;&gt;&lt;/a&gt;改動是為了優化體驗&lt;/h1&gt;&lt;p&gt;以上的說明原由來自於性能優化的考量，由於手機裝置在滾動時觸發太多主動事件會嚴重影響體驗，因故某些事件都被調整預設為&lt;strong&gt;被動的（passive）&lt;/strong&gt;，來看看以下說明：&lt;br&gt;（附上不負責任翻譯）&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;We know that scrolling responsiveness is critical to the user’s engagement with a website on mobile, yet touch event listeners often cause serious scrolling performance problems.&lt;br&gt;在手機裝置中滾動事件的敏感度放大了使用者的體驗，可能造成延遲或性能不好。&lt;/p&gt;
+&lt;p&gt;Chrome has been addressing this by allowing touch event listeners to be passive (passing the {passive: true} option to addEventListener()) and shipping the pointer events API. These are great features to drive new content into models that don’t block scrolling, but developers sometimes find them hard to understand and adopt.&lt;br&gt;Chrome 在事件監聽上預設了被動參數為 true，避免滾動事件被阻擋。&lt;/p&gt;
+&lt;p&gt;Developer-defined “passive event listeners” solve this. When you add a touch event with a {passive: true} object as the third parameter in your event handler then you are telling the browser that the touchstart listener will not call preventDefault() and the browser can safely perform the scroll without blocking on the listener.&lt;br&gt;當你設定事件監聽被動參數為 true，該事件就不會觸發**preventDefault()**避免滾動事件卡卡的&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.chrome.com/blog/scrolling-intervention/&#34;&gt;Making touch scrolling fast by default&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;設定的方式與參數例如這樣：&lt;br&gt;&lt;code&gt;window.addEventListener(&#34;touchstart&#34;, func, {passive: true} );&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;弔詭的地方&#34;&gt;&lt;a href=&#34;#弔詭的地方&#34; class=&#34;headerlink&#34; title=&#34;弔詭的地方&#34;&gt;&lt;/a&gt;弔詭的地方&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;以上說明是針對 Chrome 瀏覽器的性能優化改動，不是 safari 啊？&lt;/li&gt;
+&lt;li&gt;MDN 提及 contextmenu 事件已經不為瀏覽器所支援，但 safari 卻必須使用 contextmenu 事件綁定並且搭配 preventDefault 才能生效？而且註明 safari ios 是唯一不支援此事件的瀏覽器？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img src=&#34;/images/safari-preventDefault-bug/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;safari-preventDefault-bug&#34;&gt;
+&lt;img src=&#34;https://c.tenor.com/sAMt7DszgXMAAAAC/%E9%BB%91%E4%BA%BA%E5%95%8F%E8%99%9F.gif&#34; class=&#34;&#34; width=&#34;350&#34; height=&#34;200&#34; title=&#34;safari-preventDefault-bug&#34;&gt;
+
+&lt;p&gt;也許下次可以試試看直接把監聽器的 passive 設為 false 試試看 XD&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="safari" />
+        <category term="javaScript" />
+        <category term="preventDefault" />
+        <category term="ios" />
+        <category term="mobile" />
+        <updated>2022-08-18T01:12:34.000Z</updated>
+    </entry>
+</feed>

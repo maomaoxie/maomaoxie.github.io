@@ -7,17 +7,22 @@
         <language>zh-tw,en,default</language>
         <pubDate>Fri, 11 Feb 2022 19:43:57 +0800</pubDate>
         <lastBuildDate>Fri, 11 Feb 2022 19:43:57 +0800</lastBuildDate>
+        <category>safari</category>
+        <category>javaScript</category>
+        <category>preventDefault</category>
+        <category>ios</category>
+        <category>mobile</category>
         <category>javascript</category>
         <category>constructor</category>
         <category>instance</category>
         <category>methods</category>
-        <category>git</category>
-        <category>github</category>
-        <category>sourceTree</category>
         <category>backEnd</category>
         <category>node</category>
         <category>express</category>
         <category>router</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
         <category>hexo</category>
         <category>submodule</category>
         <category>api</category>
@@ -38,15 +43,15 @@
         <category>linux</category>
         <category>blade</category>
         <category>wsl2</category>
-        <category>layout</category>
         <category>migration</category>
         <category>sql</category>
+        <category>layout</category>
         <category>public</category>
         <category>static</category>
-        <category>tailwind</category>
         <category>css</category>
         <category>less</category>
         <category>processors</category>
+        <category>tailwind</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
@@ -62,11 +67,11 @@
         <category>typescript</category>
         <category>vuetify</category>
         <category>html</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
-        <category>WebSocket</category>
-        <category>WebHook</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/02/11/zh-tw/less-css/</guid>
             <title>預處理器新朋友-Less</title>
