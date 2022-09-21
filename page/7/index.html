@@ -145,6 +145,153 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/06/05/zh-tw/js-weird-parts-III/" itemprop="url">克服 Javascript 的奇怪部分 單執行緒與同步執行</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-06-05T08:31:07.000Z" itemprop="datePublished">6月 5 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/javascript/">javascript</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分鐘 讀完 (約 938 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/js-weird-parts-single-threaded/0.png" class="" width="800" height="200" title="js-weird-parts-single-threaded">
+<p>這一個章節要來講解 JavaScript 的幾個觀念。</p>
+<h1 id="單執行緒（Single-Threaded）"><a href="#單執行緒（Single-Threaded）" class="headerlink" title="單執行緒（Single Threaded）"></a>單執行緒（Single Threaded）</h1><p><strong>一次一件事</strong>是重點。<br>這個特性不是瀏覽器的特性，瀏覽器一次可能同時處理多件事情，JavaScript 引擎則是單執行緒的，就像排隊買早餐，老闆娘一次只能處理一位客人，而 JavaScript 也是一次只處理一項指令。</p>
+<h1 id="同步執行（Synchronous）"><a href="#同步執行（Synchronous）" class="headerlink" title="同步執行（Synchronous）"></a>同步執行（Synchronous）</h1><p><strong>順序</strong>是重點。<br>事情有先後順序，按照順序執行，一次執行一行（或者說一個單元的程式碼，可能是一個陳述式或表達式）。</p>
+<h1 id="呼叫函式（Function-Invocation）"><a href="#呼叫函式（Function-Invocation）" class="headerlink" title="呼叫函式（Function Invocation）"></a>呼叫函式（Function Invocation）</h1><p>觸發或執行一個函式，使用的符號為大括號（parenthesis）。<br>JavaScript 引擎在執行函式呼叫時，會發生幾件事情延續前面的章節：</p>
+<figure class="highlight javascript hljs"><figcaption><span>呼叫函式</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">b</span> () {</span><br><span class="line">}</span><br><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">a</span> () {</span><br><span class="line">  <span class="title function_">b</span>();</span><br><span class="line">}</span><br><span class="line"><span class="title function_">a</span>();</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="創造階段"><a href="#創造階段" class="headerlink" title="創造階段"></a>創造階段</h2><ol>
+<li>全域執行環境（Global Execution Context）首先被創造。</li>
+<li>全域物件（Global object）被創造。</li>
+<li>全域 this 被創造。</li>
+<li>開始編譯階段（Parsing），編譯器巡過一遍所有程式碼發現了函式 b 與 a，在記憶體創造兩個函式的空間並且存放整個函式內容。</li>
+</ol>
+<img src="/images/js-weird-parts-III/1.png" class="" width="400" height="200" title="js-weird-parts-III">
+
+<h2 id="執行階段"><a href="#執行階段" class="headerlink" title="執行階段"></a>執行階段</h2><ol>
+<li><p>整個程式碼的記憶體準備完畢後，開始執行程式。</p>
+</li>
+<li><p>編譯器解析到<strong>函式 a</strong>被呼叫，立即於全域執行環境上方，產生並堆疊一個函式 a 的執行環境（Execution Context），放進<strong>執行佇列堆（Execution Stack）</strong>中，每個執行環境都有自己得記憶體空間存放著變數或函式。</p>
+<img src="/images/js-weird-parts-III/2.png" class="" width="400" height="200" title="js-weird-parts-III">
+</li>
+<li><p>最上方的執行佇列會優先執行，進入函式 a 的執行環境（Execution Context）並且解析到函式 b，程序暫停，立即於函式 a 的執行環境上方，產生並堆疊一個函式 b 的執行環境（Execution Context），放進<strong>執行佇列堆（Execution Stack）</strong>中。</p>
+<img src="/images/js-weird-parts-III/3.png" class="" width="400" height="200" title="js-weird-parts-III"></li>
+</ol>
+<p>以上執行階段也可以拆分成好幾個創造（執行環境），與執行（執行佇列堆最上方的執行環境）階段，在當下的執行環境執行過程中，只要觸發另一個函式，執行暫停然後創造（執行環境）、與執行（執行佇列堆最上方的執行環境），而下方的程式碼不會被解析，除非該執行環境執行完畢並且離開執行佇列堆（Execution Stack）後才會繼續逐行執行。</p>
+<blockquote class="colorquote Info"><p>Everytime a function is called, a new execution context is created for that function, the <code>this</code> variable is created for that function, the variables in it were set up in the creation phase, then the code is executed line by line.<br>whatever is on the top of the execution stack, is currently running synchronously.</p>
+</blockquote>
+
+<p>重點整理：<br>當一個函式被觸發或是呼叫，JS 引擎會創造一個屬於該函式的執行環境（execution context）並且放置在執行緒的最上方等待被執行，而該堆疊中具有該函式獨有的執行環境與 This，開始執行並且完成後離開堆疊中（pop out）繼續執行下一個堆疊，只要解析到新的函式被呼叫就會反覆以上行為，直到堆疊不斷（pop out）剩下全域執行環境本身為止。</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/js-weird-parts-single-threaded/0.png" class="" width="800" height="200" title="js-weird-parts-single-threaded">
+<p>這一個章節要來講解 JavaScript 的幾個觀念。</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/06/05/zh-tw/js-weird-parts-III/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/06/04/zh-tw/js-weird-parts-II/" itemprop="url">克服 Javascript 的奇怪部分 Hoisting</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-06-04T08:28:20.000Z" itemprop="datePublished">6月 4 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 分鐘 讀完 (約 1092 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/js-weird-parts-II/0.png" class="" width="800" height="200" title="js-weird-parts-II">
+<p>課程作者提到，<strong>Hoisting</strong> 大約是 JavaScript 裡最奇怪的行為了，而且是其他語言無法做到的特性，來了解一下怎麼回事吧！</p>
+<h1 id="Hoisting"><a href="#Hoisting" class="headerlink" title="Hoisting"></a>Hoisting</h1><p>這一段程式碼若在其他語言執行可是會發生錯誤的！但是在 JavaScript 裡卻可以安然無恙：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">b</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-string">'123'</span>;</span><br><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">b</span> () {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'b is called!'</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/js-weird-parts-II/1.png" class="" width="800" height="200" title="js-weird-parts-II">
+<p>a 竟然在還未被宣告以前使用，會回傳 undefined；b 函式正常運作。<br>這就是 JavaScript 的 Hoisting 在搞鬼，但不要被 Hoisting 的提升之意混淆了，該現象並非程式碼被靜態的（physically）提升到最上方，我們來解析一下編譯器是如何執行這一段程式碼：</p>
+<h1 id="執行環境執行的兩階段"><a href="#執行環境執行的兩階段" class="headerlink" title="執行環境執行的兩階段"></a>執行環境執行的兩階段</h1><blockquote><p>There are two phases when it came to the execution context within the Javacript engine:<br>The first phase was the creation phase, when it sets up the variables and functions in memory. And the second phase was the execution phase, all those things already being set up, so now it runs your code line by line.</p>
+</blockquote>
+
+<h2 id="創造階段"><a href="#創造階段" class="headerlink" title="創造階段"></a>創造階段</h2><p>在第一個章節有提到，Javascript 並非是完全直譯的語言，其中一個佐證就是 Hoisting 的行為，如果程式碼真的是逐行翻譯然後執行，它是怎麼知道變數 a 與函式 b 會被創建的呢？</p>
+<p>這裡就能理解編譯器在執行程式以前仍存在一段<strong>編譯完成才執行</strong>的過程：<br>Javascript 引擎先將整個程式碼審視一遍，找出所有具有名稱（variable name）、<strong>並非</strong>透過區塊作用域（Block scope）的關鍵字 const 與 let ，而是 var 所宣告的的值或函式找出來，然後歸納：誰是變數就給予一個記憶體空間，存放著未定義的值（undefined）；誰是函式就給予一個記憶體空間，存放著整個函式的內容。</p>
+<img src="/images/js-weird-parts-II/2.png" class="" width="800" height="200" title="js-weird-parts-II">
+
+<p>也就是說創造階段可以這樣理解：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a;</span><br><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">b</span> () {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'b is called!'</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>變數 a 與函式 b 都各自被建立一個記憶體空間，接著存放著對應的值，變數 a 的記憶體空間內存放了 <code>undefined</code>，函式 b 的記憶體空間則直接放置整個函式內容。<br>關鍵就在變數的創造階段，只是<strong>宣告（declared）</strong>而已，這個階段 JavaScript 引擎並不清楚變數 a 將來的值會是甚麼，直到執行階段才會被<strong>指派（assigned）</strong>。</p>
+<h2 id="undefined-不等於-not-defined"><a href="#undefined-不等於-not-defined" class="headerlink" title="undefined 不等於 not defined"></a>undefined 不等於 not defined</h2><p>當變數通過 var 關鍵字宣告，記憶體就被建立並且放入 <code>undefined</code> 的值，如果變數未宣告就使用，則瀏覽器會噴錯誤訊息：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="hljs-comment">// Uncaught ReferenceError: a is not defined</span></span><br></pre></td></tr></tbody></table></figure>
+<p>這是瀏覽器表示：嘿！我在任何記憶體都找不到這個名稱的參照，甚至連 <code>undefined</code> 都不是。</p>
+<h3 id="小知識"><a href="#小知識" class="headerlink" title="小知識"></a>小知識</h3><blockquote class="colorquote info"><p>Since undefined is a longer string than null, the JIT compiler has to save 4 bytes more to memory when using undefined instead of null while parsing. Consider that memory aswell.</p>
+</blockquote>
+<p><code>undefined</code> 並非不存在的值，它是 Javacript 中的原始型別，也是純值的一種，甚至占了記憶體 4 個 bytes ，比空值<code>null</code>還要多。</p>
+<h2 id="良好的-coding-習慣"><a href="#良好的-coding-習慣" class="headerlink" title="良好的 coding 習慣"></a>良好的 coding 習慣</h2><h4 id="X-在宣告以前使用變數"><a href="#X-在宣告以前使用變數" class="headerlink" title="(X)在宣告以前使用變數"></a>(X)在宣告以前使用變數</h4><p>為了避免在執行過程被 Hoisting 汙染，最好養成先宣告後調用或賦值的習慣，可以避免一些錯誤發生，這也是為什麼 Eslint 或 Airbnb 等大宗規範都建議的撰寫規則。</p>
+<h4 id="X-將變數賦值為-undefined"><a href="#X-將變數賦值為-undefined" class="headerlink" title="(X)將變數賦值為 undefined"></a>(X)將變數賦值為 undefined</h4><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="hljs-literal">undefined</span>;</span><br></pre></td></tr></tbody></table></figure>
+<p>倘若你這麼做了，會在除錯的時候難以辨認是 Javacript 引擎設定的還是後來你撰寫的程式所賦值的。</p>
+<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>若要將 Hoisting 給予一個較好的解釋，我想就是「創建初始化」，給予一個初始的值以便後續利用：函式就直接賦值，變數的則填補上執行等號（=）以後的值，不過那已經是下一個<strong>執行階段</strong>的任務了。</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/js-weird-parts-II/0.png" class="" width="800" height="200" title="js-weird-parts-II">
+<p>課程作者提到，<strong>Hoisting</strong> 大約是 JavaScript 裡最奇怪的行為了，而且是其他語言無法做到的特性，來了解一下怎麼回事吧！</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/06/04/zh-tw/js-weird-parts-II/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/06/04/zh-tw/js-weird-parts-parsing/" itemprop="url">克服 Javascript 的奇怪部分 名詞解釋篇</a>
         
     </h1>
@@ -202,144 +349,6 @@
             <!--  -->
             <p class="article-more-link">
                 <a href="/2022/06/04/zh-tw/js-weird-parts-parsing/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/05/14/zh-tw/constructor-vs-instance/" itemprop="url">建構子方法與實例化方法</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-05-14T13:37:03.000Z" itemprop="datePublished">5月 14 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/javascript/">javascript</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            5 分鐘 讀完 (約 764 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/constructor-vs-instance/0.png" class="" width="800" height="200" title="constructor-vs-instance">
-
-<p>在某天好奇想了解 Vue 3 的 defineProperty 原理搜尋了 <code>Object.defineProperty()</code> 這個方法時，看見以下說明：</p>
-<blockquote><p>靜態方法 <code>Object.defineProperty()</code> 會直接對一個物件定義、或是修改現有的屬性。執行後會回傳定義完的物件。<br>備註：這個方法會直接針對 Object 呼叫建構子（constructor），而不是 Object 型別的實例。</p>
-<footer><strong>MDN</strong><cite><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty()</a></cite></footer></blockquote>
-<p>其中的<strong>直接針對 Object 呼叫建構子（constructor），而不是 Object 型別的實例</strong>這句話突然讓我驚醒了，以前一直不能理解 javascript 中呼叫原生方法時，為何會有以下的區別：</p>
-<h2 id="透過建構器呼叫"><a href="#透過建構器呼叫" class="headerlink" title="透過建構器呼叫"></a>透過建構器呼叫</h2><p><code>Object.methods(objInstance)</code> -&gt; 例如 Object.keys(someObj)<br>這裡的 Object 是建構函式本身，未實例的藍圖（constructor）。</p>
-<h2 id="透過實例呼叫"><a href="#透過實例呼叫" class="headerlink" title="透過實例呼叫"></a>透過實例呼叫</h2><p><code>objInstance.methods(parameters)</code> -&gt; 例如 someObj.hasOwnProperty(‘prop’)<br>這裡的 Object 是實例化的物件（instance）。</p>
-<h2 id="Constructor-Static-Methods"><a href="#Constructor-Static-Methods" class="headerlink" title="Constructor Static Methods"></a>Constructor Static Methods</h2><h4 id="構造器-靜態方法"><a href="#構造器-靜態方法" class="headerlink" title="構造器 靜態方法"></a>構造器 靜態方法</h4><p>以下的例子是呼叫 Object 建構子中的原生 keys 方法，而不需要 new 一個物件實例就可以使用，靜態方法的特色是無需使用任何建構子中的 this 資料就可以直接使用。</p>
-<figure class="highlight javascript hljs"><figcaption><span>建構子方法</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> someone = {</span><br><span class="line">  <span class="hljs-attr">name</span>: <span class="hljs-string">'Adam'</span>,</span><br><span class="line">  <span class="hljs-attr">carrer</span>: <span class="hljs-string">'teacher'</span>,</span><br><span class="line">  <span class="hljs-attr">sex</span>: <span class="hljs-string">'male'</span></span><br><span class="line">};</span><br><span class="line"><span class="hljs-keyword">const</span> dataKeys = <span class="title class_">Object</span>.<span class="title function_">keys</span>(someone);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dataKeys);</span><br><span class="line"><span class="hljs-comment">// ["name","carrer","sex"]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="Instance-methods"><a href="#Instance-methods" class="headerlink" title="Instance methods"></a>Instance methods</h3><h4 id="等號賦值-實例化方法"><a href="#等號賦值-實例化方法" class="headerlink" title="等號賦值 實例化方法"></a>等號賦值 實例化方法</h4><p>以下則是呼叫 Array 的實例化 push 方法，雖然也不是透過 new 來建立一個陣列，卻也是使用賦值一個陣列來建立陣列的實例，並且使用原生 push 方法。</p>
-<figure class="highlight javascript hljs"><figcaption><span>實例化方法 - 賦值</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> friends = [ <span class="hljs-string">'Cally'</span>, <span class="hljs-string">'Donna'</span>, <span class="hljs-string">'Jell'</span> ];</span><br><span class="line">friends.<span class="title function_">push</span>(<span class="hljs-string">'Liang'</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(friends);</span><br><span class="line"><span class="hljs-comment">// ["Cally","Donna","Jell","Liang"]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="建構器-實例化方法"><a href="#建構器-實例化方法" class="headerlink" title="建構器 實例化方法"></a>建構器 實例化方法</h4><p>透過 new 來建立一個陣列。</p>
-<figure class="highlight javascript hljs"><figcaption><span>實例化方法 - 構造器</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> animals = <span class="hljs-keyword">new</span> <span class="title class_">Array</span>(<span class="hljs-string">'bunny'</span>, <span class="hljs-string">'cat'</span>, <span class="hljs-string">'puppy'</span>, <span class="hljs-string">'hamster'</span>);</span><br><span class="line">animals.<span class="title function_">unshift</span>(<span class="hljs-string">'bird'</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(animals);</span><br><span class="line"><span class="hljs-comment">// ["bird","bunny","cat","puppy","hamster"]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="構造器靜態方法補充"><a href="#構造器靜態方法補充" class="headerlink" title="構造器靜態方法補充"></a>構造器靜態方法補充</h2><h4 id="無法取得構造器的this資料"><a href="#無法取得構造器的this資料" class="headerlink" title="無法取得構造器的this資料"></a>無法取得構造器的this資料</h4><blockquote><ul>
-<li>The static method also cannot see the instance variable state so if we try to call the nonstatic method from the static method compiler will complain.</li>
-<li>The static method can be used to create utility functions.<br><a target="_blank" rel="noopener" href="https://www.educba.com/javascript-static-method/">https://www.educba.com/javascript-static-method/</a></li>
-</ul>
-</blockquote>
-
-<p>從上述可以得知靜態方法是不能取用構造器建構子（constructor）內的變數的（this binding），通常會撰寫純函式（pure function）以保持無狀態的特性，如同 Math 方法。<br>靜態方法適合用來當作全局複用的函式，適合較無副作用的邏輯。</p>
-<h2 id="兩種方法的原型鍊關係"><a href="#兩種方法的原型鍊關係" class="headerlink" title="兩種方法的原型鍊關係"></a>兩種方法的原型鍊關係</h2><p>若展開一個實例化的物件，會發現：</p>
-<ol>
-<li>建構器方法存在於建構子物件中（constructor），且只能透過建構器呼叫，例如 Object.assign()；</li>
-<li>實例化方法則存在於原型上（prototype），需要實例化之後才能呼叫，例如 objInstance.toLocaleString()</li>
-</ol>
-</body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/constructor-vs-instance/0.png" class="" width="800" height="200" title="constructor-vs-instance">
-
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/05/14/zh-tw/constructor-vs-instance/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/04/24/zh-tw/laravel-migration/" itemprop="url">Laravel 資料庫版控工具 Migration</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-04-24T11:18:30.000Z" itemprop="datePublished">4月 24 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/laravel/">laravel</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 分鐘 讀完 (約 213 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/laravel-migration/0.png" class="" width="800" height="200" title="laravel-migration">
-<p>Migration 位於 Laravel 專案包中的 database 資料夾，會使用建立日期來歸檔資料表的結構，為紀錄資料庫版本的版控，方便團隊共同開發資料表。</p>
-<h1 id="建立資料表"><a href="#建立資料表" class="headerlink" title="建立資料表"></a>建立資料表</h1><figure class="highlight javascript hljs"><figcaption><span>建立 migration</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan <span class="hljs-attr">make</span>:migration create_users_table</span><br></pre></td></tr></tbody></table></figure>
-<p>建立成功會顯示：</p>
-<img src="/images/laravel-migration/1.png" class="" width="800" height="200" title="資料庫版控工具 Migration">
-<p>重整之後會出現新的版控檔案，使用建立日期來命名：</p>
-<img src="/images/laravel-migration/2.png" class="" width="300" height="200" title="資料庫版控工具 Migration">
-<p>檔案內容：</p>
-<img src="/images/laravel-migration/3.png" class="" width="800" height="200" title="輸入圖片資料夾名稱">
-
-<h1 id="修改資料表"><a href="#修改資料表" class="headerlink" title="修改資料表"></a>修改資料表</h1><p>在 <code>\\wsl$</code> 路徑下執行 migrate 的坑需要以下步驟：</p>
-<h4 id="補上-php-8-0-的-sql-extension"><a href="#補上-php-8-0-的-sql-extension" class="headerlink" title="補上 php 8.0 的 sql-extension"></a>補上 php 8.0 的 sql-extension</h4><p>於 ubuntu 終端機輸入以下指令：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">輸入code</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="將註解-extension-x3D-pdo-mysql-打開"><a href="#將註解-extension-x3D-pdo-mysql-打開" class="headerlink" title="將註解 ;extension=pdo_mysql 打開"></a>將註解 ;extension=pdo_mysql 打開</h4></body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/laravel-migration/0.png" class="" width="800" height="200" title="laravel-migration">
-<p>Migration 位於 Laravel 專案包中的 database 資料夾，會使用建立日期來歸檔資料表的結構，為紀錄資料庫版本的版控，方便團隊共同開發資料表。</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/04/24/zh-tw/laravel-migration/">more</a>
             </p>
         
     

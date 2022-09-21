@@ -145,6 +145,280 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/02/28/zh-tw/http-header/" itemprop="url">HTTP 的訊息頭 header</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-02-28T12:28:24.000Z" itemprop="datePublished">2月 28 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/http/">http</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            12 分鐘 讀完 (約 1772 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/http-header/0.png" class="" width="800" height="200" title="[http-header [http-header]]">
+
+<p>個人對這一塊知識又愛又恨，每每串接 api 打開 Network 都會看到卻似懂非懂的感覺真討厭！來認真釐清一下吧！</p>
+<h1 id="甚麼是-Header-與-Body"><a href="#甚麼是-Header-與-Body" class="headerlink" title="甚麼是 Header 與 Body"></a>甚麼是 Header 與 Body</h1><p>訊息頭<code>header</code>在 request 與 response 裡佔有很大一席之地，它的作用相當於寄件時包裹上的訊息，記錄著包裹的相關內容，譬如該包裹要通過海關時必須申報內容物是甚麼類別，是否是急件還是一般，要寄往哪個國家、寄給誰等等的屬性。<br>訊息本體 <code>body</code> 就是你包裹裡面的東西，或者信件裡的文字訊息。<br>之於網頁的資料傳遞則是記錄該次要求 request 與回應 response 的通訊內容．是一個 http 行為的概覽與說明。</p>
+<hr>
+<h1 id="Header-存在於那裡"><a href="#Header-存在於那裡" class="headerlink" title="Header 存在於那裡"></a>Header 存在於那裡</h1><p>request 與 response 都有 <code>header</code>，通常是 client 端發出的 request 會寫得比較詳盡，譬如使用者在搜尋引擎上點選一個網站就完成數個 request（一個網站會有很多資源的要求．例如圖片、網頁或 Api 資料）或者使用者在電腦填寫表單之後送出，而 server 端接收之後回應也會有訊息頭。</p>
+<hr>
+<h1 id="HTTP-通訊的組成"><a href="#HTTP-通訊的組成" class="headerlink" title="HTTP 通訊的組成"></a>HTTP 通訊的組成</h1><img src="/images/http-header/1.png" class="" width="500" height="200" title="http-header">
+<p>一個 request 跟 response 由 <code>header</code> 訊息頭跟 <code>body</code> 訊息本體所組成：</p>
+<h3 id="Request-Header-請求頭"><a href="#Request-Header-請求頭" class="headerlink" title="Request Header 請求頭"></a>Request Header 請求頭</h3><table>
+<thead>
+<tr>
+<th align="left">屬性</th>
+<th align="right">說明</th>
+<th align="center">範例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Accept</strong></td>
+<td align="right">request 要求 response 的類型</td>
+<td align="center">text/html, image/*</td>
+</tr>
+<tr>
+<td align="left"><strong>Accept-charset</strong></td>
+<td align="right">request 的編碼</td>
+<td align="center">utf-8, iso-8859-1;q=0.5</td>
+</tr>
+<tr>
+<td align="left"><strong>Authorization</strong></td>
+<td align="right">request 要通過的驗證授權檢查</td>
+<td align="center">Basic YWxhZGRpbjpvcGVuc2VzY…</td>
+</tr>
+<tr>
+<td align="left"><strong>Cookie</strong></td>
+<td align="right">client 的暫存資料</td>
+<td align="center">PHPSESSID=124141;csrftoken=45746454</td>
+</tr>
+<tr>
+<td align="left"><strong>Content-type</strong></td>
+<td align="right">request 要求所發送的資料型態</td>
+<td align="center">multipart/form-data, text/plain, application/x-www-form-urlencoded, text/html, application/json</td>
+</tr>
+<tr>
+<td align="left"><strong>Origin</strong></td>
+<td align="right">request 要求的資料機器來源</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/">https://developer.mozilla.org</a></td>
+</tr>
+<tr>
+<td align="left"><strong>User-Agent</strong></td>
+<td align="right">request 端的 client 資訊</td>
+<td align="center">Mozilla/5.0(Macintosh;Intel Mac OS X_10_14_3) AppleWebKit/537.36</td>
+</tr>
+<tr>
+<td align="left"><strong>X-Csrf-Token</strong></td>
+<td align="right">防止 csrf(跨站請求偽造) 攻擊</td>
+<td align="center">eyjpdil6lmc4bjhQMmFrays…</td>
+</tr>
+</tbody></table>
+<h3 id="Authorization"><a href="#Authorization" class="headerlink" title="Authorization"></a>Authorization</h3><p>其中的 <code>Authorization</code> 在 API 的<strong>安全驗證</strong>非常重要，當 API server 接收到來自遠方的 request 時，可以透過該鑰匙密碼確認來源的 request 是合法、通過認證的，如此才能通過關卡進行資料交換。</p>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>瀏覽器的<strong>暫存資料</strong>，是 Web API 的一種，Cookie 提供前端或後端一個存取少量資料在瀏覽器的空間，資料格式是一個鍵值對(key-value)，常用來做廣告追蹤紀錄客戶的瀏覽喜好，進而針對客群行銷與增加廣告投放的精準度，例如 Google Analytics；亦或是用來保持使用者的登入狀態。</p>
+<blockquote><p>身為 Web 開發人員一定要瞭解 <strong>HTTP 本身無狀態 (Stateless) 的特性</strong>，要在網路上識別瀏覽者的身份，必須透過一些機制來保存狀態，而 Cookie 就是其中一種保存狀態的機制。<br><a target="_blank" rel="noopener" href="https://blog.miniasp.com/post/2008/02/22/Explain-HTTP-Cookie-in-Detail">https://blog.miniasp.com/post/2008/02/22/Explain-HTTP-Cookie-in-Detail</a></p>
+</blockquote>
+<blockquote><p>Cookies 會被每一個請求發送出去，所以可能會影響效能（尤其是行動裝置的資料連線）。現代客戶端的 storage APIs 為 Web storage API (en-US) （localStorage 和 sessionStorage）以及 IndexedDB。<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Cookies">https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Cookies</a></p>
+</blockquote>
+
+<h3 id="Content-type"><a href="#Content-type" class="headerlink" title="Content-type"></a>Content-type</h3><p>紀錄 client 端發出的 request 要求發送出去的<strong>資料格式與型態</strong>，例如表單或影音多元媒體就是 <code>multipart/form-data</code>，網頁就是 <code>text/html</code>，而 API axios 等技術傳遞的資料格式常為 <code>application/json</code>等。</p>
+<blockquote><p>一般的 Content-Type 往往只能傳送一種形式的資料，但在網頁的應用當中我們還可能想要上傳檔案、圖片、影片在表單裡頭，這樣的需求促成了 multipart/form-data 規範的出現。<br><a target="_blank" rel="noopener" href="https://blog.kalan.dev/2021-03-13-html-form-data/%E3%80%82">https://blog.kalan.dev/2021-03-13-html-form-data/。</a></p>
+</blockquote>
+
+<h3 id="Origin"><a href="#Origin" class="headerlink" title="Origin"></a>Origin</h3><p>該 request 要求的來源，比如瀏覽的網站是 <a target="_blank" rel="noopener" href="https://google.com/">https://google.com</a> 等，延伸的議題就是跨網站要求(CORS)，經常會默認要同一個**網站來源(domain)**伺服器端才可以接受該要求。</p>
+<h3 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User-Agent"></a>User-Agent</h3><p>發送 Request 的對象，通常是<strong>瀏覽器本身的相關資訊</strong>，例如 chrome 瀏覽器就會顯示 Mozilla/5.0 (Windows NT 10.0; Win64; x64)；也可能不是瀏覽器，例如 postman 就是 postman、終端機就是空白，<code>User-Agent</code> 主要是拿來防止爬蟲軟體等非瀏覽器或機器人來獲取網站資料。</p>
+<h3 id="X-Csrf-Token"><a href="#X-Csrf-Token" class="headerlink" title="X-Csrf-Token"></a>X-Csrf-Token</h3><p>該 token 用以防止 csrf 的跨站偽造攻擊，使用者送出表單時加上一傳鑰匙密碼，避免有心人士撰寫一隻程式發送表單登入或註冊網站會員竊取資料。</p>
+<hr>
+<h1 id="Response-Header-回應頭"><a href="#Response-Header-回應頭" class="headerlink" title="Response Header 回應頭"></a>Response Header 回應頭</h1><p>回應的內容也會記錄伺服器端的資料，以及接收的 request 資訊。</p>
+<table>
+<thead>
+<tr>
+<th align="left">屬性</th>
+<th align="right">說明</th>
+<th align="center">範例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Access-Control-Allow-Origin</strong></td>
+<td align="right">限定此回應的資源是否要限制某個 Origin</td>
+<td align="center">*, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/">https://developer.mozilla.org</a></td>
+</tr>
+<tr>
+<td align="left"><strong>Server</strong></td>
+<td align="right">後端 Web server 伺服器類型</td>
+<td align="center">Apache/2.4.1(Unix), Nginx</td>
+</tr>
+<tr>
+<td align="left"><strong>Status</strong></td>
+<td align="right">回報這次 request 是否成功的代碼</td>
+<td align="center">sessionid=38afes7a8, id=a3fWa, Max-Age=2592000</td>
+</tr>
+</tbody></table>
+<h3 id="Access-Control-Allow-Origin"><a href="#Access-Control-Allow-Origin" class="headerlink" title="Access-Control-Allow-Origin"></a>Access-Control-Allow-Origin</h3><p>該技術常用來判定前後端分離的網站，後端 server 限定只能接受自己**官方網站(domain)**前端打出的 API Request，才會做出回應；該技術與 Request Header 提到的 <code>Origin</code> 前後呼應，由後端 server 判定前端 Request Header 裡面備註的 Origin 來源是否合法，延伸的議題一樣就是跨網站要求(CORS)。</p>
+<h3 id="Set-cookie"><a href="#Set-cookie" class="headerlink" title="Set-cookie"></a>Set-cookie</h3><p>伺服器端在瀏覽器設定 cookie 資料以記錄客戶端的瀏覽行為，以利行銷追蹤，或是做後續 request 發送給後端要包含的 cookie 內容。<br>而後端發送 Set-Cookie 是主動的，而前端接收 Cookie 是被動的：</p>
+<blockquote><p>The Set-Cookie HTTP response header is used to send a cookie from the server to the user agent, so that the user agent can send it back to the server later.</p>
+</blockquote>
+<blockquote><p>Cookie 的運作是這樣的：</p>
+<ol>
+<li><strong>Server 端</strong>回應給 Browser 一個或多個 “Set-Cookie” HTTP Header</li>
+<li>Client 端 ( Browser ) 接收到 Set-Cookie 指令時，會將 Cookie 的名稱與值儲存在 Browser 的 Cookie 存放區，並記錄該 Cookie 隸屬的網域、網址路徑、過期時間、是否為安全連線</li>
+<li>當 Browser 再次發出 HTTP Request 指令到 Server 時，就會比對目前在 Browser 內的 Cookie 存放區有沒有「該網域」、「該目錄」、「過期時間尚未過期」且「是否為安全連線」的 Cookie，如果有的話就會包含在 HTTP Request 指令的 “Cookie” Header 中。</li>
+</ol>
+</blockquote>
+<blockquote class="colorquote danger"><p>如果Request 要傳送 Cookie 到後端<br>除了在 前端 Request 要設定 <strong>credentials</strong><br>後端 Express 的 <strong>Access-Control-Allow-Origin 不可以為’*’</strong></p>
+<p>要設定成一個指定域名(前端的ip或域名)，例如：<br>Access-Control-Allow-Origin：”<a href="http://localhost:3000&quot;">http://localhost:3000"</a></p>
+</blockquote>
+
+<hr>
+<blockquote><p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+</blockquote></body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/http-header/0.png" class="" width="800" height="200" title="[http-header [http-header]]">
+
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/28/zh-tw/http-header/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/02/28/zh-tw/http-methods/" itemprop="url">HTTP Methods 介紹</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-02-28T03:03:47.000Z" itemprop="datePublished">2月 28 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/http/">http</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分鐘 讀完 (約 944 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/http-methods/0.png" class="" width="800" height="200" title="[http-methods [http-methods]]">
+<p>圖片來源：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ac29da71601d">https://www.jianshu.com/p/ac29da71601d</a></p>
+<p>身為技術人不可不知的技術事：其實你每天都在使用 HTTP 的 Methods，但你不知道而已。<br>當你在瀏覽器輸入一串網址並且按下 enter 或者是按下一個 google 搜尋的超連結，就已經完成一個 HTTP <code>GET</code> Methods 的流程了！<br>Client 端網路資料的傳輸，按照功能屬性分為幾個類別：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Methods</th>
+<th align="left">目的</th>
+<th align="left">說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">GET</td>
+<td align="left">取得資料</td>
+<td align="left">經常會搭配 query string 參數使用，使用者可以在 URL 看到資料</td>
+</tr>
+<tr>
+<td align="left">POST</td>
+<td align="left">傳送資料</td>
+<td align="left">可以將要求內容隱藏在 body 中，使用者看不見</td>
+</tr>
+<tr>
+<td align="left">PUT</td>
+<td align="left">更改整筆資料</td>
+<td align="left">通常是一個註冊表單提供第一次來訪的使用者填寫，server 端會整筆更新</td>
+</tr>
+<tr>
+<td align="left">PATCH</td>
+<td align="left">更改部分資料</td>
+<td align="left">可能是會員中心的部分資料修改，例如地址或手機，server 端會只更新修改的部分</td>
+</tr>
+<tr>
+<td align="left">DELETE</td>
+<td align="left">刪除資料</td>
+<td align="left">比較單純的功能，就是刪除資料</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="GET-方法（READ）"><a href="#GET-方法（READ）" class="headerlink" title="GET 方法（READ）"></a>GET 方法（READ）</h1><img src="/images/http-methods/1.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
+<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+<p>GET 取得資料（read）的條件是寫在 query string 的<code>?</code>後方，key-value 的鍵值對來代表欄位跟內容。<br>例如 <code>?name=jobe&amp;email=jobe</code>，<code>name</code> 對應<code>form</code> 表單裡面的 input <code>name</code> ，為欄位名稱，等號後方的值就是使用者自己填寫的 value 內容：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="hljs-string">"http://localhost:4000"</span>&gt;</span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"name"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"email"</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"email"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>送出<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/http-methods/2.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
+<img src="/images/http-methods/3.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
+<blockquote class="colorquote info"><p><code>GET</code> 網址最多只能兩千多個字，包含參數等。</p>
+</blockquote>
+<blockquote class="colorquote info"><p>URL 的萬國編碼機制需要經過 <code>encodeURI()</code>、<code>encodeURIcomponent()</code> 等方法解密過才可閱讀。</p>
+</blockquote>
+
+<hr>
+<h1 id="POST-方法（CREATE）"><a href="#POST-方法（CREATE）" class="headerlink" title="POST 方法（CREATE）"></a>POST 方法（CREATE）</h1><img src="/images/http-methods/4.png" class="" width="500" height="200" title="[http-methods [http-methods]]">
+<p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+<p><code>POST</code> 方法旨在創造一筆新的資料，發送到 Origin server 接收，可以將資料隱藏在 <code>body</code> 中避免被使用窺視，使用者在網頁 URL 看起來也乾淨簡潔。</p>
+<blockquote class="colorquote info"><p><code>POST</code> 方法可傳送的資料量基本沒有限制，端看 server 這邊的程式是否有特別限制多少 mb。</p>
+</blockquote>
+
+<hr>
+<h1 id="PUT-amp-PATCH（UPDATE）"><a href="#PUT-amp-PATCH（UPDATE）" class="headerlink" title="PUT &amp; PATCH（UPDATE）"></a>PUT &amp; PATCH（UPDATE）</h1><p>這兩個方法旨在更新現有的資料內容：<br><code>PUT</code>會將整個表單內容根據填寫的資料全部更新，有空白沒填的地方照樣更新成空白的狀態，適合用在第一次填寫資料的訪客，例如註冊會員、初診的病患要掛號。<br><code>PATCH</code>則是只更新部分內容而已，沒有變動的地方維持原樣，適合用在填寫過完整資料而只想部分更改的情境，例如修改會員寄送地址、復診的病患要掛號等。</p>
+<p>這兩個方法並非 HTTP 創造的，而是方便網站開發人員依據自己的資料取向需求來設計表單欄位給訪客填寫，再選擇適合的 HTTP Methods。</p>
+<hr>
+<h1 id="DELETE（DELETE）"><a href="#DELETE（DELETE）" class="headerlink" title="DELETE（DELETE）"></a>DELETE（DELETE）</h1><p>由於刪除是一個不能回頭的行為，雖然有的網站在後端機制不會真的讓使用者刪除，只是讓你看不到而已，不過刪除的要求還是被特別獨立出來，警示開發人員慎用這個方法。</p>
+<hr>
+<blockquote><p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+</blockquote></body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/http-methods/0.png" class="" width="800" height="200" title="[http-methods [http-methods]]">
+<p>圖片來源：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ac29da71601d">https://www.jianshu.com/p/ac29da71601d</a></p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/02/28/zh-tw/http-methods/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/02/28/zh-tw/http-and-https/" itemprop="url">HTTP 超文本傳輸協定</a>
         
     </h1>
@@ -204,124 +478,6 @@
             <!--  -->
             <p class="article-more-link">
                 <a href="/2022/02/28/zh-tw/http-and-https/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/02/25/zh-tw/web-socket-and-web-hook/" itemprop="url">Web Socket v.s Web Hook</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-02-25T03:29:08.000Z" itemprop="datePublished">2月 25 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/webSocket/">webSocket</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 分鐘 讀完 (約 224 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/web-socket-and-web-hook/0.png" class="" width="800" height="200" title="[web-socket-and-web-hook [web-socket-and-web-hook]]">
-<p>API 的形式有兩大宗：<br>Web Hook 與 Web Socket，而他們有甚麼差異呢？</p>
-<h1 id="被動式-Web-Hook"><a href="#被動式-Web-Hook" class="headerlink" title="被動式 Web Hook"></a>被動式 Web Hook</h1><p>例如 Line Bot，server 會先預測使用者的動作與需求（events），設計出相對的程式並維護，等待使用者發出要求才動作。</p>
-<h1 id="主動式-Web-Socket"><a href="#主動式-Web-Socket" class="headerlink" title="主動式 Web Socket"></a>主動式 Web Socket</h1><p>兩方的資料交互，例如 client 與 server、server 與 server。<br>應用場景如聊天功能：facebook messenger 或 Line 等，Web Socket 的技術可以「即時的」(real time)做出資料傳遞。<br>當你打開 facebook messenger 的視窗，Web Socket server 就會與 client 瀏覽器端 handshake 保持通訊暢通，持續監聽對話要求並回應(opened and persistent connection)</p>
-<p>參考資料：</p>
-<blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
-</blockquote></body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/web-socket-and-web-hook/0.png" class="" width="800" height="200" title="[web-socket-and-web-hook [web-socket-and-web-hook]]">
-<p>API 的形式有兩大宗：<br>Web Hook 與 Web Socket，而他們有甚麼差異呢？</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/02/25/zh-tw/web-socket-and-web-hook/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/02/25/zh-tw/graph-ql-api/" itemprop="url">Graph QL 新世代 API</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-02-25T02:48:36.000Z" itemprop="datePublished">2月 25 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/graphQL/">graphQL</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            3 分鐘 讀完 (約 448 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/graph-ql-api/0.png" class="" width="800" height="200" title="[css-less [css-less]]">
-<p>隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！</p>
-<p>2012 年 facebook 內部研發出來的新形態 API，2015 年提出發表，特點是前端可以直接進資料庫，不需要透過後端查詢撈取資料。<br>概念有一點類似用前端語言操作 <code>MySQL</code>。前端也擁有更彈性的空間來制定查詢資料的規則與方式，有更大話語權，但相對來講也增加資料設計的難度，在思考的維度上需要更廣更深才能靈活應付多變的資料需求。</p>
-<h1 id="Graph-QL-操作概念"><a href="#Graph-QL-操作概念" class="headerlink" title="Graph QL 操作概念"></a>Graph QL 操作概念</h1><img src="/images/graph-ql-api/1.png" class="" width="800" height="200" title="[css-less [css-less]]">
-<blockquote>
-<p>使用者透過輸入定義好的語法，取得所需的資料 (如 <code>SELECT</code>) 或是修改指定的資料 (如 <code>CREATE</code> 、 <code>UPDATE</code>)。</p>
-</blockquote>
-<h2 id="資料的格式"><a href="#資料的格式" class="headerlink" title="資料的格式"></a>資料的格式</h2><h4 id="前端-request-長相"><a href="#前端-request-長相" class="headerlink" title="前端 request 長相"></a>前端 request 長相</h4><figure class="highlight javascript hljs"><figcaption><span>example</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">query {</span><br><span class="line">  <span class="title class_">User</span>(<span class="hljs-attr">id</span>: <span class="hljs-string">'aefk34kasl9'</span>) {</span><br><span class="line">    name</span><br><span class="line">    posts{</span><br><span class="line">      title</span><br><span class="line">    }</span><br><span class="line">    <span class="title function_">followers</span>(<span class="hljs-params">last: <span class="hljs-number">3</span></span>){</span><br><span class="line">      name</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="資料庫-response-長相"><a href="#資料庫-response-長相" class="headerlink" title="資料庫 response 長相"></a>資料庫 response 長相</h4><figure class="highlight javascript hljs"><figcaption><span>example</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="hljs-string">"data"</span>: {</span><br><span class="line">    <span class="hljs-string">"User"</span>: {</span><br><span class="line">      <span class="hljs-string">"name"</span>: <span class="hljs-string">"Mawchu"</span></span><br><span class="line">      <span class="hljs-string">"posts"</span>:[</span><br><span class="line">        { <span class="hljs-attr">title</span>: <span class="hljs-string">"喵喵的一天"</span> }</span><br><span class="line">      ]</span><br><span class="line">      <span class="hljs-string">"followers"</span>: [</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Cally"</span> },</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Donna"</span> },</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Jell"</span> },</span><br><span class="line">      ]</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h1><blockquote>
-<p>Schema，香港和中國大陸翻譯為模式或架構，在資料庫系統中是形式語言描述的一種結構，是對象的集合，可包含各種對象如：表、欄位、關係模型、視圖、索引、包、存儲過程、子程序、隊列、觸發器、數據類型、序列、物化視圖、同義詞（synonym）、database link、directory、XML schema等。</p>
-</blockquote>
-<p>參考資料：</p>
-<blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用<br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10200678">https://ithelp.ithome.com.tw/articles/10200678</a></p>
-</blockquote></body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/graph-ql-api/0.png" class="" width="800" height="200" title="[css-less [css-less]]">
-<p>隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/02/25/zh-tw/graph-ql-api/">more</a>
             </p>
         
     
