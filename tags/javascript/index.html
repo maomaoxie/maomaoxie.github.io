@@ -2,13 +2,13 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>標籤: Javascript - Mawchu 貓奴前端的天空</title>
+<title>標籤: javaScript - Mawchu 貓奴前端的天空</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="google-site-verification" content="qpdwAFMt_HNGP0dM45CxVBDie_HVPkWFvpclpqZaoIo" />
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
-<link href="/en/tags/Javascript/index.html" rel="alternate" hreflang="en" />
+<link href="/en/tags/javaScript/index.html" rel="alternate" hreflang="en" />
     
 
 
@@ -23,7 +23,7 @@
     <meta name="description" content="Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mawchu 貓奴前端的天空">
-<meta property="og:url" content="http://maomaoxie.github.io/tags/Javascript/index.html">
+<meta property="og:url" content="http://maomaoxie.github.io/tags/javaScript/index.html">
 <meta property="og:site_name" content="Mawchu 貓奴前端的天空">
 <meta property="og:description" content="Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習">
 <meta property="og:locale" content="zh_TW">
@@ -142,7 +142,7 @@
     <section class="section section-heading">
     <div class="container">
         <div class="content">
-            <h5><i class="fas fa-tag"></i> Javascript</h5>
+            <h5><i class="fas fa-tag"></i> javaScript</h5>
         </div>
     </div>
 </section>
@@ -152,68 +152,70 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/06/05/zh-tw/js-weird-parts-III/" itemprop="url">克服 Javascript 的奇怪部分 單執行緒與同步執行</a>
+            <a href="/2022/08/18/zh-tw/safari-preventDefault-bug/" itemprop="url">Safari IOS 11.3 後 preventDefault 失效問題</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-06-05T08:31:07.000Z" itemprop="datePublished">6月 5 2022</time>
+                <time datetime="2022-08-18T01:12:34.000Z" itemprop="datePublished">8月 18 2022</time>
             
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/javascript/">javascript</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            6 分鐘 讀完 (約 938 字)
+            6 分鐘 讀完 (約 939 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/js-weird-parts-single-threaded/0.png" class="" width="800" height="200" title="js-weird-parts-single-threaded">
-<p>這一個章節要來講解 JavaScript 的幾個觀念。</p>
-<h1 id="單執行緒（Single-Threaded）"><a href="#單執行緒（Single-Threaded）" class="headerlink" title="單執行緒（Single Threaded）"></a>單執行緒（Single Threaded）</h1><p><strong>一次一件事</strong>是重點。<br>這個特性不是瀏覽器的特性，瀏覽器一次可能同時處理多件事情，JavaScript 引擎則是單執行緒的，就像排隊買早餐，老闆娘一次只能處理一位客人，而 JavaScript 也是一次只處理一項指令。</p>
-<h1 id="同步執行（Synchronous）"><a href="#同步執行（Synchronous）" class="headerlink" title="同步執行（Synchronous）"></a>同步執行（Synchronous）</h1><p><strong>順序</strong>是重點。<br>事情有先後順序，按照順序執行，一次執行一行（或者說一個單元的程式碼，可能是一個陳述式或表達式）。</p>
-<h1 id="呼叫函式（Function-Invocation）"><a href="#呼叫函式（Function-Invocation）" class="headerlink" title="呼叫函式（Function Invocation）"></a>呼叫函式（Function Invocation）</h1><p>觸發或執行一個函式，使用的符號為大括號（parenthesis）。<br>JavaScript 引擎在執行函式呼叫時，會發生幾件事情延續前面的章節：</p>
-<figure class="highlight javascript hljs"><figcaption><span>呼叫函式</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">b</span> () {</span><br><span class="line">}</span><br><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">a</span> () {</span><br><span class="line">  <span class="title function_">b</span>();</span><br><span class="line">}</span><br><span class="line"><span class="title function_">a</span>();</span><br></pre></td></tr></tbody></table></figure>
+        <!-- <html><head></head><body><img src="https://i.gifer.com/2BC.gif" class="" width="300" height="200" title="safari-preventDefault-bug">
+<p>沒錯的，我們可愛的 Safari 又又又出現了 bug，來看看這個高級 IE 的除錯日常（Safari 愛好者不要鞭我）</p>
+<h1 id="click-事件綁定"><a href="#click-事件綁定" class="headerlink" title="click 事件綁定"></a>click 事件綁定</h1><p>網站開發過程的需求是，當元件沒有 props 連結路徑時就預防 a 連結的預設跳轉行為，以下是元件的 code：</p>
+<figure class="highlight plaintext hljs"><figcaption><span>component</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// HTML</span><br><span class="line">&lt;a class="w-100 h-100" :class="[ url === '' ? 'pointer-events-none' : 'url-active' ]" @click="changeTab()"&gt;</span><br><span class="line">&lt;/a&gt;</span><br><span class="line">// Script</span><br><span class="line">&lt;script&gt;</span><br><span class="line">@Component</span><br><span class="line">export default class ItemCard extends Vue {</span><br><span class="line">    @Prop({ default: '' }) url?: string;</span><br><span class="line">    private changeTab (event: any) {</span><br><span class="line">        if (this.url === '') {</span><br><span class="line">        event.preventDefault();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="創造階段"><a href="#創造階段" class="headerlink" title="創造階段"></a>創造階段</h2><ol>
-<li>全域執行環境（Global Execution Context）首先被創造。</li>
-<li>全域物件（Global object）被創造。</li>
-<li>全域 this 被創造。</li>
-<li>開始編譯階段（Parsing），編譯器巡過一遍所有程式碼發現了函式 b 與 a，在記憶體創造兩個函式的空間並且存放整個函式內容。</li>
-</ol>
-<img src="/images/js-weird-parts-III/1.png" class="" width="400" height="200" title="js-weird-parts-III">
-
-<h2 id="執行階段"><a href="#執行階段" class="headerlink" title="執行階段"></a>執行階段</h2><ol>
-<li><p>整個程式碼的記憶體準備完畢後，開始執行程式。</p>
-</li>
-<li><p>編譯器解析到<strong>函式 a</strong>被呼叫，立即於全域執行環境上方，產生並堆疊一個函式 a 的執行環境（Execution Context），放進<strong>執行佇列堆（Execution Stack）</strong>中，每個執行環境都有自己得記憶體空間存放著變數或函式。</p>
-<img src="/images/js-weird-parts-III/2.png" class="" width="400" height="200" title="js-weird-parts-III">
-</li>
-<li><p>最上方的執行佇列會優先執行，進入函式 a 的執行環境（Execution Context）並且解析到函式 b，程序暫停，立即於函式 a 的執行環境上方，產生並堆疊一個函式 b 的執行環境（Execution Context），放進<strong>執行佇列堆（Execution Stack）</strong>中。</p>
-<img src="/images/js-weird-parts-III/3.png" class="" width="400" height="200" title="js-weird-parts-III"></li>
-</ol>
-<p>以上執行階段也可以拆分成好幾個創造（執行環境），與執行（執行佇列堆最上方的執行環境）階段，在當下的執行環境執行過程中，只要觸發另一個函式，執行暫停然後創造（執行環境）、與執行（執行佇列堆最上方的執行環境），而下方的程式碼不會被解析，除非該執行環境執行完畢並且離開執行佇列堆（Execution Stack）後才會繼續逐行執行。</p>
-<blockquote class="colorquote Info"><p>Everytime a function is called, a new execution context is created for that function, the <code>this</code> variable is created for that function, the variables in it were set up in the creation phase, then the code is executed line by line.<br>whatever is on the top of the execution stack, is currently running synchronously.</p>
+<h1 id="contextmenu-事件綁定"><a href="#contextmenu-事件綁定" class="headerlink" title="contextmenu 事件綁定"></a>contextmenu 事件綁定</h1><p>後來發現 Safari 的瀏覽器，手機與電腦綁定 a 標籤 click 事件都無法達到避免預設行為的效果，於是求救谷歌大神：</p>
+<blockquote><p>To target right click events, use contextmenu rather than mousedown.</p>
+<p><code>document.querySelector("#GL-Surface").addEventListener("contextmenu",     function(e) {         e.preventDefault();     }); </code><br>Note that the options that appear on right click do appear only when the right click button is released, so I don’t think mousedown is at all suitable here.</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/62245019/javascript-preventdefault-not-working-in-safari">Javascript preventDefault() not working in Safari</a></p>
 </blockquote>
 
-<p>重點整理：<br>當一個函式被觸發或是呼叫，JS 引擎會創造一個屬於該函式的執行環境（execution context）並且放置在執行緒的最上方等待被執行，而該堆疊中具有該函式獨有的執行環境與 This，開始執行並且完成後離開堆疊中（pop out）繼續執行下一個堆疊，只要解析到新的函式被呼叫就會反覆以上行為，直到堆疊不斷（pop out）剩下全域執行環境本身為止。</p>
+<p>這裡面提及的<strong>contextmenu</strong>事件是右鍵出現的選單，抱持著嘗試看看的心情監聽contextmenu事件，並綁定了一樣的函式．竟然成功了？？？</p>
+<p>第一次看到這個<strong>contextmenu</strong>事件，來瞧瞧 MDN 怎麼說：</p>
+<blockquote><p>被触发的 contextmenu 事件的默认行为被 preventDefault() 取消了，因此，在第一段右击鼠标时什么也不会发生<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/contextmenu">contextmenu</a></p>
+</blockquote>
+
+<h1 id="ios11-3-版本後"><a href="#ios11-3-版本後" class="headerlink" title="ios11.3 版本後"></a>ios11.3 版本後</h1><p>有人提及<strong>ios11.3 and later</strong>預設行為就失效了</p>
+<blockquote><p>This is not an issue by React and is caused by the recent movement of browser vendors to improve performance on mobile devices.<br>Some events (usually those that would fire when you scroll) are <strong>getting passive by default</strong>.<br><a target="_blank" rel="noopener" href="https://github.com/facebook/react/issues/13369">e.preventDefault() does not work with safari in ios11.3 and later #13369</a></p>
+</blockquote>
+
+<h1 id="改動是為了優化體驗"><a href="#改動是為了優化體驗" class="headerlink" title="改動是為了優化體驗"></a>改動是為了優化體驗</h1><p>以上的說明原由來自於性能優化的考量，由於手機裝置在滾動時觸發太多主動事件會嚴重影響體驗，因故某些事件都被調整預設為<strong>被動的（passive）</strong>，來看看以下說明：<br>（附上不負責任翻譯）</p>
+<blockquote><p>We know that scrolling responsiveness is critical to the user’s engagement with a website on mobile, yet touch event listeners often cause serious scrolling performance problems.<br>在手機裝置中滾動事件的敏感度放大了使用者的體驗，可能造成延遲或性能不好。</p>
+<p>Chrome has been addressing this by allowing touch event listeners to be passive (passing the {passive: true} option to addEventListener()) and shipping the pointer events API. These are great features to drive new content into models that don’t block scrolling, but developers sometimes find them hard to understand and adopt.<br>Chrome 在事件監聽上預設了被動參數為 true，避免滾動事件被阻擋。</p>
+<p>Developer-defined “passive event listeners” solve this. When you add a touch event with a {passive: true} object as the third parameter in your event handler then you are telling the browser that the touchstart listener will not call preventDefault() and the browser can safely perform the scroll without blocking on the listener.<br>當你設定事件監聽被動參數為 true，該事件就不會觸發**preventDefault()**避免滾動事件卡卡的</p>
+<p><a target="_blank" rel="noopener" href="https://developer.chrome.com/blog/scrolling-intervention/">Making touch scrolling fast by default</a></p>
+</blockquote>
+
+<p>設定的方式與參數例如這樣：<br><code>window.addEventListener("touchstart", func, {passive: true} );</code></p>
+<h1 id="弔詭的地方"><a href="#弔詭的地方" class="headerlink" title="弔詭的地方"></a>弔詭的地方</h1><ol>
+<li>以上說明是針對 Chrome 瀏覽器的性能優化改動，不是 safari 啊？</li>
+<li>MDN 提及 contextmenu 事件已經不為瀏覽器所支援，但 safari 卻必須使用 contextmenu 事件綁定並且搭配 preventDefault 才能生效？而且註明 safari ios 是唯一不支援此事件的瀏覽器？</li>
+</ol>
+<img src="/images/safari-preventDefault-bug/0.png" class="" width="800" height="200" title="safari-preventDefault-bug">
+<img src="https://c.tenor.com/sAMt7DszgXMAAAAC/%E9%BB%91%E4%BA%BA%E5%95%8F%E8%99%9F.gif" class="" width="350" height="200" title="safari-preventDefault-bug">
+
+<p>也許下次可以試試看直接把監聽器的 passive 設為 false 試試看 XD</p>
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/js-weird-parts-single-threaded/0.png" class="" width="800" height="200" title="js-weird-parts-single-threaded">
-<p>這一個章節要來講解 JavaScript 的幾個觀念。</p>
+        <html><head></head><body><img src="https://i.gifer.com/2BC.gif" class="" width="300" height="200" title="safari-preventDefault-bug">
+<p>沒錯的，我們可愛的 Safari 又又又出現了 bug，來看看這個高級 IE 的除錯日常（Safari 愛好者不要鞭我）</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/06/05/zh-tw/js-weird-parts-III/">more</a>
+                <a href="/2022/08/18/zh-tw/safari-preventDefault-bug/">more</a>
             </p>
         
     
@@ -270,11 +272,11 @@
         <div class="dropdown-menu has-text-left" role="menu">
             <div class="dropdown-content">
             
-                <a href="/tags/Javascript/index.html" class="dropdown-item">
+                <a href="/tags/javaScript/index.html" class="dropdown-item">
                     繁體中文
                 </a>
             
-                <a href="/en/tags/Javascript/index.html" class="dropdown-item">
+                <a href="/en/tags/javaScript/index.html" class="dropdown-item">
                     English
                 </a>
             
@@ -479,22 +481,7 @@
 
     
 </body>
-</html>��麼 Eslint 或 Airbnb 等大宗規範都建議的撰寫規則。</p>
-<h4 id="X-將變數賦值為-undefined"><a href="#X-將變數賦值為-undefined" class="headerlink" title="(X)將變數賦值為 undefined"></a>(X)將變數賦值為 undefined</h4><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="hljs-literal">undefined</span>;</span><br></pre></td></tr></tbody></table></figure>
-<p>倘若你這麼做了，會在除錯的時候難以辨認是 Javacript 引擎設定的還是後來你撰寫的程式所賦值的。</p>
-<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>若要將 Hoisting 給予一個較好的解釋，我想就是「創建初始化」，給予一個初始的值以便後續利用：函式就直接賦值，變數的則填補上執行等號（=）以後的值，不過那已經是下一個<strong>執行階段</strong>的任務了。</p>
-</body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/js-weird-parts-II/0.png" class="" width="800" height="200" title="js-weird-parts-II">
-<p>課程作者提到，<strong>Hoisting</strong> 大約是 JavaScript 裡最奇怪的行為了，而且是其他語言無法做到的特性，來了解一下怎麼回事吧！</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/06/04/zh-tw/js-weird-parts-II/">more</a>
-            </p>
-        
-    
-    </div>
+</html>
     
     
 </article>

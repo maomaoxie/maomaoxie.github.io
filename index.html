@@ -145,7 +145,131 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/09/15/wordpress-ga-track/" itemprop="url">如何在 wordpress 埋入 GA code</a>
+            <a href="/2022/09/21/js-weird-parts-operators-precendence-and-associactivity/" itemprop="url">克服 Javascript 的奇怪部分 運算子的相依性與優先性</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-09-21T06:58:56.000Z" itemprop="datePublished">9月 21 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分鐘 讀完 (約 515 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>在了解以下的特性以前需要知道，JavaScript 是 syncrounous 同步在執行一個表達式的，<br>所以一次只能執行一個片段的程式碼，也就是一個表達式，一個表達式只能包含一個運算子與兩個參數，所以需要決定執行的次序．</p>
+<h1 id="優先性（precendence）"><a href="#優先性（precendence）" class="headerlink" title="優先性（precendence）"></a>優先性（precendence）</h1><blockquote><p>When there is more than one operators in one executable code, which operator will be called in order of precedence.</p>
+</blockquote>
+<p>當某片段的執行碼具有多個運算子時，那個先執行取決於優先性（precendence）</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">3</span> + <span class="hljs-number">4</span> * <span class="hljs-number">5</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 23</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>從以下圖表可以檢視優先性：</p>
+<img src="/images/js-weird-parts-operators-precendence-and-associactivity/0.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>由於 * 運算子的優先性大於 + 運算子，所以 Javacript 會優先執行 <code>4 * 5</code> 爾後執行 <code>20 + 3</code>；<br>等號的優先性只有 2，所以會最後執行 <code>a = 23</code>。</p>
+<h1 id="相依性（Associativity）"><a href="#相依性（Associativity）" class="headerlink" title="相依性（Associativity）"></a>相依性（Associativity）</h1><blockquote><p>The Associativity is the percedence that determines the operators being called from left to right,<br>or right to left when the percedence are all the same.</p>
+</blockquote>
+<p>當某片段程式碼中所有的運算子優先性相同時，由相依性來決定執行次序為左相依性還是右相依性：<br>左相依性（Left Associativity）表示由左到右執行；右相依性（Right Associativity）表示由右到左執行。</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">2</span>, b = <span class="hljs-number">3</span>, c = <span class="hljs-number">4</span>;</span><br><span class="line">a = b = c;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 4</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="hljs-comment">// 4</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c); <span class="hljs-comment">// 4</span></span><br></pre></td></tr></tbody></table></figure>
+
+<img src="/images/js-weird-parts-operators-precendence-and-associactivity/1.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>從上圖可以了解到 = 運算子的相依性是右相依性（right to left, Right Associativity），<br>當運算子的優先性都相同時 Javacript 會優先執行右邊的運算子，然後向左一個一個執行。<br><code>a = b = c;</code> 表達式會先執行 <code>b = 4</code>，並且回傳 4 之後執行 <code>a = 4</code>。</p>
+<h1 id="大括號（parentheses）最優先"><a href="#大括號（parentheses）最優先" class="headerlink" title="大括號（parentheses）最優先"></a>大括號（parentheses）最優先</h1><p>當一個表達式中具有多個運算子，大括號（parentheses）裡的運算會最優先：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = (<span class="hljs-number">3</span> + <span class="hljs-number">4</span>) * <span class="hljs-number">5</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 35</span></span><br></pre></td></tr></tbody></table></figure>
+</body></html> -->
+        
+        
+        <html><head></head><body><p>在了解以下的特性以前需要知道，JavaScript 是 syncrounous 同步在執行一個表達式的，<br>所以一次只能執行一個片段的程式碼，也就是一個表達式，一個表達式只能包含一個運算子與兩個參數，所以需要決定執行的次序．</p>
+<h1 id="優先性（precendence）"><a href="#優先性（precendence）" class="headerlink" title="優先性（precendence）"></a>優先性（precendence）</h1><blockquote><p>When there is more than one operators in one executable code, which operator will be called in order of precedence.</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/09/21/js-weird-parts-operators-precendence-and-associactivity/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/09/21/zh-tw/js-weird-parts-operators/" itemprop="url">克服 Javascript 的奇怪部分 運算子</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-09-21T06:28:51.000Z" itemprop="datePublished">9月 21 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分鐘 讀完 (約 396 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>在閱讀本篇文章以前，先給予一個結論方便後續理解：<br>運算子不過就是一種函式而已，而且會回傳一個運算結果的值．</p>
+<p>Javascript 的運算子（operators）有個奇妙的現象就是，運算過程會造成動態型別的轉換而獲得不如預期的結果．</p>
+<h1 id="運算子（operators）的定義"><a href="#運算子（operators）的定義" class="headerlink" title="運算子（operators）的定義"></a>運算子（operators）的定義</h1><h3 id="實際上為一種函式"><a href="#實際上為一種函式" class="headerlink" title="實際上為一種函式"></a>實際上為一種函式</h3><blockquote><p>A special function that is syntactically (written) differently.</p>
+</blockquote>
+
+<h3 id="需要兩個參數獲得結果"><a href="#需要兩個參數獲得結果" class="headerlink" title="需要兩個參數獲得結果"></a>需要兩個參數獲得結果</h3><blockquote><p>Generally, an operator take two parameters and return one result.</p>
+</blockquote>
+
+<h3 id="中綴寫法"><a href="#中綴寫法" class="headerlink" title="中綴寫法"></a>中綴寫法</h3><p>運算子其實就是一種表達式必備的元素，丟進去參數然後運算 return 結果，只是不同於一般的函式寫法，它是使用中綴（infix　notation）的寫法，將參數寫在函式符號的兩邊：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">3</span> + <span class="hljs-number">4</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 7</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>老式的計算機都是使用後綴的寫法：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-number">3</span> <span class="hljs-number">4</span> +;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="型別轉換"><a href="#型別轉換" class="headerlink" title="型別轉換"></a>型別轉換</h3><p>Javascript 的運算子造成的隱式型別轉換數不勝數，例如比較運算子（Relational operators），會將數字型別轉換成布林值（Boolean）。</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">3</span> &gt; <span class="hljs-number">4</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// false</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><blockquote><p>Operators are actually spacial types of functions, these parameters are being pass into those functions,<br>and the value  is being returned.<br>There is pre written codes that javaScript engine provides to do or invoke those functions.</p>
+</blockquote>
+<p>運算子只是已經寫好的函式（function）提供使用而已，寫法稍有不同於一般函式，為中綴（infix　notation）的寫法。</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><p>在閱讀本篇文章以前，先給予一個結論方便後續理解：<br>運算子不過就是一種函式而已，而且會回傳一個運算結果的值．</p>
+<p>Javascript 的運算子（operators）有個奇妙的現象就是，運算過程會造成動態型別的轉換而獲得不如預期的結果．</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/09/21/zh-tw/js-weird-parts-operators/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/09/15/zh-tw/wordpress-ga-track/" itemprop="url">如何在 wordpress 埋入 GA code</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -179,114 +303,7 @@
 <h1 id="在-GA-建立帳號與資源"><a href="#在-GA-建立帳號與資源" class="headerlink" title="在 GA 建立帳號與資源"></a>在 GA 建立帳號與資源</h1><p>這一步公司目前已經建置完成，建置的方法須先建立網站資源（網址 url），建立完畢後可在進階選項同時安裝新舊版的 GA code．</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/09/15/wordpress-ga-track/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/09/14/touch-and-click-event/" itemprop="url">touch-and-click-event</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-09-14T01:38:48.000Z" itemprop="datePublished">9月 14 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            3 分鐘 讀完 (約 421 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><p>製作完一個 swipe 專案之後發覺 click 事件會同時觸發 touch 事件，造成綁定同一個 dom 時觸發兩次，解決方式有幾種：</p>
-<h1 id="針對-click-與-touch-綁定不同的-dom"><a href="#針對-click-與-touch-綁定不同的-dom" class="headerlink" title="針對 click 與 touch 綁定不同的 dom"></a>針對 click 與 touch 綁定不同的 dom</h1><p>例如輪播可以針對箭頭按鈕綁定 click，輪播對象綁定 touch。</p>
-<h1 id="改用-mousedown-amp-up-取代-click-事件"><a href="#改用-mousedown-amp-up-取代-click-事件" class="headerlink" title="改用 mousedown &amp; up 取代 click 事件"></a>改用 mousedown &amp; up 取代 click 事件</h1><p>可以區分滑鼠的點擊事件使用 mouse 系列，與手指的點擊使用 touch 事件。</p>
-<h1 id="改用-pointer-event"><a href="#改用-pointer-event" class="headerlink" title="改用 pointer event"></a>改用 pointer event</h1><p>該事件可以適用於所有觸控裝置，包括觸控筆與手指，可以更敏銳的偵測觸控的方式，有幾種形式可以使用：</p>
-<h3 id="pointerover"><a href="#pointerover" class="headerlink" title="pointerover"></a>pointerover</h3><p>Fired when a pointer is moved into an element’s hit test boundaries.<br>當觸控進入指定區域時觸發。</p>
-<h3 id="ponterenter"><a href="#ponterenter" class="headerlink" title="ponterenter"></a>ponterenter</h3><p>Fired when a pointer is moved into the hit test boundaries of an element or one of its descendants,<br>including as a result of a pointerdown event from a device that does not support hover<br>當觸控進入指定區域或是子元素區域，及不支援 hover 的裝置上按壓時觸發．</p>
-<h3 id="pointerdown"><a href="#pointerdown" class="headerlink" title="pointerdown"></a>pointerdown</h3><p>Fired when a pointer becomes active buttons state.<br>按壓時觸發．</p>
-<h3 id="pointermove"><a href="#pointermove" class="headerlink" title="pointermove"></a>pointermove</h3><p>Fired when a pointer changes coordinates.<br>This event is also used if the change in pointer state can not be reported by other events.<br>當手指按壓並移動時觸發，亦會使用在 pointer 狀態不為其他事件所察覺時．</p>
-<h3 id="pointerup"><a href="#pointerup" class="headerlink" title="pointerup"></a>pointerup</h3><p>Fired when a pointer is no longer active buttons state.<br>當手指接觸面積離開裝置時觸發．</p>
-<h3 id="pointercancel"><a href="#pointercancel" class="headerlink" title="pointercancel"></a>pointercancel</h3><p>A browser fires this event if it concludes the pointer will no longer be able to generate events<br>(for example the related device is deactivated).<br>當裝置因設置關閉觸控等原因無法觸發 pointer 事件時，瀏覽器會偵測並觸發．</p>
-</body></html> -->
-        
-        
-        <html><head></head><body><p>製作完一個 swipe 專案之後發覺 click 事件會同時觸發 touch 事件，造成綁定同一個 dom 時觸發兩次，解決方式有幾種：</p>
-<h1 id="針對-click-與-touch-綁定不同的-dom"><a href="#針對-click-與-touch-綁定不同的-dom" class="headerlink" title="針對 click 與 touch 綁定不同的 dom"></a>針對 click 與 touch 綁定不同的 dom</h1><p>例如輪播可以針對箭頭按鈕綁定 click，輪播對象綁定 touch。</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/09/14/touch-and-click-event/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/08/25/wowjs-in-vue2-typescript/" itemprop="url">在 Vue2 + Typescript 專案中引入 WOW.js</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-08-25T03:00:37.000Z" itemprop="datePublished">8月 25 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 分鐘 讀完 (約 207 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><h1 id="安裝模組"><a href="#安裝模組" class="headerlink" title="安裝模組"></a>安裝模組</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install wowjs</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="引用-css"><a href="#引用-css" class="headerlink" title="引用 css"></a>引用 css</h1><p>這一步要注意的地方是 animate.css 的使用方式，使用 npm install 安裝的 animate.css 會在 wowjs 套件包下的 <code>css/lib/animate.css</code>，而不是透過 npm 安裝的 animate.css：</p>
-<h3 id="wowjs-套件包下的-animate-css"><a href="#wowjs-套件包下的-animate-css" class="headerlink" title="wowjs 套件包下的 animate.css"></a>wowjs 套件包下的 animate.css</h3><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">'css/lib/animate.css'</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="npm-安裝的-animate-css"><a href="#npm-安裝的-animate-css" class="headerlink" title="npm 安裝的 animate.css"></a>npm 安裝的 animate.css</h3><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">'animate.css'</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote class="colorquote danger"><p>值得注意的點就是在於 css 名稱套用上的不同，wowjs 使用上不需要 animate 前綴，而 npm 安裝的需要，如果得搭配滾動視窗位置才套用動畫，需要注意 wowjs 套件包下的 <code>css/lib/animate.css</code> 引用模組方式。</p>
-</blockquote>
-
-<blockquote><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32963841/article/details/115690823">关于wow.js在vue项目中的使用及遇到的坑（css3效果）</a></p>
-</blockquote></body></html> -->
-        
-        
-        <html><head></head><body><h1 id="安裝模組"><a href="#安裝模組" class="headerlink" title="安裝模組"></a>安裝模組</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install wowjs</span><br></pre></td></tr></tbody></table></figure>
-
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/08/25/wowjs-in-vue2-typescript/">more</a>
+                <a href="/2022/09/15/zh-tw/wordpress-ga-track/">more</a>
             </p>
         
     

@@ -7,11 +7,6 @@
         <language>zh-tw,en,default</language>
         <pubDate>Sun, 07 Aug 2022 10:02:29 +0800</pubDate>
         <lastBuildDate>Sun, 07 Aug 2022 10:02:29 +0800</lastBuildDate>
-        <category>safari</category>
-        <category>javaScript</category>
-        <category>preventDefault</category>
-        <category>ios</category>
-        <category>mobile</category>
         <category>javascript</category>
         <category>constructor</category>
         <category>instance</category>
@@ -34,8 +29,8 @@
         <category>request</category>
         <category>response</category>
         <category>httpHeader</category>
-        <category>status</category>
         <category>httpMethods</category>
+        <category>status</category>
         <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>
@@ -43,32 +38,37 @@
         <category>linux</category>
         <category>blade</category>
         <category>wsl2</category>
+        <category>layout</category>
         <category>migration</category>
         <category>sql</category>
-        <category>layout</category>
         <category>public</category>
         <category>static</category>
+        <category>tailwind</category>
         <category>css</category>
         <category>less</category>
         <category>processors</category>
-        <category>tailwind</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
         <category>webService</category>
         <category>restfulApi</category>
-        <category>shortCircuit</category>
-        <category>optionalChaining</category>
-        <category>tricks</category>
+        <category>safari</category>
+        <category>javaScript</category>
+        <category>preventDefault</category>
+        <category>ios</category>
+        <category>mobile</category>
         <category>vue</category>
         <category>vue3</category>
         <category>compositionAPI</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
         <category>vite</category>
         <category>typescript</category>
-        <category>vuetify</category>
-        <category>html</category>
         <category>WebSocket</category>
         <category>WebHook</category>
+        <category>vuetify</category>
+        <category>html</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
