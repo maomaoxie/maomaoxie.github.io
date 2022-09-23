@@ -145,6 +145,74 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/09/23/js-weird-parts-coercion/" itemprop="url">克服 Javascript 的奇怪部分 動態型別</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-09-23T07:31:26.000Z" itemprop="datePublished">9月 23 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/javascript/">javascript</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分鐘 讀完 (約 524 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>運算過程中由於 Javascript 是弱型別，沒有辦法強制規範型別，所以會在運算過程中發生隱式（動態）型別轉換，稱之為 Corecion。</p>
+<blockquote><p>Converting a value from one type to another.</p>
+</blockquote>
+
+<h1 id="算術運算子的隱式轉換"><a href="#算術運算子的隱式轉換" class="headerlink" title="算術運算子的隱式轉換"></a>算術運算子的隱式轉換</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> a = <span class="hljs-number">1</span> + <span class="hljs-string">'2'</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 12</span></span><br></pre></td></tr></tbody></table></figure>
+<p>上方範例可以印證 Javascript 引擎將數字 <code>1</code> 與字串 <code>2</code> 相加的過程中產生的動態型別的轉換，獲得了字串 <code>12</code>。<br>在某些強型別的語言中，這樣做是會噴 error 的，但 Javascript 不會，這也造成開發過程時常會發生不如預期的結果。</p>
+<h1 id="比較運算子的隱式轉換"><a href="#比較運算子的隱式轉換" class="headerlink" title="比較運算子的隱式轉換"></a>比較運算子的隱式轉換</h1><p>從以下的範例我們可以很自然地獲得 true 的結果：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> a = <span class="hljs-number">3</span> &gt; <span class="hljs-number">2</span> &gt; <span class="hljs-number">1</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+<p>然而以下的範例卻出乎意料之外也獲得了 true：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> a = <span class="hljs-number">3</span> &lt; <span class="hljs-number">2</span> &lt; <span class="hljs-number">1</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+<p>這也是動態型別的轉換在作怪，一一拆解一下過程是這樣的，比較運算子 <code>&lt;</code> 在前一篇的相依性有提到：</p>
+<img src="/images/js-weird-parts-coercion/0.png" class="" width="800" height="200" title="js-weird-parts-coercion">
+<p>當運算子相同時會採用相依性的方向來決定計算次序，比較運算子 <code>&lt;</code> 是左相依性（left-to-right associactivity），<br>所以背後的 Javascript 引擎會如是計算：<br><code>3 &lt; 2</code> 獲得 false，<code>false &lt; 1</code> 由於型別不同 Javascript 引擎強制將 false 使用數字包裹器轉換為數字型別：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>(<span class="hljs-literal">false</span>)); <span class="hljs-comment">// 0</span></span><br></pre></td></tr></tbody></table></figure>
+<p><code>0 &lt; 1</code> 獲得 true。</p>
+<h1 id="善用嚴格等式（triple-equal）"><a href="#善用嚴格等式（triple-equal）" class="headerlink" title="善用嚴格等式（triple equal）"></a>善用嚴格等式（triple equal）</h1><p>雙等號會造成嚴重的動態型別轉換，引發不可預期的後果，例如以下的範例：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-literal">false</span> == <span class="hljs-number">0</span>; <span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-literal">null</span> == <span class="hljs-number">0</span>; <span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-literal">null</span> &lt; <span class="hljs-number">1</span>; <span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-string">""</span> == <span class="hljs-number">0</span>; <span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-string">""</span> &lt; <span class="hljs-number">1</span>; <span class="hljs-comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+<p>以下的範例是 JavaScript 最難以理解的一部分型別轉換：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[] == <span class="hljs-literal">false</span>; <span class="hljs-comment">// true</span></span><br><span class="line"><span class="title class_">Boolean</span>([]); <span class="hljs-comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+<p>這實在是太詭異了!!不過理解一下背後的原理，當 Array 拿去比較 value 的時候，toString 包裹器會被呼叫：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span>([]); <span class="hljs-comment">// ''</span></span><br><span class="line"><span class="hljs-string">''</span> == <span class="hljs-literal">false</span>; <span class="hljs-comment">// true</span></span><br></pre></td></tr></tbody></table></figure></body></html> -->
+        
+        
+        <html><head></head><body><p>運算過程中由於 Javascript 是弱型別，沒有辦法強制規範型別，所以會在運算過程中發生隱式（動態）型別轉換，稱之為 Corecion。</p>
+<blockquote><p>Converting a value from one type to another.</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/09/23/js-weird-parts-coercion/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/09/21/js-weird-parts-operators-precendence-and-associactivity/" itemprop="url">克服 Javascript 的奇怪部分 運算子的相依性與優先性</a>
         
     </h1>
@@ -155,11 +223,16 @@
             
         </span>
         
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/javascript/">javascript</a>
+        </span>
+        
         
         <span class="column is-narrow">
             
             
-            3 分鐘 讀完 (約 515 字)
+            4 分鐘 讀完 (約 631 字)
         </span>
         
     </div>
@@ -181,8 +254,12 @@
 
 <img src="/images/js-weird-parts-operators-precendence-and-associactivity/1.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
 <p>從上圖可以了解到 = 運算子的相依性是右相依性（right to left, Right Associativity），<br>當運算子的優先性都相同時 Javacript 會優先執行右邊的運算子，然後向左一個一個執行。<br><code>a = b = c;</code> 表達式會先執行 <code>b = 4</code>，並且回傳 4 之後執行 <code>a = 4</code>。</p>
-<h1 id="大括號（parentheses）最優先"><a href="#大括號（parentheses）最優先" class="headerlink" title="大括號（parentheses）最優先"></a>大括號（parentheses）最優先</h1><p>當一個表達式中具有多個運算子，大括號（parentheses）裡的運算會最優先：</p>
+<h1 id="大括號（parentheses）最優先"><a href="#大括號（parentheses）最優先" class="headerlink" title="大括號（parentheses）最優先"></a>大括號（parentheses）最優先</h1><img src="/images/js-weird-parts-operators-precendence-and-associactivity/2.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>當一個表達式中具有多個運算子，大括號（parentheses）裡的運算會最優先：</p>
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = (<span class="hljs-number">3</span> + <span class="hljs-number">4</span>) * <span class="hljs-number">5</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 35</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="amp-amp-優先性（precedence）比較"><a href="#amp-amp-優先性（precedence）比較" class="headerlink" title="&amp;&amp; || 優先性（precedence）比較"></a>&amp;&amp; || 優先性（precedence）比較</h1><img src="/images/js-weird-parts-operators-precendence-and-associactivity/3.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>在判斷式中經常同時使用 &amp;&amp;（and）與 ||（or），需要特別注意 &amp;&amp;（and）優先級是大於 ||（or）的，<br>不過若專案中有使用到 eslint 則會提示盡量補上大括號（parentheses），來協助辨認次序唷！</p>
 </body></html> -->
         
         
@@ -266,56 +343,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/09/15/zh-tw/wordpress-ga-track/" itemprop="url">如何在 wordpress 埋入 GA code</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-09-15T02:42:04.000Z" itemprop="datePublished">9月 15 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            2 分鐘 讀完 (約 246 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><p>目前 Google Analytics 已經升級至 GA4，從前綴的追蹤碼 UA- 開頭轉換為 G- 開頭，令許多前端框架的套件還趕不上變化。<br>以下介紹如何在 wordpress 介面插入追蹤碼：</p>
-<h1 id="在-GA-建立帳號與資源"><a href="#在-GA-建立帳號與資源" class="headerlink" title="在 GA 建立帳號與資源"></a>在 GA 建立帳號與資源</h1><p>這一步公司目前已經建置完成，建置的方法須先建立網站資源（網址 url），建立完畢後可在進階選項同時安裝新舊版的 GA code．</p>
-<h1 id="wordpress-安裝-GA-步驟"><a href="#wordpress-安裝-GA-步驟" class="headerlink" title="wordpress 安裝 GA 步驟"></a>wordpress 安裝 GA 步驟</h1><h3 id="安裝外掛-Insert-Headers-and-Footers"><a href="#安裝外掛-Insert-Headers-and-Footers" class="headerlink" title="安裝外掛 Insert Headers and Footers"></a>安裝外掛 Insert Headers and Footers</h3><p>安裝任何外掛程式前先 google wp 外掛黑名單，查看安全並安裝後記得跑跑看網站以免中毒．</p>
-<h3 id="埋入-GA-code"><a href="#埋入-GA-code" class="headerlink" title="埋入 GA code"></a>埋入 GA code</h3><p>舊版 UA- 開頭</p>
-<figure class="highlight javascript hljs"><figcaption><span>GA3</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- <span class="title class_">Global</span> site tag (gtag.<span class="hljs-property">js</span>) - <span class="title class_">Google</span> <span class="title class_">Analytics</span> --&gt;</span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">async</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-language-javascript"></span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="variable language_">window</span>.<span class="hljs-property">dataLayer</span> = <span class="variable language_">window</span>.<span class="hljs-property">dataLayer</span> || [];</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="hljs-keyword">function</span> <span class="title function_">gtag</span>(<span class="hljs-params"></span>){dataLayer.<span class="title function_">push</span>(<span class="variable language_">arguments</span>);}</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="title function_">gtag</span>(<span class="hljs-string">'js'</span>, <span class="hljs-keyword">new</span> <span class="title class_">Date</span>());</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"></span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="title function_">gtag</span>(<span class="hljs-string">'config'</span>, <span class="hljs-string">'UA-XXXXXXXXX-1'</span>);</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>新版 G- 開頭</p>
-<figure class="highlight javascript hljs"><figcaption><span>GA4</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- <span class="title class_">Google</span> tag (gtag.<span class="hljs-property">js</span>) --&gt;</span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">async</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-language-javascript"></span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="variable language_">window</span>.<span class="hljs-property">dataLayer</span> = <span class="variable language_">window</span>.<span class="hljs-property">dataLayer</span> || [];</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="hljs-keyword">function</span> <span class="title function_">gtag</span>(<span class="hljs-params"></span>){dataLayer.<span class="title function_">push</span>(<span class="variable language_">arguments</span>);}</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="title function_">gtag</span>(<span class="hljs-string">'js'</span>, <span class="hljs-keyword">new</span> <span class="title class_">Date</span>());</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"></span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="title function_">gtag</span>(<span class="hljs-string">'config'</span>, <span class="hljs-string">'G-XXXXXXXXXX'</span>);</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure></body></html> -->
-        
-        
-        <html><head></head><body><p>目前 Google Analytics 已經升級至 GA4，從前綴的追蹤碼 UA- 開頭轉換為 G- 開頭，令許多前端框架的套件還趕不上變化。<br>以下介紹如何在 wordpress 介面插入追蹤碼：</p>
-<h1 id="在-GA-建立帳號與資源"><a href="#在-GA-建立帳號與資源" class="headerlink" title="在 GA 建立帳號與資源"></a>在 GA 建立帳號與資源</h1><p>這一步公司目前已經建置完成，建置的方法須先建立網站資源（網址 url），建立完畢後可在進階選項同時安裝新舊版的 GA code．</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/09/15/zh-tw/wordpress-ga-track/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -341,7 +368,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/16/">16</a></li>
+        <li><a class="pagination-link" href="/page/17/">17</a></li>
         
     </ul>
 </nav>

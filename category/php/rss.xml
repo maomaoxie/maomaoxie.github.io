@@ -7,6 +7,7 @@
         <language>zh-tw,en,default</language>
         <pubDate>Sun, 10 Apr 2022 18:10:18 +0800</pubDate>
         <lastBuildDate>Sun, 10 Apr 2022 18:10:18 +0800</lastBuildDate>
+        <category>Javascript</category>
         <category>javascript</category>
         <category>constructor</category>
         <category>instance</category>
@@ -31,7 +32,6 @@
         <category>httpHeader</category>
         <category>httpMethods</category>
         <category>status</category>
-        <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>
         <category>php</category>
@@ -57,18 +57,18 @@
         <category>preventDefault</category>
         <category>ios</category>
         <category>mobile</category>
-        <category>vue</category>
-        <category>vue3</category>
-        <category>compositionAPI</category>
         <category>shortCircuit</category>
         <category>optionalChaining</category>
         <category>tricks</category>
+        <category>vue</category>
+        <category>vue3</category>
+        <category>compositionAPI</category>
         <category>vite</category>
         <category>typescript</category>
-        <category>WebSocket</category>
-        <category>WebHook</category>
         <category>vuetify</category>
         <category>html</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>

@@ -145,6 +145,57 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/07/10/zh-tw/js-weird-parts-scope-chain/" itemprop="url">克服 Javascript 的奇怪部分 範圍鍊</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-07-10T07:57:42.000Z" itemprop="datePublished">7月 10 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分鐘 讀完 (約 414 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/js-weird-parts-scope-chain/0.png" class="" width="800" height="200" title="scope-chain">
+
+<p>以下探討的幾個議題都離不開函式（function）本身：</p>
+<h1 id="環境變數"><a href="#環境變數" class="headerlink" title="環境變數"></a>環境變數</h1><p>每個執行環境（execution context）都有屬於其中的變數，可以把執行環境想作是一個<strong>空間範圍</strong>，而環境變數都附著在其中，例如全域變數（global variable）會附著在全域物件下，瀏覽器的全域執行環境則是屬於 window 物件，宣告在其中的變數都會隸屬於全域執行環境。</p>
+<h1 id="函式變數"><a href="#函式變數" class="headerlink" title="函式變數"></a>函式變數</h1><p>函式變數在函式被呼叫並觸發後創造了一個獨特的函式執行環境，該函式內有自己的變數，此變數式在函式內<strong>宣告（declaration）</strong>並且創造的，只能在該函式執行環境中可以取得，稱為區域變數（scoped variable），而變數可取用的範圍稱之作用域（scope）。</p>
+<h1 id="範圍鍊"><a href="#範圍鍊" class="headerlink" title="範圍鍊"></a>範圍鍊</h1><p>根據函式的靜態作用域、詞法作用域，也就是坐落的物理位置來向外查找可用的變數（accessible variables），而非呼叫的位置；每個函式的執行環境（execution context）都是獨立的執行堆疊（execution stack），並且都指向外部的執行環境（outer environment），一層一層的鏈結稱為範圍鍊（scope chain）。</p>
+<img src="/images/js-weird-parts-scope-chain/4.png" class="" width="800" height="200" title="scope-chain">
+<blockquote class="colorquote info"><p>值得注意的一點：函式 b 是在函式 a 呼叫並且執行之後才建立了函式 b 的執行環境。</p>
+</blockquote></body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/js-weird-parts-scope-chain/0.png" class="" width="800" height="200" title="scope-chain">
+
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/07/10/zh-tw/js-weird-parts-scope-chain/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/06/05/zh-tw/js-weird-parts-III/" itemprop="url">克服 Javascript 的奇怪部分 單執行緒與同步執行</a>
         
     </h1>
@@ -289,78 +340,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/06/04/zh-tw/js-weird-parts-parsing/" itemprop="url">克服 Javascript 的奇怪部分 名詞解釋篇</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-06-04T03:07:31.000Z" itemprop="datePublished">6月 4 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            9 分鐘 讀完 (約 1279 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/js-weird-parts-I/0.png" class="" width="800" height="200" title="js-weird-parts-I">
-<p>先前滿常看到別人推薦的 Udemy 課程：克服JS的奇怪部分，原來自己已經購買且塵封在閱讀清單已久XD<br>馬上來匹乓一下吧！</p>
-<h1 id="執行篇"><a href="#執行篇" class="headerlink" title="執行篇"></a>執行篇</h1><h2 id="語法解析器（Syntax-Parser）"><a href="#語法解析器（Syntax-Parser）" class="headerlink" title="語法解析器（Syntax Parser）"></a>語法解析器（Syntax Parser）</h2><p>將你撰寫的 Javascript 編譯成電腦可以理解的一套程式語言（program），並且決定語法執行的方式以及是否合乎規範的角色，也與直譯（interprets）、轉譯（Compiler）概念雷同，其中直譯的編譯方式為逐字編譯後由電腦執行，大部分的 Javascript 程式都是直譯的，但並非全部情況。<br>編譯的過程會將 Javascript 拆解分類，依變數、函式等轉換成電腦硬體可以閱讀的語言，然後執行。</p>
-<img src="/images/js-weird-parts-I/1.png" class="" width="800" height="200" title="js-weird-parts-I">
-<p>可以想像成生產線上的作業員，持有原料工序可以生產產品。</p>
-<h2 id="靜態詞法作用域（Lexical-Environments）"><a href="#靜態詞法作用域（Lexical-Environments）" class="headerlink" title="靜態詞法作用域（Lexical Environments）"></a>靜態詞法作用域（Lexical Environments）</h2><blockquote class="colorquote info"><p>Where something <strong>sits physically</strong> in the code you write,<br>determines how it interacts with other elements in the program.</p>
-</blockquote>
-<p><strong>撰寫</strong>的時候決定如何運作。<br>你撰寫語法的靜態物理位置，決定了該對象（變數、函式等）與其他對象的互動與執行關係，並且被直譯器透過這個物理關係，或者說詞彙或文法關係來統整歸坐落在硬體記憶體中的位置，但須注意的是並非所有語言皆如此（java、C# 等為動態作用域）。<br>這有助於上方的語法解析器來決定程式怎麼運作，你撰寫 code 的位置在哪？周圍有甚麼、被甚麼包圍都很重要！<br>可以想像成生產線上的主管，歸納好產品的原料工序與存放倉庫的規則。</p>
-<h2 id="執行環境（Execution-Context）"><a href="#執行環境（Execution-Context）" class="headerlink" title="執行環境（Execution Context）"></a>執行環境（Execution Context）</h2><blockquote class="colorquote info"><p><strong>A wrapper</strong> to help manage the code that is running.<br>There are lots of lexical environments, which one is currently running is managed via execution context.</p>
-</blockquote>
-<p><strong>執行</strong>的時候決定如何運作。<br>靜態作用域很多，但是執行的當下順序則是由執行環境決定，也可以稱為上下文，最常見的就是每個函式建立之後產生的<code>this</code> keyword，通常為 block 作用域所包覆，在呼叫的時候決定 this 對象。<br>而執行環境不是只有與你撰寫的程式碼相關而已，也包含其他東西，例如上述的 this 就是執行函式當下的編譯過程動態產生的，編譯器在幫你翻譯給電腦讀懂以前，加油添醋了一些程序使程式碼更完整、具有前後順序給電腦執行。<br>可以想像成工廠的老闆，決定好哪批產品先出後出、出到哪裡。</p>
-<h1 id="變數篇"><a href="#變數篇" class="headerlink" title="變數篇"></a>變數篇</h1><h2 id="一個名稱對應一個值"><a href="#一個名稱對應一個值" class="headerlink" title="一個名稱對應一個值"></a>一個名稱對應一個值</h2><p>一個變數名可以更改很多次，但都只會包含一個值，而一個值裡面是更多的鍵值對。</p>
-<h2 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h2><p>更多鍵值對（key-value pairs）的集合。</p>
-<img src="/images/js-weird-parts-I/2.png" class="" width="400" height="200" title="js-weird-parts-I">
-
-<h1 id="全域物件與全域環境篇（Global）"><a href="#全域物件與全域環境篇（Global）" class="headerlink" title="全域物件與全域環境篇（Global）"></a>全域物件與全域環境篇（Global）</h1><figure class="highlight javascript hljs"><figcaption><span>info</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">The</span> base execution context is your <span class="variable language_">global</span> execution context.</span><br><span class="line"><span class="title class_">Things</span> that are accessible everywhere to everything to your code.</span><br><span class="line"><span class="title class_">And</span> it creates <span class="hljs-number">2</span> things that you don<span class="hljs-string">'t have to write about:</span></span><br><span class="line"><span class="hljs-string">1. Global object</span></span><br><span class="line"><span class="hljs-string">2. this</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="全域執行環境"><a href="#全域執行環境" class="headerlink" title="全域執行環境"></a>全域執行環境</h2><p>全域執行環境是所有 Javascript code 執行的基礎，所有的執行起點都存在於該環境內（being wrapped）。並且 Javascript 引擎會在執行初始建立兩個對象：全域物件與 this，即使你沒有撰寫任何程式碼，Javascript 引擎仍會自動產生。</p>
-<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>其中全域執行環境中，瀏覽器底下的 this 就是指向 <strong>window</strong> (Global Object)。<br>weird-parts-I/3.png 600 200 js-weird-parts-I %}</p>
-<h2 id="全域物件"><a href="#全域物件" class="headerlink" title="全域物件"></a>全域物件</h2><p>若 Javascript 引擎是在後端執行，例如 node.js，則 全域物件就不會是 window。<br>當你在全域執行環境下靜態的撰寫變數或函式，並且詞法作用域上開放而沒有撰寫在其他函式內，就會自動附著（attached to）在全物域物件底下，全域物件意味著整個 Javascript 中的任何其他詞法作用域或者任何對象乃至整個檔案，都可以取用（accessible）這些資料。</p>
-<img src="/images/js-weird-parts-I/5.png" class="" width="400" height="200" title="js-weird-parts-I">
-<img src="/images/js-weird-parts-I/6.png" class="" width="500" height="200" title="js-weird-parts-I">
-
-<p>以下都是指向同一個記憶體位置、同一個值：</p>
-<img src="/images/js-weird-parts-I/7.png" class="" width="500" height="200" title="js-weird-parts-I">
-
-<p>在執行環境中，還有一個<strong>外部環境（Outer Environment）</strong>沒有提到，而在全域執行環境的層級中，外部環境是 null，因為全域本身就是最外層的 wrapper，沒有更外層的環境了。</p>
-<img src="/images/js-weird-parts-I/8.png" class="" width="700" height="200" title="js-weird-parts-I">
-
-</body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/js-weird-parts-I/0.png" class="" width="800" height="200" title="js-weird-parts-I">
-<p>先前滿常看到別人推薦的 Udemy 課程：克服JS的奇怪部分，原來自己已經購買且塵封在閱讀清單已久XD<br>馬上來匹乓一下吧！</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/06/04/zh-tw/js-weird-parts-parsing/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -392,7 +371,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/16/">16</a></li>
+        <li><a class="pagination-link" href="/page/17/">17</a></li>
         
     </ul>
 </nav>
