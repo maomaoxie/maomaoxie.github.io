@@ -3,7 +3,8 @@
     <id>http://maomaoxie.github.io</id>
     <title>Mawchu 貓奴前端的天空</title>
     <link href="http://maomaoxie.github.io" />
-    <updated>2022-09-21T06:58:56.000Z</updated>
+    <updated>2022-09-23T07:31:26.000Z</updated>
+    <category term="Javascript" />
     <category term="javascript" />
     <category term="constructor" />
     <category term="instance" />
@@ -28,7 +29,6 @@
     <category term="httpHeader" />
     <category term="httpMethods" />
     <category term="status" />
-    <category term="Javascript" />
     <category term="type" />
     <category term="laravel" />
     <category term="php" />
@@ -54,21 +54,49 @@
     <category term="preventDefault" />
     <category term="ios" />
     <category term="mobile" />
-    <category term="vue" />
-    <category term="vue3" />
-    <category term="compositionAPI" />
     <category term="shortCircuit" />
     <category term="optionalChaining" />
     <category term="tricks" />
+    <category term="vue" />
+    <category term="vue3" />
+    <category term="compositionAPI" />
     <category term="vite" />
     <category term="typescript" />
-    <category term="WebSocket" />
-    <category term="WebHook" />
     <category term="vuetify" />
     <category term="html" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
     <category term="wordpress" />
     <category term="dns" />
     <category term="cdn" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/09/23/js-weird-parts-coercion/</id>
+        <title>克服 Javascript 的奇怪部分 動態型別</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/09/23/js-weird-parts-coercion/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;運算過程中由於 Javascript 是弱型別，沒有辦法強制規範型別，所以會在運算過程中發生隱式（動態）型別轉換，稱之為 Corecion。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Converting a value from one type to another.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;算術運算子的隱式轉換&#34;&gt;&lt;a href=&#34;#算術運算子的隱式轉換&#34; class=&#34;headerlink&#34; title=&#34;算術運算子的隱式轉換&#34;&gt;&lt;/a&gt;算術運算子的隱式轉換&lt;/h1&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; a = &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt; + &lt;span class=&#34;hljs-string&#34;&gt;&#39;2&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(a); &lt;span class=&#34;hljs-comment&#34;&gt;// 12&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;上方範例可以印證 Javascript 引擎將數字 &lt;code&gt;1&lt;/code&gt; 與字串 &lt;code&gt;2&lt;/code&gt; 相加的過程中產生的動態型別的轉換，獲得了字串 &lt;code&gt;12&lt;/code&gt;。&lt;br&gt;在某些強型別的語言中，這樣做是會噴 error 的，但 Javascript 不會，這也造成開發過程時常會發生不如預期的結果。&lt;/p&gt;
+&lt;h1 id=&#34;比較運算子的隱式轉換&#34;&gt;&lt;a href=&#34;#比較運算子的隱式轉換&#34; class=&#34;headerlink&#34; title=&#34;比較運算子的隱式轉換&#34;&gt;&lt;/a&gt;比較運算子的隱式轉換&lt;/h1&gt;&lt;p&gt;從以下的範例我們可以很自然地獲得 true 的結果：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; a = &lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt; &amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt; &amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(a); &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然而以下的範例卻出乎意料之外也獲得了 true：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; a = &lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt; &amp;lt; &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt; &amp;lt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(a); &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;這也是動態型別的轉換在作怪，一一拆解一下過程是這樣的，比較運算子 &lt;code&gt;&amp;lt;&lt;/code&gt; 在前一篇的相依性有提到：&lt;/p&gt;
+&lt;img src=&#34;/images/js-weird-parts-coercion/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;js-weird-parts-coercion&#34;&gt;
+&lt;p&gt;當運算子相同時會採用相依性的方向來決定計算次序，比較運算子 &lt;code&gt;&amp;lt;&lt;/code&gt; 是左相依性（left-to-right associactivity），&lt;br&gt;所以背後的 Javascript 引擎會如是計算：&lt;br&gt;&lt;code&gt;3 &amp;lt; 2&lt;/code&gt; 獲得 false，&lt;code&gt;false &amp;lt; 1&lt;/code&gt; 由於型別不同 Javascript 引擎強制將 false 使用數字包裹器轉換為數字型別：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(&lt;span class=&#34;title class_&#34;&gt;Number&lt;/span&gt;(&lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;)); &lt;span class=&#34;hljs-comment&#34;&gt;// 0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;0 &amp;lt; 1&lt;/code&gt; 獲得 true。&lt;/p&gt;
+&lt;h1 id=&#34;善用嚴格等式（triple-equal）&#34;&gt;&lt;a href=&#34;#善用嚴格等式（triple-equal）&#34; class=&#34;headerlink&#34; title=&#34;善用嚴格等式（triple equal）&#34;&gt;&lt;/a&gt;善用嚴格等式（triple equal）&lt;/h1&gt;&lt;p&gt;雙等號會造成嚴重的動態型別轉換，引發不可預期的後果，例如以下的範例：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt; == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-literal&#34;&gt;null&lt;/span&gt; == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-literal&#34;&gt;null&lt;/span&gt; &amp;lt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-string&#34;&gt;&#34;&#34;&lt;/span&gt; == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-string&#34;&gt;&#34;&#34;&lt;/span&gt; &amp;lt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;以下的範例是 JavaScript 最難以理解的一部分型別轉換：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[] == &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;title class_&#34;&gt;Boolean&lt;/span&gt;([]); &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;這實在是太詭異了!!不過理解一下背後的原理，當 Array 拿去比較 value 的時候，toString 包裹器會被呼叫：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;title class_&#34;&gt;String&lt;/span&gt;([]); &lt;span class=&#34;hljs-comment&#34;&gt;// &#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-string&#34;&gt;&#39;&#39;&lt;/span&gt; == &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="Javascript" />
+        <updated>2022-09-23T07:31:26.000Z</updated>
+    </entry>
     <entry>
         <id>http://maomaoxie.github.io/2022/09/21/js-weird-parts-operators-precendence-and-associactivity/</id>
         <title>克服 Javascript 的奇怪部分 運算子的相依性與優先性</title>
@@ -89,9 +117,14 @@
 
 &lt;img src=&#34;/images/js-weird-parts-operators-precendence-and-associactivity/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;js-weird-parts-operators-precendence-and-associactivity&#34;&gt;
 &lt;p&gt;從上圖可以了解到 = 運算子的相依性是右相依性（right to left, Right Associativity），&lt;br&gt;當運算子的優先性都相同時 Javacript 會優先執行右邊的運算子，然後向左一個一個執行。&lt;br&gt;&lt;code&gt;a = b = c;&lt;/code&gt; 表達式會先執行 &lt;code&gt;b = 4&lt;/code&gt;，並且回傳 4 之後執行 &lt;code&gt;a = 4&lt;/code&gt;。&lt;/p&gt;
-&lt;h1 id=&#34;大括號（parentheses）最優先&#34;&gt;&lt;a href=&#34;#大括號（parentheses）最優先&#34; class=&#34;headerlink&#34; title=&#34;大括號（parentheses）最優先&#34;&gt;&lt;/a&gt;大括號（parentheses）最優先&lt;/h1&gt;&lt;p&gt;當一個表達式中具有多個運算子，大括號（parentheses）裡的運算會最優先：&lt;/p&gt;
+&lt;h1 id=&#34;大括號（parentheses）最優先&#34;&gt;&lt;a href=&#34;#大括號（parentheses）最優先&#34; class=&#34;headerlink&#34; title=&#34;大括號（parentheses）最優先&#34;&gt;&lt;/a&gt;大括號（parentheses）最優先&lt;/h1&gt;&lt;img src=&#34;/images/js-weird-parts-operators-precendence-and-associactivity/2.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;js-weird-parts-operators-precendence-and-associactivity&#34;&gt;
+&lt;p&gt;當一個表達式中具有多個運算子，大括號（parentheses）裡的運算會最優先：&lt;/p&gt;
 &lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;var&lt;/span&gt; a = (&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt; + &lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;) * &lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(a); &lt;span class=&#34;hljs-comment&#34;&gt;// 35&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;amp-amp-優先性（precedence）比較&#34;&gt;&lt;a href=&#34;#amp-amp-優先性（precedence）比較&#34; class=&#34;headerlink&#34; title=&#34;&amp;amp;&amp;amp; || 優先性（precedence）比較&#34;&gt;&lt;/a&gt;&amp;amp;&amp;amp; || 優先性（precedence）比較&lt;/h1&gt;&lt;img src=&#34;/images/js-weird-parts-operators-precendence-and-associactivity/3.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;js-weird-parts-operators-precendence-and-associactivity&#34;&gt;
+&lt;p&gt;在判斷式中經常同時使用 &amp;amp;&amp;amp;（and）與 ||（or），需要特別注意 &amp;amp;&amp;amp;（and）優先級是大於 ||（or）的，&lt;br&gt;不過若專案中有使用到 eslint 則會提示盡量補上大括號（parentheses），來協助辨認次序唷！&lt;/p&gt;
 &lt;/body&gt;&lt;/html&gt;</content>
+        <category term="Javascript" />
         <updated>2022-09-21T06:58:56.000Z</updated>
     </entry>
     <entry>
@@ -532,40 +565,5 @@ duplicate page
 &lt;/body&gt;&lt;/html&gt;</content>
         <category term="Javascript" />
         <updated>2022-06-05T08:31:07.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://maomaoxie.github.io/2022/06/04/zh-tw/js-weird-parts-II/</id>
-        <title>克服 Javascript 的奇怪部分 Hoisting</title>
-        <link rel="alternate" href="http://maomaoxie.github.io/2022/06/04/zh-tw/js-weird-parts-II/"/>
-        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/js-weird-parts-II/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;js-weird-parts-II&#34;&gt;
-&lt;p&gt;課程作者提到，&lt;strong&gt;Hoisting&lt;/strong&gt; 大約是 JavaScript 裡最奇怪的行為了，而且是其他語言無法做到的特性，來了解一下怎麼回事吧！&lt;/p&gt;
-&lt;h1 id=&#34;Hoisting&#34;&gt;&lt;a href=&#34;#Hoisting&#34; class=&#34;headerlink&#34; title=&#34;Hoisting&#34;&gt;&lt;/a&gt;Hoisting&lt;/h1&gt;&lt;p&gt;這一段程式碼若在其他語言執行可是會發生錯誤的！但是在 JavaScript 裡卻可以安然無恙：&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;title function_&#34;&gt;b&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(a);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;var&lt;/span&gt; a = &lt;span class=&#34;hljs-string&#34;&gt;&#39;123&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;b&lt;/span&gt; () {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;b is called!&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img src=&#34;/images/js-weird-parts-II/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;js-weird-parts-II&#34;&gt;
-&lt;p&gt;a 竟然在還未被宣告以前使用，會回傳 undefined；b 函式正常運作。&lt;br&gt;這就是 JavaScript 的 Hoisting 在搞鬼，但不要被 Hoisting 的提升之意混淆了，該現象並非程式碼被靜態的（physically）提升到最上方，我們來解析一下編譯器是如何執行這一段程式碼：&lt;/p&gt;
-&lt;h1 id=&#34;執行環境執行的兩階段&#34;&gt;&lt;a href=&#34;#執行環境執行的兩階段&#34; class=&#34;headerlink&#34; title=&#34;執行環境執行的兩階段&#34;&gt;&lt;/a&gt;執行環境執行的兩階段&lt;/h1&gt;&lt;blockquote&gt;&lt;p&gt;There are two phases when it came to the execution context within the Javacript engine:&lt;br&gt;The first phase was the creation phase, when it sets up the variables and functions in memory. And the second phase was the execution phase, all those things already being set up, so now it runs your code line by line.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;創造階段&#34;&gt;&lt;a href=&#34;#創造階段&#34; class=&#34;headerlink&#34; title=&#34;創造階段&#34;&gt;&lt;/a&gt;創造階段&lt;/h2&gt;&lt;p&gt;在第一個章節有提到，Javascript 並非是完全直譯的語言，其中一個佐證就是 Hoisting 的行為，如果程式碼真的是逐行翻譯然後執行，它是怎麼知道變數 a 與函式 b 會被創建的呢？&lt;/p&gt;
-&lt;p&gt;這裡就能理解編譯器在執行程式以前仍存在一段&lt;strong&gt;編譯完成才執行&lt;/strong&gt;的過程：&lt;br&gt;Javascript 引擎先將整個程式碼審視一遍，找出所有具有名稱（variable name）、&lt;strong&gt;並非&lt;/strong&gt;透過區塊作用域（Block scope）的關鍵字 const 與 let ，而是 var 所宣告的的值或函式找出來，然後歸納：誰是變數就給予一個記憶體空間，存放著未定義的值（undefined）；誰是函式就給予一個記憶體空間，存放著整個函式的內容。&lt;/p&gt;
-&lt;img src=&#34;/images/js-weird-parts-II/2.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;js-weird-parts-II&#34;&gt;
-
-&lt;p&gt;也就是說創造階段可以這樣理解：&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;var&lt;/span&gt; a;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;b&lt;/span&gt; () {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;b is called!&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;變數 a 與函式 b 都各自被建立一個記憶體空間，接著存放著對應的值，變數 a 的記憶體空間內存放了 &lt;code&gt;undefined&lt;/code&gt;，函式 b 的記憶體空間則直接放置整個函式內容。&lt;br&gt;關鍵就在變數的創造階段，只是&lt;strong&gt;宣告（declared）&lt;/strong&gt;而已，這個階段 JavaScript 引擎並不清楚變數 a 將來的值會是甚麼，直到執行階段才會被&lt;strong&gt;指派（assigned）&lt;/strong&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;undefined-不等於-not-defined&#34;&gt;&lt;a href=&#34;#undefined-不等於-not-defined&#34; class=&#34;headerlink&#34; title=&#34;undefined 不等於 not defined&#34;&gt;&lt;/a&gt;undefined 不等於 not defined&lt;/h2&gt;&lt;p&gt;當變數通過 var 關鍵字宣告，記憶體就被建立並且放入 &lt;code&gt;undefined&lt;/code&gt; 的值，如果變數未宣告就使用，則瀏覽器會噴錯誤訊息：&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(a);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;// Uncaught ReferenceError: a is not defined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;這是瀏覽器表示：嘿！我在任何記憶體都找不到這個名稱的參照，甚至連 &lt;code&gt;undefined&lt;/code&gt; 都不是。&lt;/p&gt;
-&lt;h3 id=&#34;小知識&#34;&gt;&lt;a href=&#34;#小知識&#34; class=&#34;headerlink&#34; title=&#34;小知識&#34;&gt;&lt;/a&gt;小知識&lt;/h3&gt;&lt;blockquote class=&#34;colorquote info&#34;&gt;&lt;p&gt;Since undefined is a longer string than null, the JIT compiler has to save 4 bytes more to memory when using undefined instead of null while parsing. Consider that memory aswell.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;undefined&lt;/code&gt; 並非不存在的值，它是 Javacript 中的原始型別，也是純值的一種，甚至占了記憶體 4 個 bytes ，比空值&lt;code&gt;null&lt;/code&gt;還要多。&lt;/p&gt;
-&lt;h2 id=&#34;良好的-coding-習慣&#34;&gt;&lt;a href=&#34;#良好的-coding-習慣&#34; class=&#34;headerlink&#34; title=&#34;良好的 coding 習慣&#34;&gt;&lt;/a&gt;良好的 coding 習慣&lt;/h2&gt;&lt;h4 id=&#34;X-在宣告以前使用變數&#34;&gt;&lt;a href=&#34;#X-在宣告以前使用變數&#34; class=&#34;headerlink&#34; title=&#34;(X)在宣告以前使用變數&#34;&gt;&lt;/a&gt;(X)在宣告以前使用變數&lt;/h4&gt;&lt;p&gt;為了避免在執行過程被 Hoisting 汙染，最好養成先宣告後調用或賦值的習慣，可以避免一些錯誤發生，這也是為什麼 Eslint 或 Airbnb 等大宗規範都建議的撰寫規則。&lt;/p&gt;
-&lt;h4 id=&#34;X-將變數賦值為-undefined&#34;&gt;&lt;a href=&#34;#X-將變數賦值為-undefined&#34; class=&#34;headerlink&#34; title=&#34;(X)將變數賦值為 undefined&#34;&gt;&lt;/a&gt;(X)將變數賦值為 undefined&lt;/h4&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;a = &lt;span class=&#34;hljs-literal&#34;&gt;undefined&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;倘若你這麼做了，會在除錯的時候難以辨認是 Javacript 引擎設定的還是後來你撰寫的程式所賦值的。&lt;/p&gt;
-&lt;h1 id=&#34;結論&#34;&gt;&lt;a href=&#34;#結論&#34; class=&#34;headerlink&#34; title=&#34;結論&#34;&gt;&lt;/a&gt;結論&lt;/h1&gt;&lt;p&gt;若要將 Hoisting 給予一個較好的解釋，我想就是「創建初始化」，給予一個初始的值以便後續利用：函式就直接賦值，變數的則填補上執行等號（=）以後的值，不過那已經是下一個&lt;strong&gt;執行階段&lt;/strong&gt;的任務了。&lt;/p&gt;
-&lt;/body&gt;&lt;/html&gt;</content>
-        <category term="javascript" />
-        <updated>2022-06-04T08:28:20.000Z</updated>
     </entry>
 </feed>

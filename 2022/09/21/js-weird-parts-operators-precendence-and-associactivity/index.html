@@ -29,10 +29,12 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://maomaoxie.github.io/images/js-weird-parts-operators-precendence-and-associactivity/0.png">
 <meta property="og:image" content="http://maomaoxie.github.io/images/js-weird-parts-operators-precendence-and-associactivity/1.png">
+<meta property="og:image" content="http://maomaoxie.github.io/images/js-weird-parts-operators-precendence-and-associactivity/2.png">
+<meta property="og:image" content="http://maomaoxie.github.io/images/js-weird-parts-operators-precendence-and-associactivity/3.png">
 <meta property="article:published_time" content="2022-09-21T06:58:56.000Z">
-<meta property="article:modified_time" content="2022-09-21T09:58:52.001Z">
+<meta property="article:modified_time" content="2022-09-23T08:28:00.029Z">
 <meta property="article:author" content="Mawchu 謝佳芳">
-<meta property="article:tag" content="mawchu、謝佳芳、毛球、網頁、前端、Javascript、Vue、Laravel、SEO、平面設計、貓咪">
+<meta property="article:tag" content="Javascript">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://maomaoxie.github.io/images/js-weird-parts-operators-precendence-and-associactivity/0.png">
 
@@ -159,11 +161,16 @@
             
         </span>
         
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/javascript/">javascript</a>
+        </span>
+        
         
         <span class="column is-narrow">
             
             
-            3 分鐘 讀完 (約 515 字)
+            4 分鐘 讀完 (約 631 字)
         </span>
         
     </div>
@@ -185,8 +192,12 @@
 
 <img src="/images/js-weird-parts-operators-precendence-and-associactivity/1.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
 <p>從上圖可以了解到 = 運算子的相依性是右相依性（right to left, Right Associativity），<br>當運算子的優先性都相同時 Javacript 會優先執行右邊的運算子，然後向左一個一個執行。<br><code>a = b = c;</code> 表達式會先執行 <code>b = 4</code>，並且回傳 4 之後執行 <code>a = 4</code>。</p>
-<h1 id="大括號（parentheses）最優先"><a href="#大括號（parentheses）最優先" class="headerlink" title="大括號（parentheses）最優先"></a>大括號（parentheses）最優先</h1><p>當一個表達式中具有多個運算子，大括號（parentheses）裡的運算會最優先：</p>
+<h1 id="大括號（parentheses）最優先"><a href="#大括號（parentheses）最優先" class="headerlink" title="大括號（parentheses）最優先"></a>大括號（parentheses）最優先</h1><img src="/images/js-weird-parts-operators-precendence-and-associactivity/2.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>當一個表達式中具有多個運算子，大括號（parentheses）裡的運算會最優先：</p>
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = (<span class="hljs-number">3</span> + <span class="hljs-number">4</span>) * <span class="hljs-number">5</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 35</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="amp-amp-優先性（precedence）比較"><a href="#amp-amp-優先性（precedence）比較" class="headerlink" title="&amp;&amp; || 優先性（precedence）比較"></a>&amp;&amp; || 優先性（precedence）比較</h1><img src="/images/js-weird-parts-operators-precendence-and-associactivity/3.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>在判斷式中經常同時使用 &amp;&amp;（and）與 ||（or），需要特別注意 &amp;&amp;（and）優先級是大於 ||（or）的，<br>不過若專案中有使用到 eslint 則會提示盡量補上大括號（parentheses），來協助辨認次序唷！</p>
 </body></html> -->
         
         
@@ -206,13 +217,36 @@
 
 <img src="/images/js-weird-parts-operators-precendence-and-associactivity/1.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
 <p>從上圖可以了解到 = 運算子的相依性是右相依性（right to left, Right Associativity），<br>當運算子的優先性都相同時 Javacript 會優先執行右邊的運算子，然後向左一個一個執行。<br><code>a = b = c;</code> 表達式會先執行 <code>b = 4</code>，並且回傳 4 之後執行 <code>a = 4</code>。</p>
-<h1 id="大括號（parentheses）最優先"><a href="#大括號（parentheses）最優先" class="headerlink" title="大括號（parentheses）最優先"></a>大括號（parentheses）最優先</h1><p>當一個表達式中具有多個運算子，大括號（parentheses）裡的運算會最優先：</p>
+<h1 id="大括號（parentheses）最優先"><a href="#大括號（parentheses）最優先" class="headerlink" title="大括號（parentheses）最優先"></a>大括號（parentheses）最優先</h1><img src="/images/js-weird-parts-operators-precendence-and-associactivity/2.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>當一個表達式中具有多個運算子，大括號（parentheses）裡的運算會最優先：</p>
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = (<span class="hljs-number">3</span> + <span class="hljs-number">4</span>) * <span class="hljs-number">5</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 35</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="amp-amp-優先性（precedence）比較"><a href="#amp-amp-優先性（precedence）比較" class="headerlink" title="&amp;&amp; || 優先性（precedence）比較"></a>&amp;&amp; || 優先性（precedence）比較</h1><img src="/images/js-weird-parts-operators-precendence-and-associactivity/3.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>在判斷式中經常同時使用 &amp;&amp;（and）與 ||（or），需要特別注意 &amp;&amp;（and）優先級是大於 ||（or）的，<br>不過若專案中有使用到 eslint 則會提示盡量補上大括號（parentheses），來協助辨認次序唷！</p>
 </body></html>
         
     
     </div>
     
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Javascript/">#Javascript</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/09/23/js-weird-parts-coercion/">
+                <i class="fas fa-caret-left" style="padding-right: 5px"></i> 克服 Javascript 的奇怪部分 動態型別
+            </a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-next">
+            
+        </span>
+    </div>
     
 </article>
 

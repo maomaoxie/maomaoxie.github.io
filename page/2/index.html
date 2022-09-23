@@ -145,6 +145,56 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/09/15/zh-tw/wordpress-ga-track/" itemprop="url">如何在 wordpress 埋入 GA code</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-09-15T02:42:04.000Z" itemprop="datePublished">9月 15 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 246 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>目前 Google Analytics 已經升級至 GA4，從前綴的追蹤碼 UA- 開頭轉換為 G- 開頭，令許多前端框架的套件還趕不上變化。<br>以下介紹如何在 wordpress 介面插入追蹤碼：</p>
+<h1 id="在-GA-建立帳號與資源"><a href="#在-GA-建立帳號與資源" class="headerlink" title="在 GA 建立帳號與資源"></a>在 GA 建立帳號與資源</h1><p>這一步公司目前已經建置完成，建置的方法須先建立網站資源（網址 url），建立完畢後可在進階選項同時安裝新舊版的 GA code．</p>
+<h1 id="wordpress-安裝-GA-步驟"><a href="#wordpress-安裝-GA-步驟" class="headerlink" title="wordpress 安裝 GA 步驟"></a>wordpress 安裝 GA 步驟</h1><h3 id="安裝外掛-Insert-Headers-and-Footers"><a href="#安裝外掛-Insert-Headers-and-Footers" class="headerlink" title="安裝外掛 Insert Headers and Footers"></a>安裝外掛 Insert Headers and Footers</h3><p>安裝任何外掛程式前先 google wp 外掛黑名單，查看安全並安裝後記得跑跑看網站以免中毒．</p>
+<h3 id="埋入-GA-code"><a href="#埋入-GA-code" class="headerlink" title="埋入 GA code"></a>埋入 GA code</h3><p>舊版 UA- 開頭</p>
+<figure class="highlight javascript hljs"><figcaption><span>GA3</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- <span class="title class_">Global</span> site tag (gtag.<span class="hljs-property">js</span>) - <span class="title class_">Google</span> <span class="title class_">Analytics</span> --&gt;</span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">async</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-language-javascript"></span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="variable language_">window</span>.<span class="hljs-property">dataLayer</span> = <span class="variable language_">window</span>.<span class="hljs-property">dataLayer</span> || [];</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="hljs-keyword">function</span> <span class="title function_">gtag</span>(<span class="hljs-params"></span>){dataLayer.<span class="title function_">push</span>(<span class="variable language_">arguments</span>);}</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="title function_">gtag</span>(<span class="hljs-string">'js'</span>, <span class="hljs-keyword">new</span> <span class="title class_">Date</span>());</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"></span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="title function_">gtag</span>(<span class="hljs-string">'config'</span>, <span class="hljs-string">'UA-XXXXXXXXX-1'</span>);</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>新版 G- 開頭</p>
+<figure class="highlight javascript hljs"><figcaption><span>GA4</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- <span class="title class_">Google</span> tag (gtag.<span class="hljs-property">js</span>) --&gt;</span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">async</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-language-javascript"></span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="variable language_">window</span>.<span class="hljs-property">dataLayer</span> = <span class="variable language_">window</span>.<span class="hljs-property">dataLayer</span> || [];</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="hljs-keyword">function</span> <span class="title function_">gtag</span>(<span class="hljs-params"></span>){dataLayer.<span class="title function_">push</span>(<span class="variable language_">arguments</span>);}</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="title function_">gtag</span>(<span class="hljs-string">'js'</span>, <span class="hljs-keyword">new</span> <span class="title class_">Date</span>());</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"></span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="title function_">gtag</span>(<span class="hljs-string">'config'</span>, <span class="hljs-string">'G-XXXXXXXXXX'</span>);</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure></body></html> -->
+        
+        
+        <html><head></head><body><p>目前 Google Analytics 已經升級至 GA4，從前綴的追蹤碼 UA- 開頭轉換為 G- 開頭，令許多前端框架的套件還趕不上變化。<br>以下介紹如何在 wordpress 介面插入追蹤碼：</p>
+<h1 id="在-GA-建立帳號與資源"><a href="#在-GA-建立帳號與資源" class="headerlink" title="在 GA 建立帳號與資源"></a>在 GA 建立帳號與資源</h1><p>這一步公司目前已經建置完成，建置的方法須先建立網站資源（網址 url），建立完畢後可在進階選項同時安裝新舊版的 GA code．</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/09/15/zh-tw/wordpress-ga-track/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/09/14/zh-tw/touch-and-click-event/" itemprop="url">touch 與 click 事件</a>
         
     </h1>
@@ -251,85 +301,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/08/18/zh-tw/safari-preventDefault-bug/" itemprop="url">Safari IOS 11.3 後 preventDefault 失效問題</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-08-18T01:12:34.000Z" itemprop="datePublished">8月 18 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            6 分鐘 讀完 (約 939 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="https://i.gifer.com/2BC.gif" class="" width="300" height="200" title="safari-preventDefault-bug">
-<p>沒錯的，我們可愛的 Safari 又又又出現了 bug，來看看這個高級 IE 的除錯日常（Safari 愛好者不要鞭我）</p>
-<h1 id="click-事件綁定"><a href="#click-事件綁定" class="headerlink" title="click 事件綁定"></a>click 事件綁定</h1><p>網站開發過程的需求是，當元件沒有 props 連結路徑時就預防 a 連結的預設跳轉行為，以下是元件的 code：</p>
-<figure class="highlight plaintext hljs"><figcaption><span>component</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// HTML</span><br><span class="line">&lt;a class="w-100 h-100" :class="[ url === '' ? 'pointer-events-none' : 'url-active' ]" @click="changeTab()"&gt;</span><br><span class="line">&lt;/a&gt;</span><br><span class="line">// Script</span><br><span class="line">&lt;script&gt;</span><br><span class="line">@Component</span><br><span class="line">export default class ItemCard extends Vue {</span><br><span class="line">    @Prop({ default: '' }) url?: string;</span><br><span class="line">    private changeTab (event: any) {</span><br><span class="line">        if (this.url === '') {</span><br><span class="line">        event.preventDefault();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="contextmenu-事件綁定"><a href="#contextmenu-事件綁定" class="headerlink" title="contextmenu 事件綁定"></a>contextmenu 事件綁定</h1><p>後來發現 Safari 的瀏覽器，手機與電腦綁定 a 標籤 click 事件都無法達到避免預設行為的效果，於是求救谷歌大神：</p>
-<blockquote><p>To target right click events, use contextmenu rather than mousedown.</p>
-<p><code>document.querySelector("#GL-Surface").addEventListener("contextmenu",     function(e) {         e.preventDefault();     }); </code><br>Note that the options that appear on right click do appear only when the right click button is released, so I don’t think mousedown is at all suitable here.</p>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/62245019/javascript-preventdefault-not-working-in-safari">Javascript preventDefault() not working in Safari</a></p>
-</blockquote>
-
-<p>這裡面提及的<strong>contextmenu</strong>事件是右鍵出現的選單，抱持著嘗試看看的心情監聽contextmenu事件，並綁定了一樣的函式．竟然成功了？？？</p>
-<p>第一次看到這個<strong>contextmenu</strong>事件，來瞧瞧 MDN 怎麼說：</p>
-<blockquote><p>被触发的 contextmenu 事件的默认行为被 preventDefault() 取消了，因此，在第一段右击鼠标时什么也不会发生<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/contextmenu">contextmenu</a></p>
-</blockquote>
-
-<h1 id="ios11-3-版本後"><a href="#ios11-3-版本後" class="headerlink" title="ios11.3 版本後"></a>ios11.3 版本後</h1><p>有人提及<strong>ios11.3 and later</strong>預設行為就失效了</p>
-<blockquote><p>This is not an issue by React and is caused by the recent movement of browser vendors to improve performance on mobile devices.<br>Some events (usually those that would fire when you scroll) are <strong>getting passive by default</strong>.<br><a target="_blank" rel="noopener" href="https://github.com/facebook/react/issues/13369">e.preventDefault() does not work with safari in ios11.3 and later #13369</a></p>
-</blockquote>
-
-<h1 id="改動是為了優化體驗"><a href="#改動是為了優化體驗" class="headerlink" title="改動是為了優化體驗"></a>改動是為了優化體驗</h1><p>以上的說明原由來自於性能優化的考量，由於手機裝置在滾動時觸發太多主動事件會嚴重影響體驗，因故某些事件都被調整預設為<strong>被動的（passive）</strong>，來看看以下說明：<br>（附上不負責任翻譯）</p>
-<blockquote><p>We know that scrolling responsiveness is critical to the user’s engagement with a website on mobile, yet touch event listeners often cause serious scrolling performance problems.<br>在手機裝置中滾動事件的敏感度放大了使用者的體驗，可能造成延遲或性能不好。</p>
-<p>Chrome has been addressing this by allowing touch event listeners to be passive (passing the {passive: true} option to addEventListener()) and shipping the pointer events API. These are great features to drive new content into models that don’t block scrolling, but developers sometimes find them hard to understand and adopt.<br>Chrome 在事件監聽上預設了被動參數為 true，避免滾動事件被阻擋。</p>
-<p>Developer-defined “passive event listeners” solve this. When you add a touch event with a {passive: true} object as the third parameter in your event handler then you are telling the browser that the touchstart listener will not call preventDefault() and the browser can safely perform the scroll without blocking on the listener.<br>當你設定事件監聽被動參數為 true，該事件就不會觸發**preventDefault()**避免滾動事件卡卡的</p>
-<p><a target="_blank" rel="noopener" href="https://developer.chrome.com/blog/scrolling-intervention/">Making touch scrolling fast by default</a></p>
-</blockquote>
-
-<p>設定的方式與參數例如這樣：<br><code>window.addEventListener("touchstart", func, {passive: true} );</code></p>
-<h1 id="弔詭的地方"><a href="#弔詭的地方" class="headerlink" title="弔詭的地方"></a>弔詭的地方</h1><ol>
-<li>以上說明是針對 Chrome 瀏覽器的性能優化改動，不是 safari 啊？</li>
-<li>MDN 提及 contextmenu 事件已經不為瀏覽器所支援，但 safari 卻必須使用 contextmenu 事件綁定並且搭配 preventDefault 才能生效？而且註明 safari ios 是唯一不支援此事件的瀏覽器？</li>
-</ol>
-<img src="/images/safari-preventDefault-bug/0.png" class="" width="800" height="200" title="safari-preventDefault-bug">
-<img src="https://c.tenor.com/sAMt7DszgXMAAAAC/%E9%BB%91%E4%BA%BA%E5%95%8F%E8%99%9F.gif" class="" width="350" height="200" title="safari-preventDefault-bug">
-
-<p>也許下次可以試試看直接把監聽器的 passive 設為 false 試試看 XD</p>
-</body></html> -->
-        
-        
-        <html><head></head><body><img src="https://i.gifer.com/2BC.gif" class="" width="300" height="200" title="safari-preventDefault-bug">
-<p>沒錯的，我們可愛的 Safari 又又又出現了 bug，來看看這個高級 IE 的除錯日常（Safari 愛好者不要鞭我）</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/08/18/zh-tw/safari-preventDefault-bug/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -357,7 +328,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/16/">16</a></li>
+        <li><a class="pagination-link" href="/page/17/">17</a></li>
         
     </ul>
 </nav>
