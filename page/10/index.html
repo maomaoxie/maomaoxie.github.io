@@ -145,188 +145,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/04/04/zh-tw/laravel-routes/" itemprop="url">Laravel 認識路由</a>
+            <a href="/2022/05/14/zh-tw/constructor-vs-instance/" itemprop="url">建構子方法與實例化方法</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-04-04T07:41:43.000Z" itemprop="datePublished">4月 4 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/laravel/">laravel</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            6 分鐘 讀完 (約 873 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/laravel-routes/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由介紹">
-<p>應用程式介面的主要目的就是提供使用者與介面互動（Interaction），其中 URL 可以取得使用者的資訊並且渲染在畫面中，例如 query string，就是透過最基本的 GET request 來獲取信息：</p>
-<hr>
-<h1 id="routes"><a href="#routes" class="headerlink" title="routes"></a>routes</h1><p>在路由頁面設定想要回應到前端的資訊，有幾種方式：</p>
-<h3 id="simple-data"><a href="#simple-data" class="headerlink" title="simple data"></a>simple data</h3><p>回傳簡單的關聯式陣列：</p>
-<blockquote class="colorquote info"><p>關聯式陣列可以想做類似 javascript 的物件一樣，鍵值對（key-value pair）的形式．</p>
-</blockquote>
-
-<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/greetings'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    [ </span><br><span class="line">      <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span></span><br><span class="line">    ]</span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-variable">$datas</span>;</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-routes/1.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
-<hr>
-<h3 id="Views"><a href="#Views" class="headerlink" title="Views"></a>Views</h3><p>回傳資料至 <code>blade</code> 模板，渲染 html</p>
-<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/greetings'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    [ </span><br><span class="line">      <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span></span><br><span class="line">    ]</span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title function_ invoke__">views</span>(<span class="hljs-string">'greetings'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-
-<p>直接將傳遞過來的關聯式陣列 key 傳進來當變數名</p>
-<figure class="highlight php hljs"><figcaption><span>resource/views/greetings.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="hljs-string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="hljs-string">"X-UA-Compatible"</span> content=<span class="hljs-string">"IE=edge"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="hljs-string">"viewport"</span> content=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;title&gt;Greetings&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;Hello! {{ <span class="hljs-variable">$name</span> }}&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<h3 id="query-string-參數"><a href="#query-string-參數" class="headerlink" title="query string　參數"></a>query string　參數</h3><p>變數也可以使用既有的 <code>request()</code> 方法承接 URL <code>?</code> 後方的 <strong>key</strong> 來渲染到畫面中，讀取 GET 參數：</p>
-<h4 id="request"><a href="#request" class="headerlink" title="request()"></a>request()</h4><figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/cat'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-comment">// 這裡輸入 params key</span></span><br><span class="line">  <span class="hljs-variable">$catNumbers</span> = <span class="title function_ invoke__">request</span>(<span class="hljs-string">'catNumbers'</span>);</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    <span class="hljs-string">"catNumbers"</span> =&gt; <span class="title function_ invoke__">strip_tags</span>(<span class="hljs-variable">$catNumbers</span>)</span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-comment">// return "這裡有${catNumbers}隻貓";</span></span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'cat'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight php hljs"><figcaption><span>resource/views/cat.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="hljs-string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="hljs-string">"X-UA-Compatible"</span> content=<span class="hljs-string">"IE=edge"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="hljs-string">"viewport"</span> content=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;title&gt;Cat Route&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;這裡有{{ <span class="hljs-variable">$catNumbers</span> }}隻貓&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-routes/3.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
-
-<blockquote class="colorquote danger"><p>為了避免 XSS 攻擊注入惡意程式到 app 中，可以為你的 request 包覆 <code>strip_tags()</code>，動態路由則不需要。</p>
-</blockquote>
-
-<h4 id="設置概覽資料"><a href="#設置概覽資料" class="headerlink" title="設置概覽資料"></a>設置概覽資料</h4><p>若使用者沒有查詢任何關鍵字（例如衣服），可以設立一個預設顯示的資料（例如展示全部商品）：</p>
-<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/cat'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-comment">// 這裡輸入 params key</span></span><br><span class="line">  <span class="hljs-variable">$catNumbers</span> = <span class="title function_ invoke__">request</span>(<span class="hljs-string">'catNumbers'</span>);</span><br><span class="line">  <span class="hljs-comment">// 有指定的話顯示</span></span><br><span class="line">  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$catNumbers</span>)) {</span><br><span class="line">    <span class="hljs-variable">$datas</span> = [</span><br><span class="line">      <span class="hljs-string">"catNumbers"</span> =&gt; <span class="title function_ invoke__">strip_tags</span>(<span class="hljs-variable">$catNumbers</span>)</span><br><span class="line">    ];</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'cat'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">  } <span class="hljs-keyword">else</span> {</span><br><span class="line">    <span class="hljs-comment">// 沒指定的話顯示</span></span><br><span class="line">    <span class="hljs-variable">$datas</span> = [</span><br><span class="line">      <span class="hljs-string">"catNumbers"</span> =&gt; <span class="hljs-string">'很多'</span></span><br><span class="line">    ];</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'cat'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">  }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-routes/4.png" class="" width="500" height="200" title="laravel路由">
-
-<blockquote class="colorquote info"><p><code>isset()</code> 方法類似 javascript 的 <code>if (variable === undefined)</code>，判斷某變數是否存在。  </p>
-</blockquote>
-
-<hr>
-<h3 id="dynamic-routes"><a href="#dynamic-routes" class="headerlink" title="dynamic routes"></a>dynamic routes</h3><p>可以渲染使用者輸入的資料，動態路由使用 <code>{}</code> 將路由變數名稱包起，爾後經過 GET URL 的方式取得信息，路由設定需要傳入變數至回呼函式中接收：</p>
-<h4 id="範例1-對應的動態路由變數需要傳入回呼函式中"><a href="#範例1-對應的動態路由變數需要傳入回呼函式中" class="headerlink" title="範例1. 對應的動態路由變數需要傳入回呼函式中"></a>範例1. 對應的動態路由變數需要傳入回呼函式中</h4><figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/dog/{dogName}'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-variable">$dogName</span></span>) </span>{</span><br><span class="line">  <span class="hljs-variable">$datas</span> = [</span><br><span class="line">    <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span>,</span><br><span class="line">    <span class="hljs-string">"dogName"</span> =&gt; <span class="hljs-variable">$dogName</span></span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'routesTest'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight php hljs"><figcaption><span>resource/views/greetings.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="hljs-string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="hljs-string">"X-UA-Compatible"</span> content=<span class="hljs-string">"IE=edge"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="hljs-string">"viewport"</span> content=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;title&gt;Greetings&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;Hello! {{ <span class="hljs-variable">$name</span> }}&lt;/h1&gt;</span><br><span class="line">  &lt;h2&gt;A dog name {{ <span class="hljs-variable">$dogName</span> }}&lt;/h2&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-routes/2.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
-
-<h4 id="範例2-傳入多個非必要的動態路由參數"><a href="#範例2-傳入多個非必要的動態路由參數" class="headerlink" title="範例2. 傳入多個非必要的動態路由參數"></a>範例2. 傳入多個非必要的動態路由參數</h4><figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/shop/{category?}/{item?}'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-variable">$a</span> = <span class="hljs-literal">null</span>, <span class="hljs-variable">$b</span> = <span class="hljs-literal">null</span></span>) </span>{</span><br><span class="line">  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$a</span>)) {</span><br><span class="line">    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$b</span>)) {</span><br><span class="line">      <span class="hljs-keyword">return</span> <span class="hljs-string">"你正在瀏覽商店${a}分類的${b}品項"</span>;</span><br><span class="line">    }</span><br><span class="line">  } </span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-string">'你正在瀏覽商店的所有商品'</span>;</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote class="colorquote info"><p>對應的回呼函式必須接收一樣數量的變數當參數，名稱隨意不過最好與路由同名比較直覺，且位置要按照順序！<br>非必要的路由參數需要設置：</p>
-<ol>
-<li><code>?</code>放置在<code>{}</code>內，表示為可選的。</li>
-<li>非必要路由參數需設置預設值為空<code>null</code>才不會噴錯。</li>
-</ol>
-</blockquote>
-
-<img src="/images/laravel-routes/5.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
-<img src="/images/laravel-routes/6.png" class="laravel-routes" width="500" height="200" title="Laravel路由介紹">
-</body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/laravel-routes/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由介紹">
-<p>應用程式介面的主要目的就是提供使用者與介面互動（Interaction），其中 URL 可以取得使用者的資訊並且渲染在畫面中，例如 query string，就是透過最基本的 GET request 來獲取信息：</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/04/04/zh-tw/laravel-routes/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/04/03/zh-tw/laravel-folder-intro/" itemprop="url">Laravel 專案包初探</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-04-03T11:01:30.000Z" itemprop="datePublished">4月 3 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/laravel/">laravel</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            6 分鐘 讀完 (約 848 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/laravel-folder-intro/0.png" class="Laravel-folder-intro" width="800" height="200" title="Laravel 專案包初探">
-<p>Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用：</p>
-<blockquote class="colorquote info"><p>先打預防針，其實整個 Larevel 專案包預設並沒有任何 UI 框架，此專案包內名為 bootstrap 的檔案都跟該框架無半點毛關係！不要被混淆了。</p>
-<p>知識小學堂：<br><strong>bootstrap</strong> 的意思為鞋帶，衍生的動詞涵義是<strong>啟動機制</strong>，符合 Laravel 框架中用來充當 <strong>glue</strong> 黏著任何相關檔案或 app 啟動機制的程序。</p>
-</blockquote>
-
-<h1 id="vendor"><a href="#vendor" class="headerlink" title="vendor"></a>vendor</h1><p>Composer 相依套件的目錄，類似 node modules。</p>
-<h1 id="app"><a href="#app" class="headerlink" title="app"></a>app</h1><p>核心的 code 會放在這裡，大部分的類別（class）程式放置處，重要的 MVC 架構中的 <code>Controller</code> 類別會放在 Http/Controllers 資料夾中，以處理 View 與 Model 中間的繫結處理器。</p>
-<h1 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h1><p>這裡的 bootstrap 並非 UI 框架，而是啟動整個 Laravel app 需要使用的元件放置處，增進性能優化的快取設定（cache）會放在這，不需要編寫這邊的檔案。</p>
-<h1 id="database"><a href="#database" class="headerlink" title="database"></a>database</h1><p>Model factories 會放在這裡，亦可處理 database 的遷移。</p>
-<h1 id="lang"><a href="#lang" class="headerlink" title="lang"></a>lang</h1><p>語言的切換檔案。</p>
-<h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><p>網站的靜態檔案如 js、css 及 images 放置處，以及網站的所有入口點（entry points）<code>index.php</code> 與設定自動加載（autoloading）的地方。</p>
-<h1 id="resource"><a href="#resource" class="headerlink" title="resource"></a>resource</h1><p>MVC 架構中的 <code>Views</code> 類別會放在這裡，通常是 <code>blade</code> 模板檔案，也存放一些初胚的、未經壓縮與處理的 js、css 檔案，在網站打包之後會被壓縮並且優化性能，需要 loader 去編譯的檔案可以放在這裡，例如 less 或 sass。</p>
-<h3 id="resource-x2F-bootstrap-js"><a href="#resource-x2F-bootstrap-js" class="headerlink" title="resource/bootstrap.js"></a>resource/bootstrap.js</h3><p>該文件夾底下的 <code>bootstrap.js</code> 檔案並非 UI 框架，而是放置 <code>CSRF Token</code> 自動夾帶在 header 的程序，並且使用 <code>$axios</code> 發送 request 出去，以<strong>避免 XSRF 跨站偽造攻擊</strong>之用！</p>
-<blockquote class="colorquote danger"><p>警告：不想整個 app 掛掉的話請不要亂動我！</p>
-</blockquote>
-
-<h1 id="routes"><a href="#routes" class="headerlink" title="routes"></a>routes</h1><p>路由檔案，預設會有 <code>web.php</code>, <code>api.php</code>, <code>console.php</code>, and <code>channels.php</code> 幾支提供設定，也可以使用 app 裡面的 Controller Class 來渲染路由對應的 view 檔。</p>
-<h3 id="routes-x2F-web-php"><a href="#routes-x2F-web-php" class="headerlink" title="routes/web.php"></a>routes/web.php</h3><p>提供 session state、CSRF 保護與 cookie 加密，可以放置除了 server 提供的 RESTful API 以外的網頁路由設定。</p>
-<h3 id="routes-x2F-api-php"><a href="#routes-x2F-api-php" class="headerlink" title="routes/api.php"></a>routes/api.php</h3><p>API 中介軟體的設定處，是無狀態（stateless）的，所有進入該介面的路由都需要攜帶 Token 認證且無法隨意進入。</p>
-<h3 id="routes-x2F-console-php"><a href="#routes-x2F-console-php" class="headerlink" title="routes/console.php"></a>routes/console.php</h3><p>可以將自定義的指令碼撰寫在這，例如 Artisan 的相關指令。</p>
-<h3 id="routes-x2F-channels-php"><a href="#routes-x2F-channels-php" class="headerlink" title="routes/channels.php"></a>routes/channels.php</h3><p>定義授權請求監聽的邏輯，以註冊相應的回呼函式。</p>
-<h1 id="storage"><a href="#storage" class="headerlink" title="storage"></a>storage</h1><p>放置經過編譯的 blade php 模板，以及快取與其他框架處理過後的檔案，其中<code>storage/app/public</code>路徑放置使用者操作後產生的檔案，例如頭像圖片。</p>
-<h1 id="config"><a href="#config" class="headerlink" title="config"></a>config</h1><p>整個網站應用程式的設定檔案，建議熟讀並且活用其中的多樣選擇。可以把一些全域使用的環境變數放置其中。</p>
-<p>參考文章：</p>
-<blockquote><p><a target="_blank" rel="noopener" href="https://laravel.com/docs/9.x/structure">https://laravel.com/docs/9.x/structure</a></p>
-</blockquote>
-</body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/laravel-folder-intro/0.png" class="Laravel-folder-intro" width="800" height="200" title="Laravel 專案包初探">
-<p>Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用：</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/04/03/zh-tw/laravel-folder-intro/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/03/12/zh-tw/short-circuit-and-optional-chaining/" itemprop="url">短路解析 &amp; 可選鍊修飾符</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-03-12T05:55:02.000Z" itemprop="datePublished">3月 12 2022</time>
+                <time datetime="2022-05-14T13:37:03.000Z" itemprop="datePublished">5月 14 2022</time>
             
         </span>
         
@@ -339,53 +164,213 @@
         <span class="column is-narrow">
             
             
-            7 分鐘 讀完 (約 1032 字)
+            5 分鐘 讀完 (約 764 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/short-circuit-and-optional-chaining/0.png" class="" width="800" height="200" title="短路解析與可選練修飾符">
-<p>在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說<code>undefined</code>（未定義）、<code>null</code>（空值）或者是<code>0</code>（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。</p>
-<h1 id="理解真假值"><a href="#理解真假值" class="headerlink" title="理解真假值"></a>理解真假值</h1><p>先介紹 truthy(真值) 與 falsy(假值)：</p>
-<ul>
-<li>truthy：非 falsy 的值，或者是表達式結果為 <code>true</code></li>
-<li>falsy：<code>undefined</code>、<code>null</code>、非數字 <code>NaN</code>、數字 <code>0</code>、數字 <code>-0</code>、BigInt <code>0n</code>、空字串<code>''</code>(字串長度為 0)，或者是表達式結果為 <code>false</code></li>
-</ul>
-<p>以下介紹幾種邏輯判斷的捷徑：</p>
-<h1 id="邏輯運算子-amp-amp"><a href="#邏輯運算子-amp-amp" class="headerlink" title="邏輯運算子 &amp;&amp; ||"></a>邏輯運算子 <code>&amp;&amp;</code> <code>||</code></h1><p>舉個栗子</p>
-<figure class="highlight javascript hljs"><figcaption><span>邏輯運算子</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> numberAND = <span class="hljs-number">6</span></span><br><span class="line"><span class="hljs-keyword">const</span> numberOR = -<span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-keyword">if</span>(numberAND &gt; <span class="hljs-number">5</span> &amp;&amp; numberAND &lt; <span class="hljs-number">7</span>) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'哎呀'</span>)</span><br><span class="line">}</span><br><span class="line"><span class="hljs-keyword">if</span>(numberOR &gt; <span class="hljs-number">5</span> || numberOR &lt; <span class="hljs-number">7</span>) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'黑唷'</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+        <!-- <html><head></head><body><img src="/images/constructor-vs-instance/0.png" class="" width="800" height="200" title="constructor-vs-instance">
 
-<h3 id="人類的理解"><a href="#人類的理解" class="headerlink" title="人類的理解"></a>人類的理解</h3><p>當 numberAND 大於 5 且<strong>同時</strong>小於 7 值執行 <code>console.log('符合 &amp;&amp;')</code>；當 numberOR 大於 5 <strong>或者</strong>小於 7 值執行 <code>console.log('符合 ||')</code></p>
-<h3 id="電腦的理解"><a href="#電腦的理解" class="headerlink" title="電腦的理解"></a>電腦的理解</h3><p>當左邊的表達式 <code>numberAND &gt; 5</code> 結果為 <code>false</code> 則跳過右邊不執行 <code>numberAND &lt; 7</code>，直接<strong>跳出</strong>程式。<br>當左邊的表達式 <code>numberOR &gt; 5</code> 結果為 <code>true</code> 則跳過右邊不執行 <code>numberAND &lt; 7</code>，直接<strong>進入</strong>程式。</p>
-<p>結論為，當左邊的表達式符合條件，<code>&amp;&amp;</code> 的 if 直接跳出；<code>||</code> 的 if 直接進入。<br>來理一理箇中原由吧！</p>
-<h1 id="短路解析-Short-Circuit"><a href="#短路解析-Short-Circuit" class="headerlink" title="短路解析(Short Circuit)"></a>短路解析(Short Circuit)</h1><p>短路我個人覺得沒有捷徑來得好懂，短路比較讓人聯想為損毀或壞掉的電子產品，而捷徑則代表透過偷吃步或者抄捷徑的方式以取得一樣的結果。這裡的短路較接近後者，js 運行上的偷吃步：</p>
-<h3 id="amp-amp-的短路解析"><a href="#amp-amp-的短路解析" class="headerlink" title="&amp;&amp; 的短路解析"></a><code>&amp;&amp;</code> 的短路解析</h3><p>當左邊的表達式為 <code>false</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
-<h3 id="的短路解析"><a href="#的短路解析" class="headerlink" title="|| 的短路解析"></a><code>||</code> 的短路解析</h3><p>當左邊的表達式為 <code>true</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
-<p>以上可以知道 js 執行完左邊的表達式之後，若符合條件則直接跳過右邊的表達式(不解析亦不執行)，相對來講當開發人員在理解短路解析時就可以按照這樣的邏輯去快速判斷結果。</p>
-<p>速記法：AND<code>false</code>跳出、OR<code>true</code>進入(執行)。</p>
-<blockquote><p>if you use <code>||</code> to provide some default value to another variable foo, you may encounter unexpected behaviors if you consider some falsy values as usable (e.g., <code>''</code> or <code>0</code>). </p>
+<p>在某天好奇想了解 Vue 3 的 defineProperty 原理搜尋了 <code>Object.defineProperty()</code> 這個方法時，看見以下說明：</p>
+<blockquote><p>靜態方法 <code>Object.defineProperty()</code> 會直接對一個物件定義、或是修改現有的屬性。執行後會回傳定義完的物件。<br>備註：這個方法會直接針對 Object 呼叫建構子（constructor），而不是 Object 型別的實例。</p>
+<footer><strong>MDN</strong><cite><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty()</a></cite></footer></blockquote>
+<p>其中的<strong>直接針對 Object 呼叫建構子（constructor），而不是 Object 型別的實例</strong>這句話突然讓我驚醒了，以前一直不能理解 javascript 中呼叫原生方法時，為何會有以下的區別：</p>
+<h2 id="透過建構器呼叫"><a href="#透過建構器呼叫" class="headerlink" title="透過建構器呼叫"></a>透過建構器呼叫</h2><p><code>Object.methods(objInstance)</code> -&gt; 例如 Object.keys(someObj)<br>這裡的 Object 是建構函式本身，未實例的藍圖（constructor）。</p>
+<h2 id="透過實例呼叫"><a href="#透過實例呼叫" class="headerlink" title="透過實例呼叫"></a>透過實例呼叫</h2><p><code>objInstance.methods(parameters)</code> -&gt; 例如 someObj.hasOwnProperty(‘prop’)<br>這裡的 Object 是實例化的物件（instance）。</p>
+<h2 id="Constructor-Static-Methods"><a href="#Constructor-Static-Methods" class="headerlink" title="Constructor Static Methods"></a>Constructor Static Methods</h2><h4 id="構造器-靜態方法"><a href="#構造器-靜態方法" class="headerlink" title="構造器 靜態方法"></a>構造器 靜態方法</h4><p>以下的例子是呼叫 Object 建構子中的原生 keys 方法，而不需要 new 一個物件實例就可以使用，靜態方法的特色是無需使用任何建構子中的 this 資料就可以直接使用。</p>
+<figure class="highlight javascript hljs"><figcaption><span>建構子方法</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> someone = {</span><br><span class="line">  <span class="hljs-attr">name</span>: <span class="hljs-string">'Adam'</span>,</span><br><span class="line">  <span class="hljs-attr">carrer</span>: <span class="hljs-string">'teacher'</span>,</span><br><span class="line">  <span class="hljs-attr">sex</span>: <span class="hljs-string">'male'</span></span><br><span class="line">};</span><br><span class="line"><span class="hljs-keyword">const</span> dataKeys = <span class="title class_">Object</span>.<span class="title function_">keys</span>(someone);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dataKeys);</span><br><span class="line"><span class="hljs-comment">// ["name","carrer","sex"]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Instance-methods"><a href="#Instance-methods" class="headerlink" title="Instance methods"></a>Instance methods</h3><h4 id="等號賦值-實例化方法"><a href="#等號賦值-實例化方法" class="headerlink" title="等號賦值 實例化方法"></a>等號賦值 實例化方法</h4><p>以下則是呼叫 Array 的實例化 push 方法，雖然也不是透過 new 來建立一個陣列，卻也是使用賦值一個陣列來建立陣列的實例，並且使用原生 push 方法。</p>
+<figure class="highlight javascript hljs"><figcaption><span>實例化方法 - 賦值</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> friends = [ <span class="hljs-string">'Cally'</span>, <span class="hljs-string">'Donna'</span>, <span class="hljs-string">'Jell'</span> ];</span><br><span class="line">friends.<span class="title function_">push</span>(<span class="hljs-string">'Liang'</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(friends);</span><br><span class="line"><span class="hljs-comment">// ["Cally","Donna","Jell","Liang"]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="建構器-實例化方法"><a href="#建構器-實例化方法" class="headerlink" title="建構器 實例化方法"></a>建構器 實例化方法</h4><p>透過 new 來建立一個陣列。</p>
+<figure class="highlight javascript hljs"><figcaption><span>實例化方法 - 構造器</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> animals = <span class="hljs-keyword">new</span> <span class="title class_">Array</span>(<span class="hljs-string">'bunny'</span>, <span class="hljs-string">'cat'</span>, <span class="hljs-string">'puppy'</span>, <span class="hljs-string">'hamster'</span>);</span><br><span class="line">animals.<span class="title function_">unshift</span>(<span class="hljs-string">'bird'</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(animals);</span><br><span class="line"><span class="hljs-comment">// ["bird","bunny","cat","puppy","hamster"]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="構造器靜態方法補充"><a href="#構造器靜態方法補充" class="headerlink" title="構造器靜態方法補充"></a>構造器靜態方法補充</h2><h4 id="無法取得構造器的this資料"><a href="#無法取得構造器的this資料" class="headerlink" title="無法取得構造器的this資料"></a>無法取得構造器的this資料</h4><blockquote><ul>
+<li>The static method also cannot see the instance variable state so if we try to call the nonstatic method from the static method compiler will complain.</li>
+<li>The static method can be used to create utility functions.<br><a target="_blank" rel="noopener" href="https://www.educba.com/javascript-static-method/">https://www.educba.com/javascript-static-method/</a></li>
+</ul>
 </blockquote>
 
-<h1 id="可選鍊修飾符-Optional-chaining"><a href="#可選鍊修飾符-Optional-chaining" class="headerlink" title="可選鍊修飾符(Optional chaining)"></a>可選鍊修飾符(Optional chaining)</h1><p>舉個栗子</p>
-<figure class="highlight javascript hljs"><figcaption><span>可選鍊修飾符</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> user = {};</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>);</span><br><span class="line"><span class="hljs-comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>.<span class="hljs-property">street</span>);</span><br><span class="line"><span class="hljs-comment">// error</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>?.<span class="hljs-property">street</span>);</span><br><span class="line"><span class="hljs-comment">// undefined</span></span><br></pre></td></tr></tbody></table></figure>
-<p>在這個範例中，user 物件的清單中有部分的使用者缺少了 <code>address</code> 這個屬性，但是大部分的使用者都具有該屬性時，就可以使用可選鍊修飾符來避免程式噴錯而中斷，但是需注意避免<strong>過度使用</strong>可選鍊修飾符</p>
-<h1 id="空值合併運算子-Nullish-coalescing-operator"><a href="#空值合併運算子-Nullish-coalescing-operator" class="headerlink" title="空值合併運算子(Nullish coalescing operator) ??"></a>空值合併運算子(Nullish coalescing operator) <code>??</code></h1><p>舉個栗子</p>
-<figure class="highlight javascript hljs"><figcaption><span>空值合併運算子</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">notNullish</span> (a, b) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(a ?? b);</span><br><span class="line">}</span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-literal">null</span>); <span class="hljs-comment">// null</span></span><br><span class="line">notNullish (<span class="hljs-literal">null</span>, <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// undefined</span></span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-number">0</span>); <span class="hljs-comment">// 0</span></span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-string">''</span>); <span class="hljs-comment">// ''</span></span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li>ES2020（ES11）提供的「空值合併運算子」，支援度需要搭配 babel 套件。</li>
-<li><code>??</code>常常與邏輯運算子 <code>||</code> 比較，前者返回非 <code>undefined</code> 與 <code>null</code> 的表達式，後者返回非 falsy 的表達式。過濾的條件上有區別，可以依照需求使用。</li>
-</ul>
-<h3 id="的短路解析-1"><a href="#的短路解析-1" class="headerlink" title="?? 的短路解析"></a><code>??</code> 的短路解析</h3><p>當左邊的表達式為 非 <code>undefined</code> 與 <code>null</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
+<p>從上述可以得知靜態方法是不能取用構造器建構子（constructor）內的變數的（this binding），通常會撰寫純函式（pure function）以保持無狀態的特性，如同 Math 方法。<br>靜態方法適合用來當作全局複用的函式，適合較無副作用的邏輯。</p>
+<h2 id="兩種方法的原型鍊關係"><a href="#兩種方法的原型鍊關係" class="headerlink" title="兩種方法的原型鍊關係"></a>兩種方法的原型鍊關係</h2><p>若展開一個實例化的物件，會發現：</p>
+<ol>
+<li>建構器方法存在於建構子物件中（constructor），且只能透過建構器呼叫，例如 Object.assign()；</li>
+<li>實例化方法則存在於原型上（prototype），需要實例化之後才能呼叫，例如 objInstance.toLocaleString()</li>
+</ol>
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/short-circuit-and-optional-chaining/0.png" class="" width="800" height="200" title="短路解析與可選練修飾符">
-<p>在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說<code>undefined</code>（未定義）、<code>null</code>（空值）或者是<code>0</code>（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。</p>
+        <html><head></head><body><img src="/images/constructor-vs-instance/0.png" class="" width="800" height="200" title="constructor-vs-instance">
+
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/03/12/zh-tw/short-circuit-and-optional-chaining/">more</a>
+                <a href="/2022/05/14/zh-tw/constructor-vs-instance/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/04/24/zh-tw/laravel-migration/" itemprop="url">Laravel 資料庫版控工具 Migration</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-04-24T11:18:30.000Z" itemprop="datePublished">4月 24 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/laravel/">laravel</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分鐘 讀完 (約 213 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/laravel-migration/0.png" class="" width="800" height="200" title="laravel-migration">
+<p>Migration 位於 Laravel 專案包中的 database 資料夾，會使用建立日期來歸檔資料表的結構，為紀錄資料庫版本的版控，方便團隊共同開發資料表。</p>
+<h1 id="建立資料表"><a href="#建立資料表" class="headerlink" title="建立資料表"></a>建立資料表</h1><figure class="highlight javascript hljs"><figcaption><span>建立 migration</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan <span class="hljs-attr">make</span>:migration create_users_table</span><br></pre></td></tr></tbody></table></figure>
+<p>建立成功會顯示：</p>
+<img src="/images/laravel-migration/1.png" class="" width="800" height="200" title="資料庫版控工具 Migration">
+<p>重整之後會出現新的版控檔案，使用建立日期來命名：</p>
+<img src="/images/laravel-migration/2.png" class="" width="300" height="200" title="資料庫版控工具 Migration">
+<p>檔案內容：</p>
+<img src="/images/laravel-migration/3.png" class="" width="800" height="200" title="輸入圖片資料夾名稱">
+
+<h1 id="修改資料表"><a href="#修改資料表" class="headerlink" title="修改資料表"></a>修改資料表</h1><p>在 <code>\\wsl$</code> 路徑下執行 migrate 的坑需要以下步驟：</p>
+<h4 id="補上-php-8-0-的-sql-extension"><a href="#補上-php-8-0-的-sql-extension" class="headerlink" title="補上 php 8.0 的 sql-extension"></a>補上 php 8.0 的 sql-extension</h4><p>於 ubuntu 終端機輸入以下指令：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">輸入code</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="將註解-extension-x3D-pdo-mysql-打開"><a href="#將註解-extension-x3D-pdo-mysql-打開" class="headerlink" title="將註解 ;extension=pdo_mysql 打開"></a>將註解 ;extension=pdo_mysql 打開</h4></body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/laravel-migration/0.png" class="" width="800" height="200" title="laravel-migration">
+<p>Migration 位於 Laravel 專案包中的 database 資料夾，會使用建立日期來歸檔資料表的結構，為紀錄資料庫版本的版控，方便團隊共同開發資料表。</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/04/24/zh-tw/laravel-migration/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/04/24/zh-tw/laravel-tailwind/" itemprop="url">在 Laravel 專案導入 tailwind css</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-04-24T08:47:56.000Z" itemprop="datePublished">4月 24 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/tailwind/">tailwind</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分鐘 讀完 (約 863 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/laravel-tailwind/0.jpg" class="" width="800" height="200" title="在 Laravel 專案導入 tailwind css">
+<p>導入 tailwind css 之前有幾個與 Laravel 執行環境有關的雷需要注意：</p>
+<h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>將 Laravel 專案放置在 <code>\\wsl$</code> 路徑內可以更有效率的執行 WSL2，跑起來的速度也快，不過要注意專案環境包相關聯的耦合性，例如 Docker 設定、php 版本對於某些指令的支援度。</p>
+<blockquote class="colorquote info"><p>以下網址介紹了 WSL2 建置的專案具體位置究竟在哪：<br><a target="_blank" rel="noopener" href="https://solidstudio.io/blog/windows-subsystem-for-linux-explained">https://solidstudio.io/blog/windows-subsystem-for-linux-explained</a></p>
+</blockquote>
+<p>由於在 windows 系統中建置 Laravel 需要 Linux 子系統 WSL2 的支持，而使用 artisan 相關的指令都建是使用 Windows Terminal 下的 ubuntu 終端機會更友善些：</p>
+<blockquote class="colorquote info"><p>There is however one great application that makes running the WSL console easier. It’s Windows Terminal and it can be installed from Windows Store. It automatically detects any WSL distributions installed and adds an option to run its console.</p>
+</blockquote>
+<p>至於為什麼要使用 Windows Terminal? 以上說明了<strong>自動偵測 WSL分佈</strong>的功能，當你打開終端機會發現他自動偵測到你使用 WSL 建置該專案包的路徑，甚至在終端機輸入 wsl 就能直接切換該系統環境。</p>
+<h3 id="系統包補丁"><a href="#系統包補丁" class="headerlink" title="系統包補丁"></a>系統包補丁</h3><p>由於每個終端機的環境檔案包是沒有共享的，你在 powershell 很開心的安裝了一包 php，之後當你切換到 ubuntu 會發現，php 指令居然找不到?? 因為你得重裝，導入 tailwind 至 WSL 專案需要補上：</p>
+<h4 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h4><p>安裝 node 在 ubuntu的步驟</p>
+<ol>
+<li><p>新增Node.js PPA</p>
+<blockquote class="colorquote info"><p>PPA 有點像是系統軟體包的 package.json，記錄著軟體及其版本信息，當你運行 sudo apt update 命令時 apt 工具會根據 /etc/apt 目錄中的 sources.list 文件來決定版本是否升級。</p>
+</blockquote>
+<figure class="highlight javascript hljs"><figcaption><span>安裝 node PPA</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install curl</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript hljs"><figcaption><span>安裝 LTS 版本</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL <span class="hljs-attr">https</span>:<span class="hljs-comment">//deb.nodesource.com/setup_12.x | sudo -E bash -</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>安裝Node.js</p>
+<figure class="highlight javascript hljs"><figcaption><span>安裝 Node.js 至 Ubuntu</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>查看一下版本號確保安裝成功</p>
+</li>
+</ol>
+<h1 id="安裝-tailwind-css"><a href="#安裝-tailwind-css" class="headerlink" title="安裝 tailwind css"></a>安裝 tailwind css</h1><p>至 vscode terminal 或者使用 windows terminal Ubuntu 都可以安裝 tailwind css：</p>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><figure class="highlight javascript hljs"><figcaption><span>安裝 tailwind</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D tailwindcss postcss autoprefixer</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript hljs"><figcaption><span>安裝Node.js至Ubuntu</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx tailwindcss init</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="修改-config-加入-plugin"><a href="#修改-config-加入-plugin" class="headerlink" title="修改 config 加入 plugin"></a>修改 config 加入 plugin</h3><figure class="highlight javascript hljs"><figcaption><span>webpack.mix.js</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mix.<span class="title function_">js</span>(<span class="hljs-string">"resources/js/app.js"</span>, <span class="hljs-string">"public/js"</span>)</span><br><span class="line">  .<span class="title function_">postCss</span>(<span class="hljs-string">"resources/css/app.css"</span>, <span class="hljs-string">"public/css"</span>, [	</span><br><span class="line">    <span class="hljs-built_in">require</span>(<span class="hljs-string">"tailwindcss"</span>), <span class="hljs-comment">// &lt;-- 加入這行</span></span><br><span class="line">  ]);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="導入全域-css"><a href="#導入全域-css" class="headerlink" title="導入全域 css"></a>導入全域 css</h3><p>在 <code>resources/css/app.css</code> 檔案中加入以下：</p>
+<figure class="highlight javascript hljs"><figcaption><span>resources/css/app.css</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@tailwind base;</span><br><span class="line">@tailwind components;</span><br><span class="line">@tailwind utilities;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="設定-tailwind-config-js"><a href="#設定-tailwind-config-js" class="headerlink" title="設定 tailwind.config.js"></a>設定 tailwind.config.js</h3><figure class="highlight javascript hljs"><figcaption><span>resources/css/app.css</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="hljs-property">exports</span> = { </span><br><span class="line">  <span class="hljs-attr">content</span>: [	</span><br><span class="line">    <span class="hljs-string">"./resources/**/*.blade.php"</span>,  </span><br><span class="line">    <span class="hljs-string">"./resources/**/*.js"</span>,	</span><br><span class="line">    <span class="hljs-string">"./resources/**/*.vue"</span>,  ],</span><br><span class="line">  <span class="hljs-attr">theme</span>: {	</span><br><span class="line">    <span class="hljs-attr">extend</span>: {},</span><br><span class="line">  }, </span><br><span class="line">  <span class="hljs-attr">plugins</span>: [],</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="npm-install-將-mix-module-裝上"><a href="#npm-install-將-mix-module-裝上" class="headerlink" title="npm install 將 mix module 裝上"></a>npm install 將 mix module 裝上</h3><p>mix 指令可以打包 tailwind css 的預處理器編譯為 css，但不會自動安裝，需要 npm install：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="驗證是否成功"><a href="#驗證是否成功" class="headerlink" title="驗證是否成功"></a>驗證是否成功</h3><ol>
+<li><p>在 views/layout/layout.blade.php 檔案導入全域 css：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link href=<span class="hljs-string">"{{ asset('css/app.css') }}"</span> rel=<span class="hljs-string">"stylesheet"</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>加上 tailwind css 的 class</p>
+<figure class="highlight javascript hljs"><figcaption><span>resources/css/app.css</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@tailwind base;</span><br><span class="line">@tailwind components;</span><br><span class="line">@tailwind utilities;</span><br><span class="line"></span><br><span class="line">.<span class="hljs-property">btn</span>-primary {</span><br><span class="line">  @apply py-<span class="hljs-number">2</span> px-<span class="hljs-number">4</span> bg-blue-<span class="hljs-number">500</span> text-white font-semibold rounded-lg shadow-md <span class="hljs-attr">hover</span>:bg-blue-<span class="hljs-number">700</span> <span class="hljs-attr">focus</span>:outline-none <span class="hljs-attr">focus</span>:ring-<span class="hljs-number">2</span> <span class="hljs-attr">focus</span>:ring-blue-<span class="hljs-number">400</span> <span class="hljs-attr">focus</span>:ring-opacity-<span class="hljs-number">75</span> transition-all;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>套用在 blade 檔案中</p>
+<figure class="highlight javascript hljs"><figcaption><span>welcome.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">  &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">"container mx-auto"</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello you!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span></span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex flex-wrap"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"md:w-3/4.w-full"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"w-16 md:w-32 lg:w-48 transition-all bg-fuchsia-300 hover:bg-fuchsia-600 py-5 text-pink-800"</span>&gt;</span>123<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-primary"</span>&gt;</span>My button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"md:w-1/4.w-full"</span>&gt;</span>aside<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">@endsection</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>mix 指令打包</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run mix</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>成功導入畫面</p>
+<img src="/images/laravel-tailwind/1.png" class="" width="800" height="200" title="tailwind 打包成功畫面">
+<img src="/images/laravel-tailwind/2.png" class="" width="800" height="200" title="tailwind 打包成功畫面"></li>
+</ol>
+</body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/laravel-tailwind/0.jpg" class="" width="800" height="200" title="在 Laravel 專案導入 tailwind css">
+<p>導入 tailwind css 之前有幾個與 Laravel 執行環境有關的雷需要注意：</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/04/24/zh-tw/laravel-tailwind/">more</a>
             </p>
         
     
@@ -429,7 +414,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/16/">16</a></li>
+        <li><a class="pagination-link" href="/page/18/">18</a></li>
         
     </ul>
 </nav>

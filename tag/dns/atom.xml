@@ -9,6 +9,7 @@
     <category term="GA4" />
     <category term="Google Tag Manager" />
     <category term="GTM" />
+    <category term="Javascript" />
     <category term="javascript" />
     <category term="constructor" />
     <category term="instance" />
@@ -33,7 +34,6 @@
     <category term="httpHeader" />
     <category term="httpMethods" />
     <category term="status" />
-    <category term="Javascript" />
     <category term="type" />
     <category term="laravel" />
     <category term="php" />
@@ -54,6 +54,11 @@
     <category term="dotenv" />
     <category term="webService" />
     <category term="restfulApi" />
+    <category term="safari" />
+    <category term="javaScript" />
+    <category term="preventDefault" />
+    <category term="ios" />
+    <category term="mobile" />
     <category term="shortCircuit" />
     <category term="optionalChaining" />
     <category term="tricks" />

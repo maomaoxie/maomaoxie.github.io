@@ -145,119 +145,51 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/07/10/zh-tw/js-weird-parts-scope-chain/" itemprop="url">克服 Javascript 的奇怪部分 範圍鍊</a>
+            <a href="/2022/08/07/zh-tw/git-remove-submodule/" itemprop="url">git 移除 submodule</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-07-10T07:57:42.000Z" itemprop="datePublished">7月 10 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            3 分鐘 讀完 (約 414 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/js-weird-parts-scope-chain/0.png" class="" width="800" height="200" title="scope-chain">
-
-<p>以下探討的幾個議題都離不開函式（function）本身：</p>
-<h1 id="環境變數"><a href="#環境變數" class="headerlink" title="環境變數"></a>環境變數</h1><p>每個執行環境（execution context）都有屬於其中的變數，可以把執行環境想作是一個<strong>空間範圍</strong>，而環境變數都附著在其中，例如全域變數（global variable）會附著在全域物件下，瀏覽器的全域執行環境則是屬於 window 物件，宣告在其中的變數都會隸屬於全域執行環境。</p>
-<h1 id="函式變數"><a href="#函式變數" class="headerlink" title="函式變數"></a>函式變數</h1><p>函式變數在函式被呼叫並觸發後創造了一個獨特的函式執行環境，該函式內有自己的變數，此變數式在函式內<strong>宣告（declaration）</strong>並且創造的，只能在該函式執行環境中可以取得，稱為區域變數（scoped variable），而變數可取用的範圍稱之作用域（scope）。</p>
-<h1 id="範圍鍊"><a href="#範圍鍊" class="headerlink" title="範圍鍊"></a>範圍鍊</h1><p>根據函式的靜態作用域、詞法作用域，也就是坐落的物理位置來向外查找可用的變數（accessible variables），而非呼叫的位置；每個函式的執行環境（execution context）都是獨立的執行堆疊（execution stack），並且都指向外部的執行環境（outer environment），一層一層的鏈結稱為範圍鍊（scope chain）。</p>
-<img src="/images/js-weird-parts-scope-chain/4.png" class="" width="800" height="200" title="scope-chain">
-<blockquote class="colorquote info"><p>值得注意的一點：函式 b 是在函式 a 呼叫並且執行之後才建立了函式 b 的執行環境。</p>
-</blockquote></body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/js-weird-parts-scope-chain/0.png" class="" width="800" height="200" title="scope-chain">
-
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/07/10/zh-tw/js-weird-parts-scope-chain/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/06/05/zh-tw/js-weird-parts-III/" itemprop="url">克服 Javascript 的奇怪部分 單執行緒與同步執行</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-06-05T08:31:07.000Z" itemprop="datePublished">6月 5 2022</time>
+                <time datetime="2022-08-07T08:07:24.000Z" itemprop="datePublished">8月 7 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/javascript/">javascript</a>
+            <a class="article-category-link" href="/categories/git/">git</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            6 分鐘 讀完 (約 938 字)
+            2 分鐘 讀完 (約 247 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/js-weird-parts-single-threaded/0.png" class="" width="800" height="200" title="js-weird-parts-single-threaded">
-<p>這一個章節要來講解 JavaScript 的幾個觀念。</p>
-<h1 id="單執行緒（Single-Threaded）"><a href="#單執行緒（Single-Threaded）" class="headerlink" title="單執行緒（Single Threaded）"></a>單執行緒（Single Threaded）</h1><p><strong>一次一件事</strong>是重點。<br>這個特性不是瀏覽器的特性，瀏覽器一次可能同時處理多件事情，JavaScript 引擎則是單執行緒的，就像排隊買早餐，老闆娘一次只能處理一位客人，而 JavaScript 也是一次只處理一項指令。</p>
-<h1 id="同步執行（Synchronous）"><a href="#同步執行（Synchronous）" class="headerlink" title="同步執行（Synchronous）"></a>同步執行（Synchronous）</h1><p><strong>順序</strong>是重點。<br>事情有先後順序，按照順序執行，一次執行一行（或者說一個單元的程式碼，可能是一個陳述式或表達式）。</p>
-<h1 id="呼叫函式（Function-Invocation）"><a href="#呼叫函式（Function-Invocation）" class="headerlink" title="呼叫函式（Function Invocation）"></a>呼叫函式（Function Invocation）</h1><p>觸發或執行一個函式，使用的符號為大括號（parenthesis）。<br>JavaScript 引擎在執行函式呼叫時，會發生幾件事情延續前面的章節：</p>
-<figure class="highlight javascript hljs"><figcaption><span>呼叫函式</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">b</span> () {</span><br><span class="line">}</span><br><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">a</span> () {</span><br><span class="line">  <span class="title function_">b</span>();</span><br><span class="line">}</span><br><span class="line"><span class="title function_">a</span>();</span><br></pre></td></tr></tbody></table></figure>
+        <!-- <html><head></head><body><img src="/images/git-remove-submodule/0.png" class="" width="800" height="200" title="git-remove-submodule">
+<h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
+<img src="/images/git-remove-submodule/1.png" class="" width="800" height="200" title="git-remove-submodule">
 
-<h2 id="創造階段"><a href="#創造階段" class="headerlink" title="創造階段"></a>創造階段</h2><ol>
-<li>全域執行環境（Global Execution Context）首先被創造。</li>
-<li>全域物件（Global object）被創造。</li>
-<li>全域 this 被創造。</li>
-<li>開始編譯階段（Parsing），編譯器巡過一遍所有程式碼發現了函式 b 與 a，在記憶體創造兩個函式的空間並且存放整個函式內容。</li>
-</ol>
-<img src="/images/js-weird-parts-III/1.png" class="" width="400" height="200" title="js-weird-parts-III">
+<p>以下記錄自己如何將修改後的 minos 資料夾：</p>
+<h3 id="移除-git-子模塊快取"><a href="#移除-git-子模塊快取" class="headerlink" title="移除 git 子模塊快取"></a>移除 git 子模塊快取</h3><p>以下的指令可以清除子模塊的 git 紀錄：</p>
+<figure class="highlight plaintext hljs"><figcaption><span>git cmd</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached -f ./themes/minos</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="執行階段"><a href="#執行階段" class="headerlink" title="執行階段"></a>執行階段</h2><ol>
-<li><p>整個程式碼的記憶體準備完畢後，開始執行程式。</p>
-</li>
-<li><p>編譯器解析到<strong>函式 a</strong>被呼叫，立即於全域執行環境上方，產生並堆疊一個函式 a 的執行環境（Execution Context），放進<strong>執行佇列堆（Execution Stack）</strong>中，每個執行環境都有自己得記憶體空間存放著變數或函式。</p>
-<img src="/images/js-weird-parts-III/2.png" class="" width="400" height="200" title="js-weird-parts-III">
-</li>
-<li><p>最上方的執行佇列會優先執行，進入函式 a 的執行環境（Execution Context）並且解析到函式 b，程序暫停，立即於函式 a 的執行環境上方，產生並堆疊一個函式 b 的執行環境（Execution Context），放進<strong>執行佇列堆（Execution Stack）</strong>中。</p>
-<img src="/images/js-weird-parts-III/3.png" class="" width="400" height="200" title="js-weird-parts-III"></li>
-</ol>
-<p>以上執行階段也可以拆分成好幾個創造（執行環境），與執行（執行佇列堆最上方的執行環境）階段，在當下的執行環境執行過程中，只要觸發另一個函式，執行暫停然後創造（執行環境）、與執行（執行佇列堆最上方的執行環境），而下方的程式碼不會被解析，除非該執行環境執行完畢並且離開執行佇列堆（Execution Stack）後才會繼續逐行執行。</p>
-<blockquote class="colorquote Info"><p>Everytime a function is called, a new execution context is created for that function, the <code>this</code> variable is created for that function, the variables in it were set up in the creation phase, then the code is executed line by line.<br>whatever is on the top of the execution stack, is currently running synchronously.</p>
-</blockquote>
+<h3 id="重新加入索引"><a href="#重新加入索引" class="headerlink" title="重新加入索引"></a>重新加入索引</h3><p>將剛才取消子模塊的 git 重新排隊至專案包中，我比較懶惰直接整包加：</p>
+<figure class="highlight plaintext hljs"><figcaption><span>git cmd</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></tbody></table></figure>
 
-<p>重點整理：<br>當一個函式被觸發或是呼叫，JS 引擎會創造一個屬於該函式的執行環境（execution context）並且放置在執行緒的最上方等待被執行，而該堆疊中具有該函式獨有的執行環境與 This，開始執行並且完成後離開堆疊中（pop out）繼續執行下一個堆疊，只要解析到新的函式被呼叫就會反覆以上行為，直到堆疊不斷（pop out）剩下全域執行環境本身為止。</p>
+<p>再檢視一遍 vs code 之後就會看到檔案被追蹤到了！</p>
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/js-weird-parts-single-threaded/0.png" class="" width="800" height="200" title="js-weird-parts-single-threaded">
-<p>這一個章節要來講解 JavaScript 的幾個觀念。</p>
+        <html><head></head><body><img src="/images/git-remove-submodule/0.png" class="" width="800" height="200" title="git-remove-submodule">
+<h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/06/05/zh-tw/js-weird-parts-III/">more</a>
+                <a href="/2022/08/07/zh-tw/git-remove-submodule/">more</a>
             </p>
         
     
@@ -273,13 +205,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/06/04/zh-tw/js-weird-parts-II/" itemprop="url">克服 Javascript 的奇怪部分 Hoisting</a>
+            <a href="/2022/08/07/zh-tw/wordpress-get-started/" itemprop="url">開始我的第一個 wordpress 網站</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-06-04T08:28:20.000Z" itemprop="datePublished">6月 4 2022</time>
+                <time datetime="2022-08-07T02:02:29.000Z" itemprop="datePublished">8月 7 2022</time>
             
         </span>
         
@@ -287,47 +219,104 @@
         <span class="column is-narrow">
             
             
-            7 分鐘 讀完 (約 1092 字)
+            5 分鐘 讀完 (約 677 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/js-weird-parts-II/0.png" class="" width="800" height="200" title="js-weird-parts-II">
-<p>課程作者提到，<strong>Hoisting</strong> 大約是 JavaScript 裡最奇怪的行為了，而且是其他語言無法做到的特性，來了解一下怎麼回事吧！</p>
-<h1 id="Hoisting"><a href="#Hoisting" class="headerlink" title="Hoisting"></a>Hoisting</h1><p>這一段程式碼若在其他語言執行可是會發生錯誤的！但是在 JavaScript 裡卻可以安然無恙：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">b</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-string">'123'</span>;</span><br><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">b</span> () {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'b is called!'</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/js-weird-parts-II/1.png" class="" width="800" height="200" title="js-weird-parts-II">
-<p>a 竟然在還未被宣告以前使用，會回傳 undefined；b 函式正常運作。<br>這就是 JavaScript 的 Hoisting 在搞鬼，但不要被 Hoisting 的提升之意混淆了，該現象並非程式碼被靜態的（physically）提升到最上方，我們來解析一下編譯器是如何執行這一段程式碼：</p>
-<h1 id="執行環境執行的兩階段"><a href="#執行環境執行的兩階段" class="headerlink" title="執行環境執行的兩階段"></a>執行環境執行的兩階段</h1><blockquote><p>There are two phases when it came to the execution context within the Javacript engine:<br>The first phase was the creation phase, when it sets up the variables and functions in memory. And the second phase was the execution phase, all those things already being set up, so now it runs your code line by line.</p>
-</blockquote>
+        <!-- <html><head></head><body><h1 id="第一步-產生-ip-位址"><a href="#第一步-產生-ip-位址" class="headerlink" title="第一步 - 產生 ip 位址"></a>第一步 - 產生 ip 位址</h1><p>首先要租賃一台伺服器提供 ip，可以考慮較優惠的主機廠商：遠振或 bluehost。<br>要注意的是，一個 domain 可以放置很多網站資料夾，並且設定sub-domian。</p>
+<h1 id="第二步-DNS-註冊"><a href="#第二步-DNS-註冊" class="headerlink" title="第二步 - DNS 註冊"></a>第二步 - DNS 註冊</h1><p>ip 設定好之後就可以將網域指過來指定的 DNS 網域商：<br>中華電信提供的 .tw　較便宜，而 godaddy 則是 .com 較便宜。</p>
+<h1 id="第三步-cdn-分散流量"><a href="#第三步-cdn-分散流量" class="headerlink" title="第三步 - cdn 分散流量"></a>第三步 - cdn 分散流量</h1><p>常用的 cdn 廠商像是 cloudflare，可以註冊一個離主機近的（例如東京）cdn 位址，其他供應商例如 sugarhost 很便宜但連線較慢。</p>
+<h3 id="CDN-原理"><a href="#CDN-原理" class="headerlink" title="CDN 原理"></a>CDN 原理</h3><p>cdn 是把 DNS 轉向給 DNS 廠商（cloudflare），透過 DNS 指向將流量倒過去 cloudflare，在第一次 cache 過網站靜態資源後，第二次就可以直接提取cdn 伺服器上 cache　的資源以減少流量費用。</p>
+<h3 id="設定細節"><a href="#設定細節" class="headerlink" title="設定細節"></a>設定細節</h3><h5 id="資源類型"><a href="#資源類型" class="headerlink" title="資源類型"></a>資源類型</h5><p>通常都會設定 <strong>A 類型</strong>以設定網址（url）指向，例如 mailgun 的寄信功能。</p>
+<h5 id="防堵資安問題"><a href="#防堵資安問題" class="headerlink" title="防堵資安問題"></a>防堵資安問題</h5><p>cloudflare 設定其中一樣可以開啟 ddos -&gt; under Attack 來保護網站資源。<br>也可以手動清除特定檔案，例如圖片的 cache 來重新抓取檔案。</p>
+<h1 id="第四步-掛載-wordpress"><a href="#第四步-掛載-wordpress" class="headerlink" title="第四步 - 掛載 wordpress"></a>第四步 - 掛載 wordpress</h1><p>wordpress 可以當作是一個 php 建構而成的後端框架應用，串接方式有兩種：</p>
+<ol>
+<li>直接使用 wordpress hook 來渲染資料（前後端合併）。</li>
+<li>撰寫自己的前端框架（例如 vue），撰寫自己的 API（前後端分離）。</li>
+</ol>
+<h3 id="建立步驟"><a href="#建立步驟" class="headerlink" title="建立步驟"></a>建立步驟</h3><p>到  <a target="_blank" rel="noopener" href="https://tw.wordpress.org/download/">wordpress</a> 官方網站下載檔案，上傳到自己的網域 server。</p>
+<img src="/images/wordpress-get-started/14.png" class="" width="800" height="200" title="wordpress-download">
+<p>上傳後打開網站，會有一個 UI 介面可以直接設定 wordpress 與網站資料，config 需要設定資料庫帳號密碼：</p>
+<p>要注意的是 wordpress 權限身分須從 root 改成 www-data，才能變成網站系統管理員使用 wordpress 後台。</p>
+<!-- 行情 $ 25000 (使用佈景主題)
+客製化算一頁
+定時備份以免網站被駭客
+租 GCP 靜態硬碟 
+google 硬碟版本管理 資源回收桶保留30 天
+flicker
 
-<h2 id="創造階段"><a href="#創造階段" class="headerlink" title="創造階段"></a>創造階段</h2><p>在第一個章節有提到，Javascript 並非是完全直譯的語言，其中一個佐證就是 Hoisting 的行為，如果程式碼真的是逐行翻譯然後執行，它是怎麼知道變數 a 與函式 b 會被創建的呢？</p>
-<p>這裡就能理解編譯器在執行程式以前仍存在一段<strong>編譯完成才執行</strong>的過程：<br>Javascript 引擎先將整個程式碼審視一遍，找出所有具有名稱（variable name）、<strong>並非</strong>透過區塊作用域（Block scope）的關鍵字 const 與 let ，而是 var 所宣告的的值或函式找出來，然後歸納：誰是變數就給予一個記憶體空間，存放著未定義的值（undefined）；誰是函式就給予一個記憶體空間，存放著整個函式的內容。</p>
-<img src="/images/js-weird-parts-II/2.png" class="" width="800" height="200" title="js-weird-parts-II">
+設定 config 檔案 
+比較好的後台c panel 要錢
+dns 代管要 https 要使用 flexible SSL for cloudflare
 
-<p>也就是說創造階段可以這樣理解：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a;</span><br><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">b</span> () {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'b is called!'</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>變數 a 與函式 b 都各自被建立一個記憶體空間，接著存放著對應的值，變數 a 的記憶體空間內存放了 <code>undefined</code>，函式 b 的記憶體空間則直接放置整個函式內容。<br>關鍵就在變數的創造階段，只是<strong>宣告（declared）</strong>而已，這個階段 JavaScript 引擎並不清楚變數 a 將來的值會是甚麼，直到執行階段才會被<strong>指派（assigned）</strong>。</p>
-<h2 id="undefined-不等於-not-defined"><a href="#undefined-不等於-not-defined" class="headerlink" title="undefined 不等於 not defined"></a>undefined 不等於 not defined</h2><p>當變數通過 var 關鍵字宣告，記憶體就被建立並且放入 <code>undefined</code> 的值，如果變數未宣告就使用，則瀏覽器會噴錯誤訊息：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="hljs-comment">// Uncaught ReferenceError: a is not defined</span></span><br></pre></td></tr></tbody></table></figure>
-<p>這是瀏覽器表示：嘿！我在任何記憶體都找不到這個名稱的參照，甚至連 <code>undefined</code> 都不是。</p>
-<h3 id="小知識"><a href="#小知識" class="headerlink" title="小知識"></a>小知識</h3><blockquote class="colorquote info"><p>Since undefined is a longer string than null, the JIT compiler has to save 4 bytes more to memory when using undefined instead of null while parsing. Consider that memory aswell.</p>
-</blockquote>
-<p><code>undefined</code> 並非不存在的值，它是 Javacript 中的原始型別，也是純值的一種，甚至占了記憶體 4 個 bytes ，比空值<code>null</code>還要多。</p>
-<h2 id="良好的-coding-習慣"><a href="#良好的-coding-習慣" class="headerlink" title="良好的 coding 習慣"></a>良好的 coding 習慣</h2><h4 id="X-在宣告以前使用變數"><a href="#X-在宣告以前使用變數" class="headerlink" title="(X)在宣告以前使用變數"></a>(X)在宣告以前使用變數</h4><p>為了避免在執行過程被 Hoisting 汙染，最好養成先宣告後調用或賦值的習慣，可以避免一些錯誤發生，這也是為什麼 Eslint 或 Airbnb 等大宗規範都建議的撰寫規則。</p>
-<h4 id="X-將變數賦值為-undefined"><a href="#X-將變數賦值為-undefined" class="headerlink" title="(X)將變數賦值為 undefined"></a>(X)將變數賦值為 undefined</h4><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="hljs-literal">undefined</span>;</span><br></pre></td></tr></tbody></table></figure>
-<p>倘若你這麼做了，會在除錯的時候難以辨認是 Javacript 引擎設定的還是後來你撰寫的程式所賦值的。</p>
-<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>若要將 Hoisting 給予一個較好的解釋，我想就是「創建初始化」，給予一個初始的值以便後續利用：函式就直接賦值，變數的則填補上執行等號（=）以後的值，不過那已經是下一個<strong>執行階段</strong>的任務了。</p>
+一類有分類的文章 slug 需要代稱(英文的)
+獨立頁面 客製化
+siteliner 檢查有沒有壞掉的連結與重複的內容
+duplicate page
+報價高一點
+附加的css
+減少做重複的事情
+在 wordpress 上做前後端分離 -->
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/js-weird-parts-II/0.png" class="" width="800" height="200" title="js-weird-parts-II">
-<p>課程作者提到，<strong>Hoisting</strong> 大約是 JavaScript 裡最奇怪的行為了，而且是其他語言無法做到的特性，來了解一下怎麼回事吧！</p>
+        <html><head></head><body><h1 id="第一步-產生-ip-位址"><a href="#第一步-產生-ip-位址" class="headerlink" title="第一步 - 產生 ip 位址"></a>第一步 - 產生 ip 位址</h1><p>首先要租賃一台伺服器提供 ip，可以考慮較優惠的主機廠商：遠振或 bluehost。<br>要注意的是，一個 domain 可以放置很多網站資料夾，並且設定sub-domian。</p>
+<h1 id="第二步-DNS-註冊"><a href="#第二步-DNS-註冊" class="headerlink" title="第二步 - DNS 註冊"></a>第二步 - DNS 註冊</h1><p>ip 設定好之後就可以將網域指過來指定的 DNS 網域商：<br>中華電信提供的 .tw　較便宜，而 godaddy 則是 .com 較便宜。</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/06/04/zh-tw/js-weird-parts-II/">more</a>
+                <a href="/2022/08/07/zh-tw/wordpress-get-started/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/08/05/zh-tw/hexo-rss/" itemprop="url">Hexo RSS 自動產生器</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-05T07:39:34.000Z" itemprop="datePublished">8月 5 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 312 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>RSS 訂閱功能越來越夯，可以即時通知訂閱戶更新的文章內容，增加回流的流量與網站的熱度，chrome 也有提供 RSS reader 的外掛功能直接讀取 RSS 檔案。<br>既然建立好了自己的部落格怎麼可以沒有 RSS XD?</p>
+<p>先前在專案包嘗試使用 hexo-generator-feed 套件，但是建立出來的 atom.xml 檔案會出現亂碼，後來找到一個套件甚至支援 json 與 rss 格式：</p>
+<h1 id="安裝-Hexo-seed-套件"><a href="#安裝-Hexo-seed-套件" class="headerlink" title="安裝 Hexo seed 套件"></a>安裝 Hexo seed 套件</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-feed</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="檔案格式"><a href="#檔案格式" class="headerlink" title="檔案格式"></a>檔案格式</h3><p>hexo-feed 可以設定三種文件格式：atom、json 還有 rss，建立的模板可以透過專案包根目錄的 _config.yml 去設定模板的 path（template）：</p>
+<figure class="highlight javascript hljs"><figcaption><span>_config.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">feed</span>:</span><br><span class="line">    <span class="hljs-attr">limit</span>: <span class="hljs-number">20</span></span><br><span class="line">    <span class="hljs-attr">order_by</span>: <span class="hljs-string">"-date"</span></span><br><span class="line">    <span class="hljs-attr">tag_dir</span>: <span class="hljs-string">"tag"</span></span><br><span class="line">    <span class="hljs-attr">category_dir</span>: <span class="hljs-string">"category"</span></span><br><span class="line">    <span class="hljs-attr">rss</span>:</span><br><span class="line">        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span></span><br><span class="line">        <span class="hljs-attr">template</span>: <span class="hljs-string">"themes/layout/template/rss.ejs"</span> </span><br><span class="line">        <span class="hljs-attr">output</span>: <span class="hljs-string">"rss.xml"</span></span><br><span class="line">    <span class="hljs-attr">atom</span>:</span><br><span class="line">        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span></span><br><span class="line">        <span class="hljs-attr">template</span>: <span class="hljs-string">"themes/layout/template/atom.ejs"</span></span><br><span class="line">        <span class="hljs-attr">output</span>: <span class="hljs-string">"atom.xml"</span></span><br><span class="line">    <span class="hljs-attr">jsonFeed</span>:</span><br><span class="line">        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span></span><br><span class="line">        <span class="hljs-attr">template</span>: <span class="hljs-string">"themes/layout/template/json.ejs"</span></span><br><span class="line">        <span class="hljs-attr">output</span>: <span class="hljs-string">"feed.json"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="模板內容"><a href="#模板內容" class="headerlink" title="模板內容"></a>模板內容</h3><figure class="highlight javascript hljs"><figcaption><span>atom</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="hljs-string">"1.0"</span>?&gt;</span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">feed</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2005/Atom"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>&lt;%= config.url %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%= config.title %&gt;&lt;%= tag ? ` • Posts by "${tag}" tag` : '' %&gt;&lt;%= category ? ` • Posts by "${category}" category` : '' %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"&lt;%= config.url %&gt;"</span> /&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">updated</span>&gt;</span>&lt;%= moment(lastBuildDate).toISOString() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">updated</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    &lt;%_ for (const { name } of (tags || [])) { _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">term</span>=<span class="hljs-string">"&lt;%= name %&gt;"</span> /&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    &lt;%_ } _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">    &lt;%_ for (const post of posts) { _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">entry</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>&lt;%= post.permalink %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%= post.title %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"&lt;%= post.permalink %&gt;"</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">content</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"html"</span>&gt;</span>&lt;%= post.content %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">content</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        &lt;%_ for (const { name } of (post.tags ? post.tags.toArray() : [])) { _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">term</span>=<span class="hljs-string">"&lt;%= name %&gt;"</span> /&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        &lt;%_ } _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">updated</span>&gt;</span>&lt;%= moment(post.date).toISOString() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">updated</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">entry</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    &lt;%_ } _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">feed</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure></body></html> -->
+        
+        
+        <html><head></head><body><p>RSS 訂閱功能越來越夯，可以即時通知訂閱戶更新的文章內容，增加回流的流量與網站的熱度，chrome 也有提供 RSS reader 的外掛功能直接讀取 RSS 檔案。<br>既然建立好了自己的部落格怎麼可以沒有 RSS XD?</p>
+<p>先前在專案包嘗試使用 hexo-generator-feed 套件，但是建立出來的 atom.xml 檔案會出現亂碼，後來找到一個套件甚至支援 json 與 rss 格式：</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/08/05/zh-tw/hexo-rss/">more</a>
             </p>
         
     
@@ -371,7 +360,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/16/">16</a></li>
+        <li><a class="pagination-link" href="/page/18/">18</a></li>
         
     </ul>
 </nav>

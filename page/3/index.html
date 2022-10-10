@@ -145,63 +145,90 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/08/09/zh-tw/vuetify-slot-vhtml/" itemprop="url">如何在 vuetify 元件中渲染 v-html</a>
+            <a href="/2022/08/28/restful-api-python/" itemprop="url">restful-api-python</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-08-09T04:09:43.000Z" itemprop="datePublished">8月 9 2022</time>
+                <time datetime="2022-08-28T07:29:29.000Z" itemprop="datePublished">8月 28 2022</time>
             
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/vuetify/">vuetify</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            3 分鐘 讀完 (約 385 字)
+            幾秒 讀完 (約 63 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/vuetify-slot-vhtml/0.png" class="" width="800" height="200" title="vuetify-slot-vhtml">
-<p>使用 vuetify 元件時常有的狀況劇就是 - 標題的 UI 設計需要客製化，例如放上 fontawesome 的 icon，但你的元件是 vuetify 父元件（v-select），客製的對象是迴圈後的子元件（選單下的選項 v-selection），這時候要如何成功渲染 fontawesome 的 icon ?</p>
-<figure class="highlight javascript hljs"><figcaption><span>vuetify</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-select</span><br><span class="line">    :items=<span class="hljs-string">"items"</span></span><br><span class="line">    label=<span class="hljs-string">"Standard"</span></span><br><span class="line">&gt;&lt;/v-select&gt;</span><br></pre></td></tr></tbody></table></figure>
+        <!-- <html><head></head><body><h1 id="安裝-python"><a href="#安裝-python" class="headerlink" title="安裝 python"></a>安裝 python</h1><p><a target="_blank" rel="noopener" href="https://www.python.org/downloads/">python 官方網站下載點</a><br>選擇 downloads 並且記得勾選 Add Python to PATH，就可以在終端機輸入<code>python3</code>，並且使用囉！</p>
+<h1 id="public-APIs"><a href="#public-APIs" class="headerlink" title="public APIs"></a>public APIs</h1><p>顧名思義就是開放 API（Open API），</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><h1 id="安裝-python"><a href="#安裝-python" class="headerlink" title="安裝 python"></a>安裝 python</h1><p><a target="_blank" rel="noopener" href="https://www.python.org/downloads/">python 官方網站下載點</a><br>選擇 downloads 並且記得勾選 Add Python to PATH，就可以在終端機輸入<code>python3</code>，並且使用囉！</p>
+<h1 id="public-APIs"><a href="#public-APIs" class="headerlink" title="public APIs"></a>public APIs</h1><p>顧名思義就是開放 API（Open API），</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/08/28/restful-api-python/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
 
-<h1 id="使用-lt-i-gt-lt-i-gt-標籤"><a href="#使用-lt-i-gt-lt-i-gt-標籤" class="headerlink" title="使用 <i></i> 標籤"></a>使用 <code>&lt;i&gt;&lt;/i&gt;</code> 標籤</h1><p>目前可以知道的小撇步就是 fontawesome 的 icon 要使用 vue v-html 渲染，必須使用 <code>&lt;i&gt;&lt;/i&gt;</code> 標籤才能成功，不能放入 vuetify  <code>&lt;v-icon&gt;&lt;/v-icon&gt;</code>，無法正確編譯成 html。</p>
-<h1 id="在父元件內使用-v-slot"><a href="#在父元件內使用-v-slot" class="headerlink" title="在父元件內使用 v-slot"></a>在父元件內使用 v-slot</h1><p>可以知道目前的元件結構會是這樣的：<br>v-select（父）<br>        ｜<br>    v-selection（子）</p>
-<p>選項是這樣：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    { <span class="hljs-attr">value</span>:<span class="hljs-string">"0"</span>,<span class="hljs-attr">text</span>: <span class="hljs-string">"&lt;i class="</span>fab fa-apple<span class="hljs-string">"&gt;&lt;/i&gt; apple"</span> },</span><br><span class="line">    { <span class="hljs-attr">value</span>:<span class="hljs-string">"1"</span>,<span class="hljs-attr">text</span>: <span class="hljs-string">"&lt;i class="</span>fab fa-google-drive<span class="hljs-string">"&gt;&lt;/i&gt; google"</span> },</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
 
-<p>vuetify 父元件（v-select）透過 props items 選項的陣列可以使用 v-slot 轉換成 html 模板傳入：</p>
-<blockquote><p>Override the item and selection slots, and use v-html.<br>參考網址：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/56665185/show-raw-html-in-vuetify-v-select">https://stackoverflow.com/questions/56665185/show-raw-html-in-vuetify-v-select</a></p>
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/08/25/zh-tw/wowjs-in-vue2-typescript/" itemprop="url">在 Vue2 + Typescript 專案中引入 WOW.js</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-25T03:00:37.000Z" itemprop="datePublished">8月 25 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分鐘 讀完 (約 207 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><h1 id="安裝模組"><a href="#安裝模組" class="headerlink" title="安裝模組"></a>安裝模組</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install wowjs</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="引用-css"><a href="#引用-css" class="headerlink" title="引用 css"></a>引用 css</h1><p>這一步要注意的地方是 animate.css 的使用方式，使用 npm install 安裝的 animate.css 會在 wowjs 套件包下的 <code>css/lib/animate.css</code>，而不是透過 npm 安裝的 animate.css：</p>
+<h3 id="wowjs-套件包下的-animate-css"><a href="#wowjs-套件包下的-animate-css" class="headerlink" title="wowjs 套件包下的 animate.css"></a>wowjs 套件包下的 animate.css</h3><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">'css/lib/animate.css'</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="npm-安裝的-animate-css"><a href="#npm-安裝的-animate-css" class="headerlink" title="npm 安裝的 animate.css"></a>npm 安裝的 animate.css</h3><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">'animate.css'</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote class="colorquote danger"><p>值得注意的點就是在於 css 名稱套用上的不同，wowjs 使用上不需要 animate 前綴，而 npm 安裝的需要，如果得搭配滾動視窗位置才套用動畫，需要注意 wowjs 套件包下的 <code>css/lib/animate.css</code> 引用模組方式。</p>
 </blockquote>
 
-<h3 id="vue-2-版本"><a href="#vue-2-版本" class="headerlink" title="vue 2 版本"></a>vue 2 版本</h3><p>由於子元件會有 default 選項，要使用插槽針對 <strong>selection</strong> 修改；<br>而下拉選項要使用插槽針對 <strong>item</strong> 修改。</p>
-<h5 id="寫法-1"><a href="#寫法-1" class="headerlink" title="寫法 1"></a>寫法 1</h5><figure class="highlight javascript hljs"><figcaption><span>slot 範例 1</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-select :items=<span class="hljs-string">'item'</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:item</span>=<span class="hljs-string">'{item}'</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:selection</span>=<span class="hljs-string">'{item}'</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></span><br><span class="line">&lt;/v-select&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-<h5 id="寫法-2"><a href="#寫法-2" class="headerlink" title="寫法 2"></a>寫法 2</h5><figure class="highlight javascript hljs"><figcaption><span>slot 範例 1</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-select :items=<span class="hljs-string">'item'</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:item</span>=<span class="hljs-string">'{item}'</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:selection</span>=<span class="hljs-string">'{item}'</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></span><br><span class="line">&lt;/v-select&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-
-<h3 id="簡潔版本"><a href="#簡潔版本" class="headerlink" title="簡潔版本"></a>簡潔版本</h3><figure class="highlight javascript hljs"><figcaption><span>slot 範例 2</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-select :items=<span class="hljs-string">'item'</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'item'</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">'{item}'</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line">&lt;/v-select&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="vue-3-版本"><a href="#vue-3-版本" class="headerlink" title="vue 3 版本"></a>vue 3 版本</h3><figure class="highlight javascript hljs"><figcaption><span>slot 範例 3</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template #item=<span class="hljs-string">'{item}'</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span> /&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="vuetify-api-說明"><a href="#vuetify-api-說明" class="headerlink" title="vuetify api 說明"></a>vuetify api 說明</h1><p>在每個元件的 api 文件下方都有提供現成的插槽可以使用：</p>
-<img src="/images/vuetify-slot-vhtml/1.png" class="" width="800" height="200" title="vuetify-slot-vhtml"></body></html> -->
+<blockquote><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32963841/article/details/115690823">关于wow.js在vue项目中的使用及遇到的坑（css3效果）</a></p>
+</blockquote></body></html> -->
         
         
-        <html><head></head><body><img src="/images/vuetify-slot-vhtml/0.png" class="" width="800" height="200" title="vuetify-slot-vhtml">
-<p>使用 vuetify 元件時常有的狀況劇就是 - 標題的 UI 設計需要客製化，例如放上 fontawesome 的 icon，但你的元件是 vuetify 父元件（v-select），客製的對象是迴圈後的子元件（選單下的選項 v-selection），這時候要如何成功渲染 fontawesome 的 icon ?</p>
+        <html><head></head><body><h1 id="安裝模組"><a href="#安裝模組" class="headerlink" title="安裝模組"></a>安裝模組</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install wowjs</span><br></pre></td></tr></tbody></table></figure>
+
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/08/09/zh-tw/vuetify-slot-vhtml/">more</a>
+                <a href="/2022/08/25/zh-tw/wowjs-in-vue2-typescript/">more</a>
             </p>
         
     
@@ -217,129 +244,36 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/08/07/zh-tw/git-remove-submodule/" itemprop="url">git 移除 submodule</a>
+            <a href="/2022/08/20/zh-tw/gcp-project-switch/" itemprop="url">gcp-project-switch</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-08-07T08:07:24.000Z" itemprop="datePublished">8月 7 2022</time>
+                <time datetime="2022-08-20T10:52:22.000Z" itemprop="datePublished">8月 20 2022</time>
             
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/git/">git</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            2 分鐘 讀完 (約 247 字)
+            幾秒 讀完 (約 59 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/git-remove-submodule/0.png" class="" width="800" height="200" title="git-remove-submodule">
-<h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
-<img src="/images/git-remove-submodule/1.png" class="" width="800" height="200" title="git-remove-submodule">
+        <!-- <html><head></head><body><p>在 GCP 上部屬不同專案時需要切換專案，根據專案 ID 來切換：</p>
+<h1 id="查看專案-ID"><a href="#查看專案-ID" class="headerlink" title="查看專案 ID"></a>查看專案 ID</h1><figure class="highlight plaintext hljs"><figcaption><span>GCP</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gcloud projects list</span><br><span class="line"></span><br><span class="line">PROJECT_ID: XXX</span><br><span class="line">NAME: baby-bill</span><br><span class="line">PROJECT_NUMBER: XXXXX</span><br></pre></td></tr></tbody></table></figure>
 
-<p>以下記錄自己如何將修改後的 minos 資料夾：</p>
-<h3 id="移除-git-子模塊快取"><a href="#移除-git-子模塊快取" class="headerlink" title="移除 git 子模塊快取"></a>移除 git 子模塊快取</h3><p>以下的指令可以清除子模塊的 git 紀錄：</p>
-<figure class="highlight plaintext hljs"><figcaption><span>git cmd</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached -f ./themes/minos</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="切換專案"><a href="#切換專案" class="headerlink" title="切換專案"></a>切換專案</h1><figure class="highlight plaintext hljs"><figcaption><span>GCP</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcloud config set project `PROJECT ID`</span><br></pre></td></tr></tbody></table></figure></body></html> -->
+        
+        
+            <html><head></head><body><p>在 GCP 上部屬不同專案時需要切換專案，根據專案 ID 來切換：</p>
+<h1 id="查看專案-ID"><a href="#查看專案-ID" class="headerlink" title="查看專案 ID"></a>查看專案 ID</h1><figure class="highlight plaintext hljs"><figcaption><span>GCP</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gcloud projects list</span><br><span class="line"></span><br><span class="line">PROJECT_ID: XXX</span><br><span class="line">NAME: baby-bill</span><br><span class="line">PROJECT_NUMBER: XXXXX</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="重新加入索引"><a href="#重新加入索引" class="headerlink" title="重新加入索引"></a>重新加入索引</h3><p>將剛才取消子模塊的 git 重新排隊至專案包中，我比較懶惰直接整包加：</p>
-<figure class="highlight plaintext hljs"><figcaption><span>git cmd</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></tbody></table></figure>
-
-<p>再檢視一遍 vs code 之後就會看到檔案被追蹤到了！</p>
-</body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/git-remove-submodule/0.png" class="" width="800" height="200" title="git-remove-submodule">
-<h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/08/07/zh-tw/git-remove-submodule/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/08/07/zh-tw/wordpress-get-started/" itemprop="url">開始我的第一個 wordpress 網站</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-08-07T02:02:29.000Z" itemprop="datePublished">8月 7 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            5 分鐘 讀完 (約 677 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><h1 id="第一步-產生-ip-位址"><a href="#第一步-產生-ip-位址" class="headerlink" title="第一步 - 產生 ip 位址"></a>第一步 - 產生 ip 位址</h1><p>首先要租賃一台伺服器提供 ip，可以考慮較優惠的主機廠商：遠振或 bluehost。<br>要注意的是，一個 domain 可以放置很多網站資料夾，並且設定sub-domian。</p>
-<h1 id="第二步-DNS-註冊"><a href="#第二步-DNS-註冊" class="headerlink" title="第二步 - DNS 註冊"></a>第二步 - DNS 註冊</h1><p>ip 設定好之後就可以將網域指過來指定的 DNS 網域商：<br>中華電信提供的 .tw　較便宜，而 godaddy 則是 .com 較便宜。</p>
-<h1 id="第三步-cdn-分散流量"><a href="#第三步-cdn-分散流量" class="headerlink" title="第三步 - cdn 分散流量"></a>第三步 - cdn 分散流量</h1><p>常用的 cdn 廠商像是 cloudflare，可以註冊一個離主機近的（例如東京）cdn 位址，其他供應商例如 sugarhost 很便宜但連線較慢。</p>
-<h3 id="CDN-原理"><a href="#CDN-原理" class="headerlink" title="CDN 原理"></a>CDN 原理</h3><p>cdn 是把 DNS 轉向給 DNS 廠商（cloudflare），透過 DNS 指向將流量倒過去 cloudflare，在第一次 cache 過網站靜態資源後，第二次就可以直接提取cdn 伺服器上 cache　的資源以減少流量費用。</p>
-<h3 id="設定細節"><a href="#設定細節" class="headerlink" title="設定細節"></a>設定細節</h3><h5 id="資源類型"><a href="#資源類型" class="headerlink" title="資源類型"></a>資源類型</h5><p>通常都會設定 <strong>A 類型</strong>以設定網址（url）指向，例如 mailgun 的寄信功能。</p>
-<h5 id="防堵資安問題"><a href="#防堵資安問題" class="headerlink" title="防堵資安問題"></a>防堵資安問題</h5><p>cloudflare 設定其中一樣可以開啟 ddos -&gt; under Attack 來保護網站資源。<br>也可以手動清除特定檔案，例如圖片的 cache 來重新抓取檔案。</p>
-<h1 id="第四步-掛載-wordpress"><a href="#第四步-掛載-wordpress" class="headerlink" title="第四步 - 掛載 wordpress"></a>第四步 - 掛載 wordpress</h1><p>wordpress 可以當作是一個 php 建構而成的後端框架應用，串接方式有兩種：</p>
-<ol>
-<li>直接使用 wordpress hook 來渲染資料（前後端合併）。</li>
-<li>撰寫自己的前端框架（例如 vue），撰寫自己的 API（前後端分離）。</li>
-</ol>
-<h3 id="建立步驟"><a href="#建立步驟" class="headerlink" title="建立步驟"></a>建立步驟</h3><p>到  <a target="_blank" rel="noopener" href="https://tw.wordpress.org/download/">wordpress</a> 官方網站下載檔案，上傳到自己的網域 server。</p>
-<img src="/images/wordpress-get-started/14.png" class="" width="800" height="200" title="wordpress-download">
-<p>上傳後打開網站，會有一個 UI 介面可以直接設定 wordpress 與網站資料，config 需要設定資料庫帳號密碼：</p>
-<p>要注意的是 wordpress 權限身分須從 root 改成 www-data，才能變成網站系統管理員使用 wordpress 後台。</p>
-<!-- 行情 $ 25000 (使用佈景主題)
-客製化算一頁
-定時備份以免網站被駭客
-租 GCP 靜態硬碟 
-google 硬碟版本管理 資源回收桶保留30 天
-flicker
-
-設定 config 檔案 
-比較好的後台c panel 要錢
-dns 代管要 https 要使用 flexible SSL for cloudflare
-
-一類有分類的文章 slug 需要代稱(英文的)
-獨立頁面 客製化
-siteliner 檢查有沒有壞掉的連結與重複的內容
-duplicate page
-報價高一點
-附加的css
-減少做重複的事情
-在 wordpress 上做前後端分離 -->
-</body></html> -->
-        
-        
-        <html><head></head><body><h1 id="第一步-產生-ip-位址"><a href="#第一步-產生-ip-位址" class="headerlink" title="第一步 - 產生 ip 位址"></a>第一步 - 產生 ip 位址</h1><p>首先要租賃一台伺服器提供 ip，可以考慮較優惠的主機廠商：遠振或 bluehost。<br>要注意的是，一個 domain 可以放置很多網站資料夾，並且設定sub-domian。</p>
-<h1 id="第二步-DNS-註冊"><a href="#第二步-DNS-註冊" class="headerlink" title="第二步 - DNS 註冊"></a>第二步 - DNS 註冊</h1><p>ip 設定好之後就可以將網域指過來指定的 DNS 網域商：<br>中華電信提供的 .tw　較便宜，而 godaddy 則是 .com 較便宜。</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/08/07/zh-tw/wordpress-get-started/">more</a>
-            </p>
+<h1 id="切換專案"><a href="#切換專案" class="headerlink" title="切換專案"></a>切換專案</h1><figure class="highlight plaintext hljs"><figcaption><span>GCP</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcloud config set project `PROJECT ID`</span><br></pre></td></tr></tbody></table></figure></body></html>
         
     
     </div>
@@ -380,7 +314,7 @@ duplicate page
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/16/">16</a></li>
+        <li><a class="pagination-link" href="/page/18/">18</a></li>
         
     </ul>
 </nav>
