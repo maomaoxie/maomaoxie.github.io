@@ -145,52 +145,42 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/04/24/zh-tw/laravel-migration/" itemprop="url">Laravel 資料庫版控工具 Migration</a>
+            <a href="/2022/07/10/zh-tw/js-weird-parts-scope-chain/" itemprop="url">克服 Javascript 的奇怪部分 範圍鍊</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-04-24T11:18:30.000Z" itemprop="datePublished">4月 24 2022</time>
+                <time datetime="2022-07-10T07:57:42.000Z" itemprop="datePublished">7月 10 2022</time>
             
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/laravel/">laravel</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            1 分鐘 讀完 (約 213 字)
+            3 分鐘 讀完 (約 414 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/laravel-migration/0.png" class="" width="800" height="200" title="laravel-migration">
-<p>Migration 位於 Laravel 專案包中的 database 資料夾，會使用建立日期來歸檔資料表的結構，為紀錄資料庫版本的版控，方便團隊共同開發資料表。</p>
-<h1 id="建立資料表"><a href="#建立資料表" class="headerlink" title="建立資料表"></a>建立資料表</h1><figure class="highlight javascript hljs"><figcaption><span>建立 migration</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan <span class="hljs-attr">make</span>:migration create_users_table</span><br></pre></td></tr></tbody></table></figure>
-<p>建立成功會顯示：</p>
-<img src="/images/laravel-migration/1.png" class="" width="800" height="200" title="資料庫版控工具 Migration">
-<p>重整之後會出現新的版控檔案，使用建立日期來命名：</p>
-<img src="/images/laravel-migration/2.png" class="" width="300" height="200" title="資料庫版控工具 Migration">
-<p>檔案內容：</p>
-<img src="/images/laravel-migration/3.png" class="" width="800" height="200" title="輸入圖片資料夾名稱">
+        <!-- <html><head></head><body><img src="/images/js-weird-parts-scope-chain/0.png" class="" width="800" height="200" title="scope-chain">
 
-<h1 id="修改資料表"><a href="#修改資料表" class="headerlink" title="修改資料表"></a>修改資料表</h1><p>在 <code>\\wsl$</code> 路徑下執行 migrate 的坑需要以下步驟：</p>
-<h4 id="補上-php-8-0-的-sql-extension"><a href="#補上-php-8-0-的-sql-extension" class="headerlink" title="補上 php 8.0 的 sql-extension"></a>補上 php 8.0 的 sql-extension</h4><p>於 ubuntu 終端機輸入以下指令：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">輸入code</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="將註解-extension-x3D-pdo-mysql-打開"><a href="#將註解-extension-x3D-pdo-mysql-打開" class="headerlink" title="將註解 ;extension=pdo_mysql 打開"></a>將註解 ;extension=pdo_mysql 打開</h4></body></html> -->
+<p>以下探討的幾個議題都離不開函式（function）本身：</p>
+<h1 id="環境變數"><a href="#環境變數" class="headerlink" title="環境變數"></a>環境變數</h1><p>每個執行環境（execution context）都有屬於其中的變數，可以把執行環境想作是一個<strong>空間範圍</strong>，而環境變數都附著在其中，例如全域變數（global variable）會附著在全域物件下，瀏覽器的全域執行環境則是屬於 window 物件，宣告在其中的變數都會隸屬於全域執行環境。</p>
+<h1 id="函式變數"><a href="#函式變數" class="headerlink" title="函式變數"></a>函式變數</h1><p>函式變數在函式被呼叫並觸發後創造了一個獨特的函式執行環境，該函式內有自己的變數，此變數式在函式內<strong>宣告（declaration）</strong>並且創造的，只能在該函式執行環境中可以取得，稱為區域變數（scoped variable），而變數可取用的範圍稱之作用域（scope）。</p>
+<h1 id="範圍鍊"><a href="#範圍鍊" class="headerlink" title="範圍鍊"></a>範圍鍊</h1><p>根據函式的靜態作用域、詞法作用域，也就是坐落的物理位置來向外查找可用的變數（accessible variables），而非呼叫的位置；每個函式的執行環境（execution context）都是獨立的執行堆疊（execution stack），並且都指向外部的執行環境（outer environment），一層一層的鏈結稱為範圍鍊（scope chain）。</p>
+<img src="/images/js-weird-parts-scope-chain/4.png" class="" width="800" height="200" title="scope-chain">
+<blockquote class="colorquote info"><p>值得注意的一點：函式 b 是在函式 a 呼叫並且執行之後才建立了函式 b 的執行環境。</p>
+</blockquote></body></html> -->
         
         
-        <html><head></head><body><img src="/images/laravel-migration/0.png" class="" width="800" height="200" title="laravel-migration">
-<p>Migration 位於 Laravel 專案包中的 database 資料夾，會使用建立日期來歸檔資料表的結構，為紀錄資料庫版本的版控，方便團隊共同開發資料表。</p>
+        <html><head></head><body><img src="/images/js-weird-parts-scope-chain/0.png" class="" width="800" height="200" title="scope-chain">
+
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/04/24/zh-tw/laravel-migration/">more</a>
+                <a href="/2022/07/10/zh-tw/js-weird-parts-scope-chain/">more</a>
             </p>
         
     
@@ -206,94 +196,68 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/04/24/zh-tw/laravel-tailwind/" itemprop="url">在 Laravel 專案導入 tailwind css</a>
+            <a href="/2022/06/05/zh-tw/js-weird-parts-III/" itemprop="url">克服 Javascript 的奇怪部分 單執行緒與同步執行</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-04-24T08:47:56.000Z" itemprop="datePublished">4月 24 2022</time>
+                <time datetime="2022-06-05T08:31:07.000Z" itemprop="datePublished">6月 5 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/tailwind/">tailwind</a>
+            <a class="article-category-link" href="/categories/javascript/">javascript</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            6 分鐘 讀完 (約 863 字)
+            6 分鐘 讀完 (約 938 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/laravel-tailwind/0.jpg" class="" width="800" height="200" title="在 Laravel 專案導入 tailwind css">
-<p>導入 tailwind css 之前有幾個與 Laravel 執行環境有關的雷需要注意：</p>
-<h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>將 Laravel 專案放置在 <code>\\wsl$</code> 路徑內可以更有效率的執行 WSL2，跑起來的速度也快，不過要注意專案環境包相關聯的耦合性，例如 Docker 設定、php 版本對於某些指令的支援度。</p>
-<blockquote class="colorquote info"><p>以下網址介紹了 WSL2 建置的專案具體位置究竟在哪：<br><a target="_blank" rel="noopener" href="https://solidstudio.io/blog/windows-subsystem-for-linux-explained">https://solidstudio.io/blog/windows-subsystem-for-linux-explained</a></p>
-</blockquote>
-<p>由於在 windows 系統中建置 Laravel 需要 Linux 子系統 WSL2 的支持，而使用 artisan 相關的指令都建是使用 Windows Terminal 下的 ubuntu 終端機會更友善些：</p>
-<blockquote class="colorquote info"><p>There is however one great application that makes running the WSL console easier. It’s Windows Terminal and it can be installed from Windows Store. It automatically detects any WSL distributions installed and adds an option to run its console.</p>
-</blockquote>
-<p>至於為什麼要使用 Windows Terminal? 以上說明了<strong>自動偵測 WSL分佈</strong>的功能，當你打開終端機會發現他自動偵測到你使用 WSL 建置該專案包的路徑，甚至在終端機輸入 wsl 就能直接切換該系統環境。</p>
-<h3 id="系統包補丁"><a href="#系統包補丁" class="headerlink" title="系統包補丁"></a>系統包補丁</h3><p>由於每個終端機的環境檔案包是沒有共享的，你在 powershell 很開心的安裝了一包 php，之後當你切換到 ubuntu 會發現，php 指令居然找不到?? 因為你得重裝，導入 tailwind 至 WSL 專案需要補上：</p>
-<h4 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h4><p>安裝 node 在 ubuntu的步驟</p>
-<ol>
-<li><p>新增Node.js PPA</p>
-<blockquote class="colorquote info"><p>PPA 有點像是系統軟體包的 package.json，記錄著軟體及其版本信息，當你運行 sudo apt update 命令時 apt 工具會根據 /etc/apt 目錄中的 sources.list 文件來決定版本是否升級。</p>
-</blockquote>
-<figure class="highlight javascript hljs"><figcaption><span>安裝 node PPA</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install curl</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight javascript hljs"><figcaption><span>安裝 LTS 版本</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL <span class="hljs-attr">https</span>:<span class="hljs-comment">//deb.nodesource.com/setup_12.x | sudo -E bash -</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>安裝Node.js</p>
-<figure class="highlight javascript hljs"><figcaption><span>安裝 Node.js 至 Ubuntu</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>查看一下版本號確保安裝成功</p>
-</li>
+        <!-- <html><head></head><body><img src="/images/js-weird-parts-single-threaded/0.png" class="" width="800" height="200" title="js-weird-parts-single-threaded">
+<p>這一個章節要來講解 JavaScript 的幾個觀念。</p>
+<h1 id="單執行緒（Single-Threaded）"><a href="#單執行緒（Single-Threaded）" class="headerlink" title="單執行緒（Single Threaded）"></a>單執行緒（Single Threaded）</h1><p><strong>一次一件事</strong>是重點。<br>這個特性不是瀏覽器的特性，瀏覽器一次可能同時處理多件事情，JavaScript 引擎則是單執行緒的，就像排隊買早餐，老闆娘一次只能處理一位客人，而 JavaScript 也是一次只處理一項指令。</p>
+<h1 id="同步執行（Synchronous）"><a href="#同步執行（Synchronous）" class="headerlink" title="同步執行（Synchronous）"></a>同步執行（Synchronous）</h1><p><strong>順序</strong>是重點。<br>事情有先後順序，按照順序執行，一次執行一行（或者說一個單元的程式碼，可能是一個陳述式或表達式）。</p>
+<h1 id="呼叫函式（Function-Invocation）"><a href="#呼叫函式（Function-Invocation）" class="headerlink" title="呼叫函式（Function Invocation）"></a>呼叫函式（Function Invocation）</h1><p>觸發或執行一個函式，使用的符號為大括號（parenthesis）。<br>JavaScript 引擎在執行函式呼叫時，會發生幾件事情延續前面的章節：</p>
+<figure class="highlight javascript hljs"><figcaption><span>呼叫函式</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">b</span> () {</span><br><span class="line">}</span><br><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">a</span> () {</span><br><span class="line">  <span class="title function_">b</span>();</span><br><span class="line">}</span><br><span class="line"><span class="title function_">a</span>();</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="創造階段"><a href="#創造階段" class="headerlink" title="創造階段"></a>創造階段</h2><ol>
+<li>全域執行環境（Global Execution Context）首先被創造。</li>
+<li>全域物件（Global object）被創造。</li>
+<li>全域 this 被創造。</li>
+<li>開始編譯階段（Parsing），編譯器巡過一遍所有程式碼發現了函式 b 與 a，在記憶體創造兩個函式的空間並且存放整個函式內容。</li>
 </ol>
-<h1 id="安裝-tailwind-css"><a href="#安裝-tailwind-css" class="headerlink" title="安裝 tailwind css"></a>安裝 tailwind css</h1><p>至 vscode terminal 或者使用 windows terminal Ubuntu 都可以安裝 tailwind css：</p>
-<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><figure class="highlight javascript hljs"><figcaption><span>安裝 tailwind</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D tailwindcss postcss autoprefixer</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight javascript hljs"><figcaption><span>安裝Node.js至Ubuntu</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx tailwindcss init</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/js-weird-parts-III/1.png" class="" width="400" height="200" title="js-weird-parts-III">
 
-<h3 id="修改-config-加入-plugin"><a href="#修改-config-加入-plugin" class="headerlink" title="修改 config 加入 plugin"></a>修改 config 加入 plugin</h3><figure class="highlight javascript hljs"><figcaption><span>webpack.mix.js</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mix.<span class="title function_">js</span>(<span class="hljs-string">"resources/js/app.js"</span>, <span class="hljs-string">"public/js"</span>)</span><br><span class="line">  .<span class="title function_">postCss</span>(<span class="hljs-string">"resources/css/app.css"</span>, <span class="hljs-string">"public/css"</span>, [	</span><br><span class="line">    <span class="hljs-built_in">require</span>(<span class="hljs-string">"tailwindcss"</span>), <span class="hljs-comment">// &lt;-- 加入這行</span></span><br><span class="line">  ]);</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="導入全域-css"><a href="#導入全域-css" class="headerlink" title="導入全域 css"></a>導入全域 css</h3><p>在 <code>resources/css/app.css</code> 檔案中加入以下：</p>
-<figure class="highlight javascript hljs"><figcaption><span>resources/css/app.css</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@tailwind base;</span><br><span class="line">@tailwind components;</span><br><span class="line">@tailwind utilities;</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="設定-tailwind-config-js"><a href="#設定-tailwind-config-js" class="headerlink" title="設定 tailwind.config.js"></a>設定 tailwind.config.js</h3><figure class="highlight javascript hljs"><figcaption><span>resources/css/app.css</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="hljs-property">exports</span> = { </span><br><span class="line">  <span class="hljs-attr">content</span>: [	</span><br><span class="line">    <span class="hljs-string">"./resources/**/*.blade.php"</span>,  </span><br><span class="line">    <span class="hljs-string">"./resources/**/*.js"</span>,	</span><br><span class="line">    <span class="hljs-string">"./resources/**/*.vue"</span>,  ],</span><br><span class="line">  <span class="hljs-attr">theme</span>: {	</span><br><span class="line">    <span class="hljs-attr">extend</span>: {},</span><br><span class="line">  }, </span><br><span class="line">  <span class="hljs-attr">plugins</span>: [],</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="npm-install-將-mix-module-裝上"><a href="#npm-install-將-mix-module-裝上" class="headerlink" title="npm install 將 mix module 裝上"></a>npm install 將 mix module 裝上</h3><p>mix 指令可以打包 tailwind css 的預處理器編譯為 css，但不會自動安裝，需要 npm install：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="驗證是否成功"><a href="#驗證是否成功" class="headerlink" title="驗證是否成功"></a>驗證是否成功</h3><ol>
-<li><p>在 views/layout/layout.blade.php 檔案導入全域 css：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link href=<span class="hljs-string">"{{ asset('css/app.css') }}"</span> rel=<span class="hljs-string">"stylesheet"</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="執行階段"><a href="#執行階段" class="headerlink" title="執行階段"></a>執行階段</h2><ol>
+<li><p>整個程式碼的記憶體準備完畢後，開始執行程式。</p>
 </li>
-<li><p>加上 tailwind css 的 class</p>
-<figure class="highlight javascript hljs"><figcaption><span>resources/css/app.css</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@tailwind base;</span><br><span class="line">@tailwind components;</span><br><span class="line">@tailwind utilities;</span><br><span class="line"></span><br><span class="line">.<span class="hljs-property">btn</span>-primary {</span><br><span class="line">  @apply py-<span class="hljs-number">2</span> px-<span class="hljs-number">4</span> bg-blue-<span class="hljs-number">500</span> text-white font-semibold rounded-lg shadow-md <span class="hljs-attr">hover</span>:bg-blue-<span class="hljs-number">700</span> <span class="hljs-attr">focus</span>:outline-none <span class="hljs-attr">focus</span>:ring-<span class="hljs-number">2</span> <span class="hljs-attr">focus</span>:ring-blue-<span class="hljs-number">400</span> <span class="hljs-attr">focus</span>:ring-opacity-<span class="hljs-number">75</span> transition-all;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<li><p>編譯器解析到<strong>函式 a</strong>被呼叫，立即於全域執行環境上方，產生並堆疊一個函式 a 的執行環境（Execution Context），放進<strong>執行佇列堆（Execution Stack）</strong>中，每個執行環境都有自己得記憶體空間存放著變數或函式。</p>
+<img src="/images/js-weird-parts-III/2.png" class="" width="400" height="200" title="js-weird-parts-III">
 </li>
-<li><p>套用在 blade 檔案中</p>
-<figure class="highlight javascript hljs"><figcaption><span>welcome.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">  &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">"container mx-auto"</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello you!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span></span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex flex-wrap"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"md:w-3/4.w-full"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"w-16 md:w-32 lg:w-48 transition-all bg-fuchsia-300 hover:bg-fuchsia-600 py-5 text-pink-800"</span>&gt;</span>123<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-primary"</span>&gt;</span>My button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"md:w-1/4.w-full"</span>&gt;</span>aside<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">@endsection</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>mix 指令打包</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run mix</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>成功導入畫面</p>
-<img src="/images/laravel-tailwind/1.png" class="" width="800" height="200" title="tailwind 打包成功畫面">
-<img src="/images/laravel-tailwind/2.png" class="" width="800" height="200" title="tailwind 打包成功畫面"></li>
+<li><p>最上方的執行佇列會優先執行，進入函式 a 的執行環境（Execution Context）並且解析到函式 b，程序暫停，立即於函式 a 的執行環境上方，產生並堆疊一個函式 b 的執行環境（Execution Context），放進<strong>執行佇列堆（Execution Stack）</strong>中。</p>
+<img src="/images/js-weird-parts-III/3.png" class="" width="400" height="200" title="js-weird-parts-III"></li>
 </ol>
+<p>以上執行階段也可以拆分成好幾個創造（執行環境），與執行（執行佇列堆最上方的執行環境）階段，在當下的執行環境執行過程中，只要觸發另一個函式，執行暫停然後創造（執行環境）、與執行（執行佇列堆最上方的執行環境），而下方的程式碼不會被解析，除非該執行環境執行完畢並且離開執行佇列堆（Execution Stack）後才會繼續逐行執行。</p>
+<blockquote class="colorquote Info"><p>Everytime a function is called, a new execution context is created for that function, the <code>this</code> variable is created for that function, the variables in it were set up in the creation phase, then the code is executed line by line.<br>whatever is on the top of the execution stack, is currently running synchronously.</p>
+</blockquote>
+
+<p>重點整理：<br>當一個函式被觸發或是呼叫，JS 引擎會創造一個屬於該函式的執行環境（execution context）並且放置在執行緒的最上方等待被執行，而該堆疊中具有該函式獨有的執行環境與 This，開始執行並且完成後離開堆疊中（pop out）繼續執行下一個堆疊，只要解析到新的函式被呼叫就會反覆以上行為，直到堆疊不斷（pop out）剩下全域執行環境本身為止。</p>
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/laravel-tailwind/0.jpg" class="" width="800" height="200" title="在 Laravel 專案導入 tailwind css">
-<p>導入 tailwind css 之前有幾個與 Laravel 執行環境有關的雷需要注意：</p>
+        <html><head></head><body><img src="/images/js-weird-parts-single-threaded/0.png" class="" width="800" height="200" title="js-weird-parts-single-threaded">
+<p>這一個章節要來講解 JavaScript 的幾個觀念。</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/04/24/zh-tw/laravel-tailwind/">more</a>
+                <a href="/2022/06/05/zh-tw/js-weird-parts-III/">more</a>
             </p>
         
     
@@ -309,56 +273,61 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/04/10/zh-tw/laravel-routes-namespace/" itemprop="url">Laravel 命名路由</a>
+            <a href="/2022/06/04/zh-tw/js-weird-parts-II/" itemprop="url">克服 Javascript 的奇怪部分 Hoisting</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-04-10T10:42:15.000Z" itemprop="datePublished">4月 10 2022</time>
+                <time datetime="2022-06-04T08:28:20.000Z" itemprop="datePublished">6月 4 2022</time>
             
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/laravel/">laravel</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            2 分鐘 讀完 (約 289 字)
+            7 分鐘 讀完 (約 1092 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/laravel-routes-namespace/0.png" class="" width="800" height="200" title="Laravel 命名路由">
-<p>當路由越來越多，也越複雜甚至有巢狀結構的時候，相對路徑就會變得複雜不直覺，這時候可以借用 laravel 的命名路由工具，以及 blade 引擎的 <code>route 方法</code> 來輕鬆渲染路由：</p>
-<h1 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a>命名路由</h1><p>在路由檔案 <code>routes/web.php</code> 中訪問 <code>name</code> 屬性方法並傳入制定好的路由專屬名稱：</p>
-<figure class="highlight php hljs"><figcaption><span>web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'index'</span>])-&gt;<span class="title function_ invoke__">name</span>(<span class="hljs-string">'index.index'</span>);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/about/about'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'about'</span>])-&gt;<span class="title function_ invoke__">name</span>(<span class="hljs-string">'index.about'</span>);</span><br></pre></td></tr></tbody></table></figure>
+        <!-- <html><head></head><body><img src="/images/js-weird-parts-II/0.png" class="" width="800" height="200" title="js-weird-parts-II">
+<p>課程作者提到，<strong>Hoisting</strong> 大約是 JavaScript 裡最奇怪的行為了，而且是其他語言無法做到的特性，來了解一下怎麼回事吧！</p>
+<h1 id="Hoisting"><a href="#Hoisting" class="headerlink" title="Hoisting"></a>Hoisting</h1><p>這一段程式碼若在其他語言執行可是會發生錯誤的！但是在 JavaScript 裡卻可以安然無恙：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">b</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-string">'123'</span>;</span><br><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">b</span> () {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'b is called!'</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/js-weird-parts-II/1.png" class="" width="800" height="200" title="js-weird-parts-II">
+<p>a 竟然在還未被宣告以前使用，會回傳 undefined；b 函式正常運作。<br>這就是 JavaScript 的 Hoisting 在搞鬼，但不要被 Hoisting 的提升之意混淆了，該現象並非程式碼被靜態的（physically）提升到最上方，我們來解析一下編譯器是如何執行這一段程式碼：</p>
+<h1 id="執行環境執行的兩階段"><a href="#執行環境執行的兩階段" class="headerlink" title="執行環境執行的兩階段"></a>執行環境執行的兩階段</h1><blockquote><p>There are two phases when it came to the execution context within the Javacript engine:<br>The first phase was the creation phase, when it sets up the variables and functions in memory. And the second phase was the execution phase, all those things already being set up, so now it runs your code line by line.</p>
+</blockquote>
 
-<hr>
-<h1 id="blade-檔案渲染路由"><a href="#blade-檔案渲染路由" class="headerlink" title="blade 檔案渲染路由"></a>blade 檔案渲染路由</h1><p>將制定好的路由名稱由 name 方法傳入、blade 引擎透過 route 方法接收：</p>
-<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;a href=<span class="hljs-string">"{{ route('index.index') }}"</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">"underline"</span>&gt;<span class="title class_">Home</span>&lt;/a&gt;|</span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ route('index.about') }}"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"underline"</span>&gt;</span>About<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span></span><br><span class="line">...</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-routes-namespace/1.png" class="" width="800" height="200" title="Laravel 命名路由">
+<h2 id="創造階段"><a href="#創造階段" class="headerlink" title="創造階段"></a>創造階段</h2><p>在第一個章節有提到，Javascript 並非是完全直譯的語言，其中一個佐證就是 Hoisting 的行為，如果程式碼真的是逐行翻譯然後執行，它是怎麼知道變數 a 與函式 b 會被創建的呢？</p>
+<p>這裡就能理解編譯器在執行程式以前仍存在一段<strong>編譯完成才執行</strong>的過程：<br>Javascript 引擎先將整個程式碼審視一遍，找出所有具有名稱（variable name）、<strong>並非</strong>透過區塊作用域（Block scope）的關鍵字 const 與 let ，而是 var 所宣告的的值或函式找出來，然後歸納：誰是變數就給予一個記憶體空間，存放著未定義的值（undefined）；誰是函式就給予一個記憶體空間，存放著整個函式的內容。</p>
+<img src="/images/js-weird-parts-II/2.png" class="" width="800" height="200" title="js-weird-parts-II">
 
-<p>修改路由結構測試抓取的正確性：</p>
-<figure class="highlight php hljs"><figcaption><span>web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'index'</span>])-&gt;<span class="title function_ invoke__">name</span>(<span class="hljs-string">'index.index'</span>);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/about'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'about'</span>])-&gt;<span class="title function_ invoke__">name</span>(<span class="hljs-string">'index.about'</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p>也就是說創造階段可以這樣理解：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a;</span><br><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">b</span> () {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'b is called!'</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<p>可以看到渲染結果如預期更新了：</p>
-<img src="/images/laravel-routes-namespace/2.png" class="" width="800" height="200" title="Laravel 命名路由">
-
-<p>透過 blade 引擎封裝的 <code>route 方法</code> 解決了在腦中思考相對路徑結構的煩惱，棒！</p>
+<p>變數 a 與函式 b 都各自被建立一個記憶體空間，接著存放著對應的值，變數 a 的記憶體空間內存放了 <code>undefined</code>，函式 b 的記憶體空間則直接放置整個函式內容。<br>關鍵就在變數的創造階段，只是<strong>宣告（declared）</strong>而已，這個階段 JavaScript 引擎並不清楚變數 a 將來的值會是甚麼，直到執行階段才會被<strong>指派（assigned）</strong>。</p>
+<h2 id="undefined-不等於-not-defined"><a href="#undefined-不等於-not-defined" class="headerlink" title="undefined 不等於 not defined"></a>undefined 不等於 not defined</h2><p>當變數通過 var 關鍵字宣告，記憶體就被建立並且放入 <code>undefined</code> 的值，如果變數未宣告就使用，則瀏覽器會噴錯誤訊息：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="hljs-comment">// Uncaught ReferenceError: a is not defined</span></span><br></pre></td></tr></tbody></table></figure>
+<p>這是瀏覽器表示：嘿！我在任何記憶體都找不到這個名稱的參照，甚至連 <code>undefined</code> 都不是。</p>
+<h3 id="小知識"><a href="#小知識" class="headerlink" title="小知識"></a>小知識</h3><blockquote class="colorquote info"><p>Since undefined is a longer string than null, the JIT compiler has to save 4 bytes more to memory when using undefined instead of null while parsing. Consider that memory aswell.</p>
+</blockquote>
+<p><code>undefined</code> 並非不存在的值，它是 Javacript 中的原始型別，也是純值的一種，甚至占了記憶體 4 個 bytes ，比空值<code>null</code>還要多。</p>
+<h2 id="良好的-coding-習慣"><a href="#良好的-coding-習慣" class="headerlink" title="良好的 coding 習慣"></a>良好的 coding 習慣</h2><h4 id="X-在宣告以前使用變數"><a href="#X-在宣告以前使用變數" class="headerlink" title="(X)在宣告以前使用變數"></a>(X)在宣告以前使用變數</h4><p>為了避免在執行過程被 Hoisting 汙染，最好養成先宣告後調用或賦值的習慣，可以避免一些錯誤發生，這也是為什麼 Eslint 或 Airbnb 等大宗規範都建議的撰寫規則。</p>
+<h4 id="X-將變數賦值為-undefined"><a href="#X-將變數賦值為-undefined" class="headerlink" title="(X)將變數賦值為 undefined"></a>(X)將變數賦值為 undefined</h4><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="hljs-literal">undefined</span>;</span><br></pre></td></tr></tbody></table></figure>
+<p>倘若你這麼做了，會在除錯的時候難以辨認是 Javacript 引擎設定的還是後來你撰寫的程式所賦值的。</p>
+<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>若要將 Hoisting 給予一個較好的解釋，我想就是「創建初始化」，給予一個初始的值以便後續利用：函式就直接賦值，變數的則填補上執行等號（=）以後的值，不過那已經是下一個<strong>執行階段</strong>的任務了。</p>
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/laravel-routes-namespace/0.png" class="" width="800" height="200" title="Laravel 命名路由">
-<p>當路由越來越多，也越複雜甚至有巢狀結構的時候，相對路徑就會變得複雜不直覺，這時候可以借用 laravel 的命名路由工具，以及 blade 引擎的 <code>route 方法</code> 來輕鬆渲染路由：</p>
+        <html><head></head><body><img src="/images/js-weird-parts-II/0.png" class="" width="800" height="200" title="js-weird-parts-II">
+<p>課程作者提到，<strong>Hoisting</strong> 大約是 JavaScript 裡最奇怪的行為了，而且是其他語言無法做到的特性，來了解一下怎麼回事吧！</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/04/10/zh-tw/laravel-routes-namespace/">more</a>
+                <a href="/2022/06/04/zh-tw/js-weird-parts-II/">more</a>
             </p>
         
     
@@ -402,7 +371,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/14/">14</a></li>
+        <li><a class="pagination-link" href="/page/16/">16</a></li>
         
     </ul>
 </nav>

@@ -145,72 +145,57 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/03/12/zh-tw/short-circuit-and-optional-chaining/" itemprop="url">短路解析 &amp; 可選鍊修飾符</a>
+            <a href="/2022/04/10/zh-tw/laravel-public/" itemprop="url">Laravel public 靜態檔案</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-03-12T05:55:02.000Z" itemprop="datePublished">3月 12 2022</time>
+                <time datetime="2022-04-10T09:11:18.000Z" itemprop="datePublished">4月 10 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/javascript/">javascript</a>
+            <a class="article-category-link" href="/categories/laravel/">laravel</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            7 分鐘 讀完 (約 1032 字)
+            3 分鐘 讀完 (約 376 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/short-circuit-and-optional-chaining/0.png" class="" width="800" height="200" title="短路解析與可選練修飾符">
-<p>在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說<code>undefined</code>（未定義）、<code>null</code>（空值）或者是<code>0</code>（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。</p>
-<h1 id="理解真假值"><a href="#理解真假值" class="headerlink" title="理解真假值"></a>理解真假值</h1><p>先介紹 truthy(真值) 與 falsy(假值)：</p>
-<ul>
-<li>truthy：非 falsy 的值，或者是表達式結果為 <code>true</code></li>
-<li>falsy：<code>undefined</code>、<code>null</code>、非數字 <code>NaN</code>、數字 <code>0</code>、數字 <code>-0</code>、BigInt <code>0n</code>、空字串<code>''</code>(字串長度為 0)，或者是表達式結果為 <code>false</code></li>
-</ul>
-<p>以下介紹幾種邏輯判斷的捷徑：</p>
-<h1 id="邏輯運算子-amp-amp"><a href="#邏輯運算子-amp-amp" class="headerlink" title="邏輯運算子 &amp;&amp; ||"></a>邏輯運算子 <code>&amp;&amp;</code> <code>||</code></h1><p>舉個栗子</p>
-<figure class="highlight javascript hljs"><figcaption><span>邏輯運算子</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> numberAND = <span class="hljs-number">6</span></span><br><span class="line"><span class="hljs-keyword">const</span> numberOR = -<span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-keyword">if</span>(numberAND &gt; <span class="hljs-number">5</span> &amp;&amp; numberAND &lt; <span class="hljs-number">7</span>) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'哎呀'</span>)</span><br><span class="line">}</span><br><span class="line"><span class="hljs-keyword">if</span>(numberOR &gt; <span class="hljs-number">5</span> || numberOR &lt; <span class="hljs-number">7</span>) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'黑唷'</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+        <!-- <html><head></head><body><img src="/images/laravel-public/0.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+<p>雖然檔案打包是現今網頁開發的趨勢，但網站難免需要引用未經編譯的靜態檔案，以避免編譯後的亂數檔名都要經過打包程序才能使用，Laravel 專案包中的 <code>public</code> 資料夾就是靜態檔案的去處，與之相對應會被壓縮及打包的動態檔案則要放置在 <code>resources</code> 資料中：</p>
+<h1 id="靜態-css-檔案"><a href="#靜態-css-檔案" class="headerlink" title="靜態 css 檔案"></a>靜態 css 檔案</h1><p>在 public/css/style.css 存放網站的主要設計檔，並且在主模板 <code>resources/views/layout/layout.blade.php</code> 中引用該靜態檔案之路徑在 <code>&lt;link&gt;</code> 中：</p>
+<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/style.css"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  ...</span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
+<p>但問題來了！當路由來到巢狀或雙層的時候，絕對路徑的悲劇就會發生，若我們將路由改成：</p>
+<figure class="highlight php hljs"><figcaption><span>web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/about/about'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'about'</span>]);</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-public/1.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+<p>你會看到 css 檔案的路徑改變成 <code>http://localhost:3000/about/css/style.css</code>，因為找不到 about 底下的 css 檔案，所以整個 style 返回 404：</p>
+<img src="/images/laravel-public/2.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
 
-<h3 id="人類的理解"><a href="#人類的理解" class="headerlink" title="人類的理解"></a>人類的理解</h3><p>當 numberAND 大於 5 且<strong>同時</strong>小於 7 值執行 <code>console.log('符合 &amp;&amp;')</code>；當 numberOR 大於 5 <strong>或者</strong>小於 7 值執行 <code>console.log('符合 ||')</code></p>
-<h3 id="電腦的理解"><a href="#電腦的理解" class="headerlink" title="電腦的理解"></a>電腦的理解</h3><p>當左邊的表達式 <code>numberAND &gt; 5</code> 結果為 <code>false</code> 則跳過右邊不執行 <code>numberAND &lt; 7</code>，直接<strong>跳出</strong>程式。<br>當左邊的表達式 <code>numberOR &gt; 5</code> 結果為 <code>true</code> 則跳過右邊不執行 <code>numberAND &lt; 7</code>，直接<strong>進入</strong>程式。</p>
-<p>結論為，當左邊的表達式符合條件，<code>&amp;&amp;</code> 的 if 直接跳出；<code>||</code> 的 if 直接進入。<br>來理一理箇中原由吧！</p>
-<h1 id="短路解析-Short-Circuit"><a href="#短路解析-Short-Circuit" class="headerlink" title="短路解析(Short Circuit)"></a>短路解析(Short Circuit)</h1><p>短路我個人覺得沒有捷徑來得好懂，短路比較讓人聯想為損毀或壞掉的電子產品，而捷徑則代表透過偷吃步或者抄捷徑的方式以取得一樣的結果。這裡的短路較接近後者，js 運行上的偷吃步：</p>
-<h3 id="amp-amp-的短路解析"><a href="#amp-amp-的短路解析" class="headerlink" title="&amp;&amp; 的短路解析"></a><code>&amp;&amp;</code> 的短路解析</h3><p>當左邊的表達式為 <code>false</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
-<h3 id="的短路解析"><a href="#的短路解析" class="headerlink" title="|| 的短路解析"></a><code>||</code> 的短路解析</h3><p>當左邊的表達式為 <code>true</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
-<p>以上可以知道 js 執行完左邊的表達式之後，若符合條件則直接跳過右邊的表達式(不解析亦不執行)，相對來講當開發人員在理解短路解析時就可以按照這樣的邏輯去快速判斷結果。</p>
-<p>速記法：AND<code>false</code>跳出、OR<code>true</code>進入(執行)。</p>
-<blockquote><p>if you use <code>||</code> to provide some default value to another variable foo, you may encounter unexpected behaviors if you consider some falsy values as usable (e.g., <code>''</code> or <code>0</code>). </p>
-</blockquote>
+<hr>
+<h1 id="url-function"><a href="#url-function" class="headerlink" title="url function"></a>url function</h1><p>你想到的問題 Laravel 怎麼會漏掉？這時候可以使用 blade 模板引擎包裝好的 <code>url 方法</code>，傳入相對靜態檔案路徑當參數,，來抓取靜態檔案的正確路徑：</p>
+<figure class="highlight php hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="hljs-string">"stylesheet"</span> href=<span class="hljs-string">"{{ url('css/style.css') }}"</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
 
-<h1 id="可選鍊修飾符-Optional-chaining"><a href="#可選鍊修飾符-Optional-chaining" class="headerlink" title="可選鍊修飾符(Optional chaining)"></a>可選鍊修飾符(Optional chaining)</h1><p>舉個栗子</p>
-<figure class="highlight javascript hljs"><figcaption><span>可選鍊修飾符</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> user = {};</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>);</span><br><span class="line"><span class="hljs-comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>.<span class="hljs-property">street</span>);</span><br><span class="line"><span class="hljs-comment">// error</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>?.<span class="hljs-property">street</span>);</span><br><span class="line"><span class="hljs-comment">// undefined</span></span><br></pre></td></tr></tbody></table></figure>
-<p>在這個範例中，user 物件的清單中有部分的使用者缺少了 <code>address</code> 這個屬性，但是大部分的使用者都具有該屬性時，就可以使用可選鍊修飾符來避免程式噴錯而中斷，但是需注意避免<strong>過度使用</strong>可選鍊修飾符</p>
-<h1 id="空值合併運算子-Nullish-coalescing-operator"><a href="#空值合併運算子-Nullish-coalescing-operator" class="headerlink" title="空值合併運算子(Nullish coalescing operator) ??"></a>空值合併運算子(Nullish coalescing operator) <code>??</code></h1><p>舉個栗子</p>
-<figure class="highlight javascript hljs"><figcaption><span>空值合併運算子</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">notNullish</span> (a, b) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(a ?? b);</span><br><span class="line">}</span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-literal">null</span>); <span class="hljs-comment">// null</span></span><br><span class="line">notNullish (<span class="hljs-literal">null</span>, <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// undefined</span></span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-number">0</span>); <span class="hljs-comment">// 0</span></span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-string">''</span>); <span class="hljs-comment">// ''</span></span><br></pre></td></tr></tbody></table></figure>
+<p>運作正常：</p>
+<img src="/images/laravel-public/3.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
 
-<ul>
-<li>ES2020（ES11）提供的「空值合併運算子」，支援度需要搭配 babel 套件。</li>
-<li><code>??</code>常常與邏輯運算子 <code>||</code> 比較，前者返回非 <code>undefined</code> 與 <code>null</code> 的表達式，後者返回非 falsy 的表達式。過濾的條件上有區別，可以依照需求使用。</li>
-</ul>
-<h3 id="的短路解析-1"><a href="#的短路解析-1" class="headerlink" title="?? 的短路解析"></a><code>??</code> 的短路解析</h3><p>當左邊的表達式為 非 <code>undefined</code> 與 <code>null</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
+
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/short-circuit-and-optional-chaining/0.png" class="" width="800" height="200" title="短路解析與可選練修飾符">
-<p>在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說<code>undefined</code>（未定義）、<code>null</code>（空值）或者是<code>0</code>（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。</p>
+        <html><head></head><body><img src="/images/laravel-public/0.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+<p>雖然檔案打包是現今網頁開發的趨勢，但網站難免需要引用未經編譯的靜態檔案，以避免編譯後的亂數檔名都要經過打包程序才能使用，Laravel 專案包中的 <code>public</code> 資料夾就是靜態檔案的去處，與之相對應會被壓縮及打包的動態檔案則要放置在 <code>resources</code> 資料中：</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/03/12/zh-tw/short-circuit-and-optional-chaining/">more</a>
+                <a href="/2022/04/10/zh-tw/laravel-public/">more</a>
             </p>
         
     
@@ -226,313 +211,150 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/03/01/zh-tw/http-status-code/" itemprop="url">HTTP Status code 狀態碼解析</a>
+            <a href="/2022/04/10/zh-tw/laravel-layout/" itemprop="url">Laravel 善用 layout 避免重複的模板</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-03-01T14:27:36.000Z" itemprop="datePublished">3月 1 2022</time>
+                <time datetime="2022-04-10T06:54:20.000Z" itemprop="datePublished">4月 10 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/http/">http</a>
+            <a class="article-category-link" href="/categories/laravel/">laravel</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 540 字)
+            4 分鐘 讀完 (約 650 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/http-status-code/0.png" class="" width="800" height="200" title="[http-status-code [http-status-code]]">
-<p>圖片來源：<a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
-<p>常常看到網站出現 404 找不到，或者是後端噴錯顯示了 Bad Gateway 卻不曉得箇中原因，而前後端打 API 也必須要讀懂狀態碼（HTTP Status code）代表的意涵，才能更有效率的除錯找出原因，以下是常見的狀態碼：</p>
-<h1 id="Level-200-發送成功"><a href="#Level-200-發送成功" class="headerlink" title="Level 200 發送成功"></a>Level 200 發送成功</h1><table>
-<thead>
-<tr>
-<th align="left">狀態碼</th>
-<th align="right">意涵</th>
-<th align="center">情境</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">200</td>
-<td align="right">OK</td>
-<td align="center">API 要求與回應都OK</td>
-</tr>
-<tr>
-<td align="left">201</td>
-<td align="right">Created</td>
-<td align="center">成功建立了資料，例如 facebook 建立貼文</td>
-</tr>
-<tr>
-<td align="left">203</td>
-<td align="right">Http proxy</td>
-<td align="center">該伺服器是代理的伺服器，非原始 Origin</td>
-</tr>
-<tr>
-<td align="left">204</td>
-<td align="right">No Content</td>
-<td align="center">伺服器成功處理了請求，沒有返回任何內容</td>
-</tr>
-</tbody></table>
-<h1 id="Level-400-要求內容有誤"><a href="#Level-400-要求內容有誤" class="headerlink" title="Level 400 要求內容有誤"></a>Level 400 要求內容有誤</h1><table>
-<thead>
-<tr>
-<th align="left">狀態碼</th>
-<th align="right">意涵</th>
-<th align="center">情境</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">400</td>
-<td align="right">Bad Request</td>
-<td align="center">發送要求但是需要的參數沒填、填寫的參數不符合規則，這個錯誤是客戶端造成的</td>
-</tr>
-<tr>
-<td align="left">401</td>
-<td align="right">Unauthorized</td>
-<td align="center">身分未明或是瀏覽的權限不夠、沒有登入會員或付費</td>
-</tr>
-<tr>
-<td align="left">403</td>
-<td align="right">Forbidden</td>
-<td align="center">黑名單而被禁止該項服務</td>
-</tr>
-<tr>
-<td align="left">404</td>
-<td align="right">Not Found</td>
-<td align="center">找不到該網站的某頁面</td>
-</tr>
-<tr>
-<td align="left">409</td>
-<td align="right">Conflict</td>
-<td align="center">服務流量過大導致衝突，或帳號/Email已被使用</td>
-</tr>
-</tbody></table>
-<h1 id="Level-500-伺服器有誤"><a href="#Level-500-伺服器有誤" class="headerlink" title="Level 500 伺服器有誤"></a>Level 500 伺服器有誤</h1><table>
-<thead>
-<tr>
-<th align="left">狀態碼</th>
-<th align="right">意涵</th>
-<th align="center">情境</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">500</td>
-<td align="right">Internal Server Error</td>
-<td align="center">該服務伺服器出現不明問題，需要聯絡開發人員</td>
-</tr>
-<tr>
-<td align="left">503</td>
-<td align="right">Service Unavailable</td>
-<td align="center">該服務因為流量爆炸等原因無法使用了</td>
-</tr>
-<tr>
-<td align="left">501</td>
-<td align="right">Not Implemented</td>
-<td align="center">該服務有接收到要求，但還未實作未完成</td>
-</tr>
-<tr>
-<td align="left">502</td>
-<td align="right">Bad Gateway</td>
-<td align="center">連線伺服器成功，但中間軟體出錯</td>
-</tr>
-<tr>
-<td align="left">504</td>
-<td align="right">Gateway Timeout</td>
-<td align="center">連線伺服器成功，程式也沒問題，但經過中間軟體時出錯（過期）</td>
-</tr>
-<tr>
-<td align="left">599</td>
-<td align="right">Network Timeout</td>
-<td align="center">網路連線逾時，連不上</td>
-</tr>
-</tbody></table>
-<p>參考資料：</p>
-<blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
-</blockquote>
+        <!-- <html><head></head><body><img src="/images/laravel-layout/0.png" class="" width="800" height="200" title="laravel-layout">
 
-<p>延伸閱讀：</p>
-<blockquote><p><a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
-</blockquote></body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/http-status-code/0.png" class="" width="800" height="200" title="[http-status-code [http-status-code]]">
-<p>圖片來源：<a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/03/01/zh-tw/http-status-code/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/02/28/zh-tw/http-header/" itemprop="url">HTTP 的訊息頭 header</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-02-28T12:28:24.000Z" itemprop="datePublished">2月 28 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/http/">http</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            12 分鐘 讀完 (約 1772 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/http-header/0.png" class="" width="800" height="200" title="[http-header [http-header]]">
-
-<p>個人對這一塊知識又愛又恨，每每串接 api 打開 Network 都會看到卻似懂非懂的感覺真討厭！來認真釐清一下吧！</p>
-<h1 id="甚麼是-Header-與-Body"><a href="#甚麼是-Header-與-Body" class="headerlink" title="甚麼是 Header 與 Body"></a>甚麼是 Header 與 Body</h1><p>訊息頭<code>header</code>在 request 與 response 裡佔有很大一席之地，它的作用相當於寄件時包裹上的訊息，記錄著包裹的相關內容，譬如該包裹要通過海關時必須申報內容物是甚麼類別，是否是急件還是一般，要寄往哪個國家、寄給誰等等的屬性。<br>訊息本體 <code>body</code> 就是你包裹裡面的東西，或者信件裡的文字訊息。<br>之於網頁的資料傳遞則是記錄該次要求 request 與回應 response 的通訊內容．是一個 http 行為的概覽與說明。</p>
+<p>在設計 UI 模板時重複使用的內容屢見不鮮，例如 header、footer 或是 sidebar 等多是網站中分頁裡的標配，這時候重複貼上一樣的模板就顯得有點呆，Laravel MVC 架構中 views 可以創建一個 layout 模板資料夾，重複的 UI 配置可以放置在這裡提供其他分頁的 blade 檔案使用，這樣一來也能省去 layout 修改時相關的檔案都要更改的麻煩事，統一在 layout 裡調整即可：</p>
+<h1 id="建立-layout-資料夾"><a href="#建立-layout-資料夾" class="headerlink" title="建立 layout 資料夾"></a>建立 layout 資料夾</h1><p>此資料夾可以存放共用的模板，例如 header、footer 或是 sidebar 的模板 html。<br>在 project 裡的 <code>resources/views</code> 建立一個 layout 資料夾：</p>
+<img src="/images/laravel-layout/1.png" class="" width="300" height="200" title="laravel-layout">
 <hr>
-<h1 id="Header-存在於那裡"><a href="#Header-存在於那裡" class="headerlink" title="Header 存在於那裡"></a>Header 存在於那裡</h1><p>request 與 response 都有 <code>header</code>，通常是 client 端發出的 request 會寫得比較詳盡，譬如使用者在搜尋引擎上點選一個網站就完成數個 request（一個網站會有很多資源的要求．例如圖片、網頁或 Api 資料）或者使用者在電腦填寫表單之後送出，而 server 端接收之後回應也會有訊息頭。</p>
-<hr>
-<h1 id="HTTP-通訊的組成"><a href="#HTTP-通訊的組成" class="headerlink" title="HTTP 通訊的組成"></a>HTTP 通訊的組成</h1><img src="/images/http-header/1.png" class="" width="500" height="200" title="http-header">
-<p>一個 request 跟 response 由 <code>header</code> 訊息頭跟 <code>body</code> 訊息本體所組成：</p>
-<h3 id="Request-Header-請求頭"><a href="#Request-Header-請求頭" class="headerlink" title="Request Header 請求頭"></a>Request Header 請求頭</h3><table>
-<thead>
-<tr>
-<th align="left">屬性</th>
-<th align="right">說明</th>
-<th align="center">範例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>Accept</strong></td>
-<td align="right">request 要求 response 的類型</td>
-<td align="center">text/html, image/*</td>
-</tr>
-<tr>
-<td align="left"><strong>Accept-charset</strong></td>
-<td align="right">request 的編碼</td>
-<td align="center">utf-8, iso-8859-1;q=0.5</td>
-</tr>
-<tr>
-<td align="left"><strong>Authorization</strong></td>
-<td align="right">request 要通過的驗證授權檢查</td>
-<td align="center">Basic YWxhZGRpbjpvcGVuc2VzY…</td>
-</tr>
-<tr>
-<td align="left"><strong>Cookie</strong></td>
-<td align="right">client 的暫存資料</td>
-<td align="center">PHPSESSID=124141;csrftoken=45746454</td>
-</tr>
-<tr>
-<td align="left"><strong>Content-type</strong></td>
-<td align="right">request 要求所發送的資料型態</td>
-<td align="center">multipart/form-data, text/plain, application/x-www-form-urlencoded, text/html, application/json</td>
-</tr>
-<tr>
-<td align="left"><strong>Origin</strong></td>
-<td align="right">request 要求的資料機器來源</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/">https://developer.mozilla.org</a></td>
-</tr>
-<tr>
-<td align="left"><strong>User-Agent</strong></td>
-<td align="right">request 端的 client 資訊</td>
-<td align="center">Mozilla/5.0(Macintosh;Intel Mac OS X_10_14_3) AppleWebKit/537.36</td>
-</tr>
-<tr>
-<td align="left"><strong>X-Csrf-Token</strong></td>
-<td align="right">防止 csrf(跨站請求偽造) 攻擊</td>
-<td align="center">eyjpdil6lmc4bjhQMmFrays…</td>
-</tr>
-</tbody></table>
-<h3 id="Authorization"><a href="#Authorization" class="headerlink" title="Authorization"></a>Authorization</h3><p>其中的 <code>Authorization</code> 在 API 的<strong>安全驗證</strong>非常重要，當 API server 接收到來自遠方的 request 時，可以透過該鑰匙密碼確認來源的 request 是合法、通過認證的，如此才能通過關卡進行資料交換。</p>
-<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>瀏覽器的<strong>暫存資料</strong>，是 Web API 的一種，Cookie 提供前端或後端一個存取少量資料在瀏覽器的空間，資料格式是一個鍵值對(key-value)，常用來做廣告追蹤紀錄客戶的瀏覽喜好，進而針對客群行銷與增加廣告投放的精準度，例如 Google Analytics；亦或是用來保持使用者的登入狀態。</p>
-<blockquote><p>身為 Web 開發人員一定要瞭解 <strong>HTTP 本身無狀態 (Stateless) 的特性</strong>，要在網路上識別瀏覽者的身份，必須透過一些機制來保存狀態，而 Cookie 就是其中一種保存狀態的機制。<br><a target="_blank" rel="noopener" href="https://blog.miniasp.com/post/2008/02/22/Explain-HTTP-Cookie-in-Detail">https://blog.miniasp.com/post/2008/02/22/Explain-HTTP-Cookie-in-Detail</a></p>
-</blockquote>
-<blockquote><p>Cookies 會被每一個請求發送出去，所以可能會影響效能（尤其是行動裝置的資料連線）。現代客戶端的 storage APIs 為 Web storage API (en-US) （localStorage 和 sessionStorage）以及 IndexedDB。<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Cookies">https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Cookies</a></p>
-</blockquote>
-
-<h3 id="Content-type"><a href="#Content-type" class="headerlink" title="Content-type"></a>Content-type</h3><p>紀錄 client 端發出的 request 要求發送出去的<strong>資料格式與型態</strong>，例如表單或影音多元媒體就是 <code>multipart/form-data</code>，網頁就是 <code>text/html</code>，而 API axios 等技術傳遞的資料格式常為 <code>application/json</code>等。</p>
-<blockquote><p>一般的 Content-Type 往往只能傳送一種形式的資料，但在網頁的應用當中我們還可能想要上傳檔案、圖片、影片在表單裡頭，這樣的需求促成了 multipart/form-data 規範的出現。<br><a target="_blank" rel="noopener" href="https://blog.kalan.dev/2021-03-13-html-form-data/%E3%80%82">https://blog.kalan.dev/2021-03-13-html-form-data/。</a></p>
-</blockquote>
-
-<h3 id="Origin"><a href="#Origin" class="headerlink" title="Origin"></a>Origin</h3><p>該 request 要求的來源，比如瀏覽的網站是 <a target="_blank" rel="noopener" href="https://google.com/">https://google.com</a> 等，延伸的議題就是跨網站要求(CORS)，經常會默認要同一個**網站來源(domain)**伺服器端才可以接受該要求。</p>
-<h3 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User-Agent"></a>User-Agent</h3><p>發送 Request 的對象，通常是<strong>瀏覽器本身的相關資訊</strong>，例如 chrome 瀏覽器就會顯示 Mozilla/5.0 (Windows NT 10.0; Win64; x64)；也可能不是瀏覽器，例如 postman 就是 postman、終端機就是空白，<code>User-Agent</code> 主要是拿來防止爬蟲軟體等非瀏覽器或機器人來獲取網站資料。</p>
-<h3 id="X-Csrf-Token"><a href="#X-Csrf-Token" class="headerlink" title="X-Csrf-Token"></a>X-Csrf-Token</h3><p>該 token 用以防止 csrf 的跨站偽造攻擊，使用者送出表單時加上一傳鑰匙密碼，避免有心人士撰寫一隻程式發送表單登入或註冊網站會員竊取資料。</p>
-<hr>
-<h1 id="Response-Header-回應頭"><a href="#Response-Header-回應頭" class="headerlink" title="Response Header 回應頭"></a>Response Header 回應頭</h1><p>回應的內容也會記錄伺服器端的資料，以及接收的 request 資訊。</p>
-<table>
-<thead>
-<tr>
-<th align="left">屬性</th>
-<th align="right">說明</th>
-<th align="center">範例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>Access-Control-Allow-Origin</strong></td>
-<td align="right">限定此回應的資源是否要限制某個 Origin</td>
-<td align="center">*, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/">https://developer.mozilla.org</a></td>
-</tr>
-<tr>
-<td align="left"><strong>Server</strong></td>
-<td align="right">後端 Web server 伺服器類型</td>
-<td align="center">Apache/2.4.1(Unix), Nginx</td>
-</tr>
-<tr>
-<td align="left"><strong>Status</strong></td>
-<td align="right">回報這次 request 是否成功的代碼</td>
-<td align="center">sessionid=38afes7a8, id=a3fWa, Max-Age=2592000</td>
-</tr>
-</tbody></table>
-<h3 id="Access-Control-Allow-Origin"><a href="#Access-Control-Allow-Origin" class="headerlink" title="Access-Control-Allow-Origin"></a>Access-Control-Allow-Origin</h3><p>該技術常用來判定前後端分離的網站，後端 server 限定只能接受自己**官方網站(domain)**前端打出的 API Request，才會做出回應；該技術與 Request Header 提到的 <code>Origin</code> 前後呼應，由後端 server 判定前端 Request Header 裡面備註的 Origin 來源是否合法，延伸的議題一樣就是跨網站要求(CORS)。</p>
-<h3 id="Set-cookie"><a href="#Set-cookie" class="headerlink" title="Set-cookie"></a>Set-cookie</h3><p>伺服器端在瀏覽器設定 cookie 資料以記錄客戶端的瀏覽行為，以利行銷追蹤，或是做後續 request 發送給後端要包含的 cookie 內容。<br>而後端發送 Set-Cookie 是主動的，而前端接收 Cookie 是被動的：</p>
-<blockquote><p>The Set-Cookie HTTP response header is used to send a cookie from the server to the user agent, so that the user agent can send it back to the server later.</p>
-</blockquote>
-<blockquote><p>Cookie 的運作是這樣的：</p>
+<h1 id="撰寫模板"><a href="#撰寫模板" class="headerlink" title="撰寫模板"></a>撰寫模板</h1><p>確立好 controller 中與 views 與 routes 的連結後，就可以著手進行模板的拆分啦！</p>
+<h3 id="extends-‘layoutFolder-x2F-layout’"><a href="#extends-‘layoutFolder-x2F-layout’" class="headerlink" title="@extends(‘layoutFolder/layout’)"></a>@extends(‘layoutFolder/layout’)</h3><p>承接共用模板的其他 views 則使用此語法接收模板，撰寫資料夾路徑方式有兩種：</p>
 <ol>
-<li><strong>Server 端</strong>回應給 Browser 一個或多個 “Set-Cookie” HTTP Header</li>
-<li>Client 端 ( Browser ) 接收到 Set-Cookie 指令時，會將 Cookie 的名稱與值儲存在 Browser 的 Cookie 存放區，並記錄該 Cookie 隸屬的網域、網址路徑、過期時間、是否為安全連線</li>
-<li>當 Browser 再次發出 HTTP Request 指令到 Server 時，就會比對目前在 Browser 內的 Cookie 存放區有沒有「該網域」、「該目錄」、「過期時間尚未過期」且「是否為安全連線」的 Cookie，如果有的話就會包含在 HTTP Request 指令的 “Cookie” Header 中。</li>
+<li>斜線</li>
+<li>點</li>
 </ol>
-</blockquote>
-<blockquote class="colorquote danger"><p>如果Request 要傳送 Cookie 到後端<br>除了在 前端 Request 要設定 <strong>credentials</strong><br>後端 Express 的 <strong>Access-Control-Allow-Origin 不可以為’*’</strong></p>
-<p>要設定成一個指定域名(前端的ip或域名)，例如：<br>Access-Control-Allow-Origin：”<a href="http://localhost:3000&quot;">http://localhost:3000"</a></p>
-</blockquote>
+<figure class="highlight javascript hljs"><figcaption><span>about.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">extends</span>(<span class="hljs-string">'layout.layout'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript hljs"><figcaption><span>about.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">extends</span>(<span class="hljs-string">'layout/layout'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="yield-‘content’"><a href="#yield-‘content’" class="headerlink" title="@yield(‘content’)"></a>@yield(‘content’)</h3><p>yield 像是在告訴 php 說我這裡需要挖個洞，待會會丟 html 進來，請認名稱來辨識丟進來的檔案：</p>
+<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">很多要共用的 html</span><br><span class="line">...(通常是 header)</span><br><span class="line">@<span class="title function_">yield</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">很多要共用的 html</span><br><span class="line">...(通常是 footer)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="section-‘content’-…-endsection"><a href="#section-‘content’-…-endsection" class="headerlink" title="@section(‘content’) … @endsection"></a>@section(‘content’) … @endsection</h3><p>section 類似 vue 的 slot，把其他網頁要替換的內容插入這個插槽中，在通過剛才的 <code>@yield('content')</code> 將page愈替換的內容塞進去共用的模板中：</p>
+<figure class="highlight javascript hljs"><figcaption><span>page.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">extends</span>(<span class="hljs-string">'layout/layout'</span>)</span><br><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">  這裡是 page content</span><br><span class="line">  ...</span><br><span class="line">@endsection</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-layout/3.png" class="" width="800" height="200" title="laravel-layout">
+<img src="/images/laravel-layout/2.png" class="" width="800" height="200" title="laravel-layout">
+<hr>
+<h1 id="獨立每個頁面的-script"><a href="#獨立每個頁面的-script" class="headerlink" title="獨立每個頁面的 script"></a>獨立每個頁面的 script</h1><p>插槽的概念同樣可以挖洞給每個獨立頁面放置專屬的 javascript，在 layout 的  之前放置 @yield(‘after_js’) 來承接 page 各自的 <code>&lt;script&gt;...&lt;/script&gt;</code>：</p>
+<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  ...</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">  ...</span><br><span class="line">  @<span class="title function_">yield</span>(<span class="hljs-string">'after_js'</span>)</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript hljs"><figcaption><span>page.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="hljs-string">"Hey!It's about page."</span>);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">@endsection</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-layout/4.png" class="" width="800" height="200" title="laravel-layout">
+<hr>
+<h1 id="簡化-section"><a href="#簡化-section" class="headerlink" title="簡化 @section"></a>簡化 @section</h1><p>每個頁面會有不同的 SEO 內容，例如 <code>title</code> 或是其他的 meta data，這時候 <code>@section</code> 又派上用場了，不同的是<strong>第二個參數</strong>可以傳入文字檔來渲染內容：</p>
+<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>@yield('title')<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    ...</span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span></span><br><span class="line">  ...</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript hljs"><figcaption><span>page.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'title'</span>, <span class="hljs-string">'pageTitle'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-layout/5.png" class="" width="300" height="200" title="laravel-layout">
+<img src="/images/laravel-layout/6.png" class="" width="300" height="200" title="laravel-layout">
 
 <hr>
-<blockquote><p>圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+<blockquote><p>參考資料：<br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AGE3wRKljkw&amp;t=2402s">https://www.youtube.com/watch?v=AGE3wRKljkw&amp;t=2402s</a></p>
 </blockquote></body></html> -->
         
         
-        <html><head></head><body><img src="/images/http-header/0.png" class="" width="800" height="200" title="[http-header [http-header]]">
+        <html><head></head><body><img src="/images/laravel-layout/0.png" class="" width="800" height="200" title="laravel-layout">
 
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/02/28/zh-tw/http-header/">more</a>
+                <a href="/2022/04/10/zh-tw/laravel-layout/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/04/06/zh-tw/laravel-routes-controller/" itemprop="url">Laravel 認識 controller</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-04-06T13:49:05.000Z" itemprop="datePublished">4月 6 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/laravel/">laravel</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分鐘 讀完 (約 426 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/laravel-routes-controller/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
+<p>當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 <strong>Controller</strong> 來執行：</p>
+<h1 id="init-controller"><a href="#init-controller" class="headerlink" title="init controller"></a>init controller</h1><p>使用優雅的 <code>artisan cmd</code> 就可以創建一個 Controller class 模板，在 windows powerShell 輸入<code>wsl</code> 即可切換至 Linux WSL 子系統，終端機輸入以下指令可以查詢所有 artisan cmd 的說明，記得 cd 進入專案包內才可使用 artisan 指令：</p>
+<figure class="highlight javascript hljs"><figcaption><span>terminal</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-routes-controller/1.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
+
+<p>建立 Controller 模板的 artisan cmd：</p>
+<figure class="highlight javascript hljs"><figcaption><span>terminal</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan <span class="hljs-attr">make</span>:controller homeController</span><br></pre></td></tr></tbody></table></figure>
+<img src="/images/laravel-routes-controller/2.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
+
+<h1 id="撰寫-Controller"><a href="#撰寫-Controller" class="headerlink" title="撰寫 Controller"></a>撰寫 Controller</h1><p>使用<strong>路由名稱</strong>創建 function 並且制定渲染內容，連接 Views：</p>
+<figure class="highlight php hljs"><figcaption><span>App/Https/Controllers/homeController.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Http</span>\<span class="title class_">Controllers</span>;</span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">Illuminate</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">homeController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">index</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'welcome'</span>);</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 參數要記得帶</span></span><br><span class="line">  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dog</span> (<span class="hljs-params"><span class="hljs-variable">$dogName</span></span>) </span>{</span><br><span class="line">    <span class="hljs-variable">$datas</span> = [</span><br><span class="line">      <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span>,</span><br><span class="line">      <span class="hljs-string">"dogName"</span> =&gt; <span class="hljs-variable">$dogName</span></span><br><span class="line">    ];</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'routesTest'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote class="colorquote info"><p>記得將應用到的動態參數一並移植到 Controller 的 function arguments 中！</p>
+</blockquote>
+
+<h1 id="對應-Routes-字串"><a href="#對應-Routes-字串" class="headerlink" title="對應 Routes 字串"></a>對應 Routes 字串</h1><p>將路由路徑制定好並且傳入陣列參數：</p>
+<ol>
+<li><code>use</code> 剛才創建的 Controller 檔案</li>
+<li>索引<code>[0]</code>放置 <code>ControllerName::class</code></li>
+<li>索引<code>[1]</code>放置對應 <code>function</code>：<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">Illuminate</span>\<span class="hljs-title">Support</span>\<span class="hljs-title">Facades</span>\<span class="hljs-title">Route</span>;</span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Controllers</span>\<span class="hljs-title">homeController</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'index'</span>]);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/dog/{dogName}'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'dog'</span>]);</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+<p>渲染結果：</p>
+<img src="/images/laravel-routes-controller/3.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
+<img src="/images/laravel-routes-controller/4.png" class="laravel-routes" width="500" height="200" title="Laravel路由控制器">
+
+<p>以上就是 Controller 的常見功能。</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/laravel-routes-controller/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
+<p>當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 <strong>Controller</strong> 來執行：</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/04/06/zh-tw/laravel-routes-controller/">more</a>
             </p>
         
     
@@ -576,7 +398,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/14/">14</a></li>
+        <li><a class="pagination-link" href="/page/16/">16</a></li>
         
     </ul>
 </nav>
