@@ -4,6 +4,11 @@
     <title>Mawchu 貓奴前端的天空</title>
     <link href="http://maomaoxie.github.io" />
     <updated>2022-10-13T08:50:21.000Z</updated>
+    <category term="Google Analytics" />
+    <category term="GA" />
+    <category term="GA4" />
+    <category term="Google Tag Manager" />
+    <category term="GTM" />
     <category term="javascript" />
     <category term="constructor" />
     <category term="instance" />
@@ -15,19 +20,19 @@
     <category term="git" />
     <category term="github" />
     <category term="sourceTree" />
+    <category term="hexo" />
+    <category term="submodule" />
     <category term="api" />
     <category term="graphQL" />
     <category term="facebook" />
-    <category term="rss" />
-    <category term="hexo" />
-    <category term="submodule" />
     <category term="http" />
-    <category term="httpHeader" />
+    <category term="https" />
     <category term="request" />
     <category term="response" />
-    <category term="https" />
-    <category term="status" />
+    <category term="rss" />
+    <category term="httpHeader" />
     <category term="httpMethods" />
+    <category term="status" />
     <category term="Javascript" />
     <category term="type" />
     <category term="laravel" />
@@ -35,37 +40,37 @@
     <category term="linux" />
     <category term="blade" />
     <category term="wsl2" />
+    <category term="public" />
+    <category term="static" />
     <category term="layout" />
     <category term="migration" />
     <category term="sql" />
-    <category term="public" />
-    <category term="static" />
+    <category term="tailwind" />
     <category term="css" />
     <category term="less" />
     <category term="processors" />
-    <category term="tailwind" />
     <category term="env" />
     <category term="process" />
     <category term="dotenv" />
     <category term="webService" />
     <category term="restfulApi" />
-    <category term="shortCircuit" />
-    <category term="optionalChaining" />
-    <category term="tricks" />
-    <category term="vue3" />
-    <category term="vite" />
-    <category term="typescript" />
-    <category term="vue" />
-    <category term="compositionAPI" />
     <category term="safari" />
     <category term="javaScript" />
     <category term="preventDefault" />
     <category term="ios" />
     <category term="mobile" />
-    <category term="WebSocket" />
-    <category term="WebHook" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vue" />
+    <category term="vue3" />
+    <category term="compositionAPI" />
+    <category term="vite" />
+    <category term="typescript" />
     <category term="vuetify" />
     <category term="html" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
     <category term="wordpress" />
     <category term="dns" />
     <category term="cdn" />
@@ -101,6 +106,58 @@
 &lt;p&gt;The technology and capabilities of gateways and routers will continue to evolve and become more sophisticated over the next few years.&lt;br&gt;往後的幾年兩者的技術與可能性會互相演變得更細分精緻。&lt;/p&gt;
 &lt;/body&gt;&lt;/html&gt;</content>
         <updated>2022-10-13T08:50:21.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://maomaoxie.github.io/2022/10/09/google-analytics-knowhow/</id>
+        <title>關於 Google Analytics GA 你應該知道的事</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/10/09/google-analytics-knowhow/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Google Analytics 也就是 GA ，即將在 2023 年 7 月 1 日起不再提供&lt;strong&gt;通用版本（Universal Analytics）&lt;/strong&gt;&lt;br&gt;的資料分析了，全面升級至 GA4 是每個網站與應用程式必須面對的問題。&lt;/p&gt;
+&lt;p&gt;而訪客區分為新訪客與舊訪客，以及舊訪客的回訪率等資料。那麼 Google 要如何去區分呢？來了解一下：&lt;/p&gt;
+&lt;h1 id=&#34;GA-如何區分與追蹤同一瀏覽人次&#34;&gt;&lt;a href=&#34;#GA-如何區分與追蹤同一瀏覽人次&#34; class=&#34;headerlink&#34; title=&#34;GA 如何區分與追蹤同一瀏覽人次&#34;&gt;&lt;/a&gt;GA 如何區分與追蹤同一瀏覽人次&lt;/h1&gt;&lt;h3 id=&#34;client-ID&#34;&gt;&lt;a href=&#34;#client-ID&#34; class=&#34;headerlink&#34; title=&#34;client ID&#34;&gt;&lt;/a&gt;client ID&lt;/h3&gt;&lt;p&gt;該數據是 GA 用來判定此瀏覽器使用者是否為重複瀏覽的人次，紀錄方式透過 Cookie 裡的 _ga 查看內容的話，&lt;br&gt;會有一段追蹤碼記錄此用戶的 client ID，一旦清除 GA 偵測不到就會判定為新的瀏覽使用者。&lt;/p&gt;
+&lt;img src=&#34;/images/google-analytics-knowhow/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;google-analytics-knowhow&#34;&gt;
+&lt;blockquote&gt;&lt;p&gt;由於 GA 判斷新訪客、舊訪客是使用「用戶裝置瀏覽器」來做區別，因此同一個用戶跨裝置訪問網站亦會被計入成兩個用戶，為了精準了解新訪客和舊訪客，事實上引入 User ID 作為統計方式會最為準確，而這一部份我待後續文章分享。&lt;/p&gt;
+&lt;footer&gt;&lt;strong&gt;author&lt;/strong&gt;&lt;cite&gt;&lt;a href=&#34;https://medium.com/peerone-technology-%E7%9A%AE%E5%81%B6%E7%8E%A9%E4%BA%92%E5%8B%95%E7%A7%91%E6%8A%80/%E4%B8%80%E7%AA%BA-ga-pageview-%E7%9A%84%E8%BF%BD%E8%B9%A4%E5%8A%9B%E9%87%8F-ga-%E7%B3%BB%E5%88%97-3-afbb42dbb8b5&#34;&gt;一窺 GA PageView 的追蹤力量- GA 系列 (3)&lt;/a&gt;&lt;/cite&gt;&lt;/footer&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;GA 參數（這裡指的是事件 event 參數）旨在追蹤與分析使用者在你的網站或 app 上所有的互動行為，&lt;br&gt;提供蒐集來的、具商業行為參考價值的數據。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Parameters provide additional information about the ways users interact with your website. &lt;/p&gt;
+&lt;footer&gt;&lt;strong&gt;google analytics&lt;/strong&gt;&lt;cite&gt;&lt;a href=&#34;https://developers.google.com/analytics/devguides/collection/ga4/event-parameters?client_type=gtm&#34;&gt;Set up event parameters&lt;/a&gt;&lt;/cite&gt;&lt;/footer&gt;&lt;/blockquote&gt;
+&lt;p&gt;以下初步揭開 GA 的基礎輪廓：&lt;/p&gt;
+&lt;h1 id=&#34;使用者的著陸網頁（Landing-Page）&#34;&gt;&lt;a href=&#34;#使用者的著陸網頁（Landing-Page）&#34; class=&#34;headerlink&#34; title=&#34;使用者的著陸網頁（Landing Page）&#34;&gt;&lt;/a&gt;使用者的著陸網頁（Landing Page）&lt;/h1&gt;&lt;p&gt;訪客來到網站的第一個頁面，是整個工作階段（Session）的起始點並且開啟一個工作階段的流程，&lt;/p&gt;
+&lt;h1 id=&#34;基本追蹤事件&#34;&gt;&lt;a href=&#34;#基本追蹤事件&#34; class=&#34;headerlink&#34; title=&#34;基本追蹤事件&#34;&gt;&lt;/a&gt;基本追蹤事件&lt;/h1&gt;&lt;p&gt;GA 有&lt;strong&gt;基本追蹤事件&lt;/strong&gt;提供開通帳號的使用者，一窺網站或應用程式埋好 GA 追蹤碼之後的&lt;strong&gt;事件（event）&lt;/strong&gt;概覽數據，&lt;br&gt;這篇先來簡單介紹 GA 常見的、自動蒐集的數據：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://support.google.com/analytics/answer/9234069#user_engagement&#34;&gt;官方說明文件&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;網頁瀏覽（page-view）&#34;&gt;&lt;a href=&#34;#網頁瀏覽（page-view）&#34; class=&#34;headerlink&#34; title=&#34;網頁瀏覽（page_view）&#34;&gt;&lt;/a&gt;網頁瀏覽（page_view）&lt;/h3&gt;&lt;p&gt;在指定的時間區段內，所有使用者在網站或應用程式的網頁瀏覽（造訪）量；&lt;br&gt;其中使用者的分母根據 Client ID 計次，來得知網站有多少不重複使用者。&lt;/p&gt;
+&lt;img src=&#34;/images/google-analytics-knowhow/2.png&#34; class=&#34;&#34; width=&#34;600&#34; height=&#34;200&#34; title=&#34;google-analytics-knowhow&#34;&gt;
+
+
+&lt;h3 id=&#34;締結互動（user-engagement）&#34;&gt;&lt;a href=&#34;#締結互動（user-engagement）&#34; class=&#34;headerlink&#34; title=&#34;締結互動（user_engagement）&#34;&gt;&lt;/a&gt;締結互動（user_engagement）&lt;/h3&gt;&lt;blockquote&gt;&lt;p&gt;The User engagement metric shows the time that your app screen was in the foreground or your web page was in focus. When your site or app is running but no page or screen is displayed, Analytics doesn’t collect the metric. The metric can help you understand when users actively use your website or app.&lt;/p&gt;
+&lt;footer&gt;&lt;strong&gt;google link What is user engagement on Google Analytics?&lt;/strong&gt;&lt;/footer&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;不負責任翻譯：&lt;br&gt;The User engagement 計量表示當你的應用程式或網站呈現在使用者畫面前景上並且被使用者聚焦，&lt;br&gt;與網站締結了互動行為，若應用程式或網站尚未載入完成或呈現出來，GA 不會蒐集該項指標。&lt;br&gt;這個計量可以幫助你了解目前應用程式或網站花了多少時間獲得使用者的聚焦，以及即時有多少活躍的使用者。&lt;/p&gt;
+&lt;h5 id=&#34;互動活躍時間（engagement-time-msec）&#34;&gt;&lt;a href=&#34;#互動活躍時間（engagement-time-msec）&#34; class=&#34;headerlink&#34; title=&#34;互動活躍時間（engagement_time_msec）&#34;&gt;&lt;/a&gt;互動活躍時間（engagement_time_msec）&lt;/h5&gt;&lt;p&gt;計算使用者在與網站或應用程式締結互動之後開始計算，在網站上活躍的時間毫秒（msec）。&lt;/p&gt;
+&lt;h3 id=&#34;campaign（活動分類）&#34;&gt;&lt;a href=&#34;#campaign（活動分類）&#34; class=&#34;headerlink&#34; title=&#34;campaign（活動分類）&#34;&gt;&lt;/a&gt;campaign（活動分類）&lt;/h3&gt;&lt;p&gt;可以在 GA 預設的 &lt;strong&gt;Click 事件&lt;/strong&gt;裡查閱的參數，若是透過外部廣告（例如 Google Ads）等方式進入你的網站或應用程式，&lt;br&gt;campaign　參數就會被記錄，通常會顯示（referral）或（organic），有三大分類，&lt;br&gt;有時會帶括號有時不會（不知為啥知道的人請解惑一下XD）。&lt;/p&gt;
+&lt;h5 id=&#34;organic&#34;&gt;&lt;a href=&#34;#organic&#34; class=&#34;headerlink&#34; title=&#34;(organic)&#34;&gt;&lt;/a&gt;(organic)&lt;/h5&gt;&lt;p&gt;透過搜尋而來的自然流量（主動）。&lt;/p&gt;
+&lt;h5 id=&#34;referral&#34;&gt;&lt;a href=&#34;#referral&#34; class=&#34;headerlink&#34; title=&#34;(referral)&#34;&gt;&lt;/a&gt;(referral)&lt;/h5&gt;&lt;p&gt;透過外部媒體網站進來（被動）瀏覽的使用者，也就是行銷常講的外連（外部連結）。&lt;/p&gt;
+&lt;h5 id=&#34;none&#34;&gt;&lt;a href=&#34;#none&#34; class=&#34;headerlink&#34; title=&#34;(none)&#34;&gt;&lt;/a&gt;(none)&lt;/h5&gt;&lt;p&gt;直接進入網站的使用者，例如在 url 輸入網址。&lt;/p&gt;
+&lt;h3 id=&#34;medium（媒介分類）&#34;&gt;&lt;a href=&#34;#medium（媒介分類）&#34; class=&#34;headerlink&#34; title=&#34;medium（媒介分類）&#34;&gt;&lt;/a&gt;medium（媒介分類）&lt;/h3&gt;&lt;p&gt;使用者透過甚麼媒介方式進來你的網站，類別同上：&lt;/p&gt;
+&lt;h3 id=&#34;source（媒介-origin）&#34;&gt;&lt;a href=&#34;#source（媒介-origin）&#34; class=&#34;headerlink&#34; title=&#34;source（媒介 origin）&#34;&gt;&lt;/a&gt;source（媒介 origin）&lt;/h3&gt;&lt;p&gt;透過外部廣告進來的 url，例如透過 Google 搜尋進來的就會顯示 &lt;code&gt;https://www.google.com/&lt;/code&gt;；&lt;br&gt;透過外部網站進來的就會顯示外部網站的 Origin URL。&lt;/p&gt;
+&lt;img src=&#34;/images/google-analytics-knowhow/5.png&#34; class=&#34;&#34; width=&#34;500&#34; height=&#34;200&#34; title=&#34;google-analytics-knowhow&#34;&gt;
+
+&lt;h3 id=&#34;事件參數&#34;&gt;&lt;a href=&#34;#事件參數&#34; class=&#34;headerlink&#34; title=&#34;事件參數&#34;&gt;&lt;/a&gt;事件參數&lt;/h3&gt;&lt;p&gt;每個事件都有詳細參數可以閱覽，有機個是預設的（照順序），實際查看發現與官方文件的說明項目有出入。&lt;/p&gt;
+&lt;h1 id=&#34;GA-如何計算一個互動的單位&#34;&gt;&lt;a href=&#34;#GA-如何計算一個互動的單位&#34; class=&#34;headerlink&#34; title=&#34;GA 如何計算一個互動的單位&#34;&gt;&lt;/a&gt;GA 如何計算一個互動的單位&lt;/h1&gt;&lt;h3 id=&#34;工作階段（Session-Start）&#34;&gt;&lt;a href=&#34;#工作階段（Session-Start）&#34; class=&#34;headerlink&#34; title=&#34;工作階段（Session Start）&#34;&gt;&lt;/a&gt;工作階段（Session Start）&lt;/h3&gt;&lt;p&gt;GA 的工作階段以 30 分鐘為一個單位，若這段期間使用者並未對網站進行任何互動（例如起來去廁所），&lt;br&gt;當前的工作階段就會結束。每個單位的工作流程可以包含多個互動事件（Event）或是從事商業行為，例如社交互動（Social Interaction）、電子商戶交易行為（Transaction），直到一個單位的工作階段結束（離開網站或是閒置超過 30 分鐘）。&lt;/p&gt;
+&lt;h5 id=&#34;工作階段強制切割&#34;&gt;&lt;a href=&#34;#工作階段強制切割&#34; class=&#34;headerlink&#34; title=&#34;工作階段強制切割&#34;&gt;&lt;/a&gt;工作階段強制切割&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;只要時間來到&lt;strong&gt;隔日凌晨 00:00:00 時分&lt;/strong&gt;，無論當前的工作階段是否有持續進行互動，都會被強制切割成另一個新的工作階段。&lt;/li&gt;
+&lt;li&gt;當使用者更換了網站的來源媒介（medium 例如從廣告點進來、重新搜尋網站進入），都會被強制切割成另一個新的工作階段，無論使用者是否有停止當前的工作階段。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;到達頁面（UA-通用版稱呼）&#34;&gt;&lt;a href=&#34;#到達頁面（UA-通用版稱呼）&#34; class=&#34;headerlink&#34; title=&#34;到達頁面（UA 通用版稱呼）&#34;&gt;&lt;/a&gt;到達頁面（UA 通用版稱呼）&lt;/h3&gt;&lt;p&gt;每一個工作階段開始的第一個頁面。&lt;/p&gt;
+&lt;h3 id=&#34;離開率&#34;&gt;&lt;a href=&#34;#離開率&#34; class=&#34;headerlink&#34; title=&#34;離開率&#34;&gt;&lt;/a&gt;離開率&lt;/h3&gt;&lt;p&gt;一個工作階段中「最後一個」瀏覽的網頁，在所有網頁瀏覽量的占比。&lt;/p&gt;
+&lt;p&gt;參考資料：&lt;br&gt;&lt;a href=&#34;https://awoo.ai/zh-hant/blog/google-analytics-session/&#34;&gt;正確理解Google Analytics「工作階段」定義、計算、重要性&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="Google Analytics" />
+        <category term="GA" />
+        <category term="GA4" />
+        <category term="Google Tag Manager" />
+        <category term="GTM" />
+        <updated>2022-10-09T06:20:19.000Z</updated>
     </entry>
     <entry>
         <id>http://maomaoxie.github.io/2022/10/05/google-tag-manager-start-up/</id>
@@ -339,6 +396,15 @@
         <updated>2022-09-14T01:38:48.000Z</updated>
     </entry>
     <entry>
+        <id>http://maomaoxie.github.io/2022/08/28/restful-api-python/</id>
+        <title>restful-api-python</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/08/28/restful-api-python/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;安裝-python&#34;&gt;&lt;a href=&#34;#安裝-python&#34; class=&#34;headerlink&#34; title=&#34;安裝 python&#34;&gt;&lt;/a&gt;安裝 python&lt;/h1&gt;&lt;p&gt;&lt;a href=&#34;https://www.python.org/downloads/&#34;&gt;python 官方網站下載點&lt;/a&gt;&lt;br&gt;選擇 downloads 並且記得勾選 Add Python to PATH，就可以在終端機輸入&lt;code&gt;python3&lt;/code&gt;，並且使用囉！&lt;/p&gt;
+&lt;h1 id=&#34;public-APIs&#34;&gt;&lt;a href=&#34;#public-APIs&#34; class=&#34;headerlink&#34; title=&#34;public APIs&#34;&gt;&lt;/a&gt;public APIs&lt;/h1&gt;&lt;p&gt;顧名思義就是開放 API（Open API），&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;</content>
+        <updated>2022-08-28T07:29:29.000Z</updated>
+    </entry>
+    <entry>
         <id>http://maomaoxie.github.io/2022/08/25/zh-tw/wowjs-in-vue2-typescript/</id>
         <title>在 Vue2 + Typescript 專案中引入 WOW.js</title>
         <link rel="alternate" href="http://maomaoxie.github.io/2022/08/25/zh-tw/wowjs-in-vue2-typescript/"/>
@@ -355,6 +421,95 @@
 &lt;blockquote&gt;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/qq_32963841/article/details/115690823&#34;&gt;关于wow.js在vue项目中的使用及遇到的坑（css3效果）&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt;</content>
         <updated>2022-08-25T03:00:37.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://maomaoxie.github.io/2022/08/20/zh-tw/gcp-project-switch/</id>
+        <title>gcp-project-switch</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/08/20/zh-tw/gcp-project-switch/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;在 GCP 上部屬不同專案時需要切換專案，根據專案 ID 來切換：&lt;/p&gt;
+&lt;h1 id=&#34;查看專案-ID&#34;&gt;&lt;a href=&#34;#查看專案-ID&#34; class=&#34;headerlink&#34; title=&#34;查看專案 ID&#34;&gt;&lt;/a&gt;查看專案 ID&lt;/h1&gt;&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;GCP&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;gcloud projects list&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PROJECT_ID: XXX&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;NAME: baby-bill&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PROJECT_NUMBER: XXXXX&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;切換專案&#34;&gt;&lt;a href=&#34;#切換專案&#34; class=&#34;headerlink&#34; title=&#34;切換專案&#34;&gt;&lt;/a&gt;切換專案&lt;/h1&gt;&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;GCP&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;gcloud config set project `PROJECT ID`&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/body&gt;&lt;/html&gt;</content>
+        <updated>2022-08-20T10:52:22.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://maomaoxie.github.io/2022/08/20/typescript-why-use-it/</id>
+        <title>typescript-why-use-it</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/08/20/typescript-why-use-it/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;Typescript-is-a-superset-of-Javascript&#34;&gt;&lt;a href=&#34;#Typescript-is-a-superset-of-Javascript&#34; class=&#34;headerlink&#34; title=&#34;Typescript is a superset of Javascript&#34;&gt;&lt;/a&gt;Typescript is a superset of Javascript&lt;/h1&gt;&lt;p&gt;Typescript 提升的重點就是：優化了你的原生 Javascript 型別提示。&lt;br&gt;Typescript 是根基在 Javascript 語言之上的一個超集，他提供更強大的特點並且優化了 Javascript 的缺陷，使其運作與開發上有更大程度的提升，但 Typescript 不能在瀏覽器引擎上運作。&lt;br&gt;Typescript 是 Javascript 的升級版本，最終仍會編譯成 Javascript 提供瀏覽器運作，只是相當程度上增添了許多特性與優點，例如：&lt;/p&gt;
+&lt;h4 id=&#34;在開發早期發現錯誤提示，能早點修復。&#34;&gt;&lt;a href=&#34;#在開發早期發現錯誤提示，能早點修復。&#34; class=&#34;headerlink&#34; title=&#34;在開發早期發現錯誤提示，能早點修復。&#34;&gt;&lt;/a&gt;在開發早期發現錯誤提示，能早點修復。&lt;/h4&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;addNumbers&lt;/span&gt; (num1, num2) {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; num1 + num2;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(addNumbers (&lt;span class=&#34;hljs-string&#34;&gt;&#39;1&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;2&#39;&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;以上的代碼期望的結果是 &lt;code&gt;1+2 = 3&lt;/code&gt;，但是 JavaScript 本身的隱性型別轉換造成截然不同的結果，得到了 &lt;code&gt;23&lt;/code&gt;。&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;</content>
+        <updated>2022-08-20T06:42:17.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://maomaoxie.github.io/2022/08/20/seo-know-how/</id>
+        <title>seo-know-how</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/08/20/seo-know-how/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;SEO 分為網站結構 &amp;amp; 內容&lt;br&gt;網站競品 新聞類型 SEO 結構不能輸別人&lt;/p&gt;
+&lt;p&gt;搜尋引擎&lt;/p&gt;
+&lt;h1 id=&#34;網站連結&#34;&gt;&lt;a href=&#34;#網站連結&#34; class=&#34;headerlink&#34; title=&#34;網站連結&#34;&gt;&lt;/a&gt;網站連結&lt;/h1&gt;&lt;h3 id=&#34;任何頁面必須可以內連&#34;&gt;&lt;a href=&#34;#任何頁面必須可以內連&#34; class=&#34;headerlink&#34; title=&#34;任何頁面必須可以內連&#34;&gt;&lt;/a&gt;任何頁面必須可以內連&lt;/h3&gt;&lt;p&gt;孤兒頁面對收錄到 SEO 非常扣分&lt;/p&gt;
+&lt;h4 id=&#34;蜘蛛網結構&#34;&gt;&lt;a href=&#34;#蜘蛛網結構&#34; class=&#34;headerlink&#34; title=&#34;蜘蛛網結構&#34;&gt;&lt;/a&gt;蜘蛛網結構&lt;/h4&gt;&lt;p&gt;網站內部蜘蛛網結構的互連非常重要，越多就越能被 Google 搜尋到，會比提交來的重要&lt;/p&gt;
+&lt;h3 id=&#34;權重高的網站外連&#34;&gt;&lt;a href=&#34;#權重高的網站外連&#34; class=&#34;headerlink&#34; title=&#34;權重高的網站外連&#34;&gt;&lt;/a&gt;權重高的網站外連&lt;/h3&gt;&lt;p&gt;由權重高的網站，例如新聞網站有連結過來就能大大提高收錄機會&lt;/p&gt;
+&lt;h1 id=&#34;網站結構&#34;&gt;&lt;a href=&#34;#網站結構&#34; class=&#34;headerlink&#34; title=&#34;網站結構&#34;&gt;&lt;/a&gt;網站結構&lt;/h1&gt;&lt;h3 id=&#34;sitemap&#34;&gt;&lt;a href=&#34;#sitemap&#34; class=&#34;headerlink&#34; title=&#34;sitemap&#34;&gt;&lt;/a&gt;sitemap&lt;/h3&gt;&lt;p&gt;加入檢索隊列(Crawl Queue)的行為可以透過提交網站結構的 sitemap 至 google search console，而且不能造假也沒有無效的網頁連結（ex. 404、500 等）&lt;br&gt;sitemap是有上限的&lt;/p&gt;
+&lt;h3 id=&#34;robots-txt&#34;&gt;&lt;a href=&#34;#robots-txt&#34; class=&#34;headerlink&#34; title=&#34;robots.txt&#34;&gt;&lt;/a&gt;robots.txt&lt;/h3&gt;&lt;p&gt;開發階段不想曝光的網頁可以設定 robots.txt 不被收錄，但並非百分百有效&lt;br&gt;最好是設定密碼登入去擋內容，或是不要上線&lt;/p&gt;
+&lt;h1 id=&#34;domain-knowledge&#34;&gt;&lt;a href=&#34;#domain-knowledge&#34; class=&#34;headerlink&#34; title=&#34;domain knowledge&#34;&gt;&lt;/a&gt;domain knowledge&lt;/h1&gt;&lt;p&gt;領域專長&lt;br&gt;產業的核心知識 了解TA需求&lt;/p&gt;
+&lt;h1 id=&#34;breadcrumb&#34;&gt;&lt;a href=&#34;#breadcrumb&#34; class=&#34;headerlink&#34; title=&#34;breadcrumb&#34;&gt;&lt;/a&gt;breadcrumb&lt;/h1&gt;&lt;p&gt;網站麵包屑&lt;/p&gt;
+&lt;h1 id=&#34;you-may-like&#34;&gt;&lt;a href=&#34;#you-may-like&#34; class=&#34;headerlink&#34; title=&#34;you may like&#34;&gt;&lt;/a&gt;you may like&lt;/h1&gt;&lt;p&gt;你可能會喜歡的相關文章&lt;/p&gt;
+&lt;p&gt;文章序號丟API 運算連結之間的關係(AI 資料工程師)&lt;/p&gt;
+&lt;h1 id=&#34;js-做的連結不會收錄&#34;&gt;&lt;a href=&#34;#js-做的連結不會收錄&#34; class=&#34;headerlink&#34; title=&#34;js 做的連結不會收錄&#34;&gt;&lt;/a&gt;js 做的連結不會收錄&lt;/h1&gt;&lt;p&gt;可以追蹤：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;a href=&#34;https://example.com&#34;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;a href=&#34;/relative/path/file&#34;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;無法追蹤：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;a routerLink=&#34;some/path&#34;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;span href=&#34;https://example.com&#34;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;a onclick=&#34;goto(&#39;https://example.com&#39;)&#34;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+&lt;h1 id=&#34;網站更新頻率要勤&#34;&gt;&lt;a href=&#34;#網站更新頻率要勤&#34; class=&#34;headerlink&#34; title=&#34;網站更新頻率要勤&#34;&gt;&lt;/a&gt;網站更新頻率要勤&lt;/h1&gt;&lt;p&gt;經常更新的網站才會被 google 將排名提前&lt;/p&gt;
+&lt;h1 id=&#34;UI-amp-UX-要好&#34;&gt;&lt;a href=&#34;#UI-amp-UX-要好&#34; class=&#34;headerlink&#34; title=&#34;UI &amp;amp; UX 要好&#34;&gt;&lt;/a&gt;UI &amp;amp; UX 要好&lt;/h1&gt;&lt;p&gt;網站體驗好 SEO 就會好，SEO 好廣告投入就可以降低&lt;/p&gt;
+&lt;h1 id=&#34;更新時間&#34;&gt;&lt;a href=&#34;#更新時間&#34; class=&#34;headerlink&#34; title=&#34;更新時間&#34;&gt;&lt;/a&gt;更新時間&lt;/h1&gt;&lt;p&gt;網站的 sitemap 會註明網站更新時間，對 google 的 SEO 排名也有影響&lt;/p&gt;
+&lt;h1 id=&#34;網站的-canonical-標準網址&#34;&gt;&lt;a href=&#34;#網站的-canonical-標準網址&#34; class=&#34;headerlink&#34; title=&#34;網站的 canonical 標準網址&#34;&gt;&lt;/a&gt;網站的 canonical 標準網址&lt;/h1&gt;&lt;p&gt;主網址會被 google 拿來計算收錄的頁面數量&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;link rel=&#34;canonical&#34; href=&#34;&#34; &amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;網頁未加入索引&#34;&gt;&lt;a href=&#34;#網頁未加入索引&#34; class=&#34;headerlink&#34; title=&#34;網頁未加入索引&#34;&gt;&lt;/a&gt;網頁未加入索引&lt;/h3&gt;&lt;p&gt;不同網址但內容一樣會扣分，記得設定 canonical&lt;/p&gt;
+&lt;h1 id=&#34;基本要設定的&#34;&gt;&lt;a href=&#34;#基本要設定的&#34; class=&#34;headerlink&#34; title=&#34;基本要設定的&#34;&gt;&lt;/a&gt;基本要設定的&lt;/h1&gt;&lt;title&gt;網頁標題&lt;/title&gt;
+&lt;meta name=&#34;description&#34; content=&#34;&#34;&gt;
+// 設定網站縮圖
+&lt;link rel=&#34;image_src&#34; href=&#34;&#34;&gt;
+
+&lt;p&gt;可以設定的&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;meta content=&#34;&#34; name=&#34;copyright&#34;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;meta content=&#34;&#34; name=&#34;author&#34;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;要小心的&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;meta name=&#34;keywords&#34; content=&#34;關鍵字1, 關鍵字2&#34; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;社群媒體&#34;&gt;&lt;a href=&#34;#社群媒體&#34; class=&#34;headerlink&#34; title=&#34;社群媒體&#34;&gt;&lt;/a&gt;社群媒體&lt;/h1&gt;&lt;p&gt;可以透過&lt;a href=&#34;https://metatags.io/&#34;&gt;metatags&lt;/a&gt;協助產生網站的縮圖&lt;/p&gt;
+&lt;h1 id=&#34;移除外部連結的權重&#34;&gt;&lt;a href=&#34;#移除外部連結的權重&#34; class=&#34;headerlink&#34; title=&#34;移除外部連結的權重&#34;&gt;&lt;/a&gt;移除外部連結的權重&lt;/h1&gt;&lt;p&gt;其目的在於告訴搜尋引擎不要索引抓取這個連結，同時也不要給予他權重。&lt;br&gt;Nofollow 反向連結是只將 &lt;code&gt;&amp;lt;a href=&#34;https://example.com.tw&#34;&amp;gt;Example&amp;lt;/a&amp;gt;&lt;/code&gt; 加入 &lt;code&gt;rel=&#34;nofollow&#34;&lt;/code&gt; 標籤&lt;br&gt;&lt;a href=&#34;https://example.com.tw&#34; ref=&#34;nofollow&#34;&gt;Example&lt;/a&gt;。&lt;/p&gt;
+&lt;h1 id=&#34;使用者體驗&#34;&gt;&lt;a href=&#34;#使用者體驗&#34; class=&#34;headerlink&#34; title=&#34;使用者體驗&#34;&gt;&lt;/a&gt;使用者體驗&lt;/h1&gt;&lt;p&gt;內容要與主題相符&lt;/p&gt;
+&lt;h1 id=&#34;https&#34;&gt;&lt;a href=&#34;#https&#34; class=&#34;headerlink&#34; title=&#34;https&#34;&gt;&lt;/a&gt;https&lt;/h1&gt;&lt;p&gt;cloudflare 有提供免費的 https &lt;/p&gt;
+&lt;h1 id=&#34;AWD-AMP-PWA&#34;&gt;&lt;a href=&#34;#AWD-AMP-PWA&#34; class=&#34;headerlink&#34; title=&#34;AWD AMP PWA&#34;&gt;&lt;/a&gt;AWD AMP PWA&lt;/h1&gt;&lt;p&gt;提升行動裝置的網站架構亦可以提升網站體驗與速度&lt;/p&gt;
+&lt;h1 id=&#34;網站核心體驗三大指標&#34;&gt;&lt;a href=&#34;#網站核心體驗三大指標&#34; class=&#34;headerlink&#34; title=&#34;網站核心體驗三大指標&#34;&gt;&lt;/a&gt;網站核心體驗三大指標&lt;/h1&gt;&lt;h3 id=&#34;LCP&#34;&gt;&lt;a href=&#34;#LCP&#34; class=&#34;headerlink&#34; title=&#34;LCP&#34;&gt;&lt;/a&gt;LCP&lt;/h3&gt;&lt;p&gt;最大內容繪製，2.5 秒可以渲染完畢&lt;/p&gt;
+&lt;h3 id=&#34;FID&#34;&gt;&lt;a href=&#34;#FID&#34; class=&#34;headerlink&#34; title=&#34;FID&#34;&gt;&lt;/a&gt;FID&lt;/h3&gt;&lt;p&gt;首次輸入的延遲時間，頁面互動的反應時間&lt;/p&gt;
+&lt;h3 id=&#34;CLS&#34;&gt;&lt;a href=&#34;#CLS&#34; class=&#34;headerlink&#34; title=&#34;CLS&#34;&gt;&lt;/a&gt;CLS&lt;/h3&gt;&lt;p&gt;累積版面配置轉移，還未讀取到的資料先將空間撐開（lazyload），避免使用者捲到的位置空間還未撐開，例如以下：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img width=&#34;200&#34; height=&#34;300&#34; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;SEO-v-s-廣告&#34;&gt;&lt;a href=&#34;#SEO-v-s-廣告&#34; class=&#34;headerlink&#34; title=&#34;SEO v.s 廣告&#34;&gt;&lt;/a&gt;SEO v.s 廣告&lt;/h1&gt;&lt;p&gt;在網站內放置廣告版位會對 SEO 扣分，但收入又需要靠廣告，是一種互相牴觸的生態&lt;/p&gt;
+&lt;h1 id=&#34;title&#34;&gt;&lt;a href=&#34;#title&#34; class=&#34;headerlink&#34; title=&#34;title&#34;&gt;&lt;/a&gt;title&lt;/h1&gt;&lt;p&gt;網頁的 title 都要放置網站名稱，例如：&lt;br&gt;網頁的內容概要、網站名稱&lt;/p&gt;
+&lt;h1 id=&#34;熱門關鍵字&#34;&gt;&lt;a href=&#34;#熱門關鍵字&#34; class=&#34;headerlink&#34; title=&#34;熱門關鍵字&#34;&gt;&lt;/a&gt;熱門關鍵字&lt;/h1&gt;&lt;p&gt;倘若 SEO 好熱門關鍵字也可以提升排名&lt;/p&gt;
+&lt;h1 id=&#34;SVG-圖片格式&#34;&gt;&lt;a href=&#34;#SVG-圖片格式&#34; class=&#34;headerlink&#34; title=&#34;SVG 圖片格式&#34;&gt;&lt;/a&gt;SVG 圖片格式&lt;/h1&gt;&lt;p&gt;img 有 alt 可以幫助搜尋引擎了解圖片內容，SVG 則可以加上 title 以及 describe 等同於 img 的 alt，結構如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;svg height=&#34;100&#34; width=&#34;100&#34; aria-labelledby=&#34;svgTitle svgDesc&#34; role=&#34;img&#34;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;title id=&#34;svgTitle&#34;&amp;gt;Circle&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;desc id=&#34;svgDesc&#34;&amp;gt;This is a red circle&amp;lt;/desc&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;circle cx=&#34;50&#34; cy=&#34;50&#34; r=&#34;40&#34; stroke=&#34;black&#34; stroke-width=&#34;3&#34; fill=&#34;red&#34; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/svg&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;SERP-結構化資料&#34;&gt;&lt;a href=&#34;#SERP-結構化資料&#34; class=&#34;headerlink&#34; title=&#34;SERP 結構化資料&#34;&gt;&lt;/a&gt;SERP 結構化資料&lt;/h1&gt;&lt;p&gt;&lt;a href=&#34;https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data?hl=zh-tw&#34;&gt;參考資料&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;JSON-LD&#34;&gt;&lt;a href=&#34;#JSON-LD&#34; class=&#34;headerlink&#34; title=&#34;JSON-LD&#34;&gt;&lt;/a&gt;JSON-LD&lt;/h3&gt;&lt;p&gt;結構化資料的格式，例如 Google 提供的範例：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;title&amp;gt;Apple Pie by Grandma&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;script type=&#34;application/ld+json&#34;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &#34;@context&#34;: &#34;https://schema.org/&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &#34;@type&#34;: &#34;Recipe&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &#34;name&#34;: &#34;Apple Pie by Grandma&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &#34;author&#34;: &#34;Elaine Smith&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &#34;image&#34;: &#34;http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &#34;description&#34;: &#34;A classic apple pie.&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &#34;aggregateRating&#34;: {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &#34;@type&#34;: &#34;AggregateRating&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &#34;ratingValue&#34;: &#34;4.8&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &#34;reviewCount&#34;: &#34;7462&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &#34;bestRating&#34;: &#34;5&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &#34;worstRating&#34;: &#34;1&#34;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &#34;prepTime&#34;: &#34;PT30M&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &#34;totalTime&#34;: &#34;PT1H30M&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &#34;recipeYield&#34;: &#34;8&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &#34;nutrition&#34;: {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &#34;@type&#34;: &#34;NutritionInformation&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &#34;calories&#34;: &#34;512 calories&#34;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &#34;recipeIngredient&#34;: [&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &#34;1 box refrigerated pie crusts, softened as directed on box&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &#34;6 cups thinly sliced, peeled apples (6 medium)&#34;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      ]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;顯示的內容：&lt;/p&gt;
+&lt;img src=&#34;/images/seo-know-how/3.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;seo-know-how&#34;&gt;
+
+&lt;p&gt;驗證是否有誤：&lt;br&gt;&lt;a href=&#34;https://search.google.com/test/rich-results&#34;&gt;驗證連結&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;參考網站：&lt;br&gt;&lt;a href=&#34;https://tools.wingzero.tw/article/sn/1187&#34;&gt;紅色死神 DETOOLS&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt;</content>
+        <updated>2022-08-20T02:26:25.000Z</updated>
     </entry>
     <entry>
         <id>http://maomaoxie.github.io/2022/08/18/zh-tw/safari-preventDefault-bug/</id>
@@ -476,129 +631,5 @@
 &lt;h1 id=&#34;結語&#34;&gt;&lt;a href=&#34;#結語&#34; class=&#34;headerlink&#34; title=&#34;結語&#34;&gt;&lt;/a&gt;結語&lt;/h1&gt;&lt;p&gt;讓我最意外的是 DELETE 居然是冪等方法，原因在於無論 request 幾次都只刪同一筆資料（認 id）這個觀念，與以前認為 DELETE 應該會每次刪除不同資料的想法大相逕庭。&lt;/p&gt;
 &lt;/body&gt;&lt;/html&gt;</content>
         <updated>2022-08-09T07:14:24.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://maomaoxie.github.io/2022/08/09/zh-tw/vuetify-slot-vhtml/</id>
-        <title>如何在 vuetify 元件中渲染 v-html</title>
-        <link rel="alternate" href="http://maomaoxie.github.io/2022/08/09/zh-tw/vuetify-slot-vhtml/"/>
-        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/vuetify-slot-vhtml/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;vuetify-slot-vhtml&#34;&gt;
-&lt;p&gt;使用 vuetify 元件時常有的狀況劇就是 - 標題的 UI 設計需要客製化，例如放上 fontawesome 的 icon，但你的元件是 vuetify 父元件（v-select），客製的對象是迴圈後的子元件（選單下的選項 v-selection），這時候要如何成功渲染 fontawesome 的 icon ?&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;vuetify&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;v-select&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    :items=&lt;span class=&#34;hljs-string&#34;&gt;&#34;items&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    label=&lt;span class=&#34;hljs-string&#34;&gt;&#34;Standard&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;&amp;lt;/v-select&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h1 id=&#34;使用-lt-i-gt-lt-i-gt-標籤&#34;&gt;&lt;a href=&#34;#使用-lt-i-gt-lt-i-gt-標籤&#34; class=&#34;headerlink&#34; title=&#34;使用 &lt;i&gt;&lt;/i&gt; 標籤&#34;&gt;&lt;/a&gt;使用 &lt;code&gt;&amp;lt;i&amp;gt;&amp;lt;/i&amp;gt;&lt;/code&gt; 標籤&lt;/h1&gt;&lt;p&gt;目前可以知道的小撇步就是 fontawesome 的 icon 要使用 vue v-html 渲染，必須使用 &lt;code&gt;&amp;lt;i&amp;gt;&amp;lt;/i&amp;gt;&lt;/code&gt; 標籤才能成功，不能放入 vuetify  &lt;code&gt;&amp;lt;v-icon&amp;gt;&amp;lt;/v-icon&amp;gt;&lt;/code&gt;，無法正確編譯成 html。&lt;/p&gt;
-&lt;h1 id=&#34;在父元件內使用-v-slot&#34;&gt;&lt;a href=&#34;#在父元件內使用-v-slot&#34; class=&#34;headerlink&#34; title=&#34;在父元件內使用 v-slot&#34;&gt;&lt;/a&gt;在父元件內使用 v-slot&lt;/h1&gt;&lt;p&gt;可以知道目前的元件結構會是這樣的：&lt;br&gt;v-select（父）&lt;br&gt;        ｜&lt;br&gt;    v-selection（子）&lt;/p&gt;
-&lt;p&gt;選項是這樣：&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    { &lt;span class=&#34;hljs-attr&#34;&gt;value&lt;/span&gt;:&lt;span class=&#34;hljs-string&#34;&gt;&#34;0&#34;&lt;/span&gt;,&lt;span class=&#34;hljs-attr&#34;&gt;text&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;lt;i class=&#34;&lt;/span&gt;fab fa-apple&lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;gt;&amp;lt;/i&amp;gt; apple&#34;&lt;/span&gt; },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    { &lt;span class=&#34;hljs-attr&#34;&gt;value&lt;/span&gt;:&lt;span class=&#34;hljs-string&#34;&gt;&#34;1&#34;&lt;/span&gt;,&lt;span class=&#34;hljs-attr&#34;&gt;text&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;lt;i class=&#34;&lt;/span&gt;fab fa-google-drive&lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;gt;&amp;lt;/i&amp;gt; google&#34;&lt;/span&gt; },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;vuetify 父元件（v-select）透過 props items 選項的陣列可以使用 v-slot 轉換成 html 模板傳入：&lt;/p&gt;
-&lt;blockquote&gt;&lt;p&gt;Override the item and selection slots, and use v-html.&lt;br&gt;參考網址：&lt;a href=&#34;https://stackoverflow.com/questions/56665185/show-raw-html-in-vuetify-v-select&#34;&gt;https://stackoverflow.com/questions/56665185/show-raw-html-in-vuetify-v-select&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&#34;vue-2-版本&#34;&gt;&lt;a href=&#34;#vue-2-版本&#34; class=&#34;headerlink&#34; title=&#34;vue 2 版本&#34;&gt;&lt;/a&gt;vue 2 版本&lt;/h3&gt;&lt;p&gt;由於子元件會有 default 選項，要使用插槽針對 &lt;strong&gt;selection&lt;/strong&gt; 修改；&lt;br&gt;而下拉選項要使用插槽針對 &lt;strong&gt;item&lt;/strong&gt; 修改。&lt;/p&gt;
-&lt;h5 id=&#34;寫法-1&#34;&gt;&lt;a href=&#34;#寫法-1&#34; class=&#34;headerlink&#34; title=&#34;寫法 1&#34;&gt;&lt;/a&gt;寫法 1&lt;/h5&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;slot 範例 1&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;v-select :items=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-slot:item&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-slot:selection&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/v-select&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h5 id=&#34;寫法-2&#34;&gt;&lt;a href=&#34;#寫法-2&#34; class=&#34;headerlink&#34; title=&#34;寫法 2&#34;&gt;&lt;/a&gt;寫法 2&lt;/h5&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;slot 範例 1&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;v-select :items=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-slot:item&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-slot:selection&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/v-select&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-
-&lt;h3 id=&#34;簡潔版本&#34;&gt;&lt;a href=&#34;#簡潔版本&#34; class=&#34;headerlink&#34; title=&#34;簡潔版本&#34;&gt;&lt;/a&gt;簡潔版本&lt;/h3&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;slot 範例 2&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;v-select :items=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;slot&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item&#39;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;slot-scope&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/v-select&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h3 id=&#34;vue-3-版本&#34;&gt;&lt;a href=&#34;#vue-3-版本&#34; class=&#34;headerlink&#34; title=&#34;vue 3 版本&#34;&gt;&lt;/a&gt;vue 3 版本&lt;/h3&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;slot 範例 3&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;template #item=&lt;span class=&#34;hljs-string&#34;&gt;&#39;{item}&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;v-html&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#39;item.text&#39;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/template&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h1 id=&#34;vuetify-api-說明&#34;&gt;&lt;a href=&#34;#vuetify-api-說明&#34; class=&#34;headerlink&#34; title=&#34;vuetify api 說明&#34;&gt;&lt;/a&gt;vuetify api 說明&lt;/h1&gt;&lt;p&gt;在每個元件的 api 文件下方都有提供現成的插槽可以使用：&lt;/p&gt;
-&lt;img src=&#34;/images/vuetify-slot-vhtml/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;vuetify-slot-vhtml&#34;&gt;&lt;/body&gt;&lt;/html&gt;</content>
-        <category term="vue" />
-        <category term="vuetify" />
-        <category term="html" />
-        <updated>2022-08-09T04:09:43.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://maomaoxie.github.io/2022/08/09/zh-tw/hello-world/</id>
-        <title>感謝您的閱讀</title>
-        <link rel="alternate" href="http://maomaoxie.github.io/2022/08/09/zh-tw/hello-world/"/>
-        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;這裡撰寫的都是一些自己在前端之路上每天一小步的學習，希望透過記錄與陳述來加強學習成效以及融會貫通的能力，文章內有任何問題歡迎一起討論呦!&lt;/p&gt;
-&lt;/body&gt;&lt;/html&gt;</content>
-        <updated>2022-08-09T03:46:24.948Z</updated>
-    </entry>
-    <entry>
-        <id>http://maomaoxie.github.io/2022/08/07/zh-tw/git-remove-submodule/</id>
-        <title>git 移除 submodule</title>
-        <link rel="alternate" href="http://maomaoxie.github.io/2022/08/07/zh-tw/git-remove-submodule/"/>
-        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/git-remove-submodule/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;git-remove-submodule&#34;&gt;
-&lt;h1 id=&#34;git-submodule&#34;&gt;&lt;a href=&#34;#git-submodule&#34; class=&#34;headerlink&#34; title=&#34;git submodule&#34;&gt;&lt;/a&gt;git submodule&lt;/h1&gt;&lt;p&gt;在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。&lt;/p&gt;
-&lt;img src=&#34;/images/git-remove-submodule/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;git-remove-submodule&#34;&gt;
-
-&lt;p&gt;以下記錄自己如何將修改後的 minos 資料夾：&lt;/p&gt;
-&lt;h3 id=&#34;移除-git-子模塊快取&#34;&gt;&lt;a href=&#34;#移除-git-子模塊快取&#34; class=&#34;headerlink&#34; title=&#34;移除 git 子模塊快取&#34;&gt;&lt;/a&gt;移除 git 子模塊快取&lt;/h3&gt;&lt;p&gt;以下的指令可以清除子模塊的 git 紀錄：&lt;/p&gt;
-&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;git cmd&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git rm --cached -f ./themes/minos&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h3 id=&#34;重新加入索引&#34;&gt;&lt;a href=&#34;#重新加入索引&#34; class=&#34;headerlink&#34; title=&#34;重新加入索引&#34;&gt;&lt;/a&gt;重新加入索引&lt;/h3&gt;&lt;p&gt;將剛才取消子模塊的 git 重新排隊至專案包中，我比較懶惰直接整包加：&lt;/p&gt;
-&lt;figure class=&#34;highlight plaintext hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;git cmd&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git add .&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;再檢視一遍 vs code 之後就會看到檔案被追蹤到了！&lt;/p&gt;
-&lt;/body&gt;&lt;/html&gt;</content>
-        <category term="git" />
-        <category term="hexo" />
-        <category term="submodule" />
-        <updated>2022-08-07T08:07:24.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://maomaoxie.github.io/2022/08/07/zh-tw/wordpress-get-started/</id>
-        <title>開始我的第一個 wordpress 網站</title>
-        <link rel="alternate" href="http://maomaoxie.github.io/2022/08/07/zh-tw/wordpress-get-started/"/>
-        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;第一步-產生-ip-位址&#34;&gt;&lt;a href=&#34;#第一步-產生-ip-位址&#34; class=&#34;headerlink&#34; title=&#34;第一步 - 產生 ip 位址&#34;&gt;&lt;/a&gt;第一步 - 產生 ip 位址&lt;/h1&gt;&lt;p&gt;首先要租賃一台伺服器提供 ip，可以考慮較優惠的主機廠商：遠振或 bluehost。&lt;br&gt;要注意的是，一個 domain 可以放置很多網站資料夾，並且設定sub-domian。&lt;/p&gt;
-&lt;h1 id=&#34;第二步-DNS-註冊&#34;&gt;&lt;a href=&#34;#第二步-DNS-註冊&#34; class=&#34;headerlink&#34; title=&#34;第二步 - DNS 註冊&#34;&gt;&lt;/a&gt;第二步 - DNS 註冊&lt;/h1&gt;&lt;p&gt;ip 設定好之後就可以將網域指過來指定的 DNS 網域商：&lt;br&gt;中華電信提供的 .tw　較便宜，而 godaddy 則是 .com 較便宜。&lt;/p&gt;
-&lt;h1 id=&#34;第三步-cdn-分散流量&#34;&gt;&lt;a href=&#34;#第三步-cdn-分散流量&#34; class=&#34;headerlink&#34; title=&#34;第三步 - cdn 分散流量&#34;&gt;&lt;/a&gt;第三步 - cdn 分散流量&lt;/h1&gt;&lt;p&gt;常用的 cdn 廠商像是 cloudflare，可以註冊一個離主機近的（例如東京）cdn 位址，其他供應商例如 sugarhost 很便宜但連線較慢。&lt;/p&gt;
-&lt;h3 id=&#34;CDN-原理&#34;&gt;&lt;a href=&#34;#CDN-原理&#34; class=&#34;headerlink&#34; title=&#34;CDN 原理&#34;&gt;&lt;/a&gt;CDN 原理&lt;/h3&gt;&lt;p&gt;cdn 是把 DNS 轉向給 DNS 廠商（cloudflare），透過 DNS 指向將流量倒過去 cloudflare，在第一次 cache 過網站靜態資源後，第二次就可以直接提取cdn 伺服器上 cache　的資源以減少流量費用。&lt;/p&gt;
-&lt;h3 id=&#34;設定細節&#34;&gt;&lt;a href=&#34;#設定細節&#34; class=&#34;headerlink&#34; title=&#34;設定細節&#34;&gt;&lt;/a&gt;設定細節&lt;/h3&gt;&lt;h5 id=&#34;資源類型&#34;&gt;&lt;a href=&#34;#資源類型&#34; class=&#34;headerlink&#34; title=&#34;資源類型&#34;&gt;&lt;/a&gt;資源類型&lt;/h5&gt;&lt;p&gt;通常都會設定 &lt;strong&gt;A 類型&lt;/strong&gt;以設定網址（url）指向，例如 mailgun 的寄信功能。&lt;/p&gt;
-&lt;h5 id=&#34;防堵資安問題&#34;&gt;&lt;a href=&#34;#防堵資安問題&#34; class=&#34;headerlink&#34; title=&#34;防堵資安問題&#34;&gt;&lt;/a&gt;防堵資安問題&lt;/h5&gt;&lt;p&gt;cloudflare 設定其中一樣可以開啟 ddos -&amp;gt; under Attack 來保護網站資源。&lt;br&gt;也可以手動清除特定檔案，例如圖片的 cache 來重新抓取檔案。&lt;/p&gt;
-&lt;h1 id=&#34;第四步-掛載-wordpress&#34;&gt;&lt;a href=&#34;#第四步-掛載-wordpress&#34; class=&#34;headerlink&#34; title=&#34;第四步 - 掛載 wordpress&#34;&gt;&lt;/a&gt;第四步 - 掛載 wordpress&lt;/h1&gt;&lt;p&gt;wordpress 可以當作是一個 php 建構而成的後端框架應用，串接方式有兩種：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;直接使用 wordpress hook 來渲染資料（前後端合併）。&lt;/li&gt;
-&lt;li&gt;撰寫自己的前端框架（例如 vue），撰寫自己的 API（前後端分離）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;建立步驟&#34;&gt;&lt;a href=&#34;#建立步驟&#34; class=&#34;headerlink&#34; title=&#34;建立步驟&#34;&gt;&lt;/a&gt;建立步驟&lt;/h3&gt;&lt;p&gt;到  &lt;a href=&#34;https://tw.wordpress.org/download/&#34;&gt;wordpress&lt;/a&gt; 官方網站下載檔案，上傳到自己的網域 server。&lt;/p&gt;
-&lt;img src=&#34;/images/wordpress-get-started/14.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;wordpress-download&#34;&gt;
-&lt;p&gt;上傳後打開網站，會有一個 UI 介面可以直接設定 wordpress 與網站資料，config 需要設定資料庫帳號密碼：&lt;/p&gt;
-&lt;p&gt;要注意的是 wordpress 權限身分須從 root 改成 www-data，才能變成網站系統管理員使用 wordpress 後台。&lt;/p&gt;
-&lt;!-- 行情 $ 25000 (使用佈景主題)
-客製化算一頁
-定時備份以免網站被駭客
-租 GCP 靜態硬碟 
-google 硬碟版本管理 資源回收桶保留30 天
-flicker
-
-設定 config 檔案 
-比較好的後台c panel 要錢
-dns 代管要 https 要使用 flexible SSL for cloudflare
-
-一類有分類的文章 slug 需要代稱(英文的)
-獨立頁面 客製化
-siteliner 檢查有沒有壞掉的連結與重複的內容
-duplicate page
-報價高一點
-附加的css
-減少做重複的事情
-在 wordpress 上做前後端分離 --&gt;
-&lt;/body&gt;&lt;/html&gt;</content>
-        <category term="wordpress" />
-        <category term="dns" />
-        <category term="cdn" />
-        <updated>2022-08-07T02:02:29.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://maomaoxie.github.io/2022/08/05/zh-tw/hexo-rss/</id>
-        <title>Hexo RSS 自動產生器</title>
-        <link rel="alternate" href="http://maomaoxie.github.io/2022/08/05/zh-tw/hexo-rss/"/>
-        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;RSS 訂閱功能越來越夯，可以即時通知訂閱戶更新的文章內容，增加回流的流量與網站的熱度，chrome 也有提供 RSS reader 的外掛功能直接讀取 RSS 檔案。&lt;br&gt;既然建立好了自己的部落格怎麼可以沒有 RSS XD?&lt;/p&gt;
-&lt;p&gt;先前在專案包嘗試使用 hexo-generator-feed 套件，但是建立出來的 atom.xml 檔案會出現亂碼，後來找到一個套件甚至支援 json 與 rss 格式：&lt;/p&gt;
-&lt;h1 id=&#34;安裝-Hexo-seed-套件&#34;&gt;&lt;a href=&#34;#安裝-Hexo-seed-套件&#34; class=&#34;headerlink&#34; title=&#34;安裝 Hexo seed 套件&#34;&gt;&lt;/a&gt;安裝 Hexo seed 套件&lt;/h1&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install --save hexo-feed&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h3 id=&#34;檔案格式&#34;&gt;&lt;a href=&#34;#檔案格式&#34; class=&#34;headerlink&#34; title=&#34;檔案格式&#34;&gt;&lt;/a&gt;檔案格式&lt;/h3&gt;&lt;p&gt;hexo-feed 可以設定三種文件格式：atom、json 還有 rss，建立的模板可以透過專案包根目錄的 _config.yml 去設定模板的 path（template）：&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;_config.yml&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;feed&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;limit&lt;/span&gt;: &lt;span class=&#34;hljs-number&#34;&gt;20&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;order_by&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;-date&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;tag_dir&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;tag&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;category_dir&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;category&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;rss&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;hljs-attr&#34;&gt;enable&lt;/span&gt;: &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;hljs-attr&#34;&gt;template&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;themes/layout/template/rss.ejs&#34;&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;hljs-attr&#34;&gt;output&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;rss.xml&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;atom&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;hljs-attr&#34;&gt;enable&lt;/span&gt;: &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;hljs-attr&#34;&gt;template&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;themes/layout/template/atom.ejs&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;hljs-attr&#34;&gt;output&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;atom.xml&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;jsonFeed&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;hljs-attr&#34;&gt;enable&lt;/span&gt;: &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;hljs-attr&#34;&gt;template&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;themes/layout/template/json.ejs&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;hljs-attr&#34;&gt;output&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;feed.json&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h3 id=&#34;模板內容&#34;&gt;&lt;a href=&#34;#模板內容&#34; class=&#34;headerlink&#34; title=&#34;模板內容&#34;&gt;&lt;/a&gt;模板內容&lt;/h3&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;atom&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;?xml version=&lt;span class=&#34;hljs-string&#34;&gt;&#34;1.0&#34;&lt;/span&gt;?&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;feed&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;xmlns&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;http://www.w3.org/2005/Atom&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;id&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;lt;%= config.url %&amp;gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;id&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;lt;%= config.title %&amp;gt;&amp;lt;%= tag ? ` • Posts by &#34;${tag}&#34; tag` : &#39;&#39; %&amp;gt;&amp;lt;%= category ? ` • Posts by &#34;${category}&#34; category` : &#39;&#39; %&amp;gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;lt;%= config.url %&amp;gt;&#34;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;updated&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;lt;%= moment(lastBuildDate).toISOString() %&amp;gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;updated&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &amp;lt;%_ for (const { name } of (tags || [])) { _%&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;category&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;term&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;lt;%= name %&amp;gt;&#34;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &amp;lt;%_ } _%&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &amp;lt;%_ for (const post of posts) { _%&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;entry&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;id&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;lt;%= post.permalink %&amp;gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;id&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;lt;%= post.title %&amp;gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;rel&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;alternate&#34;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;lt;%= post.permalink %&amp;gt;&#34;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;content&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;html&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;lt;%= post.content %&amp;gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;content&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &amp;lt;%_ for (const { name } of (post.tags ? post.tags.toArray() : [])) { _%&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;category&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;term&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;&amp;lt;%= name %&amp;gt;&#34;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &amp;lt;%_ } _%&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;updated&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;lt;%= moment(post.date).toISOString() %&amp;gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;updated&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;entry&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    &amp;lt;%_ } _%&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;feed&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/body&gt;&lt;/html&gt;</content>
-        <category term="rss" />
-        <category term="hexo" />
-        <updated>2022-08-05T07:39:34.000Z</updated>
     </entry>
 </feed>
