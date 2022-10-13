@@ -145,69 +145,6 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/09/21/zh-tw/js-weird-parts-operators/" itemprop="url">克服 Javascript 的奇怪部分 運算子</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-09-21T06:28:51.000Z" itemprop="datePublished">9月 21 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            3 分鐘 讀完 (約 396 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><p>在閱讀本篇文章以前，先給予一個結論方便後續理解：<br>運算子不過就是一種函式而已，而且會回傳一個運算結果的值．</p>
-<p>Javascript 的運算子（operators）有個奇妙的現象就是，運算過程會造成動態型別的轉換而獲得不如預期的結果．</p>
-<h1 id="運算子（operators）的定義"><a href="#運算子（operators）的定義" class="headerlink" title="運算子（operators）的定義"></a>運算子（operators）的定義</h1><h3 id="實際上為一種函式"><a href="#實際上為一種函式" class="headerlink" title="實際上為一種函式"></a>實際上為一種函式</h3><blockquote><p>A special function that is syntactically (written) differently.</p>
-</blockquote>
-
-<h3 id="需要兩個參數獲得結果"><a href="#需要兩個參數獲得結果" class="headerlink" title="需要兩個參數獲得結果"></a>需要兩個參數獲得結果</h3><blockquote><p>Generally, an operator take two parameters and return one result.</p>
-</blockquote>
-
-<h3 id="中綴寫法"><a href="#中綴寫法" class="headerlink" title="中綴寫法"></a>中綴寫法</h3><p>運算子其實就是一種表達式必備的元素，丟進去參數然後運算 return 結果，只是不同於一般的函式寫法，它是使用中綴（infix　notation）的寫法，將參數寫在函式符號的兩邊：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">3</span> + <span class="hljs-number">4</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 7</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>老式的計算機都是使用後綴的寫法：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-number">3</span> <span class="hljs-number">4</span> +;</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="型別轉換"><a href="#型別轉換" class="headerlink" title="型別轉換"></a>型別轉換</h3><p>Javascript 的運算子造成的隱式型別轉換數不勝數，例如比較運算子（Relational operators），會將數字型別轉換成布林值（Boolean）。</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">3</span> &gt; <span class="hljs-number">4</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// false</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><blockquote><p>Operators are actually spacial types of functions, these parameters are being pass into those functions,<br>and the value  is being returned.<br>There is pre written codes that javaScript engine provides to do or invoke those functions.</p>
-</blockquote>
-<p>運算子只是已經寫好的函式（function）提供使用而已，寫法稍有不同於一般函式，為中綴（infix　notation）的寫法。</p>
-</body></html> -->
-        
-        
-        <html><head></head><body><p>在閱讀本篇文章以前，先給予一個結論方便後續理解：<br>運算子不過就是一種函式而已，而且會回傳一個運算結果的值．</p>
-<p>Javascript 的運算子（operators）有個奇妙的現象就是，運算過程會造成動態型別的轉換而獲得不如預期的結果．</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/09/21/zh-tw/js-weird-parts-operators/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
             <a href="/2022/09/15/zh-tw/wordpress-ga-track/" itemprop="url">如何在 wordpress 埋入 GA code</a>
         
     </h1>
@@ -310,6 +247,60 @@
 
 
     
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/08/25/zh-tw/wowjs-in-vue2-typescript/" itemprop="url">在 Vue2 + Typescript 專案中引入 WOW.js</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-25T03:00:37.000Z" itemprop="datePublished">8月 25 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分鐘 讀完 (約 207 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><h1 id="安裝模組"><a href="#安裝模組" class="headerlink" title="安裝模組"></a>安裝模組</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install wowjs</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="引用-css"><a href="#引用-css" class="headerlink" title="引用 css"></a>引用 css</h1><p>這一步要注意的地方是 animate.css 的使用方式，使用 npm install 安裝的 animate.css 會在 wowjs 套件包下的 <code>css/lib/animate.css</code>，而不是透過 npm 安裝的 animate.css：</p>
+<h3 id="wowjs-套件包下的-animate-css"><a href="#wowjs-套件包下的-animate-css" class="headerlink" title="wowjs 套件包下的 animate.css"></a>wowjs 套件包下的 animate.css</h3><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">'css/lib/animate.css'</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="npm-安裝的-animate-css"><a href="#npm-安裝的-animate-css" class="headerlink" title="npm 安裝的 animate.css"></a>npm 安裝的 animate.css</h3><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">'animate.css'</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote class="colorquote danger"><p>值得注意的點就是在於 css 名稱套用上的不同，wowjs 使用上不需要 animate 前綴，而 npm 安裝的需要，如果得搭配滾動視窗位置才套用動畫，需要注意 wowjs 套件包下的 <code>css/lib/animate.css</code> 引用模組方式。</p>
+</blockquote>
+
+<blockquote><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32963841/article/details/115690823">关于wow.js在vue项目中的使用及遇到的坑（css3效果）</a></p>
+</blockquote></body></html> -->
+        
+        
+        <html><head></head><body><h1 id="安裝模組"><a href="#安裝模組" class="headerlink" title="安裝模組"></a>安裝模組</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install wowjs</span><br></pre></td></tr></tbody></table></figure>
+
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/08/25/zh-tw/wowjs-in-vue2-typescript/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -341,7 +332,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/20/">20</a></li>
+        <li><a class="pagination-link" href="/page/19/">19</a></li>
         
     </ul>
 </nav>

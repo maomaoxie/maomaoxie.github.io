@@ -145,75 +145,6 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/09/28/google-apps-script-try/" itemprop="url">Google Apps Script 輕鬆寫入表單</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-09-28T06:54:00.000Z" itemprop="datePublished">9月 28 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分鐘 讀完 (約 596 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><p>先前自己的一個小專案使用了 Google 官方的 Sheet Api v4 來寫入花費明細，除了要自幹一套 Node.js 搞定 Sheet API 的 OAuth 之外，還要忍受每過七天 tkn 就會失效的痛苦，終於在茫茫文件海中發現到 App 小天堂 Google Apps Script 這套輕量型的 Paas 平台，讓你撰寫一段小小的 javascript code 就能一秒產生 API endpoint！</p>
-<h1 id="啟用-GCP-Google-Apps-Script"><a href="#啟用-GCP-Google-Apps-Script" class="headerlink" title="啟用 GCP Google Apps Script"></a>啟用 GCP Google Apps Script</h1><p>首先要準備好的就是你 GCP 上的 API 要記得啟用，打開 Google Sheets API 以及 APPs Script API：</p>
-<img src="/images/google-apps-script-try/0.png" class="" width="600" height="200" title="google-apps-script-try">
-
-<p>打開之後去建立一個空白表單來產生需要的 Sheet ID，會在表單連結裡 <code>d/</code> 後方的一串亂碼．</p>
-<img src="/images/google-apps-script-try/1.png" class="" width="800" height="200" title="google-apps-script-try">
-
-<p>接著把表單存取權限開到最大，讓任何知道連結的人都可以編輯表單：</p>
-<img src="/images/google-apps-script-try/2.png" class="" width="800" height="200" title="google-apps-script-try">
-
-<h1 id="透過-Google-Apps-Script-建立應用程式"><a href="#透過-Google-Apps-Script-建立應用程式" class="headerlink" title="透過 Google Apps Script 建立應用程式"></a>透過 Google Apps Script 建立應用程式</h1><h2 id="撰寫程式"><a href="#撰寫程式" class="headerlink" title="撰寫程式"></a>撰寫程式</h2><p>接下來是重頭戲，建立寫入 Google 表單的 app，點案這裡進入 Google Apps Script 介面，撰寫以下的程式碼：<br>來源之後補上：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">doPost</span>(<span class="hljs-params">e</span>) {</span><br><span class="line">  <span class="hljs-comment">// 取得輸入參數</span></span><br><span class="line">  <span class="hljs-keyword">let</span> params = e.<span class="hljs-property">parameter</span>; </span><br><span class="line">  <span class="hljs-keyword">let</span> name = params.<span class="hljs-property">name</span>;</span><br><span class="line">  <span class="hljs-keyword">let</span> mail = params.<span class="hljs-property">mail</span>;</span><br><span class="line"> </span><br><span class="line">  <span class="hljs-comment">// 初始化試算表</span></span><br><span class="line">  <span class="hljs-keyword">let</span> <span class="title class_">SpreadSheet</span> = <span class="title class_">SpreadsheetApp</span>.<span class="title function_">openById</span>(<span class="hljs-string">"輸入你斜線 d 後面的表單 id"</span>);</span><br><span class="line">  <span class="hljs-keyword">let</span> <span class="title class_">Sheet</span> = <span class="title class_">SpreadSheet</span>.<span class="title function_">getSheets</span>()[<span class="hljs-number">0</span>]; <span class="hljs-comment">// 指定第一張試算表</span></span><br><span class="line">  <span class="hljs-keyword">let</span> <span class="title class_">LastRow</span> = <span class="title class_">Sheet</span>.<span class="title function_">getLastRow</span>(); <span class="hljs-comment">// 取得最後一列有值的索引值</span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 寫入試算表</span></span><br><span class="line">  <span class="title class_">Sheet</span>.<span class="title function_">getRange</span>(<span class="title class_">LastRow</span>+<span class="hljs-number">1</span>, <span class="hljs-number">1</span>).<span class="title function_">setValue</span>(name);</span><br><span class="line">  <span class="title class_">Sheet</span>.<span class="title function_">getRange</span>(<span class="title class_">LastRow</span>+<span class="hljs-number">1</span>, <span class="hljs-number">2</span>).<span class="title function_">setValue</span>(mail);</span><br><span class="line">  </span><br><span class="line">  <span class="hljs-comment">// 回傳結果</span></span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title class_">ContentService</span></span><br><span class="line">  .<span class="title function_">createTextOutput</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>({ <span class="hljs-attr">result</span>: <span class="hljs-string">'成功'</span>, <span class="hljs-attr">version</span>: <span class="hljs-string">'1.0'</span> }))</span><br><span class="line">      .<span class="title function_">setMimeType</span>(<span class="title class_">ContentService</span>.<span class="hljs-property">MimeType</span>.<span class="hljs-property">JSON</span>); </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-<h2 id="部屬程式"><a href="#部屬程式" class="headerlink" title="部屬程式"></a>部屬程式</h2><p>點選右上方的部屬，選擇類型為「網頁應用程式」．以及呼叫 API 的權限設定要記得選擇，所有人都可以呼叫這個程式並且寫入：</p>
-<img src="/images/google-apps-script-try/4.png" class="" width="800" height="200" title="google-apps-script-try">
-<img src="/images/google-apps-script-try/5.png" class="" width="800" height="200" title="google-apps-script-try">
-
-<h2 id="獲得端點-API"><a href="#獲得端點-API" class="headerlink" title="獲得端點 API"></a>獲得端點 API</h2><p>部屬完成會有 API 網址產生，這時候就可以複製起來然後使用 postman 操作看看是否成功囉!</p>
-<img src="/images/google-apps-script-try/6.png" class="" width="800" height="200" title="google-apps-script-try">
-<img src="/images/google-apps-script-try/7.png" class="" width="800" height="200" title="google-apps-script-try">
-
-<p>來查看一下 google sheet 這邊是否成功寫入：</p>
-<img src="/images/google-apps-script-try/8.png" class="" width="800" height="200" title="google-apps-script-try">
-
-<p>大功告成囉!</p>
-</body></html> -->
-        
-        
-        <html><head></head><body><p>先前自己的一個小專案使用了 Google 官方的 Sheet Api v4 來寫入花費明細，除了要自幹一套 Node.js 搞定 Sheet API 的 OAuth 之外，還要忍受每過七天 tkn 就會失效的痛苦，終於在茫茫文件海中發現到 App 小天堂 Google Apps Script 這套輕量型的 Paas 平台，讓你撰寫一段小小的 javascript code 就能一秒產生 API endpoint！</p>
-<h1 id="啟用-GCP-Google-Apps-Script"><a href="#啟用-GCP-Google-Apps-Script" class="headerlink" title="啟用 GCP Google Apps Script"></a>啟用 GCP Google Apps Script</h1><p>首先要準備好的就是你 GCP 上的 API 要記得啟用，打開 Google Sheets API 以及 APPs Script API：</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/09/28/google-apps-script-try/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
             <a href="/2022/09/28/zh-tw/restful-api-intro/" itemprop="url">restful-api-intro</a>
         
     </h1>
@@ -312,6 +243,62 @@
 
 
     
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/09/26/zh-tw/js-weird-parts-boolean-vs-existence/" itemprop="url">克服 Javascript 的奇怪部分 布林與存在</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-09-26T08:32:21.000Z" itemprop="datePublished">9月 26 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 361 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><h1 id="布林值的型轉"><a href="#布林值的型轉" class="headerlink" title="布林值的型轉"></a>布林值的型轉</h1><p>布林型轉遇到代表著空值、不存在或者未定義的值時就會轉換為假值（falsy），例如以下範例：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-literal">null</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-string">''</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-number">0</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="title class_">NaN</span>); <span class="hljs-comment">// false</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>需要注意的是字串0使用布林型轉會獲得真值（truthy）：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-string">'0'</span>); <span class="hljs-comment">// true</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-string">'-0'</span>); <span class="hljs-comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="if-陳述句的型轉"><a href="#if-陳述句的型轉" class="headerlink" title="if 陳述句的型轉"></a>if 陳述句的型轉</h1><h3 id="用來檢查某變數是否存在"><a href="#用來檢查某變數是否存在" class="headerlink" title="用來檢查某變數是否存在"></a>用來檢查某變數是否存在</h3><p>if 陳述句會將大括號中（parenthesis）的值做布林轉換，也可以使用隱式型轉的特性來檢查某變數是否存在：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a;</span><br><span class="line">... <span class="hljs-comment">// 做了些甚麼</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> (a) { <span class="hljs-comment">// 被布林型轉</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'a 非空值或未定義！'</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="當-falsy-值有可能是零"><a href="#當-falsy-值有可能是零" class="headerlink" title="當 falsy 值有可能是零"></a>當 falsy 值有可能是零</h3><p>由於 0 的布林型轉也會是 false，可能會造成 if 陳述句的條件判斷下剔除的對象，這時候可以搭配前篇提到的優先性（Precedence），使用優先性較高的三等號（===）加上 OR（||）來介入型轉判斷：</p>
+<img src="/images/js-weird-parts-boolean-vs-existence/0.png" class="" width="800" height="200" title="js-weird-parts-boolean-vs-existence">
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a;</span><br><span class="line"><span class="hljs-keyword">if</span> (a || a === <span class="hljs-number">0</span>) {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'0會被列入考慮'</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>由於優先性先判斷後方 <code>a === 0</code> 為 true，繼續判斷表達式<code>a || true</code> 為 <code>false || true</code>，OR（||）兩邊任一方為 true 印出 true，條件式成立印出 console.log(‘0會被列入考慮’)。</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><h1 id="布林值的型轉"><a href="#布林值的型轉" class="headerlink" title="布林值的型轉"></a>布林值的型轉</h1><p>布林型轉遇到代表著空值、不存在或者未定義的值時就會轉換為假值（falsy），例如以下範例：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-literal">null</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-string">''</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-number">0</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="title class_">NaN</span>); <span class="hljs-comment">// false</span></span><br></pre></td></tr></tbody></table></figure>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/09/26/zh-tw/js-weird-parts-boolean-vs-existence/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -339,7 +326,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/20/">20</a></li>
+        <li><a class="pagination-link" href="/page/19/">19</a></li>
         
     </ul>
 </nav>

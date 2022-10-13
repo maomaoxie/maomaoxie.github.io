@@ -7,11 +7,6 @@
         <language>zh-tw,en,default</language>
         <pubDate>Fri, 18 Feb 2022 20:16:27 +0800</pubDate>
         <lastBuildDate>Fri, 18 Feb 2022 20:16:27 +0800</lastBuildDate>
-        <category>Google Analytics</category>
-        <category>GA</category>
-        <category>GA4</category>
-        <category>Google Tag Manager</category>
-        <category>GTM</category>
         <category>javascript</category>
         <category>constructor</category>
         <category>instance</category>
@@ -23,11 +18,11 @@
         <category>git</category>
         <category>github</category>
         <category>sourceTree</category>
-        <category>hexo</category>
-        <category>submodule</category>
         <category>api</category>
         <category>graphQL</category>
         <category>facebook</category>
+        <category>hexo</category>
+        <category>submodule</category>
         <category>http</category>
         <category>https</category>
         <category>request</category>
@@ -45,9 +40,9 @@
         <category>wsl2</category>
         <category>public</category>
         <category>static</category>
-        <category>layout</category>
         <category>migration</category>
         <category>sql</category>
+        <category>layout</category>
         <category>tailwind</category>
         <category>css</category>
         <category>less</category>
@@ -68,10 +63,10 @@
         <category>vue</category>
         <category>vue3</category>
         <category>compositionAPI</category>
-        <category>vite</category>
-        <category>typescript</category>
         <category>vuetify</category>
         <category>html</category>
+        <category>vite</category>
+        <category>typescript</category>
         <category>WebSocket</category>
         <category>WebHook</category>
         <category>wordpress</category>
