@@ -145,13 +145,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/09/15/zh-tw/wordpress-ga-track/" itemprop="url">如何在 wordpress 埋入 GA code</a>
+            <a href="/2022/09/28/zh-tw/restful-api-intro/" itemprop="url">restful-api-intro</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-09-15T02:42:04.000Z" itemprop="datePublished">9月 15 2022</time>
+                <time datetime="2022-09-28T02:42:52.000Z" itemprop="datePublished">9月 28 2022</time>
             
         </span>
         
@@ -159,82 +159,26 @@
         <span class="column is-narrow">
             
             
-            2 分鐘 讀完 (約 246 字)
+            2 分鐘 讀完 (約 238 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><p>目前 Google Analytics 已經升級至 GA4，從前綴的追蹤碼 UA- 開頭轉換為 G- 開頭，令許多前端框架的套件還趕不上變化。<br>以下介紹如何在 wordpress 介面插入追蹤碼：</p>
-<h1 id="在-GA-建立帳號與資源"><a href="#在-GA-建立帳號與資源" class="headerlink" title="在 GA 建立帳號與資源"></a>在 GA 建立帳號與資源</h1><p>這一步公司目前已經建置完成，建置的方法須先建立網站資源（網址 url），建立完畢後可在進階選項同時安裝新舊版的 GA code．</p>
-<h1 id="wordpress-安裝-GA-步驟"><a href="#wordpress-安裝-GA-步驟" class="headerlink" title="wordpress 安裝 GA 步驟"></a>wordpress 安裝 GA 步驟</h1><h3 id="安裝外掛-Insert-Headers-and-Footers"><a href="#安裝外掛-Insert-Headers-and-Footers" class="headerlink" title="安裝外掛 Insert Headers and Footers"></a>安裝外掛 Insert Headers and Footers</h3><p>安裝任何外掛程式前先 google wp 外掛黑名單，查看安全並安裝後記得跑跑看網站以免中毒．</p>
-<h3 id="埋入-GA-code"><a href="#埋入-GA-code" class="headerlink" title="埋入 GA code"></a>埋入 GA code</h3><p>舊版 UA- 開頭</p>
-<figure class="highlight javascript hljs"><figcaption><span>GA3</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- <span class="title class_">Global</span> site tag (gtag.<span class="hljs-property">js</span>) - <span class="title class_">Google</span> <span class="title class_">Analytics</span> --&gt;</span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">async</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-language-javascript"></span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="variable language_">window</span>.<span class="hljs-property">dataLayer</span> = <span class="variable language_">window</span>.<span class="hljs-property">dataLayer</span> || [];</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="hljs-keyword">function</span> <span class="title function_">gtag</span>(<span class="hljs-params"></span>){dataLayer.<span class="title function_">push</span>(<span class="variable language_">arguments</span>);}</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="title function_">gtag</span>(<span class="hljs-string">'js'</span>, <span class="hljs-keyword">new</span> <span class="title class_">Date</span>());</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"></span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="title function_">gtag</span>(<span class="hljs-string">'config'</span>, <span class="hljs-string">'UA-XXXXXXXXX-1'</span>);</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>新版 G- 開頭</p>
-<figure class="highlight javascript hljs"><figcaption><span>GA4</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- <span class="title class_">Google</span> tag (gtag.<span class="hljs-property">js</span>) --&gt;</span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">async</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-language-javascript"></span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="variable language_">window</span>.<span class="hljs-property">dataLayer</span> = <span class="variable language_">window</span>.<span class="hljs-property">dataLayer</span> || [];</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="hljs-keyword">function</span> <span class="title function_">gtag</span>(<span class="hljs-params"></span>){dataLayer.<span class="title function_">push</span>(<span class="variable language_">arguments</span>);}</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="title function_">gtag</span>(<span class="hljs-string">'js'</span>, <span class="hljs-keyword">new</span> <span class="title class_">Date</span>());</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"></span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"><span class="title function_">gtag</span>(<span class="hljs-string">'config'</span>, <span class="hljs-string">'G-XXXXXXXXXX'</span>);</span></span></span><br><span class="line"><span class="hljs-language-javascript"><span class="hljs-language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure></body></html> -->
-        
-        
-        <html><head></head><body><p>目前 Google Analytics 已經升級至 GA4，從前綴的追蹤碼 UA- 開頭轉換為 G- 開頭，令許多前端框架的套件還趕不上變化。<br>以下介紹如何在 wordpress 介面插入追蹤碼：</p>
-<h1 id="在-GA-建立帳號與資源"><a href="#在-GA-建立帳號與資源" class="headerlink" title="在 GA 建立帳號與資源"></a>在 GA 建立帳號與資源</h1><p>這一步公司目前已經建置完成，建置的方法須先建立網站資源（網址 url），建立完畢後可在進階選項同時安裝新舊版的 GA code．</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/09/15/zh-tw/wordpress-ga-track/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/09/14/zh-tw/touch-and-click-event/" itemprop="url">touch 與 click 事件</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-09-14T01:38:48.000Z" itemprop="datePublished">9月 14 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分鐘 讀完 (約 588 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><p>製作完一個 swipe 專案之後發覺 click 事件會同時觸發 touch 事件，造成綁定同一個 dom 時觸發兩次，解決方式有幾種：</p>
-<h1 id="針對-click-與-touch-綁定不同的-dom"><a href="#針對-click-與-touch-綁定不同的-dom" class="headerlink" title="針對 click 與 touch 綁定不同的 dom"></a>針對 click 與 touch 綁定不同的 dom</h1><p>例如輪播可以針對箭頭按鈕綁定 click，輪播對象綁定 touch。</p>
-<h1 id="改用-mousedown-amp-up-取代-click-事件"><a href="#改用-mousedown-amp-up-取代-click-事件" class="headerlink" title="改用 mousedown &amp; up 取代 click 事件"></a>改用 mousedown &amp; up 取代 click 事件</h1><p>可以區分滑鼠的點擊事件使用 mouse 系列，與手指的點擊使用 touch 事件。</p>
-<h1 id="改用-pointer-event"><a href="#改用-pointer-event" class="headerlink" title="改用 pointer event"></a>改用 pointer event</h1><p>該事件可以適用於所有觸控裝置，包括觸控筆與手指，可以更敏銳的偵測觸控的方式，有幾種形式可以使用：</p>
-<h3 id="pointerover"><a href="#pointerover" class="headerlink" title="pointerover"></a>pointerover</h3><p>Fired when a pointer is moved into an element’s hit test boundaries.<br>當觸控進入指定區域時觸發。</p>
-<h3 id="ponterenter"><a href="#ponterenter" class="headerlink" title="ponterenter"></a>ponterenter</h3><p>Fired when a pointer is moved into the hit test boundaries of an element or one of its descendants,<br>including as a result of a pointerdown event from a device that does not support hover<br>當觸控進入指定區域或是子元素區域，及不支援 hover 的裝置上按壓時觸發．</p>
-<h3 id="pointerdown"><a href="#pointerdown" class="headerlink" title="pointerdown"></a>pointerdown</h3><p>Fired when a pointer becomes active buttons state.<br>按壓時觸發．</p>
-<h3 id="pointermove"><a href="#pointermove" class="headerlink" title="pointermove"></a>pointermove</h3><p>Fired when a pointer changes coordinates.<br>This event is also used if the change in pointer state can not be reported by other events.<br>當手指按壓並移動時觸發，亦會使用在 pointer 狀態不為其他事件所察覺時．</p>
-<h3 id="pointerup"><a href="#pointerup" class="headerlink" title="pointerup"></a>pointerup</h3><p>Fired when a pointer is no longer active buttons state.<br>當手指接觸面積離開裝置時觸發．</p>
-<h3 id="pointercancel"><a href="#pointercancel" class="headerlink" title="pointercancel"></a>pointercancel</h3><p>A browser fires this event if it concludes the pointer will no longer be able to generate events<br>(for example the related device is deactivated).<br>當裝置因設置關閉觸控等原因無法觸發 pointer 事件時，瀏覽器會偵測並觸發．</p>
-<h3 id="pointerout"><a href="#pointerout" class="headerlink" title="pointerout"></a>pointerout</h3><p>Fired for several reasons including: pointer is moved out of the hit test boundaries of an element;<br>firing the pointerup event for a device that does not support hover (see pointerup);<br>after firing the pointercancel event (see pointercancel); when a pen stylus leaves the hover range detectable by the digitizer.<br>當手指從裝置面板移開時觸發，亦會同時觸發 pointerup 事件；在 pointercancel 事件完成後也會觸發；當觸控筆離開裝置可偵測的範圍內也會觸發．</p>
-<h3 id="pointerleave"><a href="#pointerleave" class="headerlink" title="pointerleave"></a>pointerleave</h3><p>Fired when a pointer is moved out of the hit test boundaries of an element.<br>For pen devices, this event is fired when the stylus leaves the hover range detectable by the digitizer.<br>跟上面很像，只是不會觸發 pointerup；在 pointercancel 事件完成後不會觸發．</p>
+        <!-- <html><head></head><body><p>RESTful API 的簡單介紹：</p>
+<h1 id="統一資源對外傳輸的接界窗口"><a href="#統一資源對外傳輸的接界窗口" class="headerlink" title="統一資源對外傳輸的接界窗口"></a>統一資源對外傳輸的接界窗口</h1><p>可以透過資源分類命名，例如 <a target="_blank" rel="noopener" href="https://www.example.com/books">https://www.example.com/books</a> 就是關於書的相關 API 資料</p>
+<h1 id="API-端口彼此獨立，不須互相依賴"><a href="#API-端口彼此獨立，不須互相依賴" class="headerlink" title="API 端口彼此獨立，不須互相依賴"></a>API 端口彼此獨立，不須互相依賴</h1><p>資源按照端口分開接收，沒有次序或是參數依賴的問題</p>
+<h1 id="從-Client-端發送需求（request）"><a href="#從-Client-端發送需求（request）" class="headerlink" title="從 Client 端發送需求（request）"></a>從 Client 端發送需求（request）</h1><p>API 的資源傳送是分離式的，client 裝置發送 request 而 server 提供資源</p>
+<h1 id="具有-cache-機制"><a href="#具有-cache-機制" class="headerlink" title="具有 cache 機制"></a>具有 cache 機制</h1><p>可以在 API 資源第一次返回時下載在客戶端裝置，存取在瀏覽器等暫時記憶位置，避免耗時重複讀取相同的資源，例如網站圖片或靜態資源</p>
+<h1 id="可架接中間層系統"><a href="#可架接中間層系統" class="headerlink" title="可架接中間層系統"></a>可架接中間層系統</h1><p>在 API 流量評估的中間層設置負載平衡機制，適時的管控與擴充當下 API 使用情況以免伺服器負荷過大</p>
 </body></html> -->
         
         
-        <html><head></head><body><p>製作完一個 swipe 專案之後發覺 click 事件會同時觸發 touch 事件，造成綁定同一個 dom 時觸發兩次，解決方式有幾種：</p>
-<h1 id="針對-click-與-touch-綁定不同的-dom"><a href="#針對-click-與-touch-綁定不同的-dom" class="headerlink" title="針對 click 與 touch 綁定不同的 dom"></a>針對 click 與 touch 綁定不同的 dom</h1><p>例如輪播可以針對箭頭按鈕綁定 click，輪播對象綁定 touch。</p>
+        <html><head></head><body><p>RESTful API 的簡單介紹：</p>
+<h1 id="統一資源對外傳輸的接界窗口"><a href="#統一資源對外傳輸的接界窗口" class="headerlink" title="統一資源對外傳輸的接界窗口"></a>統一資源對外傳輸的接界窗口</h1><p>可以透過資源分類命名，例如 <a target="_blank" rel="noopener" href="https://www.example.com/books">https://www.example.com/books</a> 就是關於書的相關 API 資料</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/09/14/zh-tw/touch-and-click-event/">more</a>
+                <a href="/2022/09/28/zh-tw/restful-api-intro/">more</a>
             </p>
         
     
@@ -250,13 +194,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/08/25/zh-tw/wowjs-in-vue2-typescript/" itemprop="url">在 Vue2 + Typescript 專案中引入 WOW.js</a>
+            <a href="/2022/09/26/zh-tw/js-weird-parts-default-values/" itemprop="url">克服 Javascript 的奇怪部分 預設值</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-08-25T03:00:37.000Z" itemprop="datePublished">8月 25 2022</time>
+                <time datetime="2022-09-26T09:15:05.000Z" itemprop="datePublished">9月 26 2022</time>
             
         </span>
         
@@ -264,31 +208,85 @@
         <span class="column is-narrow">
             
             
-            1 分鐘 讀完 (約 207 字)
+            2 分鐘 讀完 (約 310 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><h1 id="安裝模組"><a href="#安裝模組" class="headerlink" title="安裝模組"></a>安裝模組</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install wowjs</span><br></pre></td></tr></tbody></table></figure>
+        <!-- <html><head></head><body><p>JavaScript 引擎在函式建立當下會創造一個執行環境（execution context），以及未被建立的變數都會賦予 <code>undefined</code> 的值，相對應來講參數也是一種變數。</p>
+<h1 id="預設參數"><a href="#預設參數" class="headerlink" title="預設參數"></a>預設參數</h1><p>當預設參數沒有被指定的情況下，JavaScript 引擎會默認為<code>undefined</code> 的值：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">greetings</span>(<span class="hljs-params">name</span>) {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'Hello, '</span>, name + <span class="hljs-string">'.'</span>);</span><br><span class="line">}</span><br><span class="line"><span class="title function_">greetings</span>(<span class="hljs-string">'Jamie'</span>); <span class="hljs-comment">// Hello, Jamie.</span></span><br><span class="line"><span class="title function_">greetings</span>(); <span class="title class_">Hello</span>, <span class="hljs-literal">undefined</span>.</span><br></pre></td></tr></tbody></table></figure>
+<p>這其中也有字串的隱式型轉，<code>Hello</code> + <code>String(undefined)</code>，獲得 <code>Hello, undefined.</code>的結果。</p>
+<h1 id="善用-OR（-）搭配布林型轉-設定預設值"><a href="#善用-OR（-）搭配布林型轉-設定預設值" class="headerlink" title="善用 OR（||）搭配布林型轉 設定預設值"></a>善用 OR（||）搭配布林型轉 設定預設值</h1><p>OR（||）運算子的特性就是回傳表達式兩邊，Boolean 型轉第一個為 <code>true</code> 的值：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">greetings</span>(<span class="hljs-params">name</span>) {</span><br><span class="line">    name = name || <span class="hljs-string">'&lt;你的名字&gt;'</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(name);</span><br><span class="line">}</span><br><span class="line"><span class="title function_">greetings</span>(); <span class="hljs-comment">// '&lt;你的名字&gt;'</span></span><br></pre></td></tr></tbody></table></figure>
+<p><code>name = name || '&lt;你的名字&gt;'</code> 轉換過程中會將 name 賦值 <code>undefined</code>，undefined || ‘&lt;你的名字&gt;’ 透過布林型轉為 false || true，<br>並且返回 <code>true</code> 的值 <code>'&lt;你的名字&gt;'</code>，可以透過這種布林型轉小技巧來設定預設值。</p>
+<h1 id="OR（-）回傳第一個-true-的值"><a href="#OR（-）回傳第一個-true-的值" class="headerlink" title="OR（||）回傳第一個 true 的值"></a>OR（||）回傳第一個 true 的值</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-literal">true</span> || <span class="hljs-literal">false</span>; <span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-literal">true</span> || <span class="hljs-literal">true</span>; <span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-literal">false</span> || <span class="hljs-literal">false</span>; <span class="hljs-comment">// false</span></span><br><span class="line"><span class="hljs-literal">undefined</span> || <span class="hljs-string">'1'</span>; <span class="hljs-comment">// '1'</span></span><br><span class="line"><span class="hljs-string">'apple'</span> || <span class="hljs-string">'banana'</span>; <span class="hljs-comment">// 'apple' </span></span><br></pre></td></tr></tbody></table></figure>
 
-<h1 id="引用-css"><a href="#引用-css" class="headerlink" title="引用 css"></a>引用 css</h1><p>這一步要注意的地方是 animate.css 的使用方式，使用 npm install 安裝的 animate.css 會在 wowjs 套件包下的 <code>css/lib/animate.css</code>，而不是透過 npm 安裝的 animate.css：</p>
-<h3 id="wowjs-套件包下的-animate-css"><a href="#wowjs-套件包下的-animate-css" class="headerlink" title="wowjs 套件包下的 animate.css"></a>wowjs 套件包下的 animate.css</h3><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">'css/lib/animate.css'</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="npm-安裝的-animate-css"><a href="#npm-安裝的-animate-css" class="headerlink" title="npm 安裝的 animate.css"></a>npm 安裝的 animate.css</h3><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">'animate.css'</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote class="colorquote danger"><p>值得注意的點就是在於 css 名稱套用上的不同，wowjs 使用上不需要 animate 前綴，而 npm 安裝的需要，如果得搭配滾動視窗位置才套用動畫，需要注意 wowjs 套件包下的 <code>css/lib/animate.css</code> 引用模組方式。</p>
-</blockquote>
-
-<blockquote><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32963841/article/details/115690823">关于wow.js在vue项目中的使用及遇到的坑（css3效果）</a></p>
-</blockquote></body></html> -->
+<h2 id="使用-OR（-）設定預設值"><a href="#使用-OR（-）設定預設值" class="headerlink" title="使用 OR（||）設定預設值"></a>使用 OR（||）設定預設值</h2><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-literal">undefined</span> || <span class="hljs-string">'Jakie'</span>;</span><br><span class="line"><span class="hljs-literal">null</span> || <span class="hljs-string">'existence'</span>;</span><br><span class="line"><span class="hljs-string">''</span> || <span class="hljs-string">'預設文字'</span>;</span><br></pre></td></tr></tbody></table></figure></body></html> -->
         
         
-        <html><head></head><body><h1 id="安裝模組"><a href="#安裝模組" class="headerlink" title="安裝模組"></a>安裝模組</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install wowjs</span><br></pre></td></tr></tbody></table></figure>
-
+        <html><head></head><body><p>JavaScript 引擎在函式建立當下會創造一個執行環境（execution context），以及未被建立的變數都會賦予 <code>undefined</code> 的值，相對應來講參數也是一種變數。</p>
+<h1 id="預設參數"><a href="#預設參數" class="headerlink" title="預設參數"></a>預設參數</h1><p>當預設參數沒有被指定的情況下，JavaScript 引擎會默認為<code>undefined</code> 的值：</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/08/25/zh-tw/wowjs-in-vue2-typescript/">more</a>
+                <a href="/2022/09/26/zh-tw/js-weird-parts-default-values/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/09/26/zh-tw/js-weird-parts-boolean-vs-existence/" itemprop="url">克服 Javascript 的奇怪部分 布林與存在</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-09-26T08:32:21.000Z" itemprop="datePublished">9月 26 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 361 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><h1 id="布林值的型轉"><a href="#布林值的型轉" class="headerlink" title="布林值的型轉"></a>布林值的型轉</h1><p>布林型轉遇到代表著空值、不存在或者未定義的值時就會轉換為假值（falsy），例如以下範例：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-literal">null</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-string">''</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-number">0</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="title class_">NaN</span>); <span class="hljs-comment">// false</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>需要注意的是字串0使用布林型轉會獲得真值（truthy）：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-string">'0'</span>); <span class="hljs-comment">// true</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-string">'-0'</span>); <span class="hljs-comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="if-陳述句的型轉"><a href="#if-陳述句的型轉" class="headerlink" title="if 陳述句的型轉"></a>if 陳述句的型轉</h1><h3 id="用來檢查某變數是否存在"><a href="#用來檢查某變數是否存在" class="headerlink" title="用來檢查某變數是否存在"></a>用來檢查某變數是否存在</h3><p>if 陳述句會將大括號中（parenthesis）的值做布林轉換，也可以使用隱式型轉的特性來檢查某變數是否存在：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a;</span><br><span class="line">... <span class="hljs-comment">// 做了些甚麼</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> (a) { <span class="hljs-comment">// 被布林型轉</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'a 非空值或未定義！'</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="當-falsy-值有可能是零"><a href="#當-falsy-值有可能是零" class="headerlink" title="當 falsy 值有可能是零"></a>當 falsy 值有可能是零</h3><p>由於 0 的布林型轉也會是 false，可能會造成 if 陳述句的條件判斷下剔除的對象，這時候可以搭配前篇提到的優先性（Precedence），使用優先性較高的三等號（===）加上 OR（||）來介入型轉判斷：</p>
+<img src="/images/js-weird-parts-boolean-vs-existence/0.png" class="" width="800" height="200" title="js-weird-parts-boolean-vs-existence">
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a;</span><br><span class="line"><span class="hljs-keyword">if</span> (a || a === <span class="hljs-number">0</span>) {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'0會被列入考慮'</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>由於優先性先判斷後方 <code>a === 0</code> 為 true，繼續判斷表達式<code>a || true</code> 為 <code>false || true</code>，OR（||）兩邊任一方為 true 印出 true，條件式成立印出 console.log(‘0會被列入考慮’)。</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><h1 id="布林值的型轉"><a href="#布林值的型轉" class="headerlink" title="布林值的型轉"></a>布林值的型轉</h1><p>布林型轉遇到代表著空值、不存在或者未定義的值時就會轉換為假值（falsy），例如以下範例：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-literal">null</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-string">''</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="hljs-number">0</span>); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="title class_">NaN</span>); <span class="hljs-comment">// false</span></span><br></pre></td></tr></tbody></table></figure>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/09/26/zh-tw/js-weird-parts-boolean-vs-existence/">more</a>
             </p>
         
     
@@ -328,7 +326,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/17/">17</a></li>
+        <li><a class="pagination-link" href="/page/19/">19</a></li>
         
     </ul>
 </nav>

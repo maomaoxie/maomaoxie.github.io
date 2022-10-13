@@ -7,7 +7,6 @@
         <language>zh-tw,en,default</language>
         <pubDate>Fri, 25 Feb 2022 11:29:08 +0800</pubDate>
         <lastBuildDate>Fri, 25 Feb 2022 11:29:08 +0800</lastBuildDate>
-        <category>Javascript</category>
         <category>javascript</category>
         <category>constructor</category>
         <category>instance</category>
@@ -19,19 +18,20 @@
         <category>git</category>
         <category>github</category>
         <category>sourceTree</category>
-        <category>hexo</category>
-        <category>submodule</category>
         <category>api</category>
         <category>graphQL</category>
         <category>facebook</category>
         <category>rss</category>
+        <category>hexo</category>
+        <category>submodule</category>
         <category>http</category>
-        <category>https</category>
+        <category>httpHeader</category>
         <category>request</category>
         <category>response</category>
-        <category>httpHeader</category>
-        <category>httpMethods</category>
+        <category>https</category>
         <category>status</category>
+        <category>httpMethods</category>
+        <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>
         <category>php</category>
@@ -43,32 +43,32 @@
         <category>sql</category>
         <category>public</category>
         <category>static</category>
-        <category>tailwind</category>
         <category>css</category>
         <category>less</category>
         <category>processors</category>
+        <category>tailwind</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
         <category>webService</category>
         <category>restfulApi</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue3</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>vue</category>
+        <category>compositionAPI</category>
         <category>safari</category>
         <category>javaScript</category>
         <category>preventDefault</category>
         <category>ios</category>
         <category>mobile</category>
-        <category>shortCircuit</category>
-        <category>optionalChaining</category>
-        <category>tricks</category>
-        <category>vue</category>
-        <category>vue3</category>
-        <category>compositionAPI</category>
-        <category>vite</category>
-        <category>typescript</category>
-        <category>vuetify</category>
-        <category>html</category>
         <category>WebSocket</category>
         <category>WebHook</category>
+        <category>vuetify</category>
+        <category>html</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>

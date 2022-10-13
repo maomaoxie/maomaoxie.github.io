@@ -145,57 +145,63 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/04/10/zh-tw/laravel-public/" itemprop="url">Laravel public 靜態檔案</a>
+            <a href="/2022/06/04/zh-tw/js-weird-parts-parsing/" itemprop="url">克服 Javascript 的奇怪部分 名詞解釋篇</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-04-10T09:11:18.000Z" itemprop="datePublished">4月 10 2022</time>
+                <time datetime="2022-06-04T03:07:31.000Z" itemprop="datePublished">6月 4 2022</time>
             
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/laravel/">laravel</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            3 分鐘 讀完 (約 376 字)
+            9 分鐘 讀完 (約 1279 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/laravel-public/0.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
-<p>雖然檔案打包是現今網頁開發的趨勢，但網站難免需要引用未經編譯的靜態檔案，以避免編譯後的亂數檔名都要經過打包程序才能使用，Laravel 專案包中的 <code>public</code> 資料夾就是靜態檔案的去處，與之相對應會被壓縮及打包的動態檔案則要放置在 <code>resources</code> 資料中：</p>
-<h1 id="靜態-css-檔案"><a href="#靜態-css-檔案" class="headerlink" title="靜態 css 檔案"></a>靜態 css 檔案</h1><p>在 public/css/style.css 存放網站的主要設計檔，並且在主模板 <code>resources/views/layout/layout.blade.php</code> 中引用該靜態檔案之路徑在 <code>&lt;link&gt;</code> 中：</p>
-<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/style.css"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">  ...</span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
-<p>但問題來了！當路由來到巢狀或雙層的時候，絕對路徑的悲劇就會發生，若我們將路由改成：</p>
-<figure class="highlight php hljs"><figcaption><span>web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/about/about'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'about'</span>]);</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-public/1.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
-<p>你會看到 css 檔案的路徑改變成 <code>http://localhost:3000/about/css/style.css</code>，因為找不到 about 底下的 css 檔案，所以整個 style 返回 404：</p>
-<img src="/images/laravel-public/2.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+        <!-- <html><head></head><body><img src="/images/js-weird-parts-I/0.png" class="" width="800" height="200" title="js-weird-parts-I">
+<p>先前滿常看到別人推薦的 Udemy 課程：克服JS的奇怪部分，原來自己已經購買且塵封在閱讀清單已久XD<br>馬上來匹乓一下吧！</p>
+<h1 id="執行篇"><a href="#執行篇" class="headerlink" title="執行篇"></a>執行篇</h1><h2 id="語法解析器（Syntax-Parser）"><a href="#語法解析器（Syntax-Parser）" class="headerlink" title="語法解析器（Syntax Parser）"></a>語法解析器（Syntax Parser）</h2><p>將你撰寫的 Javascript 編譯成電腦可以理解的一套程式語言（program），並且決定語法執行的方式以及是否合乎規範的角色，也與直譯（interprets）、轉譯（Compiler）概念雷同，其中直譯的編譯方式為逐字編譯後由電腦執行，大部分的 Javascript 程式都是直譯的，但並非全部情況。<br>編譯的過程會將 Javascript 拆解分類，依變數、函式等轉換成電腦硬體可以閱讀的語言，然後執行。</p>
+<img src="/images/js-weird-parts-I/1.png" class="" width="800" height="200" title="js-weird-parts-I">
+<p>可以想像成生產線上的作業員，持有原料工序可以生產產品。</p>
+<h2 id="靜態詞法作用域（Lexical-Environments）"><a href="#靜態詞法作用域（Lexical-Environments）" class="headerlink" title="靜態詞法作用域（Lexical Environments）"></a>靜態詞法作用域（Lexical Environments）</h2><blockquote class="colorquote info"><p>Where something <strong>sits physically</strong> in the code you write,<br>determines how it interacts with other elements in the program.</p>
+</blockquote>
+<p><strong>撰寫</strong>的時候決定如何運作。<br>你撰寫語法的靜態物理位置，決定了該對象（變數、函式等）與其他對象的互動與執行關係，並且被直譯器透過這個物理關係，或者說詞彙或文法關係來統整歸坐落在硬體記憶體中的位置，但須注意的是並非所有語言皆如此（java、C# 等為動態作用域）。<br>這有助於上方的語法解析器來決定程式怎麼運作，你撰寫 code 的位置在哪？周圍有甚麼、被甚麼包圍都很重要！<br>可以想像成生產線上的主管，歸納好產品的原料工序與存放倉庫的規則。</p>
+<h2 id="執行環境（Execution-Context）"><a href="#執行環境（Execution-Context）" class="headerlink" title="執行環境（Execution Context）"></a>執行環境（Execution Context）</h2><blockquote class="colorquote info"><p><strong>A wrapper</strong> to help manage the code that is running.<br>There are lots of lexical environments, which one is currently running is managed via execution context.</p>
+</blockquote>
+<p><strong>執行</strong>的時候決定如何運作。<br>靜態作用域很多，但是執行的當下順序則是由執行環境決定，也可以稱為上下文，最常見的就是每個函式建立之後產生的<code>this</code> keyword，通常為 block 作用域所包覆，在呼叫的時候決定 this 對象。<br>而執行環境不是只有與你撰寫的程式碼相關而已，也包含其他東西，例如上述的 this 就是執行函式當下的編譯過程動態產生的，編譯器在幫你翻譯給電腦讀懂以前，加油添醋了一些程序使程式碼更完整、具有前後順序給電腦執行。<br>可以想像成工廠的老闆，決定好哪批產品先出後出、出到哪裡。</p>
+<h1 id="變數篇"><a href="#變數篇" class="headerlink" title="變數篇"></a>變數篇</h1><h2 id="一個名稱對應一個值"><a href="#一個名稱對應一個值" class="headerlink" title="一個名稱對應一個值"></a>一個名稱對應一個值</h2><p>一個變數名可以更改很多次，但都只會包含一個值，而一個值裡面是更多的鍵值對。</p>
+<h2 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h2><p>更多鍵值對（key-value pairs）的集合。</p>
+<img src="/images/js-weird-parts-I/2.png" class="" width="400" height="200" title="js-weird-parts-I">
 
-<hr>
-<h1 id="url-function"><a href="#url-function" class="headerlink" title="url function"></a>url function</h1><p>你想到的問題 Laravel 怎麼會漏掉？這時候可以使用 blade 模板引擎包裝好的 <code>url 方法</code>，傳入相對靜態檔案路徑當參數,，來抓取靜態檔案的正確路徑：</p>
-<figure class="highlight php hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="hljs-string">"stylesheet"</span> href=<span class="hljs-string">"{{ url('css/style.css') }}"</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="全域物件與全域環境篇（Global）"><a href="#全域物件與全域環境篇（Global）" class="headerlink" title="全域物件與全域環境篇（Global）"></a>全域物件與全域環境篇（Global）</h1><figure class="highlight javascript hljs"><figcaption><span>info</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">The</span> base execution context is your <span class="variable language_">global</span> execution context.</span><br><span class="line"><span class="title class_">Things</span> that are accessible everywhere to everything to your code.</span><br><span class="line"><span class="title class_">And</span> it creates <span class="hljs-number">2</span> things that you don<span class="hljs-string">'t have to write about:</span></span><br><span class="line"><span class="hljs-string">1. Global object</span></span><br><span class="line"><span class="hljs-string">2. this</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>運作正常：</p>
-<img src="/images/laravel-public/3.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
+<h2 id="全域執行環境"><a href="#全域執行環境" class="headerlink" title="全域執行環境"></a>全域執行環境</h2><p>全域執行環境是所有 Javascript code 執行的基礎，所有的執行起點都存在於該環境內（being wrapped）。並且 Javascript 引擎會在執行初始建立兩個對象：全域物件與 this，即使你沒有撰寫任何程式碼，Javascript 引擎仍會自動產生。</p>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>其中全域執行環境中，瀏覽器底下的 this 就是指向 <strong>window</strong> (Global Object)。<br>weird-parts-I/3.png 600 200 js-weird-parts-I %}</p>
+<h2 id="全域物件"><a href="#全域物件" class="headerlink" title="全域物件"></a>全域物件</h2><p>若 Javascript 引擎是在後端執行，例如 node.js，則 全域物件就不會是 window。<br>當你在全域執行環境下靜態的撰寫變數或函式，並且詞法作用域上開放而沒有撰寫在其他函式內，就會自動附著（attached to）在全物域物件底下，全域物件意味著整個 Javascript 中的任何其他詞法作用域或者任何對象乃至整個檔案，都可以取用（accessible）這些資料。</p>
+<img src="/images/js-weird-parts-I/5.png" class="" width="400" height="200" title="js-weird-parts-I">
+<img src="/images/js-weird-parts-I/6.png" class="" width="500" height="200" title="js-weird-parts-I">
 
+<p>以下都是指向同一個記憶體位置、同一個值：</p>
+<img src="/images/js-weird-parts-I/7.png" class="" width="500" height="200" title="js-weird-parts-I">
+
+<p>在執行環境中，還有一個<strong>外部環境（Outer Environment）</strong>沒有提到，而在全域執行環境的層級中，外部環境是 null，因為全域本身就是最外層的 wrapper，沒有更外層的環境了。</p>
+<img src="/images/js-weird-parts-I/8.png" class="" width="700" height="200" title="js-weird-parts-I">
 
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/laravel-public/0.png" class="" width="800" height="200" title="Laravel public 靜態檔案">
-<p>雖然檔案打包是現今網頁開發的趨勢，但網站難免需要引用未經編譯的靜態檔案，以避免編譯後的亂數檔名都要經過打包程序才能使用，Laravel 專案包中的 <code>public</code> 資料夾就是靜態檔案的去處，與之相對應會被壓縮及打包的動態檔案則要放置在 <code>resources</code> 資料中：</p>
+        <html><head></head><body><img src="/images/js-weird-parts-I/0.png" class="" width="800" height="200" title="js-weird-parts-I">
+<p>先前滿常看到別人推薦的 Udemy 課程：克服JS的奇怪部分，原來自己已經購買且塵封在閱讀清單已久XD<br>馬上來匹乓一下吧！</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/04/10/zh-tw/laravel-public/">more</a>
+                <a href="/2022/06/04/zh-tw/js-weird-parts-parsing/">more</a>
             </p>
         
     
@@ -211,150 +217,129 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/04/10/zh-tw/laravel-layout/" itemprop="url">Laravel 善用 layout 避免重複的模板</a>
+            <a href="/2022/05/14/zh-tw/constructor-vs-instance/" itemprop="url">建構子方法與實例化方法</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-04-10T06:54:20.000Z" itemprop="datePublished">4月 10 2022</time>
+                <time datetime="2022-05-14T13:37:03.000Z" itemprop="datePublished">5月 14 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/laravel/">laravel</a>
+            <a class="article-category-link" href="/categories/javascript/">javascript</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 650 字)
+            5 分鐘 讀完 (約 764 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/laravel-layout/0.png" class="" width="800" height="200" title="laravel-layout">
+        <!-- <html><head></head><body><img src="/images/constructor-vs-instance/0.png" class="" width="800" height="200" title="constructor-vs-instance">
 
-<p>在設計 UI 模板時重複使用的內容屢見不鮮，例如 header、footer 或是 sidebar 等多是網站中分頁裡的標配，這時候重複貼上一樣的模板就顯得有點呆，Laravel MVC 架構中 views 可以創建一個 layout 模板資料夾，重複的 UI 配置可以放置在這裡提供其他分頁的 blade 檔案使用，這樣一來也能省去 layout 修改時相關的檔案都要更改的麻煩事，統一在 layout 裡調整即可：</p>
-<h1 id="建立-layout-資料夾"><a href="#建立-layout-資料夾" class="headerlink" title="建立 layout 資料夾"></a>建立 layout 資料夾</h1><p>此資料夾可以存放共用的模板，例如 header、footer 或是 sidebar 的模板 html。<br>在 project 裡的 <code>resources/views</code> 建立一個 layout 資料夾：</p>
-<img src="/images/laravel-layout/1.png" class="" width="300" height="200" title="laravel-layout">
-<hr>
-<h1 id="撰寫模板"><a href="#撰寫模板" class="headerlink" title="撰寫模板"></a>撰寫模板</h1><p>確立好 controller 中與 views 與 routes 的連結後，就可以著手進行模板的拆分啦！</p>
-<h3 id="extends-‘layoutFolder-x2F-layout’"><a href="#extends-‘layoutFolder-x2F-layout’" class="headerlink" title="@extends(‘layoutFolder/layout’)"></a>@extends(‘layoutFolder/layout’)</h3><p>承接共用模板的其他 views 則使用此語法接收模板，撰寫資料夾路徑方式有兩種：</p>
-<ol>
-<li>斜線</li>
-<li>點</li>
-</ol>
-<figure class="highlight javascript hljs"><figcaption><span>about.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">extends</span>(<span class="hljs-string">'layout.layout'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight javascript hljs"><figcaption><span>about.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">extends</span>(<span class="hljs-string">'layout/layout'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>在某天好奇想了解 Vue 3 的 defineProperty 原理搜尋了 <code>Object.defineProperty()</code> 這個方法時，看見以下說明：</p>
+<blockquote><p>靜態方法 <code>Object.defineProperty()</code> 會直接對一個物件定義、或是修改現有的屬性。執行後會回傳定義完的物件。<br>備註：這個方法會直接針對 Object 呼叫建構子（constructor），而不是 Object 型別的實例。</p>
+<footer><strong>MDN</strong><cite><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty()</a></cite></footer></blockquote>
+<p>其中的<strong>直接針對 Object 呼叫建構子（constructor），而不是 Object 型別的實例</strong>這句話突然讓我驚醒了，以前一直不能理解 javascript 中呼叫原生方法時，為何會有以下的區別：</p>
+<h2 id="透過建構器呼叫"><a href="#透過建構器呼叫" class="headerlink" title="透過建構器呼叫"></a>透過建構器呼叫</h2><p><code>Object.methods(objInstance)</code> -&gt; 例如 Object.keys(someObj)<br>這裡的 Object 是建構函式本身，未實例的藍圖（constructor）。</p>
+<h2 id="透過實例呼叫"><a href="#透過實例呼叫" class="headerlink" title="透過實例呼叫"></a>透過實例呼叫</h2><p><code>objInstance.methods(parameters)</code> -&gt; 例如 someObj.hasOwnProperty(‘prop’)<br>這裡的 Object 是實例化的物件（instance）。</p>
+<h2 id="Constructor-Static-Methods"><a href="#Constructor-Static-Methods" class="headerlink" title="Constructor Static Methods"></a>Constructor Static Methods</h2><h4 id="構造器-靜態方法"><a href="#構造器-靜態方法" class="headerlink" title="構造器 靜態方法"></a>構造器 靜態方法</h4><p>以下的例子是呼叫 Object 建構子中的原生 keys 方法，而不需要 new 一個物件實例就可以使用，靜態方法的特色是無需使用任何建構子中的 this 資料就可以直接使用。</p>
+<figure class="highlight javascript hljs"><figcaption><span>建構子方法</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> someone = {</span><br><span class="line">  <span class="hljs-attr">name</span>: <span class="hljs-string">'Adam'</span>,</span><br><span class="line">  <span class="hljs-attr">carrer</span>: <span class="hljs-string">'teacher'</span>,</span><br><span class="line">  <span class="hljs-attr">sex</span>: <span class="hljs-string">'male'</span></span><br><span class="line">};</span><br><span class="line"><span class="hljs-keyword">const</span> dataKeys = <span class="title class_">Object</span>.<span class="title function_">keys</span>(someone);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dataKeys);</span><br><span class="line"><span class="hljs-comment">// ["name","carrer","sex"]</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="yield-‘content’"><a href="#yield-‘content’" class="headerlink" title="@yield(‘content’)"></a>@yield(‘content’)</h3><p>yield 像是在告訴 php 說我這裡需要挖個洞，待會會丟 html 進來，請認名稱來辨識丟進來的檔案：</p>
-<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">很多要共用的 html</span><br><span class="line">...(通常是 header)</span><br><span class="line">@<span class="title function_">yield</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">很多要共用的 html</span><br><span class="line">...(通常是 footer)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Instance-methods"><a href="#Instance-methods" class="headerlink" title="Instance methods"></a>Instance methods</h3><h4 id="等號賦值-實例化方法"><a href="#等號賦值-實例化方法" class="headerlink" title="等號賦值 實例化方法"></a>等號賦值 實例化方法</h4><p>以下則是呼叫 Array 的實例化 push 方法，雖然也不是透過 new 來建立一個陣列，卻也是使用賦值一個陣列來建立陣列的實例，並且使用原生 push 方法。</p>
+<figure class="highlight javascript hljs"><figcaption><span>實例化方法 - 賦值</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> friends = [ <span class="hljs-string">'Cally'</span>, <span class="hljs-string">'Donna'</span>, <span class="hljs-string">'Jell'</span> ];</span><br><span class="line">friends.<span class="title function_">push</span>(<span class="hljs-string">'Liang'</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(friends);</span><br><span class="line"><span class="hljs-comment">// ["Cally","Donna","Jell","Liang"]</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="section-‘content’-…-endsection"><a href="#section-‘content’-…-endsection" class="headerlink" title="@section(‘content’) … @endsection"></a>@section(‘content’) … @endsection</h3><p>section 類似 vue 的 slot，把其他網頁要替換的內容插入這個插槽中，在通過剛才的 <code>@yield('content')</code> 將page愈替換的內容塞進去共用的模板中：</p>
-<figure class="highlight javascript hljs"><figcaption><span>page.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">extends</span>(<span class="hljs-string">'layout/layout'</span>)</span><br><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">  這裡是 page content</span><br><span class="line">  ...</span><br><span class="line">@endsection</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-layout/3.png" class="" width="800" height="200" title="laravel-layout">
-<img src="/images/laravel-layout/2.png" class="" width="800" height="200" title="laravel-layout">
-<hr>
-<h1 id="獨立每個頁面的-script"><a href="#獨立每個頁面的-script" class="headerlink" title="獨立每個頁面的 script"></a>獨立每個頁面的 script</h1><p>插槽的概念同樣可以挖洞給每個獨立頁面放置專屬的 javascript，在 layout 的  之前放置 @yield(‘after_js’) 來承接 page 各自的 <code>&lt;script&gt;...&lt;/script&gt;</code>：</p>
-<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  ...</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">  ...</span><br><span class="line">  @<span class="title function_">yield</span>(<span class="hljs-string">'after_js'</span>)</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight javascript hljs"><figcaption><span>page.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'content'</span>)</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="hljs-string">"Hey!It's about page."</span>);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">@endsection</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-layout/4.png" class="" width="800" height="200" title="laravel-layout">
-<hr>
-<h1 id="簡化-section"><a href="#簡化-section" class="headerlink" title="簡化 @section"></a>簡化 @section</h1><p>每個頁面會有不同的 SEO 內容，例如 <code>title</code> 或是其他的 meta data，這時候 <code>@section</code> 又派上用場了，不同的是<strong>第二個參數</strong>可以傳入文字檔來渲染內容：</p>
-<figure class="highlight javascript hljs"><figcaption><span>layout/layout.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>@yield('title')<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    ...</span></span><br><span class="line"><span class="hljs-language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span></span><br><span class="line">  ...</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight javascript hljs"><figcaption><span>page.blade.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_">section</span>(<span class="hljs-string">'title'</span>, <span class="hljs-string">'pageTitle'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-layout/5.png" class="" width="300" height="200" title="laravel-layout">
-<img src="/images/laravel-layout/6.png" class="" width="300" height="200" title="laravel-layout">
+<h4 id="建構器-實例化方法"><a href="#建構器-實例化方法" class="headerlink" title="建構器 實例化方法"></a>建構器 實例化方法</h4><p>透過 new 來建立一個陣列。</p>
+<figure class="highlight javascript hljs"><figcaption><span>實例化方法 - 構造器</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> animals = <span class="hljs-keyword">new</span> <span class="title class_">Array</span>(<span class="hljs-string">'bunny'</span>, <span class="hljs-string">'cat'</span>, <span class="hljs-string">'puppy'</span>, <span class="hljs-string">'hamster'</span>);</span><br><span class="line">animals.<span class="title function_">unshift</span>(<span class="hljs-string">'bird'</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(animals);</span><br><span class="line"><span class="hljs-comment">// ["bird","bunny","cat","puppy","hamster"]</span></span><br></pre></td></tr></tbody></table></figure>
 
-<hr>
-<blockquote><p>參考資料：<br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AGE3wRKljkw&amp;t=2402s">https://www.youtube.com/watch?v=AGE3wRKljkw&amp;t=2402s</a></p>
-</blockquote></body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/laravel-layout/0.png" class="" width="800" height="200" title="laravel-layout">
-
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/04/10/zh-tw/laravel-layout/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/04/06/zh-tw/laravel-routes-controller/" itemprop="url">Laravel 認識 controller</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-04-06T13:49:05.000Z" itemprop="datePublished">4月 6 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/laravel/">laravel</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            3 分鐘 讀完 (約 426 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/laravel-routes-controller/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
-<p>當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 <strong>Controller</strong> 來執行：</p>
-<h1 id="init-controller"><a href="#init-controller" class="headerlink" title="init controller"></a>init controller</h1><p>使用優雅的 <code>artisan cmd</code> 就可以創建一個 Controller class 模板，在 windows powerShell 輸入<code>wsl</code> 即可切換至 Linux WSL 子系統，終端機輸入以下指令可以查詢所有 artisan cmd 的說明，記得 cd 進入專案包內才可使用 artisan 指令：</p>
-<figure class="highlight javascript hljs"><figcaption><span>terminal</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-routes-controller/1.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
-
-<p>建立 Controller 模板的 artisan cmd：</p>
-<figure class="highlight javascript hljs"><figcaption><span>terminal</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan <span class="hljs-attr">make</span>:controller homeController</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/laravel-routes-controller/2.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
-
-<h1 id="撰寫-Controller"><a href="#撰寫-Controller" class="headerlink" title="撰寫 Controller"></a>撰寫 Controller</h1><p>使用<strong>路由名稱</strong>創建 function 並且制定渲染內容，連接 Views：</p>
-<figure class="highlight php hljs"><figcaption><span>App/Https/Controllers/homeController.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Http</span>\<span class="title class_">Controllers</span>;</span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">Illuminate</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">homeController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">index</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'welcome'</span>);</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 參數要記得帶</span></span><br><span class="line">  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dog</span> (<span class="hljs-params"><span class="hljs-variable">$dogName</span></span>) </span>{</span><br><span class="line">    <span class="hljs-variable">$datas</span> = [</span><br><span class="line">      <span class="hljs-string">"name"</span> =&gt; <span class="hljs-string">"Abby"</span>,</span><br><span class="line">      <span class="hljs-string">"dogName"</span> =&gt; <span class="hljs-variable">$dogName</span></span><br><span class="line">    ];</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="hljs-string">'routesTest'</span>, <span class="hljs-variable">$datas</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote class="colorquote info"><p>記得將應用到的動態參數一並移植到 Controller 的 function arguments 中！</p>
+<h2 id="構造器靜態方法補充"><a href="#構造器靜態方法補充" class="headerlink" title="構造器靜態方法補充"></a>構造器靜態方法補充</h2><h4 id="無法取得構造器的this資料"><a href="#無法取得構造器的this資料" class="headerlink" title="無法取得構造器的this資料"></a>無法取得構造器的this資料</h4><blockquote><ul>
+<li>The static method also cannot see the instance variable state so if we try to call the nonstatic method from the static method compiler will complain.</li>
+<li>The static method can be used to create utility functions.<br><a target="_blank" rel="noopener" href="https://www.educba.com/javascript-static-method/">https://www.educba.com/javascript-static-method/</a></li>
+</ul>
 </blockquote>
 
-<h1 id="對應-Routes-字串"><a href="#對應-Routes-字串" class="headerlink" title="對應 Routes 字串"></a>對應 Routes 字串</h1><p>將路由路徑制定好並且傳入陣列參數：</p>
+<p>從上述可以得知靜態方法是不能取用構造器建構子（constructor）內的變數的（this binding），通常會撰寫純函式（pure function）以保持無狀態的特性，如同 Math 方法。<br>靜態方法適合用來當作全局複用的函式，適合較無副作用的邏輯。</p>
+<h2 id="兩種方法的原型鍊關係"><a href="#兩種方法的原型鍊關係" class="headerlink" title="兩種方法的原型鍊關係"></a>兩種方法的原型鍊關係</h2><p>若展開一個實例化的物件，會發現：</p>
 <ol>
-<li><code>use</code> 剛才創建的 Controller 檔案</li>
-<li>索引<code>[0]</code>放置 <code>ControllerName::class</code></li>
-<li>索引<code>[1]</code>放置對應 <code>function</code>：<figure class="highlight php hljs"><figcaption><span>routes/web.php</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">Illuminate</span>\<span class="hljs-title">Support</span>\<span class="hljs-title">Facades</span>\<span class="hljs-title">Route</span>;</span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Controllers</span>\<span class="hljs-title">homeController</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'index'</span>]);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="hljs-string">'/dog/{dogName}'</span>, [home<span class="title class_">Controller</span>::<span class="variable language_">class</span>, <span class="hljs-string">'dog'</span>]);</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></li>
+<li>建構器方法存在於建構子物件中（constructor），且只能透過建構器呼叫，例如 Object.assign()；</li>
+<li>實例化方法則存在於原型上（prototype），需要實例化之後才能呼叫，例如 objInstance.toLocaleString()</li>
 </ol>
-<p>渲染結果：</p>
-<img src="/images/laravel-routes-controller/3.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
-<img src="/images/laravel-routes-controller/4.png" class="laravel-routes" width="500" height="200" title="Laravel路由控制器">
-
-<p>以上就是 Controller 的常見功能。</p>
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/laravel-routes-controller/0.png" class="laravel-routes" width="800" height="200" title="Laravel路由控制器">
-<p>當路由越來越多越來越雜亂的時候，express 可以模組化路由以分類各大項目的小路由，Laravel 是基於 MVC 架構的應用程式框架，這個分類工作可以交給 <strong>Controller</strong> 來執行：</p>
+        <html><head></head><body><img src="/images/constructor-vs-instance/0.png" class="" width="800" height="200" title="constructor-vs-instance">
+
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/04/06/zh-tw/laravel-routes-controller/">more</a>
+                <a href="/2022/05/14/zh-tw/constructor-vs-instance/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/04/24/zh-tw/laravel-migration/" itemprop="url">Laravel 資料庫版控工具 Migration</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-04-24T11:18:30.000Z" itemprop="datePublished">4月 24 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/laravel/">laravel</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分鐘 讀完 (約 213 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/laravel-migration/0.png" class="" width="800" height="200" title="laravel-migration">
+<p>Migration 位於 Laravel 專案包中的 database 資料夾，會使用建立日期來歸檔資料表的結構，為紀錄資料庫版本的版控，方便團隊共同開發資料表。</p>
+<h1 id="建立資料表"><a href="#建立資料表" class="headerlink" title="建立資料表"></a>建立資料表</h1><figure class="highlight javascript hljs"><figcaption><span>建立 migration</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan <span class="hljs-attr">make</span>:migration create_users_table</span><br></pre></td></tr></tbody></table></figure>
+<p>建立成功會顯示：</p>
+<img src="/images/laravel-migration/1.png" class="" width="800" height="200" title="資料庫版控工具 Migration">
+<p>重整之後會出現新的版控檔案，使用建立日期來命名：</p>
+<img src="/images/laravel-migration/2.png" class="" width="300" height="200" title="資料庫版控工具 Migration">
+<p>檔案內容：</p>
+<img src="/images/laravel-migration/3.png" class="" width="800" height="200" title="輸入圖片資料夾名稱">
+
+<h1 id="修改資料表"><a href="#修改資料表" class="headerlink" title="修改資料表"></a>修改資料表</h1><p>在 <code>\\wsl$</code> 路徑下執行 migrate 的坑需要以下步驟：</p>
+<h4 id="補上-php-8-0-的-sql-extension"><a href="#補上-php-8-0-的-sql-extension" class="headerlink" title="補上 php 8.0 的 sql-extension"></a>補上 php 8.0 的 sql-extension</h4><p>於 ubuntu 終端機輸入以下指令：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">輸入code</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="將註解-extension-x3D-pdo-mysql-打開"><a href="#將註解-extension-x3D-pdo-mysql-打開" class="headerlink" title="將註解 ;extension=pdo_mysql 打開"></a>將註解 ;extension=pdo_mysql 打開</h4></body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/laravel-migration/0.png" class="" width="800" height="200" title="laravel-migration">
+<p>Migration 位於 Laravel 專案包中的 database 資料夾，會使用建立日期來歸檔資料表的結構，為紀錄資料庫版本的版控，方便團隊共同開發資料表。</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/04/24/zh-tw/laravel-migration/">more</a>
             </p>
         
     
@@ -398,7 +383,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/17/">17</a></li>
+        <li><a class="pagination-link" href="/page/19/">19</a></li>
         
     </ul>
 </nav>

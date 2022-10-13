@@ -4,7 +4,6 @@
     <title>Mawchu 貓奴前端的天空 • Posts by &#34;request&#34; tag</title>
     <link href="http://maomaoxie.github.io" />
     <updated>2022-02-28T12:28:24.000Z</updated>
-    <category term="Javascript" />
     <category term="javascript" />
     <category term="constructor" />
     <category term="instance" />
@@ -16,19 +15,20 @@
     <category term="git" />
     <category term="github" />
     <category term="sourceTree" />
-    <category term="hexo" />
-    <category term="submodule" />
     <category term="api" />
     <category term="graphQL" />
     <category term="facebook" />
     <category term="rss" />
+    <category term="hexo" />
+    <category term="submodule" />
     <category term="http" />
-    <category term="https" />
+    <category term="httpHeader" />
     <category term="request" />
     <category term="response" />
-    <category term="httpHeader" />
-    <category term="httpMethods" />
+    <category term="https" />
     <category term="status" />
+    <category term="httpMethods" />
+    <category term="Javascript" />
     <category term="type" />
     <category term="laravel" />
     <category term="php" />
@@ -40,32 +40,32 @@
     <category term="sql" />
     <category term="public" />
     <category term="static" />
-    <category term="tailwind" />
     <category term="css" />
     <category term="less" />
     <category term="processors" />
+    <category term="tailwind" />
     <category term="env" />
     <category term="process" />
     <category term="dotenv" />
     <category term="webService" />
     <category term="restfulApi" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vue3" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="vue" />
+    <category term="compositionAPI" />
     <category term="safari" />
     <category term="javaScript" />
     <category term="preventDefault" />
     <category term="ios" />
     <category term="mobile" />
-    <category term="shortCircuit" />
-    <category term="optionalChaining" />
-    <category term="tricks" />
-    <category term="vue" />
-    <category term="vue3" />
-    <category term="compositionAPI" />
-    <category term="vite" />
-    <category term="typescript" />
-    <category term="vuetify" />
-    <category term="html" />
     <category term="WebSocket" />
     <category term="WebHook" />
+    <category term="vuetify" />
+    <category term="html" />
     <category term="wordpress" />
     <category term="dns" />
     <category term="cdn" />
@@ -190,9 +190,9 @@
 &lt;blockquote&gt;&lt;p&gt;圖片來源：hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
 &lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt;</content>
         <category term="http" />
+        <category term="httpHeader" />
         <category term="request" />
         <category term="response" />
-        <category term="httpHeader" />
         <updated>2022-02-28T12:28:24.000Z</updated>
     </entry>
     <entry>
@@ -302,9 +302,9 @@
 &lt;blockquote&gt;&lt;p&gt;&lt;a href=&#34;https://www.cdnetworks.com/knowledge-center/what-is-origin-server/&#34;&gt;https://www.cdnetworks.com/knowledge-center/what-is-origin-server/&lt;/a&gt;&lt;br&gt;hiskio 課程 API 整合實戰｜RESTful 第三方串接應用&lt;/p&gt;
 &lt;/blockquote&gt;&lt;/body&gt;&lt;/html&gt;</content>
         <category term="http" />
-        <category term="https" />
         <category term="request" />
         <category term="response" />
+        <category term="https" />
         <updated>2022-02-28T02:07:23.000Z</updated>
     </entry>
 </feed>
