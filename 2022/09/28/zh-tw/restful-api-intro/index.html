@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>restful-api-intro - Mawchu 貓奴前端的天空</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="google-site-verification" content="qpdwAFMt_HNGP0dM45CxVBDie_HVPkWFvpclpqZaoIo" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2022/09/28/zh-tw/restful-api-intro/" rel="alternate" hreflang="en" />
+    
+
+
+<meta name="description" content="Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習">
+
+
+
+<meta name="keywords" content="mawchu、謝佳芳、毛球、網頁、前端、Javascript、Vue、Laravel、SEO、平面設計、貓咪">
+
+
+
+    <meta name="description" content="RESTful API 的簡單介紹： 統一資源對外傳輸的接界窗口可以透過資源分類命名，例如 https:&#x2F;&#x2F;www.example.com&#x2F;books 就是關於書的相關 API 資料 API 端口彼此獨立，不須互相依賴資源按照端口分開接收，沒有次序或是參數依賴的問題 從 Client 端發送需求（request）API 的資源傳送是分離式的，client 裝置發送 request 而 server">
+<meta property="og:type" content="article">
+<meta property="og:title" content="restful-api-intro">
+<meta property="og:url" content="http://maomaoxie.github.io/2022/09/28/zh-tw/restful-api-intro/index.html">
+<meta property="og:site_name" content="Mawchu 貓奴前端的天空">
+<meta property="og:description" content="RESTful API 的簡單介紹： 統一資源對外傳輸的接界窗口可以透過資源分類命名，例如 https:&#x2F;&#x2F;www.example.com&#x2F;books 就是關於書的相關 API 資料 API 端口彼此獨立，不須互相依賴資源按照端口分開接收，沒有次序或是參數依賴的問題 從 Client 端發送需求（request）API 的資源傳送是分離式的，client 裝置發送 request 而 server">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-09-28T02:42:52.000Z">
+<meta property="article:modified_time" content="2022-09-28T02:52:14.125Z">
+<meta property="article:author" content="Mawchu 謝佳芳">
+<meta property="article:tag" content="mawchu、謝佳芳、毛球、網頁、前端、Javascript、Vue、Laravel、SEO、平面設計、貓咪">
+<meta name="twitter:card" content="summary">
+
+
+
+<link rel="alternative" href="/atom.xml" title="restful-api-intro" type="application/atom+xml">
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.svg">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832218493331944" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script src="https://kit.fontawesome.com/76e3351334.js" crossorigin="anonymous"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container custom-nav">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo position-relative" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/subscribe">訂閱
+               <div class="position-absolute bar"></div>
+            </a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/mawchu">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            restful-api-intro
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-09-28T02:42:52.000Z" itemprop="datePublished">9月 28 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 238 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>RESTful API 的簡單介紹：</p>
+<h1 id="統一資源對外傳輸的接界窗口"><a href="#統一資源對外傳輸的接界窗口" class="headerlink" title="統一資源對外傳輸的接界窗口"></a>統一資源對外傳輸的接界窗口</h1><p>可以透過資源分類命名，例如 <a target="_blank" rel="noopener" href="https://www.example.com/books">https://www.example.com/books</a> 就是關於書的相關 API 資料</p>
+<h1 id="API-端口彼此獨立，不須互相依賴"><a href="#API-端口彼此獨立，不須互相依賴" class="headerlink" title="API 端口彼此獨立，不須互相依賴"></a>API 端口彼此獨立，不須互相依賴</h1><p>資源按照端口分開接收，沒有次序或是參數依賴的問題</p>
+<h1 id="從-Client-端發送需求（request）"><a href="#從-Client-端發送需求（request）" class="headerlink" title="從 Client 端發送需求（request）"></a>從 Client 端發送需求（request）</h1><p>API 的資源傳送是分離式的，client 裝置發送 request 而 server 提供資源</p>
+<h1 id="具有-cache-機制"><a href="#具有-cache-機制" class="headerlink" title="具有 cache 機制"></a>具有 cache 機制</h1><p>可以在 API 資源第一次返回時下載在客戶端裝置，存取在瀏覽器等暫時記憶位置，避免耗時重複讀取相同的資源，例如網站圖片或靜態資源</p>
+<h1 id="可架接中間層系統"><a href="#可架接中間層系統" class="headerlink" title="可架接中間層系統"></a>可架接中間層系統</h1><p>在 API 流量評估的中間層設置負載平衡機制，適時的管控與擴充當下 API 使用情況以免伺服器負荷過大</p>
+</body></html> -->
+        
+        
+            <html><head></head><body><p>RESTful API 的簡單介紹：</p>
+<h1 id="統一資源對外傳輸的接界窗口"><a href="#統一資源對外傳輸的接界窗口" class="headerlink" title="統一資源對外傳輸的接界窗口"></a>統一資源對外傳輸的接界窗口</h1><p>可以透過資源分類命名，例如 <a target="_blank" rel="noopener" href="https://www.example.com/books">https://www.example.com/books</a> 就是關於書的相關 API 資料</p>
+<h1 id="API-端口彼此獨立，不須互相依賴"><a href="#API-端口彼此獨立，不須互相依賴" class="headerlink" title="API 端口彼此獨立，不須互相依賴"></a>API 端口彼此獨立，不須互相依賴</h1><p>資源按照端口分開接收，沒有次序或是參數依賴的問題</p>
+<h1 id="從-Client-端發送需求（request）"><a href="#從-Client-端發送需求（request）" class="headerlink" title="從 Client 端發送需求（request）"></a>從 Client 端發送需求（request）</h1><p>API 的資源傳送是分離式的，client 裝置發送 request 而 server 提供資源</p>
+<h1 id="具有-cache-機制"><a href="#具有-cache-機制" class="headerlink" title="具有 cache 機制"></a>具有 cache 機制</h1><p>可以在 API 資源第一次返回時下載在客戶端裝置，存取在瀏覽器等暫時記憶位置，避免耗時重複讀取相同的資源，例如網站圖片或靜態資源</p>
+<h1 id="可架接中間層系統"><a href="#可架接中間層系統" class="headerlink" title="可架接中間層系統"></a>可架接中間層系統</h1><p>在 API 流量評估的中間層設置負載平衡機制，適時的管控與擴充當下 API 使用情況以免伺服器負荷過大</p>
+</body></html>
+        
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/09/26/zh-tw/js-weird-parts-default-values/">
+                克服 Javascript 的奇怪部分 預設值 <i class="fas fa-caret-right" style="padding-left: 5px"></i>
+            </a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62024aa50a70400019079d5b&amp;product=sticky-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://maomaoxie.github.io/2022/09/28/zh-tw/restful-api-intro/';
+        this.page.identifier = '2022/09/28/zh-tw/restful-api-intro/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'maomaoxie' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 Mawchu 謝佳芳&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/mawchu">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2022/09/28/zh-tw/restful-api-intro/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2022/09/28/zh-tw/restful-api-intro/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-TW");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+          position: relative;
+        }
+
+        .hljs .clipboard-btn {
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #2e2e2e;
+          transform: scale(1.1);
+        }
+
+        .hljs > .clipboard-btn {
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+          display: inline;
+        }
+
+        button {
+          padding: 0;
+        }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

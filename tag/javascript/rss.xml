@@ -7,7 +7,6 @@
         <language>zh-tw,en,default</language>
         <pubDate>Fri, 23 Sep 2022 15:31:26 +0800</pubDate>
         <lastBuildDate>Fri, 23 Sep 2022 15:31:26 +0800</lastBuildDate>
-        <category>Javascript</category>
         <category>javascript</category>
         <category>constructor</category>
         <category>instance</category>
@@ -19,19 +18,20 @@
         <category>git</category>
         <category>github</category>
         <category>sourceTree</category>
-        <category>hexo</category>
-        <category>submodule</category>
         <category>api</category>
         <category>graphQL</category>
         <category>facebook</category>
         <category>rss</category>
+        <category>hexo</category>
+        <category>submodule</category>
         <category>http</category>
-        <category>https</category>
+        <category>httpHeader</category>
         <category>request</category>
         <category>response</category>
-        <category>httpHeader</category>
-        <category>httpMethods</category>
+        <category>https</category>
         <category>status</category>
+        <category>httpMethods</category>
+        <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>
         <category>php</category>
@@ -43,39 +43,39 @@
         <category>sql</category>
         <category>public</category>
         <category>static</category>
-        <category>tailwind</category>
         <category>css</category>
         <category>less</category>
         <category>processors</category>
+        <category>tailwind</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
         <category>webService</category>
         <category>restfulApi</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue3</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>vue</category>
+        <category>compositionAPI</category>
         <category>safari</category>
         <category>javaScript</category>
         <category>preventDefault</category>
         <category>ios</category>
         <category>mobile</category>
-        <category>shortCircuit</category>
-        <category>optionalChaining</category>
-        <category>tricks</category>
-        <category>vue</category>
-        <category>vue3</category>
-        <category>compositionAPI</category>
-        <category>vite</category>
-        <category>typescript</category>
-        <category>vuetify</category>
-        <category>html</category>
         <category>WebSocket</category>
         <category>WebHook</category>
+        <category>vuetify</category>
+        <category>html</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
         <item>
-            <guid isPermalink="true">http://maomaoxie.github.io/2022/09/23/js-weird-parts-coercion/</guid>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/09/23/zh-tw/js-weird-parts-coercion/</guid>
             <title>克服 Javascript 的奇怪部分 動態型別</title>
-            <link>http://maomaoxie.github.io/2022/09/23/js-weird-parts-coercion/</link>
+            <link>http://maomaoxie.github.io/2022/09/23/zh-tw/js-weird-parts-coercion/</link>
             <category>Javascript</category>
             <pubDate>Fri, 23 Sep 2022 15:31:26 +0800</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;運算過程中由於 Javascript 是弱型別，沒有辦法強制規範型別，所以會在運算過程中發生隱式（動態）型別轉換，稱之為 Corecion。&lt;/p&gt;
@@ -93,17 +93,40 @@
 &lt;p&gt;當運算子相同時會採用相依性的方向來決定計算次序，比較運算子 &lt;code&gt;&amp;lt;&lt;/code&gt; 是左相依性（left-to-right associactivity），&lt;br&gt;所以背後的 Javascript 引擎會如是計算：&lt;br&gt;&lt;code&gt;3 &amp;lt; 2&lt;/code&gt; 獲得 false，&lt;code&gt;false &amp;lt; 1&lt;/code&gt; 由於型別不同 Javascript 引擎強制將 false 使用數字包裹器轉換為數字型別：&lt;/p&gt;
 &lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(&lt;span class=&#34;title class_&#34;&gt;Number&lt;/span&gt;(&lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;)); &lt;span class=&#34;hljs-comment&#34;&gt;// 0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;code&gt;0 &amp;lt; 1&lt;/code&gt; 獲得 true。&lt;/p&gt;
-&lt;h1 id=&#34;善用嚴格等式（triple-equal）&#34;&gt;&lt;a href=&#34;#善用嚴格等式（triple-equal）&#34; class=&#34;headerlink&#34; title=&#34;善用嚴格等式（triple equal）&#34;&gt;&lt;/a&gt;善用嚴格等式（triple equal）&lt;/h1&gt;&lt;p&gt;雙等號會造成嚴重的動態型別轉換，引發不可預期的後果，例如以下的範例：&lt;/p&gt;
+&lt;h1 id=&#34;強制型轉&#34;&gt;&lt;a href=&#34;#強制型轉&#34; class=&#34;headerlink&#34; title=&#34;強制型轉&#34;&gt;&lt;/a&gt;強制型轉&lt;/h1&gt;&lt;p&gt;型轉分為主動式強制型轉（Explicit Coercion）與被動式隱式型轉（Implicit Coercion），強制型轉有幾個基本型：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;toString&lt;/li&gt;
+&lt;li&gt;toNumber&lt;/li&gt;
+&lt;li&gt;toBoolean&lt;/li&gt;
+&lt;li&gt;toPrimitive&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;toNumber-數字型轉範例&#34;&gt;&lt;a href=&#34;#toNumber-數字型轉範例&#34; class=&#34;headerlink&#34; title=&#34;toNumber 數字型轉範例&#34;&gt;&lt;/a&gt;toNumber 數字型轉範例&lt;/h3&gt;&lt;p&gt;以下是幾個特殊的案例：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;title class_&#34;&gt;Number&lt;/span&gt;(&lt;span class=&#34;title class_&#34;&gt;Undefined&lt;/span&gt;); &lt;span class=&#34;hljs-comment&#34;&gt;// NaN&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;title class_&#34;&gt;Number&lt;/span&gt;(&lt;span class=&#34;hljs-literal&#34;&gt;null&lt;/span&gt;); &lt;span class=&#34;hljs-comment&#34;&gt;// 0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;雙等號型轉的悲劇&#34;&gt;&lt;a href=&#34;#雙等號型轉的悲劇&#34; class=&#34;headerlink&#34; title=&#34;雙等號型轉的悲劇&#34;&gt;&lt;/a&gt;雙等號型轉的悲劇&lt;/h3&gt;&lt;p&gt;雙等號（double Equality）會造成嚴重的動態型別轉換，引發不可預期的後果，例如以下的範例：&lt;/p&gt;
 &lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt; == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-literal&#34;&gt;null&lt;/span&gt; == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-literal&#34;&gt;null&lt;/span&gt; &amp;lt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-string&#34;&gt;&#34;&#34;&lt;/span&gt; == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-string&#34;&gt;&#34;&#34;&lt;/span&gt; &amp;lt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;以下的範例是 JavaScript 最難以理解的一部分型別轉換：&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[] == &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;title class_&#34;&gt;Boolean&lt;/span&gt;([]); &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;這實在是太詭異了!!不過理解一下背後的原理，當 Array 拿去比較 value 的時候，toString 包裹器會被呼叫：&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;title class_&#34;&gt;String&lt;/span&gt;([]); &lt;span class=&#34;hljs-comment&#34;&gt;// &#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-string&#34;&gt;&#39;&#39;&lt;/span&gt; == &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/body&gt;&lt;/html&gt; ]]></description>
+
+&lt;h4 id=&#34;動態型別呼叫的包裹器？&#34;&gt;&lt;a href=&#34;#動態型別呼叫的包裹器？&#34; class=&#34;headerlink&#34; title=&#34;動態型別呼叫的包裹器？&#34;&gt;&lt;/a&gt;動態型別呼叫的包裹器？&lt;/h4&gt;&lt;p&gt;Javascript 引擎在型別轉換背後做了許多事情，但也非沒有規則可循，&lt;br&gt;以下的範例是 JavaScript 最難以理解的一部分型別轉換：&lt;/p&gt;
+&lt;h5 id=&#34;比較運算子呼叫-toString&#34;&gt;&lt;a href=&#34;#比較運算子呼叫-toString&#34; class=&#34;headerlink&#34; title=&#34;比較運算子呼叫 toString&#34;&gt;&lt;/a&gt;比較運算子呼叫 toString&lt;/h5&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[] == &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;title class_&#34;&gt;Boolean&lt;/span&gt;([]); &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;這實在是太詭異了!!不過理解一下背後的原理，「當 Array 拿去比較 value 的時候，toString 包裹器會被呼叫，而不是透過　Boolean 轉換」：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;title class_&#34;&gt;String&lt;/span&gt;([]); &lt;span class=&#34;hljs-comment&#34;&gt;// &#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-string&#34;&gt;&#39;&#39;&lt;/span&gt; == &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;有趣的-object-object&#34;&gt;&lt;a href=&#34;#有趣的-object-object&#34; class=&#34;headerlink&#34; title=&#34;有趣的 [object object]&#34;&gt;&lt;/a&gt;有趣的 [object object]&lt;/h3&gt;&lt;p&gt;在開發過程查詢 error 或其他型轉情境經常會看見或 alert 噴出 &lt;code&gt;[object object]&lt;/code&gt; 這類特殊的值，剖析一下出現的原理：&lt;/p&gt;
+&lt;h4 id=&#34;型轉造成的-object-object&#34;&gt;&lt;a href=&#34;#型轉造成的-object-object&#34; class=&#34;headerlink&#34; title=&#34;型轉造成的 [object object]&#34;&gt;&lt;/a&gt;型轉造成的 [object object]&lt;/h4&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[] + {}; &lt;span class=&#34;hljs-comment&#34;&gt;// &#39;[object object]&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;{} + []; &lt;span class=&#34;hljs-comment&#34;&gt;// 0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;第一個例子 &lt;code&gt;[] + {};&lt;/code&gt;，這是由於 &lt;code&gt;[]&lt;/code&gt; + 號型轉為空字串 &lt;code&gt;&#39;&#39;&lt;/code&gt;，而 &lt;code&gt;{}&lt;/code&gt; + 號型轉為 ‘[object object]’ 了；String() 直接調用 &lt;code&gt;.toString&lt;/code&gt; 方法來轉換 &lt;code&gt;[]&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;第二個例子 &lt;code&gt;{} + []&lt;/code&gt; 中， &lt;code&gt;{}&lt;/code&gt;被當作空區塊無作用，只會運算後方的 &lt;code&gt; + []&lt;/code&gt; 調用 &lt;code&gt;Number([])&lt;/code&gt;，&lt;br&gt;依據型轉規則，陣列屬於物件型別所以型轉數字時會調用 toString 方法來型轉成空字串 &lt;code&gt;String([])&lt;/code&gt; 獲得 &lt;code&gt;&#39;&#39;&lt;/code&gt;，也就是 Number(‘’)，&lt;br&gt;而獲得 0 的結果。&lt;/p&gt;
+&lt;blockquote class=&#34;colorquote danger&#34;&gt;&lt;p&gt;值得注意的是 block &lt;code&gt;{}&lt;/code&gt; 放置在最前方會被為 Javascript 引擎視作作用域而非空物件!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;善用嚴格等式（Tripple-Equality）&#34;&gt;&lt;a href=&#34;#善用嚴格等式（Tripple-Equality）&#34; class=&#34;headerlink&#34; title=&#34;善用嚴格等式（Tripple Equality）&#34;&gt;&lt;/a&gt;善用嚴格等式（Tripple Equality）&lt;/h3&gt;&lt;p&gt;不同於雙等號造成的型轉悲劇，三等號可以確保最後獲得的比較結果不會被型轉，也能達到預期的值做開發判斷，是比較良好的開發習慣。&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://maomaoxie.github.io/2022/09/21/js-weird-parts-operators-precendence-and-associactivity/</guid>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/09/21/zh-tw/js-weird-parts-operators-precendence-and-associactivity/</guid>
             <title>克服 Javascript 的奇怪部分 運算子的相依性與優先性</title>
-            <link>http://maomaoxie.github.io/2022/09/21/js-weird-parts-operators-precendence-and-associactivity/</link>
+            <link>http://maomaoxie.github.io/2022/09/21/zh-tw/js-weird-parts-operators-precendence-and-associactivity/</link>
             <category>Javascript</category>
             <pubDate>Wed, 21 Sep 2022 14:58:56 +0800</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;在了解以下的特性以前需要知道，JavaScript 是 syncrounous 同步在執行一個表達式的，&lt;br&gt;所以一次只能執行一個片段的程式碼，也就是一個表達式，一個表達式只能包含一個運算子與兩個參數，所以需要決定執行的次序．&lt;/p&gt;

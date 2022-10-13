@@ -145,13 +145,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/08/07/zh-tw/wordpress-get-started/" itemprop="url">開始我的第一個 wordpress 網站</a>
+            <a href="/2022/08/18/zh-tw/safari-preventDefault-bug/" itemprop="url">Safari IOS 11.3 後 preventDefault 失效問題</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-08-07T02:02:29.000Z" itemprop="datePublished">8月 7 2022</time>
+                <time datetime="2022-08-18T01:12:34.000Z" itemprop="datePublished">8月 18 2022</time>
             
         </span>
         
@@ -159,54 +159,56 @@
         <span class="column is-narrow">
             
             
-            5 分鐘 讀完 (約 677 字)
+            6 分鐘 讀完 (約 939 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><h1 id="第一步-產生-ip-位址"><a href="#第一步-產生-ip-位址" class="headerlink" title="第一步 - 產生 ip 位址"></a>第一步 - 產生 ip 位址</h1><p>首先要租賃一台伺服器提供 ip，可以考慮較優惠的主機廠商：遠振或 bluehost。<br>要注意的是，一個 domain 可以放置很多網站資料夾，並且設定sub-domian。</p>
-<h1 id="第二步-DNS-註冊"><a href="#第二步-DNS-註冊" class="headerlink" title="第二步 - DNS 註冊"></a>第二步 - DNS 註冊</h1><p>ip 設定好之後就可以將網域指過來指定的 DNS 網域商：<br>中華電信提供的 .tw　較便宜，而 godaddy 則是 .com 較便宜。</p>
-<h1 id="第三步-cdn-分散流量"><a href="#第三步-cdn-分散流量" class="headerlink" title="第三步 - cdn 分散流量"></a>第三步 - cdn 分散流量</h1><p>常用的 cdn 廠商像是 cloudflare，可以註冊一個離主機近的（例如東京）cdn 位址，其他供應商例如 sugarhost 很便宜但連線較慢。</p>
-<h3 id="CDN-原理"><a href="#CDN-原理" class="headerlink" title="CDN 原理"></a>CDN 原理</h3><p>cdn 是把 DNS 轉向給 DNS 廠商（cloudflare），透過 DNS 指向將流量倒過去 cloudflare，在第一次 cache 過網站靜態資源後，第二次就可以直接提取cdn 伺服器上 cache　的資源以減少流量費用。</p>
-<h3 id="設定細節"><a href="#設定細節" class="headerlink" title="設定細節"></a>設定細節</h3><h5 id="資源類型"><a href="#資源類型" class="headerlink" title="資源類型"></a>資源類型</h5><p>通常都會設定 <strong>A 類型</strong>以設定網址（url）指向，例如 mailgun 的寄信功能。</p>
-<h5 id="防堵資安問題"><a href="#防堵資安問題" class="headerlink" title="防堵資安問題"></a>防堵資安問題</h5><p>cloudflare 設定其中一樣可以開啟 ddos -&gt; under Attack 來保護網站資源。<br>也可以手動清除特定檔案，例如圖片的 cache 來重新抓取檔案。</p>
-<h1 id="第四步-掛載-wordpress"><a href="#第四步-掛載-wordpress" class="headerlink" title="第四步 - 掛載 wordpress"></a>第四步 - 掛載 wordpress</h1><p>wordpress 可以當作是一個 php 建構而成的後端框架應用，串接方式有兩種：</p>
-<ol>
-<li>直接使用 wordpress hook 來渲染資料（前後端合併）。</li>
-<li>撰寫自己的前端框架（例如 vue），撰寫自己的 API（前後端分離）。</li>
+        <!-- <html><head></head><body><img src="https://i.gifer.com/2BC.gif" class="" width="300" height="200" title="safari-preventDefault-bug">
+<p>沒錯的，我們可愛的 Safari 又又又出現了 bug，來看看這個高級 IE 的除錯日常（Safari 愛好者不要鞭我）</p>
+<h1 id="click-事件綁定"><a href="#click-事件綁定" class="headerlink" title="click 事件綁定"></a>click 事件綁定</h1><p>網站開發過程的需求是，當元件沒有 props 連結路徑時就預防 a 連結的預設跳轉行為，以下是元件的 code：</p>
+<figure class="highlight plaintext hljs"><figcaption><span>component</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// HTML</span><br><span class="line">&lt;a class="w-100 h-100" :class="[ url === '' ? 'pointer-events-none' : 'url-active' ]" @click="changeTab()"&gt;</span><br><span class="line">&lt;/a&gt;</span><br><span class="line">// Script</span><br><span class="line">&lt;script&gt;</span><br><span class="line">@Component</span><br><span class="line">export default class ItemCard extends Vue {</span><br><span class="line">    @Prop({ default: '' }) url?: string;</span><br><span class="line">    private changeTab (event: any) {</span><br><span class="line">        if (this.url === '') {</span><br><span class="line">        event.preventDefault();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="contextmenu-事件綁定"><a href="#contextmenu-事件綁定" class="headerlink" title="contextmenu 事件綁定"></a>contextmenu 事件綁定</h1><p>後來發現 Safari 的瀏覽器，手機與電腦綁定 a 標籤 click 事件都無法達到避免預設行為的效果，於是求救谷歌大神：</p>
+<blockquote><p>To target right click events, use contextmenu rather than mousedown.</p>
+<p><code>document.querySelector("#GL-Surface").addEventListener("contextmenu",     function(e) {         e.preventDefault();     }); </code><br>Note that the options that appear on right click do appear only when the right click button is released, so I don’t think mousedown is at all suitable here.</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/62245019/javascript-preventdefault-not-working-in-safari">Javascript preventDefault() not working in Safari</a></p>
+</blockquote>
+
+<p>這裡面提及的<strong>contextmenu</strong>事件是右鍵出現的選單，抱持著嘗試看看的心情監聽contextmenu事件，並綁定了一樣的函式．竟然成功了？？？</p>
+<p>第一次看到這個<strong>contextmenu</strong>事件，來瞧瞧 MDN 怎麼說：</p>
+<blockquote><p>被触发的 contextmenu 事件的默认行为被 preventDefault() 取消了，因此，在第一段右击鼠标时什么也不会发生<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/contextmenu">contextmenu</a></p>
+</blockquote>
+
+<h1 id="ios11-3-版本後"><a href="#ios11-3-版本後" class="headerlink" title="ios11.3 版本後"></a>ios11.3 版本後</h1><p>有人提及<strong>ios11.3 and later</strong>預設行為就失效了</p>
+<blockquote><p>This is not an issue by React and is caused by the recent movement of browser vendors to improve performance on mobile devices.<br>Some events (usually those that would fire when you scroll) are <strong>getting passive by default</strong>.<br><a target="_blank" rel="noopener" href="https://github.com/facebook/react/issues/13369">e.preventDefault() does not work with safari in ios11.3 and later #13369</a></p>
+</blockquote>
+
+<h1 id="改動是為了優化體驗"><a href="#改動是為了優化體驗" class="headerlink" title="改動是為了優化體驗"></a>改動是為了優化體驗</h1><p>以上的說明原由來自於性能優化的考量，由於手機裝置在滾動時觸發太多主動事件會嚴重影響體驗，因故某些事件都被調整預設為<strong>被動的（passive）</strong>，來看看以下說明：<br>（附上不負責任翻譯）</p>
+<blockquote><p>We know that scrolling responsiveness is critical to the user’s engagement with a website on mobile, yet touch event listeners often cause serious scrolling performance problems.<br>在手機裝置中滾動事件的敏感度放大了使用者的體驗，可能造成延遲或性能不好。</p>
+<p>Chrome has been addressing this by allowing touch event listeners to be passive (passing the {passive: true} option to addEventListener()) and shipping the pointer events API. These are great features to drive new content into models that don’t block scrolling, but developers sometimes find them hard to understand and adopt.<br>Chrome 在事件監聽上預設了被動參數為 true，避免滾動事件被阻擋。</p>
+<p>Developer-defined “passive event listeners” solve this. When you add a touch event with a {passive: true} object as the third parameter in your event handler then you are telling the browser that the touchstart listener will not call preventDefault() and the browser can safely perform the scroll without blocking on the listener.<br>當你設定事件監聽被動參數為 true，該事件就不會觸發**preventDefault()**避免滾動事件卡卡的</p>
+<p><a target="_blank" rel="noopener" href="https://developer.chrome.com/blog/scrolling-intervention/">Making touch scrolling fast by default</a></p>
+</blockquote>
+
+<p>設定的方式與參數例如這樣：<br><code>window.addEventListener("touchstart", func, {passive: true} );</code></p>
+<h1 id="弔詭的地方"><a href="#弔詭的地方" class="headerlink" title="弔詭的地方"></a>弔詭的地方</h1><ol>
+<li>以上說明是針對 Chrome 瀏覽器的性能優化改動，不是 safari 啊？</li>
+<li>MDN 提及 contextmenu 事件已經不為瀏覽器所支援，但 safari 卻必須使用 contextmenu 事件綁定並且搭配 preventDefault 才能生效？而且註明 safari ios 是唯一不支援此事件的瀏覽器？</li>
 </ol>
-<h3 id="建立步驟"><a href="#建立步驟" class="headerlink" title="建立步驟"></a>建立步驟</h3><p>到  <a target="_blank" rel="noopener" href="https://tw.wordpress.org/download/">wordpress</a> 官方網站下載檔案，上傳到自己的網域 server。</p>
-<img src="/images/wordpress-get-started/14.png" class="" width="800" height="200" title="wordpress-download">
-<p>上傳後打開網站，會有一個 UI 介面可以直接設定 wordpress 與網站資料，config 需要設定資料庫帳號密碼：</p>
-<p>要注意的是 wordpress 權限身分須從 root 改成 www-data，才能變成網站系統管理員使用 wordpress 後台。</p>
-<!-- 行情 $ 25000 (使用佈景主題)
-客製化算一頁
-定時備份以免網站被駭客
-租 GCP 靜態硬碟 
-google 硬碟版本管理 資源回收桶保留30 天
-flicker
+<img src="/images/safari-preventDefault-bug/0.png" class="" width="800" height="200" title="safari-preventDefault-bug">
+<img src="https://c.tenor.com/sAMt7DszgXMAAAAC/%E9%BB%91%E4%BA%BA%E5%95%8F%E8%99%9F.gif" class="" width="350" height="200" title="safari-preventDefault-bug">
 
-設定 config 檔案 
-比較好的後台c panel 要錢
-dns 代管要 https 要使用 flexible SSL for cloudflare
-
-一類有分類的文章 slug 需要代稱(英文的)
-獨立頁面 客製化
-siteliner 檢查有沒有壞掉的連結與重複的內容
-duplicate page
-報價高一點
-附加的css
-減少做重複的事情
-在 wordpress 上做前後端分離 -->
+<p>也許下次可以試試看直接把監聽器的 passive 設為 false 試試看 XD</p>
 </body></html> -->
         
         
-        <html><head></head><body><h1 id="第一步-產生-ip-位址"><a href="#第一步-產生-ip-位址" class="headerlink" title="第一步 - 產生 ip 位址"></a>第一步 - 產生 ip 位址</h1><p>首先要租賃一台伺服器提供 ip，可以考慮較優惠的主機廠商：遠振或 bluehost。<br>要注意的是，一個 domain 可以放置很多網站資料夾，並且設定sub-domian。</p>
-<h1 id="第二步-DNS-註冊"><a href="#第二步-DNS-註冊" class="headerlink" title="第二步 - DNS 註冊"></a>第二步 - DNS 註冊</h1><p>ip 設定好之後就可以將網域指過來指定的 DNS 網域商：<br>中華電信提供的 .tw　較便宜，而 godaddy 則是 .com 較便宜。</p>
+        <html><head></head><body><img src="https://i.gifer.com/2BC.gif" class="" width="300" height="200" title="safari-preventDefault-bug">
+<p>沒錯的，我們可愛的 Safari 又又又出現了 bug，來看看這個高級 IE 的除錯日常（Safari 愛好者不要鞭我）</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/08/07/zh-tw/wordpress-get-started/">more</a>
+                <a href="/2022/08/18/zh-tw/safari-preventDefault-bug/">more</a>
             </p>
         
     
@@ -222,13 +224,13 @@ duplicate page
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/08/05/zh-tw/hexo-rss/" itemprop="url">Hexo RSS 自動產生器</a>
+            <a href="/2022/08/17/zh-tw/js-object-fromEntries/" itemprop="url">Js 物件陣列轉換的方法，真香！</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-08-05T07:39:34.000Z" itemprop="datePublished">8月 5 2022</time>
+                <time datetime="2022-08-17T02:22:19.000Z" itemprop="datePublished">8月 17 2022</time>
             
         </span>
         
@@ -236,27 +238,34 @@ duplicate page
         <span class="column is-narrow">
             
             
-            2 分鐘 讀完 (約 312 字)
+            2 分鐘 讀完 (約 369 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><p>RSS 訂閱功能越來越夯，可以即時通知訂閱戶更新的文章內容，增加回流的流量與網站的熱度，chrome 也有提供 RSS reader 的外掛功能直接讀取 RSS 檔案。<br>既然建立好了自己的部落格怎麼可以沒有 RSS XD?</p>
-<p>先前在專案包嘗試使用 hexo-generator-feed 套件，但是建立出來的 atom.xml 檔案會出現亂碼，後來找到一個套件甚至支援 json 與 rss 格式：</p>
-<h1 id="安裝-Hexo-seed-套件"><a href="#安裝-Hexo-seed-套件" class="headerlink" title="安裝 Hexo seed 套件"></a>安裝 Hexo seed 套件</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-feed</span><br></pre></td></tr></tbody></table></figure>
+        <!-- <html><head></head><body><img src="https://exp-picture.cdn.bcebos.com/3201a8f39187031c063126496a86242fa972ec4a.jpg?x-bce-process=image/resize,m_lfit,w_500,limit_1/format,f_auto/quality,q_80" class="" width="300" height="200" title="真香">
+<p><a target="_blank" rel="noopener" href="https://exp-picture.cdn.bcebos.com/3201a8f39187031c063126496a86242fa972ec4a.jpg?x-bce-process=image/resize,m_lfit,w_500,limit_1/format,f_auto/quality,q_80">圖片來源</a></p>
+<p>今天來介紹一下資料處理的好兄弟，<code>Object.entries</code> 以及 <code>Object.fromEntries</code>。</p>
+<p>工作上的需求情境是這樣：<br>一個物件裡有多個 key，但我只需要複製部份的 key 資料，不用全部時可以使用以下作法。</p>
+<h1 id="Object-entries"><a href="#Object-entries" class="headerlink" title="Object.entries"></a>Object.entries</h1><p>工作上的老朋友，常用在物件轉換成陣列時使用，方法特色是將物件內的 key 與 value 轉變成一個<strong>成對的陣列</strong>。</p>
+<figure class="highlight javascript hljs"><figcaption><span>Object.entries</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> obj = {</span><br><span class="line"><span class="hljs-attr">fruits</span>: <span class="hljs-string">'apple'</span>,</span><br><span class="line"><span class="hljs-attr">beverage</span>: <span class="hljs-string">'choco milk'</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> outcome = <span class="title class_">Object</span>.<span class="title function_">entries</span>(obj);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(outcome);</span><br><span class="line"><span class="hljs-comment">// [</span></span><br><span class="line">    [ <span class="hljs-string">'fruits'</span>, <span class="hljs-string">'apple'</span> ],</span><br><span class="line">    [ <span class="hljs-string">'beverage'</span>, <span class="hljs-string">'choco milk'</span> ],</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="檔案格式"><a href="#檔案格式" class="headerlink" title="檔案格式"></a>檔案格式</h3><p>hexo-feed 可以設定三種文件格式：atom、json 還有 rss，建立的模板可以透過專案包根目錄的 _config.yml 去設定模板的 path（template）：</p>
-<figure class="highlight javascript hljs"><figcaption><span>_config.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">feed</span>:</span><br><span class="line">    <span class="hljs-attr">limit</span>: <span class="hljs-number">20</span></span><br><span class="line">    <span class="hljs-attr">order_by</span>: <span class="hljs-string">"-date"</span></span><br><span class="line">    <span class="hljs-attr">tag_dir</span>: <span class="hljs-string">"tag"</span></span><br><span class="line">    <span class="hljs-attr">category_dir</span>: <span class="hljs-string">"category"</span></span><br><span class="line">    <span class="hljs-attr">rss</span>:</span><br><span class="line">        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span></span><br><span class="line">        <span class="hljs-attr">template</span>: <span class="hljs-string">"themes/layout/template/rss.ejs"</span> </span><br><span class="line">        <span class="hljs-attr">output</span>: <span class="hljs-string">"rss.xml"</span></span><br><span class="line">    <span class="hljs-attr">atom</span>:</span><br><span class="line">        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span></span><br><span class="line">        <span class="hljs-attr">template</span>: <span class="hljs-string">"themes/layout/template/atom.ejs"</span></span><br><span class="line">        <span class="hljs-attr">output</span>: <span class="hljs-string">"atom.xml"</span></span><br><span class="line">    <span class="hljs-attr">jsonFeed</span>:</span><br><span class="line">        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span></span><br><span class="line">        <span class="hljs-attr">template</span>: <span class="hljs-string">"themes/layout/template/json.ejs"</span></span><br><span class="line">        <span class="hljs-attr">output</span>: <span class="hljs-string">"feed.json"</span></span><br></pre></td></tr></tbody></table></figure>
+<h1 id="Object-fromEntries"><a href="#Object-fromEntries" class="headerlink" title="Object.fromEntries"></a>Object.fromEntries</h1><p>跟上面的相反，常用在陣列轉換成物件時使用，方法特色是將成對的 key 與 value 轉變成一個<strong>物件</strong>。</p>
+<figure class="highlight javascript hljs"><figcaption><span>Object.fromEntries</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> obj = {</span><br><span class="line"><span class="hljs-attr">fruits</span>: <span class="hljs-string">'apple'</span>,</span><br><span class="line"><span class="hljs-attr">beverage</span>: <span class="hljs-string">'choco milk'</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> entries = <span class="title class_">Object</span>.<span class="title function_">entries</span>(obj);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'entries'</span>, entries);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> fromEntries = <span class="title class_">Object</span>.<span class="title function_">fromEntries</span>(entries);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'fromEntries'</span>, fromEntries);</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="模板內容"><a href="#模板內容" class="headerlink" title="模板內容"></a>模板內容</h3><figure class="highlight javascript hljs"><figcaption><span>atom</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="hljs-string">"1.0"</span>?&gt;</span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">feed</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2005/Atom"</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>&lt;%= config.url %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%= config.title %&gt;&lt;%= tag ? ` • Posts by "${tag}" tag` : '' %&gt;&lt;%= category ? ` • Posts by "${category}" category` : '' %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"&lt;%= config.url %&gt;"</span> /&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">updated</span>&gt;</span>&lt;%= moment(lastBuildDate).toISOString() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">updated</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    &lt;%_ for (const { name } of (tags || [])) { _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">term</span>=<span class="hljs-string">"&lt;%= name %&gt;"</span> /&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    &lt;%_ } _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">    &lt;%_ for (const post of posts) { _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">entry</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>&lt;%= post.permalink %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%= post.title %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"&lt;%= post.permalink %&gt;"</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">content</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"html"</span>&gt;</span>&lt;%= post.content %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">content</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        &lt;%_ for (const { name } of (post.tags ? post.tags.toArray() : [])) { _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">term</span>=<span class="hljs-string">"&lt;%= name %&gt;"</span> /&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        &lt;%_ } _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">updated</span>&gt;</span>&lt;%= moment(post.date).toISOString() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">updated</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">entry</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    &lt;%_ } _%&gt;</span></span><br><span class="line"><span class="hljs-language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">feed</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure></body></html> -->
+<h1 id="綜合應用"><a href="#綜合應用" class="headerlink" title="綜合應用"></a>綜合應用</h1><p>回到主題，若只需要複製部份的 key 資料可以結合 filter 過濾需要的 key 值：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> obj = {</span><br><span class="line"><span class="hljs-attr">fruits</span>: <span class="hljs-string">'apple'</span>,</span><br><span class="line"><span class="hljs-attr">beverage</span>: <span class="hljs-string">'choco milk'</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> onlyBeverage = <span class="title class_">Object</span>.<span class="title function_">entries</span>(obj).<span class="title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">[key, value]</span>) =&gt;</span> key === <span class="hljs-string">'beverage'</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(onlyBeverage);</span><br><span class="line"><span class="hljs-comment">// ['beverage', 'choco milk']</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> transferArrayToObject = <span class="title class_">Object</span>.<span class="title function_">fromEntries</span>(onlyBeverage);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(transferArrayToObject);</span><br><span class="line"><span class="hljs-comment">// { 'beverage': 'choco milk' }</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>參考資料<a target="_blank" rel="noopener" href="https://masteringjs.io/tutorials/fundamentals/filter-key">在這</a></p>
+</body></html> -->
         
         
-        <html><head></head><body><p>RSS 訂閱功能越來越夯，可以即時通知訂閱戶更新的文章內容，增加回流的流量與網站的熱度，chrome 也有提供 RSS reader 的外掛功能直接讀取 RSS 檔案。<br>既然建立好了自己的部落格怎麼可以沒有 RSS XD?</p>
-<p>先前在專案包嘗試使用 hexo-generator-feed 套件，但是建立出來的 atom.xml 檔案會出現亂碼，後來找到一個套件甚至支援 json 與 rss 格式：</p>
+        <html><head></head><body><img src="https://exp-picture.cdn.bcebos.com/3201a8f39187031c063126496a86242fa972ec4a.jpg?x-bce-process=image/resize,m_lfit,w_500,limit_1/format,f_auto/quality,q_80" class="" width="300" height="200" title="真香">
+<p><a target="_blank" rel="noopener" href="https://exp-picture.cdn.bcebos.com/3201a8f39187031c063126496a86242fa972ec4a.jpg?x-bce-process=image/resize,m_lfit,w_500,limit_1/format,f_auto/quality,q_80">圖片來源</a></p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/08/05/zh-tw/hexo-rss/">more</a>
+                <a href="/2022/08/17/zh-tw/js-object-fromEntries/">more</a>
             </p>
         
     
@@ -272,13 +281,13 @@ duplicate page
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/07/30/zh-tw/js-weird-parts-value/" itemprop="url">克服 Javascript 的奇怪部分 原始型別</a>
+            <a href="/2022/08/09/zh-tw/http-methods-idempotent/" itemprop="url">RESTful API 方法觀念介紹 - idempotent</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-07-30T09:08:20.000Z" itemprop="datePublished">7月 30 2022</time>
+                <time datetime="2022-08-09T07:14:24.000Z" itemprop="datePublished">8月 9 2022</time>
             
         </span>
         
@@ -286,28 +295,65 @@ duplicate page
         <span class="column is-narrow">
             
             
-            3 分鐘 讀完 (約 493 字)
+            8 分鐘 讀完 (約 1140 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/js-weird-parts-value/0.png" class="" width="800" height="200" title="js-primitive-type">
-<p>只要不是物件型別的值都可以看做是原始型別，例如：</p>
-<h1 id="undefined"><a href="#undefined" class="headerlink" title="undefined"></a>undefined</h1><p>當一個變數還未指派任何值之前，記憶體位置會被賦予一個 undefied 的值，通常是 Javascript 引擎指派的，應該避免將任何值的預設值設定為 undefined，避免與 Hoisting 行為混淆了。</p>
-<h1 id="null"><a href="#null" class="headerlink" title="null"></a>null</h1><p>若需要再資料回來之前給予判斷，可以將變數設定為 null 來表示該變數還未拿到任何值，也非 Javascript 引擎指派的值。</p>
-<h1 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h1><p>true 或 false 的判斷型別，值得注意的是當值存在 localstorage 或者 cookie 時應避免儲存 true 或 false，轉換過程會強制變成 string 而造成錯誤的判斷。</p>
-<h1 id="number"><a href="#number" class="headerlink" title="number"></a>number</h1><p>唯一的數字型別（numeric），不同於其他語言可能具有細緻的數字型別，例如 interger 或是 demicals，Javascript 只有一個 number type，為<strong>浮點運算（floating point number）</strong>，這種運算法為一個有效數字加上冪數來表示，電腦本身的二進制無法實現十進制的數字精確性，會造成數字計算上浮點位數的不正確，只能計算出近似值而已。</p>
-<h1 id="string"><a href="#string" class="headerlink" title="string"></a>string</h1><p>字串型別，一串使用雙引號或單引號標記起來的文字。</p>
-<h1 id="symbol"><a href="#symbol" class="headerlink" title="symbol"></a>symbol</h1><p>ES6 引入的新原始型別，用來表示一個獨一無二的值。產生的原因來自於物件的屬性通常都是字串（property），這樣容易造就重複的屬性而衝突，新的符號型別（symbol）於是誕生，兩個 symbol 永遠不會相等，是絕對的獨一無二。ES6 允許使用表達式 (expression) 作為屬性的名稱，語法是將 expression 放在中括號 [ ] 裡面：</p>
-<figure class="highlight javascript hljs"><figcaption><span>symbol</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> s = <span class="title class_">Symbol</span>();</span><br><span class="line"><span class="hljs-keyword">let</span> obj = {</span><br><span class="line">    [s]: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {}</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure></body></html> -->
+        <!-- <html><head></head><body><p>RESTful API 呼叫的方法中，離不開四個主軸 CRUD，CREATE、READ/RETREIVE、UPDATE 還有 DELETE。<br>而其中就有分是否為 <strong>Idempotent 的方法</strong>，甚麼意思呢？</p>
+<h1 id="甚麼是Idempotent（冪等）"><a href="#甚麼是Idempotent（冪等）" class="headerlink" title="甚麼是Idempotent（冪等）"></a>甚麼是Idempotent（冪等）</h1><blockquote><p>A request method is considered “idempotent” if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request. </p>
+</blockquote>
+
+<p>看為只覺得在母鯊大，沒關係我們繼續看下去：</p>
+<blockquote><p>Of the request methods defined by this specification, PUT, DELETE, and safe request methods are idempotent.</p>
+<footer><strong>Lauviah0622</strong><cite><a target="_blank" rel="noopener" href="https://lance.coderbridge.io/2021/06/06/what-is-safe-method-and-indempotent-methods/">[極短篇] HTTP 的 Safe method 還有 Idempotent method</a></cite></footer></blockquote>
+
+<p>dempotent（冪等）的方法不管你做一次、兩次乃至一百次，對於伺服器端資料的結果都一樣，是安全而沒有副作用的，可以安心服用；<br>相反的非 Idempotent 的方法則是需要謹慎考慮的、會改動伺服器資料庫的、有副作用的，也就是非安全請求。</p>
+<p>我們來看看更精簡好懂的解釋：</p>
+<blockquote><p>Idempotent operations produce the same result even when the operation is repeated many times. The result of the 2nd, 3rd, and 1,000th repeat of the operation will return exactly the same result as the 1st time.<br>冪等運算是指無論操作多少次結果都會與第一次相同。</p>
+<p>For example, simple mathematical examples of idempotency include:</p>
+<p>x + 0;<br>x = 5;</p>
+<p>In the first example, adding zero will never change the result, regardless of how many times you do it. In the second, x is always 5. Again, this is the case, regardless of how many times you perform the operation. Both of these examples describe an operation that is idempotent.</p>
+<p>以上兩個例子都說明了這兩個表達是無論執行幾次都會是相同結果，這就是 Idempotent（冪等）。</p>
+<footer><strong>James E.</strong><cite><a target="_blank" rel="noopener" href="https://blog.dreamfactory.com/what-is-idempotency/">what-is-idempotency</a></cite></footer></blockquote>
+
+<h1 id="冪等不等於安全請求"><a href="#冪等不等於安全請求" class="headerlink" title="冪等不等於安全請求"></a>冪等不等於安全請求</h1><blockquote><p>The concepts of ‘idempotent methods’ and ‘safe methods’ are often confused. A safe method does not change the value that is returned, it reads – but it never writes.<br>Therefore, all safe methods are idempotent, but not all idempotent methods are safe.</p>
+<p>HTTP methods include:<br>POST – Creates a new resource. POST is not idempotent and it is not safe.<br>GET – Retrieves a resource. GET is idempotent and it is safe.<br>HEAD – Retrieves a resource (without response body). HEAD is idempotent and it is safe<br>PUT – Updates/replaces a resource. PUT is idempotent but it is not safe<br>PATCH – Partially updates a resource. PATCH is not idempotent and it is not safe.<br>DELETE – Deletes a resource. DELETE is idempotent but it is not safe.<br>TRACE – Performs a loop-back test. TRACE is idempotent but it is not safe.</p>
+<footer><strong>James E.</strong><cite><a target="_blank" rel="noopener" href="https://blog.dreamfactory.com/what-is-idempotency/">what-is-idempotency</a></cite></footer></blockquote>
+
+<p>安全請求只會讀取，所以都是冪等的，但冪等方法不一定都是安全請求。</p>
+<p>學術的部份我們就此打住，了解一下冪等之於 RESTful API 的意義。</p>
+<h1 id="idempotent-methods-冪等的方法"><a href="#idempotent-methods-冪等的方法" class="headerlink" title="idempotent methods 冪等的方法"></a>idempotent methods 冪等的方法</h1><ol>
+<li>GET</li>
+<li>HEAD（只讀取資料頭而忽略身體）</li>
+<li>PUT</li>
+<li>DELETE</li>
+<li>OPTIONS</li>
+</ol>
+<p>以上方式無論發幾次 request，結果都等同於一次。</p>
+<blockquote><p>通常 DELETE 會帶上 id，所以刪除 1 次和刪除 100 次是一樣的，server 那邊找不到 id 操作就會被忽略。<br>而 PUT 也一樣，PUT 代表替代的 http 操作，你發了 1 次 request 已經取代了內容後，那即使再發 100 次也只是替代一樣的內容。</p>
+<footer><strong>Lauviah0622</strong><cite><a target="_blank" rel="noopener" href="https://lance.coderbridge.io/2021/06/06/what-is-safe-method-and-indempotent-methods/">[極短篇] HTTP 的 Safe method 還有 Idempotent method</a></cite></footer></blockquote>
+
+<h1 id="Not-idempotent-methods-非冪等的方法"><a href="#Not-idempotent-methods-非冪等的方法" class="headerlink" title="Not idempotent methods 非冪等的方法"></a>Not idempotent methods 非冪等的方法</h1><ol>
+<li>POST</li>
+<li>DISPATCH</li>
+</ol>
+<p>以上方法每執行一次就會造成資料變動，但並非每種使用方式都是非冪等，端看 request 的目的是在「修改」還是「增加」，修改可能並不會更改內存量（memory），但是增加就不同了，它也是修改但是擴大了內存量（變多了）：</p>
+<blockquote><p>PATCH 在語意上代表著修改資料，換句話說可能這樣：</p>
+<p><code>PATCH http://blog.com/post?id=1 body {     title: 'new title' } </code><br>發了 100 次和 1 次標題都是同樣的 new title。</p>
+<p><code>PATCH http:shop.com/item/add?id=1 body {     number: 10 }</code><br>requst 代表的是增加 10 個 item 的數量。這種情況下也符合語意（修改資料），但就不符合 Idempotent 了，100 次會新增 1000 個。那 POST 就不用提，一次和 100 次肯定是不一樣的。</p>
+<footer><strong>Lauviah0622</strong><cite><a target="_blank" rel="noopener" href="https://lance.coderbridge.io/2021/06/06/what-is-safe-method-and-indempotent-methods/">[極短篇] HTTP 的 Safe method 還有 Idempotent method</a></cite></footer></blockquote>
+
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>讓我最意外的是 DELETE 居然是冪等方法，原因在於無論 request 幾次都只刪同一筆資料（認 id）這個觀念，與以前認為 DELETE 應該會每次刪除不同資料的想法大相逕庭。</p>
+</body></html> -->
         
         
-        <html><head></head><body><img src="/images/js-weird-parts-value/0.png" class="" width="800" height="200" title="js-primitive-type">
-<p>只要不是物件型別的值都可以看做是原始型別，例如：</p>
+        <html><head></head><body><p>RESTful API 呼叫的方法中，離不開四個主軸 CRUD，CREATE、READ/RETREIVE、UPDATE 還有 DELETE。<br>而其中就有分是否為 <strong>Idempotent 的方法</strong>，甚麼意思呢？</p>
+<h1 id="甚麼是Idempotent（冪等）"><a href="#甚麼是Idempotent（冪等）" class="headerlink" title="甚麼是Idempotent（冪等）"></a>甚麼是Idempotent（冪等）</h1><blockquote><p>A request method is considered “idempotent” if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request. </p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/07/30/zh-tw/js-weird-parts-value/">more</a>
+                <a href="/2022/08/09/zh-tw/http-methods-idempotent/">more</a>
             </p>
         
     
@@ -351,7 +397,7 @@ duplicate page
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/17/">17</a></li>
+        <li><a class="pagination-link" href="/page/19/">19</a></li>
         
     </ul>
 </nav>

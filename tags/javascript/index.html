@@ -481,7 +481,27 @@
 
     
 </body>
-</html>  
+</html>r">4</span>;</span><br><span class="line">a = b = c;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 4</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="hljs-comment">// 4</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c); <span class="hljs-comment">// 4</span></span><br></pre></td></tr></tbody></table></figure>
+
+<img src="/images/js-weird-parts-operators-precendence-and-associactivity/1.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>從上圖可以了解到 = 運算子的相依性是右相依性（right to left, Right Associativity），<br>當運算子的優先性都相同時 Javacript 會優先執行右邊的運算子，然後向左一個一個執行。<br><code>a = b = c;</code> 表達式會先執行 <code>b = 4</code>，並且回傳 4 之後執行 <code>a = 4</code>。</p>
+<h1 id="大括號（parentheses）最優先"><a href="#大括號（parentheses）最優先" class="headerlink" title="大括號（parentheses）最優先"></a>大括號（parentheses）最優先</h1><img src="/images/js-weird-parts-operators-precendence-and-associactivity/2.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>當一個表達式中具有多個運算子，大括號（parentheses）裡的運算會最優先：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = (<span class="hljs-number">3</span> + <span class="hljs-number">4</span>) * <span class="hljs-number">5</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 35</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="amp-amp-優先性（precedence）比較"><a href="#amp-amp-優先性（precedence）比較" class="headerlink" title="&amp;&amp; || 優先性（precedence）比較"></a>&amp;&amp; || 優先性（precedence）比較</h1><img src="/images/js-weird-parts-operators-precendence-and-associactivity/3.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>在判斷式中經常同時使用 &amp;&amp;（and）與 ||（or），需要特別注意 &amp;&amp;（and）優先級是大於 ||（or）的，<br>不過若專案中有使用到 eslint 則會提示盡量補上大括號（parentheses），來協助辨認次序唷！</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><p>在了解以下的特性以前需要知道，JavaScript 是 syncrounous 同步在執行一個表達式的，<br>所以一次只能執行一個片段的程式碼，也就是一個表達式，一個表達式只能包含一個運算子與兩個參數，所以需要決定執行的次序．</p>
+<h1 id="優先性（precendence）"><a href="#優先性（precendence）" class="headerlink" title="優先性（precendence）"></a>優先性（precendence）</h1><blockquote><p>When there is more than one operators in one executable code, which operator will be called in order of precedence.</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/09/21/zh-tw/js-weird-parts-operators-precendence-and-associactivity/">more</a>
+            </p>
+        
+    
     </div>
     
     
@@ -821,34 +841,7 @@
 
     
 </body>
-</html><span class="hljs-string">'Cally'</span>, <span class="hljs-string">'Donna'</span>, <span class="hljs-string">'Jell'</span> ];</span><br><span class="line">friends.<span class="title function_">push</span>(<span class="hljs-string">'Liang'</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(friends);</span><br><span class="line"><span class="hljs-comment">// ["Cally","Donna","Jell","Liang"]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="建構器-實例化方法"><a href="#建構器-實例化方法" class="headerlink" title="建構器 實例化方法"></a>建構器 實例化方法</h4><p>透過 new 來建立一個陣列。</p>
-<figure class="highlight javascript hljs"><figcaption><span>實例化方法 - 構造器</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> animals = <span class="hljs-keyword">new</span> <span class="title class_">Array</span>(<span class="hljs-string">'bunny'</span>, <span class="hljs-string">'cat'</span>, <span class="hljs-string">'puppy'</span>, <span class="hljs-string">'hamster'</span>);</span><br><span class="line">animals.<span class="title function_">unshift</span>(<span class="hljs-string">'bird'</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(animals);</span><br><span class="line"><span class="hljs-comment">// ["bird","bunny","cat","puppy","hamster"]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="構造器靜態方法補充"><a href="#構造器靜態方法補充" class="headerlink" title="構造器靜態方法補充"></a>構造器靜態方法補充</h2><h4 id="無法取得構造器的this資料"><a href="#無法取得構造器的this資料" class="headerlink" title="無法取得構造器的this資料"></a>無法取得構造器的this資料</h4><blockquote><ul>
-<li>The static method also cannot see the instance variable state so if we try to call the nonstatic method from the static method compiler will complain.</li>
-<li>The static method can be used to create utility functions.<br><a target="_blank" rel="noopener" href="https://www.educba.com/javascript-static-method/">https://www.educba.com/javascript-static-method/</a></li>
-</ul>
-</blockquote>
-
-<p>從上述可以得知靜態方法是不能取用構造器建構子（constructor）內的變數的（this binding），通常會撰寫純函式（pure function）以保持無狀態的特性，如同 Math 方法。<br>靜態方法適合用來當作全局複用的函式，適合較無副作用的邏輯。</p>
-<h2 id="兩種方法的原型鍊關係"><a href="#兩種方法的原型鍊關係" class="headerlink" title="兩種方法的原型鍊關係"></a>兩種方法的原型鍊關係</h2><p>若展開一個實例化的物件，會發現：</p>
-<ol>
-<li>建構器方法存在於建構子物件中（constructor），且只能透過建構器呼叫，例如 Object.assign()；</li>
-<li>實例化方法則存在於原型上（prototype），需要實例化之後才能呼叫，例如 objInstance.toLocaleString()</li>
-</ol>
-</body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/constructor-vs-instance/0.png" class="" width="800" height="200" title="constructor-vs-instance">
-
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/05/14/zh-tw/constructor-vs-instance/">more</a>
-            </p>
-        
-    
+</html>  
     </div>
     
     

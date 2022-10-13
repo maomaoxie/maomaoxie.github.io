@@ -145,13 +145,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/06/04/zh-tw/js-weird-parts-parsing/" itemprop="url">克服 Javascript 的奇怪部分 名詞解釋篇</a>
+            <a href="/2022/07/30/zh-tw/js-weird-parts-types/" itemprop="url">克服 Javascript 的奇怪部分 型別</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-06-04T03:07:31.000Z" itemprop="datePublished">6月 4 2022</time>
+                <time datetime="2022-07-30T08:35:45.000Z" itemprop="datePublished">7月 30 2022</time>
             
         </span>
         
@@ -159,49 +159,26 @@
         <span class="column is-narrow">
             
             
-            9 分鐘 讀完 (約 1279 字)
+            1 分鐘 讀完 (約 176 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/js-weird-parts-I/0.png" class="" width="800" height="200" title="js-weird-parts-I">
-<p>先前滿常看到別人推薦的 Udemy 課程：克服JS的奇怪部分，原來自己已經購買且塵封在閱讀清單已久XD<br>馬上來匹乓一下吧！</p>
-<h1 id="執行篇"><a href="#執行篇" class="headerlink" title="執行篇"></a>執行篇</h1><h2 id="語法解析器（Syntax-Parser）"><a href="#語法解析器（Syntax-Parser）" class="headerlink" title="語法解析器（Syntax Parser）"></a>語法解析器（Syntax Parser）</h2><p>將你撰寫的 Javascript 編譯成電腦可以理解的一套程式語言（program），並且決定語法執行的方式以及是否合乎規範的角色，也與直譯（interprets）、轉譯（Compiler）概念雷同，其中直譯的編譯方式為逐字編譯後由電腦執行，大部分的 Javascript 程式都是直譯的，但並非全部情況。<br>編譯的過程會將 Javascript 拆解分類，依變數、函式等轉換成電腦硬體可以閱讀的語言，然後執行。</p>
-<img src="/images/js-weird-parts-I/1.png" class="" width="800" height="200" title="js-weird-parts-I">
-<p>可以想像成生產線上的作業員，持有原料工序可以生產產品。</p>
-<h2 id="靜態詞法作用域（Lexical-Environments）"><a href="#靜態詞法作用域（Lexical-Environments）" class="headerlink" title="靜態詞法作用域（Lexical Environments）"></a>靜態詞法作用域（Lexical Environments）</h2><blockquote class="colorquote info"><p>Where something <strong>sits physically</strong> in the code you write,<br>determines how it interacts with other elements in the program.</p>
+        <!-- <html><head></head><body><img src="/images/js-weird-parts-dynamic-typing/0.png" class="" title="dynamic-typing">
+<h1 id="Dynamic-Typing"><a href="#Dynamic-Typing" class="headerlink" title="Dynamic Typing"></a>Dynamic Typing</h1><p>Javascript 的型別為動態型別（Dynamic Typing），不同於 C# 等強型別語言的靜態型別（Static Typing），無須指派型別而是在引擎執行的階段（at runtime）辨認變數記憶體內的型別為何：</p>
+<blockquote class="colorquote info"><p>Dynamically-typed languages are those (like JavaScript) where the interpreter assigns variables a type at runtime based on the variable’s value at the time.</p>
 </blockquote>
-<p><strong>撰寫</strong>的時候決定如何運作。<br>你撰寫語法的靜態物理位置，決定了該對象（變數、函式等）與其他對象的互動與執行關係，並且被直譯器透過這個物理關係，或者說詞彙或文法關係來統整歸坐落在硬體記憶體中的位置，但須注意的是並非所有語言皆如此（java、C# 等為動態作用域）。<br>這有助於上方的語法解析器來決定程式怎麼運作，你撰寫 code 的位置在哪？周圍有甚麼、被甚麼包圍都很重要！<br>可以想像成生產線上的主管，歸納好產品的原料工序與存放倉庫的規則。</p>
-<h2 id="執行環境（Execution-Context）"><a href="#執行環境（Execution-Context）" class="headerlink" title="執行環境（Execution Context）"></a>執行環境（Execution Context）</h2><blockquote class="colorquote info"><p><strong>A wrapper</strong> to help manage the code that is running.<br>There are lots of lexical environments, which one is currently running is managed via execution context.</p>
-</blockquote>
-<p><strong>執行</strong>的時候決定如何運作。<br>靜態作用域很多，但是執行的當下順序則是由執行環境決定，也可以稱為上下文，最常見的就是每個函式建立之後產生的<code>this</code> keyword，通常為 block 作用域所包覆，在呼叫的時候決定 this 對象。<br>而執行環境不是只有與你撰寫的程式碼相關而已，也包含其他東西，例如上述的 this 就是執行函式當下的編譯過程動態產生的，編譯器在幫你翻譯給電腦讀懂以前，加油添醋了一些程序使程式碼更完整、具有前後順序給電腦執行。<br>可以想像成工廠的老闆，決定好哪批產品先出後出、出到哪裡。</p>
-<h1 id="變數篇"><a href="#變數篇" class="headerlink" title="變數篇"></a>變數篇</h1><h2 id="一個名稱對應一個值"><a href="#一個名稱對應一個值" class="headerlink" title="一個名稱對應一個值"></a>一個名稱對應一個值</h2><p>一個變數名可以更改很多次，但都只會包含一個值，而一個值裡面是更多的鍵值對。</p>
-<h2 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h2><p>更多鍵值對（key-value pairs）的集合。</p>
-<img src="/images/js-weird-parts-I/2.png" class="" width="400" height="200" title="js-weird-parts-I">
 
-<h1 id="全域物件與全域環境篇（Global）"><a href="#全域物件與全域環境篇（Global）" class="headerlink" title="全域物件與全域環境篇（Global）"></a>全域物件與全域環境篇（Global）</h1><figure class="highlight javascript hljs"><figcaption><span>info</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">The</span> base execution context is your <span class="variable language_">global</span> execution context.</span><br><span class="line"><span class="title class_">Things</span> that are accessible everywhere to everything to your code.</span><br><span class="line"><span class="title class_">And</span> it creates <span class="hljs-number">2</span> things that you don<span class="hljs-string">'t have to write about:</span></span><br><span class="line"><span class="hljs-string">1. Global object</span></span><br><span class="line"><span class="hljs-string">2. this</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="全域執行環境"><a href="#全域執行環境" class="headerlink" title="全域執行環境"></a>全域執行環境</h2><p>全域執行環境是所有 Javascript code 執行的基礎，所有的執行起點都存在於該環境內（being wrapped）。並且 Javascript 引擎會在執行初始建立兩個對象：全域物件與 this，即使你沒有撰寫任何程式碼，Javascript 引擎仍會自動產生。</p>
-<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>其中全域執行環境中，瀏覽器底下的 this 就是指向 <strong>window</strong> (Global Object)。<br>weird-parts-I/3.png 600 200 js-weird-parts-I %}</p>
-<h2 id="全域物件"><a href="#全域物件" class="headerlink" title="全域物件"></a>全域物件</h2><p>若 Javascript 引擎是在後端執行，例如 node.js，則 全域物件就不會是 window。<br>當你在全域執行環境下靜態的撰寫變數或函式，並且詞法作用域上開放而沒有撰寫在其他函式內，就會自動附著（attached to）在全物域物件底下，全域物件意味著整個 Javascript 中的任何其他詞法作用域或者任何對象乃至整個檔案，都可以取用（accessible）這些資料。</p>
-<img src="/images/js-weird-parts-I/5.png" class="" width="400" height="200" title="js-weird-parts-I">
-<img src="/images/js-weird-parts-I/6.png" class="" width="500" height="200" title="js-weird-parts-I">
-
-<p>以下都是指向同一個記憶體位置、同一個值：</p>
-<img src="/images/js-weird-parts-I/7.png" class="" width="500" height="200" title="js-weird-parts-I">
-
-<p>在執行環境中，還有一個<strong>外部環境（Outer Environment）</strong>沒有提到，而在全域執行環境的層級中，外部環境是 null，因為全域本身就是最外層的 wrapper，沒有更外層的環境了。</p>
-<img src="/images/js-weird-parts-I/8.png" class="" width="700" height="200" title="js-weird-parts-I">
-
+<p>這有可能導致一個變數在每次程式執行的結果都產生不同的型別（例如 == 型別隱式轉換），而造成不如預期的結果，所以使用三等號是比較良好的撰寫習慣。</p>
 </body></html> -->
         
         
-        <html><head></head><body><img src="/images/js-weird-parts-I/0.png" class="" width="800" height="200" title="js-weird-parts-I">
-<p>先前滿常看到別人推薦的 Udemy 課程：克服JS的奇怪部分，原來自己已經購買且塵封在閱讀清單已久XD<br>馬上來匹乓一下吧！</p>
+        <html><head></head><body><img src="/images/js-weird-parts-dynamic-typing/0.png" class="" title="dynamic-typing">
+<h1 id="Dynamic-Typing"><a href="#Dynamic-Typing" class="headerlink" title="Dynamic Typing"></a>Dynamic Typing</h1><p>Javascript 的型別為動態型別（Dynamic Typing），不同於 C# 等強型別語言的靜態型別（Static Typing），無須指派型別而是在引擎執行的階段（at runtime）辨認變數記憶體內的型別為何：</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/06/04/zh-tw/js-weird-parts-parsing/">more</a>
+                <a href="/2022/07/30/zh-tw/js-weird-parts-types/">more</a>
             </p>
         
     
@@ -217,68 +194,49 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/05/14/zh-tw/constructor-vs-instance/" itemprop="url">建構子方法與實例化方法</a>
+            <a href="/2022/07/24/zh-tw/js-weird-parts-asynchronous/" itemprop="url">克服 Javascript 的奇怪部分 如何執行非同步</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-05-14T13:37:03.000Z" itemprop="datePublished">5月 14 2022</time>
+                <time datetime="2022-07-24T08:56:25.000Z" itemprop="datePublished">7月 24 2022</time>
             
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/javascript/">javascript</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            5 分鐘 讀完 (約 764 字)
+            4 分鐘 讀完 (約 554 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/constructor-vs-instance/0.png" class="" width="800" height="200" title="constructor-vs-instance">
+        <!-- <html><head></head><body><img src="/images/js-weird-parts-asynchronous/0.png" class="" width="800" height="200" title="asynchronous">
 
-<p>在某天好奇想了解 Vue 3 的 defineProperty 原理搜尋了 <code>Object.defineProperty()</code> 這個方法時，看見以下說明：</p>
-<blockquote><p>靜態方法 <code>Object.defineProperty()</code> 會直接對一個物件定義、或是修改現有的屬性。執行後會回傳定義完的物件。<br>備註：這個方法會直接針對 Object 呼叫建構子（constructor），而不是 Object 型別的實例。</p>
-<footer><strong>MDN</strong><cite><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty()</a></cite></footer></blockquote>
-<p>其中的<strong>直接針對 Object 呼叫建構子（constructor），而不是 Object 型別的實例</strong>這句話突然讓我驚醒了，以前一直不能理解 javascript 中呼叫原生方法時，為何會有以下的區別：</p>
-<h2 id="透過建構器呼叫"><a href="#透過建構器呼叫" class="headerlink" title="透過建構器呼叫"></a>透過建構器呼叫</h2><p><code>Object.methods(objInstance)</code> -&gt; 例如 Object.keys(someObj)<br>這裡的 Object 是建構函式本身，未實例的藍圖（constructor）。</p>
-<h2 id="透過實例呼叫"><a href="#透過實例呼叫" class="headerlink" title="透過實例呼叫"></a>透過實例呼叫</h2><p><code>objInstance.methods(parameters)</code> -&gt; 例如 someObj.hasOwnProperty(‘prop’)<br>這裡的 Object 是實例化的物件（instance）。</p>
-<h2 id="Constructor-Static-Methods"><a href="#Constructor-Static-Methods" class="headerlink" title="Constructor Static Methods"></a>Constructor Static Methods</h2><h4 id="構造器-靜態方法"><a href="#構造器-靜態方法" class="headerlink" title="構造器 靜態方法"></a>構造器 靜態方法</h4><p>以下的例子是呼叫 Object 建構子中的原生 keys 方法，而不需要 new 一個物件實例就可以使用，靜態方法的特色是無需使用任何建構子中的 this 資料就可以直接使用。</p>
-<figure class="highlight javascript hljs"><figcaption><span>建構子方法</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> someone = {</span><br><span class="line">  <span class="hljs-attr">name</span>: <span class="hljs-string">'Adam'</span>,</span><br><span class="line">  <span class="hljs-attr">carrer</span>: <span class="hljs-string">'teacher'</span>,</span><br><span class="line">  <span class="hljs-attr">sex</span>: <span class="hljs-string">'male'</span></span><br><span class="line">};</span><br><span class="line"><span class="hljs-keyword">const</span> dataKeys = <span class="title class_">Object</span>.<span class="title function_">keys</span>(someone);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dataKeys);</span><br><span class="line"><span class="hljs-comment">// ["name","carrer","sex"]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="Instance-methods"><a href="#Instance-methods" class="headerlink" title="Instance methods"></a>Instance methods</h3><h4 id="等號賦值-實例化方法"><a href="#等號賦值-實例化方法" class="headerlink" title="等號賦值 實例化方法"></a>等號賦值 實例化方法</h4><p>以下則是呼叫 Array 的實例化 push 方法，雖然也不是透過 new 來建立一個陣列，卻也是使用賦值一個陣列來建立陣列的實例，並且使用原生 push 方法。</p>
-<figure class="highlight javascript hljs"><figcaption><span>實例化方法 - 賦值</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> friends = [ <span class="hljs-string">'Cally'</span>, <span class="hljs-string">'Donna'</span>, <span class="hljs-string">'Jell'</span> ];</span><br><span class="line">friends.<span class="title function_">push</span>(<span class="hljs-string">'Liang'</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(friends);</span><br><span class="line"><span class="hljs-comment">// ["Cally","Donna","Jell","Liang"]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="建構器-實例化方法"><a href="#建構器-實例化方法" class="headerlink" title="建構器 實例化方法"></a>建構器 實例化方法</h4><p>透過 new 來建立一個陣列。</p>
-<figure class="highlight javascript hljs"><figcaption><span>實例化方法 - 構造器</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> animals = <span class="hljs-keyword">new</span> <span class="title class_">Array</span>(<span class="hljs-string">'bunny'</span>, <span class="hljs-string">'cat'</span>, <span class="hljs-string">'puppy'</span>, <span class="hljs-string">'hamster'</span>);</span><br><span class="line">animals.<span class="title function_">unshift</span>(<span class="hljs-string">'bird'</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(animals);</span><br><span class="line"><span class="hljs-comment">// ["bird","bunny","cat","puppy","hamster"]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="構造器靜態方法補充"><a href="#構造器靜態方法補充" class="headerlink" title="構造器靜態方法補充"></a>構造器靜態方法補充</h2><h4 id="無法取得構造器的this資料"><a href="#無法取得構造器的this資料" class="headerlink" title="無法取得構造器的this資料"></a>無法取得構造器的this資料</h4><blockquote><ul>
-<li>The static method also cannot see the instance variable state so if we try to call the nonstatic method from the static method compiler will complain.</li>
-<li>The static method can be used to create utility functions.<br><a target="_blank" rel="noopener" href="https://www.educba.com/javascript-static-method/">https://www.educba.com/javascript-static-method/</a></li>
-</ul>
+<p>瀏覽器在運作的時候有三大功能要執行：render engine 畫面渲染 -&gt; JavaScript 引擎 -&gt; Http Request。</p>
+<blockquote class="colorquote info"><p>A browser engine (also known as a layout engine or rendering engine) is a core software component of every major web browser. The primary job of a browser engine is to <strong>transform HTML documents and other resources of a web page into an interactive visual representation on a user’s device</strong>.</p>
 </blockquote>
 
-<p>從上述可以得知靜態方法是不能取用構造器建構子（constructor）內的變數的（this binding），通常會撰寫純函式（pure function）以保持無狀態的特性，如同 Math 方法。<br>靜態方法適合用來當作全局複用的函式，適合較無副作用的邏輯。</p>
-<h2 id="兩種方法的原型鍊關係"><a href="#兩種方法的原型鍊關係" class="headerlink" title="兩種方法的原型鍊關係"></a>兩種方法的原型鍊關係</h2><p>若展開一個實例化的物件，會發現：</p>
-<ol>
-<li>建構器方法存在於建構子物件中（constructor），且只能透過建構器呼叫，例如 Object.assign()；</li>
-<li>實例化方法則存在於原型上（prototype），需要實例化之後才能呼叫，例如 objInstance.toLocaleString()</li>
-</ol>
-</body></html> -->
+<p>雖然名詞解釋上為非同步，但在 JavaScript 運作上實際仍是 line by line，而且具有先後順序的，對瀏覽器而言以下三項機制才是同時運作（asynchronous）：</p>
+<img src="/images/js-weird-parts-asynchronous/1.png" class="" width="800" height="200" title="asynchronous">
+
+<h1 id="Http-request-amp-response"><a href="#Http-request-amp-response" class="headerlink" title="Http request &amp; response"></a>Http request &amp; response</h1><p>客戶端發送了頁面請求後，<strong>Http 機制</strong>開始運行收發請求與回應網路資源的文本協定，建立瀏覽器與伺服器的溝通橋樑，作為 TCP/IP 的應用層，並且將資料回應提供給 JavaScript 來處理。</p>
+<h1 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h1><p>一旦提及非同步就不可埋沒一大功臣，JavaScript 引擎中的<strong>事件佇列（Event Queue）</strong>。</p>
+<h4 id="事件佇列（Event-Queue）"><a href="#事件佇列（Event-Queue）" class="headerlink" title="事件佇列（Event Queue）"></a>事件佇列（Event Queue）</h4><p>當 Javascript 引擎執行完執行佇列（Execution Stack）的內容後，也就是執行佇列已經清空後，會定期（periodic）來檢視事件佇列（Event Queue）的事件排序並且執行，例如 Click 事件的回呼函式，或者是 API 收發資料的任務，才會被放置到執行佇列（Execution Stack）然後執行。在 Javascript 中的運作仍是同步的，並沒有非同步在執行程式。</p>
+<h4 id="微任務與宏任務"><a href="#微任務與宏任務" class="headerlink" title="微任務與宏任務"></a>微任務與宏任務</h4><p>部分的執行任務會被放置在事件佇列中，待執行佇列（Execution Stack）所有任務完成後才會開始執行，例如 SetTimeout（宏任務） 或是 promise（微任務） 等。</p>
+<h1 id="Render-engine"><a href="#Render-engine" class="headerlink" title="Render engine"></a>Render engine</h1><p>JavaScript 的必須仰賴瀏覽器的引擎，當瀏覽器讀取一個頁面時， JavaScript 具有觸發畫面渲染的鉤子促使<strong>渲染引擎（Render Engine）</strong>來改變畫面。</p>
+<blockquote class="colorquote danger"><p>Asynchronous means that the rendering engine, the javascript engine and the HTTP requests are running asynchrounously inside the browser, what’s happening just inside the javascript is synchrounous.</p>
+</blockquote></body></html> -->
         
         
-        <html><head></head><body><img src="/images/constructor-vs-instance/0.png" class="" width="800" height="200" title="constructor-vs-instance">
+        <html><head></head><body><img src="/images/js-weird-parts-asynchronous/0.png" class="" width="800" height="200" title="asynchronous">
 
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/05/14/zh-tw/constructor-vs-instance/">more</a>
+                <a href="/2022/07/24/zh-tw/js-weird-parts-asynchronous/">more</a>
             </p>
         
     
@@ -294,53 +252,36 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/04/24/zh-tw/laravel-migration/" itemprop="url">Laravel 資料庫版控工具 Migration</a>
+            <a href="/2022/07/24/zh-tw/js-weird-parts-ES6/" itemprop="url">克服 Javascript 的奇怪部分 ES6</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-04-24T11:18:30.000Z" itemprop="datePublished">4月 24 2022</time>
+                <time datetime="2022-07-24T08:30:58.000Z" itemprop="datePublished">7月 24 2022</time>
             
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/laravel/">laravel</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            1 分鐘 讀完 (約 213 字)
+            1 分鐘 讀完 (約 141 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/laravel-migration/0.png" class="" width="800" height="200" title="laravel-migration">
-<p>Migration 位於 Laravel 專案包中的 database 資料夾，會使用建立日期來歸檔資料表的結構，為紀錄資料庫版本的版控，方便團隊共同開發資料表。</p>
-<h1 id="建立資料表"><a href="#建立資料表" class="headerlink" title="建立資料表"></a>建立資料表</h1><figure class="highlight javascript hljs"><figcaption><span>建立 migration</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan <span class="hljs-attr">make</span>:migration create_users_table</span><br></pre></td></tr></tbody></table></figure>
-<p>建立成功會顯示：</p>
-<img src="/images/laravel-migration/1.png" class="" width="800" height="200" title="資料庫版控工具 Migration">
-<p>重整之後會出現新的版控檔案，使用建立日期來命名：</p>
-<img src="/images/laravel-migration/2.png" class="" width="300" height="200" title="資料庫版控工具 Migration">
-<p>檔案內容：</p>
-<img src="/images/laravel-migration/3.png" class="" width="800" height="200" title="輸入圖片資料夾名稱">
-
-<h1 id="修改資料表"><a href="#修改資料表" class="headerlink" title="修改資料表"></a>修改資料表</h1><p>在 <code>\\wsl$</code> 路徑下執行 migrate 的坑需要以下步驟：</p>
-<h4 id="補上-php-8-0-的-sql-extension"><a href="#補上-php-8-0-的-sql-extension" class="headerlink" title="補上 php 8.0 的 sql-extension"></a>補上 php 8.0 的 sql-extension</h4><p>於 ubuntu 終端機輸入以下指令：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">輸入code</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="將註解-extension-x3D-pdo-mysql-打開"><a href="#將註解-extension-x3D-pdo-mysql-打開" class="headerlink" title="將註解 ;extension=pdo_mysql 打開"></a>將註解 ;extension=pdo_mysql 打開</h4></body></html> -->
+        <!-- <html><head></head><body><img src="/images/js-weird-parts-let/0.png" class="" width="800" height="200" title="ES6-let">
+<h1 id="ES6-let"><a href="#ES6-let" class="headerlink" title="ES6 let"></a>ES6 let</h1><p>不同於 var 的宣告方式，let 宣告的變數在宣告時會出現暫時性死區不可取用，沒有 hoisting 現象，且變數的作用域只存在於 block 區塊中，例如 if 陳述句，而 var 則是函式作用域，若撰寫在 if 陳述句內外部仍可取用。<br>最經典的應用就是 for 迴圈，可以在每一次的 console 正確印出數值：</p>
+<figure class="highlight javascript hljs"><figcaption><span>for loop</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">5</span>; i++) {</span><br><span class="line">  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">()=&gt;</span>{</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">  },<span class="hljs-number">1000</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</body></html> -->
         
         
-        <html><head></head><body><img src="/images/laravel-migration/0.png" class="" width="800" height="200" title="laravel-migration">
-<p>Migration 位於 Laravel 專案包中的 database 資料夾，會使用建立日期來歸檔資料表的結構，為紀錄資料庫版本的版控，方便團隊共同開發資料表。</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/04/24/zh-tw/laravel-migration/">more</a>
-            </p>
+            <html><head></head><body><img src="/images/js-weird-parts-let/0.png" class="" width="800" height="200" title="ES6-let">
+<h1 id="ES6-let"><a href="#ES6-let" class="headerlink" title="ES6 let"></a>ES6 let</h1><p>不同於 var 的宣告方式，let 宣告的變數在宣告時會出現暫時性死區不可取用，沒有 hoisting 現象，且變數的作用域只存在於 block 區塊中，例如 if 陳述句，而 var 則是函式作用域，若撰寫在 if 陳述句內外部仍可取用。<br>最經典的應用就是 for 迴圈，可以在每一次的 console 正確印出數值：</p>
+<figure class="highlight javascript hljs"><figcaption><span>for loop</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">5</span>; i++) {</span><br><span class="line">  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">()=&gt;</span>{</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">  },<span class="hljs-number">1000</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</body></html>
         
     
     </div>
@@ -383,7 +324,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/17/">17</a></li>
+        <li><a class="pagination-link" href="/page/19/">19</a></li>
         
     </ul>
 </nav>

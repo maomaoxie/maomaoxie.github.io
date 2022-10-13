@@ -145,40 +145,63 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/07/30/zh-tw/js-weird-parts-types/" itemprop="url">克服 Javascript 的奇怪部分 型別</a>
+            <a href="/2022/08/09/zh-tw/vuetify-slot-vhtml/" itemprop="url">如何在 vuetify 元件中渲染 v-html</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-07-30T08:35:45.000Z" itemprop="datePublished">7月 30 2022</time>
+                <time datetime="2022-08-09T04:09:43.000Z" itemprop="datePublished">8月 9 2022</time>
             
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/vuetify/">vuetify</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            1 分鐘 讀完 (約 176 字)
+            3 分鐘 讀完 (約 385 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/js-weird-parts-dynamic-typing/0.png" class="" title="dynamic-typing">
-<h1 id="Dynamic-Typing"><a href="#Dynamic-Typing" class="headerlink" title="Dynamic Typing"></a>Dynamic Typing</h1><p>Javascript 的型別為動態型別（Dynamic Typing），不同於 C# 等強型別語言的靜態型別（Static Typing），無須指派型別而是在引擎執行的階段（at runtime）辨認變數記憶體內的型別為何：</p>
-<blockquote class="colorquote info"><p>Dynamically-typed languages are those (like JavaScript) where the interpreter assigns variables a type at runtime based on the variable’s value at the time.</p>
+        <!-- <html><head></head><body><img src="/images/vuetify-slot-vhtml/0.png" class="" width="800" height="200" title="vuetify-slot-vhtml">
+<p>使用 vuetify 元件時常有的狀況劇就是 - 標題的 UI 設計需要客製化，例如放上 fontawesome 的 icon，但你的元件是 vuetify 父元件（v-select），客製的對象是迴圈後的子元件（選單下的選項 v-selection），這時候要如何成功渲染 fontawesome 的 icon ?</p>
+<figure class="highlight javascript hljs"><figcaption><span>vuetify</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-select</span><br><span class="line">    :items=<span class="hljs-string">"items"</span></span><br><span class="line">    label=<span class="hljs-string">"Standard"</span></span><br><span class="line">&gt;&lt;/v-select&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="使用-lt-i-gt-lt-i-gt-標籤"><a href="#使用-lt-i-gt-lt-i-gt-標籤" class="headerlink" title="使用 <i></i> 標籤"></a>使用 <code>&lt;i&gt;&lt;/i&gt;</code> 標籤</h1><p>目前可以知道的小撇步就是 fontawesome 的 icon 要使用 vue v-html 渲染，必須使用 <code>&lt;i&gt;&lt;/i&gt;</code> 標籤才能成功，不能放入 vuetify  <code>&lt;v-icon&gt;&lt;/v-icon&gt;</code>，無法正確編譯成 html。</p>
+<h1 id="在父元件內使用-v-slot"><a href="#在父元件內使用-v-slot" class="headerlink" title="在父元件內使用 v-slot"></a>在父元件內使用 v-slot</h1><p>可以知道目前的元件結構會是這樣的：<br>v-select（父）<br>        ｜<br>    v-selection（子）</p>
+<p>選項是這樣：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    { <span class="hljs-attr">value</span>:<span class="hljs-string">"0"</span>,<span class="hljs-attr">text</span>: <span class="hljs-string">"&lt;i class="</span>fab fa-apple<span class="hljs-string">"&gt;&lt;/i&gt; apple"</span> },</span><br><span class="line">    { <span class="hljs-attr">value</span>:<span class="hljs-string">"1"</span>,<span class="hljs-attr">text</span>: <span class="hljs-string">"&lt;i class="</span>fab fa-google-drive<span class="hljs-string">"&gt;&lt;/i&gt; google"</span> },</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+
+<p>vuetify 父元件（v-select）透過 props items 選項的陣列可以使用 v-slot 轉換成 html 模板傳入：</p>
+<blockquote><p>Override the item and selection slots, and use v-html.<br>參考網址：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/56665185/show-raw-html-in-vuetify-v-select">https://stackoverflow.com/questions/56665185/show-raw-html-in-vuetify-v-select</a></p>
 </blockquote>
 
-<p>這有可能導致一個變數在每次程式執行的結果都產生不同的型別（例如 == 型別隱式轉換），而造成不如預期的結果，所以使用三等號是比較良好的撰寫習慣。</p>
-</body></html> -->
+<h3 id="vue-2-版本"><a href="#vue-2-版本" class="headerlink" title="vue 2 版本"></a>vue 2 版本</h3><p>由於子元件會有 default 選項，要使用插槽針對 <strong>selection</strong> 修改；<br>而下拉選項要使用插槽針對 <strong>item</strong> 修改。</p>
+<h5 id="寫法-1"><a href="#寫法-1" class="headerlink" title="寫法 1"></a>寫法 1</h5><figure class="highlight javascript hljs"><figcaption><span>slot 範例 1</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-select :items=<span class="hljs-string">'item'</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:item</span>=<span class="hljs-string">'{item}'</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:selection</span>=<span class="hljs-string">'{item}'</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></span><br><span class="line">&lt;/v-select&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="寫法-2"><a href="#寫法-2" class="headerlink" title="寫法 2"></a>寫法 2</h5><figure class="highlight javascript hljs"><figcaption><span>slot 範例 1</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-select :items=<span class="hljs-string">'item'</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:item</span>=<span class="hljs-string">'{item}'</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:selection</span>=<span class="hljs-string">'{item}'</span>&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line"><span class="hljs-language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></span><br><span class="line">&lt;/v-select&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+
+<h3 id="簡潔版本"><a href="#簡潔版本" class="headerlink" title="簡潔版本"></a>簡潔版本</h3><figure class="highlight javascript hljs"><figcaption><span>slot 範例 2</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-select :items=<span class="hljs-string">'item'</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">'item'</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">'{item}'</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span>/&gt;</span></span></span><br><span class="line">&lt;/v-select&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="vue-3-版本"><a href="#vue-3-版本" class="headerlink" title="vue 3 版本"></a>vue 3 版本</h3><figure class="highlight javascript hljs"><figcaption><span>slot 範例 3</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template #item=<span class="hljs-string">'{item}'</span>&gt;</span><br><span class="line">    <span class="hljs-language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'item.text'</span> /&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="vuetify-api-說明"><a href="#vuetify-api-說明" class="headerlink" title="vuetify api 說明"></a>vuetify api 說明</h1><p>在每個元件的 api 文件下方都有提供現成的插槽可以使用：</p>
+<img src="/images/vuetify-slot-vhtml/1.png" class="" width="800" height="200" title="vuetify-slot-vhtml"></body></html> -->
         
         
-        <html><head></head><body><img src="/images/js-weird-parts-dynamic-typing/0.png" class="" title="dynamic-typing">
-<h1 id="Dynamic-Typing"><a href="#Dynamic-Typing" class="headerlink" title="Dynamic Typing"></a>Dynamic Typing</h1><p>Javascript 的型別為動態型別（Dynamic Typing），不同於 C# 等強型別語言的靜態型別（Static Typing），無須指派型別而是在引擎執行的階段（at runtime）辨認變數記憶體內的型別為何：</p>
+        <html><head></head><body><img src="/images/vuetify-slot-vhtml/0.png" class="" width="800" height="200" title="vuetify-slot-vhtml">
+<p>使用 vuetify 元件時常有的狀況劇就是 - 標題的 UI 設計需要客製化，例如放上 fontawesome 的 icon，但你的元件是 vuetify 父元件（v-select），客製的對象是迴圈後的子元件（選單下的選項 v-selection），這時候要如何成功渲染 fontawesome 的 icon ?</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/07/30/zh-tw/js-weird-parts-types/">more</a>
+                <a href="/2022/08/09/zh-tw/vuetify-slot-vhtml/">more</a>
             </p>
         
     
@@ -194,94 +217,97 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/07/24/zh-tw/js-weird-parts-asynchronous/" itemprop="url">克服 Javascript 的奇怪部分 如何執行非同步</a>
+            <a href="/2022/08/09/zh-tw/hello-world/" itemprop="url">感謝您的閱讀</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-07-24T08:56:25.000Z" itemprop="datePublished">7月 24 2022</time>
+                <time datetime="2022-08-09T03:46:24.948Z" itemprop="datePublished">8月 9 2022</time>
             
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/intro/">intro</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 554 字)
+            幾秒 讀完 (約 67 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/js-weird-parts-asynchronous/0.png" class="" width="800" height="200" title="asynchronous">
-
-<p>瀏覽器在運作的時候有三大功能要執行：render engine 畫面渲染 -&gt; JavaScript 引擎 -&gt; Http Request。</p>
-<blockquote class="colorquote info"><p>A browser engine (also known as a layout engine or rendering engine) is a core software component of every major web browser. The primary job of a browser engine is to <strong>transform HTML documents and other resources of a web page into an interactive visual representation on a user’s device</strong>.</p>
-</blockquote>
-
-<p>雖然名詞解釋上為非同步，但在 JavaScript 運作上實際仍是 line by line，而且具有先後順序的，對瀏覽器而言以下三項機制才是同時運作（asynchronous）：</p>
-<img src="/images/js-weird-parts-asynchronous/1.png" class="" width="800" height="200" title="asynchronous">
-
-<h1 id="Http-request-amp-response"><a href="#Http-request-amp-response" class="headerlink" title="Http request &amp; response"></a>Http request &amp; response</h1><p>客戶端發送了頁面請求後，<strong>Http 機制</strong>開始運行收發請求與回應網路資源的文本協定，建立瀏覽器與伺服器的溝通橋樑，作為 TCP/IP 的應用層，並且將資料回應提供給 JavaScript 來處理。</p>
-<h1 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h1><p>一旦提及非同步就不可埋沒一大功臣，JavaScript 引擎中的<strong>事件佇列（Event Queue）</strong>。</p>
-<h4 id="事件佇列（Event-Queue）"><a href="#事件佇列（Event-Queue）" class="headerlink" title="事件佇列（Event Queue）"></a>事件佇列（Event Queue）</h4><p>當 Javascript 引擎執行完執行佇列（Execution Stack）的內容後，也就是執行佇列已經清空後，會定期（periodic）來檢視事件佇列（Event Queue）的事件排序並且執行，例如 Click 事件的回呼函式，或者是 API 收發資料的任務，才會被放置到執行佇列（Execution Stack）然後執行。在 Javascript 中的運作仍是同步的，並沒有非同步在執行程式。</p>
-<h4 id="微任務與宏任務"><a href="#微任務與宏任務" class="headerlink" title="微任務與宏任務"></a>微任務與宏任務</h4><p>部分的執行任務會被放置在事件佇列中，待執行佇列（Execution Stack）所有任務完成後才會開始執行，例如 SetTimeout（宏任務） 或是 promise（微任務） 等。</p>
-<h1 id="Render-engine"><a href="#Render-engine" class="headerlink" title="Render engine"></a>Render engine</h1><p>JavaScript 的必須仰賴瀏覽器的引擎，當瀏覽器讀取一個頁面時， JavaScript 具有觸發畫面渲染的鉤子促使<strong>渲染引擎（Render Engine）</strong>來改變畫面。</p>
-<blockquote class="colorquote danger"><p>Asynchronous means that the rendering engine, the javascript engine and the HTTP requests are running asynchrounously inside the browser, what’s happening just inside the javascript is synchrounous.</p>
-</blockquote></body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/js-weird-parts-asynchronous/0.png" class="" width="800" height="200" title="asynchronous">
-
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/07/24/zh-tw/js-weird-parts-asynchronous/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/07/24/zh-tw/js-weird-parts-ES6/" itemprop="url">克服 Javascript 的奇怪部分 ES6</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-07-24T08:30:58.000Z" itemprop="datePublished">7月 24 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 分鐘 讀完 (約 141 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/js-weird-parts-let/0.png" class="" width="800" height="200" title="ES6-let">
-<h1 id="ES6-let"><a href="#ES6-let" class="headerlink" title="ES6 let"></a>ES6 let</h1><p>不同於 var 的宣告方式，let 宣告的變數在宣告時會出現暫時性死區不可取用，沒有 hoisting 現象，且變數的作用域只存在於 block 區塊中，例如 if 陳述句，而 var 則是函式作用域，若撰寫在 if 陳述句內外部仍可取用。<br>最經典的應用就是 for 迴圈，可以在每一次的 console 正確印出數值：</p>
-<figure class="highlight javascript hljs"><figcaption><span>for loop</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">5</span>; i++) {</span><br><span class="line">  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">()=&gt;</span>{</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">  },<span class="hljs-number">1000</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+        <!-- <html><head></head><body><p>這裡撰寫的都是一些自己在前端之路上每天一小步的學習，希望透過記錄與陳述來加強學習成效以及融會貫通的能力，文章內有任何問題歡迎一起討論呦!</p>
 </body></html> -->
         
         
-            <html><head></head><body><img src="/images/js-weird-parts-let/0.png" class="" width="800" height="200" title="ES6-let">
-<h1 id="ES6-let"><a href="#ES6-let" class="headerlink" title="ES6 let"></a>ES6 let</h1><p>不同於 var 的宣告方式，let 宣告的變數在宣告時會出現暫時性死區不可取用，沒有 hoisting 現象，且變數的作用域只存在於 block 區塊中，例如 if 陳述句，而 var 則是函式作用域，若撰寫在 if 陳述句內外部仍可取用。<br>最經典的應用就是 for 迴圈，可以在每一次的 console 正確印出數值：</p>
-<figure class="highlight javascript hljs"><figcaption><span>for loop</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">5</span>; i++) {</span><br><span class="line">  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">()=&gt;</span>{</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">  },<span class="hljs-number">1000</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+            <html><head></head><body><p>這裡撰寫的都是一些自己在前端之路上每天一小步的學習，希望透過記錄與陳述來加強學習成效以及融會貫通的能力，文章內有任何問題歡迎一起討論呦!</p>
 </body></html>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/08/07/zh-tw/git-remove-submodule/" itemprop="url">git 移除 submodule</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-07T08:07:24.000Z" itemprop="datePublished">8月 7 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/git/">git</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 247 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/git-remove-submodule/0.png" class="" width="800" height="200" title="git-remove-submodule">
+<h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
+<img src="/images/git-remove-submodule/1.png" class="" width="800" height="200" title="git-remove-submodule">
+
+<p>以下記錄自己如何將修改後的 minos 資料夾：</p>
+<h3 id="移除-git-子模塊快取"><a href="#移除-git-子模塊快取" class="headerlink" title="移除 git 子模塊快取"></a>移除 git 子模塊快取</h3><p>以下的指令可以清除子模塊的 git 紀錄：</p>
+<figure class="highlight plaintext hljs"><figcaption><span>git cmd</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached -f ./themes/minos</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="重新加入索引"><a href="#重新加入索引" class="headerlink" title="重新加入索引"></a>重新加入索引</h3><p>將剛才取消子模塊的 git 重新排隊至專案包中，我比較懶惰直接整包加：</p>
+<figure class="highlight plaintext hljs"><figcaption><span>git cmd</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></tbody></table></figure>
+
+<p>再檢視一遍 vs code 之後就會看到檔案被追蹤到了！</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/git-remove-submodule/0.png" class="" width="800" height="200" title="git-remove-submodule">
+<h1 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h1><p>在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/08/07/zh-tw/git-remove-submodule/">more</a>
+            </p>
         
     
     </div>
@@ -324,7 +350,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/17/">17</a></li>
+        <li><a class="pagination-link" href="/page/19/">19</a></li>
         
     </ul>
 </nav>

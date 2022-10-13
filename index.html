@@ -145,59 +145,60 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/09/23/js-weird-parts-coercion/" itemprop="url">克服 Javascript 的奇怪部分 動態型別</a>
+            <a href="/2022/10/13/difference-between-gateway-and-router/" itemprop="url">閘道與路由的基礎介紹</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-09-23T07:31:26.000Z" itemprop="datePublished">9月 23 2022</time>
+                <time datetime="2022-10-13T08:50:21.000Z" itemprop="datePublished">10月 13 2022</time>
             
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/javascript/">javascript</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            3 分鐘 讀完 (約 524 字)
+            8 分鐘 讀完 (約 1247 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><p>運算過程中由於 Javascript 是弱型別，沒有辦法強制規範型別，所以會在運算過程中發生隱式（動態）型別轉換，稱之為 Corecion。</p>
-<blockquote><p>Converting a value from one type to another.</p>
-</blockquote>
+        <!-- <html><head></head><body><p>閘道（gateway）與路由（router）在網絡早期的世界裡並無區別，且與 TCP/IP 通訊層有密不可分的關係。<br>在現今發達的網絡世界中逐漸分化了兩者的功能：</p>
+<h1 id="閘道（gateway）"><a href="#閘道（gateway）" class="headerlink" title="閘道（gateway）"></a>閘道（gateway）</h1><p>A Gateway, on the other hand, joins dissimilar systems.<br>Gateway it is defined as a network entity that allows a network to interface with another network with different protocols.<br>閘道（gateway）能合併不同的系統，旨在允許不同協定（protocols）的網絡之間互相介接的網路裝置。</p>
+<p>Device that converts one protocol or format to another.<br>A network gateway converts packets from one protocol to another.<br>The gateway functions as an entry/exit point to the network.<br>將一種網路協定規格或封包轉換成另一種的裝置。<br>閘道功能當作是進入網絡的節點與進入點。</p>
+<h3 id="透過運算轉化規格"><a href="#透過運算轉化規格" class="headerlink" title="透過運算轉化規格"></a>透過運算轉化規格</h3><p>The gateway interprets the system of networks as endpoints from packet to packet.<br>閘道（gateway）的主要任務就是透過運算與轉換將一種協定（protocols）的網絡轉換成另一種，使資料在不同協定之間傳遞不受阻。</p>
+<p>A gateway can only operate on five layers.<br>閘道僅能在 OSI 模型的應用層第五層運作。</p>
+<h5 id="附加的特色"><a href="#附加的特色" class="headerlink" title="附加的特色"></a>附加的特色</h5><p>network access control, protocol conversion, etc</p>
+<h1 id="路由（router）"><a href="#路由（router）" class="headerlink" title="路由（router）"></a>路由（router）</h1><p>A router is a device that is capable of sending and receiving data packets between computer networks, also creating an overlay network.<br>路由（router）是一個能在電腦網絡之間傳遞與接收資料封包的裝置，亦可創造覆蓋網路（overlay network）。</p>
+<p>Based on internal routing tables, routers read each incoming packet and decide how to forward it.<br>根據內部的路由表格，讀取每個進入的封包並決定如何繼續傳遞。</p>
+<p>Routers work at the network layer (layer 3) of the protocol<br>路由主要在 OSI 模型的應用層第三層或第四層運作。</p>
+<h5 id="附加的特色-1"><a href="#附加的特色-1" class="headerlink" title="附加的特色"></a>附加的特色</h5><p>wireless networking, static routing, NAT, DHCP server, etc</p>
+<h3 id="可選擇傳遞的路徑（ip）"><a href="#可選擇傳遞的路徑（ip）" class="headerlink" title="可選擇傳遞的路徑（ip）"></a>可選擇傳遞的路徑（ip）</h3><p>路由可以在網路（network）之間互相分享與傳遞資料封包，也可以選擇傳遞的路徑。</p>
+<img src="/images/difference-between-gateway-and-router/1.png" class="" width="800" height="200" title="difference-between-gateway-and-router">
 
-<h1 id="算術運算子的隱式轉換"><a href="#算術運算子的隱式轉換" class="headerlink" title="算術運算子的隱式轉換"></a>算術運算子的隱式轉換</h1><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> a = <span class="hljs-number">1</span> + <span class="hljs-string">'2'</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 12</span></span><br></pre></td></tr></tbody></table></figure>
-<p>上方範例可以印證 Javascript 引擎將數字 <code>1</code> 與字串 <code>2</code> 相加的過程中產生的動態型別的轉換，獲得了字串 <code>12</code>。<br>在某些強型別的語言中，這樣做是會噴 error 的，但 Javascript 不會，這也造成開發過程時常會發生不如預期的結果。</p>
-<h1 id="比較運算子的隱式轉換"><a href="#比較運算子的隱式轉換" class="headerlink" title="比較運算子的隱式轉換"></a>比較運算子的隱式轉換</h1><p>從以下的範例我們可以很自然地獲得 true 的結果：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> a = <span class="hljs-number">3</span> &gt; <span class="hljs-number">2</span> &gt; <span class="hljs-number">1</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
-<p>然而以下的範例卻出乎意料之外也獲得了 true：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> a = <span class="hljs-number">3</span> &lt; <span class="hljs-number">2</span> &lt; <span class="hljs-number">1</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
-<p>這也是動態型別的轉換在作怪，一一拆解一下過程是這樣的，比較運算子 <code>&lt;</code> 在前一篇的相依性有提到：</p>
-<img src="/images/js-weird-parts-coercion/0.png" class="" width="800" height="200" title="js-weird-parts-coercion">
-<p>當運算子相同時會採用相依性的方向來決定計算次序，比較運算子 <code>&lt;</code> 是左相依性（left-to-right associactivity），<br>所以背後的 Javascript 引擎會如是計算：<br><code>3 &lt; 2</code> 獲得 false，<code>false &lt; 1</code> 由於型別不同 Javascript 引擎強制將 false 使用數字包裹器轉換為數字型別：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>(<span class="hljs-literal">false</span>)); <span class="hljs-comment">// 0</span></span><br></pre></td></tr></tbody></table></figure>
-<p><code>0 &lt; 1</code> 獲得 true。</p>
-<h1 id="善用嚴格等式（triple-equal）"><a href="#善用嚴格等式（triple-equal）" class="headerlink" title="善用嚴格等式（triple equal）"></a>善用嚴格等式（triple equal）</h1><p>雙等號會造成嚴重的動態型別轉換，引發不可預期的後果，例如以下的範例：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-literal">false</span> == <span class="hljs-number">0</span>; <span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-literal">null</span> == <span class="hljs-number">0</span>; <span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-literal">null</span> &lt; <span class="hljs-number">1</span>; <span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-string">""</span> == <span class="hljs-number">0</span>; <span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-string">""</span> &lt; <span class="hljs-number">1</span>; <span class="hljs-comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
-<p>以下的範例是 JavaScript 最難以理解的一部分型別轉換：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[] == <span class="hljs-literal">false</span>; <span class="hljs-comment">// true</span></span><br><span class="line"><span class="title class_">Boolean</span>([]); <span class="hljs-comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
-<p>這實在是太詭異了!!不過理解一下背後的原理，當 Array 拿去比較 value 的時候，toString 包裹器會被呼叫：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span>([]); <span class="hljs-comment">// ''</span></span><br><span class="line"><span class="hljs-string">''</span> == <span class="hljs-literal">false</span>; <span class="hljs-comment">// true</span></span><br></pre></td></tr></tbody></table></figure></body></html> -->
+<h1 id="兩者如何共同工作"><a href="#兩者如何共同工作" class="headerlink" title="兩者如何共同工作"></a>兩者如何共同工作</h1><h3 id="閘道（gateway）關卡"><a href="#閘道（gateway）關卡" class="headerlink" title="閘道（gateway）關卡"></a>閘道（gateway）關卡</h3><p>Before arriving at the router, packets go to the gateway channel first, and the gateway checks the header information at once.<br>在資料抵達路由以前會間在閘道頻道上檢查資訊頭（the header information）。</p>
+<p>After checking for any kind of error in the destination IP address and packet.<br>According to the needs of the destination network,it carries out data conversion and protocol conversion on the packet,<br>which is also the most critical step.<br>檢查完畢目的地的 IP 位址與數據包無任何異常後，閘道會攜出轉換協定（protocols）的封包，這中間經歷的步驟最為嚴謹。</p>
+<h3 id="路由（router）關卡"><a href="#路由（router）關卡" class="headerlink" title="路由（router）關卡"></a>路由（router）關卡</h3><p>Finally, the processed packet is forwarded to the router to establish intelligent communication between the two different networks.<br>最後當封包傳遞到路由上後，會建立兩個不同網路（networks）的智能通訊。</p>
+<p>The router extracts the destination address from the received packet, determines the network number in the address,<br>and then looks up the routing table to find the entry matching the destination network.<br>路由從封包中提取目的地的位址並且決定位址中的網絡號碼，查看路由表格對應的目的地網路進入點。</p>
+<p>The routing table determines the next stop, destination, output interface, and other routing-related parameters that match the current packet.<br>路由表格會查看符合當前封包的路由相關參數，以決定好封包的下一站、目的地與傳輸出去的介面。</p>
+<p>Finally, the packet is sent to the computer with the best route.<br>最後封包被傳遞到電腦中最適宜的路由道路上。</p>
+<h1 id="閘道就是大門，路由就是樓層間的電梯"><a href="#閘道就是大門，路由就是樓層間的電梯" class="headerlink" title="閘道就是大門，路由就是樓層間的電梯"></a>閘道就是大門，路由就是樓層間的電梯</h1><p>In layman’s terms, gateways and routers are like the gates and elevators of a castle.<br>口語化來說，閘道就是大門，路由就是樓層間的電梯。</p>
+<p>they must first pass the inspection and arrangement through the gate.<br>必須經過檢查與安排才能透過大門。</p>
+<p>Then the elevator headquarters will choose the fastest elevator for them according to the characteristics and purpose of these strangers and finally,<br>arrive at the destination.<br>電梯總部人員根據性質與訴求選擇最適合最快的電梯協助抵達目的地。</p>
+<h1 id="選擇閘道還是路由"><a href="#選擇閘道還是路由" class="headerlink" title="選擇閘道還是路由"></a>選擇閘道還是路由</h1><p>If your devices are on the same network, then routers and gateways can be peer to peer.<br>若你的多個裝置是同個網路，則路於與閘道可以進行對等式網路 peer to peer（P2P）</p>
+<p>But if you want to connect two different networks with different protocols, the gateway can suit your demands.<br>若你想連接兩個不同協定的不同網絡，閘道可以符合需求。</p>
+<p>Some routers and gateways in the market can already replace each other.<br>有些市面上的閘道與路由已經可以互相取代了。</p>
+<p>The technology and capabilities of gateways and routers will continue to evolve and become more sophisticated over the next few years.<br>往後的幾年兩者的技術與可能性會互相演變得更細分精緻。</p>
+</body></html> -->
         
         
-        <html><head></head><body><p>運算過程中由於 Javascript 是弱型別，沒有辦法強制規範型別，所以會在運算過程中發生隱式（動態）型別轉換，稱之為 Corecion。</p>
-<blockquote><p>Converting a value from one type to another.</p>
+        <html><head></head><body><p>閘道（gateway）與路由（router）在網絡早期的世界裡並無區別，且與 TCP/IP 通訊層有密不可分的關係。<br>在現今發達的網絡世界中逐漸分化了兩者的功能：</p>
+<h1 id="閘道（gateway）"><a href="#閘道（gateway）" class="headerlink" title="閘道（gateway）"></a>閘道（gateway）</h1><p>A Gateway, on the other hand, joins dissimilar systems.<br>Gateway it is defined as a network entity that allows a network to interface with another network with different protocols.<br>閘道（gateway）能合併不同的系統，旨在允許不同協定（protocols）的網絡之間互相介接的網路裝置。</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/09/23/js-weird-parts-coercion/">more</a>
+                <a href="/2022/10/13/difference-between-gateway-and-router/">more</a>
             </p>
         
     
@@ -213,61 +214,40 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/09/21/js-weird-parts-operators-precendence-and-associactivity/" itemprop="url">克服 Javascript 的奇怪部分 運算子的相依性與優先性</a>
+            <a href="/2022/10/05/google-tag-manager-start-up/" itemprop="url">Google Tag Manager 起手式</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-09-21T06:58:56.000Z" itemprop="datePublished">9月 21 2022</time>
+                <time datetime="2022-10-05T01:46:48.000Z" itemprop="datePublished">10月 5 2022</time>
             
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/javascript/">javascript</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 631 字)
+            2 分鐘 讀完 (約 289 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><p>在了解以下的特性以前需要知道，JavaScript 是 syncrounous 同步在執行一個表達式的，<br>所以一次只能執行一個片段的程式碼，也就是一個表達式，一個表達式只能包含一個運算子與兩個參數，所以需要決定執行的次序．</p>
-<h1 id="優先性（precendence）"><a href="#優先性（precendence）" class="headerlink" title="優先性（precendence）"></a>優先性（precendence）</h1><blockquote><p>When there is more than one operators in one executable code, which operator will be called in order of precedence.</p>
-</blockquote>
-<p>當某片段的執行碼具有多個運算子時，那個先執行取決於優先性（precendence）</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">3</span> + <span class="hljs-number">4</span> * <span class="hljs-number">5</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 23</span></span><br></pre></td></tr></tbody></table></figure>
+        <!-- <html><head></head><body><p>GTM（Google Tag Manager）是集合了 Google Analaytics、Google ADs、facebook pixel 等追蹤碼片段的一個總攬平台，<br>可以更方便的管理放置在網站上所有的追蹤行為，是這三大追蹤技術的綜觀介面，甚至可以使用這個 UI 平台放置更多的追蹤碼而不需要手動埋 code，<br>（第一步放置 GTM 追蹤碼還是需要的），是身為行銷、網頁工程師應該知道的追蹤技術。</p>
+<h1 id="GTM-起手式"><a href="#GTM-起手式" class="headerlink" title="GTM 起手式"></a>GTM 起手式</h1><p>首先需要將<strong>網站（website）當作一個容器</strong>來啟動 GTM 帳號，並且將追蹤 code 放置在網站每一頁的 <code>&lt;head&gt;...&lt;/head&gt;</code>以及 <code>&lt;body&gt;...&lt;/body&gt;</code>，<br>完成 GTM 的安裝，並且使用 chrome 的外掛程式來確保安裝完成！</p>
+<img src="/images/google-tag-manager-start-up/1.png" class="" width="800" height="200" title="google-tag-manager-start-up">
 
-<p>從以下圖表可以檢視優先性：</p>
-<img src="/images/js-weird-parts-operators-precendence-and-associactivity/0.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
-<p>由於 * 運算子的優先性大於 + 運算子，所以 Javacript 會優先執行 <code>4 * 5</code> 爾後執行 <code>20 + 3</code>；<br>等號的優先性只有 2，所以會最後執行 <code>a = 23</code>。</p>
-<h1 id="相依性（Associativity）"><a href="#相依性（Associativity）" class="headerlink" title="相依性（Associativity）"></a>相依性（Associativity）</h1><blockquote><p>The Associativity is the percedence that determines the operators being called from left to right,<br>or right to left when the percedence are all the same.</p>
-</blockquote>
-<p>當某片段程式碼中所有的運算子優先性相同時，由相依性來決定執行次序為左相依性還是右相依性：<br>左相依性（Left Associativity）表示由左到右執行；右相依性（Right Associativity）表示由右到左執行。</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">2</span>, b = <span class="hljs-number">3</span>, c = <span class="hljs-number">4</span>;</span><br><span class="line">a = b = c;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 4</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="hljs-comment">// 4</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c); <span class="hljs-comment">// 4</span></span><br></pre></td></tr></tbody></table></figure>
-
-<img src="/images/js-weird-parts-operators-precendence-and-associactivity/1.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
-<p>從上圖可以了解到 = 運算子的相依性是右相依性（right to left, Right Associativity），<br>當運算子的優先性都相同時 Javacript 會優先執行右邊的運算子，然後向左一個一個執行。<br><code>a = b = c;</code> 表達式會先執行 <code>b = 4</code>，並且回傳 4 之後執行 <code>a = 4</code>。</p>
-<h1 id="大括號（parentheses）最優先"><a href="#大括號（parentheses）最優先" class="headerlink" title="大括號（parentheses）最優先"></a>大括號（parentheses）最優先</h1><img src="/images/js-weird-parts-operators-precendence-and-associactivity/2.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
-<p>當一個表達式中具有多個運算子，大括號（parentheses）裡的運算會最優先：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = (<span class="hljs-number">3</span> + <span class="hljs-number">4</span>) * <span class="hljs-number">5</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 35</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="amp-amp-優先性（precedence）比較"><a href="#amp-amp-優先性（precedence）比較" class="headerlink" title="&amp;&amp; || 優先性（precedence）比較"></a>&amp;&amp; || 優先性（precedence）比較</h1><img src="/images/js-weird-parts-operators-precendence-and-associactivity/3.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
-<p>在判斷式中經常同時使用 &amp;&amp;（and）與 ||（or），需要特別注意 &amp;&amp;（and）優先級是大於 ||（or）的，<br>不過若專案中有使用到 eslint 則會提示盡量補上大括號（parentheses），來協助辨認次序唷！</p>
+<h1 id="輔助工具"><a href="#輔助工具" class="headerlink" title="輔助工具"></a>輔助工具</h1><p>可以安裝 chrome 的 Google 行銷工具用的外掛（plugin），Tag Asistant Legacy（by google）在測試網站上點選錄製（Record）後，<br>過段時間偵測是否有安裝成功！</p>
+<img src="/images/google-tag-manager-start-up/2.png" class="" width="800" height="200" title="google-tag-manager-start-up">
 </body></html> -->
         
         
-        <html><head></head><body><p>在了解以下的特性以前需要知道，JavaScript 是 syncrounous 同步在執行一個表達式的，<br>所以一次只能執行一個片段的程式碼，也就是一個表達式，一個表達式只能包含一個運算子與兩個參數，所以需要決定執行的次序．</p>
-<h1 id="優先性（precendence）"><a href="#優先性（precendence）" class="headerlink" title="優先性（precendence）"></a>優先性（precendence）</h1><blockquote><p>When there is more than one operators in one executable code, which operator will be called in order of precedence.</p>
+        <html><head></head><body><p>GTM（Google Tag Manager）是集合了 Google Analaytics、Google ADs、facebook pixel 等追蹤碼片段的一個總攬平台，<br>可以更方便的管理放置在網站上所有的追蹤行為，是這三大追蹤技術的綜觀介面，甚至可以使用這個 UI 平台放置更多的追蹤碼而不需要手動埋 code，<br>（第一步放置 GTM 追蹤碼還是需要的），是身為行銷、網頁工程師應該知道的追蹤技術。</p>
+<h1 id="GTM-起手式"><a href="#GTM-起手式" class="headerlink" title="GTM 起手式"></a>GTM 起手式</h1><p>首先需要將<strong>網站（website）當作一個容器</strong>來啟動 GTM 帳號，並且將追蹤 code 放置在網站每一頁的 <code>&lt;head&gt;...&lt;/head&gt;</code>以及 <code>&lt;body&gt;...&lt;/body&gt;</code>，<br>完成 GTM 的安裝，並且使用 chrome 的外掛程式來確保安裝完成！</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/09/21/js-weird-parts-operators-precendence-and-associactivity/">more</a>
+                <a href="/2022/10/05/google-tag-manager-start-up/">more</a>
             </p>
         
     
@@ -283,13 +263,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/09/21/zh-tw/js-weird-parts-operators/" itemprop="url">克服 Javascript 的奇怪部分 運算子</a>
+            <a href="/2022/09/28/google-apps-script-try/" itemprop="url">Google Apps Script 輕鬆寫入表單</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-09-21T06:28:51.000Z" itemprop="datePublished">9月 21 2022</time>
+                <time datetime="2022-09-28T06:54:00.000Z" itemprop="datePublished">9月 28 2022</time>
             
         </span>
         
@@ -297,40 +277,46 @@
         <span class="column is-narrow">
             
             
-            3 分鐘 讀完 (約 396 字)
+            4 分鐘 讀完 (約 596 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><p>在閱讀本篇文章以前，先給予一個結論方便後續理解：<br>運算子不過就是一種函式而已，而且會回傳一個運算結果的值．</p>
-<p>Javascript 的運算子（operators）有個奇妙的現象就是，運算過程會造成動態型別的轉換而獲得不如預期的結果．</p>
-<h1 id="運算子（operators）的定義"><a href="#運算子（operators）的定義" class="headerlink" title="運算子（operators）的定義"></a>運算子（operators）的定義</h1><h3 id="實際上為一種函式"><a href="#實際上為一種函式" class="headerlink" title="實際上為一種函式"></a>實際上為一種函式</h3><blockquote><p>A special function that is syntactically (written) differently.</p>
-</blockquote>
+        <!-- <html><head></head><body><p>先前自己的一個小專案使用了 Google 官方的 Sheet Api v4 來寫入花費明細，除了要自幹一套 Node.js 搞定 Sheet API 的 OAuth 之外，還要忍受每過七天 tkn 就會失效的痛苦，終於在茫茫文件海中發現到 App 小天堂 Google Apps Script 這套輕量型的 Paas 平台，讓你撰寫一段小小的 javascript code 就能一秒產生 API endpoint！</p>
+<h1 id="啟用-GCP-Google-Apps-Script"><a href="#啟用-GCP-Google-Apps-Script" class="headerlink" title="啟用 GCP Google Apps Script"></a>啟用 GCP Google Apps Script</h1><p>首先要準備好的就是你 GCP 上的 API 要記得啟用，打開 Google Sheets API 以及 APPs Script API：</p>
+<img src="/images/google-apps-script-try/0.png" class="" width="600" height="200" title="google-apps-script-try">
 
-<h3 id="需要兩個參數獲得結果"><a href="#需要兩個參數獲得結果" class="headerlink" title="需要兩個參數獲得結果"></a>需要兩個參數獲得結果</h3><blockquote><p>Generally, an operator take two parameters and return one result.</p>
-</blockquote>
+<p>打開之後去建立一個空白表單來產生需要的 Sheet ID，會在表單連結裡 <code>d/</code> 後方的一串亂碼．</p>
+<img src="/images/google-apps-script-try/1.png" class="" width="800" height="200" title="google-apps-script-try">
 
-<h3 id="中綴寫法"><a href="#中綴寫法" class="headerlink" title="中綴寫法"></a>中綴寫法</h3><p>運算子其實就是一種表達式必備的元素，丟進去參數然後運算 return 結果，只是不同於一般的函式寫法，它是使用中綴（infix　notation）的寫法，將參數寫在函式符號的兩邊：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">3</span> + <span class="hljs-number">4</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 7</span></span><br></pre></td></tr></tbody></table></figure>
+<p>接著把表單存取權限開到最大，讓任何知道連結的人都可以編輯表單：</p>
+<img src="/images/google-apps-script-try/2.png" class="" width="800" height="200" title="google-apps-script-try">
 
-<p>老式的計算機都是使用後綴的寫法：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-number">3</span> <span class="hljs-number">4</span> +;</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="透過-Google-Apps-Script-建立應用程式"><a href="#透過-Google-Apps-Script-建立應用程式" class="headerlink" title="透過 Google Apps Script 建立應用程式"></a>透過 Google Apps Script 建立應用程式</h1><h2 id="撰寫程式"><a href="#撰寫程式" class="headerlink" title="撰寫程式"></a>撰寫程式</h2><p>接下來是重頭戲，建立寫入 Google 表單的 app，點案這裡進入 Google Apps Script 介面，撰寫以下的程式碼：<br>來源之後補上：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">doPost</span>(<span class="hljs-params">e</span>) {</span><br><span class="line">  <span class="hljs-comment">// 取得輸入參數</span></span><br><span class="line">  <span class="hljs-keyword">let</span> params = e.<span class="hljs-property">parameter</span>; </span><br><span class="line">  <span class="hljs-keyword">let</span> name = params.<span class="hljs-property">name</span>;</span><br><span class="line">  <span class="hljs-keyword">let</span> mail = params.<span class="hljs-property">mail</span>;</span><br><span class="line"> </span><br><span class="line">  <span class="hljs-comment">// 初始化試算表</span></span><br><span class="line">  <span class="hljs-keyword">let</span> <span class="title class_">SpreadSheet</span> = <span class="title class_">SpreadsheetApp</span>.<span class="title function_">openById</span>(<span class="hljs-string">"輸入你斜線 d 後面的表單 id"</span>);</span><br><span class="line">  <span class="hljs-keyword">let</span> <span class="title class_">Sheet</span> = <span class="title class_">SpreadSheet</span>.<span class="title function_">getSheets</span>()[<span class="hljs-number">0</span>]; <span class="hljs-comment">// 指定第一張試算表</span></span><br><span class="line">  <span class="hljs-keyword">let</span> <span class="title class_">LastRow</span> = <span class="title class_">Sheet</span>.<span class="title function_">getLastRow</span>(); <span class="hljs-comment">// 取得最後一列有值的索引值</span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 寫入試算表</span></span><br><span class="line">  <span class="title class_">Sheet</span>.<span class="title function_">getRange</span>(<span class="title class_">LastRow</span>+<span class="hljs-number">1</span>, <span class="hljs-number">1</span>).<span class="title function_">setValue</span>(name);</span><br><span class="line">  <span class="title class_">Sheet</span>.<span class="title function_">getRange</span>(<span class="title class_">LastRow</span>+<span class="hljs-number">1</span>, <span class="hljs-number">2</span>).<span class="title function_">setValue</span>(mail);</span><br><span class="line">  </span><br><span class="line">  <span class="hljs-comment">// 回傳結果</span></span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title class_">ContentService</span></span><br><span class="line">  .<span class="title function_">createTextOutput</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>({ <span class="hljs-attr">result</span>: <span class="hljs-string">'成功'</span>, <span class="hljs-attr">version</span>: <span class="hljs-string">'1.0'</span> }))</span><br><span class="line">      .<span class="title function_">setMimeType</span>(<span class="title class_">ContentService</span>.<span class="hljs-property">MimeType</span>.<span class="hljs-property">JSON</span>); </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="型別轉換"><a href="#型別轉換" class="headerlink" title="型別轉換"></a>型別轉換</h3><p>Javascript 的運算子造成的隱式型別轉換數不勝數，例如比較運算子（Relational operators），會將數字型別轉換成布林值（Boolean）。</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">3</span> &gt; <span class="hljs-number">4</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// false</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><blockquote><p>Operators are actually spacial types of functions, these parameters are being pass into those functions,<br>and the value  is being returned.<br>There is pre written codes that javaScript engine provides to do or invoke those functions.</p>
-</blockquote>
-<p>運算子只是已經寫好的函式（function）提供使用而已，寫法稍有不同於一般函式，為中綴（infix　notation）的寫法。</p>
+<h2 id="部屬程式"><a href="#部屬程式" class="headerlink" title="部屬程式"></a>部屬程式</h2><p>點選右上方的部屬，選擇類型為「網頁應用程式」．以及呼叫 API 的權限設定要記得選擇，所有人都可以呼叫這個程式並且寫入：</p>
+<img src="/images/google-apps-script-try/4.png" class="" width="800" height="200" title="google-apps-script-try">
+<img src="/images/google-apps-script-try/5.png" class="" width="800" height="200" title="google-apps-script-try">
+
+<h2 id="獲得端點-API"><a href="#獲得端點-API" class="headerlink" title="獲得端點 API"></a>獲得端點 API</h2><p>部屬完成會有 API 網址產生，這時候就可以複製起來然後使用 postman 操作看看是否成功囉!</p>
+<img src="/images/google-apps-script-try/6.png" class="" width="800" height="200" title="google-apps-script-try">
+<img src="/images/google-apps-script-try/7.png" class="" width="800" height="200" title="google-apps-script-try">
+
+<p>來查看一下 google sheet 這邊是否成功寫入：</p>
+<img src="/images/google-apps-script-try/8.png" class="" width="800" height="200" title="google-apps-script-try">
+
+<p>大功告成囉!</p>
 </body></html> -->
         
         
-        <html><head></head><body><p>在閱讀本篇文章以前，先給予一個結論方便後續理解：<br>運算子不過就是一種函式而已，而且會回傳一個運算結果的值．</p>
-<p>Javascript 的運算子（operators）有個奇妙的現象就是，運算過程會造成動態型別的轉換而獲得不如預期的結果．</p>
+        <html><head></head><body><p>先前自己的一個小專案使用了 Google 官方的 Sheet Api v4 來寫入花費明細，除了要自幹一套 Node.js 搞定 Sheet API 的 OAuth 之外，還要忍受每過七天 tkn 就會失效的痛苦，終於在茫茫文件海中發現到 App 小天堂 Google Apps Script 這套輕量型的 Paas 平台，讓你撰寫一段小小的 javascript code 就能一秒產生 API endpoint！</p>
+<h1 id="啟用-GCP-Google-Apps-Script"><a href="#啟用-GCP-Google-Apps-Script" class="headerlink" title="啟用 GCP Google Apps Script"></a>啟用 GCP Google Apps Script</h1><p>首先要準備好的就是你 GCP 上的 API 要記得啟用，打開 Google Sheets API 以及 APPs Script API：</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/09/21/zh-tw/js-weird-parts-operators/">more</a>
+                <a href="/2022/09/28/google-apps-script-try/">more</a>
             </p>
         
     
@@ -368,7 +354,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/17/">17</a></li>
+        <li><a class="pagination-link" href="/page/19/">19</a></li>
         
     </ul>
 </nav>

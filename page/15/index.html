@@ -145,88 +145,65 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/02/20/zh-tw/express-router-module/" itemprop="url">Express 路由模組化</a>
+            <a href="/2022/02/28/zh-tw/http-and-https/" itemprop="url">HTTP 超文本傳輸協定</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-02-20T06:12:53.000Z" itemprop="datePublished">2月 20 2022</time>
+                <time datetime="2022-02-28T02:07:23.000Z" itemprop="datePublished">2月 28 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/node-js/">node.js</a>
+            <a class="article-category-link" href="/categories/http/">http</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            9 分鐘 讀完 (約 1302 字)
+            6 分鐘 讀完 (約 897 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/express-router-module/1.png" class="" width="800" height="200" title="express-router-module">
-<h6 id="圖片來源-https-inmywordz-com-archives-504"><a href="#圖片來源-https-inmywordz-com-archives-504" class="headerlink" title="圖片來源: https://inmywordz.com/archives/504"></a>圖片來源: <a target="_blank" rel="noopener" href="https://inmywordz.com/archives/504">https://inmywordz.com/archives/504</a></h6><p>當路由越寫越多變成霍爾的移動城堡一樣雜亂肥大時，自己都看得眼花撩亂啦～考慮使用模組化的概念來統整自己的後端路由是很好的選擇，那麼就來開始吧！</p>
-<hr>
-<h1 id="Express-js-4-0-Router-的誕生"><a href="#Express-js-4-0-Router-的誕生" class="headerlink" title="Express.js 4.0 Router 的誕生"></a>Express.js 4.0 Router 的誕生</h1><p>Express 輕量框架提供很多整理路由的方式，Express.js 4.0 導入了新的 <strong>Router 功能</strong>，可以更彈性的撰寫子路由規則以及中介軟體啦！</p>
-<blockquote><p>Express.js 4.0 有加入一個新的 Router 功能，它就像一個迷你的應用程式，可以讓應用程式內部的路由撰寫更方便、更有彈性。<br>Express.js 在 4.0 版中有許多新的功能，其中一項主要的功能就是 Router，以下我們介紹如何使用 Router 功能來撰寫應用程式。<br><a target="_blank" rel="noopener" href="https://blog.gtwang.org/programming/learn-to-use-the-new-router-in-expressjs-4/">https://blog.gtwang.org/programming/learn-to-use-the-new-router-in-expressjs-4/</a></p>
-</blockquote>
-<hr>
-<h1 id="app-use-產生父路由與路由頭中介"><a href="#app-use-產生父路由與路由頭中介" class="headerlink" title="app.use() 產生父路由與路由頭中介"></a>app.use() 產生父路由與路由頭中介</h1><blockquote><p>app.use(); mounts middleware for all routes of the app (or those matching the routes specified if you use app.use(‘/ANYROUTESHERE’, yourMiddleware());).</p>
-</blockquote>
-<p>app.use() 是啟用一個<strong>路由頭（父路由）</strong>，並且只要符合該路由頭的<strong>每一個子路由</strong>，該中介軟體都會啟用，很適合用在登入後驗證是否有登入的會員，是否有訪問路由頁面的權限，以撰寫一些驗證信息。</p>
-<hr>
-<h1 id="router-methods-產生子路由"><a href="#router-methods-產生子路由" class="headerlink" title="router.methods() 產生子路由"></a>router.methods() 產生子路由</h1><h4 id="舊的子路由寫法"><a href="#舊的子路由寫法" class="headerlink" title="舊的子路由寫法"></a>舊的子路由寫法</h4><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> port = <span class="hljs-number">5500</span>;</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="hljs-string">'/'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="hljs-string">'舊的寫法：歡迎來到首頁'</span>)</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(port, <span class="hljs-function">() =&gt;</span> {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">`Example app listening on port <span class="hljs-subst">${port}</span>`</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/express-router-module/2.png" class="" width="380" height="200" title="express-router-module">
+        <!-- <html><head></head><body><img src="/images/http-and-https/0.png" class="" width="800" height="200" title="[http-and-https [http-and-https]]">
+<p>圖片來源：<a target="_blank" rel="noopener" href="https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https">https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https</a></p>
+<h1 id="HTTP-的誕生"><a href="#HTTP-的誕生" class="headerlink" title="HTTP 的誕生"></a>HTTP 的誕生</h1><p>網路應用程式早期在互相傳遞資料時沒有固定的格式，在資料解析上就會很麻煩混亂，就像一個國家一旦陷入各自為政的困擾就需要政治來規範管理，網路世界也是一樣道理的。超文本傳輸協定(Hyper Text Transfer Protocol)就是網路資料傳遞的統整者，是 client 端向 server 端要求資料的關卡，必須要按照正確的格式才能取得資料。</p>
+<h1 id="Origin-Server-是甚麼"><a href="#Origin-Server-是甚麼" class="headerlink" title="Origin Server 是甚麼"></a>Origin Server 是甚麼</h1><h3 id="server-負責-response"><a href="#server-負責-response" class="headerlink" title="server 負責 response"></a>server 負責 response</h3><p>先介紹 Origin 這個單辭為什麼會被拿來當作 server 端，它的同義詞有 root、source 與 beginning，有起源、來源與原產地的意思，相當於網路世界中網站資料的起源與來源，github 在推 commits 上去遠端也可以看到指令：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></tbody></table></figure>
 
-<h4 id="新的子路由寫法"><a href="#新的子路由寫法" class="headerlink" title="新的子路由寫法"></a>新的子路由寫法</h4><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> port = <span class="hljs-number">5500</span>;</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="hljs-string">'新的寫法：歡迎來到首頁'</span>)</span><br><span class="line">})</span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/page'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="hljs-string">'新的寫法：歡迎來到分頁'</span>)</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 制定一個路由頭（父路由）</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="hljs-string">'/api'</span>, router)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(port, <span class="hljs-function">() =&gt;</span> {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">`Example app listening on port <span class="hljs-subst">${port}</span>`</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/express-router-module/3.png" class="" width="380" height="200" title="express-router-module">
-<img src="/images/express-router-module/4.png" class="" width="478" height="235" title="express-router-module">
-
-<p>我自己是看不太出來差別，不過文章都是寫道 router 就像一個小型 app 提供你整理路由系統更好的方法，而具體的差異如下：</p>
-<blockquote><p>“A Router doesn’t .listen() for requests on its own”. That might be the main difference.<br>It’s useful for separating your application into multiple modules – creating a Router in each that the app can require() and .use() as middleware. </p>
+<p>Origin 代表的就是擁有資料的角色，通常是 server端：</p>
+<blockquote><p>An origin server is a computer that runs programs designed to listen to and respond to incoming requests or traffic. It contains the original version of the web page and is responsible for delivering the content to end users when requested.<br>Origin servers take in requests and serve up content for a website or web page.</p>
 </blockquote>
-<ol>
-<li>Router 不能單個路由做 port 監聽 </li>
-<li>Router 可以使用 require() 與 use() 模組化管理子路由<br>  哪一種比較好眾說紛紜，基本上能適合專案模式的都是好方法。</li>
-</ol>
-<blockquote><p>router.use(); mounts middleware for the routes served by the specific router<br>router.get is only for <strong>defining subpaths</strong>.<br>Consider this example:</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line">app.<span class="title function_">use</span>(<span class="hljs-string">'/first'</span>, router); <span class="hljs-comment">// Mount the router as middleware at path /first</span></span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/sud'</span>, smaller);</span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/user'</span>, bigger);</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure>
-If you open /first/sud, then the smaller function will get called.
-If you open /first/user, then the bigger function will get called.
-In short, app.use('/first', router) mounts the middleware at path /first, then router.get sets the subpath accordingly.
-https://stackoverflow.com/questions/27227650/difference-between-app-use-and-router-use-in-express</blockquote>
-<hr>
-<h1 id="router-use-子路由中介"><a href="#router-use-子路由中介" class="headerlink" title="router.use() 子路由中介"></a>router.use() 子路由中介</h1><p>router.use() 是產生子路由中介（middleware）的方式：</p>
-<blockquote class="colorquote info"><p>在使用 middleware 時必須要注意他的放置位置必須要在 routes 之前，程式在執行的時候會依據 middleware 與 routes 的先後順序來執行，如果不小心將 middleware 放在 routes 之後，那麼在 routes 處理完請求之後就會結束處理的流程，這樣 middleware 就根本不會執行。<br><a target="_blank" rel="noopener" href="https://blog.gtwang.org/programming/learn-to-use-the-new-router-in-expressjs-4/">https://blog.gtwang.org/programming/learn-to-use-the-new-router-in-expressjs-4/</a></p>
+<ul>
+<li>Origin server 是負責監聽以及回應（response）來自四面八方的要求（requests）與通訊的電腦計算機程式，包含原版的網頁資料並且傳遞該內容給發出請求的使用者端口。</li>
+<li>Origin server 會接收需求並且提供網站的資料內容。</li>
+</ul>
+<h3 id="client-負責-requested"><a href="#client-負責-requested" class="headerlink" title="client 負責 requested"></a>client 負責 requested</h3><p>Client 代表的是上網並請求網站資料的使用者，也就是 user 端：</p>
+<blockquote><p>When a user opens a web page on a website, a request is sent to the origin server to retrieve the content.</p>
 </blockquote>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 中介軟體要寫在 router 上面</span></span><br><span class="line">router.<span class="title function_">use</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next</span>) {</span><br><span class="line">  <span class="hljs-comment">// 輸出記錄訊息至終端機</span></span><br><span class="line">  <span class="hljs-keyword">const</span> url = <span class="hljs-string">`<span class="hljs-subst">${req.protocol}</span>://<span class="hljs-subst">${req.hostname}</span>:<span class="hljs-subst">${port}</span><span class="hljs-subst">${req.baseUrl}</span><span class="hljs-subst">${req.path}</span>`</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(url, <span class="hljs-string">'子路由會經過我'</span>);</span><br><span class="line">  <span class="hljs-comment">// 繼續路由處理</span></span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">})</span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="hljs-string">'新的寫法：歡迎來到首頁'</span>)</span><br><span class="line">})</span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/page'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="hljs-string">'新的寫法：歡迎來到分頁'</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/express-router-module/5.png" class="" width="478" height="235" title="express-router-module">
-<hr>
-<h1 id="router-模組化"><a href="#router-模組化" class="headerlink" title="router 模組化"></a>router 模組化</h1><h4 id="子路由模塊"><a href="#子路由模塊" class="headerlink" title="子路由模塊"></a>子路由模塊</h4><p>將幾個子路徑依功能切開可以更方便的統整路由：</p>
-<figure class="highlight javascript hljs"><figcaption><span>./routers/cat.js</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> port = <span class="hljs-number">5500</span></span><br><span class="line"></span><br><span class="line">router.<span class="title function_">use</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next</span>) {</span><br><span class="line">    <span class="hljs-comment">// 輸出記錄訊息至終端機</span></span><br><span class="line">    <span class="hljs-keyword">const</span> url = <span class="hljs-string">`<span class="hljs-subst">${req.protocol}</span>://<span class="hljs-subst">${req.hostname}</span>:<span class="hljs-subst">${port}</span><span class="hljs-subst">${req.baseUrl}</span><span class="hljs-subst">${req.path}</span>`</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(url, <span class="hljs-string">'喵喵子路由會經過我'</span>);</span><br><span class="line">  </span><br><span class="line">    <span class="hljs-comment">// 繼續路由處理</span></span><br><span class="line">    <span class="title function_">next</span>();</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">    <span class="hljs-keyword">const</span> url = <span class="hljs-string">`<span class="hljs-subst">${req.protocol}</span>://<span class="hljs-subst">${req.hostname}</span>:<span class="hljs-subst">${port}</span><span class="hljs-subst">${req.baseUrl}</span><span class="hljs-subst">${req.path}</span>`</span>;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="hljs-string">'來到喵喵子路由'</span>);</span><br><span class="line">});</span><br><span class="line">router.<span class="title function_">get</span>(<span class="hljs-string">'/meow'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="hljs-string">'喵喵分頁'</span>);</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="hljs-property">exports</span> = router;</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>當使用者試圖用瀏覽器（browser）打開一個網頁或網站，就已經發送了該網站資料的要求給 origin server。</li>
+</ul>
+<h1 id="Port-是甚麼"><a href="#Port-是甚麼" class="headerlink" title="Port 是甚麼"></a>Port 是甚麼</h1><p>一個網站就如同銀行，而服務人員的櫃檯提供多元的銀行業務來消化前去等候的民眾，這個案例中：<br>銀行機構就是 Origin server，服務人員就是 port，而民眾就是 client（user agent）；而一個網站 Origin 可以包山包海擁有各種資料，並開啟多個窗口的埠號（port）來服務傳送過來的需求（requests），讓每個埠號更專注在一個服務的品質與細節上。<br>早期沒有瀏覽器的時代，使用的是終端機(terminal)來發送請求而非瀏覽器，而今 server 端口會檢查要求是否來自瀏覽器而非機器人（爬蟲），來過濾一些資安問題的黑手。</p>
+<h1 id="HTTPs-的誕生"><a href="#HTTPs-的誕生" class="headerlink" title="HTTPs 的誕生"></a>HTTPs 的誕生</h1><p>隨著網路世界日興發達，不安好心的資訊竊取駭客就會出現，它可以偽裝成使用者也可以偽裝成服務器，為了避免這種資料截取的資安問題，資訊傳遞的加密就很重要！HTTPS 如同 HTTP 但是多了一把開啟資訊傳遞的鑰匙，將來往資料都加密過防止有心人士解讀：</p>
+<img src="/images/http-and-https/1.png" class="" width="600" height="200" title="[http-and-https [http-and-https]]">
 
-<h4 id="引用模塊"><a href="#引用模塊" class="headerlink" title="引用模塊"></a>引用模塊</h4><p>在入口引入模塊：</p>
-<figure class="highlight javascript hljs"><figcaption><span>index.js</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="hljs-keyword">const</span> catsRouter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./routes/cat'</span>)</span><br><span class="line"><span class="hljs-keyword">const</span> port = <span class="hljs-number">5500</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 模組寫法</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="hljs-string">'/cat'</span>, catsRouter) </span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(port, <span class="hljs-function">() =&gt;</span> {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">`Example app listening on port <span class="hljs-subst">${port}</span>`</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-<img src="/images/express-router-module/6.png" class="" width="478" height="235" title="express-router-module">
-<img src="/images/express-router-module/7.png" class="" width="478" height="235" title="express-router-module">
-<img src="/images/express-router-module/8.png" class="" width="478" height="235" title="express-router-module">
-<hr>
-<p>參考文章：</p>
-<blockquote><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/27227650/difference-between-app-use-and-router-use-in-express">https://stackoverflow.com/questions/27227650/difference-between-app-use-and-router-use-in-express</a><br><a target="_blank" rel="noopener" href="https://blog.gtwang.org/programming/learn-to-use-the-new-router-in-expressjs-4/">https://blog.gtwang.org/programming/learn-to-use-the-new-router-in-expressjs-4/</a><br><a target="_blank" rel="noopener" href="http://expressjs.com/zh-tw/api.html#req">http://expressjs.com/zh-tw/api.html#req</a></p>
+
+<p>參考資料：</p>
+<blockquote><p><a target="_blank" rel="noopener" href="https://www.cdnetworks.com/knowledge-center/what-is-origin-server/">https://www.cdnetworks.com/knowledge-center/what-is-origin-server/</a><br>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
 </blockquote></body></html> -->
         
         
-        <html><head></head><body><img src="/images/express-router-module/1.png" class="" width="800" height="200" title="express-router-module">
-<h6 id="圖片來源-https-inmywordz-com-archives-504"><a href="#圖片來源-https-inmywordz-com-archives-504" class="headerlink" title="圖片來源: https://inmywordz.com/archives/504"></a>圖片來源: <a target="_blank" rel="noopener" href="https://inmywordz.com/archives/504">https://inmywordz.com/archives/504</a></h6><p>當路由越寫越多變成霍爾的移動城堡一樣雜亂肥大時，自己都看得眼花撩亂啦～考慮使用模組化的概念來統整自己的後端路由是很好的選擇，那麼就來開始吧！</p>
+        <html><head></head><body><img src="/images/http-and-https/0.png" class="" width="800" height="200" title="[http-and-https [http-and-https]]">
+<p>圖片來源：<a target="_blank" rel="noopener" href="https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https">https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https</a></p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/02/20/zh-tw/express-router-module/">more</a>
+                <a href="/2022/02/28/zh-tw/http-and-https/">more</a>
             </p>
         
     
@@ -242,77 +219,45 @@ https://stackoverflow.com/questions/27227650/difference-between-app-use-and-rout
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/02/18/zh-tw/vue3-vite-ts/" itemprop="url">Vue3 + Vite + Ts 專案建置</a>
+            <a href="/2022/02/25/zh-tw/web-socket-and-web-hook/" itemprop="url">Web Socket v.s Web Hook</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-02-18T12:16:27.000Z" itemprop="datePublished">2月 18 2022</time>
+                <time datetime="2022-02-25T03:29:08.000Z" itemprop="datePublished">2月 25 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/vue/">vue</a><span>></span><a class="article-category-link" href="/categories/vue/vue3/">vue3</a>
+            <a class="article-category-link" href="/categories/webSocket/">webSocket</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            6 分鐘 讀完 (約 950 字)
+            1 分鐘 讀完 (約 224 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><p>Vite 問世以後總算不用再看著打包的百分比甚麼時候跑完了（灑花，按下 ctrl S 直接查看效果棒棒的！<br>不過再也沒有藉口可以喝口拿鐵啦XD</p>
-<p>簡單介紹一下 Vite 是甚麼：</p>
-<blockquote><p> Vite（法语意为 “快速的”，发音 /vit/，发音同 “veet”）是一种<strong>新型前端构建工具</strong>，能够显著提升前端开发体验。它主要由两部分组成：</p>
-<ul>
-<li>一个开发服务器，它基于 原生 ES 模块 提供了 丰富的内建功能，如速度快到惊人的<strong>模块热更新（HMR）</strong>。</li>
-<li>一套构建指令，它使用 Rollup 打包你的代码，并且它是预配置的，可输出用于生产环境的高度优化过的静态资源。</li>
-</ul>
-</blockquote>
-<p>先打預防針，小菜雞本人對於類別的物件導向了解尚淺，ts 的運用也不熟悉，導入使用再一步一步學習，這裡著重於專案是否能啟用。<br>本篇簡略說明建置 Vue3 + Vite + Ts 的專案過程中使用的方法：</p>
-<h1 id="快速建置專案"><a href="#快速建置專案" class="headerlink" title="快速建置專案"></a>快速建置專案</h1> <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># npm 6.x</span></span><br><span class="line">npm create vite@latest my-vue-app --template vue</span><br></pre></td></tr></tbody></table></figure>
-  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">cd</span> my-project</span><br><span class="line">npm install</span><br><span class="line">npm run dev</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="使用-ant-design-vue-UI"><a href="#使用-ant-design-vue-UI" class="headerlink" title="使用 ant design vue UI"></a>使用 ant design vue UI</h1><p>  antd 的介面優雅簡約個人滿喜歡的，配色切換的設定也很方便</p>
-<ul>
-<li><p>安裝套件</p>
-  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save ant-design-vue@next</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>新建 libs 資料夾在 src 底下，新增 antdv.ts</p>
-<figure class="highlight javascript hljs"><figcaption><span>antdv.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> type { <span class="title class_">App</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">"vue"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> <span class="title class_">Antd</span> <span class="hljs-keyword">from</span> <span class="hljs-string">"ant-design-vue"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">"ant-design-vue/dist/antd.less"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="title function_">setupAntd</span>(<span class="hljs-params">app: App&lt;Element&gt;</span>): <span class="hljs-keyword">void</span> {</span><br><span class="line">  app.<span class="title function_">use</span>(<span class="title class_">Antd</span>);</span><br><span class="line">}</span><br><span class="line">    </span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>全局入口引用 antd，並且註冊 antd icon</p>
-<figure class="highlight javascript hljs"><figcaption><span>main.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span></span><br><span class="line"><span class="hljs-keyword">import</span> <span class="title class_">App</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'./App.vue'</span></span><br><span class="line"><span class="hljs-keyword">import</span> { setupAntd } <span class="hljs-keyword">from</span> <span class="hljs-string">"./libs/antdv"</span>; <span class="hljs-comment">// 新增++</span></span><br><span class="line"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <span class="title class_">Icons</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'@ant-design/icons-vue'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> icons :any = <span class="title class_">Icons</span>;</span><br><span class="line"><span class="title function_">setupAntd</span>(app); </span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 父組件全局註冊ICONS</span></span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> i <span class="hljs-keyword">in</span> icons) {</span><br><span class="line">  app.<span class="title function_">component</span>(i, <span class="title class_">Icons</span>[i]);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">mount</span>(<span class="hljs-string">'#app'</span>)</span><br><span class="line">    </span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>在 vite.config.ts 修改主要配色 primary 變數，這裡踩了很多坑，處理器的設定物件結構一直不對（哭</p>
-</li>
-<li><p>由於 antd 使用的 css 預處理器是不熟悉的 less，無奈一個專案還是選擇一個預處理器就好，只能新學一個寫法來制定自己的全局 css 囉！scss 先放一邊啦。套用全局 css 只需在 additionalData 裡面放置路徑的字串。 </p>
-<figure class="highlight javascript hljs"><figcaption><span>vite.config.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> { defineConfig } <span class="hljs-keyword">from</span> <span class="hljs-string">'vite'</span></span><br><span class="line"><span class="hljs-keyword">import</span> vue <span class="hljs-keyword">from</span> <span class="hljs-string">'@vitejs/plugin-vue'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// https://vitejs.dev/config/</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="title function_">defineConfig</span>({</span><br><span class="line">  <span class="hljs-attr">plugins</span>: [<span class="title function_">vue</span>()],</span><br><span class="line">  <span class="hljs-attr">css</span>: {</span><br><span class="line">    <span class="hljs-attr">preprocessorOptions</span>: {</span><br><span class="line">      <span class="hljs-attr">less</span>: {</span><br><span class="line">        <span class="hljs-attr">javascriptEnabled</span>: <span class="hljs-literal">true</span>,</span><br><span class="line">        <span class="hljs-attr">modifyVars</span>: {</span><br><span class="line">          <span class="hljs-string">'primary-color'</span>: <span class="hljs-string">'#94D0C9'</span>,</span><br><span class="line">          <span class="hljs-string">'link-color'</span>: <span class="hljs-string">'red'</span>,</span><br><span class="line">        },</span><br><span class="line">        <span class="hljs-attr">additionalData</span>: <span class="hljs-string">'@import "./src/assets/style/global.less";'</span>,</span><br><span class="line">      }</span><br><span class="line">    },</span><br><span class="line">  },</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure></li>
-</ul>
-<h1 id="vuex4-導入與建置-mapStates-模組"><a href="#vuex4-導入與建置-mapStates-模組" class="headerlink" title="vuex4 導入與建置 mapStates 模組"></a>vuex4 導入與建置 mapStates 模組</h1><ul>
-<li><p>安裝 vuex4</p>
-  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vuex@next</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>全局入口引用 vuex，多了一把<strong>鑰匙（key）</strong>需要設置並且傳入 <strong>useStore()</strong> 中才能啟用 vuex，鑰匙的型態是 symbol()</p>
-<figure class="highlight javascript hljs"><figcaption><span>main.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span></span><br><span class="line"><span class="hljs-keyword">import</span> <span class="title class_">App</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'./App.vue'</span></span><br><span class="line"><span class="hljs-keyword">import</span> { setupAntd } <span class="hljs-keyword">from</span> <span class="hljs-string">"./libs/antdv"</span></span><br><span class="line"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <span class="title class_">Icons</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'@ant-design/icons-vue'</span></span><br><span class="line"><span class="hljs-keyword">import</span> { store, key } <span class="hljs-keyword">from</span> <span class="hljs-string">'./store/store'</span> <span class="hljs-comment">// 新增++</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> icons :any = <span class="title class_">Icons</span>;</span><br><span class="line">app.<span class="title function_">use</span>(store, key) <span class="hljs-comment">// 新增++</span></span><br><span class="line"><span class="title function_">setupAntd</span>(app); </span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 父組件全局註冊ICONS</span></span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> i <span class="hljs-keyword">in</span> icons) {</span><br><span class="line">  app.<span class="title function_">component</span>(i, <span class="title class_">Icons</span>[i]);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">mount</span>(<span class="hljs-string">'#app'</span>)</span><br><span class="line">    </span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>撰寫 vuex 配置檔案，為了方便後續使用模組導入 mapStates 的方式，統一放在 src 底下的資料夾 store 內：</p>
-<img src="/images/vue3-vite-ts/01.png" class="" width="800" height="200" title="[Vue3 [Vue3]]"></li>
-<li><p>與 vuex3寫法上的不同點：<br>以前使用 new Store()，vuex4改用 createStore() 建立倉庫。</p>
-<figure class="highlight javascript hljs"><figcaption><span>store.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> { <span class="title class_">InjectionKey</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span></span><br><span class="line"><span class="hljs-keyword">import</span> { createStore, <span class="title class_">Store</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'vuex'</span></span><br><span class="line"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">'axios'</span></span><br><span class="line"><span class="hljs-keyword">import</span> <span class="title class_">ApiClient</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'../ApiClient'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 为 store state 声明类型</span></span><br><span class="line"><span class="hljs-keyword">export</span> interface <span class="title class_">State</span> {</span><br><span class="line">  <span class="hljs-attr">count</span>: number</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 定义 injection key</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">key</span>: <span class="title class_">InjectionKey</span>&lt;<span class="title class_">Store</span>&lt;<span class="title class_">State</span>&gt;&gt; = <span class="title class_">Symbol</span>()</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> store = createStore&lt;<span class="title class_">State</span>&gt;({</span><br><span class="line">  <span class="hljs-attr">state</span>: {</span><br><span class="line">    <span class="hljs-attr">count</span>: <span class="hljs-number">0</span></span><br><span class="line">  },</span><br><span class="line">  <span class="hljs-attr">getters</span>: {</span><br><span class="line">  },</span><br><span class="line">  <span class="hljs-attr">mutations</span>: {</span><br><span class="line">  },</span><br><span class="line">  <span class="hljs-attr">actions</span>: {</span><br><span class="line">  },</span><br><span class="line">})</span><br><span class="line">    </span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>在 Vue3.x 版本中使用 vuex4 需要透過 useStore() 方法才能訪問 store 內容：</p>
-<figure class="highlight javascript hljs"><figcaption><span>store.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">      </span><br><span class="line">    </span><br></pre></td></tr></tbody></table></figure></li>
-</ul>
-</body></html> -->
+        <!-- <html><head></head><body><img src="/images/web-socket-and-web-hook/0.png" class="" width="800" height="200" title="[web-socket-and-web-hook [web-socket-and-web-hook]]">
+<p>API 的形式有兩大宗：<br>Web Hook 與 Web Socket，而他們有甚麼差異呢？</p>
+<h1 id="被動式-Web-Hook"><a href="#被動式-Web-Hook" class="headerlink" title="被動式 Web Hook"></a>被動式 Web Hook</h1><p>例如 Line Bot，server 會先預測使用者的動作與需求（events），設計出相對的程式並維護，等待使用者發出要求才動作。</p>
+<h1 id="主動式-Web-Socket"><a href="#主動式-Web-Socket" class="headerlink" title="主動式 Web Socket"></a>主動式 Web Socket</h1><p>兩方的資料交互，例如 client 與 server、server 與 server。<br>應用場景如聊天功能：facebook messenger 或 Line 等，Web Socket 的技術可以「即時的」(real time)做出資料傳遞。<br>當你打開 facebook messenger 的視窗，Web Socket server 就會與 client 瀏覽器端 handshake 保持通訊暢通，持續監聽對話要求並回應(opened and persistent connection)</p>
+<p>參考資料：</p>
+<blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+</blockquote></body></html> -->
         
         
-        <html><head></head><body><p>Vite 問世以後總算不用再看著打包的百分比甚麼時候跑完了（灑花，按下 ctrl S 直接查看效果棒棒的！<br>不過再也沒有藉口可以喝口拿鐵啦XD</p>
-<p>簡單介紹一下 Vite 是甚麼：</p>
+        <html><head></head><body><img src="/images/web-socket-and-web-hook/0.png" class="" width="800" height="200" title="[web-socket-and-web-hook [web-socket-and-web-hook]]">
+<p>API 的形式有兩大宗：<br>Web Hook 與 Web Socket，而他們有甚麼差異呢？</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/02/18/zh-tw/vue3-vite-ts/">more</a>
+                <a href="/2022/02/25/zh-tw/web-socket-and-web-hook/">more</a>
             </p>
         
     
@@ -328,64 +273,55 @@ https://stackoverflow.com/questions/27227650/difference-between-app-use-and-rout
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/02/17/zh-tw/git-main-branch/" itemprop="url">Github 主分支更名 master 為 main</a>
+            <a href="/2022/02/25/zh-tw/graph-ql-api/" itemprop="url">Graph QL 新世代 API</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-02-17T12:59:44.000Z" itemprop="datePublished">2月 17 2022</time>
+                <time datetime="2022-02-25T02:48:36.000Z" itemprop="datePublished">2月 25 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/git/">git</a>
+            <a class="article-category-link" href="/categories/graphQL/">graphQL</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            5 分鐘 讀完 (約 687 字)
+            3 分鐘 讀完 (約 448 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/git-main-branch/1.png" class="" width="800" height="200" title="git-main-branch">
-<p>每每 github 搞了一些新招就得重新適應一次（菸</p>
-<p>這兩天在做小專案 git init 之後準備推上去 github 時，執行以下的老樣子：</p>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/mawchu/baby-bill.git</span><br></pre></td></tr></tbody></table></figure>
-<p>看到這裡不免疑惑了一下，不是印象中的 branch 名字呀：</p>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -M main </span><br></pre></td></tr></tbody></table></figure>
-<p>果然執行之後出現噴錯的內容：</p>
-<blockquote class="colorquote danger"><p>error: refname refs/heads/master not found<br>fatal: Branch rename failed</p>
+        <!-- <html><head></head><body><img src="/images/graph-ql-api/0.png" class="" width="800" height="200" title="[css-less [css-less]]">
+<p>隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！</p>
+<p>2012 年 facebook 內部研發出來的新形態 API，2015 年提出發表，特點是前端可以直接進資料庫，不需要透過後端查詢撈取資料。<br>概念有一點類似用前端語言操作 <code>MySQL</code>。前端也擁有更彈性的空間來制定查詢資料的規則與方式，有更大話語權，但相對來講也增加資料設計的難度，在思考的維度上需要更廣更深才能靈活應付多變的資料需求。</p>
+<h1 id="Graph-QL-操作概念"><a href="#Graph-QL-操作概念" class="headerlink" title="Graph QL 操作概念"></a>Graph QL 操作概念</h1><img src="/images/graph-ql-api/1.png" class="" width="800" height="200" title="[css-less [css-less]]">
+<blockquote>
+<p>使用者透過輸入定義好的語法，取得所需的資料 (如 <code>SELECT</code>) 或是修改指定的資料 (如 <code>CREATE</code> 、 <code>UPDATE</code>)。</p>
 </blockquote>
+<h2 id="資料的格式"><a href="#資料的格式" class="headerlink" title="資料的格式"></a>資料的格式</h2><h4 id="前端-request-長相"><a href="#前端-request-長相" class="headerlink" title="前端 request 長相"></a>前端 request 長相</h4><figure class="highlight javascript hljs"><figcaption><span>example</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">query {</span><br><span class="line">  <span class="title class_">User</span>(<span class="hljs-attr">id</span>: <span class="hljs-string">'aefk34kasl9'</span>) {</span><br><span class="line">    name</span><br><span class="line">    posts{</span><br><span class="line">      title</span><br><span class="line">    }</span><br><span class="line">    <span class="title function_">followers</span>(<span class="hljs-params">last: <span class="hljs-number">3</span></span>){</span><br><span class="line">      name</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<p>這個 main 分支從哪裡冒出來的？暗暗覺得這個行為很雞肋= =？</p>
-<blockquote class="colorquote info"><p>為響應黑人平權運動，GitHub宣布從10月1日起改變新Git儲存庫的預設命名，以main來取代原本的master。<br>受到年中佛洛依德（George Floyd）遭警方執法過當死亡，引發的黑人平權抗議風潮影響，美國科技界也相繼思考去除慣用名稱中有種族歧視色彩的字眼，例如不要使用master/slave、blacklist/whitelist。GitHub執行長Nat Friedman也決定進行相關改變。</p>
-<p>開發人員也可以不要變更，隨時到設定區，把個人、組織和公司的新儲存庫預設命名從main改成別的。<br>GitHub呼籲用戶可以先保持不動，到了年底會再釋出新工具以協助現有branch改成新的預設名稱。<br>在支持黑人平權風潮下，包括Google、微軟、IBM、Red Hat、甲骨文下的MySQL及Linux社群都相繼變更了軟體流程的命名。本月微軟也提案修改Chromium中black/whitelist為較中性的blocklist/allowlist。<br><a target="_blank" rel="noopener" href="https://www.ithome.com.tw/news/140094">https://www.ithome.com.tw/news/140094</a></p>
+<h4 id="資料庫-response-長相"><a href="#資料庫-response-長相" class="headerlink" title="資料庫 response 長相"></a>資料庫 response 長相</h4><figure class="highlight javascript hljs"><figcaption><span>example</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="hljs-string">"data"</span>: {</span><br><span class="line">    <span class="hljs-string">"User"</span>: {</span><br><span class="line">      <span class="hljs-string">"name"</span>: <span class="hljs-string">"Mawchu"</span></span><br><span class="line">      <span class="hljs-string">"posts"</span>:[</span><br><span class="line">        { <span class="hljs-attr">title</span>: <span class="hljs-string">"喵喵的一天"</span> }</span><br><span class="line">      ]</span><br><span class="line">      <span class="hljs-string">"followers"</span>: [</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Cally"</span> },</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Donna"</span> },</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Jell"</span> },</span><br><span class="line">      ]</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h1><blockquote>
+<p>Schema，香港和中國大陸翻譯為模式或架構，在資料庫系統中是形式語言描述的一種結構，是對象的集合，可包含各種對象如：表、欄位、關係模型、視圖、索引、包、存儲過程、子程序、隊列、觸發器、數據類型、序列、物化視圖、同義詞（synonym）、database link、directory、XML schema等。</p>
 </blockquote>
-<p>查看了一下網路說明，原來是美國的政治與歷史因素，生活跟科技真是息息相關呢，自己的見識尚淺默默反省了一下XD<br>科普了一會怎麼切換現今的分支變成 main：</p>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="hljs-string">"要推的備註內容"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>都 OK 就可以推上去囉！</p>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></tbody></table></figure>
-<p>推上去發現自己忘了切換帳號又噴錯啦！</p>
-<blockquote class="colorquote danger"><p>remote: Permission to mawchu/baby-bill.git denied to maomaoxie.<br>fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/mawchu/baby-bill.git/'">https://github.com/mawchu/baby-bill.git/'</a>: The requested URL returned error: 403</p>
-</blockquote>
-<p>由於 git bash 切換帳戶不是那麼方便，就偷吃步一下重複 <a href="http://maomaoxie.github.io/2022/02/10/zh-tw/git-pat/">Github 登入新制 PAT X Sourcetree</a> 這篇的步驟就可以囉！</p>
-<p>參考文章：</p>
-<blockquote><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/taoshihan/article/details/116824815?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=1">https://blog.csdn.net/taoshihan/article/details/116824815?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;utm_relevant_index=1</a></p>
+<p>參考資料：</p>
+<blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用<br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10200678">https://ithelp.ithome.com.tw/articles/10200678</a></p>
 </blockquote></body></html> -->
         
         
-        <html><head></head><body><img src="/images/git-main-branch/1.png" class="" width="800" height="200" title="git-main-branch">
-<p>每每 github 搞了一些新招就得重新適應一次（菸</p>
+        <html><head></head><body><img src="/images/graph-ql-api/0.png" class="" width="800" height="200" title="[css-less [css-less]]">
+<p>隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！</p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/02/17/zh-tw/git-main-branch/">more</a>
+                <a href="/2022/02/25/zh-tw/graph-ql-api/">more</a>
             </p>
         
     
@@ -427,7 +363,9 @@ https://stackoverflow.com/questions/27227650/difference-between-app-use-and-rout
         
         <li><a class="pagination-link" href="/page/16/">16</a></li>
         
-        <li><a class="pagination-link" href="/page/17/">17</a></li>
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
+        
+        <li><a class="pagination-link" href="/page/19/">19</a></li>
         
     </ul>
 </nav>
