@@ -214,6 +214,89 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/10/09/google-analytics-knowhow/" itemprop="url">關於 Google Analytics GA 你應該知道的事</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-10-09T06:20:19.000Z" itemprop="datePublished">10月 9 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            11 分鐘 讀完 (約 1680 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>Google Analytics 也就是 GA ，即將在 2023 年 7 月 1 日起不再提供<strong>通用版本（Universal Analytics）</strong><br>的資料分析了，全面升級至 GA4 是每個網站與應用程式必須面對的問題。</p>
+<p>而訪客區分為新訪客與舊訪客，以及舊訪客的回訪率等資料。那麼 Google 要如何去區分呢？來了解一下：</p>
+<h1 id="GA-如何區分與追蹤同一瀏覽人次"><a href="#GA-如何區分與追蹤同一瀏覽人次" class="headerlink" title="GA 如何區分與追蹤同一瀏覽人次"></a>GA 如何區分與追蹤同一瀏覽人次</h1><h3 id="client-ID"><a href="#client-ID" class="headerlink" title="client ID"></a>client ID</h3><p>該數據是 GA 用來判定此瀏覽器使用者是否為重複瀏覽的人次，紀錄方式透過 Cookie 裡的 _ga 查看內容的話，<br>會有一段追蹤碼記錄此用戶的 client ID，一旦清除 GA 偵測不到就會判定為新的瀏覽使用者。</p>
+<img src="/images/google-analytics-knowhow/1.png" class="" width="800" height="200" title="google-analytics-knowhow">
+<blockquote><p>由於 GA 判斷新訪客、舊訪客是使用「用戶裝置瀏覽器」來做區別，因此同一個用戶跨裝置訪問網站亦會被計入成兩個用戶，為了精準了解新訪客和舊訪客，事實上引入 User ID 作為統計方式會最為準確，而這一部份我待後續文章分享。</p>
+<footer><strong>author</strong><cite><a target="_blank" rel="noopener" href="https://medium.com/peerone-technology-%E7%9A%AE%E5%81%B6%E7%8E%A9%E4%BA%92%E5%8B%95%E7%A7%91%E6%8A%80/%E4%B8%80%E7%AA%BA-ga-pageview-%E7%9A%84%E8%BF%BD%E8%B9%A4%E5%8A%9B%E9%87%8F-ga-%E7%B3%BB%E5%88%97-3-afbb42dbb8b5">一窺 GA PageView 的追蹤力量- GA 系列 (3)</a></cite></footer></blockquote>
+
+<p>GA 參數（這裡指的是事件 event 參數）旨在追蹤與分析使用者在你的網站或 app 上所有的互動行為，<br>提供蒐集來的、具商業行為參考價值的數據。</p>
+<blockquote><p>Parameters provide additional information about the ways users interact with your website. </p>
+<footer><strong>google analytics</strong><cite><a target="_blank" rel="noopener" href="https://developers.google.com/analytics/devguides/collection/ga4/event-parameters?client_type=gtm">Set up event parameters</a></cite></footer></blockquote>
+<p>以下初步揭開 GA 的基礎輪廓：</p>
+<h1 id="使用者的著陸網頁（Landing-Page）"><a href="#使用者的著陸網頁（Landing-Page）" class="headerlink" title="使用者的著陸網頁（Landing Page）"></a>使用者的著陸網頁（Landing Page）</h1><p>訪客來到網站的第一個頁面，是整個工作階段（Session）的起始點並且開啟一個工作階段的流程，</p>
+<h1 id="基本追蹤事件"><a href="#基本追蹤事件" class="headerlink" title="基本追蹤事件"></a>基本追蹤事件</h1><p>GA 有<strong>基本追蹤事件</strong>提供開通帳號的使用者，一窺網站或應用程式埋好 GA 追蹤碼之後的<strong>事件（event）</strong>概覽數據，<br>這篇先來簡單介紹 GA 常見的、自動蒐集的數據：</p>
+<p><a target="_blank" rel="noopener" href="https://support.google.com/analytics/answer/9234069#user_engagement">官方說明文件</a></p>
+<h3 id="網頁瀏覽（page-view）"><a href="#網頁瀏覽（page-view）" class="headerlink" title="網頁瀏覽（page_view）"></a>網頁瀏覽（page_view）</h3><p>在指定的時間區段內，所有使用者在網站或應用程式的網頁瀏覽（造訪）量；<br>其中使用者的分母根據 Client ID 計次，來得知網站有多少不重複使用者。</p>
+<img src="/images/google-analytics-knowhow/2.png" class="" width="600" height="200" title="google-analytics-knowhow">
+
+
+<h3 id="締結互動（user-engagement）"><a href="#締結互動（user-engagement）" class="headerlink" title="締結互動（user_engagement）"></a>締結互動（user_engagement）</h3><blockquote><p>The User engagement metric shows the time that your app screen was in the foreground or your web page was in focus. When your site or app is running but no page or screen is displayed, Analytics doesn’t collect the metric. The metric can help you understand when users actively use your website or app.</p>
+<footer><strong>google link What is user engagement on Google Analytics?</strong></footer></blockquote>
+
+<p>不負責任翻譯：<br>The User engagement 計量表示當你的應用程式或網站呈現在使用者畫面前景上並且被使用者聚焦，<br>與網站締結了互動行為，若應用程式或網站尚未載入完成或呈現出來，GA 不會蒐集該項指標。<br>這個計量可以幫助你了解目前應用程式或網站花了多少時間獲得使用者的聚焦，以及即時有多少活躍的使用者。</p>
+<h5 id="互動活躍時間（engagement-time-msec）"><a href="#互動活躍時間（engagement-time-msec）" class="headerlink" title="互動活躍時間（engagement_time_msec）"></a>互動活躍時間（engagement_time_msec）</h5><p>計算使用者在與網站或應用程式締結互動之後開始計算，在網站上活躍的時間毫秒（msec）。</p>
+<h3 id="campaign（活動分類）"><a href="#campaign（活動分類）" class="headerlink" title="campaign（活動分類）"></a>campaign（活動分類）</h3><p>可以在 GA 預設的 <strong>Click 事件</strong>裡查閱的參數，若是透過外部廣告（例如 Google Ads）等方式進入你的網站或應用程式，<br>campaign　參數就會被記錄，通常會顯示（referral）或（organic），有三大分類，<br>有時會帶括號有時不會（不知為啥知道的人請解惑一下XD）。</p>
+<h5 id="organic"><a href="#organic" class="headerlink" title="(organic)"></a>(organic)</h5><p>透過搜尋而來的自然流量（主動）。</p>
+<h5 id="referral"><a href="#referral" class="headerlink" title="(referral)"></a>(referral)</h5><p>透過外部媒體網站進來（被動）瀏覽的使用者，也就是行銷常講的外連（外部連結）。</p>
+<h5 id="none"><a href="#none" class="headerlink" title="(none)"></a>(none)</h5><p>直接進入網站的使用者，例如在 url 輸入網址。</p>
+<h3 id="medium（媒介分類）"><a href="#medium（媒介分類）" class="headerlink" title="medium（媒介分類）"></a>medium（媒介分類）</h3><p>使用者透過甚麼媒介方式進來你的網站，類別同上：</p>
+<h3 id="source（媒介-origin）"><a href="#source（媒介-origin）" class="headerlink" title="source（媒介 origin）"></a>source（媒介 origin）</h3><p>透過外部廣告進來的 url，例如透過 Google 搜尋進來的就會顯示 <code>https://www.google.com/</code>；<br>透過外部網站進來的就會顯示外部網站的 Origin URL。</p>
+<img src="/images/google-analytics-knowhow/5.png" class="" width="500" height="200" title="google-analytics-knowhow">
+
+<h3 id="事件參數"><a href="#事件參數" class="headerlink" title="事件參數"></a>事件參數</h3><p>每個事件都有詳細參數可以閱覽，有機個是預設的（照順序），實際查看發現與官方文件的說明項目有出入。</p>
+<h1 id="GA-如何計算一個互動的單位"><a href="#GA-如何計算一個互動的單位" class="headerlink" title="GA 如何計算一個互動的單位"></a>GA 如何計算一個互動的單位</h1><h3 id="工作階段（Session-Start）"><a href="#工作階段（Session-Start）" class="headerlink" title="工作階段（Session Start）"></a>工作階段（Session Start）</h3><p>GA 的工作階段以 30 分鐘為一個單位，若這段期間使用者並未對網站進行任何互動（例如起來去廁所），<br>當前的工作階段就會結束。每個單位的工作流程可以包含多個互動事件（Event）或是從事商業行為，例如社交互動（Social Interaction）、電子商戶交易行為（Transaction），直到一個單位的工作階段結束（離開網站或是閒置超過 30 分鐘）。</p>
+<h5 id="工作階段強制切割"><a href="#工作階段強制切割" class="headerlink" title="工作階段強制切割"></a>工作階段強制切割</h5><ul>
+<li>只要時間來到<strong>隔日凌晨 00:00:00 時分</strong>，無論當前的工作階段是否有持續進行互動，都會被強制切割成另一個新的工作階段。</li>
+<li>當使用者更換了網站的來源媒介（medium 例如從廣告點進來、重新搜尋網站進入），都會被強制切割成另一個新的工作階段，無論使用者是否有停止當前的工作階段。</li>
+</ul>
+<h3 id="到達頁面（UA-通用版稱呼）"><a href="#到達頁面（UA-通用版稱呼）" class="headerlink" title="到達頁面（UA 通用版稱呼）"></a>到達頁面（UA 通用版稱呼）</h3><p>每一個工作階段開始的第一個頁面。</p>
+<h3 id="離開率"><a href="#離開率" class="headerlink" title="離開率"></a>離開率</h3><p>一個工作階段中「最後一個」瀏覽的網頁，在所有網頁瀏覽量的占比。</p>
+<p>參考資料：<br><a target="_blank" rel="noopener" href="https://awoo.ai/zh-hant/blog/google-analytics-session/">正確理解Google Analytics「工作階段」定義、計算、重要性</a></p>
+</body></html> -->
+        
+        
+        <html><head></head><body><p>Google Analytics 也就是 GA ，即將在 2023 年 7 月 1 日起不再提供<strong>通用版本（Universal Analytics）</strong><br>的資料分析了，全面升級至 GA4 是每個網站與應用程式必須面對的問題。</p>
+<p>而訪客區分為新訪客與舊訪客，以及舊訪客的回訪率等資料。那麼 Google 要如何去區分呢？來了解一下：</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/10/09/google-analytics-knowhow/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/10/05/google-tag-manager-start-up/" itemprop="url">Google Tag Manager 起手式</a>
         
     </h1>
@@ -260,75 +343,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/09/28/google-apps-script-try/" itemprop="url">Google Apps Script 輕鬆寫入表單</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-09-28T06:54:00.000Z" itemprop="datePublished">9月 28 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分鐘 讀完 (約 596 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><p>先前自己的一個小專案使用了 Google 官方的 Sheet Api v4 來寫入花費明細，除了要自幹一套 Node.js 搞定 Sheet API 的 OAuth 之外，還要忍受每過七天 tkn 就會失效的痛苦，終於在茫茫文件海中發現到 App 小天堂 Google Apps Script 這套輕量型的 Paas 平台，讓你撰寫一段小小的 javascript code 就能一秒產生 API endpoint！</p>
-<h1 id="啟用-GCP-Google-Apps-Script"><a href="#啟用-GCP-Google-Apps-Script" class="headerlink" title="啟用 GCP Google Apps Script"></a>啟用 GCP Google Apps Script</h1><p>首先要準備好的就是你 GCP 上的 API 要記得啟用，打開 Google Sheets API 以及 APPs Script API：</p>
-<img src="/images/google-apps-script-try/0.png" class="" width="600" height="200" title="google-apps-script-try">
-
-<p>打開之後去建立一個空白表單來產生需要的 Sheet ID，會在表單連結裡 <code>d/</code> 後方的一串亂碼．</p>
-<img src="/images/google-apps-script-try/1.png" class="" width="800" height="200" title="google-apps-script-try">
-
-<p>接著把表單存取權限開到最大，讓任何知道連結的人都可以編輯表單：</p>
-<img src="/images/google-apps-script-try/2.png" class="" width="800" height="200" title="google-apps-script-try">
-
-<h1 id="透過-Google-Apps-Script-建立應用程式"><a href="#透過-Google-Apps-Script-建立應用程式" class="headerlink" title="透過 Google Apps Script 建立應用程式"></a>透過 Google Apps Script 建立應用程式</h1><h2 id="撰寫程式"><a href="#撰寫程式" class="headerlink" title="撰寫程式"></a>撰寫程式</h2><p>接下來是重頭戲，建立寫入 Google 表單的 app，點案這裡進入 Google Apps Script 介面，撰寫以下的程式碼：<br>來源之後補上：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">doPost</span>(<span class="hljs-params">e</span>) {</span><br><span class="line">  <span class="hljs-comment">// 取得輸入參數</span></span><br><span class="line">  <span class="hljs-keyword">let</span> params = e.<span class="hljs-property">parameter</span>; </span><br><span class="line">  <span class="hljs-keyword">let</span> name = params.<span class="hljs-property">name</span>;</span><br><span class="line">  <span class="hljs-keyword">let</span> mail = params.<span class="hljs-property">mail</span>;</span><br><span class="line"> </span><br><span class="line">  <span class="hljs-comment">// 初始化試算表</span></span><br><span class="line">  <span class="hljs-keyword">let</span> <span class="title class_">SpreadSheet</span> = <span class="title class_">SpreadsheetApp</span>.<span class="title function_">openById</span>(<span class="hljs-string">"輸入你斜線 d 後面的表單 id"</span>);</span><br><span class="line">  <span class="hljs-keyword">let</span> <span class="title class_">Sheet</span> = <span class="title class_">SpreadSheet</span>.<span class="title function_">getSheets</span>()[<span class="hljs-number">0</span>]; <span class="hljs-comment">// 指定第一張試算表</span></span><br><span class="line">  <span class="hljs-keyword">let</span> <span class="title class_">LastRow</span> = <span class="title class_">Sheet</span>.<span class="title function_">getLastRow</span>(); <span class="hljs-comment">// 取得最後一列有值的索引值</span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 寫入試算表</span></span><br><span class="line">  <span class="title class_">Sheet</span>.<span class="title function_">getRange</span>(<span class="title class_">LastRow</span>+<span class="hljs-number">1</span>, <span class="hljs-number">1</span>).<span class="title function_">setValue</span>(name);</span><br><span class="line">  <span class="title class_">Sheet</span>.<span class="title function_">getRange</span>(<span class="title class_">LastRow</span>+<span class="hljs-number">1</span>, <span class="hljs-number">2</span>).<span class="title function_">setValue</span>(mail);</span><br><span class="line">  </span><br><span class="line">  <span class="hljs-comment">// 回傳結果</span></span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="title class_">ContentService</span></span><br><span class="line">  .<span class="title function_">createTextOutput</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>({ <span class="hljs-attr">result</span>: <span class="hljs-string">'成功'</span>, <span class="hljs-attr">version</span>: <span class="hljs-string">'1.0'</span> }))</span><br><span class="line">      .<span class="title function_">setMimeType</span>(<span class="title class_">ContentService</span>.<span class="hljs-property">MimeType</span>.<span class="hljs-property">JSON</span>); </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-<h2 id="部屬程式"><a href="#部屬程式" class="headerlink" title="部屬程式"></a>部屬程式</h2><p>點選右上方的部屬，選擇類型為「網頁應用程式」．以及呼叫 API 的權限設定要記得選擇，所有人都可以呼叫這個程式並且寫入：</p>
-<img src="/images/google-apps-script-try/4.png" class="" width="800" height="200" title="google-apps-script-try">
-<img src="/images/google-apps-script-try/5.png" class="" width="800" height="200" title="google-apps-script-try">
-
-<h2 id="獲得端點-API"><a href="#獲得端點-API" class="headerlink" title="獲得端點 API"></a>獲得端點 API</h2><p>部屬完成會有 API 網址產生，這時候就可以複製起來然後使用 postman 操作看看是否成功囉!</p>
-<img src="/images/google-apps-script-try/6.png" class="" width="800" height="200" title="google-apps-script-try">
-<img src="/images/google-apps-script-try/7.png" class="" width="800" height="200" title="google-apps-script-try">
-
-<p>來查看一下 google sheet 這邊是否成功寫入：</p>
-<img src="/images/google-apps-script-try/8.png" class="" width="800" height="200" title="google-apps-script-try">
-
-<p>大功告成囉!</p>
-</body></html> -->
-        
-        
-        <html><head></head><body><p>先前自己的一個小專案使用了 Google 官方的 Sheet Api v4 來寫入花費明細，除了要自幹一套 Node.js 搞定 Sheet API 的 OAuth 之外，還要忍受每過七天 tkn 就會失效的痛苦，終於在茫茫文件海中發現到 App 小天堂 Google Apps Script 這套輕量型的 Paas 平台，讓你撰寫一段小小的 javascript code 就能一秒產生 API endpoint！</p>
-<h1 id="啟用-GCP-Google-Apps-Script"><a href="#啟用-GCP-Google-Apps-Script" class="headerlink" title="啟用 GCP Google Apps Script"></a>啟用 GCP Google Apps Script</h1><p>首先要準備好的就是你 GCP 上的 API 要記得啟用，打開 Google Sheets API 以及 APPs Script API：</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/09/28/google-apps-script-try/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -354,7 +368,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/19/">19</a></li>
+        <li><a class="pagination-link" href="/page/20/">20</a></li>
         
     </ul>
 </nav>
