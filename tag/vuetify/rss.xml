@@ -77,6 +77,8 @@
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
+        <category>closure</category>
+        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/08/09/zh-tw/vuetify-slot-vhtml/</guid>
             <title>如何在 vuetify 元件中渲染 v-html</title>

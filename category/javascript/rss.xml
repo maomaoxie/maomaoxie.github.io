@@ -77,6 +77,8 @@
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
+        <category>closure</category>
+        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/09/23/zh-tw/js-weird-parts-coercion/</guid>
             <title>克服 Javascript 的奇怪部分 動態型別</title>

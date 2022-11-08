@@ -77,6 +77,8 @@
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
+        <category>closure</category>
+        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/10/09/google-analytics-knowhow/</guid>
             <title>關於 Google Analytics GA 你應該知道的事</title>

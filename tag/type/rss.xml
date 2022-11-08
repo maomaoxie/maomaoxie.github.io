@@ -77,6 +77,8 @@
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
+        <category>closure</category>
+        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/07/30/zh-tw/js-weird-parts-value/</guid>
             <title>克服 Javascript 的奇怪部分 原始型別</title>

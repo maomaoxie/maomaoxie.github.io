@@ -77,6 +77,8 @@
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
+        <category>closure</category>
+        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/04/24/zh-tw/laravel-migration/</guid>
             <title>Laravel 資料庫版控工具 Migration</title>

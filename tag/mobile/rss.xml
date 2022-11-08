@@ -77,6 +77,8 @@
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
+        <category>closure</category>
+        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/08/18/zh-tw/safari-preventDefault-bug/</guid>
             <title>Safari IOS 11.3 後 preventDefault 失效問題</title>

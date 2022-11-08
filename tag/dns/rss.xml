@@ -77,6 +77,8 @@
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
+        <category>closure</category>
+        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/08/07/zh-tw/wordpress-get-started/</guid>
             <title>開始我的第一個 wordpress 網站</title>
