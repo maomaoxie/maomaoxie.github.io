@@ -77,6 +77,8 @@
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
+        <category>closure</category>
+        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/03/01/zh-tw/http-status-code/</guid>
             <title>HTTP Status code 狀態碼解析</title>

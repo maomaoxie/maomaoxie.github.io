@@ -77,6 +77,8 @@
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
+        <category>closure</category>
+        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/04/03/zh-tw/laravel-folder-intro/</guid>
             <title>Laravel 專案包初探</title>

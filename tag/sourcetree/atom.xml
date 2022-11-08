@@ -74,6 +74,8 @@
     <category term="wordpress" />
     <category term="dns" />
     <category term="cdn" />
+    <category term="closure" />
+    <category term="IIFE" />
     <entry>
         <id>http://maomaoxie.github.io/2022/02/17/zh-tw/git-main-branch/</id>
         <title>Github 主分支更名 master 為 main</title>

@@ -145,6 +145,61 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/09/14/zh-tw/touch-and-click-event/" itemprop="url">touch 與 click 事件</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-09-14T01:38:48.000Z" itemprop="datePublished">9月 14 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分鐘 讀完 (約 588 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>製作完一個 swipe 專案之後發覺 click 事件會同時觸發 touch 事件，造成綁定同一個 dom 時觸發兩次，解決方式有幾種：</p>
+<h1 id="針對-click-與-touch-綁定不同的-dom"><a href="#針對-click-與-touch-綁定不同的-dom" class="headerlink" title="針對 click 與 touch 綁定不同的 dom"></a>針對 click 與 touch 綁定不同的 dom</h1><p>例如輪播可以針對箭頭按鈕綁定 click，輪播對象綁定 touch。</p>
+<h1 id="改用-mousedown-amp-up-取代-click-事件"><a href="#改用-mousedown-amp-up-取代-click-事件" class="headerlink" title="改用 mousedown &amp; up 取代 click 事件"></a>改用 mousedown &amp; up 取代 click 事件</h1><p>可以區分滑鼠的點擊事件使用 mouse 系列，與手指的點擊使用 touch 事件。</p>
+<h1 id="改用-pointer-event"><a href="#改用-pointer-event" class="headerlink" title="改用 pointer event"></a>改用 pointer event</h1><p>該事件可以適用於所有觸控裝置，包括觸控筆與手指，可以更敏銳的偵測觸控的方式，有幾種形式可以使用：</p>
+<h3 id="pointerover"><a href="#pointerover" class="headerlink" title="pointerover"></a>pointerover</h3><p>Fired when a pointer is moved into an element’s hit test boundaries.<br>當觸控進入指定區域時觸發。</p>
+<h3 id="ponterenter"><a href="#ponterenter" class="headerlink" title="ponterenter"></a>ponterenter</h3><p>Fired when a pointer is moved into the hit test boundaries of an element or one of its descendants,<br>including as a result of a pointerdown event from a device that does not support hover<br>當觸控進入指定區域或是子元素區域，及不支援 hover 的裝置上按壓時觸發．</p>
+<h3 id="pointerdown"><a href="#pointerdown" class="headerlink" title="pointerdown"></a>pointerdown</h3><p>Fired when a pointer becomes active buttons state.<br>按壓時觸發．</p>
+<h3 id="pointermove"><a href="#pointermove" class="headerlink" title="pointermove"></a>pointermove</h3><p>Fired when a pointer changes coordinates.<br>This event is also used if the change in pointer state can not be reported by other events.<br>當手指按壓並移動時觸發，亦會使用在 pointer 狀態不為其他事件所察覺時．</p>
+<h3 id="pointerup"><a href="#pointerup" class="headerlink" title="pointerup"></a>pointerup</h3><p>Fired when a pointer is no longer active buttons state.<br>當手指接觸面積離開裝置時觸發．</p>
+<h3 id="pointercancel"><a href="#pointercancel" class="headerlink" title="pointercancel"></a>pointercancel</h3><p>A browser fires this event if it concludes the pointer will no longer be able to generate events<br>(for example the related device is deactivated).<br>當裝置因設置關閉觸控等原因無法觸發 pointer 事件時，瀏覽器會偵測並觸發．</p>
+<h3 id="pointerout"><a href="#pointerout" class="headerlink" title="pointerout"></a>pointerout</h3><p>Fired for several reasons including: pointer is moved out of the hit test boundaries of an element;<br>firing the pointerup event for a device that does not support hover (see pointerup);<br>after firing the pointercancel event (see pointercancel); when a pen stylus leaves the hover range detectable by the digitizer.<br>當手指從裝置面板移開時觸發，亦會同時觸發 pointerup 事件；在 pointercancel 事件完成後也會觸發；當觸控筆離開裝置可偵測的範圍內也會觸發．</p>
+<h3 id="pointerleave"><a href="#pointerleave" class="headerlink" title="pointerleave"></a>pointerleave</h3><p>Fired when a pointer is moved out of the hit test boundaries of an element.<br>For pen devices, this event is fired when the stylus leaves the hover range detectable by the digitizer.<br>跟上面很像，只是不會觸發 pointerup；在 pointercancel 事件完成後不會觸發．</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><p>製作完一個 swipe 專案之後發覺 click 事件會同時觸發 touch 事件，造成綁定同一個 dom 時觸發兩次，解決方式有幾種：</p>
+<h1 id="針對-click-與-touch-綁定不同的-dom"><a href="#針對-click-與-touch-綁定不同的-dom" class="headerlink" title="針對 click 與 touch 綁定不同的 dom"></a>針對 click 與 touch 綁定不同的 dom</h1><p>例如輪播可以針對箭頭按鈕綁定 click，輪播對象綁定 touch。</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/09/14/zh-tw/touch-and-click-event/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/08/28/restful-api-python/" itemprop="url">restful-api-python</a>
         
     </h1>
@@ -241,50 +296,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/08/20/zh-tw/gcp-project-switch/" itemprop="url">gcp-project-switch</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-08-20T10:52:22.000Z" itemprop="datePublished">8月 20 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            幾秒 讀完 (約 59 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><p>在 GCP 上部屬不同專案時需要切換專案，根據專案 ID 來切換：</p>
-<h1 id="查看專案-ID"><a href="#查看專案-ID" class="headerlink" title="查看專案 ID"></a>查看專案 ID</h1><figure class="highlight plaintext hljs"><figcaption><span>GCP</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gcloud projects list</span><br><span class="line"></span><br><span class="line">PROJECT_ID: XXX</span><br><span class="line">NAME: baby-bill</span><br><span class="line">PROJECT_NUMBER: XXXXX</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="切換專案"><a href="#切換專案" class="headerlink" title="切換專案"></a>切換專案</h1><figure class="highlight plaintext hljs"><figcaption><span>GCP</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcloud config set project `PROJECT ID`</span><br></pre></td></tr></tbody></table></figure></body></html> -->
-        
-        
-            <html><head></head><body><p>在 GCP 上部屬不同專案時需要切換專案，根據專案 ID 來切換：</p>
-<h1 id="查看專案-ID"><a href="#查看專案-ID" class="headerlink" title="查看專案 ID"></a>查看專案 ID</h1><figure class="highlight plaintext hljs"><figcaption><span>GCP</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gcloud projects list</span><br><span class="line"></span><br><span class="line">PROJECT_ID: XXX</span><br><span class="line">NAME: baby-bill</span><br><span class="line">PROJECT_NUMBER: XXXXX</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="切換專案"><a href="#切換專案" class="headerlink" title="切換專案"></a>切換專案</h1><figure class="highlight plaintext hljs"><figcaption><span>GCP</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcloud config set project `PROJECT ID`</span><br></pre></td></tr></tbody></table></figure></body></html>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -316,7 +327,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/20/">20</a></li>
+        <li><a class="pagination-link" href="/page/21/">21</a></li>
         
     </ul>
 </nav>

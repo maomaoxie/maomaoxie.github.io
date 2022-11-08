@@ -77,6 +77,8 @@
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
+        <category>closure</category>
+        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/02/25/zh-tw/graph-ql-api/</guid>
             <title>Graph QL 新世代 API</title>

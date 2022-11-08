@@ -77,6 +77,8 @@
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
+        <category>closure</category>
+        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/02/25/zh-tw/web-socket-and-web-hook/</guid>
             <title>Web Socket v.s Web Hook</title>

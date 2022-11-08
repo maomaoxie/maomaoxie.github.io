@@ -74,6 +74,8 @@
     <category term="wordpress" />
     <category term="dns" />
     <category term="cdn" />
+    <category term="closure" />
+    <category term="IIFE" />
     <entry>
         <id>http://maomaoxie.github.io/2022/02/24/zh-tw/restful-api-and-web-service/</id>
         <title>初探 Web service</title>

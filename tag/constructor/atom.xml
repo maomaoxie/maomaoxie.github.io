@@ -74,6 +74,8 @@
     <category term="wordpress" />
     <category term="dns" />
     <category term="cdn" />
+    <category term="closure" />
+    <category term="IIFE" />
     <entry>
         <id>http://maomaoxie.github.io/2022/05/14/zh-tw/constructor-vs-instance/</id>
         <title>建構子方法與實例化方法</title>

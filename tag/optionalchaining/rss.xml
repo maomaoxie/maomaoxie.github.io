@@ -77,6 +77,8 @@
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
+        <category>closure</category>
+        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/03/12/zh-tw/short-circuit-and-optional-chaining/</guid>
             <title>短路解析 &amp; 可選鍊修飾符</title>

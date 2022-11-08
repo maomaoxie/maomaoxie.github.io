@@ -74,6 +74,8 @@
     <category term="wordpress" />
     <category term="dns" />
     <category term="cdn" />
+    <category term="closure" />
+    <category term="IIFE" />
     <entry>
         <id>http://maomaoxie.github.io/2022/02/20/zh-tw/express-router-module/</id>
         <title>Express 路由模組化</title>

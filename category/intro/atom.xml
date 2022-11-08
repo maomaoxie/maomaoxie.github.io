@@ -74,6 +74,8 @@
     <category term="wordpress" />
     <category term="dns" />
     <category term="cdn" />
+    <category term="closure" />
+    <category term="IIFE" />
     <entry>
         <id>http://maomaoxie.github.io/2022/08/09/zh-tw/hello-world/</id>
         <title>感謝您的閱讀</title>

@@ -74,6 +74,8 @@
     <category term="wordpress" />
     <category term="dns" />
     <category term="cdn" />
+    <category term="closure" />
+    <category term="IIFE" />
     <entry>
         <id>http://maomaoxie.github.io/2022/04/24/zh-tw/laravel-tailwind/</id>
         <title>在 Laravel 專案導入 tailwind css</title>

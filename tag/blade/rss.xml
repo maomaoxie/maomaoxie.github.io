@@ -77,6 +77,8 @@
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
+        <category>closure</category>
+        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/04/10/zh-tw/laravel-layout/</guid>
             <title>Laravel 善用 layout 避免重複的模板</title>

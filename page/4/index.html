@@ -145,6 +145,76 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/09/21/zh-tw/js-weird-parts-operators-precendence-and-associactivity/" itemprop="url">克服 Javascript 的奇怪部分 運算子的相依性與優先性</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-09-21T06:58:56.000Z" itemprop="datePublished">9月 21 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/javascript/">javascript</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分鐘 讀完 (約 631 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>在了解以下的特性以前需要知道，JavaScript 是 syncrounous 同步在執行一個表達式的，<br>所以一次只能執行一個片段的程式碼，也就是一個表達式，一個表達式只能包含一個運算子與兩個參數，所以需要決定執行的次序．</p>
+<h1 id="優先性（precendence）"><a href="#優先性（precendence）" class="headerlink" title="優先性（precendence）"></a>優先性（precendence）</h1><blockquote><p>When there is more than one operators in one executable code, which operator will be called in order of precedence.</p>
+</blockquote>
+<p>當某片段的執行碼具有多個運算子時，那個先執行取決於優先性（precendence）</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">3</span> + <span class="hljs-number">4</span> * <span class="hljs-number">5</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 23</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>從以下圖表可以檢視優先性：</p>
+<img src="/images/js-weird-parts-operators-precendence-and-associactivity/0.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>由於 * 運算子的優先性大於 + 運算子，所以 Javacript 會優先執行 <code>4 * 5</code> 爾後執行 <code>20 + 3</code>；<br>等號的優先性只有 2，所以會最後執行 <code>a = 23</code>。</p>
+<h1 id="相依性（Associativity）"><a href="#相依性（Associativity）" class="headerlink" title="相依性（Associativity）"></a>相依性（Associativity）</h1><blockquote><p>The Associativity is the percedence that determines the operators being called from left to right,<br>or right to left when the percedence are all the same.</p>
+</blockquote>
+<p>當某片段程式碼中所有的運算子優先性相同時，由相依性來決定執行次序為左相依性還是右相依性：<br>左相依性（Left Associativity）表示由左到右執行；右相依性（Right Associativity）表示由右到左執行。</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">2</span>, b = <span class="hljs-number">3</span>, c = <span class="hljs-number">4</span>;</span><br><span class="line">a = b = c;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 4</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="hljs-comment">// 4</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c); <span class="hljs-comment">// 4</span></span><br></pre></td></tr></tbody></table></figure>
+
+<img src="/images/js-weird-parts-operators-precendence-and-associactivity/1.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>從上圖可以了解到 = 運算子的相依性是右相依性（right to left, Right Associativity），<br>當運算子的優先性都相同時 Javacript 會優先執行右邊的運算子，然後向左一個一個執行。<br><code>a = b = c;</code> 表達式會先執行 <code>b = 4</code>，並且回傳 4 之後執行 <code>a = 4</code>。</p>
+<h1 id="大括號（parentheses）最優先"><a href="#大括號（parentheses）最優先" class="headerlink" title="大括號（parentheses）最優先"></a>大括號（parentheses）最優先</h1><img src="/images/js-weird-parts-operators-precendence-and-associactivity/2.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>當一個表達式中具有多個運算子，大括號（parentheses）裡的運算會最優先：</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = (<span class="hljs-number">3</span> + <span class="hljs-number">4</span>) * <span class="hljs-number">5</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="hljs-comment">// 35</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="amp-amp-優先性（precedence）比較"><a href="#amp-amp-優先性（precedence）比較" class="headerlink" title="&amp;&amp; || 優先性（precedence）比較"></a>&amp;&amp; || 優先性（precedence）比較</h1><img src="/images/js-weird-parts-operators-precendence-and-associactivity/3.png" class="" width="800" height="200" title="js-weird-parts-operators-precendence-and-associactivity">
+<p>在判斷式中經常同時使用 &amp;&amp;（and）與 ||（or），需要特別注意 &amp;&amp;（and）優先級是大於 ||（or）的，<br>不過若專案中有使用到 eslint 則會提示盡量補上大括號（parentheses），來協助辨認次序唷！</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><p>在了解以下的特性以前需要知道，JavaScript 是 syncrounous 同步在執行一個表達式的，<br>所以一次只能執行一個片段的程式碼，也就是一個表達式，一個表達式只能包含一個運算子與兩個參數，所以需要決定執行的次序．</p>
+<h1 id="優先性（precendence）"><a href="#優先性（precendence）" class="headerlink" title="優先性（precendence）"></a>優先性（precendence）</h1><blockquote><p>When there is more than one operators in one executable code, which operator will be called in order of precedence.</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/09/21/zh-tw/js-weird-parts-operators-precendence-and-associactivity/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/09/21/zh-tw/js-weird-parts-operators/" itemprop="url">克服 Javascript 的奇怪部分 運算子</a>
         
     </h1>
@@ -255,61 +325,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/09/14/zh-tw/touch-and-click-event/" itemprop="url">touch 與 click 事件</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-09-14T01:38:48.000Z" itemprop="datePublished">9月 14 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分鐘 讀完 (約 588 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><p>製作完一個 swipe 專案之後發覺 click 事件會同時觸發 touch 事件，造成綁定同一個 dom 時觸發兩次，解決方式有幾種：</p>
-<h1 id="針對-click-與-touch-綁定不同的-dom"><a href="#針對-click-與-touch-綁定不同的-dom" class="headerlink" title="針對 click 與 touch 綁定不同的 dom"></a>針對 click 與 touch 綁定不同的 dom</h1><p>例如輪播可以針對箭頭按鈕綁定 click，輪播對象綁定 touch。</p>
-<h1 id="改用-mousedown-amp-up-取代-click-事件"><a href="#改用-mousedown-amp-up-取代-click-事件" class="headerlink" title="改用 mousedown &amp; up 取代 click 事件"></a>改用 mousedown &amp; up 取代 click 事件</h1><p>可以區分滑鼠的點擊事件使用 mouse 系列，與手指的點擊使用 touch 事件。</p>
-<h1 id="改用-pointer-event"><a href="#改用-pointer-event" class="headerlink" title="改用 pointer event"></a>改用 pointer event</h1><p>該事件可以適用於所有觸控裝置，包括觸控筆與手指，可以更敏銳的偵測觸控的方式，有幾種形式可以使用：</p>
-<h3 id="pointerover"><a href="#pointerover" class="headerlink" title="pointerover"></a>pointerover</h3><p>Fired when a pointer is moved into an element’s hit test boundaries.<br>當觸控進入指定區域時觸發。</p>
-<h3 id="ponterenter"><a href="#ponterenter" class="headerlink" title="ponterenter"></a>ponterenter</h3><p>Fired when a pointer is moved into the hit test boundaries of an element or one of its descendants,<br>including as a result of a pointerdown event from a device that does not support hover<br>當觸控進入指定區域或是子元素區域，及不支援 hover 的裝置上按壓時觸發．</p>
-<h3 id="pointerdown"><a href="#pointerdown" class="headerlink" title="pointerdown"></a>pointerdown</h3><p>Fired when a pointer becomes active buttons state.<br>按壓時觸發．</p>
-<h3 id="pointermove"><a href="#pointermove" class="headerlink" title="pointermove"></a>pointermove</h3><p>Fired when a pointer changes coordinates.<br>This event is also used if the change in pointer state can not be reported by other events.<br>當手指按壓並移動時觸發，亦會使用在 pointer 狀態不為其他事件所察覺時．</p>
-<h3 id="pointerup"><a href="#pointerup" class="headerlink" title="pointerup"></a>pointerup</h3><p>Fired when a pointer is no longer active buttons state.<br>當手指接觸面積離開裝置時觸發．</p>
-<h3 id="pointercancel"><a href="#pointercancel" class="headerlink" title="pointercancel"></a>pointercancel</h3><p>A browser fires this event if it concludes the pointer will no longer be able to generate events<br>(for example the related device is deactivated).<br>當裝置因設置關閉觸控等原因無法觸發 pointer 事件時，瀏覽器會偵測並觸發．</p>
-<h3 id="pointerout"><a href="#pointerout" class="headerlink" title="pointerout"></a>pointerout</h3><p>Fired for several reasons including: pointer is moved out of the hit test boundaries of an element;<br>firing the pointerup event for a device that does not support hover (see pointerup);<br>after firing the pointercancel event (see pointercancel); when a pen stylus leaves the hover range detectable by the digitizer.<br>當手指從裝置面板移開時觸發，亦會同時觸發 pointerup 事件；在 pointercancel 事件完成後也會觸發；當觸控筆離開裝置可偵測的範圍內也會觸發．</p>
-<h3 id="pointerleave"><a href="#pointerleave" class="headerlink" title="pointerleave"></a>pointerleave</h3><p>Fired when a pointer is moved out of the hit test boundaries of an element.<br>For pen devices, this event is fired when the stylus leaves the hover range detectable by the digitizer.<br>跟上面很像，只是不會觸發 pointerup；在 pointercancel 事件完成後不會觸發．</p>
-</body></html> -->
-        
-        
-        <html><head></head><body><p>製作完一個 swipe 專案之後發覺 click 事件會同時觸發 touch 事件，造成綁定同一個 dom 時觸發兩次，解決方式有幾種：</p>
-<h1 id="針對-click-與-touch-綁定不同的-dom"><a href="#針對-click-與-touch-綁定不同的-dom" class="headerlink" title="針對 click 與 touch 綁定不同的 dom"></a>針對 click 與 touch 綁定不同的 dom</h1><p>例如輪播可以針對箭頭按鈕綁定 click，輪播對象綁定 touch。</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/09/14/zh-tw/touch-and-click-event/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -341,7 +356,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/20/">20</a></li>
+        <li><a class="pagination-link" href="/page/21/">21</a></li>
         
     </ul>
 </nav>
