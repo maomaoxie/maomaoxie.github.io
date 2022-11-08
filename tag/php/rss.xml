@@ -7,28 +7,33 @@
         <language>zh-tw,en,default</language>
         <pubDate>Sun, 10 Apr 2022 18:42:15 +0800</pubDate>
         <lastBuildDate>Sun, 10 Apr 2022 18:42:15 +0800</lastBuildDate>
+        <category>Google Analytics</category>
+        <category>GA</category>
+        <category>GA4</category>
+        <category>Google Tag Manager</category>
+        <category>GTM</category>
         <category>javascript</category>
         <category>constructor</category>
         <category>instance</category>
         <category>methods</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
         <category>backEnd</category>
         <category>node</category>
         <category>express</category>
         <category>router</category>
-        <category>git</category>
-        <category>github</category>
-        <category>sourceTree</category>
+        <category>hexo</category>
+        <category>submodule</category>
+        <category>rss</category>
+        <category>http</category>
+        <category>https</category>
+        <category>request</category>
+        <category>response</category>
         <category>api</category>
         <category>graphQL</category>
         <category>facebook</category>
-        <category>rss</category>
-        <category>hexo</category>
-        <category>submodule</category>
-        <category>http</category>
         <category>httpHeader</category>
-        <category>request</category>
-        <category>response</category>
-        <category>https</category>
         <category>status</category>
         <category>httpMethods</category>
         <category>Javascript</category>
@@ -39,14 +44,14 @@
         <category>blade</category>
         <category>wsl2</category>
         <category>layout</category>
-        <category>migration</category>
-        <category>sql</category>
         <category>public</category>
         <category>static</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>tailwind</category>
         <category>css</category>
         <category>less</category>
         <category>processors</category>
-        <category>tailwind</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
@@ -58,17 +63,17 @@
         <category>vue3</category>
         <category>vite</category>
         <category>typescript</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
         <category>vue</category>
+        <category>vuetify</category>
+        <category>html</category>
         <category>compositionAPI</category>
         <category>safari</category>
         <category>javaScript</category>
         <category>preventDefault</category>
         <category>ios</category>
         <category>mobile</category>
-        <category>WebSocket</category>
-        <category>WebHook</category>
-        <category>vuetify</category>
-        <category>html</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>seo-know-how - Mawchu 貓奴前端的天空</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="google-site-verification" content="qpdwAFMt_HNGP0dM45CxVBDie_HVPkWFvpclpqZaoIo" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2022/08/20/seo-know-how/" rel="alternate" hreflang="en" />
+    
+
+
+<meta name="description" content="Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習">
+
+
+
+<meta name="keywords" content="mawchu、謝佳芳、毛球、網頁、前端、Javascript、Vue、Laravel、SEO、平面設計、貓咪">
+
+
+
+    <meta name="description" content="SEO 分為網站結構 &amp; 內容網站競品 新聞類型 SEO 結構不能輸別人 搜尋引擎 網站連結任何頁面必須可以內連孤兒頁面對收錄到 SEO 非常扣分 蜘蛛網結構網站內部蜘蛛網結構的互連非常重要，越多就越能被 Google 搜尋到，會比提交來的重要 權重高的網站外連由權重高的網站，例如新聞網站有連結過來就能大大提高收錄機會 網站結構sitemap加入檢索隊列(Crawl Queue)的行為可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="seo-know-how">
+<meta property="og:url" content="http://maomaoxie.github.io/2022/08/20/seo-know-how/index.html">
+<meta property="og:site_name" content="Mawchu 貓奴前端的天空">
+<meta property="og:description" content="SEO 分為網站結構 &amp; 內容網站競品 新聞類型 SEO 結構不能輸別人 搜尋引擎 網站連結任何頁面必須可以內連孤兒頁面對收錄到 SEO 非常扣分 蜘蛛網結構網站內部蜘蛛網結構的互連非常重要，越多就越能被 Google 搜尋到，會比提交來的重要 權重高的網站外連由權重高的網站，例如新聞網站有連結過來就能大大提高收錄機會 網站結構sitemap加入檢索隊列(Crawl Queue)的行為可以">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://maomaoxie.github.io/images/seo-know-how/3.png">
+<meta property="article:published_time" content="2022-08-20T02:26:25.000Z">
+<meta property="article:modified_time" content="2022-10-13T10:12:57.773Z">
+<meta property="article:author" content="Mawchu 謝佳芳">
+<meta property="article:tag" content="mawchu、謝佳芳、毛球、網頁、前端、Javascript、Vue、Laravel、SEO、平面設計、貓咪">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://maomaoxie.github.io/images/seo-know-how/3.png">
+
+
+
+<link rel="alternative" href="/atom.xml" title="seo-know-how" type="application/atom+xml">
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.svg">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832218493331944" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script src="https://kit.fontawesome.com/76e3351334.js" crossorigin="anonymous"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container custom-nav">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo position-relative" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/subscribe">訂閱
+               <div class="position-absolute bar"></div>
+            </a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/mawchu">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            seo-know-how
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-20T02:26:25.000Z" itemprop="datePublished">8月 20 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 分鐘 讀完 (約 1025 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>SEO 分為網站結構 &amp; 內容<br>網站競品 新聞類型 SEO 結構不能輸別人</p>
+<p>搜尋引擎</p>
+<h1 id="網站連結"><a href="#網站連結" class="headerlink" title="網站連結"></a>網站連結</h1><h3 id="任何頁面必須可以內連"><a href="#任何頁面必須可以內連" class="headerlink" title="任何頁面必須可以內連"></a>任何頁面必須可以內連</h3><p>孤兒頁面對收錄到 SEO 非常扣分</p>
+<h4 id="蜘蛛網結構"><a href="#蜘蛛網結構" class="headerlink" title="蜘蛛網結構"></a>蜘蛛網結構</h4><p>網站內部蜘蛛網結構的互連非常重要，越多就越能被 Google 搜尋到，會比提交來的重要</p>
+<h3 id="權重高的網站外連"><a href="#權重高的網站外連" class="headerlink" title="權重高的網站外連"></a>權重高的網站外連</h3><p>由權重高的網站，例如新聞網站有連結過來就能大大提高收錄機會</p>
+<h1 id="網站結構"><a href="#網站結構" class="headerlink" title="網站結構"></a>網站結構</h1><h3 id="sitemap"><a href="#sitemap" class="headerlink" title="sitemap"></a>sitemap</h3><p>加入檢索隊列(Crawl Queue)的行為可以透過提交網站結構的 sitemap 至 google search console，而且不能造假也沒有無效的網頁連結（ex. 404、500 等）<br>sitemap是有上限的</p>
+<h3 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h3><p>開發階段不想曝光的網頁可以設定 robots.txt 不被收錄，但並非百分百有效<br>最好是設定密碼登入去擋內容，或是不要上線</p>
+<h1 id="domain-knowledge"><a href="#domain-knowledge" class="headerlink" title="domain knowledge"></a>domain knowledge</h1><p>領域專長<br>產業的核心知識 了解TA需求</p>
+<h1 id="breadcrumb"><a href="#breadcrumb" class="headerlink" title="breadcrumb"></a>breadcrumb</h1><p>網站麵包屑</p>
+<h1 id="you-may-like"><a href="#you-may-like" class="headerlink" title="you may like"></a>you may like</h1><p>你可能會喜歡的相關文章</p>
+<p>文章序號丟API 運算連結之間的關係(AI 資料工程師)</p>
+<h1 id="js-做的連結不會收錄"><a href="#js-做的連結不會收錄" class="headerlink" title="js 做的連結不會收錄"></a>js 做的連結不會收錄</h1><p>可以追蹤：</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href="https://example.com"&gt;</span><br><span class="line">&lt;a href="/relative/path/file"&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>無法追蹤：</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a routerLink="some/path"&gt;</span><br><span class="line">&lt;span href="https://example.com"&gt;</span><br><span class="line">&lt;a onclick="goto('https://example.com')"&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+
+<h1 id="網站更新頻率要勤"><a href="#網站更新頻率要勤" class="headerlink" title="網站更新頻率要勤"></a>網站更新頻率要勤</h1><p>經常更新的網站才會被 google 將排名提前</p>
+<h1 id="UI-amp-UX-要好"><a href="#UI-amp-UX-要好" class="headerlink" title="UI &amp; UX 要好"></a>UI &amp; UX 要好</h1><p>網站體驗好 SEO 就會好，SEO 好廣告投入就可以降低</p>
+<h1 id="更新時間"><a href="#更新時間" class="headerlink" title="更新時間"></a>更新時間</h1><p>網站的 sitemap 會註明網站更新時間，對 google 的 SEO 排名也有影響</p>
+<h1 id="網站的-canonical-標準網址"><a href="#網站的-canonical-標準網址" class="headerlink" title="網站的 canonical 標準網址"></a>網站的 canonical 標準網址</h1><p>主網址會被 google 拿來計算收錄的頁面數量</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel="canonical" href="" &gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="網頁未加入索引"><a href="#網頁未加入索引" class="headerlink" title="網頁未加入索引"></a>網頁未加入索引</h3><p>不同網址但內容一樣會扣分，記得設定 canonical</p>
+<h1 id="基本要設定的"><a href="#基本要設定的" class="headerlink" title="基本要設定的"></a>基本要設定的</h1><title>網頁標題</title>
+<meta name="description" content="">
+// 設定網站縮圖
+<link rel="image_src" href="">
+
+<p>可以設定的</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta content="" name="copyright"&gt;</span><br><span class="line">&lt;meta content="" name="author"&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>要小心的</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name="keywords" content="關鍵字1, 關鍵字2" /&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="社群媒體"><a href="#社群媒體" class="headerlink" title="社群媒體"></a>社群媒體</h1><p>可以透過<a target="_blank" rel="noopener" href="https://metatags.io/">metatags</a>協助產生網站的縮圖</p>
+<h1 id="移除外部連結的權重"><a href="#移除外部連結的權重" class="headerlink" title="移除外部連結的權重"></a>移除外部連結的權重</h1><p>其目的在於告訴搜尋引擎不要索引抓取這個連結，同時也不要給予他權重。<br>Nofollow 反向連結是只將 <code>&lt;a href="https://example.com.tw"&gt;Example&lt;/a&gt;</code> 加入 <code>rel="nofollow"</code> 標籤<br><a target="_blank" rel="noopener" href="https://example.com.tw" ref="nofollow">Example</a>。</p>
+<h1 id="使用者體驗"><a href="#使用者體驗" class="headerlink" title="使用者體驗"></a>使用者體驗</h1><p>內容要與主題相符</p>
+<h1 id="https"><a href="#https" class="headerlink" title="https"></a>https</h1><p>cloudflare 有提供免費的 https </p>
+<h1 id="AWD-AMP-PWA"><a href="#AWD-AMP-PWA" class="headerlink" title="AWD AMP PWA"></a>AWD AMP PWA</h1><p>提升行動裝置的網站架構亦可以提升網站體驗與速度</p>
+<h1 id="網站核心體驗三大指標"><a href="#網站核心體驗三大指標" class="headerlink" title="網站核心體驗三大指標"></a>網站核心體驗三大指標</h1><h3 id="LCP"><a href="#LCP" class="headerlink" title="LCP"></a>LCP</h3><p>最大內容繪製，2.5 秒可以渲染完畢</p>
+<h3 id="FID"><a href="#FID" class="headerlink" title="FID"></a>FID</h3><p>首次輸入的延遲時間，頁面互動的反應時間</p>
+<h3 id="CLS"><a href="#CLS" class="headerlink" title="CLS"></a>CLS</h3><p>累積版面配置轉移，還未讀取到的資料先將空間撐開（lazyload），避免使用者捲到的位置空間還未撐開，例如以下：</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img width="200" height="300" /&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="SEO-v-s-廣告"><a href="#SEO-v-s-廣告" class="headerlink" title="SEO v.s 廣告"></a>SEO v.s 廣告</h1><p>在網站內放置廣告版位會對 SEO 扣分，但收入又需要靠廣告，是一種互相牴觸的生態</p>
+<h1 id="title"><a href="#title" class="headerlink" title="title"></a>title</h1><p>網頁的 title 都要放置網站名稱，例如：<br>網頁的內容概要、網站名稱</p>
+<h1 id="熱門關鍵字"><a href="#熱門關鍵字" class="headerlink" title="熱門關鍵字"></a>熱門關鍵字</h1><p>倘若 SEO 好熱門關鍵字也可以提升排名</p>
+<h1 id="SVG-圖片格式"><a href="#SVG-圖片格式" class="headerlink" title="SVG 圖片格式"></a>SVG 圖片格式</h1><p>img 有 alt 可以幫助搜尋引擎了解圖片內容，SVG 則可以加上 title 以及 describe 等同於 img 的 alt，結構如下：</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg height="100" width="100" aria-labelledby="svgTitle svgDesc" role="img"&gt;</span><br><span class="line">  &lt;title id="svgTitle"&gt;Circle&lt;/title&gt;</span><br><span class="line">  &lt;desc id="svgDesc"&gt;This is a red circle&lt;/desc&gt;</span><br><span class="line">  &lt;circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" /&gt;</span><br><span class="line">&lt;/svg&gt; </span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="SERP-結構化資料"><a href="#SERP-結構化資料" class="headerlink" title="SERP 結構化資料"></a>SERP 結構化資料</h1><p><a target="_blank" rel="noopener" href="https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data?hl=zh-tw">參考資料</a></p>
+<h3 id="JSON-LD"><a href="#JSON-LD" class="headerlink" title="JSON-LD"></a>JSON-LD</h3><p>結構化資料的格式，例如 Google 提供的範例：</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;Apple Pie by Grandma&lt;/title&gt;</span><br><span class="line">    &lt;script type="application/ld+json"&gt;</span><br><span class="line">    {</span><br><span class="line">      "@context": "https://schema.org/",</span><br><span class="line">      "@type": "Recipe",</span><br><span class="line">      "name": "Apple Pie by Grandma",</span><br><span class="line">      "author": "Elaine Smith",</span><br><span class="line">      "image": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",</span><br><span class="line">      "description": "A classic apple pie.",</span><br><span class="line">      "aggregateRating": {</span><br><span class="line">        "@type": "AggregateRating",</span><br><span class="line">        "ratingValue": "4.8",</span><br><span class="line">        "reviewCount": "7462",</span><br><span class="line">        "bestRating": "5",</span><br><span class="line">        "worstRating": "1"</span><br><span class="line">      },</span><br><span class="line">      "prepTime": "PT30M",</span><br><span class="line">      "totalTime": "PT1H30M",</span><br><span class="line">      "recipeYield": "8",</span><br><span class="line">      "nutrition": {</span><br><span class="line">        "@type": "NutritionInformation",</span><br><span class="line">        "calories": "512 calories"</span><br><span class="line">      },</span><br><span class="line">      "recipeIngredient": [</span><br><span class="line">        "1 box refrigerated pie crusts, softened as directed on box",</span><br><span class="line">        "6 cups thinly sliced, peeled apples (6 medium)"</span><br><span class="line">      ]</span><br><span class="line">    }</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>顯示的內容：</p>
+<img src="/images/seo-know-how/3.png" class="" width="800" height="200" title="seo-know-how">
+
+<p>驗證是否有誤：<br><a target="_blank" rel="noopener" href="https://search.google.com/test/rich-results">驗證連結</a></p>
+<blockquote><p>參考網站：<br><a target="_blank" rel="noopener" href="https://tools.wingzero.tw/article/sn/1187">紅色死神 DETOOLS</a></p>
+</blockquote></body></html> -->
+        
+        
+            <html><head></head><body><p>SEO 分為網站結構 &amp; 內容<br>網站競品 新聞類型 SEO 結構不能輸別人</p>
+<p>搜尋引擎</p>
+<h1 id="網站連結"><a href="#網站連結" class="headerlink" title="網站連結"></a>網站連結</h1><h3 id="任何頁面必須可以內連"><a href="#任何頁面必須可以內連" class="headerlink" title="任何頁面必須可以內連"></a>任何頁面必須可以內連</h3><p>孤兒頁面對收錄到 SEO 非常扣分</p>
+<h4 id="蜘蛛網結構"><a href="#蜘蛛網結構" class="headerlink" title="蜘蛛網結構"></a>蜘蛛網結構</h4><p>網站內部蜘蛛網結構的互連非常重要，越多就越能被 Google 搜尋到，會比提交來的重要</p>
+<h3 id="權重高的網站外連"><a href="#權重高的網站外連" class="headerlink" title="權重高的網站外連"></a>權重高的網站外連</h3><p>由權重高的網站，例如新聞網站有連結過來就能大大提高收錄機會</p>
+<h1 id="網站結構"><a href="#網站結構" class="headerlink" title="網站結構"></a>網站結構</h1><h3 id="sitemap"><a href="#sitemap" class="headerlink" title="sitemap"></a>sitemap</h3><p>加入檢索隊列(Crawl Queue)的行為可以透過提交網站結構的 sitemap 至 google search console，而且不能造假也沒有無效的網頁連結（ex. 404、500 等）<br>sitemap是有上限的</p>
+<h3 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h3><p>開發階段不想曝光的網頁可以設定 robots.txt 不被收錄，但並非百分百有效<br>最好是設定密碼登入去擋內容，或是不要上線</p>
+<h1 id="domain-knowledge"><a href="#domain-knowledge" class="headerlink" title="domain knowledge"></a>domain knowledge</h1><p>領域專長<br>產業的核心知識 了解TA需求</p>
+<h1 id="breadcrumb"><a href="#breadcrumb" class="headerlink" title="breadcrumb"></a>breadcrumb</h1><p>網站麵包屑</p>
+<h1 id="you-may-like"><a href="#you-may-like" class="headerlink" title="you may like"></a>you may like</h1><p>你可能會喜歡的相關文章</p>
+<p>文章序號丟API 運算連結之間的關係(AI 資料工程師)</p>
+<h1 id="js-做的連結不會收錄"><a href="#js-做的連結不會收錄" class="headerlink" title="js 做的連結不會收錄"></a>js 做的連結不會收錄</h1><p>可以追蹤：</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href="https://example.com"&gt;</span><br><span class="line">&lt;a href="/relative/path/file"&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>無法追蹤：</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a routerLink="some/path"&gt;</span><br><span class="line">&lt;span href="https://example.com"&gt;</span><br><span class="line">&lt;a onclick="goto('https://example.com')"&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+
+<h1 id="網站更新頻率要勤"><a href="#網站更新頻率要勤" class="headerlink" title="網站更新頻率要勤"></a>網站更新頻率要勤</h1><p>經常更新的網站才會被 google 將排名提前</p>
+<h1 id="UI-amp-UX-要好"><a href="#UI-amp-UX-要好" class="headerlink" title="UI &amp; UX 要好"></a>UI &amp; UX 要好</h1><p>網站體驗好 SEO 就會好，SEO 好廣告投入就可以降低</p>
+<h1 id="更新時間"><a href="#更新時間" class="headerlink" title="更新時間"></a>更新時間</h1><p>網站的 sitemap 會註明網站更新時間，對 google 的 SEO 排名也有影響</p>
+<h1 id="網站的-canonical-標準網址"><a href="#網站的-canonical-標準網址" class="headerlink" title="網站的 canonical 標準網址"></a>網站的 canonical 標準網址</h1><p>主網址會被 google 拿來計算收錄的頁面數量</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel="canonical" href="" &gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="網頁未加入索引"><a href="#網頁未加入索引" class="headerlink" title="網頁未加入索引"></a>網頁未加入索引</h3><p>不同網址但內容一樣會扣分，記得設定 canonical</p>
+<h1 id="基本要設定的"><a href="#基本要設定的" class="headerlink" title="基本要設定的"></a>基本要設定的</h1><title>網頁標題</title>
+<meta name="description" content="">
+// 設定網站縮圖
+<link rel="image_src" href="">
+
+<p>可以設定的</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta content="" name="copyright"&gt;</span><br><span class="line">&lt;meta content="" name="author"&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>要小心的</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name="keywords" content="關鍵字1, 關鍵字2" /&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="社群媒體"><a href="#社群媒體" class="headerlink" title="社群媒體"></a>社群媒體</h1><p>可以透過<a target="_blank" rel="noopener" href="https://metatags.io/">metatags</a>協助產生網站的縮圖</p>
+<h1 id="移除外部連結的權重"><a href="#移除外部連結的權重" class="headerlink" title="移除外部連結的權重"></a>移除外部連結的權重</h1><p>其目的在於告訴搜尋引擎不要索引抓取這個連結，同時也不要給予他權重。<br>Nofollow 反向連結是只將 <code>&lt;a href="https://example.com.tw"&gt;Example&lt;/a&gt;</code> 加入 <code>rel="nofollow"</code> 標籤<br><a target="_blank" rel="noopener" href="https://example.com.tw" ref="nofollow">Example</a>。</p>
+<h1 id="使用者體驗"><a href="#使用者體驗" class="headerlink" title="使用者體驗"></a>使用者體驗</h1><p>內容要與主題相符</p>
+<h1 id="https"><a href="#https" class="headerlink" title="https"></a>https</h1><p>cloudflare 有提供免費的 https </p>
+<h1 id="AWD-AMP-PWA"><a href="#AWD-AMP-PWA" class="headerlink" title="AWD AMP PWA"></a>AWD AMP PWA</h1><p>提升行動裝置的網站架構亦可以提升網站體驗與速度</p>
+<h1 id="網站核心體驗三大指標"><a href="#網站核心體驗三大指標" class="headerlink" title="網站核心體驗三大指標"></a>網站核心體驗三大指標</h1><h3 id="LCP"><a href="#LCP" class="headerlink" title="LCP"></a>LCP</h3><p>最大內容繪製，2.5 秒可以渲染完畢</p>
+<h3 id="FID"><a href="#FID" class="headerlink" title="FID"></a>FID</h3><p>首次輸入的延遲時間，頁面互動的反應時間</p>
+<h3 id="CLS"><a href="#CLS" class="headerlink" title="CLS"></a>CLS</h3><p>累積版面配置轉移，還未讀取到的資料先將空間撐開（lazyload），避免使用者捲到的位置空間還未撐開，例如以下：</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img width="200" height="300" /&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="SEO-v-s-廣告"><a href="#SEO-v-s-廣告" class="headerlink" title="SEO v.s 廣告"></a>SEO v.s 廣告</h1><p>在網站內放置廣告版位會對 SEO 扣分，但收入又需要靠廣告，是一種互相牴觸的生態</p>
+<h1 id="title"><a href="#title" class="headerlink" title="title"></a>title</h1><p>網頁的 title 都要放置網站名稱，例如：<br>網頁的內容概要、網站名稱</p>
+<h1 id="熱門關鍵字"><a href="#熱門關鍵字" class="headerlink" title="熱門關鍵字"></a>熱門關鍵字</h1><p>倘若 SEO 好熱門關鍵字也可以提升排名</p>
+<h1 id="SVG-圖片格式"><a href="#SVG-圖片格式" class="headerlink" title="SVG 圖片格式"></a>SVG 圖片格式</h1><p>img 有 alt 可以幫助搜尋引擎了解圖片內容，SVG 則可以加上 title 以及 describe 等同於 img 的 alt，結構如下：</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg height="100" width="100" aria-labelledby="svgTitle svgDesc" role="img"&gt;</span><br><span class="line">  &lt;title id="svgTitle"&gt;Circle&lt;/title&gt;</span><br><span class="line">  &lt;desc id="svgDesc"&gt;This is a red circle&lt;/desc&gt;</span><br><span class="line">  &lt;circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" /&gt;</span><br><span class="line">&lt;/svg&gt; </span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="SERP-結構化資料"><a href="#SERP-結構化資料" class="headerlink" title="SERP 結構化資料"></a>SERP 結構化資料</h1><p><a target="_blank" rel="noopener" href="https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data?hl=zh-tw">參考資料</a></p>
+<h3 id="JSON-LD"><a href="#JSON-LD" class="headerlink" title="JSON-LD"></a>JSON-LD</h3><p>結構化資料的格式，例如 Google 提供的範例：</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;Apple Pie by Grandma&lt;/title&gt;</span><br><span class="line">    &lt;script type="application/ld+json"&gt;</span><br><span class="line">    {</span><br><span class="line">      "@context": "https://schema.org/",</span><br><span class="line">      "@type": "Recipe",</span><br><span class="line">      "name": "Apple Pie by Grandma",</span><br><span class="line">      "author": "Elaine Smith",</span><br><span class="line">      "image": "http://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",</span><br><span class="line">      "description": "A classic apple pie.",</span><br><span class="line">      "aggregateRating": {</span><br><span class="line">        "@type": "AggregateRating",</span><br><span class="line">        "ratingValue": "4.8",</span><br><span class="line">        "reviewCount": "7462",</span><br><span class="line">        "bestRating": "5",</span><br><span class="line">        "worstRating": "1"</span><br><span class="line">      },</span><br><span class="line">      "prepTime": "PT30M",</span><br><span class="line">      "totalTime": "PT1H30M",</span><br><span class="line">      "recipeYield": "8",</span><br><span class="line">      "nutrition": {</span><br><span class="line">        "@type": "NutritionInformation",</span><br><span class="line">        "calories": "512 calories"</span><br><span class="line">      },</span><br><span class="line">      "recipeIngredient": [</span><br><span class="line">        "1 box refrigerated pie crusts, softened as directed on box",</span><br><span class="line">        "6 cups thinly sliced, peeled apples (6 medium)"</span><br><span class="line">      ]</span><br><span class="line">    }</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>顯示的內容：</p>
+<img src="/images/seo-know-how/3.png" class="" width="800" height="200" title="seo-know-how">
+
+<p>驗證是否有誤：<br><a target="_blank" rel="noopener" href="https://search.google.com/test/rich-results">驗證連結</a></p>
+<blockquote><p>參考網站：<br><a target="_blank" rel="noopener" href="https://tools.wingzero.tw/article/sn/1187">紅色死神 DETOOLS</a></p>
+</blockquote></body></html>
+        
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/08/20/typescript-why-use-it/">
+                <i class="fas fa-caret-left" style="padding-right: 5px"></i> typescript-why-use-it
+            </a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-next">
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62024aa50a70400019079d5b&amp;product=sticky-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://maomaoxie.github.io/2022/08/20/seo-know-how/';
+        this.page.identifier = '2022/08/20/seo-know-how/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'maomaoxie' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 Mawchu 謝佳芳&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/mawchu">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2022/08/20/seo-know-how/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2022/08/20/seo-know-how/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-TW");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+          position: relative;
+        }
+
+        .hljs .clipboard-btn {
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #2e2e2e;
+          transform: scale(1.1);
+        }
+
+        .hljs > .clipboard-btn {
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+          display: inline;
+        }
+
+        button {
+          padding: 0;
+        }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

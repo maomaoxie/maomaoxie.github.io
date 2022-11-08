@@ -145,13 +145,169 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/02/28/zh-tw/http-and-https/" itemprop="url">HTTP 超文本傳輸協定</a>
+            <a href="/2022/04/03/zh-tw/laravel-folder-intro/" itemprop="url">Laravel 專案包初探</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-02-28T02:07:23.000Z" itemprop="datePublished">2月 28 2022</time>
+                <time datetime="2022-04-03T11:01:30.000Z" itemprop="datePublished">4月 3 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/laravel/">laravel</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分鐘 讀完 (約 848 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/laravel-folder-intro/0.png" class="Laravel-folder-intro" width="800" height="200" title="Laravel 專案包初探">
+<p>Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用：</p>
+<blockquote class="colorquote info"><p>先打預防針，其實整個 Larevel 專案包預設並沒有任何 UI 框架，此專案包內名為 bootstrap 的檔案都跟該框架無半點毛關係！不要被混淆了。</p>
+<p>知識小學堂：<br><strong>bootstrap</strong> 的意思為鞋帶，衍生的動詞涵義是<strong>啟動機制</strong>，符合 Laravel 框架中用來充當 <strong>glue</strong> 黏著任何相關檔案或 app 啟動機制的程序。</p>
+</blockquote>
+
+<h1 id="vendor"><a href="#vendor" class="headerlink" title="vendor"></a>vendor</h1><p>Composer 相依套件的目錄，類似 node modules。</p>
+<h1 id="app"><a href="#app" class="headerlink" title="app"></a>app</h1><p>核心的 code 會放在這裡，大部分的類別（class）程式放置處，重要的 MVC 架構中的 <code>Controller</code> 類別會放在 Http/Controllers 資料夾中，以處理 View 與 Model 中間的繫結處理器。</p>
+<h1 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h1><p>這裡的 bootstrap 並非 UI 框架，而是啟動整個 Laravel app 需要使用的元件放置處，增進性能優化的快取設定（cache）會放在這，不需要編寫這邊的檔案。</p>
+<h1 id="database"><a href="#database" class="headerlink" title="database"></a>database</h1><p>Model factories 會放在這裡，亦可處理 database 的遷移。</p>
+<h1 id="lang"><a href="#lang" class="headerlink" title="lang"></a>lang</h1><p>語言的切換檔案。</p>
+<h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><p>網站的靜態檔案如 js、css 及 images 放置處，以及網站的所有入口點（entry points）<code>index.php</code> 與設定自動加載（autoloading）的地方。</p>
+<h1 id="resource"><a href="#resource" class="headerlink" title="resource"></a>resource</h1><p>MVC 架構中的 <code>Views</code> 類別會放在這裡，通常是 <code>blade</code> 模板檔案，也存放一些初胚的、未經壓縮與處理的 js、css 檔案，在網站打包之後會被壓縮並且優化性能，需要 loader 去編譯的檔案可以放在這裡，例如 less 或 sass。</p>
+<h3 id="resource-x2F-bootstrap-js"><a href="#resource-x2F-bootstrap-js" class="headerlink" title="resource/bootstrap.js"></a>resource/bootstrap.js</h3><p>該文件夾底下的 <code>bootstrap.js</code> 檔案並非 UI 框架，而是放置 <code>CSRF Token</code> 自動夾帶在 header 的程序，並且使用 <code>$axios</code> 發送 request 出去，以<strong>避免 XSRF 跨站偽造攻擊</strong>之用！</p>
+<blockquote class="colorquote danger"><p>警告：不想整個 app 掛掉的話請不要亂動我！</p>
+</blockquote>
+
+<h1 id="routes"><a href="#routes" class="headerlink" title="routes"></a>routes</h1><p>路由檔案，預設會有 <code>web.php</code>, <code>api.php</code>, <code>console.php</code>, and <code>channels.php</code> 幾支提供設定，也可以使用 app 裡面的 Controller Class 來渲染路由對應的 view 檔。</p>
+<h3 id="routes-x2F-web-php"><a href="#routes-x2F-web-php" class="headerlink" title="routes/web.php"></a>routes/web.php</h3><p>提供 session state、CSRF 保護與 cookie 加密，可以放置除了 server 提供的 RESTful API 以外的網頁路由設定。</p>
+<h3 id="routes-x2F-api-php"><a href="#routes-x2F-api-php" class="headerlink" title="routes/api.php"></a>routes/api.php</h3><p>API 中介軟體的設定處，是無狀態（stateless）的，所有進入該介面的路由都需要攜帶 Token 認證且無法隨意進入。</p>
+<h3 id="routes-x2F-console-php"><a href="#routes-x2F-console-php" class="headerlink" title="routes/console.php"></a>routes/console.php</h3><p>可以將自定義的指令碼撰寫在這，例如 Artisan 的相關指令。</p>
+<h3 id="routes-x2F-channels-php"><a href="#routes-x2F-channels-php" class="headerlink" title="routes/channels.php"></a>routes/channels.php</h3><p>定義授權請求監聽的邏輯，以註冊相應的回呼函式。</p>
+<h1 id="storage"><a href="#storage" class="headerlink" title="storage"></a>storage</h1><p>放置經過編譯的 blade php 模板，以及快取與其他框架處理過後的檔案，其中<code>storage/app/public</code>路徑放置使用者操作後產生的檔案，例如頭像圖片。</p>
+<h1 id="config"><a href="#config" class="headerlink" title="config"></a>config</h1><p>整個網站應用程式的設定檔案，建議熟讀並且活用其中的多樣選擇。可以把一些全域使用的環境變數放置其中。</p>
+<p>參考文章：</p>
+<blockquote><p><a target="_blank" rel="noopener" href="https://laravel.com/docs/9.x/structure">https://laravel.com/docs/9.x/structure</a></p>
+</blockquote>
+</body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/laravel-folder-intro/0.png" class="Laravel-folder-intro" width="800" height="200" title="Laravel 專案包初探">
+<p>Laravel 專案包建立好之後，有以下幾個主要的資料夾，一一介紹其作用：</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/04/03/zh-tw/laravel-folder-intro/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/03/12/zh-tw/short-circuit-and-optional-chaining/" itemprop="url">短路解析 &amp; 可選鍊修飾符</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-03-12T05:55:02.000Z" itemprop="datePublished">3月 12 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="fas fa-folder"></i>
+            <a class="article-category-link" href="/categories/javascript/">javascript</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 分鐘 讀完 (約 1032 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><img src="/images/short-circuit-and-optional-chaining/0.png" class="" width="800" height="200" title="短路解析與可選練修飾符">
+<p>在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說<code>undefined</code>（未定義）、<code>null</code>（空值）或者是<code>0</code>（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。</p>
+<h1 id="理解真假值"><a href="#理解真假值" class="headerlink" title="理解真假值"></a>理解真假值</h1><p>先介紹 truthy(真值) 與 falsy(假值)：</p>
+<ul>
+<li>truthy：非 falsy 的值，或者是表達式結果為 <code>true</code></li>
+<li>falsy：<code>undefined</code>、<code>null</code>、非數字 <code>NaN</code>、數字 <code>0</code>、數字 <code>-0</code>、BigInt <code>0n</code>、空字串<code>''</code>(字串長度為 0)，或者是表達式結果為 <code>false</code></li>
+</ul>
+<p>以下介紹幾種邏輯判斷的捷徑：</p>
+<h1 id="邏輯運算子-amp-amp"><a href="#邏輯運算子-amp-amp" class="headerlink" title="邏輯運算子 &amp;&amp; ||"></a>邏輯運算子 <code>&amp;&amp;</code> <code>||</code></h1><p>舉個栗子</p>
+<figure class="highlight javascript hljs"><figcaption><span>邏輯運算子</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> numberAND = <span class="hljs-number">6</span></span><br><span class="line"><span class="hljs-keyword">const</span> numberOR = -<span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-keyword">if</span>(numberAND &gt; <span class="hljs-number">5</span> &amp;&amp; numberAND &lt; <span class="hljs-number">7</span>) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'哎呀'</span>)</span><br><span class="line">}</span><br><span class="line"><span class="hljs-keyword">if</span>(numberOR &gt; <span class="hljs-number">5</span> || numberOR &lt; <span class="hljs-number">7</span>) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="hljs-string">'黑唷'</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="人類的理解"><a href="#人類的理解" class="headerlink" title="人類的理解"></a>人類的理解</h3><p>當 numberAND 大於 5 且<strong>同時</strong>小於 7 值執行 <code>console.log('符合 &amp;&amp;')</code>；當 numberOR 大於 5 <strong>或者</strong>小於 7 值執行 <code>console.log('符合 ||')</code></p>
+<h3 id="電腦的理解"><a href="#電腦的理解" class="headerlink" title="電腦的理解"></a>電腦的理解</h3><p>當左邊的表達式 <code>numberAND &gt; 5</code> 結果為 <code>false</code> 則跳過右邊不執行 <code>numberAND &lt; 7</code>，直接<strong>跳出</strong>程式。<br>當左邊的表達式 <code>numberOR &gt; 5</code> 結果為 <code>true</code> 則跳過右邊不執行 <code>numberAND &lt; 7</code>，直接<strong>進入</strong>程式。</p>
+<p>結論為，當左邊的表達式符合條件，<code>&amp;&amp;</code> 的 if 直接跳出；<code>||</code> 的 if 直接進入。<br>來理一理箇中原由吧！</p>
+<h1 id="短路解析-Short-Circuit"><a href="#短路解析-Short-Circuit" class="headerlink" title="短路解析(Short Circuit)"></a>短路解析(Short Circuit)</h1><p>短路我個人覺得沒有捷徑來得好懂，短路比較讓人聯想為損毀或壞掉的電子產品，而捷徑則代表透過偷吃步或者抄捷徑的方式以取得一樣的結果。這裡的短路較接近後者，js 運行上的偷吃步：</p>
+<h3 id="amp-amp-的短路解析"><a href="#amp-amp-的短路解析" class="headerlink" title="&amp;&amp; 的短路解析"></a><code>&amp;&amp;</code> 的短路解析</h3><p>當左邊的表達式為 <code>false</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
+<h3 id="的短路解析"><a href="#的短路解析" class="headerlink" title="|| 的短路解析"></a><code>||</code> 的短路解析</h3><p>當左邊的表達式為 <code>true</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
+<p>以上可以知道 js 執行完左邊的表達式之後，若符合條件則直接跳過右邊的表達式(不解析亦不執行)，相對來講當開發人員在理解短路解析時就可以按照這樣的邏輯去快速判斷結果。</p>
+<p>速記法：AND<code>false</code>跳出、OR<code>true</code>進入(執行)。</p>
+<blockquote><p>if you use <code>||</code> to provide some default value to another variable foo, you may encounter unexpected behaviors if you consider some falsy values as usable (e.g., <code>''</code> or <code>0</code>). </p>
+</blockquote>
+
+<h1 id="可選鍊修飾符-Optional-chaining"><a href="#可選鍊修飾符-Optional-chaining" class="headerlink" title="可選鍊修飾符(Optional chaining)"></a>可選鍊修飾符(Optional chaining)</h1><p>舉個栗子</p>
+<figure class="highlight javascript hljs"><figcaption><span>可選鍊修飾符</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> user = {};</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>);</span><br><span class="line"><span class="hljs-comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>.<span class="hljs-property">street</span>);</span><br><span class="line"><span class="hljs-comment">// error</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="hljs-property">address</span>?.<span class="hljs-property">street</span>);</span><br><span class="line"><span class="hljs-comment">// undefined</span></span><br></pre></td></tr></tbody></table></figure>
+<p>在這個範例中，user 物件的清單中有部分的使用者缺少了 <code>address</code> 這個屬性，但是大部分的使用者都具有該屬性時，就可以使用可選鍊修飾符來避免程式噴錯而中斷，但是需注意避免<strong>過度使用</strong>可選鍊修飾符</p>
+<h1 id="空值合併運算子-Nullish-coalescing-operator"><a href="#空值合併運算子-Nullish-coalescing-operator" class="headerlink" title="空值合併運算子(Nullish coalescing operator) ??"></a>空值合併運算子(Nullish coalescing operator) <code>??</code></h1><p>舉個栗子</p>
+<figure class="highlight javascript hljs"><figcaption><span>空值合併運算子</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">function</span> <span class="title function_">notNullish</span> (a, b) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(a ?? b);</span><br><span class="line">}</span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-literal">null</span>); <span class="hljs-comment">// null</span></span><br><span class="line">notNullish (<span class="hljs-literal">null</span>, <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// undefined</span></span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-number">0</span>); <span class="hljs-comment">// 0</span></span><br><span class="line">notNullish (<span class="hljs-literal">undefined</span>, <span class="hljs-string">''</span>); <span class="hljs-comment">// ''</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>ES2020（ES11）提供的「空值合併運算子」，支援度需要搭配 babel 套件。</li>
+<li><code>??</code>常常與邏輯運算子 <code>||</code> 比較，前者返回非 <code>undefined</code> 與 <code>null</code> 的表達式，後者返回非 falsy 的表達式。過濾的條件上有區別，可以依照需求使用。</li>
+</ul>
+<h3 id="的短路解析-1"><a href="#的短路解析-1" class="headerlink" title="?? 的短路解析"></a><code>??</code> 的短路解析</h3><p>當左邊的表達式為 非 <code>undefined</code> 與 <code>null</code> 就返回左邊的表達式結果，並且<strong>直接忽視</strong>右邊的表達式結果，反之執行右邊的表達式。</p>
+</body></html> -->
+        
+        
+        <html><head></head><body><img src="/images/short-circuit-and-optional-chaining/0.png" class="" width="800" height="200" title="短路解析與可選練修飾符">
+<p>在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說<code>undefined</code>（未定義）、<code>null</code>（空值）或者是<code>0</code>（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。</p>
+            <!--  -->
+            <p class="article-more-link">
+                <a href="/2022/03/12/zh-tw/short-circuit-and-optional-chaining/">more</a>
+            </p>
+        
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/03/01/zh-tw/http-status-code/" itemprop="url">HTTP Status code 狀態碼解析</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-03-01T14:27:36.000Z" itemprop="datePublished">3月 1 2022</time>
             
         </span>
         
@@ -164,164 +320,131 @@
         <span class="column is-narrow">
             
             
-            6 分鐘 讀完 (約 897 字)
+            4 分鐘 讀完 (約 540 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <!-- <html><head></head><body><img src="/images/http-and-https/0.png" class="" width="800" height="200" title="[http-and-https [http-and-https]]">
-<p>圖片來源：<a target="_blank" rel="noopener" href="https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https">https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https</a></p>
-<h1 id="HTTP-的誕生"><a href="#HTTP-的誕生" class="headerlink" title="HTTP 的誕生"></a>HTTP 的誕生</h1><p>網路應用程式早期在互相傳遞資料時沒有固定的格式，在資料解析上就會很麻煩混亂，就像一個國家一旦陷入各自為政的困擾就需要政治來規範管理，網路世界也是一樣道理的。超文本傳輸協定(Hyper Text Transfer Protocol)就是網路資料傳遞的統整者，是 client 端向 server 端要求資料的關卡，必須要按照正確的格式才能取得資料。</p>
-<h1 id="Origin-Server-是甚麼"><a href="#Origin-Server-是甚麼" class="headerlink" title="Origin Server 是甚麼"></a>Origin Server 是甚麼</h1><h3 id="server-負責-response"><a href="#server-負責-response" class="headerlink" title="server 負責 response"></a>server 負責 response</h3><p>先介紹 Origin 這個單辭為什麼會被拿來當作 server 端，它的同義詞有 root、source 與 beginning，有起源、來源與原產地的意思，相當於網路世界中網站資料的起源與來源，github 在推 commits 上去遠端也可以看到指令：</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></tbody></table></figure>
-
-<p>Origin 代表的就是擁有資料的角色，通常是 server端：</p>
-<blockquote><p>An origin server is a computer that runs programs designed to listen to and respond to incoming requests or traffic. It contains the original version of the web page and is responsible for delivering the content to end users when requested.<br>Origin servers take in requests and serve up content for a website or web page.</p>
-</blockquote>
-<ul>
-<li>Origin server 是負責監聽以及回應（response）來自四面八方的要求（requests）與通訊的電腦計算機程式，包含原版的網頁資料並且傳遞該內容給發出請求的使用者端口。</li>
-<li>Origin server 會接收需求並且提供網站的資料內容。</li>
-</ul>
-<h3 id="client-負責-requested"><a href="#client-負責-requested" class="headerlink" title="client 負責 requested"></a>client 負責 requested</h3><p>Client 代表的是上網並請求網站資料的使用者，也就是 user 端：</p>
-<blockquote><p>When a user opens a web page on a website, a request is sent to the origin server to retrieve the content.</p>
-</blockquote>
-<ul>
-<li>當使用者試圖用瀏覽器（browser）打開一個網頁或網站，就已經發送了該網站資料的要求給 origin server。</li>
-</ul>
-<h1 id="Port-是甚麼"><a href="#Port-是甚麼" class="headerlink" title="Port 是甚麼"></a>Port 是甚麼</h1><p>一個網站就如同銀行，而服務人員的櫃檯提供多元的銀行業務來消化前去等候的民眾，這個案例中：<br>銀行機構就是 Origin server，服務人員就是 port，而民眾就是 client（user agent）；而一個網站 Origin 可以包山包海擁有各種資料，並開啟多個窗口的埠號（port）來服務傳送過來的需求（requests），讓每個埠號更專注在一個服務的品質與細節上。<br>早期沒有瀏覽器的時代，使用的是終端機(terminal)來發送請求而非瀏覽器，而今 server 端口會檢查要求是否來自瀏覽器而非機器人（爬蟲），來過濾一些資安問題的黑手。</p>
-<h1 id="HTTPs-的誕生"><a href="#HTTPs-的誕生" class="headerlink" title="HTTPs 的誕生"></a>HTTPs 的誕生</h1><p>隨著網路世界日興發達，不安好心的資訊竊取駭客就會出現，它可以偽裝成使用者也可以偽裝成服務器，為了避免這種資料截取的資安問題，資訊傳遞的加密就很重要！HTTPS 如同 HTTP 但是多了一把開啟資訊傳遞的鑰匙，將來往資料都加密過防止有心人士解讀：</p>
-<img src="/images/http-and-https/1.png" class="" width="600" height="200" title="[http-and-https [http-and-https]]">
-
-
-<p>參考資料：</p>
-<blockquote><p><a target="_blank" rel="noopener" href="https://www.cdnetworks.com/knowledge-center/what-is-origin-server/">https://www.cdnetworks.com/knowledge-center/what-is-origin-server/</a><br>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
-</blockquote></body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/http-and-https/0.png" class="" width="800" height="200" title="[http-and-https [http-and-https]]">
-<p>圖片來源：<a target="_blank" rel="noopener" href="https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https">https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https</a></p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/02/28/zh-tw/http-and-https/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/02/25/zh-tw/web-socket-and-web-hook/" itemprop="url">Web Socket v.s Web Hook</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-02-25T03:29:08.000Z" itemprop="datePublished">2月 25 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/webSocket/">webSocket</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 分鐘 讀完 (約 224 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/web-socket-and-web-hook/0.png" class="" width="800" height="200" title="[web-socket-and-web-hook [web-socket-and-web-hook]]">
-<p>API 的形式有兩大宗：<br>Web Hook 與 Web Socket，而他們有甚麼差異呢？</p>
-<h1 id="被動式-Web-Hook"><a href="#被動式-Web-Hook" class="headerlink" title="被動式 Web Hook"></a>被動式 Web Hook</h1><p>例如 Line Bot，server 會先預測使用者的動作與需求（events），設計出相對的程式並維護，等待使用者發出要求才動作。</p>
-<h1 id="主動式-Web-Socket"><a href="#主動式-Web-Socket" class="headerlink" title="主動式 Web Socket"></a>主動式 Web Socket</h1><p>兩方的資料交互，例如 client 與 server、server 與 server。<br>應用場景如聊天功能：facebook messenger 或 Line 等，Web Socket 的技術可以「即時的」(real time)做出資料傳遞。<br>當你打開 facebook messenger 的視窗，Web Socket server 就會與 client 瀏覽器端 handshake 保持通訊暢通，持續監聽對話要求並回應(opened and persistent connection)</p>
+        <!-- <html><head></head><body><img src="/images/http-status-code/0.png" class="" width="800" height="200" title="[http-status-code [http-status-code]]">
+<p>圖片來源：<a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
+<p>常常看到網站出現 404 找不到，或者是後端噴錯顯示了 Bad Gateway 卻不曉得箇中原因，而前後端打 API 也必須要讀懂狀態碼（HTTP Status code）代表的意涵，才能更有效率的除錯找出原因，以下是常見的狀態碼：</p>
+<h1 id="Level-200-發送成功"><a href="#Level-200-發送成功" class="headerlink" title="Level 200 發送成功"></a>Level 200 發送成功</h1><table>
+<thead>
+<tr>
+<th align="left">狀態碼</th>
+<th align="right">意涵</th>
+<th align="center">情境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">200</td>
+<td align="right">OK</td>
+<td align="center">API 要求與回應都OK</td>
+</tr>
+<tr>
+<td align="left">201</td>
+<td align="right">Created</td>
+<td align="center">成功建立了資料，例如 facebook 建立貼文</td>
+</tr>
+<tr>
+<td align="left">203</td>
+<td align="right">Http proxy</td>
+<td align="center">該伺服器是代理的伺服器，非原始 Origin</td>
+</tr>
+<tr>
+<td align="left">204</td>
+<td align="right">No Content</td>
+<td align="center">伺服器成功處理了請求，沒有返回任何內容</td>
+</tr>
+</tbody></table>
+<h1 id="Level-400-要求內容有誤"><a href="#Level-400-要求內容有誤" class="headerlink" title="Level 400 要求內容有誤"></a>Level 400 要求內容有誤</h1><table>
+<thead>
+<tr>
+<th align="left">狀態碼</th>
+<th align="right">意涵</th>
+<th align="center">情境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">400</td>
+<td align="right">Bad Request</td>
+<td align="center">發送要求但是需要的參數沒填、填寫的參數不符合規則，這個錯誤是客戶端造成的</td>
+</tr>
+<tr>
+<td align="left">401</td>
+<td align="right">Unauthorized</td>
+<td align="center">身分未明或是瀏覽的權限不夠、沒有登入會員或付費</td>
+</tr>
+<tr>
+<td align="left">403</td>
+<td align="right">Forbidden</td>
+<td align="center">黑名單而被禁止該項服務</td>
+</tr>
+<tr>
+<td align="left">404</td>
+<td align="right">Not Found</td>
+<td align="center">找不到該網站的某頁面</td>
+</tr>
+<tr>
+<td align="left">409</td>
+<td align="right">Conflict</td>
+<td align="center">服務流量過大導致衝突，或帳號/Email已被使用</td>
+</tr>
+</tbody></table>
+<h1 id="Level-500-伺服器有誤"><a href="#Level-500-伺服器有誤" class="headerlink" title="Level 500 伺服器有誤"></a>Level 500 伺服器有誤</h1><table>
+<thead>
+<tr>
+<th align="left">狀態碼</th>
+<th align="right">意涵</th>
+<th align="center">情境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">500</td>
+<td align="right">Internal Server Error</td>
+<td align="center">該服務伺服器出現不明問題，需要聯絡開發人員</td>
+</tr>
+<tr>
+<td align="left">503</td>
+<td align="right">Service Unavailable</td>
+<td align="center">該服務因為流量爆炸等原因無法使用了</td>
+</tr>
+<tr>
+<td align="left">501</td>
+<td align="right">Not Implemented</td>
+<td align="center">該服務有接收到要求，但還未實作未完成</td>
+</tr>
+<tr>
+<td align="left">502</td>
+<td align="right">Bad Gateway</td>
+<td align="center">連線伺服器成功，但中間軟體出錯</td>
+</tr>
+<tr>
+<td align="left">504</td>
+<td align="right">Gateway Timeout</td>
+<td align="center">連線伺服器成功，程式也沒問題，但經過中間軟體時出錯（過期）</td>
+</tr>
+<tr>
+<td align="left">599</td>
+<td align="right">Network Timeout</td>
+<td align="center">網路連線逾時，連不上</td>
+</tr>
+</tbody></table>
 <p>參考資料：</p>
 <blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>
+</blockquote>
+
+<p>延伸閱讀：</p>
+<blockquote><p><a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
 </blockquote></body></html> -->
         
         
-        <html><head></head><body><img src="/images/web-socket-and-web-hook/0.png" class="" width="800" height="200" title="[web-socket-and-web-hook [web-socket-and-web-hook]]">
-<p>API 的形式有兩大宗：<br>Web Hook 與 Web Socket，而他們有甚麼差異呢？</p>
+        <html><head></head><body><img src="/images/http-status-code/0.png" class="" width="800" height="200" title="[http-status-code [http-status-code]]">
+<p>圖片來源：<a target="_blank" rel="noopener" href="https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5">https://alicialin2020.medium.com/status-code-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-4%E5%AD%97%E9%A0%AD%E7%B3%BB%E5%88%97-4826b7e07ae5</a></p>
             <!--  -->
             <p class="article-more-link">
-                <a href="/2022/02/25/zh-tw/web-socket-and-web-hook/">more</a>
-            </p>
-        
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/02/25/zh-tw/graph-ql-api/" itemprop="url">Graph QL 新世代 API</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-02-25T02:48:36.000Z" itemprop="datePublished">2月 25 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="fas fa-folder"></i>
-            <a class="article-category-link" href="/categories/graphQL/">graphQL</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            3 分鐘 讀完 (約 448 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <!-- <html><head></head><body><img src="/images/graph-ql-api/0.png" class="" width="800" height="200" title="[css-less [css-less]]">
-<p>隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！</p>
-<p>2012 年 facebook 內部研發出來的新形態 API，2015 年提出發表，特點是前端可以直接進資料庫，不需要透過後端查詢撈取資料。<br>概念有一點類似用前端語言操作 <code>MySQL</code>。前端也擁有更彈性的空間來制定查詢資料的規則與方式，有更大話語權，但相對來講也增加資料設計的難度，在思考的維度上需要更廣更深才能靈活應付多變的資料需求。</p>
-<h1 id="Graph-QL-操作概念"><a href="#Graph-QL-操作概念" class="headerlink" title="Graph QL 操作概念"></a>Graph QL 操作概念</h1><img src="/images/graph-ql-api/1.png" class="" width="800" height="200" title="[css-less [css-less]]">
-<blockquote>
-<p>使用者透過輸入定義好的語法，取得所需的資料 (如 <code>SELECT</code>) 或是修改指定的資料 (如 <code>CREATE</code> 、 <code>UPDATE</code>)。</p>
-</blockquote>
-<h2 id="資料的格式"><a href="#資料的格式" class="headerlink" title="資料的格式"></a>資料的格式</h2><h4 id="前端-request-長相"><a href="#前端-request-長相" class="headerlink" title="前端 request 長相"></a>前端 request 長相</h4><figure class="highlight javascript hljs"><figcaption><span>example</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">query {</span><br><span class="line">  <span class="title class_">User</span>(<span class="hljs-attr">id</span>: <span class="hljs-string">'aefk34kasl9'</span>) {</span><br><span class="line">    name</span><br><span class="line">    posts{</span><br><span class="line">      title</span><br><span class="line">    }</span><br><span class="line">    <span class="title function_">followers</span>(<span class="hljs-params">last: <span class="hljs-number">3</span></span>){</span><br><span class="line">      name</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="資料庫-response-長相"><a href="#資料庫-response-長相" class="headerlink" title="資料庫 response 長相"></a>資料庫 response 長相</h4><figure class="highlight javascript hljs"><figcaption><span>example</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="hljs-string">"data"</span>: {</span><br><span class="line">    <span class="hljs-string">"User"</span>: {</span><br><span class="line">      <span class="hljs-string">"name"</span>: <span class="hljs-string">"Mawchu"</span></span><br><span class="line">      <span class="hljs-string">"posts"</span>:[</span><br><span class="line">        { <span class="hljs-attr">title</span>: <span class="hljs-string">"喵喵的一天"</span> }</span><br><span class="line">      ]</span><br><span class="line">      <span class="hljs-string">"followers"</span>: [</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Cally"</span> },</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Donna"</span> },</span><br><span class="line">        { <span class="hljs-string">"name"</span>: <span class="hljs-string">"Jell"</span> },</span><br><span class="line">      ]</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h1><blockquote>
-<p>Schema，香港和中國大陸翻譯為模式或架構，在資料庫系統中是形式語言描述的一種結構，是對象的集合，可包含各種對象如：表、欄位、關係模型、視圖、索引、包、存儲過程、子程序、隊列、觸發器、數據類型、序列、物化視圖、同義詞（synonym）、database link、directory、XML schema等。</p>
-</blockquote>
-<p>參考資料：</p>
-<blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用<br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10200678">https://ithelp.ithome.com.tw/articles/10200678</a></p>
-</blockquote></body></html> -->
-        
-        
-        <html><head></head><body><img src="/images/graph-ql-api/0.png" class="" width="800" height="200" title="[css-less [css-less]]">
-<p>隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！</p>
-            <!--  -->
-            <p class="article-more-link">
-                <a href="/2022/02/25/zh-tw/graph-ql-api/">more</a>
+                <a href="/2022/03/01/zh-tw/http-status-code/">more</a>
             </p>
         
     
@@ -365,7 +488,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/19/">19</a></li>
+        <li><a class="pagination-link" href="/page/20/">20</a></li>
         
     </ul>
 </nav>
