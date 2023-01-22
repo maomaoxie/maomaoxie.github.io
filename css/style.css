@@ -145,12 +145,15 @@ a.tag.article-tag {
 .article .article-entry {
   margin-bottom: 3rem; }
   .article .article-entry h1, .article .article-entry h2, .article .article-entry h3, .article .article-entry h4, .article .article-entry h5, .article .article-entry h6 {
+    margin-top: 2rem;
     cursor: pointer;
     position: relative; }
     .article .article-entry h1:hover:before, .article .article-entry h2:hover:before, .article .article-entry h3:hover:before, .article .article-entry h4:hover:before, .article .article-entry h5:hover:before, .article .article-entry h6:hover:before {
       content: '#';
       position: absolute;
       right: 100%; }
+  .article .article-entry p {
+    margin-bottom: .8rem; }
   .article .article-entry a {
     word-break: break-word; }
 
@@ -386,6 +389,9 @@ code, pre {
   font-family: "Source Code Pro", monospace, "Microsoft YaHei";
   color: #ffbb00;
   font-weight: bold; }
+
+code {
+  background: rgba(0, 0, 0, 0.05); }
 
 figure.highlight {
   padding: 0;

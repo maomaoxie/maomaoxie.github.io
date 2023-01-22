@@ -5,18 +5,15 @@
         <link>http://maomaoxie.github.io</link>
         <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
         <language>zh-tw,en,default</language>
-        <pubDate>Mon, 28 Feb 2022 11:03:47 +0800</pubDate>
-        <lastBuildDate>Mon, 28 Feb 2022 11:03:47 +0800</lastBuildDate>
-        <category>Google Analytics</category>
-        <category>GA</category>
-        <category>GA4</category>
-        <category>Google Tag Manager</category>
-        <category>GTM</category>
-        <category>Javascript</category>
+        <pubDate>Mon, 28 Feb 2022 11:03:47 +0000</pubDate>
+        <lastBuildDate>Mon, 28 Feb 2022 11:03:47 +0000</lastBuildDate>
         <category>javascript</category>
         <category>constructor</category>
         <category>instance</category>
         <category>methods</category>
+        <category>AMP</category>
+        <category>css</category>
+        <category>grid</category>
         <category>backEnd</category>
         <category>node</category>
         <category>express</category>
@@ -26,42 +23,47 @@
         <category>sourceTree</category>
         <category>hexo</category>
         <category>submodule</category>
+        <category>Google Analytics</category>
+        <category>GA</category>
+        <category>GA4</category>
+        <category>Google Tag Manager</category>
+        <category>GTM</category>
         <category>api</category>
         <category>graphQL</category>
         <category>facebook</category>
         <category>rss</category>
         <category>http</category>
-        <category>https</category>
+        <category>httpHeader</category>
         <category>request</category>
         <category>response</category>
-        <category>httpHeader</category>
+        <category>https</category>
         <category>httpMethods</category>
         <category>status</category>
+        <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>
+        <category>blade</category>
+        <category>layout</category>
         <category>php</category>
         <category>linux</category>
-        <category>blade</category>
         <category>wsl2</category>
-        <category>layout</category>
         <category>migration</category>
         <category>sql</category>
         <category>public</category>
         <category>static</category>
         <category>tailwind</category>
-        <category>css</category>
         <category>less</category>
         <category>processors</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
-        <category>webService</category>
-        <category>restfulApi</category>
         <category>safari</category>
         <category>javaScript</category>
         <category>preventDefault</category>
         <category>ios</category>
         <category>mobile</category>
+        <category>webService</category>
+        <category>restfulApi</category>
         <category>shortCircuit</category>
         <category>optionalChaining</category>
         <category>tricks</category>
@@ -70,10 +72,14 @@
         <category>compositionAPI</category>
         <category>vite</category>
         <category>typescript</category>
-        <category>vuetify</category>
-        <category>html</category>
+        <category>compositionApi</category>
+        <category>setup</category>
+        <category>ref</category>
+        <category>reactive</category>
         <category>WebSocket</category>
         <category>WebHook</category>
+        <category>vuetify</category>
+        <category>html</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
@@ -86,7 +92,7 @@
             <category>request</category>
             <category>response</category>
             <category>httpMethods</category>
-            <pubDate>Mon, 28 Feb 2022 11:03:47 +0800</pubDate>
+            <pubDate>Mon, 28 Feb 2022 11:03:47 +0000</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/http-methods/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[http-methods [http-methods]]&#34;&gt;
 &lt;p&gt;圖片來源：&lt;a href=&#34;https://www.jianshu.com/p/ac29da71601d&#34;&gt;https://www.jianshu.com/p/ac29da71601d&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;身為技術人不可不知的技術事：其實你每天都在使用 HTTP 的 Methods，但你不知道而已。&lt;br&gt;當你在瀏覽器輸入一串網址並且按下 enter 或者是按下一個 google 搜尋的超連結，就已經完成一個 HTTP &lt;code&gt;GET&lt;/code&gt; Methods 的流程了！&lt;br&gt;Client 端網路資料的傳輸，按照功能屬性分為幾個類別：&lt;/p&gt;

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>AMP 加速行動裝置網頁介紹 - Mawchu 貓奴前端的天空</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="google-site-verification" content="qpdwAFMt_HNGP0dM45CxVBDie_HVPkWFvpclpqZaoIo" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2022/12/05/zh-tw/amp-intro/" rel="alternate" hreflang="en" />
+    
+
+
+<meta name="description" content="Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習">
+
+
+
+<meta name="keywords" content="mawchu、謝佳芳、毛球、網頁、前端、Javascript、Vue、Laravel、SEO、平面設計、貓咪">
+
+
+
+    <meta name="description" content="AMPs（Accelerated Mobile Pages）字面意義上理解為加速行動裝置網頁，也就是在手機或移動裝置上優化性能的網頁框架，SEO 上也較大程度為 Google 所喜愛故而提升排行，支援度也勝過 PWAs（Progressive Web Applications）： SupportPWAs are not supported equally on all devices, so yo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AMP 加速行動裝置網頁介紹">
+<meta property="og:url" content="http://maomaoxie.github.io/2022/12/05/zh-tw/amp-intro/index.html">
+<meta property="og:site_name" content="Mawchu 貓奴前端的天空">
+<meta property="og:description" content="AMPs（Accelerated Mobile Pages）字面意義上理解為加速行動裝置網頁，也就是在手機或移動裝置上優化性能的網頁框架，SEO 上也較大程度為 Google 所喜愛故而提升排行，支援度也勝過 PWAs（Progressive Web Applications）： SupportPWAs are not supported equally on all devices, so yo">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-12-05T09:47:06.000Z">
+<meta property="article:modified_time" content="2022-12-05T03:03:41.839Z">
+<meta property="article:author" content="Mawchu 謝佳芳">
+<meta property="article:tag" content="AMP">
+<meta name="twitter:card" content="summary">
+
+
+
+<link rel="alternative" href="/atom.xml" title="AMP 加速行動裝置網頁介紹" type="application/atom+xml">
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.svg">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832218493331944" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script src="https://kit.fontawesome.com/76e3351334.js" crossorigin="anonymous"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container custom-nav">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo position-relative" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">文章
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/categories">分類
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/tags">標籤
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/about">關於
+               <div class="position-absolute bar"></div>
+            </a>
+            
+            <a class="navbar-item "
+               href="/zh-tw/subscribe">訂閱
+               <div class="position-absolute bar"></div>
+            </a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/mawchu">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            AMP 加速行動裝置網頁介紹
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-12-05T09:47:06.000Z" itemprop="datePublished">12月 5 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分鐘 讀完 (約 1158 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <!-- <html><head></head><body><p>AMPs（Accelerated Mobile Pages）字面意義上理解為<strong>加速行動裝置網頁</strong>，<br>也就是在手機或移動裝置上優化性能的網頁框架，SEO 上也較大程度為 Google 所喜愛故而提升排行，<br>支援度也勝過 PWAs（Progressive Web Applications）：</p>
+<blockquote><p>Support<br>PWAs are not supported equally on all devices, so you may find slight inconveniences when they’re displayed on iOS. Also, they do not support all the hardware functionalities, such as Bluetooth, NFC, GPS, or accelerometers.</p>
+<p>AMPs are supported by all major browsers on all devices.</p>
+<p><a target="_blank" rel="noopener" href="https://www.freecodecamp.org/news/pwa-vs-amp-what-is-the-difference-and-how-do-you-choose/">Progressive Web Apps vs Accelerated Mobile Pages: What’s the Difference and Which is Best for You?</a></p>
+</blockquote>
+
+<p>雖然 AMPs 沒有如同 PWAs 一樣的 App icon 可以秀在手機桌面提供快捷，但就靜態文章的內容型網站帶來的性能、裝置的支援度與 SEO 友善等條件仍值得開發者們嘗試。</p>
+<h1 id="Start-up"><a href="#Start-up" class="headerlink" title="Start up"></a>Start up</h1><p>在官方網站可以初探 AMP 框架的 HTML 樣貌：<br>The following markup is a basic AMP page.</p>
+<figure class="highlight html hljs"><figcaption><span>AMP</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;!doctype <span class="hljs-keyword">html</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">amp</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">async</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.ampproject.org/v0.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Hello, AMPs<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"canonical"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width,minimum-scale=1,initial-scale=1"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">amp-boilerplate</span>&gt;</span><span class="hljs-language-css"><span class="hljs-selector-tag">body</span>{-webkit-<span class="hljs-attribute">animation</span>:-amp-start <span class="hljs-number">8s</span> <span class="hljs-built_in">steps</span>(<span class="hljs-number">1</span>,end) <span class="hljs-number">0s</span> <span class="hljs-number">1</span> normal both;-moz-<span class="hljs-attribute">animation</span>:-amp-start <span class="hljs-number">8s</span> <span class="hljs-built_in">steps</span>(<span class="hljs-number">1</span>,end) <span class="hljs-number">0s</span> <span class="hljs-number">1</span> normal both;-ms-<span class="hljs-attribute">animation</span>:-amp-start <span class="hljs-number">8s</span> <span class="hljs-built_in">steps</span>(<span class="hljs-number">1</span>,end) <span class="hljs-number">0s</span> <span class="hljs-number">1</span> normal both;<span class="hljs-attribute">animation</span>:-amp-start <span class="hljs-number">8s</span> <span class="hljs-built_in">steps</span>(<span class="hljs-number">1</span>,end) <span class="hljs-number">0s</span> <span class="hljs-number">1</span> normal both}<span class="hljs-keyword">@-webkit-keyframes</span> -amp-start{<span class="hljs-selector-tag">from</span>{<span class="hljs-attribute">visibility</span>:hidden}<span class="hljs-selector-tag">to</span>{<span class="hljs-attribute">visibility</span>:visible}}<span class="hljs-keyword">@-moz-keyframes</span> -amp-start{<span class="hljs-selector-tag">from</span>{<span class="hljs-attribute">visibility</span>:hidden}<span class="hljs-selector-tag">to</span>{<span class="hljs-attribute">visibility</span>:visible}}<span class="hljs-keyword">@-ms-keyframes</span> -amp-start{<span class="hljs-selector-tag">from</span>{<span class="hljs-attribute">visibility</span>:hidden}<span class="hljs-selector-tag">to</span>{<span class="hljs-attribute">visibility</span>:visible}}<span class="hljs-keyword">@-o-keyframes</span> -amp-start{<span class="hljs-selector-tag">from</span>{<span class="hljs-attribute">visibility</span>:hidden}<span class="hljs-selector-tag">to</span>{<span class="hljs-attribute">visibility</span>:visible}}<span class="hljs-keyword">@keyframes</span> -amp-start{<span class="hljs-selector-tag">from</span>{<span class="hljs-attribute">visibility</span>:hidden}<span class="hljs-selector-tag">to</span>{<span class="hljs-attribute">visibility</span>:visible}}</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">noscript</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">amp-boilerplate</span>&gt;</span><span class="hljs-language-css"><span class="hljs-selector-tag">body</span>{-webkit-<span class="hljs-attribute">animation</span>:none;-moz-<span class="hljs-attribute">animation</span>:none;-ms-<span class="hljs-attribute">animation</span>:none;<span class="hljs-attribute">animation</span>:none}</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">noscript</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hello"</span>&gt;</span>Hello AMPHTML World!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="框架必備"><a href="#框架必備" class="headerlink" title="框架必備"></a>框架必備</h2><p>AMP 對於基礎的 SEO 有嚴格要求，一旦發現缺失就無法執行應用程式，某程度的提升了 SEO 的基礎功，<br>強迫開發者重視並且完善之，</p>
+<blockquote><p>AMP HTML is a subset of HTML for authoring content pages such as news articles in a way that <strong>guarantees certain baseline performance characteristics</strong>.</p>
+</blockquote>
+
+<p>以下是 AMP 框架必備的 HTML 要素：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Rule</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Start with the <code>&lt;!doctype html&gt;</code> doctype.</td>
+<td align="left">Standard for HTML.</td>
+</tr>
+<tr>
+<td align="left">Contain a top-level <code>&lt;html ⚡&gt;</code> or <code>&lt;html amp&gt;</code> tag.</td>
+<td align="left">Identifies the page as AMP content.</td>
+</tr>
+<tr>
+<td align="left">Contain <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> tags.</td>
+<td align="left">While optional in HTML, this is required in AMP.</td>
+</tr>
+<tr>
+<td align="left">Contain a <code>&lt;meta charset="utf-8"&gt;</code> tag right after the <code>&lt;head&gt;</code> tag.</td>
+<td align="left">Identifies the encoding for the page.</td>
+</tr>
+<tr>
+<td align="left">Contain a <code>&lt;script async src="https://cdn.ampproject.org/v0.js"&gt;&lt;/script&gt;</code> tag inside the <code>&lt;head&gt;</code> tag. As a best practice, you should include the script as early as possible.</td>
+<td align="left">Includes and loads the AMP JS library.</td>
+</tr>
+<tr>
+<td align="left">Contain a <code>&lt;link rel="canonical" href="$SOME_URL"&gt;</code> tag inside their <code>&lt;head&gt;</code>.</td>
+<td align="left">the href attribute should point to the page itself. This section exists for legacy reasons.</td>
+</tr>
+<tr>
+<td align="left">Contain a <code>&lt;meta name="viewport" content="width=device-width" /&gt;</code> tag inside their <code>&lt;head&gt;</code> tag.</td>
+<td align="left">Specifies a responsive viewport.</td>
+</tr>
+<tr>
+<td align="left">Contain the <strong>AMP boilerplate</strong> code in their <code>&lt;head&gt;</code> tag.</td>
+<td align="left">CSS boilerplate to initially hide the content until AMP JS is loaded.</td>
+</tr>
+</tbody></table>
+<p><a target="_blank" rel="noopener" href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup">Starter code</a></p>
+<h2 id="AMP-特色"><a href="#AMP-特色" class="headerlink" title="AMP 特色"></a>AMP 特色</h2><h3 id="無須額外的設定"><a href="#無須額外的設定" class="headerlink" title="無須額外的設定"></a>無須額外的設定</h3><p>AMP html 格式的行為與一般的無異，不須特別設定就可以為瀏覽器所理解，肇因於背後由特定的 AMP 伺服器所代理而可以衍生許多性能提升的變化與應用。</p>
+<blockquote><p>Also, AMP HTML documents can be uploaded to a web server and served just like any other HTML document; no special configuration for the server is necessary.<br>However, they are also designed to be optionally served through specialized AMP serving systems that proxy AMP documents. These documents serve them from their own origin and are allowed to apply transformations to the document that provide additional performance benefits. </p>
+</blockquote>
+
+<h3 id="集中管理客製化元素"><a href="#集中管理客製化元素" class="headerlink" title="集中管理客製化元素"></a>集中管理客製化元素</h3><p>AMP 框架提供一系列可集中管理客製化元素的高階功能，例如圖庫。</p>
+<blockquote><p>AMP HTML uses a set of contributed but centrally managed and hosted custom elements to implement advanced functionality such as image galleries that might be found in an AMP HTML document. </p>
+</blockquote>
+
+<h3 id="不允許透過-js-手段達成優化目的"><a href="#不允許透過-js-手段達成優化目的" class="headerlink" title="不允許透過 js 手段達成優化目的"></a>不允許透過 js 手段達成優化目的</h3><p>使用 AMP 框架必須按照規格開發，不可透過自行撰寫的 JavaScript 來達成優化的目的。</p>
+<blockquote><p>While it does allow styling the document using custom CSS, it does not allow author written JavaScript beyond what is provided through the custom elements to reach its performance goals.</p>
+</blockquote>
+
+<h3 id="友善爬蟲"><a href="#友善爬蟲" class="headerlink" title="友善爬蟲"></a>友善爬蟲</h3><p>使用 AMP 框架友善爬蟲快取以及第三方汲取資源。</p>
+<blockquote><p>By using the AMP format, content producers are making the content in AMP files available to be crawled (subject to robots.txt restrictions), cached, and displayed by third parties.</p>
+</blockquote>
+
+<h3 id="優化網站效能"><a href="#優化網站效能" class="headerlink" title="優化網站效能"></a>優化網站效能</h3><p>AMP 框架的設計目的在於縮短裝置獲取網站資源到使用者可以互動的載入時間，手法如下：</p>
+<ol>
+<li>HTTP requests necessary to render and fully layout the document should be minimized.</li>
+<li>Resources such as images or ads should only be downloaded if they are likely to be seen by the user.</li>
+<li>Browsers should be able to calculate the space needed by every resource on the page without fetching that resource.</li>
+</ol>
+<hr>
+<ol>
+<li>渲染畫面必要的資源大小需壓縮。</li>
+<li>圖片或廣告進入視線範圍內才下載。</li>
+<li>瀏覽器應在獲取資源以前就計算好每個網頁資源需要的空間。</li>
+</ol>
+<h2 id="圖片應用"><a href="#圖片應用" class="headerlink" title="圖片應用"></a>圖片應用</h2><p>圖片與廣告在 AMP 框架內有包裝好的標籤提供使用，以提升速度與效能，撰寫方式如下：</p>
+<figure class="highlight html hljs"><figcaption><span>AMP</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Sample document<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">    Some text</span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">amp-img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"sample.jpg"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"300"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"300"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">amp-img</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">amp-ad</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">width</span>=<span class="hljs-string">"300"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">height</span>=<span class="hljs-string">"250"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">type</span>=<span class="hljs-string">"a9"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">data-aax_size</span>=<span class="hljs-string">"300x250"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">data-aax_pubname</span>=<span class="hljs-string">"test123"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">data-aax_src</span>=<span class="hljs-string">"302"</span></span></span><br><span class="line"><span class="hljs-tag">  &gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">amp-ad</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure></body></html> -->
+        
+        
+            <html><head></head><body><p>AMPs（Accelerated Mobile Pages）字面意義上理解為<strong>加速行動裝置網頁</strong>，<br>也就是在手機或移動裝置上優化性能的網頁框架，SEO 上也較大程度為 Google 所喜愛故而提升排行，<br>支援度也勝過 PWAs（Progressive Web Applications）：</p>
+<blockquote><p>Support<br>PWAs are not supported equally on all devices, so you may find slight inconveniences when they’re displayed on iOS. Also, they do not support all the hardware functionalities, such as Bluetooth, NFC, GPS, or accelerometers.</p>
+<p>AMPs are supported by all major browsers on all devices.</p>
+<p><a target="_blank" rel="noopener" href="https://www.freecodecamp.org/news/pwa-vs-amp-what-is-the-difference-and-how-do-you-choose/">Progressive Web Apps vs Accelerated Mobile Pages: What’s the Difference and Which is Best for You?</a></p>
+</blockquote>
+
+<p>雖然 AMPs 沒有如同 PWAs 一樣的 App icon 可以秀在手機桌面提供快捷，但就靜態文章的內容型網站帶來的性能、裝置的支援度與 SEO 友善等條件仍值得開發者們嘗試。</p>
+<h1 id="Start-up"><a href="#Start-up" class="headerlink" title="Start up"></a>Start up</h1><p>在官方網站可以初探 AMP 框架的 HTML 樣貌：<br>The following markup is a basic AMP page.</p>
+<figure class="highlight html hljs"><figcaption><span>AMP</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;!doctype <span class="hljs-keyword">html</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">amp</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">async</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.ampproject.org/v0.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Hello, AMPs<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"canonical"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width,minimum-scale=1,initial-scale=1"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">amp-boilerplate</span>&gt;</span><span class="hljs-language-css"><span class="hljs-selector-tag">body</span>{-webkit-<span class="hljs-attribute">animation</span>:-amp-start <span class="hljs-number">8s</span> <span class="hljs-built_in">steps</span>(<span class="hljs-number">1</span>,end) <span class="hljs-number">0s</span> <span class="hljs-number">1</span> normal both;-moz-<span class="hljs-attribute">animation</span>:-amp-start <span class="hljs-number">8s</span> <span class="hljs-built_in">steps</span>(<span class="hljs-number">1</span>,end) <span class="hljs-number">0s</span> <span class="hljs-number">1</span> normal both;-ms-<span class="hljs-attribute">animation</span>:-amp-start <span class="hljs-number">8s</span> <span class="hljs-built_in">steps</span>(<span class="hljs-number">1</span>,end) <span class="hljs-number">0s</span> <span class="hljs-number">1</span> normal both;<span class="hljs-attribute">animation</span>:-amp-start <span class="hljs-number">8s</span> <span class="hljs-built_in">steps</span>(<span class="hljs-number">1</span>,end) <span class="hljs-number">0s</span> <span class="hljs-number">1</span> normal both}<span class="hljs-keyword">@-webkit-keyframes</span> -amp-start{<span class="hljs-selector-tag">from</span>{<span class="hljs-attribute">visibility</span>:hidden}<span class="hljs-selector-tag">to</span>{<span class="hljs-attribute">visibility</span>:visible}}<span class="hljs-keyword">@-moz-keyframes</span> -amp-start{<span class="hljs-selector-tag">from</span>{<span class="hljs-attribute">visibility</span>:hidden}<span class="hljs-selector-tag">to</span>{<span class="hljs-attribute">visibility</span>:visible}}<span class="hljs-keyword">@-ms-keyframes</span> -amp-start{<span class="hljs-selector-tag">from</span>{<span class="hljs-attribute">visibility</span>:hidden}<span class="hljs-selector-tag">to</span>{<span class="hljs-attribute">visibility</span>:visible}}<span class="hljs-keyword">@-o-keyframes</span> -amp-start{<span class="hljs-selector-tag">from</span>{<span class="hljs-attribute">visibility</span>:hidden}<span class="hljs-selector-tag">to</span>{<span class="hljs-attribute">visibility</span>:visible}}<span class="hljs-keyword">@keyframes</span> -amp-start{<span class="hljs-selector-tag">from</span>{<span class="hljs-attribute">visibility</span>:hidden}<span class="hljs-selector-tag">to</span>{<span class="hljs-attribute">visibility</span>:visible}}</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">noscript</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">amp-boilerplate</span>&gt;</span><span class="hljs-language-css"><span class="hljs-selector-tag">body</span>{-webkit-<span class="hljs-attribute">animation</span>:none;-moz-<span class="hljs-attribute">animation</span>:none;-ms-<span class="hljs-attribute">animation</span>:none;<span class="hljs-attribute">animation</span>:none}</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">noscript</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hello"</span>&gt;</span>Hello AMPHTML World!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="框架必備"><a href="#框架必備" class="headerlink" title="框架必備"></a>框架必備</h2><p>AMP 對於基礎的 SEO 有嚴格要求，一旦發現缺失就無法執行應用程式，某程度的提升了 SEO 的基礎功，<br>強迫開發者重視並且完善之，</p>
+<blockquote><p>AMP HTML is a subset of HTML for authoring content pages such as news articles in a way that <strong>guarantees certain baseline performance characteristics</strong>.</p>
+</blockquote>
+
+<p>以下是 AMP 框架必備的 HTML 要素：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Rule</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Start with the <code>&lt;!doctype html&gt;</code> doctype.</td>
+<td align="left">Standard for HTML.</td>
+</tr>
+<tr>
+<td align="left">Contain a top-level <code>&lt;html ⚡&gt;</code> or <code>&lt;html amp&gt;</code> tag.</td>
+<td align="left">Identifies the page as AMP content.</td>
+</tr>
+<tr>
+<td align="left">Contain <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> tags.</td>
+<td align="left">While optional in HTML, this is required in AMP.</td>
+</tr>
+<tr>
+<td align="left">Contain a <code>&lt;meta charset="utf-8"&gt;</code> tag right after the <code>&lt;head&gt;</code> tag.</td>
+<td align="left">Identifies the encoding for the page.</td>
+</tr>
+<tr>
+<td align="left">Contain a <code>&lt;script async src="https://cdn.ampproject.org/v0.js"&gt;&lt;/script&gt;</code> tag inside the <code>&lt;head&gt;</code> tag. As a best practice, you should include the script as early as possible.</td>
+<td align="left">Includes and loads the AMP JS library.</td>
+</tr>
+<tr>
+<td align="left">Contain a <code>&lt;link rel="canonical" href="$SOME_URL"&gt;</code> tag inside their <code>&lt;head&gt;</code>.</td>
+<td align="left">the href attribute should point to the page itself. This section exists for legacy reasons.</td>
+</tr>
+<tr>
+<td align="left">Contain a <code>&lt;meta name="viewport" content="width=device-width" /&gt;</code> tag inside their <code>&lt;head&gt;</code> tag.</td>
+<td align="left">Specifies a responsive viewport.</td>
+</tr>
+<tr>
+<td align="left">Contain the <strong>AMP boilerplate</strong> code in their <code>&lt;head&gt;</code> tag.</td>
+<td align="left">CSS boilerplate to initially hide the content until AMP JS is loaded.</td>
+</tr>
+</tbody></table>
+<p><a target="_blank" rel="noopener" href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup">Starter code</a></p>
+<h2 id="AMP-特色"><a href="#AMP-特色" class="headerlink" title="AMP 特色"></a>AMP 特色</h2><h3 id="無須額外的設定"><a href="#無須額外的設定" class="headerlink" title="無須額外的設定"></a>無須額外的設定</h3><p>AMP html 格式的行為與一般的無異，不須特別設定就可以為瀏覽器所理解，肇因於背後由特定的 AMP 伺服器所代理而可以衍生許多性能提升的變化與應用。</p>
+<blockquote><p>Also, AMP HTML documents can be uploaded to a web server and served just like any other HTML document; no special configuration for the server is necessary.<br>However, they are also designed to be optionally served through specialized AMP serving systems that proxy AMP documents. These documents serve them from their own origin and are allowed to apply transformations to the document that provide additional performance benefits. </p>
+</blockquote>
+
+<h3 id="集中管理客製化元素"><a href="#集中管理客製化元素" class="headerlink" title="集中管理客製化元素"></a>集中管理客製化元素</h3><p>AMP 框架提供一系列可集中管理客製化元素的高階功能，例如圖庫。</p>
+<blockquote><p>AMP HTML uses a set of contributed but centrally managed and hosted custom elements to implement advanced functionality such as image galleries that might be found in an AMP HTML document. </p>
+</blockquote>
+
+<h3 id="不允許透過-js-手段達成優化目的"><a href="#不允許透過-js-手段達成優化目的" class="headerlink" title="不允許透過 js 手段達成優化目的"></a>不允許透過 js 手段達成優化目的</h3><p>使用 AMP 框架必須按照規格開發，不可透過自行撰寫的 JavaScript 來達成優化的目的。</p>
+<blockquote><p>While it does allow styling the document using custom CSS, it does not allow author written JavaScript beyond what is provided through the custom elements to reach its performance goals.</p>
+</blockquote>
+
+<h3 id="友善爬蟲"><a href="#友善爬蟲" class="headerlink" title="友善爬蟲"></a>友善爬蟲</h3><p>使用 AMP 框架友善爬蟲快取以及第三方汲取資源。</p>
+<blockquote><p>By using the AMP format, content producers are making the content in AMP files available to be crawled (subject to robots.txt restrictions), cached, and displayed by third parties.</p>
+</blockquote>
+
+<h3 id="優化網站效能"><a href="#優化網站效能" class="headerlink" title="優化網站效能"></a>優化網站效能</h3><p>AMP 框架的設計目的在於縮短裝置獲取網站資源到使用者可以互動的載入時間，手法如下：</p>
+<ol>
+<li>HTTP requests necessary to render and fully layout the document should be minimized.</li>
+<li>Resources such as images or ads should only be downloaded if they are likely to be seen by the user.</li>
+<li>Browsers should be able to calculate the space needed by every resource on the page without fetching that resource.</li>
+</ol>
+<hr>
+<ol>
+<li>渲染畫面必要的資源大小需壓縮。</li>
+<li>圖片或廣告進入視線範圍內才下載。</li>
+<li>瀏覽器應在獲取資源以前就計算好每個網頁資源需要的空間。</li>
+</ol>
+<h2 id="圖片應用"><a href="#圖片應用" class="headerlink" title="圖片應用"></a>圖片應用</h2><p>圖片與廣告在 AMP 框架內有包裝好的標籤提供使用，以提升速度與效能，撰寫方式如下：</p>
+<figure class="highlight html hljs"><figcaption><span>AMP</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Sample document<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">    Some text</span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">amp-img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"sample.jpg"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"300"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"300"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">amp-img</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">amp-ad</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">width</span>=<span class="hljs-string">"300"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">height</span>=<span class="hljs-string">"250"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">type</span>=<span class="hljs-string">"a9"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">data-aax_size</span>=<span class="hljs-string">"300x250"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">data-aax_pubname</span>=<span class="hljs-string">"test123"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">data-aax_src</span>=<span class="hljs-string">"302"</span></span></span><br><span class="line"><span class="hljs-tag">  &gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">amp-ad</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure></body></html>
+        
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/AMP/">#AMP</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2023/01/15/zh-tw/css-grid/">
+                <i class="fas fa-caret-left" style="padding-right: 5px"></i> css grid 切版介紹
+            </a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/11/13/zh-tw/vue3-meal-set-ref-and-reactive/">
+                vue3 全家桶 - ref 與 reactive 區別 <i class="fas fa-caret-right" style="padding-left: 5px"></i>
+            </a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62024aa50a70400019079d5b&amp;product=sticky-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://maomaoxie.github.io/2022/12/05/zh-tw/amp-intro/';
+        this.page.identifier = '2022/12/05/zh-tw/amp-intro/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'maomaoxie' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 Mawchu 謝佳芳&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/mawchu">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2022/12/05/zh-tw/amp-intro/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2022/12/05/zh-tw/amp-intro/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-TW");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+          position: relative;
+        }
+
+        .hljs .clipboard-btn {
+          float: right;
+          color: #9a9a9a;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Noto Sans TC', sans-serif;
+          
+          transition: ease-in-out .3s;
+          transform: scale(.9);
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #2e2e2e;
+          transform: scale(1.1);
+        }
+
+        .hljs > .clipboard-btn {
+          display: none;
+          position: absolute;
+          right: 4px;
+          top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+          display: inline;
+        }
+
+        button {
+          padding: 0;
+        }
+
+        figure.highlight .gutter {
+          background-color: #d6e1e4;
+        }
+
+        .gutter span {
+          color: white;
+        }
+
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button><i class="fas fa-copy"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

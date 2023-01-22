@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Mawchu 貓奴前端的天空 • Posts by &#34;setup&#34; tag</title>
+        <link>http://maomaoxie.github.io</link>
+        <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
+        <language>zh-tw,en,default</language>
+        <pubDate>Sun, 13 Nov 2022 13:22:31 +0000</pubDate>
+        <lastBuildDate>Sun, 13 Nov 2022 13:22:31 +0000</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>AMP</category>
+        <category>css</category>
+        <category>grid</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>hexo</category>
+        <category>submodule</category>
+        <category>Google Analytics</category>
+        <category>GA</category>
+        <category>GA4</category>
+        <category>Google Tag Manager</category>
+        <category>GTM</category>
+        <category>api</category>
+        <category>graphQL</category>
+        <category>facebook</category>
+        <category>rss</category>
+        <category>http</category>
+        <category>httpHeader</category>
+        <category>request</category>
+        <category>response</category>
+        <category>https</category>
+        <category>httpMethods</category>
+        <category>status</category>
+        <category>Javascript</category>
+        <category>type</category>
+        <category>laravel</category>
+        <category>blade</category>
+        <category>layout</category>
+        <category>php</category>
+        <category>linux</category>
+        <category>wsl2</category>
+        <category>migration</category>
+        <category>sql</category>
+        <category>public</category>
+        <category>static</category>
+        <category>tailwind</category>
+        <category>less</category>
+        <category>processors</category>
+        <category>env</category>
+        <category>process</category>
+        <category>dotenv</category>
+        <category>safari</category>
+        <category>javaScript</category>
+        <category>preventDefault</category>
+        <category>ios</category>
+        <category>mobile</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue</category>
+        <category>vue3</category>
+        <category>compositionAPI</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>compositionApi</category>
+        <category>setup</category>
+        <category>ref</category>
+        <category>reactive</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <category>vuetify</category>
+        <category>html</category>
+        <category>wordpress</category>
+        <category>dns</category>
+        <category>cdn</category>
+        <item>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/11/13/zh-tw/vue3-meal-set-composition-api/</guid>
+            <title>vue3 全家桶 - 理解組件化（composition API）</title>
+            <link>http://maomaoxie.github.io/2022/11/13/zh-tw/vue3-meal-set-composition-api/</link>
+            <category>vue3</category>
+            <category>compositionApi</category>
+            <category>setup</category>
+            <pubDate>Sun, 13 Nov 2022 13:22:31 +0000</pubDate>
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;compostion-的意義&#34;&gt;&lt;a href=&#34;#compostion-的意義&#34; class=&#34;headerlink&#34; title=&#34;compostion 的意義&#34;&gt;&lt;/a&gt;compostion 的意義&lt;/h1&gt;&lt;p&gt;先講結論，composition API 是為了最大程度複用程式碼而誕生的資料結構寫法，&lt;br&gt;composition 顧名思義組件化就是要自由的拆分然後根據需求重新模組化複用。&lt;/p&gt;
+&lt;p&gt;之前的&lt;a href=&#34;/2022/02/16/zh-tw/vue3-composition-api/&#34;&gt;這篇文章&lt;/a&gt;有簡約提到 vue 3 變革的初探，本篇來延伸說明一下 composition API 背後的輪廓，&lt;br&gt;概念是根據 udemy &lt;strong&gt;Vue 3.x全家桶完全指南与实战&lt;/strong&gt;課程：&lt;/p&gt;
+&lt;h1 id=&#34;options-API-v-s-composition-API&#34;&gt;&lt;a href=&#34;#options-API-v-s-composition-API&#34; class=&#34;headerlink&#34; title=&#34;options API v.s. composition API&#34;&gt;&lt;/a&gt;options API v.s. composition API&lt;/h1&gt;&lt;h2 id=&#34;options-API&#34;&gt;&lt;a href=&#34;#options-API&#34; class=&#34;headerlink&#34; title=&#34;options API&#34;&gt;&lt;/a&gt;options API&lt;/h2&gt;&lt;p&gt;選項 API 是 vue 既有的一種模組資料分類方式，透過 &lt;code&gt;export default&lt;/code&gt; 將資料模組化黏著至 vue 實體，&lt;br&gt;結構如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;data - 一般資料變數&lt;/li&gt;
+&lt;li&gt;computed - 計算屬性資料&lt;/li&gt;
+&lt;li&gt;methods - 函式方法&lt;/li&gt;
+&lt;li&gt;watch - 監聽資料變化&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;options API&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;default&lt;/span&gt; {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  data () {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;computed&lt;/span&gt;: {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;methods&lt;/span&gt;: {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  },&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-attr&#34;&gt;watch&lt;/span&gt;: {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;composition-API&#34;&gt;&lt;a href=&#34;#composition-API&#34; class=&#34;headerlink&#34; title=&#34;composition API&#34;&gt;&lt;/a&gt;composition API&lt;/h2&gt;&lt;p&gt;組件 API 顧名思義將模組的資料「組件化」，並且背後的命名空間（name space）區分同名的資料與函式，&lt;br&gt;使同一部件內的資料可以用 &lt;code&gt;setup&lt;/code&gt; 方法統合整理在一起，寫法範例：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;composition API&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;default&lt;/span&gt; {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  setup () {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; data = &lt;span class=&#34;title function_&#34;&gt;ref&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; computedData = &lt;span class=&#34;title function_&#34;&gt;computed&lt;/span&gt;(&lt;span class=&#34;hljs-function&#34;&gt;() =&amp;gt;&lt;/span&gt; ...);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;getToday&lt;/span&gt; () {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;title function_&#34;&gt;watch&lt;/span&gt;(data, &lt;span class=&#34;hljs-function&#34;&gt;(&lt;span class=&#34;hljs-params&#34;&gt;newVal, oldVal&lt;/span&gt;) =&amp;gt;&lt;/span&gt; {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;(data.&lt;span class=&#34;hljs-property&#34;&gt;value&lt;/span&gt;, newVal, oldVal);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    })&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;與-options-API-共存&#34;&gt;&lt;a href=&#34;#與-options-API-共存&#34; class=&#34;headerlink&#34; title=&#34;與 options API 共存&#34;&gt;&lt;/a&gt;與 options API 共存&lt;/h3&gt;&lt;p&gt;composition API 運用命名空間分化了模組各自的片段功能與資料，並且可與 options API 共存&lt;/p&gt;
+&lt;h3 id=&#34;外部獨立後匯入-Vue-實體&#34;&gt;&lt;a href=&#34;#外部獨立後匯入-Vue-實體&#34; class=&#34;headerlink&#34; title=&#34;外部獨立後匯入 Vue 實體&#34;&gt;&lt;/a&gt;外部獨立後匯入 Vue 實體&lt;/h3&gt;&lt;p&gt;統整功能與頁面上可以將部分的功能與資料獨立成一個檔案後，匯入模組中：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;module A&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; { ref, computed } &lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#39;vue&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;moduleFnA&lt;/span&gt; () {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; data = &lt;span class=&#34;title function_&#34;&gt;ref&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; computedData = &lt;span class=&#34;title function_&#34;&gt;computed&lt;/span&gt;(&lt;span class=&#34;hljs-function&#34;&gt;() =&amp;gt;&lt;/span&gt; ...);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;getToday&lt;/span&gt; () {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; data; &lt;span class=&#34;hljs-comment&#34;&gt;// 返回值可以為 vue 命名空間區分變數&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;default&lt;/span&gt; moduleFnA;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;moduleB&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; { ref, computed } &lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#39;vue&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;moduleFnB&lt;/span&gt; () {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; data = &lt;span class=&#34;title function_&#34;&gt;ref&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; computedData = &lt;span class=&#34;title function_&#34;&gt;computed&lt;/span&gt;(&lt;span class=&#34;hljs-function&#34;&gt;() =&amp;gt;&lt;/span&gt; ...);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;getToday&lt;/span&gt; () {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; data; &lt;span class=&#34;hljs-comment&#34;&gt;// 返回值可以為 vue 命名空間區分變數&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;default&lt;/span&gt; moduleFnB;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;importToVue&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; { ref, computed } &lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#39;vue&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; moduleFnA &lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#39;./moduleFnA.js&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; moduleFnB &lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#39;./moduleFnB.js&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;default&lt;/span&gt; {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  setup () {&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ... 開始使用 moduleFnA, moduleFnB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  }&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;Mixins-缺陷&#34;&gt;&lt;a href=&#34;#Mixins-缺陷&#34; class=&#34;headerlink&#34; title=&#34;Mixins 缺陷&#34;&gt;&lt;/a&gt;Mixins 缺陷&lt;/h1&gt;&lt;h3 id=&#34;配置分散&#34;&gt;&lt;a href=&#34;#配置分散&#34; class=&#34;headerlink&#34; title=&#34;配置分散&#34;&gt;&lt;/a&gt;配置分散&lt;/h3&gt;&lt;p&gt;同一功能分散在不同配置項中（data, computed, method …），也無法得知各自更新的內容；&lt;/p&gt;
+&lt;h3 id=&#34;變數名稱沒有區分&#34;&gt;&lt;a href=&#34;#變數名稱沒有區分&#34; class=&#34;headerlink&#34; title=&#34;變數名稱沒有區分&#34;&gt;&lt;/a&gt;變數名稱沒有區分&lt;/h3&gt;&lt;p&gt;由於命名的作用域相同，同名屬性會互相覆蓋。&lt;/p&gt;
+&lt;h4 id=&#34;composition-return&#34;&gt;&lt;a href=&#34;#composition-return&#34; class=&#34;headerlink&#34; title=&#34;composition return&#34;&gt;&lt;/a&gt;composition return&lt;/h4&gt;&lt;p&gt;composition API 的返回值可以為命名空間區分變數名，為 vue 動態的根據模組添加。&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

@@ -5,18 +5,15 @@
         <link>http://maomaoxie.github.io</link>
         <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
         <language>zh-tw,en,default</language>
-        <pubDate>Sun, 09 Oct 2022 14:20:19 +0800</pubDate>
-        <lastBuildDate>Sun, 09 Oct 2022 14:20:19 +0800</lastBuildDate>
-        <category>Google Analytics</category>
-        <category>GA</category>
-        <category>GA4</category>
-        <category>Google Tag Manager</category>
-        <category>GTM</category>
-        <category>Javascript</category>
+        <pubDate>Sun, 09 Oct 2022 14:20:19 +0100</pubDate>
+        <lastBuildDate>Sun, 09 Oct 2022 14:20:19 +0100</lastBuildDate>
         <category>javascript</category>
         <category>constructor</category>
         <category>instance</category>
         <category>methods</category>
+        <category>AMP</category>
+        <category>css</category>
+        <category>grid</category>
         <category>backEnd</category>
         <category>node</category>
         <category>express</category>
@@ -26,42 +23,47 @@
         <category>sourceTree</category>
         <category>hexo</category>
         <category>submodule</category>
+        <category>Google Analytics</category>
+        <category>GA</category>
+        <category>GA4</category>
+        <category>Google Tag Manager</category>
+        <category>GTM</category>
         <category>api</category>
         <category>graphQL</category>
         <category>facebook</category>
         <category>rss</category>
         <category>http</category>
-        <category>https</category>
+        <category>httpHeader</category>
         <category>request</category>
         <category>response</category>
-        <category>httpHeader</category>
+        <category>https</category>
         <category>httpMethods</category>
         <category>status</category>
+        <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>
+        <category>blade</category>
+        <category>layout</category>
         <category>php</category>
         <category>linux</category>
-        <category>blade</category>
         <category>wsl2</category>
-        <category>layout</category>
         <category>migration</category>
         <category>sql</category>
         <category>public</category>
         <category>static</category>
         <category>tailwind</category>
-        <category>css</category>
         <category>less</category>
         <category>processors</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
-        <category>webService</category>
-        <category>restfulApi</category>
         <category>safari</category>
         <category>javaScript</category>
         <category>preventDefault</category>
         <category>ios</category>
         <category>mobile</category>
+        <category>webService</category>
+        <category>restfulApi</category>
         <category>shortCircuit</category>
         <category>optionalChaining</category>
         <category>tricks</category>
@@ -70,23 +72,27 @@
         <category>compositionAPI</category>
         <category>vite</category>
         <category>typescript</category>
-        <category>vuetify</category>
-        <category>html</category>
+        <category>compositionApi</category>
+        <category>setup</category>
+        <category>ref</category>
+        <category>reactive</category>
         <category>WebSocket</category>
         <category>WebHook</category>
+        <category>vuetify</category>
+        <category>html</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
         <item>
-            <guid isPermalink="true">http://maomaoxie.github.io/2022/10/09/google-analytics-knowhow/</guid>
+            <guid isPermalink="true">http://maomaoxie.github.io/2022/10/09/zh-tw/google-analytics-knowhow/</guid>
             <title>關於 Google Analytics GA 你應該知道的事</title>
-            <link>http://maomaoxie.github.io/2022/10/09/google-analytics-knowhow/</link>
+            <link>http://maomaoxie.github.io/2022/10/09/zh-tw/google-analytics-knowhow/</link>
             <category>Google Analytics</category>
             <category>GA</category>
             <category>GA4</category>
             <category>Google Tag Manager</category>
             <category>GTM</category>
-            <pubDate>Sun, 09 Oct 2022 14:20:19 +0800</pubDate>
+            <pubDate>Sun, 09 Oct 2022 14:20:19 +0100</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Google Analytics 也就是 GA ，即將在 2023 年 7 月 1 日起不再提供&lt;strong&gt;通用版本（Universal Analytics）&lt;/strong&gt;&lt;br&gt;的資料分析了，全面升級至 GA4 是每個網站與應用程式必須面對的問題。&lt;/p&gt;
 &lt;p&gt;而訪客區分為新訪客與舊訪客，以及舊訪客的回訪率等資料。那麼 Google 要如何去區分呢？來了解一下：&lt;/p&gt;
 &lt;h1 id=&#34;GA-如何區分與追蹤同一瀏覽人次&#34;&gt;&lt;a href=&#34;#GA-如何區分與追蹤同一瀏覽人次&#34; class=&#34;headerlink&#34; title=&#34;GA 如何區分與追蹤同一瀏覽人次&#34;&gt;&lt;/a&gt;GA 如何區分與追蹤同一瀏覽人次&lt;/h1&gt;&lt;h3 id=&#34;client-ID&#34;&gt;&lt;a href=&#34;#client-ID&#34; class=&#34;headerlink&#34; title=&#34;client ID&#34;&gt;&lt;/a&gt;client ID&lt;/h3&gt;&lt;p&gt;該數據是 GA 用來判定此瀏覽器使用者是否為重複瀏覽的人次，紀錄方式透過 Cookie 裡的 _ga 查看內容的話，&lt;br&gt;會有一段追蹤碼記錄此用戶的 client ID，一旦清除 GA 偵測不到就會判定為新的瀏覽使用者。&lt;/p&gt;
@@ -113,6 +119,8 @@
 &lt;h3 id=&#34;campaign（活動分類）&#34;&gt;&lt;a href=&#34;#campaign（活動分類）&#34; class=&#34;headerlink&#34; title=&#34;campaign（活動分類）&#34;&gt;&lt;/a&gt;campaign（活動分類）&lt;/h3&gt;&lt;p&gt;可以在 GA 預設的 &lt;strong&gt;Click 事件&lt;/strong&gt;裡查閱的參數，若是透過外部廣告（例如 Google Ads）等方式進入你的網站或應用程式，&lt;br&gt;campaign　參數就會被記錄，通常會顯示（referral）或（organic），有三大分類，&lt;br&gt;有時會帶括號有時不會（不知為啥知道的人請解惑一下XD）。&lt;/p&gt;
 &lt;h5 id=&#34;organic&#34;&gt;&lt;a href=&#34;#organic&#34; class=&#34;headerlink&#34; title=&#34;(organic)&#34;&gt;&lt;/a&gt;(organic)&lt;/h5&gt;&lt;p&gt;透過搜尋而來的自然流量（主動）。&lt;/p&gt;
 &lt;h5 id=&#34;referral&#34;&gt;&lt;a href=&#34;#referral&#34; class=&#34;headerlink&#34; title=&#34;(referral)&#34;&gt;&lt;/a&gt;(referral)&lt;/h5&gt;&lt;p&gt;透過外部媒體網站進來（被動）瀏覽的使用者，也就是行銷常講的外連（外部連結）。&lt;/p&gt;
+&lt;h5 id=&#34;cpc&#34;&gt;&lt;a href=&#34;#cpc&#34; class=&#34;headerlink&#34; title=&#34;(cpc)&#34;&gt;&lt;/a&gt;(cpc)&lt;/h5&gt;&lt;p&gt;透過廣告來的。&lt;/p&gt;
+&lt;h5 id=&#34;affiliate&#34;&gt;&lt;a href=&#34;#affiliate&#34; class=&#34;headerlink&#34; title=&#34;(affiliate)&#34;&gt;&lt;/a&gt;(affiliate)&lt;/h5&gt;&lt;p&gt;透過其他合作分潤的網站轉介而來。&lt;/p&gt;
 &lt;h5 id=&#34;none&#34;&gt;&lt;a href=&#34;#none&#34; class=&#34;headerlink&#34; title=&#34;(none)&#34;&gt;&lt;/a&gt;(none)&lt;/h5&gt;&lt;p&gt;直接進入網站的使用者，例如在 url 輸入網址。&lt;/p&gt;
 &lt;h3 id=&#34;medium（媒介分類）&#34;&gt;&lt;a href=&#34;#medium（媒介分類）&#34; class=&#34;headerlink&#34; title=&#34;medium（媒介分類）&#34;&gt;&lt;/a&gt;medium（媒介分類）&lt;/h3&gt;&lt;p&gt;使用者透過甚麼媒介方式進來你的網站，類別同上：&lt;/p&gt;
 &lt;h3 id=&#34;source（媒介-origin）&#34;&gt;&lt;a href=&#34;#source（媒介-origin）&#34; class=&#34;headerlink&#34; title=&#34;source（媒介 origin）&#34;&gt;&lt;/a&gt;source（媒介 origin）&lt;/h3&gt;&lt;p&gt;透過外部廣告進來的 url，例如透過 Google 搜尋進來的就會顯示 &lt;code&gt;https://www.google.com/&lt;/code&gt;；&lt;br&gt;透過外部網站進來的就會顯示外部網站的 Origin URL。&lt;/p&gt;

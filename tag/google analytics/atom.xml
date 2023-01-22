@@ -3,17 +3,14 @@
     <id>http://maomaoxie.github.io</id>
     <title>Mawchu 貓奴前端的天空 • Posts by &#34;google analytics&#34; tag</title>
     <link href="http://maomaoxie.github.io" />
-    <updated>2022-10-09T06:20:19.000Z</updated>
-    <category term="Google Analytics" />
-    <category term="GA" />
-    <category term="GA4" />
-    <category term="Google Tag Manager" />
-    <category term="GTM" />
-    <category term="Javascript" />
+    <updated>2022-10-09T13:20:19.000Z</updated>
     <category term="javascript" />
     <category term="constructor" />
     <category term="instance" />
     <category term="methods" />
+    <category term="AMP" />
+    <category term="css" />
+    <category term="grid" />
     <category term="backEnd" />
     <category term="node" />
     <category term="express" />
@@ -23,42 +20,47 @@
     <category term="sourceTree" />
     <category term="hexo" />
     <category term="submodule" />
+    <category term="Google Analytics" />
+    <category term="GA" />
+    <category term="GA4" />
+    <category term="Google Tag Manager" />
+    <category term="GTM" />
     <category term="api" />
     <category term="graphQL" />
     <category term="facebook" />
     <category term="rss" />
     <category term="http" />
-    <category term="https" />
+    <category term="httpHeader" />
     <category term="request" />
     <category term="response" />
-    <category term="httpHeader" />
+    <category term="https" />
     <category term="httpMethods" />
     <category term="status" />
+    <category term="Javascript" />
     <category term="type" />
     <category term="laravel" />
+    <category term="blade" />
+    <category term="layout" />
     <category term="php" />
     <category term="linux" />
-    <category term="blade" />
     <category term="wsl2" />
-    <category term="layout" />
     <category term="migration" />
     <category term="sql" />
     <category term="public" />
     <category term="static" />
     <category term="tailwind" />
-    <category term="css" />
     <category term="less" />
     <category term="processors" />
     <category term="env" />
     <category term="process" />
     <category term="dotenv" />
-    <category term="webService" />
-    <category term="restfulApi" />
     <category term="safari" />
     <category term="javaScript" />
     <category term="preventDefault" />
     <category term="ios" />
     <category term="mobile" />
+    <category term="webService" />
+    <category term="restfulApi" />
     <category term="shortCircuit" />
     <category term="optionalChaining" />
     <category term="tricks" />
@@ -67,17 +69,21 @@
     <category term="compositionAPI" />
     <category term="vite" />
     <category term="typescript" />
-    <category term="vuetify" />
-    <category term="html" />
+    <category term="compositionApi" />
+    <category term="setup" />
+    <category term="ref" />
+    <category term="reactive" />
     <category term="WebSocket" />
     <category term="WebHook" />
+    <category term="vuetify" />
+    <category term="html" />
     <category term="wordpress" />
     <category term="dns" />
     <category term="cdn" />
     <entry>
-        <id>http://maomaoxie.github.io/2022/10/09/google-analytics-knowhow/</id>
+        <id>http://maomaoxie.github.io/2022/10/09/zh-tw/google-analytics-knowhow/</id>
         <title>關於 Google Analytics GA 你應該知道的事</title>
-        <link rel="alternate" href="http://maomaoxie.github.io/2022/10/09/google-analytics-knowhow/"/>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/10/09/zh-tw/google-analytics-knowhow/"/>
         <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Google Analytics 也就是 GA ，即將在 2023 年 7 月 1 日起不再提供&lt;strong&gt;通用版本（Universal Analytics）&lt;/strong&gt;&lt;br&gt;的資料分析了，全面升級至 GA4 是每個網站與應用程式必須面對的問題。&lt;/p&gt;
 &lt;p&gt;而訪客區分為新訪客與舊訪客，以及舊訪客的回訪率等資料。那麼 Google 要如何去區分呢？來了解一下：&lt;/p&gt;
 &lt;h1 id=&#34;GA-如何區分與追蹤同一瀏覽人次&#34;&gt;&lt;a href=&#34;#GA-如何區分與追蹤同一瀏覽人次&#34; class=&#34;headerlink&#34; title=&#34;GA 如何區分與追蹤同一瀏覽人次&#34;&gt;&lt;/a&gt;GA 如何區分與追蹤同一瀏覽人次&lt;/h1&gt;&lt;h3 id=&#34;client-ID&#34;&gt;&lt;a href=&#34;#client-ID&#34; class=&#34;headerlink&#34; title=&#34;client ID&#34;&gt;&lt;/a&gt;client ID&lt;/h3&gt;&lt;p&gt;該數據是 GA 用來判定此瀏覽器使用者是否為重複瀏覽的人次，紀錄方式透過 Cookie 裡的 _ga 查看內容的話，&lt;br&gt;會有一段追蹤碼記錄此用戶的 client ID，一旦清除 GA 偵測不到就會判定為新的瀏覽使用者。&lt;/p&gt;
@@ -104,6 +110,8 @@
 &lt;h3 id=&#34;campaign（活動分類）&#34;&gt;&lt;a href=&#34;#campaign（活動分類）&#34; class=&#34;headerlink&#34; title=&#34;campaign（活動分類）&#34;&gt;&lt;/a&gt;campaign（活動分類）&lt;/h3&gt;&lt;p&gt;可以在 GA 預設的 &lt;strong&gt;Click 事件&lt;/strong&gt;裡查閱的參數，若是透過外部廣告（例如 Google Ads）等方式進入你的網站或應用程式，&lt;br&gt;campaign　參數就會被記錄，通常會顯示（referral）或（organic），有三大分類，&lt;br&gt;有時會帶括號有時不會（不知為啥知道的人請解惑一下XD）。&lt;/p&gt;
 &lt;h5 id=&#34;organic&#34;&gt;&lt;a href=&#34;#organic&#34; class=&#34;headerlink&#34; title=&#34;(organic)&#34;&gt;&lt;/a&gt;(organic)&lt;/h5&gt;&lt;p&gt;透過搜尋而來的自然流量（主動）。&lt;/p&gt;
 &lt;h5 id=&#34;referral&#34;&gt;&lt;a href=&#34;#referral&#34; class=&#34;headerlink&#34; title=&#34;(referral)&#34;&gt;&lt;/a&gt;(referral)&lt;/h5&gt;&lt;p&gt;透過外部媒體網站進來（被動）瀏覽的使用者，也就是行銷常講的外連（外部連結）。&lt;/p&gt;
+&lt;h5 id=&#34;cpc&#34;&gt;&lt;a href=&#34;#cpc&#34; class=&#34;headerlink&#34; title=&#34;(cpc)&#34;&gt;&lt;/a&gt;(cpc)&lt;/h5&gt;&lt;p&gt;透過廣告來的。&lt;/p&gt;
+&lt;h5 id=&#34;affiliate&#34;&gt;&lt;a href=&#34;#affiliate&#34; class=&#34;headerlink&#34; title=&#34;(affiliate)&#34;&gt;&lt;/a&gt;(affiliate)&lt;/h5&gt;&lt;p&gt;透過其他合作分潤的網站轉介而來。&lt;/p&gt;
 &lt;h5 id=&#34;none&#34;&gt;&lt;a href=&#34;#none&#34; class=&#34;headerlink&#34; title=&#34;(none)&#34;&gt;&lt;/a&gt;(none)&lt;/h5&gt;&lt;p&gt;直接進入網站的使用者，例如在 url 輸入網址。&lt;/p&gt;
 &lt;h3 id=&#34;medium（媒介分類）&#34;&gt;&lt;a href=&#34;#medium（媒介分類）&#34; class=&#34;headerlink&#34; title=&#34;medium（媒介分類）&#34;&gt;&lt;/a&gt;medium（媒介分類）&lt;/h3&gt;&lt;p&gt;使用者透過甚麼媒介方式進來你的網站，類別同上：&lt;/p&gt;
 &lt;h3 id=&#34;source（媒介-origin）&#34;&gt;&lt;a href=&#34;#source（媒介-origin）&#34; class=&#34;headerlink&#34; title=&#34;source（媒介 origin）&#34;&gt;&lt;/a&gt;source（媒介 origin）&lt;/h3&gt;&lt;p&gt;透過外部廣告進來的 url，例如透過 Google 搜尋進來的就會顯示 &lt;code&gt;https://www.google.com/&lt;/code&gt;；&lt;br&gt;透過外部網站進來的就會顯示外部網站的 Origin URL。&lt;/p&gt;
@@ -124,6 +132,6 @@
         <category term="GA4" />
         <category term="Google Tag Manager" />
         <category term="GTM" />
-        <updated>2022-10-09T06:20:19.000Z</updated>
+        <updated>2022-10-09T13:20:19.000Z</updated>
     </entry>
 </feed>

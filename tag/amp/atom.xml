@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://maomaoxie.github.io</id>
+    <title>Mawchu 貓奴前端的天空 • Posts by &#34;amp&#34; tag</title>
+    <link href="http://maomaoxie.github.io" />
+    <updated>2022-12-05T09:47:06.000Z</updated>
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="AMP" />
+    <category term="css" />
+    <category term="grid" />
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="git" />
+    <category term="github" />
+    <category term="sourceTree" />
+    <category term="hexo" />
+    <category term="submodule" />
+    <category term="Google Analytics" />
+    <category term="GA" />
+    <category term="GA4" />
+    <category term="Google Tag Manager" />
+    <category term="GTM" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="rss" />
+    <category term="http" />
+    <category term="httpHeader" />
+    <category term="request" />
+    <category term="response" />
+    <category term="https" />
+    <category term="httpMethods" />
+    <category term="status" />
+    <category term="Javascript" />
+    <category term="type" />
+    <category term="laravel" />
+    <category term="blade" />
+    <category term="layout" />
+    <category term="php" />
+    <category term="linux" />
+    <category term="wsl2" />
+    <category term="migration" />
+    <category term="sql" />
+    <category term="public" />
+    <category term="static" />
+    <category term="tailwind" />
+    <category term="less" />
+    <category term="processors" />
+    <category term="env" />
+    <category term="process" />
+    <category term="dotenv" />
+    <category term="safari" />
+    <category term="javaScript" />
+    <category term="preventDefault" />
+    <category term="ios" />
+    <category term="mobile" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vue" />
+    <category term="vue3" />
+    <category term="compositionAPI" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="compositionApi" />
+    <category term="setup" />
+    <category term="ref" />
+    <category term="reactive" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <category term="vuetify" />
+    <category term="html" />
+    <category term="wordpress" />
+    <category term="dns" />
+    <category term="cdn" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/12/05/zh-tw/amp-intro/</id>
+        <title>AMP 加速行動裝置網頁介紹</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/12/05/zh-tw/amp-intro/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;AMPs（Accelerated Mobile Pages）字面意義上理解為&lt;strong&gt;加速行動裝置網頁&lt;/strong&gt;，&lt;br&gt;也就是在手機或移動裝置上優化性能的網頁框架，SEO 上也較大程度為 Google 所喜愛故而提升排行，&lt;br&gt;支援度也勝過 PWAs（Progressive Web Applications）：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Support&lt;br&gt;PWAs are not supported equally on all devices, so you may find slight inconveniences when they’re displayed on iOS. Also, they do not support all the hardware functionalities, such as Bluetooth, NFC, GPS, or accelerometers.&lt;/p&gt;
+&lt;p&gt;AMPs are supported by all major browsers on all devices.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.freecodecamp.org/news/pwa-vs-amp-what-is-the-difference-and-how-do-you-choose/&#34;&gt;Progressive Web Apps vs Accelerated Mobile Pages: What’s the Difference and Which is Best for You?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;雖然 AMPs 沒有如同 PWAs 一樣的 App icon 可以秀在手機桌面提供快捷，但就靜態文章的內容型網站帶來的性能、裝置的支援度與 SEO 友善等條件仍值得開發者們嘗試。&lt;/p&gt;
+&lt;h1 id=&#34;Start-up&#34;&gt;&lt;a href=&#34;#Start-up&#34; class=&#34;headerlink&#34; title=&#34;Start up&#34;&gt;&lt;/a&gt;Start up&lt;/h1&gt;&lt;p&gt;在官方網站可以初探 AMP 框架的 HTML 樣貌：&lt;br&gt;The following markup is a basic AMP page.&lt;/p&gt;
+&lt;figure class=&#34;highlight html hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;AMP&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-meta&#34;&gt;&amp;lt;!doctype &lt;span class=&#34;hljs-keyword&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;html&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;amp&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;lang&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;en&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;meta&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;charset&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;utf-8&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;https://cdn.ampproject.org/v0.js&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;Hello, AMPs&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;rel&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;canonical&#34;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;meta&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;name&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;viewport&#34;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;content&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;width=device-width,minimum-scale=1,initial-scale=1&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;style&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;amp-boilerplate&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-language-css&#34;&gt;&lt;span class=&#34;hljs-selector-tag&#34;&gt;body&lt;/span&gt;{-webkit-&lt;span class=&#34;hljs-attribute&#34;&gt;animation&lt;/span&gt;:-amp-start &lt;span class=&#34;hljs-number&#34;&gt;8s&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;steps&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;,end) &lt;span class=&#34;hljs-number&#34;&gt;0s&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt; normal both;-moz-&lt;span class=&#34;hljs-attribute&#34;&gt;animation&lt;/span&gt;:-amp-start &lt;span class=&#34;hljs-number&#34;&gt;8s&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;steps&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;,end) &lt;span class=&#34;hljs-number&#34;&gt;0s&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt; normal both;-ms-&lt;span class=&#34;hljs-attribute&#34;&gt;animation&lt;/span&gt;:-amp-start &lt;span class=&#34;hljs-number&#34;&gt;8s&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;steps&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;,end) &lt;span class=&#34;hljs-number&#34;&gt;0s&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt; normal both;&lt;span class=&#34;hljs-attribute&#34;&gt;animation&lt;/span&gt;:-amp-start &lt;span class=&#34;hljs-number&#34;&gt;8s&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;steps&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;,end) &lt;span class=&#34;hljs-number&#34;&gt;0s&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt; normal both}&lt;span class=&#34;hljs-keyword&#34;&gt;@-webkit-keyframes&lt;/span&gt; -amp-start{&lt;span class=&#34;hljs-selector-tag&#34;&gt;from&lt;/span&gt;{&lt;span class=&#34;hljs-attribute&#34;&gt;visibility&lt;/span&gt;:hidden}&lt;span class=&#34;hljs-selector-tag&#34;&gt;to&lt;/span&gt;{&lt;span class=&#34;hljs-attribute&#34;&gt;visibility&lt;/span&gt;:visible}}&lt;span class=&#34;hljs-keyword&#34;&gt;@-moz-keyframes&lt;/span&gt; -amp-start{&lt;span class=&#34;hljs-selector-tag&#34;&gt;from&lt;/span&gt;{&lt;span class=&#34;hljs-attribute&#34;&gt;visibility&lt;/span&gt;:hidden}&lt;span class=&#34;hljs-selector-tag&#34;&gt;to&lt;/span&gt;{&lt;span class=&#34;hljs-attribute&#34;&gt;visibility&lt;/span&gt;:visible}}&lt;span class=&#34;hljs-keyword&#34;&gt;@-ms-keyframes&lt;/span&gt; -amp-start{&lt;span class=&#34;hljs-selector-tag&#34;&gt;from&lt;/span&gt;{&lt;span class=&#34;hljs-attribute&#34;&gt;visibility&lt;/span&gt;:hidden}&lt;span class=&#34;hljs-selector-tag&#34;&gt;to&lt;/span&gt;{&lt;span class=&#34;hljs-attribute&#34;&gt;visibility&lt;/span&gt;:visible}}&lt;span class=&#34;hljs-keyword&#34;&gt;@-o-keyframes&lt;/span&gt; -amp-start{&lt;span class=&#34;hljs-selector-tag&#34;&gt;from&lt;/span&gt;{&lt;span class=&#34;hljs-attribute&#34;&gt;visibility&lt;/span&gt;:hidden}&lt;span class=&#34;hljs-selector-tag&#34;&gt;to&lt;/span&gt;{&lt;span class=&#34;hljs-attribute&#34;&gt;visibility&lt;/span&gt;:visible}}&lt;span class=&#34;hljs-keyword&#34;&gt;@keyframes&lt;/span&gt; -amp-start{&lt;span class=&#34;hljs-selector-tag&#34;&gt;from&lt;/span&gt;{&lt;span class=&#34;hljs-attribute&#34;&gt;visibility&lt;/span&gt;:hidden}&lt;span class=&#34;hljs-selector-tag&#34;&gt;to&lt;/span&gt;{&lt;span class=&#34;hljs-attribute&#34;&gt;visibility&lt;/span&gt;:visible}}&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;style&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;noscript&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;style&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;amp-boilerplate&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-language-css&#34;&gt;&lt;span class=&#34;hljs-selector-tag&#34;&gt;body&lt;/span&gt;{-webkit-&lt;span class=&#34;hljs-attribute&#34;&gt;animation&lt;/span&gt;:none;-moz-&lt;span class=&#34;hljs-attribute&#34;&gt;animation&lt;/span&gt;:none;-ms-&lt;span class=&#34;hljs-attribute&#34;&gt;animation&lt;/span&gt;:none;&lt;span class=&#34;hljs-attribute&#34;&gt;animation&lt;/span&gt;:none}&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;style&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;noscript&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;h1&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;id&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;hello&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;Hello AMPHTML World!&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;框架必備&#34;&gt;&lt;a href=&#34;#框架必備&#34; class=&#34;headerlink&#34; title=&#34;框架必備&#34;&gt;&lt;/a&gt;框架必備&lt;/h2&gt;&lt;p&gt;AMP 對於基礎的 SEO 有嚴格要求，一旦發現缺失就無法執行應用程式，某程度的提升了 SEO 的基礎功，&lt;br&gt;強迫開發者重視並且完善之，&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;AMP HTML is a subset of HTML for authoring content pages such as news articles in a way that &lt;strong&gt;guarantees certain baseline performance characteristics&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以下是 AMP 框架必備的 HTML 要素：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Rule&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Start with the &lt;code&gt;&amp;lt;!doctype html&amp;gt;&lt;/code&gt; doctype.&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Standard for HTML.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Contain a top-level &lt;code&gt;&amp;lt;html ⚡&amp;gt;&lt;/code&gt; or &lt;code&gt;&amp;lt;html amp&amp;gt;&lt;/code&gt; tag.&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Identifies the page as AMP content.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Contain &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; tags.&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;While optional in HTML, this is required in AMP.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Contain a &lt;code&gt;&amp;lt;meta charset=&#34;utf-8&#34;&amp;gt;&lt;/code&gt; tag right after the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; tag.&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Identifies the encoding for the page.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Contain a &lt;code&gt;&amp;lt;script async src=&#34;https://cdn.ampproject.org/v0.js&#34;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt; tag inside the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; tag. As a best practice, you should include the script as early as possible.&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Includes and loads the AMP JS library.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Contain a &lt;code&gt;&amp;lt;link rel=&#34;canonical&#34; href=&#34;$SOME_URL&#34;&amp;gt;&lt;/code&gt; tag inside their &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt;.&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;the href attribute should point to the page itself. This section exists for legacy reasons.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Contain a &lt;code&gt;&amp;lt;meta name=&#34;viewport&#34; content=&#34;width=device-width&#34; /&amp;gt;&lt;/code&gt; tag inside their &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; tag.&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Specifies a responsive viewport.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Contain the &lt;strong&gt;AMP boilerplate&lt;/strong&gt; code in their &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; tag.&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;CSS boilerplate to initially hide the content until AMP JS is loaded.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;a href=&#34;https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup&#34;&gt;Starter code&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;AMP-特色&#34;&gt;&lt;a href=&#34;#AMP-特色&#34; class=&#34;headerlink&#34; title=&#34;AMP 特色&#34;&gt;&lt;/a&gt;AMP 特色&lt;/h2&gt;&lt;h3 id=&#34;無須額外的設定&#34;&gt;&lt;a href=&#34;#無須額外的設定&#34; class=&#34;headerlink&#34; title=&#34;無須額外的設定&#34;&gt;&lt;/a&gt;無須額外的設定&lt;/h3&gt;&lt;p&gt;AMP html 格式的行為與一般的無異，不須特別設定就可以為瀏覽器所理解，肇因於背後由特定的 AMP 伺服器所代理而可以衍生許多性能提升的變化與應用。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Also, AMP HTML documents can be uploaded to a web server and served just like any other HTML document; no special configuration for the server is necessary.&lt;br&gt;However, they are also designed to be optionally served through specialized AMP serving systems that proxy AMP documents. These documents serve them from their own origin and are allowed to apply transformations to the document that provide additional performance benefits. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;集中管理客製化元素&#34;&gt;&lt;a href=&#34;#集中管理客製化元素&#34; class=&#34;headerlink&#34; title=&#34;集中管理客製化元素&#34;&gt;&lt;/a&gt;集中管理客製化元素&lt;/h3&gt;&lt;p&gt;AMP 框架提供一系列可集中管理客製化元素的高階功能，例如圖庫。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;AMP HTML uses a set of contributed but centrally managed and hosted custom elements to implement advanced functionality such as image galleries that might be found in an AMP HTML document. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;不允許透過-js-手段達成優化目的&#34;&gt;&lt;a href=&#34;#不允許透過-js-手段達成優化目的&#34; class=&#34;headerlink&#34; title=&#34;不允許透過 js 手段達成優化目的&#34;&gt;&lt;/a&gt;不允許透過 js 手段達成優化目的&lt;/h3&gt;&lt;p&gt;使用 AMP 框架必須按照規格開發，不可透過自行撰寫的 JavaScript 來達成優化的目的。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;While it does allow styling the document using custom CSS, it does not allow author written JavaScript beyond what is provided through the custom elements to reach its performance goals.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;友善爬蟲&#34;&gt;&lt;a href=&#34;#友善爬蟲&#34; class=&#34;headerlink&#34; title=&#34;友善爬蟲&#34;&gt;&lt;/a&gt;友善爬蟲&lt;/h3&gt;&lt;p&gt;使用 AMP 框架友善爬蟲快取以及第三方汲取資源。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;By using the AMP format, content producers are making the content in AMP files available to be crawled (subject to robots.txt restrictions), cached, and displayed by third parties.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;優化網站效能&#34;&gt;&lt;a href=&#34;#優化網站效能&#34; class=&#34;headerlink&#34; title=&#34;優化網站效能&#34;&gt;&lt;/a&gt;優化網站效能&lt;/h3&gt;&lt;p&gt;AMP 框架的設計目的在於縮短裝置獲取網站資源到使用者可以互動的載入時間，手法如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;HTTP requests necessary to render and fully layout the document should be minimized.&lt;/li&gt;
+&lt;li&gt;Resources such as images or ads should only be downloaded if they are likely to be seen by the user.&lt;/li&gt;
+&lt;li&gt;Browsers should be able to calculate the space needed by every resource on the page without fetching that resource.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;渲染畫面必要的資源大小需壓縮。&lt;/li&gt;
+&lt;li&gt;圖片或廣告進入視線範圍內才下載。&lt;/li&gt;
+&lt;li&gt;瀏覽器應在獲取資源以前就計算好每個網頁資源需要的空間。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;圖片應用&#34;&gt;&lt;a href=&#34;#圖片應用&#34; class=&#34;headerlink&#34; title=&#34;圖片應用&#34;&gt;&lt;/a&gt;圖片應用&lt;/h2&gt;&lt;p&gt;圖片與廣告在 AMP 框架內有包裝好的標籤提供使用，以提升速度與效能，撰寫方式如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight html hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;AMP&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;Sample document&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Some text&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;amp-img&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;sample.jpg&#34;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;width&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;300&#34;&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;height&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;300&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;amp-img&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;amp-ad&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;width&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;300&#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;height&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;250&#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;a9&#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;data-aax_size&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;300x250&#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;data-aax_pubname&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;test123&#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;    &lt;span class=&#34;hljs-attr&#34;&gt;data-aax_src&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;302&#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;  &amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;amp-ad&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="AMP" />
+        <updated>2022-12-05T09:47:06.000Z</updated>
+    </entry>
+</feed>
