@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://maomaoxie.github.io</id>
+    <title>Mawchu 貓奴前端的天空 • Posts by &#34;ref&#34; tag</title>
+    <link href="http://maomaoxie.github.io" />
+    <updated>2022-11-13T15:00:28.000Z</updated>
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="AMP" />
+    <category term="css" />
+    <category term="grid" />
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="git" />
+    <category term="github" />
+    <category term="sourceTree" />
+    <category term="hexo" />
+    <category term="submodule" />
+    <category term="Google Analytics" />
+    <category term="GA" />
+    <category term="GA4" />
+    <category term="Google Tag Manager" />
+    <category term="GTM" />
+    <category term="api" />
+    <category term="graphQL" />
+    <category term="facebook" />
+    <category term="rss" />
+    <category term="http" />
+    <category term="httpHeader" />
+    <category term="request" />
+    <category term="response" />
+    <category term="https" />
+    <category term="httpMethods" />
+    <category term="status" />
+    <category term="Javascript" />
+    <category term="type" />
+    <category term="laravel" />
+    <category term="blade" />
+    <category term="layout" />
+    <category term="php" />
+    <category term="linux" />
+    <category term="wsl2" />
+    <category term="migration" />
+    <category term="sql" />
+    <category term="public" />
+    <category term="static" />
+    <category term="tailwind" />
+    <category term="less" />
+    <category term="processors" />
+    <category term="env" />
+    <category term="process" />
+    <category term="dotenv" />
+    <category term="safari" />
+    <category term="javaScript" />
+    <category term="preventDefault" />
+    <category term="ios" />
+    <category term="mobile" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vue" />
+    <category term="vue3" />
+    <category term="compositionAPI" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="compositionApi" />
+    <category term="setup" />
+    <category term="ref" />
+    <category term="reactive" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <category term="vuetify" />
+    <category term="html" />
+    <category term="wordpress" />
+    <category term="dns" />
+    <category term="cdn" />
+    <entry>
+        <id>http://maomaoxie.github.io/2022/11/13/zh-tw/vue3-meal-set-ref-and-reactive/</id>
+        <title>vue3 全家桶 - ref 與 reactive 區別</title>
+        <link rel="alternate" href="http://maomaoxie.github.io/2022/11/13/zh-tw/vue3-meal-set-ref-and-reactive/"/>
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;響應式數據&#34;&gt;&lt;a href=&#34;#響應式數據&#34; class=&#34;headerlink&#34; title=&#34;響應式數據&#34;&gt;&lt;/a&gt;響應式數據&lt;/h1&gt;&lt;p&gt;配合新的 setup 函式，偵測響應式數據的方法有 ref 與 reactive，響應式數據就是在數據變化時可以敏銳偵測到，並且隨之變動 virtual dom，達到 MVVM 的資料締結。&lt;/p&gt;
+&lt;h1 id=&#34;ref-函式&#34;&gt;&lt;a href=&#34;#ref-函式&#34; class=&#34;headerlink&#34; title=&#34;ref 函式&#34;&gt;&lt;/a&gt;ref 函式&lt;/h1&gt;&lt;h2 id=&#34;取代-data-函式，返回一個代理對象&#34;&gt;&lt;a href=&#34;#取代-data-函式，返回一個代理對象&#34; class=&#34;headerlink&#34; title=&#34;取代 data 函式，返回一個代理對象&#34;&gt;&lt;/a&gt;取代 data 函式，返回一個代理對象&lt;/h2&gt;&lt;p&gt;ref 接受所有型別的數據，並且將資料包裝成一個代理，需要透過 &lt;code&gt;.value&lt;/code&gt; 取得原始資料的數據，但須注意的是代理取得的值並非原始數據：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;ref&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;let&lt;/span&gt; str = &lt;span class=&#34;hljs-string&#34;&gt;&#39;字串&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;let&lt;/span&gt; refStr = &lt;span class=&#34;title function_&#34;&gt;ref&lt;/span&gt;(str);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;( str === refStr.&lt;span class=&#34;hljs-property&#34;&gt;value&lt;/span&gt; ); &lt;span class=&#34;hljs-comment&#34;&gt;// false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;console&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;log&lt;/span&gt;( refStr ); &lt;span class=&#34;hljs-comment&#34;&gt;// 返回代理對象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;模板訪問-ref-無須透過-value&#34;&gt;&lt;a href=&#34;#模板訪問-ref-無須透過-value&#34; class=&#34;headerlink&#34; title=&#34;模板訪問 ref 無須透過 .value&#34;&gt;&lt;/a&gt;模板訪問 ref 無須透過 &lt;code&gt;.value&lt;/code&gt;&lt;/h2&gt;&lt;p&gt;在 html template 中代理數據可以直接使用變數名稱取得：&lt;/p&gt;
+&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;ref&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;template&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;h1&amp;gt;&lt;span class=&#34;title class_&#34;&gt;My&lt;/span&gt; favorite food is .&amp;lt;/h1&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/template&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-language-javascript&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-javascript&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; { ref } &lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#39;vue&#39;&lt;/span&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-javascript&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  &lt;span class=&#34;hljs-keyword&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;default&lt;/span&gt; {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-javascript&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    setup () {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-javascript&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;      &lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; apple = &lt;span class=&#34;title function_&#34;&gt;ref&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;apple&#39;&lt;/span&gt;);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-javascript&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;      &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; { apple };&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-javascript&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;    }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-javascript&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;  }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-language-javascript&#34;&gt;&lt;span class=&#34;hljs-language-xml&#34;&gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&#34;reactive-函式&#34;&gt;&lt;a href=&#34;#reactive-函式&#34; class=&#34;headerlink&#34; title=&#34;reactive 函式&#34;&gt;&lt;/a&gt;reactive 函式&lt;/h1&gt;&lt;h2 id=&#34;只接受-object-amp-array-形式的資料&#34;&gt;&lt;a href=&#34;#只接受-object-amp-array-形式的資料&#34; class=&#34;headerlink&#34; title=&#34;只接受 object &amp;amp; array 形式的資料&#34;&gt;&lt;/a&gt;只接受 object &amp;amp; array 形式的資料&lt;/h2&gt;&lt;p&gt;若給予 reactive 原始型別的數據，會噴錯誤訊息。&lt;/p&gt;
+&lt;h2 id=&#34;監聽深層資料變化&#34;&gt;&lt;a href=&#34;#監聽深層資料變化&#34; class=&#34;headerlink&#34; title=&#34;監聽深層資料變化&#34;&gt;&lt;/a&gt;監聽深層資料變化&lt;/h2&gt;&lt;p&gt;物件內部資料變化 ref 無法偵測到，不會觸發 watch 乃至重新渲染 virtual dom：&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;</content>
+        <category term="vue3" />
+        <category term="ref" />
+        <category term="reactive" />
+        <updated>2022-11-13T15:00:28.000Z</updated>
+    </entry>
+</feed>

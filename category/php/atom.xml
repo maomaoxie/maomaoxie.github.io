@@ -3,79 +3,83 @@
     <id>http://maomaoxie.github.io</id>
     <title>Mawchu 貓奴前端的天空 • Posts by &#34;php&#34; category</title>
     <link href="http://maomaoxie.github.io" />
-    <updated>2022-04-10T10:10:18.000Z</updated>
+    <updated>2022-04-10T17:10:18.000Z</updated>
+    <category term="javascript" />
+    <category term="constructor" />
+    <category term="instance" />
+    <category term="methods" />
+    <category term="AMP" />
+    <category term="css" />
+    <category term="grid" />
+    <category term="backEnd" />
+    <category term="node" />
+    <category term="express" />
+    <category term="router" />
+    <category term="git" />
+    <category term="github" />
+    <category term="sourceTree" />
+    <category term="hexo" />
+    <category term="submodule" />
     <category term="Google Analytics" />
     <category term="GA" />
     <category term="GA4" />
     <category term="Google Tag Manager" />
     <category term="GTM" />
-    <category term="javascript" />
-    <category term="constructor" />
-    <category term="instance" />
-    <category term="methods" />
-    <category term="git" />
-    <category term="github" />
-    <category term="sourceTree" />
-    <category term="backEnd" />
-    <category term="node" />
-    <category term="express" />
-    <category term="router" />
-    <category term="hexo" />
-    <category term="submodule" />
-    <category term="rss" />
-    <category term="http" />
-    <category term="https" />
-    <category term="request" />
-    <category term="response" />
     <category term="api" />
     <category term="graphQL" />
     <category term="facebook" />
+    <category term="rss" />
+    <category term="http" />
     <category term="httpHeader" />
-    <category term="status" />
+    <category term="request" />
+    <category term="response" />
+    <category term="https" />
     <category term="httpMethods" />
+    <category term="status" />
     <category term="Javascript" />
     <category term="type" />
     <category term="laravel" />
+    <category term="blade" />
+    <category term="layout" />
     <category term="php" />
     <category term="linux" />
-    <category term="blade" />
     <category term="wsl2" />
-    <category term="layout" />
-    <category term="public" />
-    <category term="static" />
     <category term="migration" />
     <category term="sql" />
+    <category term="public" />
+    <category term="static" />
     <category term="tailwind" />
-    <category term="css" />
     <category term="less" />
     <category term="processors" />
     <category term="env" />
     <category term="process" />
     <category term="dotenv" />
-    <category term="webService" />
-    <category term="restfulApi" />
-    <category term="shortCircuit" />
-    <category term="optionalChaining" />
-    <category term="tricks" />
-    <category term="vue3" />
-    <category term="vite" />
-    <category term="typescript" />
-    <category term="WebSocket" />
-    <category term="WebHook" />
-    <category term="vue" />
-    <category term="vuetify" />
-    <category term="html" />
-    <category term="compositionAPI" />
     <category term="safari" />
     <category term="javaScript" />
     <category term="preventDefault" />
     <category term="ios" />
     <category term="mobile" />
+    <category term="webService" />
+    <category term="restfulApi" />
+    <category term="shortCircuit" />
+    <category term="optionalChaining" />
+    <category term="tricks" />
+    <category term="vue" />
+    <category term="vue3" />
+    <category term="compositionAPI" />
+    <category term="vite" />
+    <category term="typescript" />
+    <category term="compositionApi" />
+    <category term="setup" />
+    <category term="ref" />
+    <category term="reactive" />
+    <category term="WebSocket" />
+    <category term="WebHook" />
+    <category term="vuetify" />
+    <category term="html" />
     <category term="wordpress" />
     <category term="dns" />
     <category term="cdn" />
-    <category term="closure" />
-    <category term="IIFE" />
     <entry>
         <id>http://maomaoxie.github.io/2022/04/10/zh-tw/php-basic-knowledge/</id>
         <title>Php 基礎知識</title>
@@ -91,6 +95,6 @@
 &lt;h3 id=&#34;x3D-gt-指向符號（胖箭頭）&#34;&gt;&lt;a href=&#34;#x3D-gt-指向符號（胖箭頭）&#34; class=&#34;headerlink&#34; title=&#34;=&gt; 指向符號（胖箭頭）&#34;&gt;&lt;/a&gt;=&amp;gt; 指向符號（胖箭頭）&lt;/h3&gt;&lt;p&gt;用來創建物件內的鍵值對，一個 key 對上一個 value，類似 javascript 裡頭的 &lt;code&gt;:&lt;/code&gt;。 &lt;/p&gt;
 &lt;figure class=&#34;highlight php hljs&#34;&gt;&lt;figcaption&gt;&lt;span&gt;layout/layout.blade.php&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;hljs-variable&#34;&gt;$array&lt;/span&gt; = &lt;span class=&#34;hljs-keyword&#34;&gt;array&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#34;key&#34;&lt;/span&gt; =&amp;gt; &lt;span class=&#34;hljs-string&#34;&gt;&#34;value&#34;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/body&gt;&lt;/html&gt;</content>
         <category term="php" />
-        <updated>2022-04-10T10:10:18.000Z</updated>
+        <updated>2022-04-10T17:10:18.000Z</updated>
     </entry>
 </feed>

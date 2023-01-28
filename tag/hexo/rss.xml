@@ -5,80 +5,84 @@
         <link>http://maomaoxie.github.io</link>
         <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
         <language>zh-tw,en,default</language>
-        <pubDate>Sun, 07 Aug 2022 16:07:24 +0800</pubDate>
-        <lastBuildDate>Sun, 07 Aug 2022 16:07:24 +0800</lastBuildDate>
+        <pubDate>Sun, 07 Aug 2022 16:07:24 +0100</pubDate>
+        <lastBuildDate>Sun, 07 Aug 2022 16:07:24 +0100</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>AMP</category>
+        <category>css</category>
+        <category>grid</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>hexo</category>
+        <category>submodule</category>
         <category>Google Analytics</category>
         <category>GA</category>
         <category>GA4</category>
         <category>Google Tag Manager</category>
         <category>GTM</category>
-        <category>javascript</category>
-        <category>constructor</category>
-        <category>instance</category>
-        <category>methods</category>
-        <category>git</category>
-        <category>github</category>
-        <category>sourceTree</category>
-        <category>backEnd</category>
-        <category>node</category>
-        <category>express</category>
-        <category>router</category>
-        <category>hexo</category>
-        <category>submodule</category>
-        <category>rss</category>
-        <category>http</category>
-        <category>https</category>
-        <category>request</category>
-        <category>response</category>
         <category>api</category>
         <category>graphQL</category>
         <category>facebook</category>
+        <category>rss</category>
+        <category>http</category>
         <category>httpHeader</category>
-        <category>status</category>
+        <category>request</category>
+        <category>response</category>
+        <category>https</category>
         <category>httpMethods</category>
+        <category>status</category>
         <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>
+        <category>blade</category>
+        <category>layout</category>
         <category>php</category>
         <category>linux</category>
-        <category>blade</category>
         <category>wsl2</category>
-        <category>layout</category>
-        <category>public</category>
-        <category>static</category>
         <category>migration</category>
         <category>sql</category>
+        <category>public</category>
+        <category>static</category>
         <category>tailwind</category>
-        <category>css</category>
         <category>less</category>
         <category>processors</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
-        <category>webService</category>
-        <category>restfulApi</category>
-        <category>shortCircuit</category>
-        <category>optionalChaining</category>
-        <category>tricks</category>
-        <category>vue3</category>
-        <category>vite</category>
-        <category>typescript</category>
-        <category>WebSocket</category>
-        <category>WebHook</category>
-        <category>vue</category>
-        <category>vuetify</category>
-        <category>html</category>
-        <category>compositionAPI</category>
         <category>safari</category>
         <category>javaScript</category>
         <category>preventDefault</category>
         <category>ios</category>
         <category>mobile</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue</category>
+        <category>vue3</category>
+        <category>compositionAPI</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>compositionApi</category>
+        <category>setup</category>
+        <category>ref</category>
+        <category>reactive</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <category>vuetify</category>
+        <category>html</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
-        <category>closure</category>
-        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/08/07/zh-tw/git-remove-submodule/</guid>
             <title>git 移除 submodule</title>
@@ -86,7 +90,7 @@
             <category>git</category>
             <category>hexo</category>
             <category>submodule</category>
-            <pubDate>Sun, 07 Aug 2022 16:07:24 +0800</pubDate>
+            <pubDate>Sun, 07 Aug 2022 16:07:24 +0100</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/git-remove-submodule/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;git-remove-submodule&#34;&gt;
 &lt;h1 id=&#34;git-submodule&#34;&gt;&lt;a href=&#34;#git-submodule&#34; class=&#34;headerlink&#34; title=&#34;git submodule&#34;&gt;&lt;/a&gt;git submodule&lt;/h1&gt;&lt;p&gt;在部屬 hexo 部落格到雲端 github 時，發現主題下的 minos git status 呈現 untracked 的狀態，搜尋後才知道該主題是 clone 遠端下來的，自動會變成一個子模塊（submodule），對於習慣專案開發的我來說在客製化後不能同步實在很不方便，還是喜歡一整包放在同一個 repository 方便管理。&lt;/p&gt;
 &lt;img src=&#34;/images/git-remove-submodule/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;git-remove-submodule&#34;&gt;
@@ -107,7 +111,7 @@
             <link>http://maomaoxie.github.io/2022/08/05/zh-tw/hexo-rss/</link>
             <category>hexo</category>
             <category>rss</category>
-            <pubDate>Fri, 05 Aug 2022 15:39:34 +0800</pubDate>
+            <pubDate>Fri, 05 Aug 2022 15:39:34 +0100</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;RSS 訂閱功能越來越夯，可以即時通知訂閱戶更新的文章內容，增加回流的流量與網站的熱度，chrome 也有提供 RSS reader 的外掛功能直接讀取 RSS 檔案。&lt;br&gt;既然建立好了自己的部落格怎麼可以沒有 RSS XD?&lt;/p&gt;
 &lt;p&gt;先前在專案包嘗試使用 hexo-generator-feed 套件，但是建立出來的 atom.xml 檔案會出現亂碼，後來找到一個套件甚至支援 json 與 rss 格式：&lt;/p&gt;
 &lt;h1 id=&#34;安裝-Hexo-seed-套件&#34;&gt;&lt;a href=&#34;#安裝-Hexo-seed-套件&#34; class=&#34;headerlink&#34; title=&#34;安裝 Hexo seed 套件&#34;&gt;&lt;/a&gt;安裝 Hexo seed 套件&lt;/h1&gt;&lt;figure class=&#34;highlight javascript hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install --save hexo-feed&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;

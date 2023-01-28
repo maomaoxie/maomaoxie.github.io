@@ -5,89 +5,93 @@
         <link>http://maomaoxie.github.io</link>
         <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
         <language>zh-tw,en,default</language>
-        <pubDate>Mon, 28 Feb 2022 20:28:24 +0800</pubDate>
-        <lastBuildDate>Mon, 28 Feb 2022 20:28:24 +0800</lastBuildDate>
+        <pubDate>Mon, 28 Feb 2022 20:28:24 +0000</pubDate>
+        <lastBuildDate>Mon, 28 Feb 2022 20:28:24 +0000</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>AMP</category>
+        <category>css</category>
+        <category>grid</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>hexo</category>
+        <category>submodule</category>
         <category>Google Analytics</category>
         <category>GA</category>
         <category>GA4</category>
         <category>Google Tag Manager</category>
         <category>GTM</category>
-        <category>javascript</category>
-        <category>constructor</category>
-        <category>instance</category>
-        <category>methods</category>
-        <category>git</category>
-        <category>github</category>
-        <category>sourceTree</category>
-        <category>backEnd</category>
-        <category>node</category>
-        <category>express</category>
-        <category>router</category>
-        <category>hexo</category>
-        <category>submodule</category>
-        <category>rss</category>
-        <category>http</category>
-        <category>https</category>
-        <category>request</category>
-        <category>response</category>
         <category>api</category>
         <category>graphQL</category>
         <category>facebook</category>
+        <category>rss</category>
+        <category>http</category>
         <category>httpHeader</category>
-        <category>status</category>
+        <category>request</category>
+        <category>response</category>
+        <category>https</category>
         <category>httpMethods</category>
+        <category>status</category>
         <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>
+        <category>blade</category>
+        <category>layout</category>
         <category>php</category>
         <category>linux</category>
-        <category>blade</category>
         <category>wsl2</category>
-        <category>layout</category>
-        <category>public</category>
-        <category>static</category>
         <category>migration</category>
         <category>sql</category>
+        <category>public</category>
+        <category>static</category>
         <category>tailwind</category>
-        <category>css</category>
         <category>less</category>
         <category>processors</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
-        <category>webService</category>
-        <category>restfulApi</category>
-        <category>shortCircuit</category>
-        <category>optionalChaining</category>
-        <category>tricks</category>
-        <category>vue3</category>
-        <category>vite</category>
-        <category>typescript</category>
-        <category>WebSocket</category>
-        <category>WebHook</category>
-        <category>vue</category>
-        <category>vuetify</category>
-        <category>html</category>
-        <category>compositionAPI</category>
         <category>safari</category>
         <category>javaScript</category>
         <category>preventDefault</category>
         <category>ios</category>
         <category>mobile</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue</category>
+        <category>vue3</category>
+        <category>compositionAPI</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>compositionApi</category>
+        <category>setup</category>
+        <category>ref</category>
+        <category>reactive</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <category>vuetify</category>
+        <category>html</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
-        <category>closure</category>
-        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/02/28/zh-tw/http-header/</guid>
             <title>HTTP 的訊息頭 header</title>
             <link>http://maomaoxie.github.io/2022/02/28/zh-tw/http-header/</link>
             <category>http</category>
+            <category>httpHeader</category>
             <category>request</category>
             <category>response</category>
-            <category>httpHeader</category>
-            <pubDate>Mon, 28 Feb 2022 20:28:24 +0800</pubDate>
+            <pubDate>Mon, 28 Feb 2022 20:28:24 +0000</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/http-header/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[http-header [http-header]]&#34;&gt;
 
 &lt;p&gt;個人對這一塊知識又愛又恨，每每串接 api 打開 Network 都會看到卻似懂非懂的感覺真討厭！來認真釐清一下吧！&lt;/p&gt;
@@ -209,12 +213,12 @@
             <guid isPermalink="true">http://maomaoxie.github.io/2022/02/28/zh-tw/http-methods/</guid>
             <title>HTTP Methods 介紹</title>
             <link>http://maomaoxie.github.io/2022/02/28/zh-tw/http-methods/</link>
+            <category>api</category>
             <category>http</category>
             <category>request</category>
             <category>response</category>
-            <category>api</category>
             <category>httpMethods</category>
-            <pubDate>Mon, 28 Feb 2022 11:03:47 +0800</pubDate>
+            <pubDate>Mon, 28 Feb 2022 11:03:47 +0000</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/http-methods/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[http-methods [http-methods]]&#34;&gt;
 &lt;p&gt;圖片來源：&lt;a href=&#34;https://www.jianshu.com/p/ac29da71601d&#34;&gt;https://www.jianshu.com/p/ac29da71601d&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;身為技術人不可不知的技術事：其實你每天都在使用 HTTP 的 Methods，但你不知道而已。&lt;br&gt;當你在瀏覽器輸入一串網址並且按下 enter 或者是按下一個 google 搜尋的超連結，就已經完成一個 HTTP &lt;code&gt;GET&lt;/code&gt; Methods 的流程了！&lt;br&gt;Client 端網路資料的傳輸，按照功能屬性分為幾個類別：&lt;/p&gt;
@@ -285,10 +289,10 @@
             <title>HTTP 超文本傳輸協定</title>
             <link>http://maomaoxie.github.io/2022/02/28/zh-tw/http-and-https/</link>
             <category>http</category>
-            <category>https</category>
             <category>request</category>
             <category>response</category>
-            <pubDate>Mon, 28 Feb 2022 10:07:23 +0800</pubDate>
+            <category>https</category>
+            <pubDate>Mon, 28 Feb 2022 10:07:23 +0000</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/http-and-https/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[http-and-https [http-and-https]]&#34;&gt;
 &lt;p&gt;圖片來源：&lt;a href=&#34;https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https&#34;&gt;https://www.itpro.com/web-browser/33349/slew-of-vulnerabilities-detected-in-https&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;HTTP-的誕生&#34;&gt;&lt;a href=&#34;#HTTP-的誕生&#34; class=&#34;headerlink&#34; title=&#34;HTTP 的誕生&#34;&gt;&lt;/a&gt;HTTP 的誕生&lt;/h1&gt;&lt;p&gt;網路應用程式早期在互相傳遞資料時沒有固定的格式，在資料解析上就會很麻煩混亂，就像一個國家一旦陷入各自為政的困擾就需要政治來規範管理，網路世界也是一樣道理的。超文本傳輸協定(Hyper Text Transfer Protocol)就是網路資料傳遞的統整者，是 client 端向 server 端要求資料的關卡，必須要按照正確的格式才能取得資料。&lt;/p&gt;

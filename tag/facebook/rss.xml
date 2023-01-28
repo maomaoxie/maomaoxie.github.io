@@ -5,80 +5,84 @@
         <link>http://maomaoxie.github.io</link>
         <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
         <language>zh-tw,en,default</language>
-        <pubDate>Fri, 25 Feb 2022 10:48:36 +0800</pubDate>
-        <lastBuildDate>Fri, 25 Feb 2022 10:48:36 +0800</lastBuildDate>
+        <pubDate>Fri, 25 Feb 2022 10:48:36 +0000</pubDate>
+        <lastBuildDate>Fri, 25 Feb 2022 10:48:36 +0000</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>AMP</category>
+        <category>css</category>
+        <category>grid</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>hexo</category>
+        <category>submodule</category>
         <category>Google Analytics</category>
         <category>GA</category>
         <category>GA4</category>
         <category>Google Tag Manager</category>
         <category>GTM</category>
-        <category>javascript</category>
-        <category>constructor</category>
-        <category>instance</category>
-        <category>methods</category>
-        <category>git</category>
-        <category>github</category>
-        <category>sourceTree</category>
-        <category>backEnd</category>
-        <category>node</category>
-        <category>express</category>
-        <category>router</category>
-        <category>hexo</category>
-        <category>submodule</category>
-        <category>rss</category>
-        <category>http</category>
-        <category>https</category>
-        <category>request</category>
-        <category>response</category>
         <category>api</category>
         <category>graphQL</category>
         <category>facebook</category>
+        <category>rss</category>
+        <category>http</category>
         <category>httpHeader</category>
-        <category>status</category>
+        <category>request</category>
+        <category>response</category>
+        <category>https</category>
         <category>httpMethods</category>
+        <category>status</category>
         <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>
+        <category>blade</category>
+        <category>layout</category>
         <category>php</category>
         <category>linux</category>
-        <category>blade</category>
         <category>wsl2</category>
-        <category>layout</category>
-        <category>public</category>
-        <category>static</category>
         <category>migration</category>
         <category>sql</category>
+        <category>public</category>
+        <category>static</category>
         <category>tailwind</category>
-        <category>css</category>
         <category>less</category>
         <category>processors</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
-        <category>webService</category>
-        <category>restfulApi</category>
-        <category>shortCircuit</category>
-        <category>optionalChaining</category>
-        <category>tricks</category>
-        <category>vue3</category>
-        <category>vite</category>
-        <category>typescript</category>
-        <category>WebSocket</category>
-        <category>WebHook</category>
-        <category>vue</category>
-        <category>vuetify</category>
-        <category>html</category>
-        <category>compositionAPI</category>
         <category>safari</category>
         <category>javaScript</category>
         <category>preventDefault</category>
         <category>ios</category>
         <category>mobile</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue</category>
+        <category>vue3</category>
+        <category>compositionAPI</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>compositionApi</category>
+        <category>setup</category>
+        <category>ref</category>
+        <category>reactive</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <category>vuetify</category>
+        <category>html</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
-        <category>closure</category>
-        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/02/25/zh-tw/graph-ql-api/</guid>
             <title>Graph QL 新世代 API</title>
@@ -86,7 +90,7 @@
             <category>api</category>
             <category>graphQL</category>
             <category>facebook</category>
-            <pubDate>Fri, 25 Feb 2022 10:48:36 +0800</pubDate>
+            <pubDate>Fri, 25 Feb 2022 10:48:36 +0000</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/graph-ql-api/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;[css-less [css-less]]&#34;&gt;
 &lt;p&gt;隨著行動裝置越來越多元，服務與資料需求越來越錯綜複雜，因應這樣背景的 Graph QL API 就誕生啦！&lt;/p&gt;
 &lt;p&gt;2012 年 facebook 內部研發出來的新形態 API，2015 年提出發表，特點是前端可以直接進資料庫，不需要透過後端查詢撈取資料。&lt;br&gt;概念有一點類似用前端語言操作 &lt;code&gt;MySQL&lt;/code&gt;。前端也擁有更彈性的空間來制定查詢資料的規則與方式，有更大話語權，但相對來講也增加資料設計的難度，在思考的維度上需要更廣更深才能靈活應付多變的資料需求。&lt;/p&gt;

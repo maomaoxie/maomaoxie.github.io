@@ -5,87 +5,91 @@
         <link>http://maomaoxie.github.io</link>
         <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
         <language>zh-tw,en,default</language>
-        <pubDate>Mon, 21 Feb 2022 17:14:05 +0800</pubDate>
-        <lastBuildDate>Mon, 21 Feb 2022 17:14:05 +0800</lastBuildDate>
+        <pubDate>Mon, 21 Feb 2022 17:14:05 +0000</pubDate>
+        <lastBuildDate>Mon, 21 Feb 2022 17:14:05 +0000</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>AMP</category>
+        <category>css</category>
+        <category>grid</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>hexo</category>
+        <category>submodule</category>
         <category>Google Analytics</category>
         <category>GA</category>
         <category>GA4</category>
         <category>Google Tag Manager</category>
         <category>GTM</category>
-        <category>javascript</category>
-        <category>constructor</category>
-        <category>instance</category>
-        <category>methods</category>
-        <category>git</category>
-        <category>github</category>
-        <category>sourceTree</category>
-        <category>backEnd</category>
-        <category>node</category>
-        <category>express</category>
-        <category>router</category>
-        <category>hexo</category>
-        <category>submodule</category>
-        <category>rss</category>
-        <category>http</category>
-        <category>https</category>
-        <category>request</category>
-        <category>response</category>
         <category>api</category>
         <category>graphQL</category>
         <category>facebook</category>
+        <category>rss</category>
+        <category>http</category>
         <category>httpHeader</category>
-        <category>status</category>
+        <category>request</category>
+        <category>response</category>
+        <category>https</category>
         <category>httpMethods</category>
+        <category>status</category>
         <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>
+        <category>blade</category>
+        <category>layout</category>
         <category>php</category>
         <category>linux</category>
-        <category>blade</category>
         <category>wsl2</category>
-        <category>layout</category>
-        <category>public</category>
-        <category>static</category>
         <category>migration</category>
         <category>sql</category>
+        <category>public</category>
+        <category>static</category>
         <category>tailwind</category>
-        <category>css</category>
         <category>less</category>
         <category>processors</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
-        <category>webService</category>
-        <category>restfulApi</category>
-        <category>shortCircuit</category>
-        <category>optionalChaining</category>
-        <category>tricks</category>
-        <category>vue3</category>
-        <category>vite</category>
-        <category>typescript</category>
-        <category>WebSocket</category>
-        <category>WebHook</category>
-        <category>vue</category>
-        <category>vuetify</category>
-        <category>html</category>
-        <category>compositionAPI</category>
         <category>safari</category>
         <category>javaScript</category>
         <category>preventDefault</category>
         <category>ios</category>
         <category>mobile</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue</category>
+        <category>vue3</category>
+        <category>compositionAPI</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>compositionApi</category>
+        <category>setup</category>
+        <category>ref</category>
+        <category>reactive</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <category>vuetify</category>
+        <category>html</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
-        <category>closure</category>
-        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/02/21/zh-tw/git-command-line/</guid>
             <title>Git 常用的指令</title>
             <link>http://maomaoxie.github.io/2022/02/21/zh-tw/git-command-line/</link>
             <category>git</category>
             <category>github</category>
-            <pubDate>Mon, 21 Feb 2022 17:14:05 +0800</pubDate>
+            <pubDate>Mon, 21 Feb 2022 17:14:05 +0000</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;這裡記錄一些工作上會用到的 git 指令，太容易忘記了阿（扶額&lt;/p&gt;
 &lt;h1 id=&#34;分支&#34;&gt;&lt;a href=&#34;#分支&#34; class=&#34;headerlink&#34; title=&#34;分支&#34;&gt;&lt;/a&gt;分支&lt;/h1&gt;&lt;h3 id=&#34;查看分支&#34;&gt;&lt;a href=&#34;#查看分支&#34; class=&#34;headerlink&#34; title=&#34;查看分支&#34;&gt;&lt;/a&gt;查看分支&lt;/h3&gt;&lt;figure class=&#34;highlight bash hljs&#34;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git branch&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
 
@@ -101,7 +105,7 @@
             <category>git</category>
             <category>github</category>
             <category>sourceTree</category>
-            <pubDate>Thu, 17 Feb 2022 20:59:44 +0800</pubDate>
+            <pubDate>Thu, 17 Feb 2022 20:59:44 +0000</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/git-main-branch/1.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;git-main-branch&#34;&gt;
 &lt;p&gt;每每 github 搞了一些新招就得重新適應一次（菸&lt;/p&gt;
 &lt;p&gt;這兩天在做小專案 git init 之後準備推上去 github 時，執行以下的老樣子：&lt;/p&gt;
@@ -136,7 +140,7 @@
             <category>git</category>
             <category>github</category>
             <category>sourceTree</category>
-            <pubDate>Thu, 10 Feb 2022 12:31:14 +0800</pubDate>
+            <pubDate>Thu, 10 Feb 2022 12:31:14 +0000</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;在2022年某天，嘗試使用 sourcetree 推上去新 code 時，在 Github 時出現了以下錯誤訊息：&lt;/p&gt;
 &lt;blockquote class=&#34;colorquote danger&#34;&gt;&lt;p&gt;remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.&lt;br&gt;remote: Please see &lt;a href=&#34;https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/&#34;&gt;https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/&lt;/a&gt; for more information.&lt;br&gt;fatal: unable to access “…” : The requested URL returned error: 403&lt;/p&gt;
 &lt;/blockquote&gt;

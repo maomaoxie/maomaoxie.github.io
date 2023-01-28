@@ -8,7 +8,7 @@
             "id": "http://maomaoxie.github.io/2022/02/25/zh-tw/web-socket-and-web-hook/",
             "url": "http://maomaoxie.github.io/2022/02/25/zh-tw/web-socket-and-web-hook/",
             "title": "Web Socket v.s Web Hook",
-            "date_published": "2022-02-25T03:29:08.000Z",
+            "date_published": "2022-02-25T11:29:08.000Z",
             "content_html": "<html><head></head><body><img src=\"/images/web-socket-and-web-hook/0.png\" class=\"\" width=\"800\" height=\"200\" title=\"[web-socket-and-web-hook [web-socket-and-web-hook]]\">\n<p>API 的形式有兩大宗：<br>Web Hook 與 Web Socket，而他們有甚麼差異呢？</p>\n<h1 id=\"被動式-Web-Hook\"><a href=\"#被動式-Web-Hook\" class=\"headerlink\" title=\"被動式 Web Hook\"></a>被動式 Web Hook</h1><p>例如 Line Bot，server 會先預測使用者的動作與需求（events），設計出相對的程式並維護，等待使用者發出要求才動作。</p>\n<h1 id=\"主動式-Web-Socket\"><a href=\"#主動式-Web-Socket\" class=\"headerlink\" title=\"主動式 Web Socket\"></a>主動式 Web Socket</h1><p>兩方的資料交互，例如 client 與 server、server 與 server。<br>應用場景如聊天功能：facebook messenger 或 Line 等，Web Socket 的技術可以「即時的」(real time)做出資料傳遞。<br>當你打開 facebook messenger 的視窗，Web Socket server 就會與 client 瀏覽器端 handshake 保持通訊暢通，持續監聽對話要求並回應(opened and persistent connection)</p>\n<p>參考資料：</p>\n<blockquote><p>hiskio 課程 API 整合實戰｜RESTful 第三方串接應用</p>\n</blockquote></body></html>",
             "tags": [
                 "api",

@@ -5,86 +5,90 @@
         <link>http://maomaoxie.github.io</link>
         <description>Mawchu 貓奴前端，為熱愛平面設計與貓咪的前端工程師 - 謝佳芳（毛球）的技術部落格，喜歡撰寫技術文章幫助自己在前端之路成長，涉及 Javascript、Vue、Laravel 與其他程式相關的討論與學習</description>
         <language>zh-tw,en,default</language>
-        <pubDate>Fri, 23 Sep 2022 15:31:26 +0800</pubDate>
-        <lastBuildDate>Fri, 23 Sep 2022 15:31:26 +0800</lastBuildDate>
+        <pubDate>Fri, 23 Sep 2022 15:31:26 +0100</pubDate>
+        <lastBuildDate>Fri, 23 Sep 2022 15:31:26 +0100</lastBuildDate>
+        <category>javascript</category>
+        <category>constructor</category>
+        <category>instance</category>
+        <category>methods</category>
+        <category>AMP</category>
+        <category>css</category>
+        <category>grid</category>
+        <category>backEnd</category>
+        <category>node</category>
+        <category>express</category>
+        <category>router</category>
+        <category>git</category>
+        <category>github</category>
+        <category>sourceTree</category>
+        <category>hexo</category>
+        <category>submodule</category>
         <category>Google Analytics</category>
         <category>GA</category>
         <category>GA4</category>
         <category>Google Tag Manager</category>
         <category>GTM</category>
-        <category>javascript</category>
-        <category>constructor</category>
-        <category>instance</category>
-        <category>methods</category>
-        <category>git</category>
-        <category>github</category>
-        <category>sourceTree</category>
-        <category>backEnd</category>
-        <category>node</category>
-        <category>express</category>
-        <category>router</category>
-        <category>hexo</category>
-        <category>submodule</category>
-        <category>rss</category>
-        <category>http</category>
-        <category>https</category>
-        <category>request</category>
-        <category>response</category>
         <category>api</category>
         <category>graphQL</category>
         <category>facebook</category>
+        <category>rss</category>
+        <category>http</category>
         <category>httpHeader</category>
-        <category>status</category>
+        <category>request</category>
+        <category>response</category>
+        <category>https</category>
         <category>httpMethods</category>
+        <category>status</category>
         <category>Javascript</category>
         <category>type</category>
         <category>laravel</category>
+        <category>blade</category>
+        <category>layout</category>
         <category>php</category>
         <category>linux</category>
-        <category>blade</category>
         <category>wsl2</category>
-        <category>layout</category>
-        <category>public</category>
-        <category>static</category>
         <category>migration</category>
         <category>sql</category>
+        <category>public</category>
+        <category>static</category>
         <category>tailwind</category>
-        <category>css</category>
         <category>less</category>
         <category>processors</category>
         <category>env</category>
         <category>process</category>
         <category>dotenv</category>
-        <category>webService</category>
-        <category>restfulApi</category>
-        <category>shortCircuit</category>
-        <category>optionalChaining</category>
-        <category>tricks</category>
-        <category>vue3</category>
-        <category>vite</category>
-        <category>typescript</category>
-        <category>WebSocket</category>
-        <category>WebHook</category>
-        <category>vue</category>
-        <category>vuetify</category>
-        <category>html</category>
-        <category>compositionAPI</category>
         <category>safari</category>
         <category>javaScript</category>
         <category>preventDefault</category>
         <category>ios</category>
         <category>mobile</category>
+        <category>webService</category>
+        <category>restfulApi</category>
+        <category>shortCircuit</category>
+        <category>optionalChaining</category>
+        <category>tricks</category>
+        <category>vue</category>
+        <category>vue3</category>
+        <category>compositionAPI</category>
+        <category>vite</category>
+        <category>typescript</category>
+        <category>compositionApi</category>
+        <category>setup</category>
+        <category>ref</category>
+        <category>reactive</category>
+        <category>WebSocket</category>
+        <category>WebHook</category>
+        <category>vuetify</category>
+        <category>html</category>
         <category>wordpress</category>
         <category>dns</category>
         <category>cdn</category>
-        <category>closure</category>
-        <category>IIFE</category>
         <item>
             <guid isPermalink="true">http://maomaoxie.github.io/2022/09/23/zh-tw/js-weird-parts-coercion/</guid>
             <title>克服 Javascript 的奇怪部分 動態型別</title>
             <link>http://maomaoxie.github.io/2022/09/23/zh-tw/js-weird-parts-coercion/</link>
             <category>Javascript</category>
-            <pubDate>Fri, 23 Sep 2022 15:31:26 +0800</pubDate>
+            <pubDate>Fri, 23 Sep 2022 15:31:26 +0100</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;運算過程中由於 Javascript 是弱型別，沒有辦法強制規範型別，所以會在運算過程中發生隱式（動態）型別轉換，稱之為 Corecion。&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;Converting a value from one type to another.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -135,7 +139,7 @@
             <title>克服 Javascript 的奇怪部分 運算子的相依性與優先性</title>
             <link>http://maomaoxie.github.io/2022/09/21/zh-tw/js-weird-parts-operators-precendence-and-associactivity/</link>
             <category>Javascript</category>
-            <pubDate>Wed, 21 Sep 2022 14:58:56 +0800</pubDate>
+            <pubDate>Wed, 21 Sep 2022 14:58:56 +0100</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;在了解以下的特性以前需要知道，JavaScript 是 syncrounous 同步在執行一個表達式的，&lt;br&gt;所以一次只能執行一個片段的程式碼，也就是一個表達式，一個表達式只能包含一個運算子與兩個參數，所以需要決定執行的次序．&lt;/p&gt;
 &lt;h1 id=&#34;優先性（precendence）&#34;&gt;&lt;a href=&#34;#優先性（precendence）&#34; class=&#34;headerlink&#34; title=&#34;優先性（precendence）&#34;&gt;&lt;/a&gt;優先性（precendence）&lt;/h1&gt;&lt;blockquote&gt;&lt;p&gt;When there is more than one operators in one executable code, which operator will be called in order of precedence.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -165,7 +169,7 @@
             <title>克服 Javascript 的奇怪部分 單執行緒與同步執行</title>
             <link>http://maomaoxie.github.io/2022/06/05/zh-tw/js-weird-parts-III/</link>
             <category>Javascript</category>
-            <pubDate>Sun, 05 Jun 2022 16:31:07 +0800</pubDate>
+            <pubDate>Sun, 05 Jun 2022 16:31:07 +0100</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/js-weird-parts-single-threaded/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;js-weird-parts-single-threaded&#34;&gt;
 &lt;p&gt;這一個章節要來講解 JavaScript 的幾個觀念。&lt;/p&gt;
 &lt;h1 id=&#34;單執行緒（Single-Threaded）&#34;&gt;&lt;a href=&#34;#單執行緒（Single-Threaded）&#34; class=&#34;headerlink&#34; title=&#34;單執行緒（Single Threaded）&#34;&gt;&lt;/a&gt;單執行緒（Single Threaded）&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;一次一件事&lt;/strong&gt;是重點。&lt;br&gt;這個特性不是瀏覽器的特性，瀏覽器一次可能同時處理多件事情，JavaScript 引擎則是單執行緒的，就像排隊買早餐，老闆娘一次只能處理一位客人，而 JavaScript 也是一次只處理一項指令。&lt;/p&gt;
@@ -205,7 +209,7 @@
             <category>constructor</category>
             <category>instance</category>
             <category>methods</category>
-            <pubDate>Sat, 14 May 2022 21:37:03 +0800</pubDate>
+            <pubDate>Sat, 14 May 2022 21:37:03 +0100</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/constructor-vs-instance/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;constructor-vs-instance&#34;&gt;
 
 &lt;p&gt;在某天好奇想了解 Vue 3 的 defineProperty 原理搜尋了 &lt;code&gt;Object.defineProperty()&lt;/code&gt; 這個方法時，看見以下說明：&lt;/p&gt;
@@ -245,7 +249,7 @@
             <category>shortCircuit</category>
             <category>optionalChaining</category>
             <category>tricks</category>
-            <pubDate>Sat, 12 Mar 2022 13:55:02 +0800</pubDate>
+            <pubDate>Sat, 12 Mar 2022 13:55:02 +0000</pubDate>
             <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src=&#34;/images/short-circuit-and-optional-chaining/0.png&#34; class=&#34;&#34; width=&#34;800&#34; height=&#34;200&#34; title=&#34;短路解析與可選練修飾符&#34;&gt;
 &lt;p&gt;在開發的情境上無論是串接 API 或者是資料判斷，都需要追求便捷而好懂的方式來維護程式碼，以利於當資料判斷變得複雜臃腫時仍可以邏輯清晰。而對於程式新手來說&lt;code&gt;undefined&lt;/code&gt;（未定義）、&lt;code&gt;null&lt;/code&gt;（空值）或者是&lt;code&gt;0&lt;/code&gt;（零）在判斷上是很容易掉進去的陷阱，因為判定的方法了解的不深而陷入困境。&lt;/p&gt;
 &lt;h1 id=&#34;理解真假值&#34;&gt;&lt;a href=&#34;#理解真假值&#34; class=&#34;headerlink&#34; title=&#34;理解真假值&#34;&gt;&lt;/a&gt;理解真假值&lt;/h1&gt;&lt;p&gt;先介紹 truthy(真值) 與 falsy(假值)：&lt;/p&gt;
